@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Roblox Lua API Updates</title>
+	<link href="/ref/res/root.css" rel="stylesheet" type="text/css" />
+	<style id="updates-style">
+		li[diff-field="Parameters"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Parameters"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Parameters"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		li[diff-field="Tags"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Tags"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Tags"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		a.permalink {
+			display: none;
+		}
+		*:hover > a.permalink {
+			display: inline;
+		}
+		*:hover > a.permalink:before {
+			content : ' ¶ ';
+		}
+		.patch-list.hidden {
+			display: none;
+		}
+	</style>
+	<script src="/ref/res/root.js" charset="utf-8"></script>
+	<script>
+		function toggleList(event) {
+			var parent = event.target.closest(".update");
+			if (parent === null) {
+				return;
+			};
+			var list = parent.querySelector(".patch-list");
+			if (list === null) {
+				return;
+			};
+			if (list.classList.contains("hidden")) {
+				list.classList.remove("hidden");
+			} else {
+				list.classList.add("hidden");
+			};
+		};
+		function toggleAll(show, scroll) {
+			var scrollTo;
+			for (item of document.querySelectorAll("#update-list > li .patch-list")) {
+				var anchor = item.parentElement.querySelector("a.anchor:target");
+				if (anchor !== null) {
+					scrollTo = anchor;
+				}
+				if (show) {
+					item.classList.remove("hidden");
+				} else {
+					if (anchor !== null) {
+						item.classList.remove("hidden");
+					} else {
+						item.classList.add("hidden");
+					};
+				};
+			};
+			if (scroll && scrollTo !== undefined) {
+				scrollTo.scrollIntoView(true);
+			};
+		};
+		document.addEventListener("DOMContentLoaded", function(event) {
+			var controls = document.getElementById("controls");
+			if (controls !== null) {
+				controls.insertAdjacentHTML("beforeBegin", '<label><input type="checkbox" id="expand-all">All changes expanded</label>');
+			};
+
+			var expandAll = document.getElementById("expand-all");
+			if (expandAll !== null) {
+				expandAll.addEventListener("click", function(event) {
+					toggleAll(event.target.checked, false);
+				});
+				toggleAll(expandAll.checked, true);
+			} else {;
+				toggleAll(false, true);
+			};
+
+			for (item of document.querySelectorAll("#update-list > li .patch-list-toggle")) {
+				item.addEventListener("click", toggleList);
+			};
+
+			var list = document.getElementById("update-list");
+			if (list !== null) {
+				var note = document.createElement("div");
+				note.innerText = "Click a date to expand or collapse changes.";
+				list.parentElement.insertBefore(note, list);
+			};
+
+			var style = document.getElementById("updates-style");
+			if (style !== null) {
+				style.sheet.insertRule(".patch-list-toggle {cursor: pointer;}");
+			};
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<h1>API Updates in 2016</h1>
+	</header>
+	<aside id="controls">
+	</aside>
+	<nav>
+		<ul>
+			<li><a href="/ref/updates.html">Recent</a></li>
+			<li><a href="/ref/updates/2018.html">2018</a></li>
+			<li><a href="/ref/updates/2017.html">2017</a></li>
+			<li class="current">2016</li>
+			<li><a href="/ref/updates/2015.html">2015</a></li>
+			<li><a href="/ref/updates/2014.html">2014</a></li>
+			<li><a href="/ref/updates/2013.html">2013</a></li>
+			<li><a href="/ref/updates/2012.html">2012</a></li>
+			<li><a href="/ref/updates/2011.html">2011</a></li>
+		</ul>
+	</nav>
+	<main>
+		<ul id="update-list">
+			<li>
+				<article class="update">
+					<a id="version-934c86ec4aa148f0" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-12-09 00:31:44-0800">2016-12-09 00:31</time> (v0.271.1.97962)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-934c86ec4aa148f0">version-934c86ec4aa148f0</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-53267bd4c3d04796" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-12-07 23:34:56-0800">2016-12-07 23:34</time> (v0.271.0.97543)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-53267bd4c3d04796">version-53267bd4c3d04796</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-AltCdnFailureCount">DebugSettings.AltCdnFailureCount</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-AltCdnSuccessCount">DebugSettings.AltCdnSuccessCount</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-AvailablePhysicalMemory">DebugSettings.AvailablePhysicalMemory</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-BlockMeshSize">DebugSettings.BlockMeshSize</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-CPU">DebugSettings.CPU</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-CdnFailureCount">DebugSettings.CdnFailureCount</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-CdnResponceTime">DebugSettings.CdnResponceTime</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-CdnSuccessCount">DebugSettings.CdnSuccessCount</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-CpuCount">DebugSettings.CpuCount</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-CpuSpeed">DebugSettings.CpuSpeed</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-ElapsedTime">DebugSettings.ElapsedTime</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-LastCdnFailureTimeSpan">DebugSettings.LastCdnFailureTimeSpan</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-PageFaultsPerSecond">DebugSettings.PageFaultsPerSecond</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-PageFileBytes">DebugSettings.PageFileBytes</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-PixelShaderModel">DebugSettings.PixelShaderModel</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-PrivateBytes">DebugSettings.PrivateBytes</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-PrivateWorkingSetBytes">DebugSettings.PrivateWorkingSetBytes</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-ProcessCores">DebugSettings.ProcessCores</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-ProcessorTime">DebugSettings.ProcessorTime</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-RAM">DebugSettings.RAM</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-ReportExtendedMachineConfiguration">DebugSettings.ReportExtendedMachineConfiguration</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-Resolution">DebugSettings.Resolution</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-RobloxFailureCount">DebugSettings.RobloxFailureCount</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-RobloxRespoceTime">DebugSettings.RobloxRespoceTime</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-RobloxSuccessCount">DebugSettings.RobloxSuccessCount</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-TotalPhysicalMemory">DebugSettings.TotalPhysicalMemory</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-TotalProcessorTime">DebugSettings.TotalProcessorTime</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-VertexShaderModel">DebugSettings.VertexShaderModel</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-VirtualBytes">DebugSettings.VirtualBytes</a></li>
+						<li>Remove Function <a href="/ref/class/DebugSettings.html#member-ResetCdnFailureCounts">DebugSettings.ResetCdnFailureCounts</a></li>
+						<li>Add Property <a href="/ref/class/GuiObject.html#member-AnchorPoint">GuiObject.AnchorPoint</a></li>
+						<li>Add Property <a href="/ref/class/ScreenGui.html#member-DisplayOrder">ScreenGui.DisplayOrder</a></li>
+						<li>Add Property <a href="/ref/class/Humanoid.html#member-HealthDisplayType">Humanoid.HealthDisplayType</a></li>
+						<li>Remove Property <a href="/ref/class/RenderSettings.html#member-ExperimentalTerrainLOD">RenderSettings.ExperimentalTerrainLOD</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-HairAccessory">AssetType.HairAccessory</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-FaceAccessory">AssetType.FaceAccessory</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-NeckAccessory">AssetType.NeckAccessory</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-ShoulderAccessory">AssetType.ShoulderAccessory</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-FrontAccessory">AssetType.FrontAccessory</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-BackAccessory">AssetType.BackAccessory</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-WaistAccessory">AssetType.WaistAccessory</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-ClimbAnimation">AssetType.ClimbAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-DeathAnimation">AssetType.DeathAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-FallAnimation">AssetType.FallAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-IdleAnimation">AssetType.IdleAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-JumpAnimation">AssetType.JumpAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-RunAnimation">AssetType.RunAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-SwimAnimation">AssetType.SwimAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-WalkAnimation">AssetType.WalkAnimation</a></li>
+						<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-PoseAnimation">AssetType.PoseAnimation</a></li>
+						<li>Add Enum <a href="/ref/enum/HumanoidHealthDisplayType.html">HumanoidHealthDisplayType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidHealthDisplayType.html#member-DisplayWhenDamaged">DisplayWhenDamaged</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidHealthDisplayType.html#member-AlwaysOn">AlwaysOn</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidHealthDisplayType.html#member-AlwaysOff">AlwaysOff</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-4f4eb962659b4ffb" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-11-30 23:57:24-0800">2016-11-30 23:57</time> (v0.270.0.96141)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-4f4eb962659b4ffb">version-4f4eb962659b4ffb</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/AnalyticsService.html#member-UpdateHeartbeatObject">AnalyticsService.UpdateHeartbeatObject</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-IsProfilingEnabled">DebugSettings.IsProfilingEnabled</a></li>
+						<li>Remove Property <a href="/ref/class/DebugSettings.html#member-ProfilingWindow">DebugSettings.ProfilingWindow</a></li>
+						<li>Add Function <a href="/ref/class/FriendService.html#member-StartReceivingPlatformFriendsEvents">FriendService.StartReceivingPlatformFriendsEvents</a></li>
+						<li>Add Event <a href="/ref/class/FriendService.html#member-FriendsEvent">FriendService.FriendsEvent</a></li>
+						<li>Add Function <a href="/ref/class/Player.html#member-BlockUser">Player.BlockUser</a></li>
+						<li>Add Function <a href="/ref/class/Player.html#member-UnblockUser">Player.UnblockUser</a></li>
+						<li>Remove Class <a href="/ref/class/ScriptInformationProvider.html">ScriptInformationProvider</a>
+							<ul>
+								<li>Remove Function <a href="/ref/class/ScriptInformationProvider.html#member-SetAccessKey">SetAccessKey</a></li>
+								<li>Remove Function <a href="/ref/class/ScriptInformationProvider.html#member-SetAssetUrl">SetAssetUrl</a></li>
+							</ul></li>
+						<li>Remove Class <a href="/ref/class/ProfilingItem.html">ProfilingItem</a>
+							<ul>
+								<li>Remove Function <a href="/ref/class/ProfilingItem.html#member-GetTimes">GetTimes</a></li>
+								<li>Remove Function <a href="/ref/class/ProfilingItem.html#member-GetTimesForFrames">GetTimesForFrames</a></li>
+							</ul></li>
+						<li>Remove EnumItem <a href="/ref/enum/GridSortOrder.html#member-Child">GridSortOrder.Child</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/GridSortOrder.html#member-Name">GridSortOrder.Name</a>
+							<span class="diff-values"><span><span>from</span> <span>1</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/GridSortOrder.html#member-Custom">GridSortOrder.Custom</a>
+							<span class="diff-values"><span><span>from</span> <span>2</span></span> <span><span>to</span> <span>1</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-c2285b6f3d724119" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-11-17 23:03:55-0800">2016-11-17 23:03</time> (v0.269.1.95156)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-c2285b6f3d724119">version-c2285b6f3d724119</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-f0ef2b8297174acb" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-11-16 23:44:52-0800">2016-11-16 23:44</time> (v0.269.0.94334)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-f0ef2b8297174acb">version-f0ef2b8297174acb</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/AnalyticsService.html#member-SetRBXEvent">AnalyticsService.SetRBXEvent</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string eventContext, Primitive:string eventName, Primitive:Dictionary additionalArgs)</span></span> <span><span>to</span> <span>(Primitive:string target, Primitive:string eventContext, Primitive:string eventName, Group:Dictionary additionalArgs)</span></span></span></li>
+						<li>Add Function <a href="/ref/class/AnalyticsService.html#member-ReportCounter">AnalyticsService.ReportCounter</a></li>
+						<li>Add Function <a href="/ref/class/AnalyticsService.html#member-ReportStats">AnalyticsService.ReportStats</a></li>
+						<li>Add Property <a href="/ref/class/GameSettings.html#member-AdditionalCoreIncludeDirs">GameSettings.AdditionalCoreIncludeDirs</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-bb3642a049a044c3" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-11-10 23:15:41-0800">2016-11-10 23:15</time> (v0.268.0.93997)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-bb3642a049a044c3">version-bb3642a049a044c3</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-161924e8599b4102" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-11-09 23:39:49-0800">2016-11-09 23:39</time> (v0.268.0.93534)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-161924e8599b4102">version-161924e8599b4102</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/AssetService.html#member-GetAssetIdsForPackage">AssetService.GetAssetIdsForPackage</a></li>
+						<li>Add Function <a href="/ref/class/TextBox.html#member-SetTextFromInput">TextBox.SetTextFromInput</a></li>
+						<li>Add Property <a href="/ref/class/ScreenGui.html#member-Enabled">ScreenGui.Enabled</a></li>
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/LuaSourceContainer.html">LuaSourceContainer</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotCreatable]</span></span> <span><span>to</span> <span>[NotCreatable, NotBrowsable]</span></span></span></li>
+						<li>Remove Property <a href="/ref/class/PhysicsSettings.html#member-AreAttachmentsShown">PhysicsSettings.AreAttachmentsShown</a></li>
+						<li>Remove Property <a href="/ref/class/PhysicsSettings.html#member-AreConstraintsShown">PhysicsSettings.AreConstraintsShown</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-PromptSaveSelection">Plugin.PromptSaveSelection</a></li>
+						<li>Add Property <a href="/ref/class/ReflectionMetadataItem.html#member-EditingDisabled">ReflectionMetadataItem.EditingDisabled</a></li>
+						<li diff-field="Tags">Change field Tags of Callback <a href="/ref/class/DataModel.html#member-OnClose">DataModel.OnClose</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/CompressorSoundEffect.html#member-Ratio">CompressorSoundEffect.Ratio</a></li>
+						<li>Add Property <a href="/ref/class/CompressorSoundEffect.html#member-SideChain">CompressorSoundEffect.SideChain</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-UsedCoreGuiIsVisibleToggle">UserGameSettings.UsedCoreGuiIsVisibleToggle</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-UsedCustomGuiIsVisibleToggle">UserGameSettings.UsedCustomGuiIsVisibleToggle</a></li>
+						<li>Add Class <a href="/ref/class/AnalyticsService.html">AnalyticsService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/AnalyticsService.html#member-SetRBXEvent">SetRBXEvent</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/LobbyService.html">LobbyService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/LobbyService.html#member-BeginLeaveLobby">BeginLeaveLobby</a></li>
+								<li>Add Function <a href="/ref/class/LobbyService.html#member-BeginLobbyStartGame">BeginLobbyStartGame</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/ThirdPartyUserService.html">ThirdPartyUserService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/ThirdPartyUserService.html#member-GetUserDisplayName">GetUserDisplayName</a></li>
+								<li>Add Function <a href="/ref/class/ThirdPartyUserService.html#member-GetUserPlatformId">GetUserPlatformId</a></li>
+								<li>Add Function <a href="/ref/class/ThirdPartyUserService.html#member-HaveActiveUser">HaveActiveUser</a></li>
+								<li>Add Function <a href="/ref/class/ThirdPartyUserService.html#member-ShowAccountPicker">ShowAccountPicker</a></li>
+								<li>Add Function <a href="/ref/class/ThirdPartyUserService.html#member-RegisterActiveUser">RegisterActiveUser</a></li>
+								<li>Add Event <a href="/ref/class/ThirdPartyUserService.html#member-ActiveGamepadAdded">ActiveGamepadAdded</a></li>
+								<li>Add Event <a href="/ref/class/ThirdPartyUserService.html#member-ActiveGamepadRemoved">ActiveGamepadRemoved</a></li>
+								<li>Add Event <a href="/ref/class/ThirdPartyUserService.html#member-ActiveUserSignedOut">ActiveUserSignedOut</a></li>
+							</ul></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Arcade">Font.Arcade</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Fantasy">Font.Fantasy</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Antique">Font.Antique</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e2543a4115cb41d6" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-11-03 23:19:05-0700">2016-11-03 23:19</time> (v0.267.0.92874)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-e2543a4115cb41d6">version-e2543a4115cb41d6</a>
+					<ul class="patch-list">
+						<li>Remove Function <a href="/ref/class/Chat.html#member-SetIsLuaChatBackendOverwritten">Chat.SetIsLuaChatBackendOverwritten</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetGuiInset">GuiService.GetGuiInset</a></li>
+						<li>Add Class <a href="/ref/class/GoogleAnalyticsConfiguration.html">GoogleAnalyticsConfiguration</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/AnalysticsSettings.html">AnalysticsSettings</a>
+							<ul>
+							</ul></li>
+						<li diff-field="Tags">Change field Tags of EnumItem <a href="/ref/enum/Font.html#member-Bodoni">Font.Bodoni</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotBrowsable]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of EnumItem <a href="/ref/enum/Font.html#member-Garamond">Font.Garamond</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotBrowsable]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/GraphicsMode.html#member-NoGraphics">GraphicsMode.NoGraphics</a>
+							<span class="diff-values"><span><span>from</span> <span>5</span></span> <span><span>to</span> <span>6</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/GraphicsMode.html#member-Metal">GraphicsMode.Metal</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b066e068986145c3" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-10-26 23:39:46-0700">2016-10-26 23:39</time> (v0.266.0.91250)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-b066e068986145c3">version-b066e068986145c3</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/GuiObject.html#member-AbsoluteRotation">GuiObject.AbsoluteRotation</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Sound.html#member-RollOffMode">Sound.RollOffMode</a>
+							<span class="diff-values"><span><span>from</span> <span>[Hidden]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li>Add Class <a href="/ref/class/UIBase.html">UIBase</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UIComponent.html">UIComponent</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UIConstraint.html">UIConstraint</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UIAspectRatioConstraint.html">UIAspectRatioConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/UIAspectRatioConstraint.html#member-AspectRatio">AspectRatio</a></li>
+								<li>Add Property <a href="/ref/class/UIAspectRatioConstraint.html#member-AspectType">AspectType</a></li>
+								<li>Add Property <a href="/ref/class/UIAspectRatioConstraint.html#member-DominantAxis">DominantAxis</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UISizeConstraint.html">UISizeConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/UISizeConstraint.html#member-MaxSize">MaxSize</a></li>
+								<li>Add Property <a href="/ref/class/UISizeConstraint.html#member-MinSize">MinSize</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UITextSizeConstraint.html">UITextSizeConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/UITextSizeConstraint.html#member-MaxTextSize">MaxTextSize</a></li>
+								<li>Add Property <a href="/ref/class/UITextSizeConstraint.html#member-MinTextSize">MinTextSize</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UILayout.html">UILayout</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UIGridLayout.html">UIGridLayout</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-AbsoluteSize">AbsoluteSize</a></li>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-Alignment">Alignment</a></li>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-CellPadding">CellPadding</a></li>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-CellSize">CellSize</a></li>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-FillDirection">FillDirection</a></li>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-FillDirectionMaxCells">FillDirectionMaxCells</a></li>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-SortOrder">SortOrder</a></li>
+								<li>Add Property <a href="/ref/class/UIGridLayout.html#member-StartCorner">StartCorner</a></li>
+								<li>Add Function <a href="/ref/class/UIGridLayout.html#member-ApplyLayout">ApplyLayout</a></li>
+								<li>Add Function <a href="/ref/class/UIGridLayout.html#member-SetCustomSortFunction">SetCustomSortFunction</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/AspectType.html">AspectType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/AspectType.html#member-FitWithinMaxSize">FitWithinMaxSize</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AspectType.html#member-ScaleWithParentSize">ScaleWithParentSize</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/DominantAxis.html">DominantAxis</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/DominantAxis.html#member-Width">Width</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DominantAxis.html#member-Height">Height</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/GridAlignment.html">GridAlignment</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/GridAlignment.html#member-Center">Center</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GridAlignment.html#member-Justified">Justified</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/GridFillOrder.html">GridFillOrder</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/GridFillOrder.html#member-Horizontal">Horizontal</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GridFillOrder.html#member-Vertical">Vertical</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/GridSortOrder.html">GridSortOrder</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/GridSortOrder.html#member-Child">Child</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GridSortOrder.html#member-Name">Name</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GridSortOrder.html#member-Custom">Custom</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/GridStartCorner.html">GridStartCorner</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/GridStartCorner.html#member-TopLeft">TopLeft</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GridStartCorner.html#member-TopRight">TopRight</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GridStartCorner.html#member-BottomLeft">BottomLeft</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GridStartCorner.html#member-BottomRight">BottomRight</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-979dfe10de694129" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-10-20 01:27:29-0700">2016-10-20 01:27</time> (v0.265.0.90222)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-979dfe10de694129">version-979dfe10de694129</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/CoreGui.html">CoreGui</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotCreatable, Service, NotReplicated, NotBrowsable]</span></span> <span><span>to</span> <span>[NotCreatable, Service, NotReplicated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/GuiService.html#member-CoreEffectFolder">GuiService.CoreEffectFolder</a></li>
+						<li>Add Property <a href="/ref/class/GuiService.html#member-CoreGuiFolder">GuiService.CoreGuiFolder</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-AddAccessory">Humanoid.AddAccessory</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-GetAccessories">Humanoid.GetAccessories</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-GetLimb">Humanoid.GetLimb</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-RemoveAccessories">Humanoid.RemoveAccessories</a></li>
+						<li>Add Event <a href="/ref/class/Humanoid.html#member-Touched">Humanoid.Touched</a></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/Plugin.html#member-ImportFbxRig">Plugin.ImportFbxRig</a>
+							<span class="diff-values"><span><span>from</span> <span>Class:void</span></span> <span><span>to</span> <span>Class:Instance</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Plugin.html#member-ImportFbxRig">Plugin.ImportFbxRig</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/ReflectionMetadataItem.html#member-ClassCategory">ReflectionMetadataItem.ClassCategory</a></li>
+						<li>Add Class <a href="/ref/class/VRService.html">VRService</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/VRService.html#member-GuiInputUserCFrame">GuiInputUserCFrame</a></li>
+								<li>Add Property <a href="/ref/class/VRService.html#member-VREnabled">VREnabled</a></li>
+								<li>Add Function <a href="/ref/class/VRService.html#member-GetUserCFrame">GetUserCFrame</a></li>
+								<li>Add Function <a href="/ref/class/VRService.html#member-GetUserCFrameEnabled">GetUserCFrameEnabled</a></li>
+								<li>Add Function <a href="/ref/class/VRService.html#member-RecenterUserHeadCFrame">RecenterUserHeadCFrame</a></li>
+								<li>Add Event <a href="/ref/class/VRService.html#member-UserCFrameChanged">UserCFrameChanged</a></li>
+								<li>Add Event <a href="/ref/class/VRService.html#member-UserCFrameEnabled">UserCFrameEnabled</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/Limb.html">Limb</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-Head">Head</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-Torso">Torso</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-LeftArm">LeftArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-RightArm">RightArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-LeftLeg">LeftLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-RightLeg">RightLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-Unknown">Unknown</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e79bb00fe4614a58" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-10-20 01:04:51-0700">2016-10-20 01:04</time> (v0.264.0.89220)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-e79bb00fe4614a58">version-e79bb00fe4614a58</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/CoreGui.html">CoreGui</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotCreatable, Service, NotReplicated]</span></span> <span><span>to</span> <span>[NotCreatable, Service, NotReplicated, NotBrowsable]</span></span></span></li>
+						<li>Remove Property <a href="/ref/class/GuiService.html#member-CoreEffectFolder">GuiService.CoreEffectFolder</a></li>
+						<li>Remove Property <a href="/ref/class/GuiService.html#member-CoreGuiFolder">GuiService.CoreGuiFolder</a></li>
+						<li>Remove Function <a href="/ref/class/Humanoid.html#member-AddAccessory">Humanoid.AddAccessory</a></li>
+						<li>Remove Function <a href="/ref/class/Humanoid.html#member-GetAccessories">Humanoid.GetAccessories</a></li>
+						<li>Remove Function <a href="/ref/class/Humanoid.html#member-GetLimb">Humanoid.GetLimb</a></li>
+						<li>Remove Function <a href="/ref/class/Humanoid.html#member-RemoveAccessories">Humanoid.RemoveAccessories</a></li>
+						<li>Remove Event <a href="/ref/class/Humanoid.html#member-Touched">Humanoid.Touched</a></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/Plugin.html#member-ImportFbxRig">Plugin.ImportFbxRig</a>
+							<span class="diff-values"><span><span>from</span> <span>Class:Instance</span></span> <span><span>to</span> <span>Class:void</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Plugin.html#member-ImportFbxRig">Plugin.ImportFbxRig</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li>Remove Property <a href="/ref/class/ReflectionMetadataItem.html#member-ClassCategory">ReflectionMetadataItem.ClassCategory</a></li>
+						<li>Remove Class <a href="/ref/class/VRService.html">VRService</a>
+							<ul>
+								<li>Remove Property <a href="/ref/class/VRService.html#member-GuiInputUserCFrame">GuiInputUserCFrame</a></li>
+								<li>Remove Property <a href="/ref/class/VRService.html#member-VREnabled">VREnabled</a></li>
+								<li>Remove Function <a href="/ref/class/VRService.html#member-GetUserCFrame">GetUserCFrame</a></li>
+								<li>Remove Function <a href="/ref/class/VRService.html#member-GetUserCFrameEnabled">GetUserCFrameEnabled</a></li>
+								<li>Remove Function <a href="/ref/class/VRService.html#member-RecenterUserHeadCFrame">RecenterUserHeadCFrame</a></li>
+								<li>Remove Event <a href="/ref/class/VRService.html#member-UserCFrameChanged">UserCFrameChanged</a></li>
+								<li>Remove Event <a href="/ref/class/VRService.html#member-UserCFrameEnabled">UserCFrameEnabled</a></li>
+							</ul></li>
+						<li>Remove Enum <a href="/ref/enum/Limb.html">Limb</a>
+							<ul>
+								<li>Remove EnumItem <a href="/ref/enum/Limb.html#member-Head">Head</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Limb.html#member-Torso">Torso</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Limb.html#member-LeftArm">LeftArm</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Limb.html#member-RightArm">RightArm</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Limb.html#member-LeftLeg">LeftLeg</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Limb.html#member-RightLeg">RightLeg</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Limb.html#member-Unknown">Unknown</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-688e44b42a994c8f" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-10-19 23:36:05-0700">2016-10-19 23:36</time> (v0.265.0.90222)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-688e44b42a994c8f">version-688e44b42a994c8f</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/CoreGui.html">CoreGui</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotCreatable, Service, NotReplicated, NotBrowsable]</span></span> <span><span>to</span> <span>[NotCreatable, Service, NotReplicated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/GuiService.html#member-CoreEffectFolder">GuiService.CoreEffectFolder</a></li>
+						<li>Add Property <a href="/ref/class/GuiService.html#member-CoreGuiFolder">GuiService.CoreGuiFolder</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-AddAccessory">Humanoid.AddAccessory</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-GetAccessories">Humanoid.GetAccessories</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-GetLimb">Humanoid.GetLimb</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-RemoveAccessories">Humanoid.RemoveAccessories</a></li>
+						<li>Add Event <a href="/ref/class/Humanoid.html#member-Touched">Humanoid.Touched</a></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/Plugin.html#member-ImportFbxRig">Plugin.ImportFbxRig</a>
+							<span class="diff-values"><span><span>from</span> <span>Class:void</span></span> <span><span>to</span> <span>Class:Instance</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Plugin.html#member-ImportFbxRig">Plugin.ImportFbxRig</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/ReflectionMetadataItem.html#member-ClassCategory">ReflectionMetadataItem.ClassCategory</a></li>
+						<li>Add Class <a href="/ref/class/VRService.html">VRService</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/VRService.html#member-GuiInputUserCFrame">GuiInputUserCFrame</a></li>
+								<li>Add Property <a href="/ref/class/VRService.html#member-VREnabled">VREnabled</a></li>
+								<li>Add Function <a href="/ref/class/VRService.html#member-GetUserCFrame">GetUserCFrame</a></li>
+								<li>Add Function <a href="/ref/class/VRService.html#member-GetUserCFrameEnabled">GetUserCFrameEnabled</a></li>
+								<li>Add Function <a href="/ref/class/VRService.html#member-RecenterUserHeadCFrame">RecenterUserHeadCFrame</a></li>
+								<li>Add Event <a href="/ref/class/VRService.html#member-UserCFrameChanged">UserCFrameChanged</a></li>
+								<li>Add Event <a href="/ref/class/VRService.html#member-UserCFrameEnabled">UserCFrameEnabled</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/Limb.html">Limb</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-Head">Head</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-Torso">Torso</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-LeftArm">LeftArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-RightArm">RightArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-LeftLeg">LeftLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-RightLeg">RightLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Limb.html#member-Unknown">Unknown</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-1600d28b04c54698" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-10-12 23:28:45-0700">2016-10-12 23:28</time> (v0.264.0.89220)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-1600d28b04c54698">version-1600d28b04c54698</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Chat.html#member-SetIsLuaChatBackendOverwritten">Chat.SetIsLuaChatBackendOverwritten</a></li>
+						<li>Add Property <a href="/ref/class/ScreenGui.html#member-ResetOnSpawn">ScreenGui.ResetOnSpawn</a></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/HttpRbxApiService.html#member-GetAsync">HttpRbxApiService.GetAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields, Deprecated]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/ParticleEmitter.html#member-Clear">ParticleEmitter.Clear</a></li>
+						<li>Add Function <a href="/ref/class/DataModel.html#member-BindToClose">DataModel.BindToClose</a></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-PlaybackLoudness">Sound.PlaybackLoudness</a></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-SoundGroup">Sound.SoundGroup</a></li>
+						<li>Add Class <a href="/ref/class/SoundEffect.html">SoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/SoundEffect.html#member-Enabled">Enabled</a></li>
+								<li>Add Property <a href="/ref/class/SoundEffect.html#member-Priority">Priority</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/ChorusSoundEffect.html">ChorusSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/ChorusSoundEffect.html#member-Depth">Depth</a></li>
+								<li>Add Property <a href="/ref/class/ChorusSoundEffect.html#member-Mix">Mix</a></li>
+								<li>Add Property <a href="/ref/class/ChorusSoundEffect.html#member-Rate">Rate</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/CompressorSoundEffect.html">CompressorSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/CompressorSoundEffect.html#member-Attack">Attack</a></li>
+								<li>Add Property <a href="/ref/class/CompressorSoundEffect.html#member-GainMakeup">GainMakeup</a></li>
+								<li>Add Property <a href="/ref/class/CompressorSoundEffect.html#member-Release">Release</a></li>
+								<li>Add Property <a href="/ref/class/CompressorSoundEffect.html#member-Threshold">Threshold</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/DistortionSoundEffect.html">DistortionSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/DistortionSoundEffect.html#member-Level">Level</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/EchoSoundEffect.html">EchoSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/EchoSoundEffect.html#member-Delay">Delay</a></li>
+								<li>Add Property <a href="/ref/class/EchoSoundEffect.html#member-DryLevel">DryLevel</a></li>
+								<li>Add Property <a href="/ref/class/EchoSoundEffect.html#member-Feedback">Feedback</a></li>
+								<li>Add Property <a href="/ref/class/EchoSoundEffect.html#member-WetLevel">WetLevel</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/EqualizerSoundEffect.html">EqualizerSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/EqualizerSoundEffect.html#member-HighGain">HighGain</a></li>
+								<li>Add Property <a href="/ref/class/EqualizerSoundEffect.html#member-LowGain">LowGain</a></li>
+								<li>Add Property <a href="/ref/class/EqualizerSoundEffect.html#member-MidGain">MidGain</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/FlangeSoundEffect.html">FlangeSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/FlangeSoundEffect.html#member-Depth">Depth</a></li>
+								<li>Add Property <a href="/ref/class/FlangeSoundEffect.html#member-Mix">Mix</a></li>
+								<li>Add Property <a href="/ref/class/FlangeSoundEffect.html#member-Rate">Rate</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PitchShiftSoundEffect.html">PitchShiftSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/PitchShiftSoundEffect.html#member-Octave">Octave</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/ReverbSoundEffect.html">ReverbSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/ReverbSoundEffect.html#member-DecayTime">DecayTime</a></li>
+								<li>Add Property <a href="/ref/class/ReverbSoundEffect.html#member-Density">Density</a></li>
+								<li>Add Property <a href="/ref/class/ReverbSoundEffect.html#member-Diffusion">Diffusion</a></li>
+								<li>Add Property <a href="/ref/class/ReverbSoundEffect.html#member-DryLevel">DryLevel</a></li>
+								<li>Add Property <a href="/ref/class/ReverbSoundEffect.html#member-WetLevel">WetLevel</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/TremoloSoundEffect.html">TremoloSoundEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/TremoloSoundEffect.html#member-Depth">Depth</a></li>
+								<li>Add Property <a href="/ref/class/TremoloSoundEffect.html#member-Duty">Duty</a></li>
+								<li>Add Property <a href="/ref/class/TremoloSoundEffect.html#member-Frequency">Frequency</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/SoundGroup.html">SoundGroup</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/SoundGroup.html#member-Volume">Volume</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-14d50132362e4612" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-10-06 23:50:41-0700">2016-10-06 23:50</time> (v0.263.0.88247)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-14d50132362e4612">version-14d50132362e4612</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Dialog.html#member-GoodbyeChoiceActive">Dialog.GoodbyeChoiceActive</a></li>
+						<li>Add Property <a href="/ref/class/DialogChoice.html#member-GoodbyeChoiceActive">DialogChoice.GoodbyeChoiceActive</a></li>
+						<li>Add Property <a href="/ref/class/TextButton.html#member-TextSize">TextButton.TextSize</a></li>
+						<li>Add Property <a href="/ref/class/TextLabel.html#member-TextSize">TextLabel.TextSize</a></li>
+						<li>Add Property <a href="/ref/class/TextBox.html#member-TextSize">TextBox.TextSize</a></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpRbxApiService.html#member-GetAsync">HttpRbxApiService.GetAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string apiUrlPath, Enum:bool useHttps = true, Enum:ThrottlingPriority priority = Default)</span></span> <span><span>to</span> <span>(Primitive:string apiUrlPath, Enum:ThrottlingPriority priority = Default)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/HttpRbxApiService.html#member-GetAsync">HttpRbxApiService.GetAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[Yields, Deprecated]</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpRbxApiService.html#member-PostAsync">HttpRbxApiService.PostAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string apiUrlPath, Primitive:string data, Enum:bool useHttps = true, Enum:ThrottlingPriority priority = Default, Enum:HttpContentType content_type = ApplicationJson)</span></span> <span><span>to</span> <span>(Primitive:string apiUrlPath, Primitive:string data, Enum:ThrottlingPriority priority = Default, Enum:HttpContentType content_type = ApplicationJson)</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Cartoon">Font.Cartoon</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Code">Font.Code</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Highway">Font.Highway</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-SciFi">Font.SciFi</a></li>
+						<li>Add EnumItem <a href="/ref/enum/NetworkOwnership.html#member-OnContact">NetworkOwnership.OnContact</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2ceaab0743d341cd" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-09-28 23:33:09-0700">2016-09-28 23:33</time> (v0.262.0.87765)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-2ceaab0743d341cd">version-2ceaab0743d341cd</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/NetworkReplicator.html#member-Disconnection">NetworkReplicator.Disconnection</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string peer, Primitive:bool lostConnection)</span></span> <span><span>to</span> <span>(Primitive:string peer, Primitive:bool lostConnection, Primitive:string reason)</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Terrain.html#member-WaterReflectance">Terrain.WaterReflectance</a></li>
+						<li>Add Function <a href="/ref/class/Workspace.html#member-FindPartOnRayWithWhitelist">Workspace.FindPartOnRayWithWhitelist</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Sound.html#member-MinDistance">Sound.MinDistance</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Sound.html#member-Pitch">Sound.Pitch</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-EmitterSize">Sound.EmitterSize</a></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-PlaybackSpeed">Sound.PlaybackSpeed</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-GazeSelectionEnabled">UserInputService.GazeSelectionEnabled</a></li>
+						<li>Add Class <a href="/ref/class/ParabolaAdornment.html">ParabolaAdornment</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/ParabolaAdornment.html#member-A">A</a></li>
+								<li>Add Property <a href="/ref/class/ParabolaAdornment.html#member-B">B</a></li>
+								<li>Add Property <a href="/ref/class/ParabolaAdornment.html#member-C">C</a></li>
+								<li>Add Property <a href="/ref/class/ParabolaAdornment.html#member-Range">Range</a></li>
+								<li>Add Property <a href="/ref/class/ParabolaAdornment.html#member-Thickness">Thickness</a></li>
+								<li>Add Function <a href="/ref/class/ParabolaAdornment.html#member-FindPartOnParabola">FindPartOnParabola</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a1718013fcc842b1" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-09-22 23:36:48-0700">2016-09-22 23:36</time> (v0.261.0.87131)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-a1718013fcc842b1">version-a1718013fcc842b1</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Attachment.html#member-Visible">Attachment.Visible</a></li>
+						<li>Add Property <a href="/ref/class/Constraint.html#member-Color">Constraint.Color</a></li>
+						<li>Add Property <a href="/ref/class/Constraint.html#member-Visible">Constraint.Visible</a></li>
+						<li>Add Property <a href="/ref/class/BallSocketConstraint.html#member-Radius">BallSocketConstraint.Radius</a></li>
+						<li>Add Property <a href="/ref/class/HingeConstraint.html#member-Radius">HingeConstraint.Radius</a></li>
+						<li>Add Property <a href="/ref/class/RodConstraint.html#member-Thickness">RodConstraint.Thickness</a></li>
+						<li>Add Property <a href="/ref/class/RopeConstraint.html#member-Thickness">RopeConstraint.Thickness</a></li>
+						<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-Size">SlidingBallConstraint.Size</a></li>
+						<li>Add Property <a href="/ref/class/SpringConstraint.html#member-Coils">SpringConstraint.Coils</a></li>
+						<li>Add Property <a href="/ref/class/SpringConstraint.html#member-Radius">SpringConstraint.Radius</a></li>
+						<li>Add Property <a href="/ref/class/SpringConstraint.html#member-Thickness">SpringConstraint.Thickness</a></li>
+						<li>Add Enum <a href="/ref/enum/AssetType.html">AssetType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Image">Image</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-TeeShirt">TeeShirt</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Audio">Audio</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Mesh">Mesh</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Lua">Lua</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Hat">Hat</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Place">Place</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Model">Model</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Shirt">Shirt</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Pants">Pants</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Decal">Decal</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Head">Head</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Face">Face</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Gear">Gear</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Badge">Badge</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Animation">Animation</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Torso">Torso</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-RightArm">RightArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-LeftArm">LeftArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-LeftLeg">LeftLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-RightLeg">RightLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Package">Package</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-GamePass">GamePass</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-Plugin">Plugin</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AssetType.html#member-MeshPart">MeshPart</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-ea857a546aae4b0e" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-09-14 23:21:10-0700">2016-09-14 23:21</time> (v0.260.0.85956)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-ea857a546aae4b0e">version-ea857a546aae4b0e</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-256edf8e82cb478d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-09-07 23:34:01-0700">2016-09-07 23:34</time> (v0.259.0.85517)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-256edf8e82cb478d">version-256edf8e82cb478d</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Instance.html#member-FindFirstChildOfClass">Instance.FindFirstChildOfClass</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/InsertService.html#member-AllowInsertFreeModels">InsertService.AllowInsertFreeModels</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotReplicated]</span></span> <span><span>to</span> <span>[NotReplicated, NotBrowsable, Deprecated]</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/NetworkClient.html#member-PlayerConnect">NetworkClient.PlayerConnect</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:int userId, Primitive:string server, Primitive:int serverPort, Primitive:int clientPort = 0, Primitive:int threadSleepTime = 30)</span></span> <span><span>to</span> <span>(Primitive:int userId, Primitive:string server, Primitive:int serverPort, Primitive:int clientPort = 0, Primitive:int threadSleepTime = 30, Primitive:int dataCenterId = -1)</span></span></span></li>
+						<li>Add Function <a href="/ref/class/SoundService.html#member-PlayLocalSound">SoundService.PlayLocalSound</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-PerformanceStatsVisible">UserGameSettings.PerformanceStatsVisible</a></li>
+						<li>Add Event <a href="/ref/class/UserGameSettings.html#member-PerformanceStatsVisibleChanged">UserGameSettings.PerformanceStatsVisibleChanged</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2a3769b753884f05" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-09-01 23:26:02-0700">2016-09-01 23:26</time> (v0.258.0.85044)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-2a3769b753884f05">version-2a3769b753884f05</a>
+					<ul class="patch-list">
+						<li>Remove Function <a href="/ref/class/Player.html#member-SaveLeaderboardData">Player.SaveLeaderboardData</a></li>
+						<li>Remove Function <a href="/ref/class/Players.html#member-AddLeaderboardKey">Players.AddLeaderboardKey</a></li>
+						<li>Remove Function <a href="/ref/class/Players.html#member-SetSaveLeaderboardDataUrl">Players.SetSaveLeaderboardDataUrl</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-c07bd12b37544477" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-09-01 03:03:37-0700">2016-09-01 03:03</time> (v0.257.0.83946)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-c07bd12b37544477">version-c07bd12b37544477</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/LayerCollector.html#member-Enabled">LayerCollector.Enabled</a></li>
+						<li>Add Property <a href="/ref/class/BillboardGui.html#member-Enabled">BillboardGui.Enabled</a></li>
+						<li>Add Property <a href="/ref/class/SurfaceGui.html#member-Enabled">SurfaceGui.Enabled</a></li>
+						<li>Add Function <a href="/ref/class/Player.html#member-SaveLeaderboardData">Player.SaveLeaderboardData</a></li>
+						<li>Add Function <a href="/ref/class/Players.html#member-AddLeaderboardKey">Players.AddLeaderboardKey</a></li>
+						<li>Add Function <a href="/ref/class/Players.html#member-SetSaveLeaderboardDataUrl">Players.SetSaveLeaderboardDataUrl</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e5660e3f7e0a49f3" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-08-31 23:37:18-0700">2016-08-31 23:37</time> (v0.258.0.84767)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-e5660e3f7e0a49f3">version-e5660e3f7e0a49f3</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/LayerCollector.html#member-Enabled">LayerCollector.Enabled</a></li>
+						<li>Remove Property <a href="/ref/class/BillboardGui.html#member-Enabled">BillboardGui.Enabled</a></li>
+						<li>Remove Property <a href="/ref/class/SurfaceGui.html#member-Enabled">SurfaceGui.Enabled</a></li>
+						<li>Remove Function <a href="/ref/class/Player.html#member-SaveLeaderboardData">Player.SaveLeaderboardData</a></li>
+						<li>Remove Function <a href="/ref/class/Players.html#member-AddLeaderboardKey">Players.AddLeaderboardKey</a></li>
+						<li>Remove Function <a href="/ref/class/Players.html#member-SetSaveLeaderboardDataUrl">Players.SetSaveLeaderboardDataUrl</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a5eaf158bd544c4d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-08-24 23:46:49-0700">2016-08-24 23:46</time> (v0.257.0.83946)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-a5eaf158bd544c4d">version-a5eaf158bd544c4d</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e6d872d544b64cd9" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-08-17 23:37:42-0700">2016-08-17 23:37</time> (v0.256.0.83059)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-e6d872d544b64cd9">version-e6d872d544b64cd9</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Chat.html#member-GetShouldUseLuaChat">Chat.GetShouldUseLuaChat</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-ImportFbxAnimation">Plugin.ImportFbxAnimation</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-ImportFbxRig">Plugin.ImportFbxRig</a></li>
+						<li>Add Property <a href="/ref/class/DataModel.html#member-IsSFFlagsLoaded">DataModel.IsSFFlagsLoaded</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Bodoni">Font.Bodoni</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Font.html#member-Garamond">Font.Garamond</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2cc7e2256bc843db" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-08-05 01:10:08-0700">2016-08-05 01:10</time> (v0.255.0.82159)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-2cc7e2256bc843db">version-2cc7e2256bc843db</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Explosion.html#member-Visible">Explosion.Visible</a></li>
+						<li>Remove EnumItem <a href="/ref/enum/InputType.html#member-Throtle">InputType.Throtle</a></li>
+						<li>Add EnumItem <a href="/ref/enum/InputType.html#member-Throttle">InputType.Throttle</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-7b1dd958d4af4117" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-08-04 02:47:36-0700">2016-08-04 02:47</time> (v0.254.0.80823)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-7b1dd958d4af4117">version-7b1dd958d4af4117</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-522256beb2b54470" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-08-04 02:32:48-0700">2016-08-04 02:32</time> (v0.254.0.80823)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-522256beb2b54470">version-522256beb2b54470</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/Explosion.html#member-Visible">Explosion.Visible</a></li>
+						<li>Remove EnumItem <a href="/ref/enum/InputType.html#member-Throttle">InputType.Throttle</a></li>
+						<li>Add EnumItem <a href="/ref/enum/InputType.html#member-Throtle">InputType.Throtle</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-01257d28ba8c471a" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-08-03 23:49:02-0700">2016-08-03 23:49</time> (v0.255.0.81853)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-01257d28ba8c471a">version-01257d28ba8c471a</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Explosion.html#member-Visible">Explosion.Visible</a></li>
+						<li>Remove EnumItem <a href="/ref/enum/InputType.html#member-Throtle">InputType.Throtle</a></li>
+						<li>Add EnumItem <a href="/ref/enum/InputType.html#member-Throttle">InputType.Throttle</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-fcb87185003640ba" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-07-27 23:45:04-0700">2016-07-27 23:45</time> (v0.254.0.80823)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-fcb87185003640ba">version-fcb87185003640ba</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Event <a href="/ref/class/ClickDetector.html#member-mouseClick">ClickDetector.mouseClick</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Lighting.html#member-ShadowColor">Lighting.ShadowColor</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotReplicated]</span></span> <span><span>to</span> <span>[NotReplicated, Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/RenderSettings.html#member-RenderCSGTrianglesDebug">RenderSettings.RenderCSGTrianglesDebug</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-ChatVisible">UserGameSettings.ChatVisible</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-aee78a51139946c2" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-07-20 23:32:50-0700">2016-07-20 23:32</time> (v0.253.0.80484)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-aee78a51139946c2">version-aee78a51139946c2</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/ReflectionMetadataItem.html#member-UINumTicks">ReflectionMetadataItem.UINumTicks</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-23a05f622b7b47a6" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-07-14 23:20:02-0700">2016-07-14 23:20</time> (v0.252.0.79695)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-23a05f622b7b47a6">version-23a05f622b7b47a6</a>
+					<ul class="patch-list">
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/GuiService.html#member-IsTenFootInterface">GuiService.IsTenFootInterface</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Player.html#member-DataComplexity">Player.DataComplexity</a>
+							<span class="diff-values"><span><span>from</span> <span>[ReadOnly, NotReplicated]</span></span> <span><span>to</span> <span>[ReadOnly, NotReplicated, Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Player.html#member-DataComplexityLimit">Player.DataComplexityLimit</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotReplicated]</span></span> <span><span>to</span> <span>[NotReplicated, Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Player.html#member-DataReady">Player.DataReady</a>
+							<span class="diff-values"><span><span>from</span> <span>[ReadOnly, NotReplicated]</span></span> <span><span>to</span> <span>[ReadOnly, NotReplicated, Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-LoadBoolean">Player.LoadBoolean</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-LoadData">Player.LoadData</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-LoadInstance">Player.LoadInstance</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-LoadNumber">Player.LoadNumber</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-LoadString">Player.LoadString</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-SaveBoolean">Player.SaveBoolean</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-SaveData">Player.SaveData</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-SaveInstance">Player.SaveInstance</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-SaveLeaderboardData">Player.SaveLeaderboardData</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-SaveNumber">Player.SaveNumber</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-SaveString">Player.SaveString</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-WaitForDataReady">Player.WaitForDataReady</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[Yields, Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/SoundService.html#member-SetRecordingDevice">SoundService.SetRecordingDevice</a></li>
+						<li>Add Function <a href="/ref/class/SoundService.html#member-GetRecordingDevices">SoundService.GetRecordingDevices</a></li>
+						<li>Remove Enum <a href="/ref/enum/PhysicalPropertiesMode.html">PhysicalPropertiesMode</a>
+							<ul>
+								<li>Remove EnumItem <a href="/ref/enum/PhysicalPropertiesMode.html#member-Default">Default</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/PhysicalPropertiesMode.html#member-Legacy">Legacy</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/PhysicalPropertiesMode.html#member-New">New</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-8dbe81fc1dc94404" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-07-07 23:26:11-0700">2016-07-07 23:26</time> (v0.251.0.79115)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-8dbe81fc1dc94404">version-8dbe81fc1dc94404</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/Instance.html#member-WaitForChild">Instance.WaitForChild</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string childName)</span></span> <span><span>to</span> <span>(Primitive:string childName, Primitive:double timeOut)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Instance.html#member-WaitForChild">Instance.WaitForChild</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[CustomLuaState, CanYield]</span></span></span></li>
+						<li>Remove Class <a href="/ref/class/AnimationTrackState.html">AnimationTrackState</a>
+							<ul>
+							</ul></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpService.html#member-GetAsync">HttpService.GetAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:bool nocache = false)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:bool nocache = false, Group:Variant headers)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpService.html#member-PostAsync">HttpService.PostAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:string data, Enum:HttpContentType content_type = ApplicationJson, Primitive:bool compress = false)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:string data, Enum:HttpContentType content_type = ApplicationJson, Primitive:bool compress = false, Group:Variant headers)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-AutowedgeCell">Terrain.AutowedgeCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-AutowedgeCells">Terrain.AutowedgeCells</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-GetCell">Terrain.GetCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-GetWaterCell">Terrain.GetWaterCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetCell">Terrain.SetCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetCells">Terrain.SetCells</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetWaterCell">Terrain.SetWaterCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/SoundService.html#member-BeginRecording">SoundService.BeginRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:void</span></span> <span><span>to</span> <span>Primitive:bool</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/SoundService.html#member-BeginRecording">SoundService.BeginRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>Group:string</span></span> <span><span>to</span> <span>Group:Dictionary</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-5d57e290ce904d58" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-07-07 01:45:59-0700">2016-07-07 01:45</time> (v0.250.0.78284)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-5d57e290ce904d58">version-5d57e290ce904d58</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/Instance.html#member-WaitForChild">Instance.WaitForChild</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string childName, Primitive:double timeOut)</span></span> <span><span>to</span> <span>(Primitive:string childName)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Instance.html#member-WaitForChild">Instance.WaitForChild</a>
+							<span class="diff-values"><span><span>from</span> <span>[CustomLuaState, CanYield]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpService.html#member-GetAsync">HttpService.GetAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:bool nocache = false, Group:Variant headers)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:bool nocache = false)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpService.html#member-PostAsync">HttpService.PostAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:string data, Enum:HttpContentType content_type = ApplicationJson, Primitive:bool compress = false, Group:Variant headers)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:string data, Enum:HttpContentType content_type = ApplicationJson, Primitive:bool compress = false)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-AutowedgeCell">Terrain.AutowedgeCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-AutowedgeCells">Terrain.AutowedgeCells</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-GetCell">Terrain.GetCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-GetWaterCell">Terrain.GetWaterCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetCell">Terrain.SetCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetCells">Terrain.SetCells</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetWaterCell">Terrain.SetWaterCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/SoundService.html#member-BeginRecording">SoundService.BeginRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:bool</span></span> <span><span>to</span> <span>Primitive:void</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/SoundService.html#member-BeginRecording">SoundService.BeginRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>RobloxSecurity</span></span></span></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>Group:Dictionary</span></span> <span><span>to</span> <span>Group:string</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>RobloxSecurity</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li>Add Class <a href="/ref/class/AnimationTrackState.html">AnimationTrackState</a>
+							<ul>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-42905b3b819646d5" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-07-06 23:32:08-0700">2016-07-06 23:32</time> (v0.251.0.78685)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-42905b3b819646d5">version-42905b3b819646d5</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/Instance.html#member-WaitForChild">Instance.WaitForChild</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string childName)</span></span> <span><span>to</span> <span>(Primitive:string childName, Primitive:double timeOut)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Instance.html#member-WaitForChild">Instance.WaitForChild</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[CustomLuaState, CanYield]</span></span></span></li>
+						<li>Remove Class <a href="/ref/class/AnimationTrackState.html">AnimationTrackState</a>
+							<ul>
+							</ul></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpService.html#member-GetAsync">HttpService.GetAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:bool nocache = false)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:bool nocache = false, Group:Variant headers)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpService.html#member-PostAsync">HttpService.PostAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:string data, Enum:HttpContentType content_type = ApplicationJson, Primitive:bool compress = false)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:string data, Enum:HttpContentType content_type = ApplicationJson, Primitive:bool compress = false, Group:Variant headers)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-AutowedgeCell">Terrain.AutowedgeCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-AutowedgeCells">Terrain.AutowedgeCells</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-GetCell">Terrain.GetCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-GetWaterCell">Terrain.GetWaterCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetCell">Terrain.SetCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetCells">Terrain.SetCells</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Terrain.html#member-SetWaterCell">Terrain.SetWaterCell</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/SoundService.html#member-BeginRecording">SoundService.BeginRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:void</span></span> <span><span>to</span> <span>Primitive:bool</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/SoundService.html#member-BeginRecording">SoundService.BeginRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>Group:string</span></span> <span><span>to</span> <span>Group:Dictionary</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a10f4d0381364a83" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-29 23:45:09-0700">2016-06-29 23:45</time> (v0.250.0.78284)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-a10f4d0381364a83">version-a10f4d0381364a83</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-PlayerCanMakePurchases">MarketplaceService.PlayerCanMakePurchases</a></li>
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-GetRobuxBalance">MarketplaceService.GetRobuxBalance</a></li>
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-PerformPurchase">MarketplaceService.PerformPurchase</a></li>
+						<li>Add Property <a href="/ref/class/PartOperation.html#member-TriangleCount">PartOperation.TriangleCount</a></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Player.html#member-LoadCharacter">Player.LoadCharacter</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-CharacterAppearanceId">Player.CharacterAppearanceId</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-Team">Player.Team</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-ee338271909542da" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-24 02:32:05-0700">2016-06-24 02:32</time> (v0.249.0.77601)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-ee338271909542da">version-ee338271909542da</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-7876cc336a4a44bf" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-23 23:56:14-0700">2016-06-23 23:56</time> (v0.249.0.77601)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-7876cc336a4a44bf">version-7876cc336a4a44bf</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/RopeConstraint.html#member-CurrentLength">RopeConstraint.CurrentLength</a></li>
+						<li>Add Property <a href="/ref/class/RopeConstraint.html#member-CurrentDistance">RopeConstraint.CurrentDistance</a></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-IsLoaded">Sound.IsLoaded</a></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-Playing">Sound.Playing</a></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-RollOffMode">Sound.RollOffMode</a></li>
+						<li>Add Event <a href="/ref/class/Sound.html#member-Loaded">Sound.Loaded</a></li>
+						<li>Add Event <a href="/ref/class/Sound.html#member-Resumed">Sound.Resumed</a></li>
+						<li>Add Function <a href="/ref/class/SoundService.html#member-BeginRecording">SoundService.BeginRecording</a></li>
+						<li>Add Function <a href="/ref/class/SoundService.html#member-EndRecording">SoundService.EndRecording</a></li>
+						<li>Remove Class <a href="/ref/class/StudioTool.html">StudioTool</a>
+							<ul>
+								<li>Remove Property <a href="/ref/class/StudioTool.html#member-Enabled">Enabled</a></li>
+								<li>Remove Event <a href="/ref/class/StudioTool.html#member-Activated">Activated</a></li>
+								<li>Remove Event <a href="/ref/class/StudioTool.html#member-Deactivated">Deactivated</a></li>
+								<li>Remove Event <a href="/ref/class/StudioTool.html#member-Equipped">Equipped</a></li>
+								<li>Remove Event <a href="/ref/class/StudioTool.html#member-Unequipped">Unequipped</a></li>
+							</ul></li>
+						<li>Add EnumItem <a href="/ref/enum/RollOffMode.html#member-InverseTapered">RollOffMode.InverseTapered</a></li>
+						<li>Add EnumItem <a href="/ref/enum/RollOffMode.html#member-LinearSquare">RollOffMode.LinearSquare</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-6675f84c75f246df" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-15 23:25:20-0700">2016-06-15 23:25</time> (v0.248.0.76966)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-6675f84c75f246df">version-6675f84c75f246df</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Event <a href="/ref/class/AnimationTrack.html#member-Stopped">AnimationTrack.Stopped</a>
+							<span class="diff-values"><span><span>from</span> <span>[Deprecated]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/CoreGui.html#member-SetUserGuiRendering">CoreGui.SetUserGuiRendering</a></li>
+						<li>Add Property <a href="/ref/class/RenderSettings.html#member-ExperimentalTerrainLOD">RenderSettings.ExperimentalTerrainLOD</a></li>
+						<li>Add Function <a href="/ref/class/Team.html#member-GetPlayers">Team.GetPlayers</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-c044bc45019f474c" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-09 09:45:59-0700">2016-06-09 09:45</time> (v0.247.0.76247)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-c044bc45019f474c">version-c044bc45019f474c</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Chat.html#member-FilterStringForPlayerAsync">Chat.FilterStringForPlayerAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[Yields, Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Chat.html#member-FilterStringForBroadcast">Chat.FilterStringForBroadcast</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-d9fcefc50d70479b" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-09 09:06:32-0700">2016-06-09 09:06</time> (v0.246.0.75745)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-d9fcefc50d70479b">version-d9fcefc50d70479b</a>
+					<ul class="patch-list">
+						<li>Remove Function <a href="/ref/class/Chat.html#member-FilterStringForBroadcast">Chat.FilterStringForBroadcast</a></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Chat.html#member-FilterStringForPlayerAsync">Chat.FilterStringForPlayerAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields, Deprecated]</span></span> <span><span>to</span> <span>[Yields]</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-215b5f89be574276" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-08 23:33:11-0700">2016-06-08 23:33</time> (v0.247.0.76247)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-215b5f89be574276">version-215b5f89be574276</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Chat.html#member-FilterStringForPlayerAsync">Chat.FilterStringForPlayerAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[Yields, Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Chat.html#member-FilterStringForBroadcast">Chat.FilterStringForBroadcast</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-95422f989d67473f" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-06-01 23:23:58-0700">2016-06-01 23:23</time> (v0.246.0.75745)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-95422f989d67473f">version-95422f989d67473f</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/TextBox.html#member-ReleaseFocus">TextBox.ReleaseFocus</a>
+							<span class="diff-values"><span><span>from</span> <span>()</span></span> <span><span>to</span> <span>(Primitive:bool submitted = false)</span></span></span></li>
+						<li>Remove Property <a href="/ref/class/MeshPart.html#member-Material">MeshPart.Material</a></li>
+						<li>Remove Function <a href="/ref/class/GlobalSettings.html#member-GetFVariables">GlobalSettings.GetFVariables</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-MouseSensitivityFirstPerson">UserGameSettings.MouseSensitivityFirstPerson</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-MouseSensitivityThirdPerson">UserGameSettings.MouseSensitivityThirdPerson</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-UseBasicMouseSensitivity">UserGameSettings.UseBasicMouseSensitivity</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-MouseDeltaSensitivity">UserInputService.MouseDeltaSensitivity</a></li>
+						<li>Add Enum <a href="/ref/enum/GameAvatarType.html">GameAvatarType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/GameAvatarType.html#member-R6">R6</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GameAvatarType.html#member-R15">R15</a></li>
+								<li>Add EnumItem <a href="/ref/enum/GameAvatarType.html#member-PlayerChoice">PlayerChoice</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-c542e3639a5f40f9" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-05-25 23:34:53-0700">2016-05-25 23:34</time> (v0.245.0.75346)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-c542e3639a5f40f9">version-c542e3639a5f40f9</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3df8ddf7c03c4c87" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-05-18 23:35:22-0700">2016-05-18 23:35</time> (v0.244.0.74597)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-3df8ddf7c03c4c87">version-3df8ddf7c03c4c87</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/GuiService.html#member-ScreenGuiEnabled">GuiService.ScreenGuiEnabled</a></li>
+						<li>Add Property <a href="/ref/class/MeshPart.html#member-Material">MeshPart.Material</a></li>
+						<li>Add Property <a href="/ref/class/Pose.html#member-EasingDirection">Pose.EasingDirection</a></li>
+						<li>Add Property <a href="/ref/class/Pose.html#member-EasingStyle">Pose.EasingStyle</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-ea1275ebfe8b4651" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-05-11 23:26:16-0700">2016-05-11 23:26</time> (v0.243.0.74022)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-ea1275ebfe8b4651">version-ea1275ebfe8b4651</a>
+					<ul class="patch-list">
+						<li>Add Class <a href="/ref/class/PostEffect.html">PostEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/PostEffect.html#member-Enabled">Enabled</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/BloomEffect.html">BloomEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/BloomEffect.html#member-Intensity">Intensity</a></li>
+								<li>Add Property <a href="/ref/class/BloomEffect.html#member-Size">Size</a></li>
+								<li>Add Property <a href="/ref/class/BloomEffect.html#member-Threshold">Threshold</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/BlurEffect.html">BlurEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/BlurEffect.html#member-Size">Size</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/ColorCorrectionEffect.html">ColorCorrectionEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/ColorCorrectionEffect.html#member-Brightness">Brightness</a></li>
+								<li>Add Property <a href="/ref/class/ColorCorrectionEffect.html#member-Contrast">Contrast</a></li>
+								<li>Add Property <a href="/ref/class/ColorCorrectionEffect.html#member-Saturation">Saturation</a></li>
+								<li>Add Property <a href="/ref/class/ColorCorrectionEffect.html#member-TintColor">TintColor</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/SunRaysEffect.html">SunRaysEffect</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/SunRaysEffect.html#member-Intensity">Intensity</a></li>
+								<li>Add Property <a href="/ref/class/SunRaysEffect.html#member-Spread">Spread</a></li>
+							</ul></li>
+						<li>Add EnumItem <a href="/ref/enum/VibrationMotor.html#member-LeftHand">VibrationMotor.LeftHand</a></li>
+						<li>Add EnumItem <a href="/ref/enum/VibrationMotor.html#member-RightHand">VibrationMotor.RightHand</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2200d9d66c7a4c4f" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-05-04 23:34:19-0700">2016-05-04 23:34</time> (v0.242.0.73718)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-2200d9d66c7a4c4f">version-2200d9d66c7a4c4f</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Chat.html#member-FilterStringAsync">Chat.FilterStringAsync</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/FormFactorPart.html#member-FormFactor">FormFactorPart.FormFactor</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotReplicated]</span></span> <span><span>to</span> <span>[NotReplicated, Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/FormFactorPart.html#member-formFactor">FormFactorPart.formFactor</a>
+							<span class="diff-values"><span><span>from</span> <span>[Hidden, NotReplicated]</span></span> <span><span>to</span> <span>[Hidden, NotReplicated, Deprecated]</span></span></span></li>
+						<li>Add Class <a href="/ref/class/MeshPart.html">MeshPart</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/MeshPart.html#member-TextureID">TextureID</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-ea1ccffcf5ea48fc" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-04-27 23:33:25-0700">2016-04-27 23:33</time> (v0.241.0.73233)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-ea1ccffcf5ea48fc">version-ea1ccffcf5ea48fc</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Attachment.html#member-Axis">Attachment.Axis</a></li>
+						<li>Add Property <a href="/ref/class/Attachment.html#member-SecondaryAxis">Attachment.SecondaryAxis</a></li>
+						<li>Add Property <a href="/ref/class/Attachment.html#member-WorldAxis">Attachment.WorldAxis</a></li>
+						<li>Add Property <a href="/ref/class/Attachment.html#member-WorldSecondaryAxis">Attachment.WorldSecondaryAxis</a></li>
+						<li>Add Function <a href="/ref/class/Attachment.html#member-GetAxis">Attachment.GetAxis</a></li>
+						<li>Add Function <a href="/ref/class/Attachment.html#member-GetSecondaryAxis">Attachment.GetSecondaryAxis</a></li>
+						<li>Add Function <a href="/ref/class/Attachment.html#member-SetAxis">Attachment.SetAxis</a></li>
+						<li>Add Function <a href="/ref/class/Attachment.html#member-SetSecondaryAxis">Attachment.SetSecondaryAxis</a></li>
+						<li>Add Property <a href="/ref/class/SurfaceGui.html#member-AlwaysOnTop">SurfaceGui.AlwaysOnTop</a></li>
+						<li>Add Property <a href="/ref/class/Workspace.html#member-Gravity">Workspace.Gravity</a></li>
+						<li>Add Property <a href="/ref/class/PhysicsSettings.html#member-AreAttachmentsShown">PhysicsSettings.AreAttachmentsShown</a></li>
+						<li>Add Property <a href="/ref/class/PhysicsSettings.html#member-AreConstraintsShown">PhysicsSettings.AreConstraintsShown</a></li>
+						<li>Add Class <a href="/ref/class/Constraint.html">Constraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/Constraint.html#member-Attachment0">Attachment0</a></li>
+								<li>Add Property <a href="/ref/class/Constraint.html#member-Attachment1">Attachment1</a></li>
+								<li>Add Property <a href="/ref/class/Constraint.html#member-Enabled">Enabled</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/BallSocketConstraint.html">BallSocketConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/BallSocketConstraint.html#member-LimitsEnabled">LimitsEnabled</a></li>
+								<li>Add Property <a href="/ref/class/BallSocketConstraint.html#member-Restitution">Restitution</a></li>
+								<li>Add Property <a href="/ref/class/BallSocketConstraint.html#member-UpperAngle">UpperAngle</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/HingeConstraint.html">HingeConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-ActuatorType">ActuatorType</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-AngularSpeed">AngularSpeed</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-AngularVelocity">AngularVelocity</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-CurrentAngle">CurrentAngle</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-LimitsEnabled">LimitsEnabled</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-LowerAngle">LowerAngle</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-MotorMaxAcceleration">MotorMaxAcceleration</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-MotorMaxTorque">MotorMaxTorque</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-Restitution">Restitution</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-ServoMaxTorque">ServoMaxTorque</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-TargetAngle">TargetAngle</a></li>
+								<li>Add Property <a href="/ref/class/HingeConstraint.html#member-UpperAngle">UpperAngle</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/MoveToConstraint.html">MoveToConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/MoveToConstraint.html#member-MaxForce">MaxForce</a></li>
+								<li>Add Property <a href="/ref/class/MoveToConstraint.html#member-StabilizingDistance">StabilizingDistance</a></li>
+								<li>Add Property <a href="/ref/class/MoveToConstraint.html#member-Velocity">Velocity</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/RodConstraint.html">RodConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/RodConstraint.html#member-CurrentDistance">CurrentDistance</a></li>
+								<li>Add Property <a href="/ref/class/RodConstraint.html#member-Length">Length</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/RopeConstraint.html">RopeConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/RopeConstraint.html#member-CurrentLength">CurrentLength</a></li>
+								<li>Add Property <a href="/ref/class/RopeConstraint.html#member-Length">Length</a></li>
+								<li>Add Property <a href="/ref/class/RopeConstraint.html#member-Restitution">Restitution</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/SlidingBallConstraint.html">SlidingBallConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-ActuatorType">ActuatorType</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-CurrentPosition">CurrentPosition</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-LimitsEnabled">LimitsEnabled</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-LowerLimit">LowerLimit</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-MotorMaxAcceleration">MotorMaxAcceleration</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-MotorMaxForce">MotorMaxForce</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-Restitution">Restitution</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-ServoMaxForce">ServoMaxForce</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-Speed">Speed</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-TargetPosition">TargetPosition</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-UpperLimit">UpperLimit</a></li>
+								<li>Add Property <a href="/ref/class/SlidingBallConstraint.html#member-Velocity">Velocity</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/CylindricalConstraint.html">CylindricalConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/CylindricalConstraint.html#member-AzimuthalAngle">AzimuthalAngle</a></li>
+								<li>Add Property <a href="/ref/class/CylindricalConstraint.html#member-InclinationAngle">InclinationAngle</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PrismaticConstraint.html">PrismaticConstraint</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/SpringConstraint.html">SpringConstraint</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-CurrentLength">CurrentLength</a></li>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-Damping">Damping</a></li>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-FreeLength">FreeLength</a></li>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-LimitsEnabled">LimitsEnabled</a></li>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-MaxForce">MaxForce</a></li>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-MaxLength">MaxLength</a></li>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-MinLength">MinLength</a></li>
+								<li>Add Property <a href="/ref/class/SpringConstraint.html#member-Stiffness">Stiffness</a></li>
+							</ul></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/JointType.html#member-None">JointType.None</a>
+							<span class="diff-values"><span><span>from</span> <span>13</span></span> <span><span>to</span> <span>22</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-Asphalt">Material.Asphalt</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-LeafyGrass">Material.LeafyGrass</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-Salt">Material.Salt</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-Limestone">Material.Limestone</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-Pavement">Material.Pavement</a></li>
+						<li>Add Enum <a href="/ref/enum/ActuatorType.html">ActuatorType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ActuatorType.html#member-None">None</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ActuatorType.html#member-Motor">Motor</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ActuatorType.html#member-Servo">Servo</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-fe88b67aa44a44d9" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-04-21 23:22:37-0700">2016-04-21 23:22</time> (v0.240.0.72635)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-fe88b67aa44a44d9">version-fe88b67aa44a44d9</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Camera.html#member-HeadScale">Camera.HeadScale</a></li>
+						<li>Add Function <a href="/ref/class/NetworkServer.html#member-ConfigureAsTeamTestServer">NetworkServer.ConfigureAsTeamTestServer</a></li>
+						<li>Remove Property <a href="/ref/class/UserInputService.html#member-IsVREnabled">UserInputService.IsVREnabled</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2fd5590479874e29" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-04-14 23:34:21-0700">2016-04-14 23:34</time> (v0.239.0.72510)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-2fd5590479874e29">version-2fd5590479874e29</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-VRRotationIntensity">UserGameSettings.VRRotationIntensity</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-fedbf229679d4da1" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-04-14 02:19:43-0700">2016-04-14 02:19</time> (v0.238.0.71937)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-fedbf229679d4da1">version-fedbf229679d4da1</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/UserGameSettings.html#member-VRRotationIntensity">UserGameSettings.VRRotationIntensity</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-QuotedDouble">KeyCode.QuotedDouble</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>34</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Hash">KeyCode.Hash</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>35</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Dollar">KeyCode.Dollar</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>36</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Percent">KeyCode.Percent</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>37</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Ampersand">KeyCode.Ampersand</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>38</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LeftParenthesis">KeyCode.LeftParenthesis</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>40</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-RightParenthesis">KeyCode.RightParenthesis</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>41</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Asterisk">KeyCode.Asterisk</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>42</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Underscore">KeyCode.Underscore</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>95</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Tilde">KeyCode.Tilde</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>126</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Colon">KeyCode.Colon</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>58</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Plus">KeyCode.Plus</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>43</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Pipe">KeyCode.Pipe</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>124</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LessThan">KeyCode.LessThan</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>60</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-GreaterThan">KeyCode.GreaterThan</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>62</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Question">KeyCode.Question</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>63</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-At">KeyCode.At</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>64</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Caret">KeyCode.Caret</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>94</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LeftCurly">KeyCode.LeftCurly</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>123</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-RightCurly">KeyCode.RightCurly</a>
+							<span class="diff-values"><span><span>from</span> <span>0</span></span> <span><span>to</span> <span>125</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LeftBracket">KeyCode.LeftBracket</a>
+							<span class="diff-values"><span><span>from</span> <span>64</span></span> <span><span>to</span> <span>91</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-BackSlash">KeyCode.BackSlash</a>
+							<span class="diff-values"><span><span>from</span> <span>93</span></span> <span><span>to</span> <span>92</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-RightBracket">KeyCode.RightBracket</a>
+							<span class="diff-values"><span><span>from</span> <span>91</span></span> <span><span>to</span> <span>93</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Quote">KeyCode.Quote</a>
+							<span class="diff-values"><span><span>from</span> <span>58</span></span> <span><span>to</span> <span>39</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-591ebeb406da45d9" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-04-13 23:31:05-0700">2016-04-13 23:31</time> (v0.239.0.72240)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-591ebeb406da45d9">version-591ebeb406da45d9</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-VRRotationIntensity">UserGameSettings.VRRotationIntensity</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-QuotedDouble">KeyCode.QuotedDouble</a>
+							<span class="diff-values"><span><span>from</span> <span>34</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Hash">KeyCode.Hash</a>
+							<span class="diff-values"><span><span>from</span> <span>35</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Dollar">KeyCode.Dollar</a>
+							<span class="diff-values"><span><span>from</span> <span>36</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Percent">KeyCode.Percent</a>
+							<span class="diff-values"><span><span>from</span> <span>37</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Ampersand">KeyCode.Ampersand</a>
+							<span class="diff-values"><span><span>from</span> <span>38</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Quote">KeyCode.Quote</a>
+							<span class="diff-values"><span><span>from</span> <span>39</span></span> <span><span>to</span> <span>58</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LeftParenthesis">KeyCode.LeftParenthesis</a>
+							<span class="diff-values"><span><span>from</span> <span>40</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-RightParenthesis">KeyCode.RightParenthesis</a>
+							<span class="diff-values"><span><span>from</span> <span>41</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Asterisk">KeyCode.Asterisk</a>
+							<span class="diff-values"><span><span>from</span> <span>42</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Plus">KeyCode.Plus</a>
+							<span class="diff-values"><span><span>from</span> <span>43</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Colon">KeyCode.Colon</a>
+							<span class="diff-values"><span><span>from</span> <span>58</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LessThan">KeyCode.LessThan</a>
+							<span class="diff-values"><span><span>from</span> <span>60</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-GreaterThan">KeyCode.GreaterThan</a>
+							<span class="diff-values"><span><span>from</span> <span>62</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Question">KeyCode.Question</a>
+							<span class="diff-values"><span><span>from</span> <span>63</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-At">KeyCode.At</a>
+							<span class="diff-values"><span><span>from</span> <span>64</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LeftBracket">KeyCode.LeftBracket</a>
+							<span class="diff-values"><span><span>from</span> <span>91</span></span> <span><span>to</span> <span>64</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-BackSlash">KeyCode.BackSlash</a>
+							<span class="diff-values"><span><span>from</span> <span>92</span></span> <span><span>to</span> <span>93</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-RightBracket">KeyCode.RightBracket</a>
+							<span class="diff-values"><span><span>from</span> <span>93</span></span> <span><span>to</span> <span>91</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Caret">KeyCode.Caret</a>
+							<span class="diff-values"><span><span>from</span> <span>94</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Underscore">KeyCode.Underscore</a>
+							<span class="diff-values"><span><span>from</span> <span>95</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-LeftCurly">KeyCode.LeftCurly</a>
+							<span class="diff-values"><span><span>from</span> <span>123</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Pipe">KeyCode.Pipe</a>
+							<span class="diff-values"><span><span>from</span> <span>124</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-RightCurly">KeyCode.RightCurly</a>
+							<span class="diff-values"><span><span>from</span> <span>125</span></span> <span><span>to</span> <span>0</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/KeyCode.html#member-Tilde">KeyCode.Tilde</a>
+							<span class="diff-values"><span><span>from</span> <span>126</span></span> <span><span>to</span> <span>0</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b7bf51c941dd400f" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-04-06 23:24:40-0700">2016-04-06 23:24</time> (v0.238.0.71937)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-b7bf51c941dd400f">version-b7bf51c941dd400f</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-ReportAssetSale">MarketplaceService.ReportAssetSale</a></li>
+						<li>Remove Function <a href="/ref/class/DataModel.html#member-SetGameInstanceId">DataModel.SetGameInstanceId</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-fe7696f13e4e4f07" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-03-30 23:36:44-0700">2016-03-30 23:36</time> (v0.237.0.71750)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-fe7696f13e4e4f07">version-fe7696f13e4e4f07</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/Hat.html">Hat</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-ReportRobuxUpsellStarted">MarketplaceService.ReportRobuxUpsellStarted</a></li>
+						<li>Add Class <a href="/ref/class/Accessory.html">Accessory</a>
+							<ul>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-4bc75dd7e05f4feb" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-03-23 23:33:19-0700">2016-03-23 23:33</time> (v0.236.0.71257)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-4bc75dd7e05f4feb">version-4bc75dd7e05f4feb</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Workspace.html#member-GetPhysicsAnalyzerBreakOnIssue">Workspace.GetPhysicsAnalyzerBreakOnIssue</a></li>
+						<li>Add Function <a href="/ref/class/Workspace.html#member-GetPhysicsAnalyzerIssue">Workspace.GetPhysicsAnalyzerIssue</a></li>
+						<li>Add Function <a href="/ref/class/Workspace.html#member-SetPhysicsAnalyzerBreakOnIssue">Workspace.SetPhysicsAnalyzerBreakOnIssue</a></li>
+						<li>Add Event <a href="/ref/class/Workspace.html#member-PhysicsAnalyzerIssuesFound">Workspace.PhysicsAnalyzerIssuesFound</a></li>
+						<li>Add Property <a href="/ref/class/PhysicsSettings.html#member-PhysicsAnalyzerEnabled">PhysicsSettings.PhysicsAnalyzerEnabled</a></li>
+						<li>Add Function <a href="/ref/class/DataModel.html#member-SetGameInstanceId">DataModel.SetGameInstanceId</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/UserInputService.html#member-UserHeadCFrame">UserInputService.UserHeadCFrame</a>
+							<span class="diff-values"><span><span>from</span> <span>[ReadOnly, NotReplicated]</span></span> <span><span>to</span> <span>[ReadOnly, NotReplicated, Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/UserInputService.html#member-GetUserCFrame">UserInputService.GetUserCFrame</a></li>
+						<li>Add Event <a href="/ref/class/UserInputService.html#member-UserCFrameChanged">UserInputService.UserCFrameChanged</a></li>
+						<li>Add Enum <a href="/ref/enum/UserCFrame.html">UserCFrame</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/UserCFrame.html#member-Head">Head</a></li>
+								<li>Add EnumItem <a href="/ref/enum/UserCFrame.html#member-LeftHand">LeftHand</a></li>
+								<li>Add EnumItem <a href="/ref/enum/UserCFrame.html#member-RightHand">RightHand</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3334c46e6d704f6d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-03-16 23:32:59-0700">2016-03-16 23:32</time> (v0.235.0.71049)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-3334c46e6d704f6d">version-3334c46e6d704f6d</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Player.html#member-VRDevice">Player.VRDevice</a></li>
+						<li>Add Class <a href="/ref/class/Attachment.html">Attachment</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/Attachment.html#member-CFrame">CFrame</a></li>
+								<li>Add Property <a href="/ref/class/Attachment.html#member-Position">Position</a></li>
+								<li>Add Property <a href="/ref/class/Attachment.html#member-Rotation">Rotation</a></li>
+								<li>Add Property <a href="/ref/class/Attachment.html#member-WorldPosition">WorldPosition</a></li>
+								<li>Add Property <a href="/ref/class/Attachment.html#member-WorldRotation">WorldRotation</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-982400cd257443c7" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-03-09 23:41:10-0800">2016-03-09 23:41</time> (v0.234.0.70694)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-982400cd257443c7">version-982400cd257443c7</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Camera.html#member-HeadLocked">Camera.HeadLocked</a></li>
+						<li>Add Function <a href="/ref/class/Camera.html#member-GetRenderCFrame">Camera.GetRenderCFrame</a></li>
+						<li>Add Property <a href="/ref/class/GuiService.html#member-CoreGuiNavigationEnabled">GuiService.CoreGuiNavigationEnabled</a></li>
+						<li>Add Function <a href="/ref/class/UserInputService.html#member-RecenterUserHeadCFrame">UserInputService.RecenterUserHeadCFrame</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-f57d20c466824405" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-03-02 23:46:45-0800">2016-03-02 23:46</time> (v0.233.0.70116)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-f57d20c466824405">version-f57d20c466824405</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Humanoid.html#member-RigType">Humanoid.RigType</a></li>
+						<li>Add Enum <a href="/ref/enum/HumanoidRigType.html">HumanoidRigType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidRigType.html#member-R6">R6</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidRigType.html#member-R15">R15</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-4f98464fe094408d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-02-24 23:32:49-0800">2016-02-24 23:32</time> (v0.232.0.69914)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-4f98464fe094408d">version-4f98464fe094408d</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/GuiService.html#member-IsTenFootInterface">GuiService.IsTenFootInterface</a></li>
+						<li>Add Class <a href="/ref/class/HapticService.html">HapticService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/HapticService.html#member-GetMotor">GetMotor</a></li>
+								<li>Add Function <a href="/ref/class/HapticService.html#member-IsMotorSupported">IsMotorSupported</a></li>
+								<li>Add Function <a href="/ref/class/HapticService.html#member-IsVibrationSupported">IsVibrationSupported</a></li>
+								<li>Add Function <a href="/ref/class/HapticService.html#member-SetMotor">SetMotor</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/VibrationMotor.html">VibrationMotor</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/VibrationMotor.html#member-Large">Large</a></li>
+								<li>Add EnumItem <a href="/ref/enum/VibrationMotor.html#member-Small">Small</a></li>
+								<li>Add EnumItem <a href="/ref/enum/VibrationMotor.html#member-LeftTrigger">LeftTrigger</a></li>
+								<li>Add EnumItem <a href="/ref/enum/VibrationMotor.html#member-RightTrigger">RightTrigger</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a1b8c1edf45b4959" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-02-17 23:24:08-0800">2016-02-17 23:24</time> (v0.231.0.69474)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-a1b8c1edf45b4959">version-a1b8c1edf45b4959</a>
+					<ul class="patch-list">
+						<li>Add Event <a href="/ref/class/Humanoid.html#member-StateEnabledChanged">Humanoid.StateEnabledChanged</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/Platform.html#member-None">Platform.None</a>
+							<span class="diff-values"><span><span>from</span> <span>18</span></span> <span><span>to</span> <span>19</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/Platform.html#member-UWP">Platform.UWP</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-44dbdc803ea548d8" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-02-10 23:36:21-0800">2016-02-10 23:36</time> (v0.230.0.68937)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-44dbdc803ea548d8">version-44dbdc803ea548d8</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Camera.html#member-CoordinateFrame">Camera.CoordinateFrame</a>
+							<span class="diff-values"><span><span>from</span> <span>[NotReplicated]</span></span> <span><span>to</span> <span>[Hidden, NotReplicated, Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Camera.html#member-CFrame">Camera.CFrame</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/UserInputService.html#member-IsVREnabled">UserInputService.IsVREnabled</a>
+							<span class="diff-values"><span><span>from</span> <span>[ReadOnly]</span></span> <span><span>to</span> <span>[ReadOnly, Deprecated]</span></span></span></li>
+						<li>Remove Function <a href="/ref/class/UserInputService.html#member-IsLuaTouchControls">UserInputService.IsLuaTouchControls</a></li>
+						<li>Remove Function <a href="/ref/class/UserInputService.html#member-IsStudioTouchEmulationEnabled">UserInputService.IsStudioTouchEmulationEnabled</a></li>
+						<li>Remove Function <a href="/ref/class/UserInputService.html#member-RotateCamera">UserInputService.RotateCamera</a></li>
+						<li>Remove Function <a href="/ref/class/UserInputService.html#member-ZoomCamera">UserInputService.ZoomCamera</a></li>
+						<li>Remove Event <a href="/ref/class/UserInputService.html#member-ProcessedEvent">UserInputService.ProcessedEvent</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-VREnabled">UserInputService.VREnabled</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-4f0396924dd349d9" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-02-03 23:30:21-0800">2016-02-03 23:30</time> (v0.229.0.68780)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-4f0396924dd349d9">version-4f0396924dd349d9</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-IsVREnabled">UserInputService.IsVREnabled</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-UserHeadCFrame">UserInputService.UserHeadCFrame</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-0ce38a2c538e4023" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-01-28 23:39:48-0800">2016-01-28 23:39</time> (v0.228.0.68457)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-0ce38a2c538e4023">version-0ce38a2c538e4023</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-6af752c615a14d34" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-01-21 00:03:49-0800">2016-01-21 00:03</time> (v0.227.0.68137)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-6af752c615a14d34">version-6af752c615a14d34</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-34ed881168734450" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-01-20 23:52:10-0800">2016-01-20 23:52</time> (v0.227.0.68137)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-34ed881168734450">version-34ed881168734450</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Humanoid.html#member-HipHeight">Humanoid.HipHeight</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e1544481252d4990" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-01-13 23:35:39-0800">2016-01-13 23:35</time> (v0.226.0.67999)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-e1544481252d4990">version-e1544481252d4990</a>
+					<ul class="patch-list">
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/UserInputService.html#member-GetLastInputType">UserInputService.GetLastInputType</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-LastInputTypeChanged">UserInputService.LastInputTypeChanged</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/UserInputType.html#member-TextInput">UserInputType.TextInput</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-7d5a5b16f3354346" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2016-01-06 23:33:36-0800">2016-01-06 23:33</time> (v0.225.0.67689)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2016.html#version-7d5a5b16f3354346">version-7d5a5b16f3354346</a>
+					<ul class="patch-list">
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/UserInputType.html#member-None">UserInputType.None</a>
+							<span class="diff-values"><span><span>from</span> <span>16</span></span> <span><span>to</span> <span>21</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/UserInputType.html#member-Gamepad5">UserInputType.Gamepad5</a></li>
+						<li>Add EnumItem <a href="/ref/enum/UserInputType.html#member-Gamepad6">UserInputType.Gamepad6</a></li>
+						<li>Add EnumItem <a href="/ref/enum/UserInputType.html#member-Gamepad7">UserInputType.Gamepad7</a></li>
+						<li>Add EnumItem <a href="/ref/enum/UserInputType.html#member-Gamepad8">UserInputType.Gamepad8</a></li>
+					</ul>
+				</article>
+			</li>
+		</ul>
+	</main>
+</body>
+</html>

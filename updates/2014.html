@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Roblox Lua API Updates</title>
+	<link href="/ref/res/root.css" rel="stylesheet" type="text/css" />
+	<style id="updates-style">
+		li[diff-field="Parameters"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Parameters"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Parameters"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		li[diff-field="Tags"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Tags"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Tags"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		a.permalink {
+			display: none;
+		}
+		*:hover > a.permalink {
+			display: inline;
+		}
+		*:hover > a.permalink:before {
+			content : ' ¶ ';
+		}
+		.patch-list.hidden {
+			display: none;
+		}
+	</style>
+	<script src="/ref/res/root.js" charset="utf-8"></script>
+	<script>
+		function toggleList(event) {
+			var parent = event.target.closest(".update");
+			if (parent === null) {
+				return;
+			};
+			var list = parent.querySelector(".patch-list");
+			if (list === null) {
+				return;
+			};
+			if (list.classList.contains("hidden")) {
+				list.classList.remove("hidden");
+			} else {
+				list.classList.add("hidden");
+			};
+		};
+		function toggleAll(show, scroll) {
+			var scrollTo;
+			for (item of document.querySelectorAll("#update-list > li .patch-list")) {
+				var anchor = item.parentElement.querySelector("a.anchor:target");
+				if (anchor !== null) {
+					scrollTo = anchor;
+				}
+				if (show) {
+					item.classList.remove("hidden");
+				} else {
+					if (anchor !== null) {
+						item.classList.remove("hidden");
+					} else {
+						item.classList.add("hidden");
+					};
+				};
+			};
+			if (scroll && scrollTo !== undefined) {
+				scrollTo.scrollIntoView(true);
+			};
+		};
+		document.addEventListener("DOMContentLoaded", function(event) {
+			var controls = document.getElementById("controls");
+			if (controls !== null) {
+				controls.insertAdjacentHTML("beforeBegin", '<label><input type="checkbox" id="expand-all">All changes expanded</label>');
+			};
+
+			var expandAll = document.getElementById("expand-all");
+			if (expandAll !== null) {
+				expandAll.addEventListener("click", function(event) {
+					toggleAll(event.target.checked, false);
+				});
+				toggleAll(expandAll.checked, true);
+			} else {;
+				toggleAll(false, true);
+			};
+
+			for (item of document.querySelectorAll("#update-list > li .patch-list-toggle")) {
+				item.addEventListener("click", toggleList);
+			};
+
+			var list = document.getElementById("update-list");
+			if (list !== null) {
+				var note = document.createElement("div");
+				note.innerText = "Click a date to expand or collapse changes.";
+				list.parentElement.insertBefore(note, list);
+			};
+
+			var style = document.getElementById("updates-style");
+			if (style !== null) {
+				style.sheet.insertRule(".patch-list-toggle {cursor: pointer;}");
+			};
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<h1>API Updates in 2014</h1>
+	</header>
+	<aside id="controls">
+	</aside>
+	<nav>
+		<ul>
+			<li><a href="/ref/updates.html">Recent</a></li>
+			<li><a href="/ref/updates/2018.html">2018</a></li>
+			<li><a href="/ref/updates/2017.html">2017</a></li>
+			<li><a href="/ref/updates/2016.html">2016</a></li>
+			<li><a href="/ref/updates/2015.html">2015</a></li>
+			<li class="current">2014</li>
+			<li><a href="/ref/updates/2013.html">2013</a></li>
+			<li><a href="/ref/updates/2012.html">2012</a></li>
+			<li><a href="/ref/updates/2011.html">2011</a></li>
+		</ul>
+	</nav>
+	<main>
+		<ul id="update-list">
+			<li>
+				<article class="update">
+					<a id="version-d11d3bd1dfae46fa" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-12-10 23:35:56-0800">2014-12-10 23:35</time> (v0.178.0.54547)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-d11d3bd1dfae46fa">version-d11d3bd1dfae46fa</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Decal.html#member-LocalTransparencyModifier">Decal.LocalTransparencyModifier</a></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/Sound.html#member-TimeLength">Sound.TimeLength</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:double</span></span></span></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/Sound.html#member-TimePosition">Sound.TimePosition</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:double</span></span></span></li>
+						<li>Add Property <a href="/ref/class/TestService.html#member-SimulateSecondsLag">TestService.SimulateSecondsLag</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-632471a80776450d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-12-03 23:32:22-0800">2014-12-03 23:32</time> (v0.177.0.54327)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-632471a80776450d">version-632471a80776450d</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Player.html#member-DevCameraOcclusionMode">Player.DevCameraOcclusionMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevComputerCameraMode">Player.DevComputerCameraMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevComputerMovementMode">Player.DevComputerMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevEnableMouseLock">Player.DevEnableMouseLock</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevTouchCameraMode">Player.DevTouchCameraMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevTouchMovementMode">Player.DevTouchMovementMode</a></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-0aae98b55b324621" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-11-20 00:55:44-0800">2014-11-20 00:55</time> (v0.176.0.53771)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-0aae98b55b324621">version-0aae98b55b324621</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/Player.html#member-DevCameraOcclusionMode">Player.DevCameraOcclusionMode</a></li>
+						<li>Remove Property <a href="/ref/class/Player.html#member-DevComputerCameraMode">Player.DevComputerCameraMode</a></li>
+						<li>Remove Property <a href="/ref/class/Player.html#member-DevComputerMovementMode">Player.DevComputerMovementMode</a></li>
+						<li>Remove Property <a href="/ref/class/Player.html#member-DevEnableMouseLock">Player.DevEnableMouseLock</a></li>
+						<li>Remove Property <a href="/ref/class/Player.html#member-DevTouchCameraMode">Player.DevTouchCameraMode</a></li>
+						<li>Remove Property <a href="/ref/class/Player.html#member-DevTouchMovementMode">Player.DevTouchMovementMode</a></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3f5235ea29d74b24" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-11-19 23:37:16-0800">2014-11-19 23:37</time> (v0.177.0.53981)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-3f5235ea29d74b24">version-3f5235ea29d74b24</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Player.html#member-DevCameraOcclusionMode">Player.DevCameraOcclusionMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevComputerCameraMode">Player.DevComputerCameraMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevComputerMovementMode">Player.DevComputerMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevEnableMouseLock">Player.DevEnableMouseLock</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevTouchCameraMode">Player.DevTouchCameraMode</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-DevTouchMovementMode">Player.DevTouchMovementMode</a></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3248bf75d66c4154" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-11-12 23:33:07-0800">2014-11-12 23:33</time> (v0.176.0.53771)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-3248bf75d66c4154">version-3248bf75d66c4154</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Sound.html#member-TimeLength">Sound.TimeLength</a></li>
+						<li>Add Property <a href="/ref/class/Sound.html#member-TimePosition">Sound.TimePosition</a></li>
+						<li>Add Property <a href="/ref/class/StarterPlayer.html#member-DevCameraOcclusionMode">StarterPlayer.DevCameraOcclusionMode</a></li>
+						<li>Add Property <a href="/ref/class/StarterPlayer.html#member-DevComputerCameraMovementMode">StarterPlayer.DevComputerCameraMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/StarterPlayer.html#member-DevComputerMovementMode">StarterPlayer.DevComputerMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/StarterPlayer.html#member-DevTouchCameraMovementMode">StarterPlayer.DevTouchCameraMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/StarterPlayer.html#member-DevTouchMovementMode">StarterPlayer.DevTouchMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/StarterPlayer.html#member-EnableMouseLockOption">StarterPlayer.EnableMouseLockOption</a></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-AllTutorialsDisabled">UserGameSettings.AllTutorialsDisabled</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-AllTutorialsDisabled">UserGameSettings.AllTutorialsDisabled</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-CameraMode">UserGameSettings.CameraMode</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-CameraMode">UserGameSettings.CameraMode</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ControlMode">UserGameSettings.ControlMode</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-Fullscreen">UserGameSettings.Fullscreen</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-Fullscreen">UserGameSettings.Fullscreen</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ImageUploadPromptBehavior">UserGameSettings.ImageUploadPromptBehavior</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-ImageUploadPromptBehavior">UserGameSettings.ImageUploadPromptBehavior</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-SavedQualityLevel">UserGameSettings.SavedQualityLevel</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-SavedQualityLevel">UserGameSettings.SavedQualityLevel</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/UserGameSettings.html#member-VideoUploadPromptBehavior">UserGameSettings.VideoUploadPromptBehavior</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/UserGameSettings.html#member-VideoUploadPromptBehavior">UserGameSettings.VideoUploadPromptBehavior</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-ComputerCameraMovementMode">UserGameSettings.ComputerCameraMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-ComputerMovementMode">UserGameSettings.ComputerMovementMode</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-TouchCameraMovementMode">UserGameSettings.TouchCameraMovementMode</a></li>
+						<li>Add Class <a href="/ref/class/Folder.html">Folder</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PlayerScripts.html">PlayerScripts</a>
+							<ul>
+							</ul></li>
+						<li>Add EnumItem <a href="/ref/enum/TouchMovementMode.html#member-ClickToMove">TouchMovementMode.ClickToMove</a></li>
+						<li>Add Enum <a href="/ref/enum/ComputerCameraMovementMode.html">ComputerCameraMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ComputerCameraMovementMode.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ComputerCameraMovementMode.html#member-Follow">Follow</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ComputerCameraMovementMode.html#member-Classic">Classic</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/ComputerMovementMode.html">ComputerMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ComputerMovementMode.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ComputerMovementMode.html#member-KeyboardMouse">KeyboardMouse</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ComputerMovementMode.html#member-ClickToMove">ClickToMove</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/DevCameraOcclusionMode.html">DevCameraOcclusionMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/DevCameraOcclusionMode.html#member-Zoom">Zoom</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevCameraOcclusionMode.html#member-Invisicam">Invisicam</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/DevComputerCameraMovementMode.html">DevComputerCameraMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/DevComputerCameraMovementMode.html#member-UserChoice">UserChoice</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevComputerCameraMovementMode.html#member-Classic">Classic</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevComputerCameraMovementMode.html#member-Follow">Follow</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/DevComputerMovementMode.html">DevComputerMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/DevComputerMovementMode.html#member-UserChoice">UserChoice</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevComputerMovementMode.html#member-KeyboardMouse">KeyboardMouse</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevComputerMovementMode.html#member-ClickToMove">ClickToMove</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevComputerMovementMode.html#member-Scriptable">Scriptable</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/DevTouchCameraMovementMode.html">DevTouchCameraMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchCameraMovementMode.html#member-UserChoice">UserChoice</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchCameraMovementMode.html#member-Classic">Classic</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchCameraMovementMode.html#member-Follow">Follow</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/DevTouchMovementMode.html">DevTouchMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchMovementMode.html#member-UserChoice">UserChoice</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchMovementMode.html#member-Thumbstick">Thumbstick</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchMovementMode.html#member-DPad">DPad</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchMovementMode.html#member-Thumbpad">Thumbpad</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchMovementMode.html#member-ClickToMove">ClickToMove</a></li>
+								<li>Add EnumItem <a href="/ref/enum/DevTouchMovementMode.html#member-Scriptable">Scriptable</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/PlayerActions.html">PlayerActions</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/PlayerActions.html#member-CharacterForward">CharacterForward</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PlayerActions.html#member-CharacterBackward">CharacterBackward</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PlayerActions.html#member-CharacterLeft">CharacterLeft</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PlayerActions.html#member-CharacterRight">CharacterRight</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PlayerActions.html#member-CharacterJump">CharacterJump</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/TouchCameraMovementMode.html">TouchCameraMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/TouchCameraMovementMode.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/TouchCameraMovementMode.html#member-Follow">Follow</a></li>
+								<li>Add EnumItem <a href="/ref/enum/TouchCameraMovementMode.html#member-Classic">Classic</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3c8dc04e91444aba" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-11-06 00:34:08-0800">2014-11-06 00:34</time> (v0.175.0.53496)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-3c8dc04e91444aba">version-3c8dc04e91444aba</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-68c511c8ee3948f6" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-30 23:34:16-0700">2014-10-30 23:34</time> (v0.174.0.53367)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-68c511c8ee3948f6">version-68c511c8ee3948f6</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3d3973aa91b04fab" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-29 23:33:05-0700">2014-10-29 23:33</time> (v0.174.0.53305)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-3d3973aa91b04fab">version-3d3973aa91b04fab</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Chat.html#member-FilterStringForPlayerAsync">Chat.FilterStringForPlayerAsync</a></li>
+						<li>Remove Class <a href="/ref/class/StockSound.html">StockSound</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/HttpRbxApiService.html">HttpRbxApiService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/HttpRbxApiService.html#member-GetAsync">GetAsync</a></li>
+								<li>Add Function <a href="/ref/class/HttpRbxApiService.html#member-PostAsync">PostAsync</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/ThrottlingPriority.html">ThrottlingPriority</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ThrottlingPriority.html#member-Extreme">Extreme</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ThrottlingPriority.html#member-ElevatedOnServer">ElevatedOnServer</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ThrottlingPriority.html#member-Default">Default</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-d65566343374484f" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-23 23:52:56-0700">2014-10-23 23:52</time> (v0.173.1.53125)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-d65566343374484f">version-d65566343374484f</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e3f54ee812af4a09" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-22 23:35:59-0700">2014-10-22 23:35</time> (v0.173.0.52968)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-e3f54ee812af4a09">version-e3f54ee812af4a09</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/DataModel.html#member-SetUniverseId">DataModel.SetUniverseId</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-c2a7e6748ad54a86" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-16 23:52:17-0700">2014-10-16 23:52</time> (v0.172.1.52886)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-c2a7e6748ad54a86">version-c2a7e6748ad54a86</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3c9713a635454fdb" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-15 23:41:05-0700">2014-10-15 23:41</time> (v0.172.0.52734)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-3c9713a635454fdb">version-3c9713a635454fdb</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/PointsService.html#member-GetAwardablePoints">PointsService.GetAwardablePoints</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li>Add Class <a href="/ref/class/StarterPlayer.html">StarterPlayer</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/StarterPlayer.html#member-CameraMaxZoomDistance">CameraMaxZoomDistance</a></li>
+								<li>Add Property <a href="/ref/class/StarterPlayer.html#member-CameraMinZoomDistance">CameraMinZoomDistance</a></li>
+								<li>Add Property <a href="/ref/class/StarterPlayer.html#member-CameraMode">CameraMode</a></li>
+								<li>Add Property <a href="/ref/class/StarterPlayer.html#member-HealthDisplayDistance">HealthDisplayDistance</a></li>
+								<li>Add Property <a href="/ref/class/StarterPlayer.html#member-NameDisplayDistance">NameDisplayDistance</a></li>
+							</ul></li>
+						<li>Add EnumItem <a href="/ref/enum/TouchMovementMode.html#member-Thumbpad">TouchMovementMode.Thumbpad</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e66ffbb509ce4483" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-08 23:44:28-0700">2014-10-08 23:44</time> (v0.171.0.52407)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-e66ffbb509ce4483">version-e66ffbb509ce4483</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Tool.html#member-ManualActivationOnly">Tool.ManualActivationOnly</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-RemoveSpecialKey">GuiService.RemoveSpecialKey</a></li>
+						<li>Add Function <a href="/ref/class/PathfindingService.html#member-ComputeSmoothPathAsync">PathfindingService.ComputeSmoothPathAsync</a></li>
+						<li>Remove Property <a href="/ref/class/RenderSettings.html#member-graphicsMode">RenderSettings.graphicsMode</a></li>
+						<li>Add Property <a href="/ref/class/RenderSettings.html#member-ExportMergeByMaterial">RenderSettings.ExportMergeByMaterial</a></li>
+						<li>Add Property <a href="/ref/class/RenderSettings.html#member-GraphicsMode">RenderSettings.GraphicsMode</a></li>
+						<li>Add Function <a href="/ref/class/UserInputService.html#member-IsStudioTouchEmulationEnabled">UserInputService.IsStudioTouchEmulationEnabled</a></li>
+						<li>Add Class <a href="/ref/class/SolidModelContentProvider.html">SolidModelContentProvider</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PartOperationAsset.html">PartOperationAsset</a>
+							<ul>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b155910bba974e13" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-02 23:36:01-0700">2014-10-02 23:36</time> (v0.170.0.52322)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-b155910bba974e13">version-b155910bba974e13</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b44a93d7db0543f5" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-10-01 23:51:33-0700">2014-10-01 23:51</time> (v0.170.0.52223)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-b44a93d7db0543f5">version-b44a93d7db0543f5</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/HttpService.html#member-GenerateGUID">HttpService.GenerateGUID</a>
+							<span class="diff-values"><span><span>from</span> <span>()</span></span> <span><span>to</span> <span>(Primitive:bool wrapInCurlyBraces = true)</span></span></span></li>
+						<li>Add Function <a href="/ref/class/DataModel.html#member-ReportInGoogleAnalytics">DataModel.ReportInGoogleAnalytics</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2c1f992c1a264ecc" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-09-24 23:35:37-0700">2014-09-24 23:35</time> (v0.169.0.51983)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-2c1f992c1a264ecc">version-2c1f992c1a264ecc</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/BasePart.html#member-LocalTransparencyModifier">BasePart.LocalTransparencyModifier</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-FollowUserId">Player.FollowUserId</a></li>
+						<li>Add Function <a href="/ref/class/ReplicatedFirst.html#member-IsFinishedReplicating">ReplicatedFirst.IsFinishedReplicating</a></li>
+						<li>Add Event <a href="/ref/class/ReplicatedFirst.html#member-FinishedReplicating">ReplicatedFirst.FinishedReplicating</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a730860d440c4e6c" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-09-17 23:41:19-0700">2014-09-17 23:41</time> (v0.168.0.51652)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-a730860d440c4e6c">version-a730860d440c4e6c</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/BadgeService.html#member-BadgeAwarded">BadgeService.BadgeAwarded</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string message)</span></span> <span><span>to</span> <span>(Primitive:string message, Primitive:int userId, Primitive:int badgeId)</span></span></span></li>
+						<li>Remove Class <a href="/ref/class/StarterScript.html">StarterScript</a>
+							<ul>
+							</ul></li>
+						<li>Add Function <a href="/ref/class/Tool.html#member-Activate">Tool.Activate</a></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/GuiService.html#member-GetVoxelCount">GuiService.GetVoxelCount</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:float</span></span></span></li>
+						<li>Remove Function <a href="/ref/class/ScriptContext.html#member-LibraryRegistrationComplete">ScriptContext.LibraryRegistrationComplete</a></li>
+						<li>Remove Function <a href="/ref/class/ScriptContext.html#member-RegisterDevelopmentLibrary">ScriptContext.RegisterDevelopmentLibrary</a></li>
+						<li>Remove Function <a href="/ref/class/ScriptContext.html#member-RegisterLibrary">ScriptContext.RegisterLibrary</a></li>
+						<li>Remove Function <a href="/ref/class/ScriptContext.html#member-RegisterRobloxLibrary">ScriptContext.RegisterRobloxLibrary</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-MasterVolume">UserGameSettings.MasterVolume</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-AccelerometerEnabled">UserInputService.AccelerometerEnabled</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-GyroscopeEnabled">UserInputService.GyroscopeEnabled</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-OverrideMouseIconEnabled">UserInputService.OverrideMouseIconEnabled</a></li>
+						<li>Add Function <a href="/ref/class/UserInputService.html#member-GetDeviceAcceleration">UserInputService.GetDeviceAcceleration</a></li>
+						<li>Add Function <a href="/ref/class/UserInputService.html#member-GetDeviceGravity">UserInputService.GetDeviceGravity</a></li>
+						<li>Add Function <a href="/ref/class/UserInputService.html#member-GetDeviceRotation">UserInputService.GetDeviceRotation</a></li>
+						<li>Add Event <a href="/ref/class/UserInputService.html#member-DeviceAccelerationChanged">UserInputService.DeviceAccelerationChanged</a></li>
+						<li>Add Event <a href="/ref/class/UserInputService.html#member-DeviceGravityChanged">UserInputService.DeviceGravityChanged</a></li>
+						<li>Add Event <a href="/ref/class/UserInputService.html#member-DeviceRotationChanged">UserInputService.DeviceRotationChanged</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/UserInputType.html#member-None">UserInputType.None</a>
+							<span class="diff-values"><span><span>from</span> <span>10</span></span> <span><span>to</span> <span>12</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/UserInputType.html#member-Accelerometer">UserInputType.Accelerometer</a></li>
+						<li>Add EnumItem <a href="/ref/enum/UserInputType.html#member-Gyro">UserInputType.Gyro</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a9f03e66405a4cee" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-09-11 23:40:04-0700">2014-09-11 23:40</time> (v0.167.1.51539)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-a9f03e66405a4cee">version-a9f03e66405a4cee</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-ec7c35918e67427c" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-09-10 23:44:10-0700">2014-09-10 23:44</time> (v0.167.0.51261)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-ec7c35918e67427c">version-ec7c35918e67427c</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-1fc13f51ea764eb7" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-09-02 23:59:52-0700">2014-09-02 23:59</time> (v0.166.0.50996)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-1fc13f51ea764eb7">version-1fc13f51ea764eb7</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/ScriptContext.html#member-AddCoreScriptLocal">ScriptContext.AddCoreScriptLocal</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b4f311f5cfe34914" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-08-27 23:42:04-0700">2014-08-27 23:42</time> (v0.165.0.50938)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-b4f311f5cfe34914">version-b4f311f5cfe34914</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-9054e3065d02489e" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-08-20 23:48:51-0700">2014-08-20 23:48</time> (v0.164.0.50577)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-9054e3065d02489e">version-9054e3065d02489e</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/PhysicsSettings.html#member-ShowDecompositionGeometry">PhysicsSettings.ShowDecompositionGeometry</a></li>
+						<li>Add Class <a href="/ref/class/GroupService.html">GroupService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/GroupService.html#member-GetAlliesAsync">GetAlliesAsync</a></li>
+								<li>Add Function <a href="/ref/class/GroupService.html#member-GetEnemiesAsync">GetEnemiesAsync</a></li>
+								<li>Add Function <a href="/ref/class/GroupService.html#member-GetGroupInfoAsync">GetGroupInfoAsync</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b3ae331dfaef4117" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-08-14 00:02:16-0700">2014-08-14 00:02</time> (v0.163.0.50106)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-b3ae331dfaef4117">version-b3ae331dfaef4117</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-45e17934caec46fc" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-08-13 23:55:30-0700">2014-08-13 23:55</time> (v0.163.0.50106)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-45e17934caec46fc">version-45e17934caec46fc</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/AssetService.html#member-GetGamePlacesAsync">AssetService.GetGamePlacesAsync</a></li>
+						<li>Add Property <a href="/ref/class/ImageButton.html#member-ImageColor3">ImageButton.ImageColor3</a></li>
+						<li>Add Property <a href="/ref/class/ImageLabel.html#member-ImageColor3">ImageLabel.ImageColor3</a></li>
+						<li>Add Property <a href="/ref/class/Humanoid.html#member-MoveDirection">Humanoid.MoveDirection</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-Move">Humanoid.Move</a></li>
+						<li>Remove Event <a href="/ref/class/BasePart.html#member-NetworkOwnerChanged">BasePart.NetworkOwnerChanged</a></li>
+						<li>Remove Function <a href="/ref/class/Workspace.html#member-InsertContent">Workspace.InsertContent</a></li>
+						<li>Add Function <a href="/ref/class/Player.html#member-Move">Player.Move</a></li>
+						<li>Add EnumItem <a href="/ref/enum/ButtonStyle.html#member-RobloxRoundButton">ButtonStyle.RobloxRoundButton</a></li>
+						<li>Add EnumItem <a href="/ref/enum/ButtonStyle.html#member-RobloxRoundDefaultButton">ButtonStyle.RobloxRoundDefaultButton</a></li>
+						<li>Add EnumItem <a href="/ref/enum/ButtonStyle.html#member-RobloxRoundDropdownButton">ButtonStyle.RobloxRoundDropdownButton</a></li>
+						<li>Add EnumItem <a href="/ref/enum/FrameStyle.html#member-DropShadow">FrameStyle.DropShadow</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-7965aa4926cc425a" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-08-06 23:48:04-0700">2014-08-06 23:48</time> (v0.162.0.49770)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-7965aa4926cc425a">version-7965aa4926cc425a</a>
+					<ul class="patch-list">
+						<li diff-field="Superclass">Change field Superclass of Class <a href="/ref/class/CSGDictionaryService.html">CSGDictionaryService</a>
+							<span class="diff-values"><span><span>from</span> <span>Instance</span></span> <span><span>to</span> <span>FlyweightService</span></span></span></li>
+						<li>Add Event <a href="/ref/class/GuiService.html#member-ShowLeaveConfirmation">GuiService.ShowLeaveConfirmation</a></li>
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-ShowActiveAnimationAsset">NetworkSettings.ShowActiveAnimationAsset</a></li>
+						<li>Add Class <a href="/ref/class/FlyweightService.html">FlyweightService</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/NonReplicatedCSGDictionaryService.html">NonReplicatedCSGDictionaryService</a>
+							<ul>
+							</ul></li>
+						<li>Remove Enum <a href="/ref/enum/D3DDEVTYPE.html">D3DDEVTYPE</a>
+							<ul>
+								<li>Remove EnumItem <a href="/ref/enum/D3DDEVTYPE.html#member-D3DDEVTYPE_HAL">D3DDEVTYPE_HAL</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DDEVTYPE.html#member-D3DDEVTYPE_REF">D3DDEVTYPE_REF</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DDEVTYPE.html#member-D3DDEVTYPE_SW">D3DDEVTYPE_SW</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DDEVTYPE.html#member-D3DDEVTYPE_NULLREF">D3DDEVTYPE_NULLREF</a></li>
+							</ul></li>
+						<li>Remove Enum <a href="/ref/enum/D3DFORMAT.html">D3DFORMAT</a>
+							<ul>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_UNKNOWN">D3DFMT_UNKNOWN</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_R8G8B8">D3DFMT_R8G8B8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A8R8G8B8">D3DFMT_A8R8G8B8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_X8R8G8B8">D3DFMT_X8R8G8B8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_R5G6B5">D3DFMT_R5G6B5</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_X1R5G5B5">D3DFMT_X1R5G5B5</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A1R5G5B5">D3DFMT_A1R5G5B5</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A4R4G4B4">D3DFMT_A4R4G4B4</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_R3G3B2">D3DFMT_R3G3B2</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A8">D3DFMT_A8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A8R3G3B2">D3DFMT_A8R3G3B2</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_X4R4G4B4">D3DFMT_X4R4G4B4</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A2B10G10R10">D3DFMT_A2B10G10R10</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A8B8G8R8">D3DFMT_A8B8G8R8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_X8B8G8R8">D3DFMT_X8B8G8R8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_G16R16">D3DFMT_G16R16</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A2R10G10B10">D3DFMT_A2R10G10B10</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A16B16G16R16">D3DFMT_A16B16G16R16</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A8P8">D3DFMT_A8P8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_P8">D3DFMT_P8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_L8">D3DFMT_L8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A8L8">D3DFMT_A8L8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A4L4">D3DFMT_A4L4</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_V8U8">D3DFMT_V8U8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_L6V5U5">D3DFMT_L6V5U5</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_X8L8V8U8">D3DFMT_X8L8V8U8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_Q8W8V8U8">D3DFMT_Q8W8V8U8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_V16U16">D3DFMT_V16U16</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A2W10V10U10">D3DFMT_A2W10V10U10</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D16_LOCKABLE">D3DFMT_D16_LOCKABLE</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D32">D3DFMT_D32</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D15S1">D3DFMT_D15S1</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D24S8">D3DFMT_D24S8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D24X8">D3DFMT_D24X8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D24X4S4">D3DFMT_D24X4S4</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D16">D3DFMT_D16</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D32F_LOCKABLE">D3DFMT_D32F_LOCKABLE</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_D24FS8">D3DFMT_D24FS8</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_L16">D3DFMT_L16</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_VERTEXDATA">D3DFMT_VERTEXDATA</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_INDEX16">D3DFMT_INDEX16</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_INDEX32">D3DFMT_INDEX32</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_Q16W16V16U16">D3DFMT_Q16W16V16U16</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_R16F">D3DFMT_R16F</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_G16R16F">D3DFMT_G16R16F</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A16B16G16R16F">D3DFMT_A16B16G16R16F</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_R32F">D3DFMT_R32F</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_G32R32F">D3DFMT_G32R32F</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_A32B32G32R32F">D3DFMT_A32B32G32R32F</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/D3DFORMAT.html#member-D3DFMT_CxV8U8">D3DFMT_CxV8U8</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-c4060e4821af4163" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-07-30 23:46:40-0700">2014-07-30 23:46</time> (v0.161.0.49421)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-c4060e4821af4163">version-c4060e4821af4163</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/LogService.html#member-ExecuteScript">LogService.ExecuteScript</a></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-InputBegan">UserInputService.InputBegan</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:Instance input)</span></span> <span><span>to</span> <span>(Class:Instance input, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-InputChanged">UserInputService.InputChanged</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:Instance input)</span></span> <span><span>to</span> <span>(Class:Instance input, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-InputEnded">UserInputService.InputEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:Instance input)</span></span> <span><span>to</span> <span>(Class:Instance input, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchEnded">UserInputService.TouchEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:Instance touch)</span></span> <span><span>to</span> <span>(Class:Instance touch, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchLongPress">UserInputService.TouchLongPress</a>
+							<span class="diff-values"><span><span>from</span> <span>(Group:Array touchPositions, Enum:UserInputState state)</span></span> <span><span>to</span> <span>(Group:Array touchPositions, Enum:UserInputState state, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchMoved">UserInputService.TouchMoved</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:Instance touch)</span></span> <span><span>to</span> <span>(Class:Instance touch, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchPan">UserInputService.TouchPan</a>
+							<span class="diff-values"><span><span>from</span> <span>(Group:Array touchPositions, DataType:Vector2 totalTranslation, DataType:Vector2 velocity, Enum:UserInputState state)</span></span> <span><span>to</span> <span>(Group:Array touchPositions, DataType:Vector2 totalTranslation, DataType:Vector2 velocity, Enum:UserInputState state, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchPinch">UserInputService.TouchPinch</a>
+							<span class="diff-values"><span><span>from</span> <span>(Group:Array touchPositions, Primitive:float scale, Primitive:float velocity, Enum:UserInputState state)</span></span> <span><span>to</span> <span>(Group:Array touchPositions, Primitive:float scale, Primitive:float velocity, Enum:UserInputState state, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchRotate">UserInputService.TouchRotate</a>
+							<span class="diff-values"><span><span>from</span> <span>(Group:Array touchPositions, Primitive:float rotation, Primitive:float velocity, Enum:UserInputState state)</span></span> <span><span>to</span> <span>(Group:Array touchPositions, Primitive:float rotation, Primitive:float velocity, Enum:UserInputState state, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchStarted">UserInputService.TouchStarted</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:Instance touch)</span></span> <span><span>to</span> <span>(Class:Instance touch, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchSwipe">UserInputService.TouchSwipe</a>
+							<span class="diff-values"><span><span>from</span> <span>(Enum:SwipeDirection swipeDirection, Primitive:int numberOfTouches)</span></span> <span><span>to</span> <span>(Enum:SwipeDirection swipeDirection, Primitive:int numberOfTouches, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchTap">UserInputService.TouchTap</a>
+							<span class="diff-values"><span><span>from</span> <span>(Group:Array touchPositions)</span></span> <span><span>to</span> <span>(Group:Array touchPositions, Primitive:bool gameProcessedEvent)</span></span></span></li>
+						<li>Add Event <a href="/ref/class/UserInputService.html#member-TextBoxFocusReleased">UserInputService.TextBoxFocusReleased</a></li>
+						<li>Add Event <a href="/ref/class/UserInputService.html#member-TextBoxFocused">UserInputService.TextBoxFocused</a></li>
+						<li>Add EnumItem <a href="/ref/enum/MouseBehavior.html#member-LockCurrentPosition">MouseBehavior.LockCurrentPosition</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-5e847c35ea884813" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-07-23 23:50:18-0700">2014-07-23 23:50</time> (v0.160.0.49182)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-5e847c35ea884813">version-5e847c35ea884813</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/RenderSettings.html#member-AlwaysDrawConnectors">RenderSettings.AlwaysDrawConnectors</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a2dbb0391e1e433c" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-07-16 23:41:26-0700">2014-07-16 23:41</time> (v0.159.0.48929)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-a2dbb0391e1e433c">version-a2dbb0391e1e433c</a>
+					<ul class="patch-list">
+						<li>Add Event <a href="/ref/class/BasePart.html#member-NetworkOwnerChanged">BasePart.NetworkOwnerChanged</a></li>
+						<li>Add Property <a href="/ref/class/PartOperation.html#member-UsePartColor">PartOperation.UsePartColor</a></li>
+						<li>Remove Property <a href="/ref/class/RenderSettings.html#member-Shadow">RenderSettings.Shadow</a></li>
+						<li>Remove Enum <a href="/ref/enum/Shadow.html">Shadow</a>
+							<ul>
+								<li>Remove EnumItem <a href="/ref/enum/Shadow.html#member-Automatic">Automatic</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Shadow.html#member-All">All</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Shadow.html#member-CharacterOnly">CharacterOnly</a></li>
+								<li>Remove EnumItem <a href="/ref/enum/Shadow.html#member-Off">Off</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-1112937d32504d8c" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-07-09 23:47:46-0700">2014-07-09 23:47</time> (v0.158.0.48436)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-1112937d32504d8c">version-1112937d32504d8c</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/InputObject.html#member-Delta">InputObject.Delta</a></li>
+						<li>Remove Function <a href="/ref/class/MarketplaceService.html#member-SetDevProductInfoUrl">MarketplaceService.SetDevProductInfoUrl</a></li>
+						<li>Remove Function <a href="/ref/class/MarketplaceService.html#member-SetPlayerOwnsAssetUrl">MarketplaceService.SetPlayerOwnsAssetUrl</a></li>
+						<li>Remove Function <a href="/ref/class/MarketplaceService.html#member-SetProductInfoUrl">MarketplaceService.SetProductInfoUrl</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-MouseBehavior">UserInputService.MouseBehavior</a></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-MouseIconEnabled">UserInputService.MouseIconEnabled</a></li>
+						<li>Add Class <a href="/ref/class/Path.html">Path</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/Path.html#member-Status">Status</a></li>
+								<li>Add Function <a href="/ref/class/Path.html#member-GetPointCoordinates">GetPointCoordinates</a></li>
+								<li>Add Function <a href="/ref/class/Path.html#member-CheckOcclusionAsync">CheckOcclusionAsync</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PathfindingService.html">PathfindingService</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/PathfindingService.html#member-EmptyCutoff">EmptyCutoff</a></li>
+								<li>Add Function <a href="/ref/class/PathfindingService.html#member-ComputeRawPathAsync">ComputeRawPathAsync</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/MouseBehavior.html">MouseBehavior</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/MouseBehavior.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/MouseBehavior.html#member-LockCenter">LockCenter</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/PathStatus.html">PathStatus</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/PathStatus.html#member-Success">Success</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PathStatus.html#member-ClosestNoPath">ClosestNoPath</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PathStatus.html#member-ClosestOutOfRange">ClosestOutOfRange</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PathStatus.html#member-FailStartNotEmpty">FailStartNotEmpty</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PathStatus.html#member-FailFinishNotEmpty">FailFinishNotEmpty</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-c04585a2d58a4f29" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-07-02 23:45:09-0700">2014-07-02 23:45</time> (v0.157.1.48302)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-c04585a2d58a4f29">version-c04585a2d58a4f29</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-bc583c3455374cb1" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-07-01 23:42:05-0700">2014-07-01 23:42</time> (v0.157.0.48223)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-bc583c3455374cb1">version-bc583c3455374cb1</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetBrickCount">GuiService.GetBrickCount</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetConnectorCount">GuiService.GetConnectorCount</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetErrorMessage">GuiService.GetErrorMessage</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetInstanceCount">GuiService.GetInstanceCount</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetVoxelCount">GuiService.GetVoxelCount</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-SetErrorMessage">GuiService.SetErrorMessage</a></li>
+						<li>Add Event <a href="/ref/class/GuiService.html#member-ErrorMessageChanged">GuiService.ErrorMessageChanged</a></li>
+						<li>Add Event <a href="/ref/class/NetworkReplicator.html#member-StatsReceived">NetworkReplicator.StatsReceived</a></li>
+						<li>Add Property <a href="/ref/class/ReflectionMetadataClass.html#member-Insertable">ReflectionMetadataClass.Insertable</a></li>
+						<li>Add Class <a href="/ref/class/BinaryStringValue.html">BinaryStringValue</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/CSGDictionaryService.html">CSGDictionaryService</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/ClientReplicator.html">ClientReplicator</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/ClientReplicator.html#member-RequestServerStats">RequestServerStats</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PartOperation.html">PartOperation</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/NegateOperation.html">NegateOperation</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/UnionOperation.html">UnionOperation</a>
+							<ul>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3285a67a39c94ff8" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-06-26 23:42:40-0700">2014-06-26 23:42</time> (v0.156.1.48144)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-3285a67a39c94ff8">version-3285a67a39c94ff8</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3942446d46db45f5" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-06-26 00:05:04-0700">2014-06-26 00:05</time> (v0.156.0.48019)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-3942446d46db45f5">version-3942446d46db45f5</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-PromptNativePurchase">MarketplaceService.PromptNativePurchase</a></li>
+						<li>Add Event <a href="/ref/class/MarketplaceService.html#member-NativePurchaseFinished">MarketplaceService.NativePurchaseFinished</a></li>
+						<li diff-field="Tags">Change field Tags of Event <a href="/ref/class/BasePart.html#member-StoppedTouching">BasePart.StoppedTouching</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/UserGameSettings.html#member-CameraMode">UserGameSettings.CameraMode</a>
+							<span class="diff-values"><span><span>from</span> <span>Enum:CameraMode</span></span> <span><span>to</span> <span>Enum:CustomCameraMode</span></span></span></li>
+						<li>Add Function <a href="/ref/class/UserInputService.html#member-GetPlatform">UserInputService.GetPlatform</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-Metal">Material.Metal</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-WoodPlanks">Material.WoodPlanks</a></li>
+						<li>Add EnumItem <a href="/ref/enum/Material.html#member-Cobblestone">Material.Cobblestone</a></li>
+						<li>Add Enum <a href="/ref/enum/Platform.html">Platform</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/Platform.html#member-Windows">Windows</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Platform.html#member-OSX">OSX</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Platform.html#member-IOS">IOS</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Platform.html#member-Android">Android</a></li>
+								<li>Add EnumItem <a href="/ref/enum/Platform.html#member-None">None</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2135c02b59614a08" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-06-19 00:13:22-0700">2014-06-19 00:13</time> (v0.155.0.47629)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-2135c02b59614a08">version-2135c02b59614a08</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/DataStoreService.html#member-LegacyNamingScheme">DataStoreService.LegacyNamingScheme</a></li>
+						<li>Add Function <a href="/ref/class/DebuggerManager.html#member-Resume">DebuggerManager.Resume</a></li>
+						<li>Add Function <a href="/ref/class/DebuggerManager.html#member-StepIn">DebuggerManager.StepIn</a></li>
+						<li>Add Function <a href="/ref/class/DebuggerManager.html#member-StepOut">DebuggerManager.StepOut</a></li>
+						<li>Add Function <a href="/ref/class/DebuggerManager.html#member-StepOver">DebuggerManager.StepOver</a></li>
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-GetDeveloperProductsAsync">MarketplaceService.GetDeveloperProductsAsync</a></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/ScriptDebugger.html#member-Resume">ScriptDebugger.Resume</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/ScriptDebugger.html#member-StepIn">ScriptDebugger.StepIn</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/ScriptDebugger.html#member-StepOut">ScriptDebugger.StepOut</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/ScriptDebugger.html#member-StepOver">ScriptDebugger.StepOver</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Class <a href="/ref/class/DataStorePages.html">DataStorePages</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/StandardPages.html">StandardPages</a>
+							<ul>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-459b702c887942d4" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-06-11 23:54:15-0700">2014-06-11 23:54</time> (v0.154.0.47383)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-459b702c887942d4">version-459b702c887942d4</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/DataModel.html#member-GetMessage">DataModel.GetMessage</a></li>
+						<li>Add Class <a href="/ref/class/ReplicatedFirst.html">ReplicatedFirst</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/ReplicatedFirst.html#member-IsDefaultLoadingGuiRemoved">IsDefaultLoadingGuiRemoved</a></li>
+								<li>Add Function <a href="/ref/class/ReplicatedFirst.html#member-RemoveDefaultLoadingScreen">RemoveDefaultLoadingScreen</a></li>
+								<li>Add Event <a href="/ref/class/ReplicatedFirst.html#member-RemoveDefaultLoadingGuiSignal">RemoveDefaultLoadingGuiSignal</a></li>
+							</ul></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftSuper">KeyCode.LeftSuper</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightSuper">KeyCode.RightSuper</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Mode">KeyCode.Mode</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Compose">KeyCode.Compose</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Help">KeyCode.Help</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Print">KeyCode.Print</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-SysReq">KeyCode.SysReq</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Break">KeyCode.Break</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Menu">KeyCode.Menu</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Power">KeyCode.Power</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Euro">KeyCode.Euro</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Undo">KeyCode.Undo</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World0">KeyCode.World0</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World1">KeyCode.World1</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World2">KeyCode.World2</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World3">KeyCode.World3</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World4">KeyCode.World4</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World5">KeyCode.World5</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World6">KeyCode.World6</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World7">KeyCode.World7</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World8">KeyCode.World8</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World9">KeyCode.World9</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World10">KeyCode.World10</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World11">KeyCode.World11</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World12">KeyCode.World12</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World13">KeyCode.World13</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World14">KeyCode.World14</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World15">KeyCode.World15</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World16">KeyCode.World16</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World17">KeyCode.World17</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World18">KeyCode.World18</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World19">KeyCode.World19</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World20">KeyCode.World20</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World21">KeyCode.World21</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World22">KeyCode.World22</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World23">KeyCode.World23</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World24">KeyCode.World24</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World25">KeyCode.World25</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World26">KeyCode.World26</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World27">KeyCode.World27</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World28">KeyCode.World28</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World29">KeyCode.World29</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World30">KeyCode.World30</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World31">KeyCode.World31</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World32">KeyCode.World32</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World33">KeyCode.World33</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World34">KeyCode.World34</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World35">KeyCode.World35</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World36">KeyCode.World36</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World37">KeyCode.World37</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World38">KeyCode.World38</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World39">KeyCode.World39</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World40">KeyCode.World40</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World41">KeyCode.World41</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World42">KeyCode.World42</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World43">KeyCode.World43</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World44">KeyCode.World44</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World45">KeyCode.World45</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World46">KeyCode.World46</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World47">KeyCode.World47</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World48">KeyCode.World48</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World49">KeyCode.World49</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World50">KeyCode.World50</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World51">KeyCode.World51</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World52">KeyCode.World52</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World53">KeyCode.World53</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World54">KeyCode.World54</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World55">KeyCode.World55</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World56">KeyCode.World56</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World57">KeyCode.World57</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World58">KeyCode.World58</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World59">KeyCode.World59</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World60">KeyCode.World60</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World61">KeyCode.World61</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World62">KeyCode.World62</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World63">KeyCode.World63</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World64">KeyCode.World64</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World65">KeyCode.World65</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World66">KeyCode.World66</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World67">KeyCode.World67</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World68">KeyCode.World68</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World69">KeyCode.World69</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World70">KeyCode.World70</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World71">KeyCode.World71</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World72">KeyCode.World72</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World73">KeyCode.World73</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World74">KeyCode.World74</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World75">KeyCode.World75</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World76">KeyCode.World76</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World77">KeyCode.World77</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World78">KeyCode.World78</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World79">KeyCode.World79</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World80">KeyCode.World80</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World81">KeyCode.World81</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World82">KeyCode.World82</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World83">KeyCode.World83</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World84">KeyCode.World84</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World85">KeyCode.World85</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World86">KeyCode.World86</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World87">KeyCode.World87</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World88">KeyCode.World88</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World89">KeyCode.World89</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World90">KeyCode.World90</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World91">KeyCode.World91</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World92">KeyCode.World92</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World93">KeyCode.World93</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World94">KeyCode.World94</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-World95">KeyCode.World95</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-4d8b1955ef2740b3" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-06-04 23:46:37-0700">2014-06-04 23:46</time> (v0.153.0.47177)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-4d8b1955ef2740b3">version-4d8b1955ef2740b3</a>
+					<ul class="patch-list">
+						<li>Remove Function <a href="/ref/class/DataModel.html#member-CreatePlace">DataModel.CreatePlace</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-CameraMode">UserGameSettings.CameraMode</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-TouchMovementMode">UserGameSettings.TouchMovementMode</a></li>
+						<li>Add Enum <a href="/ref/enum/CustomCameraMode.html">CustomCameraMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/CustomCameraMode.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/CustomCameraMode.html#member-Follow">Follow</a></li>
+								<li>Add EnumItem <a href="/ref/enum/CustomCameraMode.html#member-Classic">Classic</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/TouchMovementMode.html">TouchMovementMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/TouchMovementMode.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/TouchMovementMode.html#member-Thumbstick">Thumbstick</a></li>
+								<li>Add EnumItem <a href="/ref/enum/TouchMovementMode.html#member-DPad">DPad</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-ca7bb36aabe54be5" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-05-30 00:04:46-0700">2014-05-30 00:04</time> (v0.152.1.47062)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-ca7bb36aabe54be5">version-ca7bb36aabe54be5</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-24e66ffe847b42da" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-05-28 23:45:30-0700">2014-05-28 23:45</time> (v0.152.0.46962)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-24e66ffe847b42da">version-24e66ffe847b42da</a>
+					<ul class="patch-list">
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Instance.html#member-GetDebugId">Instance.GetDebugId</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li>Add Property <a href="/ref/class/SurfaceGui.html#member-ToolPunchThroughDistance">SurfaceGui.ToolPunchThroughDistance</a></li>
+						<li>Add Property <a href="/ref/class/Humanoid.html#member-CameraOffset">Humanoid.CameraOffset</a></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkPeer.html#member-SetOutgoingKBPSLimit">NetworkPeer.SetOutgoingKBPSLimit</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkReplicator.html#member-GetRakStatsString">NetworkReplicator.GetRakStatsString</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/NetworkSettings.html#member-FreeMemoryMBytes">NetworkSettings.FreeMemoryMBytes</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/NetworkSettings.html#member-FreeMemoryMBytes">NetworkSettings.FreeMemoryMBytes</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/NetworkSettings.html#member-FreeMemoryPoolMBytes">NetworkSettings.FreeMemoryPoolMBytes</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/NetworkSettings.html#member-FreeMemoryPoolMBytes">NetworkSettings.FreeMemoryPoolMBytes</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Model.html#member-GetModelCFrame">Model.GetModelCFrame</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Model.html#member-GetModelSize">Model.GetModelSize</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/Model.html#member-MoveTo">Model.MoveTo</a>
+							<span class="diff-values"><span><span>from</span> <span>(DataType:Vector3 location)</span></span> <span><span>to</span> <span>(DataType:Vector3 position)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Model.html#member-ResetOrientationToIdentity">Model.ResetOrientationToIdentity</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Model.html#member-SetIdentityOrientation">Model.SetIdentityOrientation</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/Model.html#member-TranslateBy">Model.TranslateBy</a>
+							<span class="diff-values"><span><span>from</span> <span>(DataType:Vector3 offset)</span></span> <span><span>to</span> <span>(DataType:Vector3 delta)</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Model.html#member-GetExtentsSize">Model.GetExtentsSize</a></li>
+						<li>Add Function <a href="/ref/class/Model.html#member-GetPrimaryPartCFrame">Model.GetPrimaryPartCFrame</a></li>
+						<li>Add Function <a href="/ref/class/Model.html#member-SetPrimaryPartCFrame">Model.SetPrimaryPartCFrame</a></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-GetJobIntervalPeakFraction">DataModel.GetJobIntervalPeakFraction</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-GetJobTimePeakFraction">DataModel.GetJobTimePeakFraction</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-GetJobsExtendedStats">DataModel.GetJobsExtendedStats</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-GetJobsInfo">DataModel.GetJobsInfo</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-GetObjects">DataModel.GetObjects</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/StatsItem.html#member-GetValue">StatsItem.GetValue</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/StatsItem.html#member-GetValueString">StatsItem.GetValueString</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ProfilingItem.html#member-GetTimes">ProfilingItem.GetTimes</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ProfilingItem.html#member-GetTimesForFrames">ProfilingItem.GetTimesForFrames</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li>Add Class <a href="/ref/class/NotificationService.html">NotificationService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/NotificationService.html#member-CancelAllNotification">CancelAllNotification</a></li>
+								<li>Add Function <a href="/ref/class/NotificationService.html#member-CancelNotification">CancelNotification</a></li>
+								<li>Add Function <a href="/ref/class/NotificationService.html#member-ScheduleNotification">ScheduleNotification</a></li>
+								<li>Add Function <a href="/ref/class/NotificationService.html#member-GetScheduledNotifications">GetScheduledNotifications</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-890fab9e68e74869" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-05-21 23:45:58-0700">2014-05-21 23:45</time> (v0.151.0.46786)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-890fab9e68e74869">version-890fab9e68e74869</a>
+					<ul class="patch-list">
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/Instance.html#member-RobloxLocked">Instance.RobloxLocked</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/Instance.html#member-RobloxLocked">Instance.RobloxLocked</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/Script.html#member-Source">Script.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/Script.html#member-Source">Script.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Button.html#member-SetActive">Button.SetActive</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/Button.html#member-Click">Button.Click</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-GetCanRedo">ChangeHistoryService.GetCanRedo</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-GetCanUndo">ChangeHistoryService.GetCanUndo</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-Redo">ChangeHistoryService.Redo</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-ResetWaypoints">ChangeHistoryService.ResetWaypoints</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-SetEnabled">ChangeHistoryService.SetEnabled</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-SetWaypoint">ChangeHistoryService.SetWaypoint</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-Undo">ChangeHistoryService.Undo</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Explosion.html#member-DestroyJointRadiusPercent">Explosion.DestroyJointRadiusPercent</a></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/ModuleScript.html#member-Source">ModuleScript.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/ModuleScript.html#member-Source">ModuleScript.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkClient.html#member-PlayerConnect">NetworkClient.PlayerConnect</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkServer.html#member-Start">NetworkServer.Start</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/NetworkSettings.html#member-ExtraMemoryUsed">NetworkSettings.ExtraMemoryUsed</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/NetworkSettings.html#member-ExtraMemoryUsed">NetworkSettings.ExtraMemoryUsed</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Workspace.html#member-BreakJoints">Workspace.BreakJoints</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Workspace.html#member-MakeJoints">Workspace.MakeJoints</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Workspace.html#member-ZoomToExtents">Workspace.ZoomToExtents</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Player.html#member-SetAccountAge">Player.SetAccountAge</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Player.html#member-SetClanTag">Player.SetClanTag</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Player.html#member-SetSuperSafeChat">Player.SetSuperSafeChat</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Players.html#member-Chat">Players.Chat</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Players.html#member-CreateLocalPlayer">Players.CreateLocalPlayer</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Players.html#member-SetChatStyle">Players.SetChatStyle</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Players.html#member-TeamChat">Players.TeamChat</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-Activate">Plugin.Activate</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-CreateToolbar">Plugin.CreateToolbar</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-GetMouse">Plugin.GetMouse</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-GetSetting">Plugin.GetSetting</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-GetStudioUserId">Plugin.GetStudioUserId</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-OpenScript">Plugin.OpenScript</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-SaveSelectedToRoblox">Plugin.SaveSelectedToRoblox</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-SetSetting">Plugin.SetSetting</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/Plugin.html#member-Deactivation">Plugin.Deactivation</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/PluginManager.html#member-CreatePlugin">PluginManager.CreatePlugin</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/PluginManager.html#member-ExportPlace">PluginManager.ExportPlace</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/PluginManager.html#member-ExportSelection">PluginManager.ExportSelection</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Pause">RunService.Pause</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Reset">RunService.Reset</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Run">RunService.Run</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Stop">RunService.Stop</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ScriptContext.html#member-SetTimeout">ScriptContext.SetTimeout</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Selection.html#member-Get">Selection.Get</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Selection.html#member-Set">Selection.Set</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetCreatorID">DataModel.SetCreatorID</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetCreatorId">DataModel.SetCreatorId</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetGearSettings">DataModel.SetGearSettings</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetGenre">DataModel.SetGenre</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetPlaceID">DataModel.SetPlaceID</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetPlaceId">DataModel.SetPlaceId</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetPlaceVersion">DataModel.SetPlaceVersion</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/TestService.html#member-Run">TestService.Run</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Toolbar.html#member-CreateButton">Toolbar.CreateButton</a>
+							<span class="diff-values"><span><span>from</span> <span>security1</span></span> <span><span>to</span> <span>PluginSecurity</span></span></span></li>
+						<li>Add Class <a href="/ref/class/AdService.html">AdService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/AdService.html#member-ShowVideoAd">ShowVideoAd</a></li>
+								<li>Add Event <a href="/ref/class/AdService.html#member-VideoAdClosed">VideoAdClosed</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-23a4f309f57a496c" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-05-15 23:46:37-0700">2014-05-15 23:46</time> (v0.150.1.46627)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-23a4f309f57a496c">version-23a4f309f57a496c</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-266c1c454a3c46ab" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-05-14 23:52:52-0700">2014-05-14 23:52</time> (v0.150.0.46522)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-266c1c454a3c46ab">version-266c1c454a3c46ab</a>
+					<ul class="patch-list">
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/Script.html#member-Source">Script.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/Script.html#member-Source">Script.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Button.html#member-SetActive">Button.SetActive</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/Button.html#member-Click">Button.Click</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-GetCanRedo">ChangeHistoryService.GetCanRedo</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-GetCanUndo">ChangeHistoryService.GetCanUndo</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-Redo">ChangeHistoryService.Redo</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-ResetWaypoints">ChangeHistoryService.ResetWaypoints</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-SetEnabled">ChangeHistoryService.SetEnabled</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-SetWaypoint">ChangeHistoryService.SetWaypoint</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/ChangeHistoryService.html#member-Undo">ChangeHistoryService.Undo</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-PromptThirdPartyPurchase">MarketplaceService.PromptThirdPartyPurchase</a></li>
+						<li>Add Event <a href="/ref/class/MarketplaceService.html#member-ThirdPartyPurchaseFinished">MarketplaceService.ThirdPartyPurchaseFinished</a></li>
+						<li diff-field="ReadSecurity">Change field ReadSecurity of Property <a href="/ref/class/ModuleScript.html#member-Source">ModuleScript.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="WriteSecurity">Change field WriteSecurity of Property <a href="/ref/class/ModuleScript.html#member-Source">ModuleScript.Source</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkClient.html#member-PlayerConnect">NetworkClient.PlayerConnect</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkServer.html#member-Start">NetworkServer.Start</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-Activate">Plugin.Activate</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-CreateToolbar">Plugin.CreateToolbar</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-GetMouse">Plugin.GetMouse</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-GetSetting">Plugin.GetSetting</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-GetStudioUserId">Plugin.GetStudioUserId</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-OpenScript">Plugin.OpenScript</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-SaveSelectedToRoblox">Plugin.SaveSelectedToRoblox</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Plugin.html#member-SetSetting">Plugin.SetSetting</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/Plugin.html#member-Deactivation">Plugin.Deactivation</a>
+							<span class="diff-values"><span><span>from</span> <span>None</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/PluginManager.html#member-CreatePlugin">PluginManager.CreatePlugin</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/PluginManager.html#member-ExportPlace">PluginManager.ExportPlace</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/PluginManager.html#member-ExportSelection">PluginManager.ExportSelection</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Pause">RunService.Pause</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Reset">RunService.Reset</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Run">RunService.Run</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/RunService.html#member-Stop">RunService.Stop</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Selection.html#member-Get">Selection.Get</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Selection.html#member-Set">Selection.Set</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetPlaceID">DataModel.SetPlaceID</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/DataModel.html#member-SetPlaceId">DataModel.SetPlaceId</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/Toolbar.html#member-CreateButton">Toolbar.CreateButton</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>security1</span></span></span></li>
+						<li>Add Property <a href="/ref/class/UserInputService.html#member-InCameraGesture">UserInputService.InCameraGesture</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-187659e292024b9d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-05-07 23:51:33-0700">2014-05-07 23:51</time> (v0.149.0.46203)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-187659e292024b9d">version-187659e292024b9d</a>
+					<ul class="patch-list">
+						<li>Remove Class <a href="/ref/class/FastLogSettings.html">FastLogSettings</a>
+							<ul>
+								<li>Remove Function <a href="/ref/class/FastLogSettings.html#member-DumpLogs">DumpLogs</a></li>
+								<li>Remove Function <a href="/ref/class/FastLogSettings.html#member-Print">Print</a></li>
+								<li>Remove Function <a href="/ref/class/FastLogSettings.html#member-SetVariable">SetVariable</a></li>
+							</ul></li>
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-PrintBits">NetworkSettings.PrintBits</a></li>
+						<li>Add Class <a href="/ref/class/ScrollingFrame.html">ScrollingFrame</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-AbsoluteWindowSize">AbsoluteWindowSize</a></li>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-BottomImage">BottomImage</a></li>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-CanvasPosition">CanvasPosition</a></li>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-CanvasSize">CanvasSize</a></li>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-MidImage">MidImage</a></li>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-ScrollBarThickness">ScrollBarThickness</a></li>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-ScrollingEnabled">ScrollingEnabled</a></li>
+								<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-TopImage">TopImage</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-38d9c3e04e394773" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-04-30 23:47:38-0700">2014-04-30 23:47</time> (v0.148.0.45925)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-38d9c3e04e394773">version-38d9c3e04e394773</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/ImageButton.html#member-ImageTransparency">ImageButton.ImageTransparency</a></li>
+						<li>Add Property <a href="/ref/class/ImageLabel.html#member-ImageTransparency">ImageLabel.ImageTransparency</a></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/Humanoid.html#member-MoveTo">Humanoid.MoveTo</a>
+							<span class="diff-values"><span><span>from</span> <span>(DataType:Vector3 location, Class:Instance part)</span></span> <span><span>to</span> <span>(DataType:Vector3 location, Class:Instance part = nil)</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a21a1def88774149" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-04-23 23:47:57-0700">2014-04-23 23:47</time> (v0.147.0.45744)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-a21a1def88774149">version-a21a1def88774149</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/Humanoid.html#member-AutoRotate">Humanoid.AutoRotate</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-ChangeState">Humanoid.ChangeState</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-GetState">Humanoid.GetState</a></li>
+						<li>Add Event <a href="/ref/class/Humanoid.html#member-StateChanged">Humanoid.StateChanged</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Workspace.html#member-FilteringEnabled">Workspace.FilteringEnabled</a>
+							<span class="diff-values"><span><span>from</span> <span>[Hidden]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-CameraMaxZoomDistance">Player.CameraMaxZoomDistance</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-CameraMinZoomDistance">Player.CameraMinZoomDistance</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-ClanTag">Player.ClanTag</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-HealthDisplayDistance">Player.HealthDisplayDistance</a></li>
+						<li>Add Property <a href="/ref/class/Player.html#member-NameDisplayDistance">Player.NameDisplayDistance</a></li>
+						<li>Add Function <a href="/ref/class/PluginManager.html#member-ExportPlace">PluginManager.ExportPlace</a></li>
+						<li>Add Function <a href="/ref/class/PluginManager.html#member-ExportSelection">PluginManager.ExportSelection</a></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/PointsService.html#member-PointsAwarded">PointsService.PointsAwarded</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:int userId, Primitive:int userBalanceInGame, Primitive:int userTotalBalance)</span></span> <span><span>to</span> <span>(Primitive:int userId, Primitive:int pointsAwarded, Primitive:int userBalanceInGame, Primitive:int userTotalBalance)</span></span></span></li>
+						<li>Add Property <a href="/ref/class/RenderSettings.html#member-ReloadAssets">RenderSettings.ReloadAssets</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F1">KeyCode.F1</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F2">KeyCode.F2</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F3">KeyCode.F3</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F4">KeyCode.F4</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F5">KeyCode.F5</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F6">KeyCode.F6</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F7">KeyCode.F7</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F8">KeyCode.F8</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F9">KeyCode.F9</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F10">KeyCode.F10</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F11">KeyCode.F11</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F12">KeyCode.F12</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F13">KeyCode.F13</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F14">KeyCode.F14</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F15">KeyCode.F15</a></li>
+						<li>Add Enum <a href="/ref/enum/HumanoidStateType.html">HumanoidStateType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-FallingDown">FallingDown</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Running">Running</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-RunningNoPhysics">RunningNoPhysics</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Climbing">Climbing</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-StrafingNoPhysics">StrafingNoPhysics</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Ragdoll">Ragdoll</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-GettingUp">GettingUp</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Jumping">Jumping</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Landed">Landed</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Flying">Flying</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Freefall">Freefall</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Seated">Seated</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-PlatformStanding">PlatformStanding</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Dead">Dead</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Swimming">Swimming</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-Physics">Physics</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HumanoidStateType.html#member-None">None</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-77cb13cdf4414374" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-04-17 23:36:54-0700">2014-04-17 23:36</time> (v0.146.0.45615)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-77cb13cdf4414374">version-77cb13cdf4414374</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-PrintFilters">NetworkSettings.PrintFilters</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-73ae31ae795e410c" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-04-17 00:44:21-0700">2014-04-17 00:44</time> (v0.145.0.45304)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-73ae31ae795e410c">version-73ae31ae795e410c</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/NetworkSettings.html#member-PrintFilters">NetworkSettings.PrintFilters</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-7a590b0ea40f43f0" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-04-16 23:50:35-0700">2014-04-16 23:50</time> (v0.146.0.45440)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-7a590b0ea40f43f0">version-7a590b0ea40f43f0</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-PrintFilters">NetworkSettings.PrintFilters</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-dd7ca4fae8d24153" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-04-09 23:45:03-0700">2014-04-09 23:45</time> (v0.145.0.45304)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-dd7ca4fae8d24153">version-dd7ca4fae8d24153</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/ContextActionService.html#member-ContextButtonEnabled">ContextActionService.ContextButtonEnabled</a></li>
+						<li>Remove Function <a href="/ref/class/ContextActionService.html#member-ActivateLocalTool">ContextActionService.ActivateLocalTool</a></li>
+						<li>Remove Function <a href="/ref/class/ContextActionService.html#member-DeactivateLocalTool">ContextActionService.DeactivateLocalTool</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-BindActionToInputTypes">ContextActionService.BindActionToInputTypes</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-CallFunction">ContextActionService.CallFunction</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-FireActionButtonFoundSignal">ContextActionService.FireActionButtonFoundSignal</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-GetAllBoundActionInfo">ContextActionService.GetAllBoundActionInfo</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-GetBoundActionInfo">ContextActionService.GetBoundActionInfo</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-SetDescription">ContextActionService.SetDescription</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-SetImage">ContextActionService.SetImage</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-SetPosition">ContextActionService.SetPosition</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-SetTitle">ContextActionService.SetTitle</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-UnbindAction">ContextActionService.UnbindAction</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-UnbindAllActions">ContextActionService.UnbindAllActions</a></li>
+						<li>Add Function <a href="/ref/class/ContextActionService.html#member-GetButton">ContextActionService.GetButton</a></li>
+						<li>Add Event <a href="/ref/class/ContextActionService.html#member-BoundActionAdded">ContextActionService.BoundActionAdded</a></li>
+						<li>Add Event <a href="/ref/class/ContextActionService.html#member-BoundActionChanged">ContextActionService.BoundActionChanged</a></li>
+						<li>Add Event <a href="/ref/class/ContextActionService.html#member-BoundActionRemoved">ContextActionService.BoundActionRemoved</a></li>
+						<li>Add Event <a href="/ref/class/ContextActionService.html#member-GetActionButtonEvent">ContextActionService.GetActionButtonEvent</a></li>
+						<li>Add Function <a href="/ref/class/Player.html#member-SetClanTag">Player.SetClanTag</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-53c562c888894ea7" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-04-02 23:49:35-0700">2014-04-02 23:49</time> (v0.144.0.45011)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-53c562c888894ea7">version-53c562c888894ea7</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/LogService.html#member-GetLogHistory">LogService.GetLogHistory</a></li>
+						<li>Add Function <a href="/ref/class/LogService.html#member-RequestServerOutput">LogService.RequestServerOutput</a></li>
+						<li>Add Event <a href="/ref/class/LogService.html#member-ServerMessageOut">LogService.ServerMessageOut</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-OpenScript">Plugin.OpenScript</a></li>
+						<li>Add Property <a href="/ref/class/RenderSettings.html#member-ShowInterpolationpath">RenderSettings.ShowInterpolationpath</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-bd188fd437234e9b" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-03-26 23:52:22-0700">2014-03-26 23:52</time> (v0.143.0.44681)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-bd188fd437234e9b">version-bd188fd437234e9b</a>
+					<ul class="patch-list">
+						<li>Add Callback <a href="/ref/class/DataModel.html#member-OnClose">DataModel.OnClose</a></li>
+						<li>Add Event <a href="/ref/class/UserInputService.html#member-ProcessedEvent">UserInputService.ProcessedEvent</a></li>
+						<li>Add Class <a href="/ref/class/PointsService.html">PointsService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/PointsService.html#member-AwardPoints">AwardPoints</a></li>
+								<li>Add Function <a href="/ref/class/PointsService.html#member-GetAwardablePoints">GetAwardablePoints</a></li>
+								<li>Add Function <a href="/ref/class/PointsService.html#member-GetGamePointBalance">GetGamePointBalance</a></li>
+								<li>Add Function <a href="/ref/class/PointsService.html#member-GetPointBalance">GetPointBalance</a></li>
+								<li>Add Event <a href="/ref/class/PointsService.html#member-PointsAwarded">PointsAwarded</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a70065f9195a4a76" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-03-19 23:48:11-0700">2014-03-19 23:48</time> (v0.142.0.44506)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-a70065f9195a4a76">version-a70065f9195a4a76</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Players.html#member-GetUseCoreScriptHealthBar">Players.GetUseCoreScriptHealthBar</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftShift">KeyCode.LeftShift</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightShift">KeyCode.RightShift</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftMeta">KeyCode.LeftMeta</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightMeta">KeyCode.RightMeta</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftAlt">KeyCode.LeftAlt</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightAlt">KeyCode.RightAlt</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftControl">KeyCode.LeftControl</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightControl">KeyCode.RightControl</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-CapsLock">KeyCode.CapsLock</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-NumLock">KeyCode.NumLock</a></li>
+						<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-ScrollLock">KeyCode.ScrollLock</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-79a62ec00b324436" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-03-12 23:55:59-0700">2014-03-12 23:55</time> (v0.141.0.44302)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-79a62ec00b324436">version-79a62ec00b324436</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/NetworkSettings.html#member-MovementHistoryRate">NetworkSettings.MovementHistoryRate</a></li>
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-ClientPhysicsSendRate">NetworkSettings.ClientPhysicsSendRate</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-f77fe2742c314291" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-03-05 23:46:59-0800">2014-03-05 23:46</time> (v0.140.0.44053)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-f77fe2742c314291">version-f77fe2742c314291</a>
+					<ul class="patch-list">
+						<li>Add Class <a href="/ref/class/SpatialQueryCache.html">SpatialQueryCache</a>
+							<ul>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-9dddd6d1e4534c53" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-02-26 23:37:01-0800">2014-02-26 23:37</time> (v0.139.0.43815)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-9dddd6d1e4534c53">version-9dddd6d1e4534c53</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Event <a href="/ref/class/MarketplaceService.html#member-PromptProductPurchaseFinished">MarketplaceService.PromptProductPurchaseFinished</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Callback <a href="/ref/class/MarketplaceService.html#member-ProcessReceipt">MarketplaceService.ProcessReceipt</a>
+							<span class="diff-values"><span><span>from</span> <span>(Group:Variant receiptInfo)</span></span> <span><span>to</span> <span>(Group:Dictionary receiptInfo)</span></span></span></li>
+						<li>Remove Function <a href="/ref/class/NetworkServer.html#member-SetGameId">NetworkServer.SetGameId</a></li>
+						<li>Add Function <a href="/ref/class/TeleportService.html#member-TeleportToPlaceInstance">TeleportService.TeleportToPlaceInstance</a></li>
+						<li>Add Function <a href="/ref/class/TeleportService.html#member-GetPlayerPlaceInstanceAsync">TeleportService.GetPlayerPlaceInstanceAsync</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-7cb30356092f43ac" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-02-19 23:47:29-0800">2014-02-19 23:47</time> (v0.138.0.43576)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-7cb30356092f43ac">version-7cb30356092f43ac</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/AssetService.html#member-CreatePlaceAsync">AssetService.CreatePlaceAsync</a></li>
+						<li>Add Function <a href="/ref/class/AssetService.html#member-CreatePlaceInPlayerInventoryAsync">AssetService.CreatePlaceInPlayerInventoryAsync</a></li>
+						<li>Add Function <a href="/ref/class/AssetService.html#member-SavePlaceAsync">AssetService.SavePlaceAsync</a></li>
+						<li>Add Function <a href="/ref/class/DataStoreService.html#member-GetOrderedDataStore">DataStoreService.GetOrderedDataStore</a></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-InputBegan">GuiObject.InputBegan</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-InputChanged">GuiObject.InputChanged</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-InputEnded">GuiObject.InputEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-TouchLongPress">GuiObject.TouchLongPress</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-TouchPan">GuiObject.TouchPan</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-TouchPinch">GuiObject.TouchPinch</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-TouchRotate">GuiObject.TouchRotate</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-TouchSwipe">GuiObject.TouchSwipe</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li>Add Function <a href="/ref/class/HttpService.html#member-GenerateGUID">HttpService.GenerateGUID</a></li>
+						<li>Add Function <a href="/ref/class/MarketplaceService.html#member-SignalServerLuaDialogClosed">MarketplaceService.SignalServerLuaDialogClosed</a></li>
+						<li>Add Event <a href="/ref/class/MarketplaceService.html#member-ClientLuaDialogRequested">MarketplaceService.ClientLuaDialogRequested</a></li>
+						<li>Add Callback <a href="/ref/class/MarketplaceService.html#member-ProcessReceipt">MarketplaceService.ProcessReceipt</a></li>
+						<li>Add Function <a href="/ref/class/NetworkServer.html#member-SetGameId">NetworkServer.SetGameId</a></li>
+						<li>Add Event <a href="/ref/class/Player.html#member-SimulationRadiusChanged">Player.SimulationRadiusChanged</a></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/DataModel.html#member-SavePlace">DataModel.SavePlace</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:Tuple</span></span> <span><span>to</span> <span>Primitive:bool</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-InputBegan">UserInputService.InputBegan</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-InputChanged">UserInputService.InputChanged</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-InputEnded">UserInputService.InputEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchEnded">UserInputService.TouchEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchLongPress">UserInputService.TouchLongPress</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchMoved">UserInputService.TouchMoved</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchPan">UserInputService.TouchPan</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchPinch">UserInputService.TouchPinch</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchRotate">UserInputService.TouchRotate</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchStarted">UserInputService.TouchStarted</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchSwipe">UserInputService.TouchSwipe</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/UserInputService.html#member-TouchTap">UserInputService.TouchTap</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li>Add Class <a href="/ref/class/OrderedDataStore.html">OrderedDataStore</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/OrderedDataStore.html#member-GetSortedAsync">GetSortedAsync</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/Pages.html">Pages</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/Pages.html#member-IsFinished">IsFinished</a></li>
+								<li>Add Function <a href="/ref/class/Pages.html#member-GetCurrentPage">GetCurrentPage</a></li>
+								<li>Add Function <a href="/ref/class/Pages.html#member-AdvanceToNextPageAsync">AdvanceToNextPageAsync</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/ProductPurchaseDecision.html">ProductPurchaseDecision</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ProductPurchaseDecision.html#member-NotProcessedYet">NotProcessedYet</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ProductPurchaseDecision.html#member-PurchaseGranted">PurchaseGranted</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-256d780acc6049ae" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-02-12 23:45:35-0800">2014-02-12 23:45</time> (v0.137.0.43210)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-256d780acc6049ae">version-256d780acc6049ae</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/DataStoreService.html#member-GetDataStore">DataStoreService.GetDataStore</a></li>
+						<li>Add Property <a href="/ref/class/ModuleScript.html#member-Source">ModuleScript.Source</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-afc74353f06542bd" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-02-05 23:41:49-0800">2014-02-05 23:41</time> (v0.136.0.43052)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-afc74353f06542bd">version-afc74353f06542bd</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-MovementHistoryRate">NetworkSettings.MovementHistoryRate</a></li>
+						<li>Add Property <a href="/ref/class/Workspace.html#member-FilteringEnabled">Workspace.FilteringEnabled</a></li>
+						<li>Remove Class <a href="/ref/class/App.html">App</a>
+							<ul>
+								<li>Remove Property <a href="/ref/class/App.html#member-Id">Id</a></li>
+								<li>Remove Function <a href="/ref/class/App.html#member-SetAppId">SetAppId</a></li>
+								<li>Remove Function <a href="/ref/class/App.html#member-ConnectToGame">ConnectToGame</a></li>
+								<li>Remove Function <a href="/ref/class/App.html#member-FollowUser">FollowUser</a></li>
+								<li>Remove Function <a href="/ref/class/App.html#member-GetCreations">GetCreations</a></li>
+								<li>Remove Function <a href="/ref/class/App.html#member-UnloadGame">UnloadGame</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/LogService.html">LogService</a>
+							<ul>
+								<li>Add Event <a href="/ref/class/LogService.html#member-MessageOut">MessageOut</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/MessageType.html">MessageType</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/MessageType.html#member-MessageOutput">MessageOutput</a></li>
+								<li>Add EnumItem <a href="/ref/enum/MessageType.html#member-MessageInfo">MessageInfo</a></li>
+								<li>Add EnumItem <a href="/ref/enum/MessageType.html#member-MessageWarning">MessageWarning</a></li>
+								<li>Add EnumItem <a href="/ref/enum/MessageType.html#member-MessageError">MessageError</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2c68f7c30e1b4888" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-01-22 23:40:28-0800">2014-01-22 23:40</time> (v0.135.0.42435)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-2c68f7c30e1b4888">version-2c68f7c30e1b4888</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/GameSettings.html#member-ImageUploadPromptBehavior">GameSettings.ImageUploadPromptBehavior</a></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/ScriptContext.html#member-Error">ScriptContext.Error</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxPlaceSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/DataModel.html#member-HttpPost">DataModel.HttpPost</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:string data, Primitive:bool synchronous = false)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:string data, Primitive:bool synchronous = false, Primitive:string contentType = */*)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/DataModel.html#member-HttpPostAsync">DataModel.HttpPostAsync</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string url, Primitive:string data)</span></span> <span><span>to</span> <span>(Primitive:string url, Primitive:string data, Primitive:string contentType = */*)</span></span></span></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-ImageUploadPromptBehavior">UserGameSettings.ImageUploadPromptBehavior</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-4d86019d16fc4ea5" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-01-20 23:38:54-0800">2014-01-20 23:38</time> (v0.134.1.42400)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-4d86019d16fc4ea5">version-4d86019d16fc4ea5</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-de8b84f90efc4ca5" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-01-15 23:45:11-0800">2014-01-15 23:45</time> (v0.134.0.42173)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-de8b84f90efc4ca5">version-de8b84f90efc4ca5</a>
+					<ul class="patch-list">
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-ShowPartMovementWayPoint">NetworkSettings.ShowPartMovementWayPoint</a></li>
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-TotalNumMovementWayPoint">NetworkSettings.TotalNumMovementWayPoint</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-8031f568a8214a5f" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-01-09 23:46:33-0800">2014-01-09 23:46</time> (v0.133.0.41991)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-8031f568a8214a5f">version-8031f568a8214a5f</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-e53619f61b8f4141" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2014-01-09 01:08:24-0800">2014-01-09 01:08</time> (v0.133.0.41832)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2014.html#version-e53619f61b8f4141">version-e53619f61b8f4141</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/GuiObject.html#member-InputBegan">GuiObject.InputBegan</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject input)</span></span> <span><span>to</span> <span>(Class:Instance input)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/GuiObject.html#member-InputChanged">GuiObject.InputChanged</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject input)</span></span> <span><span>to</span> <span>(Class:Instance input)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/GuiObject.html#member-InputEnded">GuiObject.InputEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject input)</span></span> <span><span>to</span> <span>(Class:Instance input)</span></span></span></li>
+						<li diff-field="Security">Change field Security of Event <a href="/ref/class/GuiObject.html#member-TouchTap">GuiObject.TouchTap</a>
+							<span class="diff-values"><span><span>from</span> <span>RobloxScriptSecurity</span></span> <span><span>to</span> <span>None</span></span></span></li>
+						<li>Add Function <a href="/ref/class/NetworkClient.html#member-SetGameSessionID">NetworkClient.SetGameSessionID</a></li>
+						<li>Add Function <a href="/ref/class/Player.html#member-GetGameSessionID">Player.GetGameSessionID</a></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-InputBegan">UserInputService.InputBegan</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject input)</span></span> <span><span>to</span> <span>(Class:Instance input)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-InputChanged">UserInputService.InputChanged</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject input)</span></span> <span><span>to</span> <span>(Class:Instance input)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-InputEnded">UserInputService.InputEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject input)</span></span> <span><span>to</span> <span>(Class:Instance input)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchEnded">UserInputService.TouchEnded</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject touch)</span></span> <span><span>to</span> <span>(Class:Instance touch)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchMoved">UserInputService.TouchMoved</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject touch)</span></span> <span><span>to</span> <span>(Class:Instance touch)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/UserInputService.html#member-TouchStarted">UserInputService.TouchStarted</a>
+							<span class="diff-values"><span><span>from</span> <span>(Class:InputObject touch)</span></span> <span><span>to</span> <span>(Class:Instance touch)</span></span></span></li>
+						<li>Add Class <a href="/ref/class/InputObject.html">InputObject</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/InputObject.html#member-KeyCode">KeyCode</a></li>
+								<li>Add Property <a href="/ref/class/InputObject.html#member-Position">Position</a></li>
+								<li>Add Property <a href="/ref/class/InputObject.html#member-UserInputState">UserInputState</a></li>
+								<li>Add Property <a href="/ref/class/InputObject.html#member-UserInputType">UserInputType</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/OneQuarterClusterPacketCacheBase.html">OneQuarterClusterPacketCacheBase</a>
+							<ul>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/KeyCode.html">KeyCode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Unknown">Unknown</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Backspace">Backspace</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Tab">Tab</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Clear">Clear</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Return">Return</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Pause">Pause</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Escape">Escape</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Space">Space</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-QuotedDouble">QuotedDouble</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Hash">Hash</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Dollar">Dollar</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Percent">Percent</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Ampersand">Ampersand</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Quote">Quote</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftParenthesis">LeftParenthesis</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightParenthesis">RightParenthesis</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Asterisk">Asterisk</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Plus">Plus</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Comma">Comma</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Minus">Minus</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Period">Period</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Slash">Slash</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Zero">Zero</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-One">One</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Two">Two</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Three">Three</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Four">Four</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Five">Five</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Six">Six</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Seven">Seven</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Eight">Eight</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Nine">Nine</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Colon">Colon</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Semicolon">Semicolon</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LessThan">LessThan</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Equals">Equals</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-GreaterThan">GreaterThan</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Question">Question</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-At">At</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftBracket">LeftBracket</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-BackSlash">BackSlash</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightBracket">RightBracket</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Caret">Caret</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Underscore">Underscore</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Backquote">Backquote</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-A">A</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-B">B</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-C">C</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-D">D</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-E">E</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-F">F</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-G">G</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-H">H</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-I">I</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-J">J</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-K">K</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-L">L</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-M">M</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-N">N</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-O">O</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-P">P</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Q">Q</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-R">R</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-S">S</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-T">T</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-U">U</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-V">V</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-W">W</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-X">X</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Y">Y</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Z">Z</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-LeftCurly">LeftCurly</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Pipe">Pipe</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-RightCurly">RightCurly</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Tilde">Tilde</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Delete">Delete</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadZero">KeypadZero</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadOne">KeypadOne</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadTwo">KeypadTwo</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadThree">KeypadThree</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadFour">KeypadFour</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadFive">KeypadFive</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadSix">KeypadSix</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadSeven">KeypadSeven</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadEight">KeypadEight</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadNine">KeypadNine</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadPeriod">KeypadPeriod</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadDivide">KeypadDivide</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadMultiply">KeypadMultiply</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadMinus">KeypadMinus</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadPlus">KeypadPlus</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadEnter">KeypadEnter</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-KeypadEquals">KeypadEquals</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Up">Up</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Down">Down</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Right">Right</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Left">Left</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Insert">Insert</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-Home">Home</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-End">End</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-PageUp">PageUp</a></li>
+								<li>Add EnumItem <a href="/ref/enum/KeyCode.html#member-PageDown">PageDown</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+		</ul>
+	</main>
+</body>
+</html>

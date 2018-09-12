@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Roblox Lua API Updates</title>
+	<link href="/ref/res/root.css" rel="stylesheet" type="text/css" />
+	<style id="updates-style">
+		li[diff-field="Parameters"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Parameters"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Parameters"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		li[diff-field="Tags"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Tags"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Tags"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		a.permalink {
+			display: none;
+		}
+		*:hover > a.permalink {
+			display: inline;
+		}
+		*:hover > a.permalink:before {
+			content : ' ¶ ';
+		}
+		.patch-list.hidden {
+			display: none;
+		}
+	</style>
+	<script src="/ref/res/root.js" charset="utf-8"></script>
+	<script>
+		function toggleList(event) {
+			var parent = event.target.closest(".update");
+			if (parent === null) {
+				return;
+			};
+			var list = parent.querySelector(".patch-list");
+			if (list === null) {
+				return;
+			};
+			if (list.classList.contains("hidden")) {
+				list.classList.remove("hidden");
+			} else {
+				list.classList.add("hidden");
+			};
+		};
+		function toggleAll(show, scroll) {
+			var scrollTo;
+			for (item of document.querySelectorAll("#update-list > li .patch-list")) {
+				var anchor = item.parentElement.querySelector("a.anchor:target");
+				if (anchor !== null) {
+					scrollTo = anchor;
+				}
+				if (show) {
+					item.classList.remove("hidden");
+				} else {
+					if (anchor !== null) {
+						item.classList.remove("hidden");
+					} else {
+						item.classList.add("hidden");
+					};
+				};
+			};
+			if (scroll && scrollTo !== undefined) {
+				scrollTo.scrollIntoView(true);
+			};
+		};
+		document.addEventListener("DOMContentLoaded", function(event) {
+			var controls = document.getElementById("controls");
+			if (controls !== null) {
+				controls.insertAdjacentHTML("beforeBegin", '<label><input type="checkbox" id="expand-all">All changes expanded</label>');
+			};
+
+			var expandAll = document.getElementById("expand-all");
+			if (expandAll !== null) {
+				expandAll.addEventListener("click", function(event) {
+					toggleAll(event.target.checked, false);
+				});
+				toggleAll(expandAll.checked, true);
+			} else {;
+				toggleAll(false, true);
+			};
+
+			for (item of document.querySelectorAll("#update-list > li .patch-list-toggle")) {
+				item.addEventListener("click", toggleList);
+			};
+
+			var list = document.getElementById("update-list");
+			if (list !== null) {
+				var note = document.createElement("div");
+				note.innerText = "Click a date to expand or collapse changes.";
+				list.parentElement.insertBefore(note, list);
+			};
+
+			var style = document.getElementById("updates-style");
+			if (style !== null) {
+				style.sheet.insertRule(".patch-list-toggle {cursor: pointer;}");
+			};
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<h1>API Updates in 2011</h1>
+	</header>
+	<aside id="controls">
+	</aside>
+	<nav>
+		<ul>
+			<li><a href="/ref/updates.html">Recent</a></li>
+			<li><a href="/ref/updates/2018.html">2018</a></li>
+			<li><a href="/ref/updates/2017.html">2017</a></li>
+			<li><a href="/ref/updates/2016.html">2016</a></li>
+			<li><a href="/ref/updates/2015.html">2015</a></li>
+			<li><a href="/ref/updates/2014.html">2014</a></li>
+			<li><a href="/ref/updates/2013.html">2013</a></li>
+			<li><a href="/ref/updates/2012.html">2012</a></li>
+			<li class="current">2011</li>
+		</ul>
+	</nav>
+	<main>
+		<ul id="update-list">
+			<li>
+				<article class="update">
+					<a id="version-09a201d8e5f247c7" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-12-23 00:07:36-0800">2011-12-23 00:07</time> (v0.49.1.466)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-09a201d8e5f247c7">version-09a201d8e5f247c7</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3929645dd67b46a9" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-12-22 00:32:35-0800">2011-12-22 00:32</time> (v0.49.1.464)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-3929645dd67b46a9">version-3929645dd67b46a9</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-7abe764230c5492d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-12-19 00:45:22-0800">2011-12-19 00:45</time> (v0.49.1.457)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-7abe764230c5492d">version-7abe764230c5492d</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-844560f43f354d3f" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-12-09 00:29:44-0800">2011-12-09 00:29</time> (v0.49.0.444)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-844560f43f354d3f">version-844560f43f354d3f</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/Instance.html#member-className">Instance.className</a>
+							<span class="diff-values"><span><span>from</span> <span>[Hidden, ReadOnly, NotReplicated]</span></span> <span><span>to</span> <span>[ReadOnly, NotReplicated, Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Instance.html#member-Remove">Instance.Remove</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Instance.html#member-ClearAllChildren">Instance.ClearAllChildren</a></li>
+						<li>Add Function <a href="/ref/class/Instance.html#member-Destroy">Instance.Destroy</a></li>
+						<li>Add Function <a href="/ref/class/Controller.html#member-bindButton">Controller.bindButton</a></li>
+						<li>Add Function <a href="/ref/class/Controller.html#member-getButton">Controller.getButton</a></li>
+						<li>Add Property <a href="/ref/class/Explosion.html#member-ExplosionType">Explosion.ExplosionType</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-loadAnimation">Humanoid.loadAnimation</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-takeDamage">Humanoid.takeDamage</a></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/InsertService.html#member-ApproveAssetId">InsertService.ApproveAssetId</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/InsertService.html#member-ApproveAssetVersionId">InsertService.ApproveAssetVersionId</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/JointInstance.html#member-part1">JointInstance.part1</a></li>
+						<li>Add Property <a href="/ref/class/Lighting.html#member-FogColor">Lighting.FogColor</a></li>
+						<li>Add Property <a href="/ref/class/Lighting.html#member-FogEnd">Lighting.FogEnd</a></li>
+						<li>Add Property <a href="/ref/class/Lighting.html#member-FogStart">Lighting.FogStart</a></li>
+						<li>Add Property <a href="/ref/class/Mouse.html#member-hit">Mouse.hit</a></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkReplicator.html#member-GetPlayer">NetworkReplicator.GetPlayer</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkReplicator.html#member-GetRakStatsString">NetworkReplicator.GetRakStatsString</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/NetworkReplicator.html#member-SendMarker">NetworkReplicator.SendMarker</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/NetworkSettings.html#member-ReportStatURL">NetworkSettings.ReportStatURL</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/NetworkSettings.html#member-WaitingForCharacterLogRate">NetworkSettings.WaitingForCharacterLogRate</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/BasePart.html#member-breakJoints">BasePart.breakJoints</a></li>
+						<li>Add Event <a href="/ref/class/SkateboardPlatform.html#member-equipped">SkateboardPlatform.equipped</a></li>
+						<li>Add Event <a href="/ref/class/SkateboardPlatform.html#member-unequipped">SkateboardPlatform.unequipped</a></li>
+						<li>Add Function <a href="/ref/class/Terrain.html#member-AutowedgeCell">Terrain.AutowedgeCell</a></li>
+						<li>Add Function <a href="/ref/class/Terrain.html#member-AutowedgeCells">Terrain.AutowedgeCells</a></li>
+						<li>Add Function <a href="/ref/class/Model.html#member-breakJoints">Model.breakJoints</a></li>
+						<li>Remove Property <a href="/ref/class/Workspace.html#member-IsMouseCursorShown">Workspace.IsMouseCursorShown</a></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/Players.html#member-playerFromCharacter">Players.playerFromCharacter</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Players.html#member-getPlayerFromCharacter">Players.getPlayerFromCharacter</a></li>
+						<li>Add Function <a href="/ref/class/Players.html#member-getPlayers">Players.getPlayers</a></li>
+						<li>Add Function <a href="/ref/class/ServiceProvider.html#member-getService">ServiceProvider.getService</a></li>
+						<li>Remove Property <a href="/ref/class/DataModel.html#member-ShowMouse">DataModel.ShowMouse</a></li>
+						<li>Add Function <a href="/ref/class/Sound.html#member-stop">Sound.stop</a></li>
+						<li>Add Function <a href="/ref/class/Stats.html#member-ReportJobsStepWindow">Stats.ReportJobsStepWindow</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-fb3436d54f9e4598" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-11-18 00:50:20-0800">2011-11-18 00:50</time> (v0.48.0.419)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-fb3436d54f9e4598">version-fb3436d54f9e4598</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-f23119393382428e" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-11-16 18:52:53-0800">2011-11-16 18:52</time> (v0.48.0.416)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-f23119393382428e">version-f23119393382428e</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-d18531733302454e" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-11-15 23:49:43-0800">2011-11-15 23:49</time> (v0.48.0.416)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-d18531733302454e">version-d18531733302454e</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Instance.html#member-getChildren">Instance.getChildren</a></li>
+						<li diff-field="Tags">Change field Tags of Event <a href="/ref/class/AnimationTrack.html#member-Stopped">AnimationTrack.Stopped</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Function <a href="/ref/class/FastLogSettings.html#member-DumpLogs">FastLogSettings.DumpLogs</a></li>
+						<li>Add Function <a href="/ref/class/FastLogSettings.html#member-Print">FastLogSettings.Print</a></li>
+						<li>Add Property <a href="/ref/class/GuiObject.html#member-ClipsDescendants">GuiObject.ClipsDescendants</a></li>
+						<li>Add Property <a href="/ref/class/TextButton.html#member-TextStrokeColor3">TextButton.TextStrokeColor3</a></li>
+						<li>Add Property <a href="/ref/class/TextButton.html#member-TextStrokeTransparency">TextButton.TextStrokeTransparency</a></li>
+						<li>Add Property <a href="/ref/class/TextLabel.html#member-TextStrokeColor3">TextLabel.TextStrokeColor3</a></li>
+						<li>Add Property <a href="/ref/class/TextLabel.html#member-TextStrokeTransparency">TextLabel.TextStrokeTransparency</a></li>
+						<li>Add Property <a href="/ref/class/TextBox.html#member-TextStrokeColor3">TextBox.TextStrokeColor3</a></li>
+						<li>Add Property <a href="/ref/class/TextBox.html#member-TextStrokeTransparency">TextBox.TextStrokeTransparency</a></li>
+						<li>Add Property <a href="/ref/class/LuaSettings.html#member-AreScriptStartsReported">LuaSettings.AreScriptStartsReported</a></li>
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-ArePhysicsRejectionsReported">NetworkSettings.ArePhysicsRejectionsReported</a></li>
+						<li>Add Property <a href="/ref/class/NetworkSettings.html#member-IncommingReplicationLag">NetworkSettings.IncommingReplicationLag</a></li>
+						<li>Add Function <a href="/ref/class/BasePart.html#member-getMass">BasePart.getMass</a></li>
+						<li>Add Function <a href="/ref/class/BasePart.html#member-makeJoints">BasePart.makeJoints</a></li>
+						<li>Add Function <a href="/ref/class/Model.html#member-makeJoints">Model.makeJoints</a></li>
+						<li>Add Property <a href="/ref/class/Workspace.html#member-IsMouseCursorShown">Workspace.IsMouseCursorShown</a></li>
+						<li>Add Function <a href="/ref/class/Workspace.html#member-FindPartOnRayWithIgnoreList">Workspace.FindPartOnRayWithIgnoreList</a></li>
+						<li>Add Function <a href="/ref/class/Workspace.html#member-FindPartsInRegion3WithIgnoreList">Workspace.FindPartsInRegion3WithIgnoreList</a></li>
+						<li>Add Function <a href="/ref/class/Workspace.html#member-IsRegion3EmptyWithIgnoreList">Workspace.IsRegion3EmptyWithIgnoreList</a></li>
+						<li>Remove Function <a href="/ref/class/PersonalServerService.html#member-SetPersonalServerBuildToolsUrl">PersonalServerService.SetPersonalServerBuildToolsUrl</a></li>
+						<li>Remove Function <a href="/ref/class/PersonalServerService.html#member-GetBuildTools">PersonalServerService.GetBuildTools</a></li>
+						<li>Add Property <a href="/ref/class/PersonalServerService.html#member-RoleSets">PersonalServerService.RoleSets</a></li>
+						<li>Add Function <a href="/ref/class/PersonalServerService.html#member-SetPersonalServerRoleSetsUrl">PersonalServerService.SetPersonalServerRoleSetsUrl</a></li>
+						<li>Add Function <a href="/ref/class/PersonalServerService.html#member-GetRoleSets">PersonalServerService.GetRoleSets</a></li>
+						<li>Remove Property <a href="/ref/class/PhysicsSettings.html#member-Is30FpsThrottleEnabled">PhysicsSettings.Is30FpsThrottleEnabled</a></li>
+						<li>Add Function <a href="/ref/class/RenderHooksService.html#member-EnableAdorns">RenderHooksService.EnableAdorns</a></li>
+						<li>Add Function <a href="/ref/class/RenderHooksService.html#member-GetRenderConfMax">RenderHooksService.GetRenderConfMax</a></li>
+						<li>Add Function <a href="/ref/class/RenderHooksService.html#member-GetRenderConfMin">RenderHooksService.GetRenderConfMin</a></li>
+						<li>Add Function <a href="/ref/class/RenderHooksService.html#member-GetRenderStd">RenderHooksService.GetRenderStd</a></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/ServiceProvider.html#member-GetService">ServiceProvider.GetService</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string name)</span></span> <span><span>to</span> <span>(Primitive:string className)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/ServiceProvider.html#member-service">ServiceProvider.service</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string name)</span></span> <span><span>to</span> <span>(Primitive:string className)</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/DataModel.html#member-IsPersonalServer">DataModel.IsPersonalServer</a>
+							<span class="diff-values"><span><span>from</span> <span>[Hidden]</span></span> <span><span>to</span> <span>[]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/DataModel.html#member-ShowMouse">DataModel.ShowMouse</a>
+							<span class="diff-values"><span><span>from</span> <span>[Hidden]</span></span> <span><span>to</span> <span>[Hidden, Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Stats.html#member-MinReportInterval">Stats.MinReportInterval</a></li>
+						<li>Add Property <a href="/ref/class/Stats.html#member-ReporterType">Stats.ReporterType</a></li>
+						<li>Add Function <a href="/ref/class/Stats.html#member-Report">Stats.Report</a></li>
+						<li>Add Function <a href="/ref/class/Stats.html#member-ReportTaskScheduler">Stats.ReportTaskScheduler</a></li>
+						<li>Add Function <a href="/ref/class/Stats.html#member-SetReportUrl">Stats.SetReportUrl</a></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/StatsItem.html#member-GetValue">StatsItem.GetValue</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="Security">Change field Security of Function <a href="/ref/class/StatsItem.html#member-GetValueString">StatsItem.GetValueString</a>
+							<span class="diff-values"><span><span>from</span> <span>LocalUserSecurity</span></span> <span><span>to</span> <span>RobloxScriptSecurity</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/TaskScheduler.html#member-SetThreadShare">TaskScheduler.SetThreadShare</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-55bff205328042f4" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2011-11-03 00:03:45-0700">2011-11-03 00:03</time> (v0.47.0.391)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2011.html#version-55bff205328042f4">version-55bff205328042f4</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+		</ul>
+	</main>
+</body>
+</html>

@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Roblox Lua API Updates</title>
+	<link href="/ref/res/root.css" rel="stylesheet" type="text/css" />
+	<style id="updates-style">
+		li[diff-field="Parameters"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Parameters"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Parameters"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		li[diff-field="Tags"] .diff-values {
+			display: table;
+			padding-left: 4ch;
+		}
+		li[diff-field="Tags"] .diff-values > span {
+			display: table-row;
+		}
+		li[diff-field="Tags"] .diff-values > span > span {
+			display: table-cell;
+			padding-right: 1ch;
+		}
+		a.permalink {
+			display: none;
+		}
+		*:hover > a.permalink {
+			display: inline;
+		}
+		*:hover > a.permalink:before {
+			content : ' ¶ ';
+		}
+		.patch-list.hidden {
+			display: none;
+		}
+	</style>
+	<script src="/ref/res/root.js" charset="utf-8"></script>
+	<script>
+		function toggleList(event) {
+			var parent = event.target.closest(".update");
+			if (parent === null) {
+				return;
+			};
+			var list = parent.querySelector(".patch-list");
+			if (list === null) {
+				return;
+			};
+			if (list.classList.contains("hidden")) {
+				list.classList.remove("hidden");
+			} else {
+				list.classList.add("hidden");
+			};
+		};
+		function toggleAll(show, scroll) {
+			var scrollTo;
+			for (item of document.querySelectorAll("#update-list > li .patch-list")) {
+				var anchor = item.parentElement.querySelector("a.anchor:target");
+				if (anchor !== null) {
+					scrollTo = anchor;
+				}
+				if (show) {
+					item.classList.remove("hidden");
+				} else {
+					if (anchor !== null) {
+						item.classList.remove("hidden");
+					} else {
+						item.classList.add("hidden");
+					};
+				};
+			};
+			if (scroll && scrollTo !== undefined) {
+				scrollTo.scrollIntoView(true);
+			};
+		};
+		document.addEventListener("DOMContentLoaded", function(event) {
+			var controls = document.getElementById("controls");
+			if (controls !== null) {
+				controls.insertAdjacentHTML("beforeBegin", '<label><input type="checkbox" id="expand-all">All changes expanded</label>');
+			};
+
+			var expandAll = document.getElementById("expand-all");
+			if (expandAll !== null) {
+				expandAll.addEventListener("click", function(event) {
+					toggleAll(event.target.checked, false);
+				});
+				toggleAll(expandAll.checked, true);
+			} else {;
+				toggleAll(false, true);
+			};
+
+			for (item of document.querySelectorAll("#update-list > li .patch-list-toggle")) {
+				item.addEventListener("click", toggleList);
+			};
+
+			var list = document.getElementById("update-list");
+			if (list !== null) {
+				var note = document.createElement("div");
+				note.innerText = "Click a date to expand or collapse changes.";
+				list.parentElement.insertBefore(note, list);
+			};
+
+			var style = document.getElementById("updates-style");
+			if (style !== null) {
+				style.sheet.insertRule(".patch-list-toggle {cursor: pointer;}");
+			};
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Recent API Updates</h1>
+	</header>
+	<aside id="controls">
+	</aside>
+	<nav>
+		<ul>
+			<li class="current">Recent</li>
+			<li><a href="/ref/updates/2018.html">2018</a></li>
+			<li><a href="/ref/updates/2017.html">2017</a></li>
+			<li><a href="/ref/updates/2016.html">2016</a></li>
+			<li><a href="/ref/updates/2015.html">2015</a></li>
+			<li><a href="/ref/updates/2014.html">2014</a></li>
+			<li><a href="/ref/updates/2013.html">2013</a></li>
+			<li><a href="/ref/updates/2012.html">2012</a></li>
+			<li><a href="/ref/updates/2011.html">2011</a></li>
+		</ul>
+	</nav>
+	<main>
+		<ul id="update-list">
+			<li>
+				<article class="update">
+					<a id="version-07a5ac5c30d64598" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-09-11 22:52:48-0700">2018-09-11 22:52</time> (v0.354.0.238636)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-07a5ac5c30d64598">version-07a5ac5c30d64598</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-27e1f99ce5974d2b" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-09-11 18:31:45-0700">2018-09-11 18:31</time> (v0.354.0.238636)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-27e1f99ce5974d2b">version-27e1f99ce5974d2b</a>
+					<ul class="patch-list">
+						<li>Add Event <a href="/ref/class/PluginGui.html#member-PluginDragDropped">PluginGui.PluginDragDropped</a></li>
+						<li>Add Event <a href="/ref/class/PluginGui.html#member-PluginDragEntered">PluginGui.PluginDragEntered</a></li>
+						<li>Add Event <a href="/ref/class/PluginGui.html#member-PluginDragLeft">PluginGui.PluginDragLeft</a></li>
+						<li>Add Event <a href="/ref/class/PluginGui.html#member-PluginDragMoved">PluginGui.PluginDragMoved</a></li>
+						<li>Add Event <a href="/ref/class/PluginGui.html#member-WindowFocusReleased">PluginGui.WindowFocusReleased</a></li>
+						<li>Add Event <a href="/ref/class/PluginGui.html#member-WindowFocused">PluginGui.WindowFocused</a></li>
+						<li>Remove Event <a href="/ref/class/DockWidgetPluginGui.html#member-WindowFocusReleased">DockWidgetPluginGui.WindowFocusReleased</a></li>
+						<li>Remove Event <a href="/ref/class/DockWidgetPluginGui.html#member-WindowFocused">DockWidgetPluginGui.WindowFocused</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/LocalizationService.html#member-IsTextScraperRunning">LocalizationService.IsTextScraperRunning</a>
+							<span class="diff-values"><span><span>from</span> <span>[Hidden, ReadOnly, NotReplicated]</span></span> <span><span>to</span> <span>[Hidden]</span></span></span></li>
+						<li>Remove Property <a href="/ref/class/PackageLink.html#member-VersionId">PackageLink.VersionId</a></li>
+						<li>Add Property <a href="/ref/class/PackageLink.html#member-VersionNumber">PackageLink.VersionNumber</a></li>
+						<li>Add Property <a href="/ref/class/Plugin.html#member-UsesAssetInsertionDrag">Plugin.UsesAssetInsertionDrag</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-StartDrag">Plugin.StartDrag</a></li>
+						<li>Add Class <a href="/ref/class/PluginDragEvent.html">PluginDragEvent</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/PluginDragEvent.html#member-Data">Data</a></li>
+								<li>Add Property <a href="/ref/class/PluginDragEvent.html#member-MimeType">MimeType</a></li>
+								<li>Add Property <a href="/ref/class/PluginDragEvent.html#member-Position">Position</a></li>
+								<li>Add Property <a href="/ref/class/PluginDragEvent.html#member-Sender">Sender</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-ce4f485858a74870" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-09-11 17:26:17-0700">2018-09-11 17:26</time> (v0.353.0.236588)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-ce4f485858a74870">version-ce4f485858a74870</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-2789cb9f1e4744a3" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-09-04 19:13:09-0700">2018-09-04 19:13</time> (v0.353.0.236588)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-2789cb9f1e4744a3">version-2789cb9f1e4744a3</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/InsertService.html#member-LoadPackageAsset">InsertService.LoadPackageAsset</a></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/PackageLink.html#member-PackageId">PackageLink.PackageId</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>DataType:Content</span></span></span></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/PackageLink.html#member-VersionId">PackageLink.VersionId</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:int64</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainText">StudioStyleGuideColor.MainText</a>
+							<span class="diff-values"><span><span>from</span> <span>29</span></span> <span><span>to</span> <span>30</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-SubText">StudioStyleGuideColor.SubText</a>
+							<span class="diff-values"><span><span>from</span> <span>30</span></span> <span><span>to</span> <span>31</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-TitlebarText">StudioStyleGuideColor.TitlebarText</a>
+							<span class="diff-values"><span><span>from</span> <span>31</span></span> <span><span>to</span> <span>32</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-BrightText">StudioStyleGuideColor.BrightText</a>
+							<span class="diff-values"><span><span>from</span> <span>32</span></span> <span><span>to</span> <span>33</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DimmedText">StudioStyleGuideColor.DimmedText</a>
+							<span class="diff-values"><span><span>from</span> <span>33</span></span> <span><span>to</span> <span>34</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-LinkText">StudioStyleGuideColor.LinkText</a>
+							<span class="diff-values"><span><span>from</span> <span>34</span></span> <span><span>to</span> <span>35</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-WarningText">StudioStyleGuideColor.WarningText</a>
+							<span class="diff-values"><span><span>from</span> <span>35</span></span> <span><span>to</span> <span>36</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ErrorText">StudioStyleGuideColor.ErrorText</a>
+							<span class="diff-values"><span><span>from</span> <span>36</span></span> <span><span>to</span> <span>37</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-InfoText">StudioStyleGuideColor.InfoText</a>
+							<span class="diff-values"><span><span>from</span> <span>37</span></span> <span><span>to</span> <span>38</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-SensitiveText">StudioStyleGuideColor.SensitiveText</a>
+							<span class="diff-values"><span><span>from</span> <span>38</span></span> <span><span>to</span> <span>39</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSideWidget">StudioStyleGuideColor.ScriptSideWidget</a>
+							<span class="diff-values"><span><span>from</span> <span>39</span></span> <span><span>to</span> <span>40</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptBackground">StudioStyleGuideColor.ScriptBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>40</span></span> <span><span>to</span> <span>41</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptText">StudioStyleGuideColor.ScriptText</a>
+							<span class="diff-values"><span><span>from</span> <span>41</span></span> <span><span>to</span> <span>42</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSelectionText">StudioStyleGuideColor.ScriptSelectionText</a>
+							<span class="diff-values"><span><span>from</span> <span>42</span></span> <span><span>to</span> <span>43</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSelectionBackground">StudioStyleGuideColor.ScriptSelectionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>43</span></span> <span><span>to</span> <span>44</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptFindSelectionBackground">StudioStyleGuideColor.ScriptFindSelectionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>44</span></span> <span><span>to</span> <span>45</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMatchingWordSelectionBackground">StudioStyleGuideColor.ScriptMatchingWordSelectionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>45</span></span> <span><span>to</span> <span>46</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptOperator">StudioStyleGuideColor.ScriptOperator</a>
+							<span class="diff-values"><span><span>from</span> <span>46</span></span> <span><span>to</span> <span>47</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptNumber">StudioStyleGuideColor.ScriptNumber</a>
+							<span class="diff-values"><span><span>from</span> <span>47</span></span> <span><span>to</span> <span>48</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptString">StudioStyleGuideColor.ScriptString</a>
+							<span class="diff-values"><span><span>from</span> <span>48</span></span> <span><span>to</span> <span>49</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptComment">StudioStyleGuideColor.ScriptComment</a>
+							<span class="diff-values"><span><span>from</span> <span>49</span></span> <span><span>to</span> <span>50</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptPreprocessor">StudioStyleGuideColor.ScriptPreprocessor</a>
+							<span class="diff-values"><span><span>from</span> <span>50</span></span> <span><span>to</span> <span>51</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptKeyword">StudioStyleGuideColor.ScriptKeyword</a>
+							<span class="diff-values"><span><span>from</span> <span>51</span></span> <span><span>to</span> <span>52</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptBuiltInFunction">StudioStyleGuideColor.ScriptBuiltInFunction</a>
+							<span class="diff-values"><span><span>from</span> <span>52</span></span> <span><span>to</span> <span>53</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptWarning">StudioStyleGuideColor.ScriptWarning</a>
+							<span class="diff-values"><span><span>from</span> <span>53</span></span> <span><span>to</span> <span>54</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptError">StudioStyleGuideColor.ScriptError</a>
+							<span class="diff-values"><span><span>from</span> <span>54</span></span> <span><span>to</span> <span>55</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffFilePathText">StudioStyleGuideColor.DiffFilePathText</a>
+							<span class="diff-values"><span><span>from</span> <span>55</span></span> <span><span>to</span> <span>58</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextHunkInfo">StudioStyleGuideColor.DiffTextHunkInfo</a>
+							<span class="diff-values"><span><span>from</span> <span>56</span></span> <span><span>to</span> <span>59</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextNoChange">StudioStyleGuideColor.DiffTextNoChange</a>
+							<span class="diff-values"><span><span>from</span> <span>57</span></span> <span><span>to</span> <span>60</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextAddition">StudioStyleGuideColor.DiffTextAddition</a>
+							<span class="diff-values"><span><span>from</span> <span>58</span></span> <span><span>to</span> <span>61</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextDeletion">StudioStyleGuideColor.DiffTextDeletion</a>
+							<span class="diff-values"><span><span>from</span> <span>59</span></span> <span><span>to</span> <span>62</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextSeparatorBackground">StudioStyleGuideColor.DiffTextSeparatorBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>60</span></span> <span><span>to</span> <span>63</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextNoChangeBackground">StudioStyleGuideColor.DiffTextNoChangeBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>61</span></span> <span><span>to</span> <span>64</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextAdditionBackground">StudioStyleGuideColor.DiffTextAdditionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>62</span></span> <span><span>to</span> <span>65</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextDeletionBackground">StudioStyleGuideColor.DiffTextDeletionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>63</span></span> <span><span>to</span> <span>66</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNum">StudioStyleGuideColor.DiffLineNum</a>
+							<span class="diff-values"><span><span>from</span> <span>64</span></span> <span><span>to</span> <span>67</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumSeparatorBackground">StudioStyleGuideColor.DiffLineNumSeparatorBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>65</span></span> <span><span>to</span> <span>68</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumNoChangeBackground">StudioStyleGuideColor.DiffLineNumNoChangeBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>66</span></span> <span><span>to</span> <span>69</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumAdditionBackground">StudioStyleGuideColor.DiffLineNumAdditionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>67</span></span> <span><span>to</span> <span>70</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumDeletionBackground">StudioStyleGuideColor.DiffLineNumDeletionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>68</span></span> <span><span>to</span> <span>71</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Mid">StudioStyleGuideColor.Mid</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DebuggerCurrentLine">StudioStyleGuideColor.DebuggerCurrentLine</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DebuggerErrorLine">StudioStyleGuideColor.DebuggerErrorLine</a></li>
+						<li>Add Enum <a href="/ref/enum/HttpCachePolicy.html">HttpCachePolicy</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/HttpCachePolicy.html#member-None">None</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpCachePolicy.html#member-Full">Full</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpCachePolicy.html#member-DataOnly">DataOnly</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpCachePolicy.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpCachePolicy.html#member-InternalRedirectRefresh">InternalRedirectRefresh</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a4cddee788a44c99" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-08-28 17:22:15-0700">2018-08-28 17:22</time> (v0.352.0.235319)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-a4cddee788a44c99">version-a4cddee788a44c99</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/PluginGui.html#member-BindToClose">PluginGui.BindToClose</a></li>
+						<li>Add Function <a href="/ref/class/PluginGui.html#member-GetRelativeMousePosition">PluginGui.GetRelativeMousePosition</a></li>
+						<li>Add Function <a href="/ref/class/HttpService.html#member-RequestInternal">HttpService.RequestInternal</a></li>
+						<li>Remove Function <a href="/ref/class/BasePart.html#member-Negate">BasePart.Negate</a></li>
+						<li>Remove Function <a href="/ref/class/BasePart.html#member-Separate">BasePart.Separate</a></li>
+						<li>Remove Function <a href="/ref/class/BasePart.html#member-UnionWith">BasePart.UnionWith</a></li>
+						<li>Add Function <a href="/ref/class/BasePart.html#member-SubtractAsync">BasePart.SubtractAsync</a></li>
+						<li>Add Function <a href="/ref/class/BasePart.html#member-UnionAsync">BasePart.UnionAsync</a></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/DataModel.html#member-VIPServerId">DataModel.VIPServerId</a>
+							<span class="diff-values"><span><span>from</span> <span>[ReadOnly, NotReplicated]</span></span> <span><span>to</span> <span>[Hidden, ReadOnly, NotReplicated, Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Property <a href="/ref/class/DataModel.html#member-VIPServerOwnerId">DataModel.VIPServerOwnerId</a>
+							<span class="diff-values"><span><span>from</span> <span>[ReadOnly, NotReplicated]</span></span> <span><span>to</span> <span>[Hidden, ReadOnly, NotReplicated, Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/DataModel.html#member-PrivateServerId">DataModel.PrivateServerId</a></li>
+						<li>Add Property <a href="/ref/class/DataModel.html#member-PrivateServerOwnerId">DataModel.PrivateServerOwnerId</a></li>
+						<li diff-field="ReturnType">Change field ReturnType of Function <a href="/ref/class/TeleportService.html#member-ReserveServer">TeleportService.ReserveServer</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:string</span></span> <span><span>to</span> <span>Group:Tuple</span></span></span></li>
+						<li>Add Class <a href="/ref/class/HttpRequest.html">HttpRequest</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/HttpRequest.html#member-Cancel">Cancel</a></li>
+								<li>Add Function <a href="/ref/class/HttpRequest.html#member-Start">Start</a></li>
+							</ul></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffFilePathText">StudioStyleGuideColor.DiffFilePathText</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextHunkInfo">StudioStyleGuideColor.DiffTextHunkInfo</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextNoChange">StudioStyleGuideColor.DiffTextNoChange</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextAddition">StudioStyleGuideColor.DiffTextAddition</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextDeletion">StudioStyleGuideColor.DiffTextDeletion</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextSeparatorBackground">StudioStyleGuideColor.DiffTextSeparatorBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextNoChangeBackground">StudioStyleGuideColor.DiffTextNoChangeBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextAdditionBackground">StudioStyleGuideColor.DiffTextAdditionBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffTextDeletionBackground">StudioStyleGuideColor.DiffTextDeletionBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNum">StudioStyleGuideColor.DiffLineNum</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumSeparatorBackground">StudioStyleGuideColor.DiffLineNumSeparatorBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumNoChangeBackground">StudioStyleGuideColor.DiffLineNumNoChangeBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumAdditionBackground">StudioStyleGuideColor.DiffLineNumAdditionBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DiffLineNumDeletionBackground">StudioStyleGuideColor.DiffLineNumDeletionBackground</a></li>
+						<li>Add Enum <a href="/ref/enum/HttpError.html">HttpError</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-OK">OK</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-InvalidUrl">InvalidUrl</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-DnsResolve">DnsResolve</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-ConnectFail">ConnectFail</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-OutOfMemory">OutOfMemory</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-TimedOut">TimedOut</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-TooManyRedirects">TooManyRedirects</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-InvalidRedirect">InvalidRedirect</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-NetFail">NetFail</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-Aborted">Aborted</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-SslConnectFail">SslConnectFail</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HttpError.html#member-Unknown">Unknown</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-1d1c92210a5a42f8" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-08-22 16:42:54-0700">2018-08-22 16:42</time> (v0.351.0.232950)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-1d1c92210a5a42f8">version-1d1c92210a5a42f8</a>
+					<ul class="patch-list">
+						<li>Remove Class <a href="/ref/class/Scale9Frame.html">Scale9Frame</a>
+							<ul>
+								<li>Remove Property <a href="/ref/class/Scale9Frame.html#member-ScaleEdgeSize">ScaleEdgeSize</a></li>
+								<li>Remove Property <a href="/ref/class/Scale9Frame.html#member-SlicePrefix">SlicePrefix</a></li>
+							</ul></li>
+						<li>Add Function <a href="/ref/class/HttpRbxApiService.html#member-RequestAsync">HttpRbxApiService.RequestAsync</a></li>
+						<li>Add Function <a href="/ref/class/HttpService.html#member-GetHttpEnabled">HttpService.GetHttpEnabled</a></li>
+						<li>Add Function <a href="/ref/class/HttpService.html#member-SetHttpEnabled">HttpService.SetHttpEnabled</a></li>
+						<li diff-field="CanSave">Change field CanSave of Property <a href="/ref/class/BasePart.html#member-Elasticity">BasePart.Elasticity</a>
+							<span class="diff-values"><span><span>from</span> <span>true</span></span> <span><span>to</span> <span>false</span></span></span></li>
+						<li diff-field="CanSave">Change field CanSave of Property <a href="/ref/class/BasePart.html#member-Friction">BasePart.Friction</a>
+							<span class="diff-values"><span><span>from</span> <span>true</span></span> <span><span>to</span> <span>false</span></span></span></li>
+						<li>Remove Class <a href="/ref/class/RootInstance.html">RootInstance</a>
+							<ul>
+							</ul></li>
+						<li diff-field="Superclass">Change field Superclass of Class <a href="/ref/class/Workspace.html">Workspace</a>
+							<span class="diff-values"><span><span>from</span> <span>RootInstance</span></span> <span><span>to</span> <span>Model</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-CreateQWidgetPluginGui">Plugin.CreateQWidgetPluginGui</a></li>
+						<li>Add Property <a href="/ref/class/RenderingTest.html#member-Description">RenderingTest.Description</a></li>
+						<li>Add Property <a href="/ref/class/RenderingTest.html#member-ShouldSkip">RenderingTest.ShouldSkip</a></li>
+						<li>Add Property <a href="/ref/class/RenderingTest.html#member-Ticket">RenderingTest.Ticket</a></li>
+						<li>Add Class <a href="/ref/class/QWidgetPluginGui.html">QWidgetPluginGui</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PackageLink.html">PackageLink</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/PackageLink.html#member-PackageId">PackageId</a></li>
+								<li>Add Property <a href="/ref/class/PackageLink.html#member-VersionId">VersionId</a></li>
+							</ul></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMachtingWordSelectionBackground">StudioStyleGuideColor.ScriptMachtingWordSelectionBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMatchingWordSelectionBackground">StudioStyleGuideColor.ScriptMatchingWordSelectionBackground</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b1608e1979a946f3" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-08-22 01:08:01-0700">2018-08-22 01:08</time> (v0.350.0.231118)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-b1608e1979a946f3">version-b1608e1979a946f3</a>
+					<ul class="patch-list">
+						<li>Remove Class <a href="/ref/class/QWidgetPluginGui.html">QWidgetPluginGui</a>
+							<ul>
+							</ul></li>
+						<li>Remove Function <a href="/ref/class/HttpRbxApiService.html#member-RequestAsync">HttpRbxApiService.RequestAsync</a></li>
+						<li>Remove Function <a href="/ref/class/HttpService.html#member-GetHttpEnabled">HttpService.GetHttpEnabled</a></li>
+						<li>Remove Function <a href="/ref/class/HttpService.html#member-SetHttpEnabled">HttpService.SetHttpEnabled</a></li>
+						<li diff-field="CanSave">Change field CanSave of Property <a href="/ref/class/BasePart.html#member-Elasticity">BasePart.Elasticity</a>
+							<span class="diff-values"><span><span>from</span> <span>false</span></span> <span><span>to</span> <span>true</span></span></span></li>
+						<li diff-field="CanSave">Change field CanSave of Property <a href="/ref/class/BasePart.html#member-Friction">BasePart.Friction</a>
+							<span class="diff-values"><span><span>from</span> <span>false</span></span> <span><span>to</span> <span>true</span></span></span></li>
+						<li diff-field="Superclass">Change field Superclass of Class <a href="/ref/class/Workspace.html">Workspace</a>
+							<span class="diff-values"><span><span>from</span> <span>Model</span></span> <span><span>to</span> <span>RootInstance</span></span></span></li>
+						<li>Remove Class <a href="/ref/class/PackageLink.html">PackageLink</a>
+							<ul>
+								<li>Remove Property <a href="/ref/class/PackageLink.html#member-PackageId">PackageId</a></li>
+								<li>Remove Property <a href="/ref/class/PackageLink.html#member-VersionId">VersionId</a></li>
+							</ul></li>
+						<li>Remove Function <a href="/ref/class/Plugin.html#member-CreateQWidgetPluginGui">Plugin.CreateQWidgetPluginGui</a></li>
+						<li>Remove Property <a href="/ref/class/RenderingTest.html#member-Description">RenderingTest.Description</a></li>
+						<li>Remove Property <a href="/ref/class/RenderingTest.html#member-ShouldSkip">RenderingTest.ShouldSkip</a></li>
+						<li>Remove Property <a href="/ref/class/RenderingTest.html#member-Ticket">RenderingTest.Ticket</a></li>
+						<li>Add Class <a href="/ref/class/Scale9Frame.html">Scale9Frame</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/Scale9Frame.html#member-ScaleEdgeSize">ScaleEdgeSize</a></li>
+								<li>Add Property <a href="/ref/class/Scale9Frame.html#member-SlicePrefix">SlicePrefix</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/RootInstance.html">RootInstance</a>
+							<ul>
+							</ul></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMatchingWordSelectionBackground">StudioStyleGuideColor.ScriptMatchingWordSelectionBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMachtingWordSelectionBackground">StudioStyleGuideColor.ScriptMachtingWordSelectionBackground</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a008d56721da4eb2" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-08-21 17:26:20-0700">2018-08-21 17:26</time> (v0.351.0.232950)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-a008d56721da4eb2">version-a008d56721da4eb2</a>
+					<ul class="patch-list">
+						<li>Remove Class <a href="/ref/class/Scale9Frame.html">Scale9Frame</a>
+							<ul>
+								<li>Remove Property <a href="/ref/class/Scale9Frame.html#member-ScaleEdgeSize">ScaleEdgeSize</a></li>
+								<li>Remove Property <a href="/ref/class/Scale9Frame.html#member-SlicePrefix">SlicePrefix</a></li>
+							</ul></li>
+						<li>Add Function <a href="/ref/class/HttpRbxApiService.html#member-RequestAsync">HttpRbxApiService.RequestAsync</a></li>
+						<li>Add Function <a href="/ref/class/HttpService.html#member-GetHttpEnabled">HttpService.GetHttpEnabled</a></li>
+						<li>Add Function <a href="/ref/class/HttpService.html#member-SetHttpEnabled">HttpService.SetHttpEnabled</a></li>
+						<li diff-field="CanSave">Change field CanSave of Property <a href="/ref/class/BasePart.html#member-Elasticity">BasePart.Elasticity</a>
+							<span class="diff-values"><span><span>from</span> <span>true</span></span> <span><span>to</span> <span>false</span></span></span></li>
+						<li diff-field="CanSave">Change field CanSave of Property <a href="/ref/class/BasePart.html#member-Friction">BasePart.Friction</a>
+							<span class="diff-values"><span><span>from</span> <span>true</span></span> <span><span>to</span> <span>false</span></span></span></li>
+						<li>Remove Class <a href="/ref/class/RootInstance.html">RootInstance</a>
+							<ul>
+							</ul></li>
+						<li diff-field="Superclass">Change field Superclass of Class <a href="/ref/class/Workspace.html">Workspace</a>
+							<span class="diff-values"><span><span>from</span> <span>RootInstance</span></span> <span><span>to</span> <span>Model</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-CreateQWidgetPluginGui">Plugin.CreateQWidgetPluginGui</a></li>
+						<li>Add Property <a href="/ref/class/RenderingTest.html#member-Description">RenderingTest.Description</a></li>
+						<li>Add Property <a href="/ref/class/RenderingTest.html#member-ShouldSkip">RenderingTest.ShouldSkip</a></li>
+						<li>Add Property <a href="/ref/class/RenderingTest.html#member-Ticket">RenderingTest.Ticket</a></li>
+						<li>Add Class <a href="/ref/class/QWidgetPluginGui.html">QWidgetPluginGui</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/PackageLink.html">PackageLink</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/PackageLink.html#member-PackageId">PackageId</a></li>
+								<li>Add Property <a href="/ref/class/PackageLink.html#member-VersionId">VersionId</a></li>
+							</ul></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMachtingWordSelectionBackground">StudioStyleGuideColor.ScriptMachtingWordSelectionBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMatchingWordSelectionBackground">StudioStyleGuideColor.ScriptMatchingWordSelectionBackground</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-28296a2ecd2d4d99" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-08-14 17:48:03-0700">2018-08-14 17:48</time> (v0.350.0.231118)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-28296a2ecd2d4d99">version-28296a2ecd2d4d99</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/DebugSettings.html">DebugSettings</a>
+							<span class="diff-values"><span><span>from</span> <span>[Service, NotBrowsable]</span></span> <span><span>to</span> <span>[Settings, NotBrowsable]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/GameSettings.html">GameSettings</a>
+							<span class="diff-values"><span><span>from</span> <span>[Service, NotBrowsable]</span></span> <span><span>to</span> <span>[Settings, NotBrowsable]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/ImageButton.html#member-HoverImage">ImageButton.HoverImage</a></li>
+						<li>Add Property <a href="/ref/class/ImageButton.html#member-PressedImage">ImageButton.PressedImage</a></li>
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/LuaSettings.html">LuaSettings</a>
+							<span class="diff-values"><span><span>from</span> <span>[Service]</span></span> <span><span>to</span> <span>[Settings]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Class <a href="/ref/class/PhysicsSettings.html">PhysicsSettings</a>
+							<span class="diff-values"><span><span>from</span> <span>[Service]</span></span> <span><span>to</span> <span>[Settings]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/Studio.html#member-Theme">Studio.Theme</a></li>
+						<li>Add Function <a href="/ref/class/Studio.html#member-FindTheme">Studio.FindTheme</a></li>
+						<li>Add Function <a href="/ref/class/Studio.html#member-GetAvailableThemes">Studio.GetAvailableThemes</a></li>
+						<li>Add Event <a href="/ref/class/Studio.html#member-ThemeChanged">Studio.ThemeChanged</a></li>
+						<li>Add Function <a href="/ref/class/TeleportService.html#member-GetArrivingTeleportGui">TeleportService.GetArrivingTeleportGui</a></li>
+						<li>Remove Class <a href="/ref/class/Theme.html">Theme</a>
+							<ul>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/StudioTheme.html">StudioTheme</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/StudioTheme.html#member-GetColor">GetColor</a></li>
+								<li>Add Function <a href="/ref/class/StudioTheme.html#member-GetPath">GetPath</a></li>
+							</ul></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Button">StudioStyleGuideColor.Button</a>
+							<span class="diff-values"><span><span>from</span> <span>16</span></span> <span><span>to</span> <span>11</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainButton">StudioStyleGuideColor.MainButton</a>
+							<span class="diff-values"><span><span>from</span> <span>17</span></span> <span><span>to</span> <span>12</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-RibbonButton">StudioStyleGuideColor.RibbonButton</a>
+							<span class="diff-values"><span><span>from</span> <span>18</span></span> <span><span>to</span> <span>13</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainText">StudioStyleGuideColor.MainText</a>
+							<span class="diff-values"><span><span>from</span> <span>21</span></span> <span><span>to</span> <span>29</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-TitlebarText">StudioStyleGuideColor.TitlebarText</a>
+							<span class="diff-values"><span><span>from</span> <span>22</span></span> <span><span>to</span> <span>31</span></span></span></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-HighlightText">StudioStyleGuideColor.HighlightText</a></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DimmerText">StudioStyleGuideColor.DimmerText</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-LinkText">StudioStyleGuideColor.LinkText</a>
+							<span class="diff-values"><span><span>from</span> <span>25</span></span> <span><span>to</span> <span>34</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-WarningText">StudioStyleGuideColor.WarningText</a>
+							<span class="diff-values"><span><span>from</span> <span>26</span></span> <span><span>to</span> <span>35</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ErrorText">StudioStyleGuideColor.ErrorText</a>
+							<span class="diff-values"><span><span>from</span> <span>27</span></span> <span><span>to</span> <span>36</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-InfoText">StudioStyleGuideColor.InfoText</a>
+							<span class="diff-values"><span><span>from</span> <span>28</span></span> <span><span>to</span> <span>37</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-SensitiveText">StudioStyleGuideColor.SensitiveText</a>
+							<span class="diff-values"><span><span>from</span> <span>29</span></span> <span><span>to</span> <span>38</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-RibbonTab">StudioStyleGuideColor.RibbonTab</a>
+							<span class="diff-values"><span><span>from</span> <span>8</span></span> <span><span>to</span> <span>9</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-RibbonTabTopBar">StudioStyleGuideColor.RibbonTabTopBar</a>
+							<span class="diff-values"><span><span>from</span> <span>9</span></span> <span><span>to</span> <span>10</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Item">StudioStyleGuideColor.Item</a>
+							<span class="diff-values"><span><span>from</span> <span>3</span></span> <span><span>to</span> <span>16</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-TableItem">StudioStyleGuideColor.TableItem</a>
+							<span class="diff-values"><span><span>from</span> <span>4</span></span> <span><span>to</span> <span>17</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-TabBar">StudioStyleGuideColor.TabBar</a>
+							<span class="diff-values"><span><span>from</span> <span>5</span></span> <span><span>to</span> <span>7</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Tab">StudioStyleGuideColor.Tab</a>
+							<span class="diff-values"><span><span>from</span> <span>6</span></span> <span><span>to</span> <span>8</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Notification">StudioStyleGuideColor.Notification</a>
+							<span class="diff-values"><span><span>from</span> <span>1</span></span> <span><span>to</span> <span>4</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Tooltip">StudioStyleGuideColor.Tooltip</a>
+							<span class="diff-values"><span><span>from</span> <span>2</span></span> <span><span>to</span> <span>3</span></span></span></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-InputField">StudioStyleGuideColor.InputField</a></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Menu">StudioStyleGuideColor.Menu</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScrollBar">StudioStyleGuideColor.ScrollBar</a>
+							<span class="diff-values"><span><span>from</span> <span>12</span></span> <span><span>to</span> <span>5</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScrollBarBackground">StudioStyleGuideColor.ScrollBarBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>13</span></span> <span><span>to</span> <span>6</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-EmulatorBar">StudioStyleGuideColor.EmulatorBar</a>
+							<span class="diff-values"><span><span>from</span> <span>10</span></span> <span><span>to</span> <span>21</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-EmulatorDropDown">StudioStyleGuideColor.EmulatorDropDown</a>
+							<span class="diff-values"><span><span>from</span> <span>11</span></span> <span><span>to</span> <span>22</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Border">StudioStyleGuideColor.Border</a>
+							<span class="diff-values"><span><span>from</span> <span>19</span></span> <span><span>to</span> <span>25</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Shadow">StudioStyleGuideColor.Shadow</a>
+							<span class="diff-values"><span><span>from</span> <span>20</span></span> <span><span>to</span> <span>26</span></span></span></li>
+						<li>Remove EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainSection">StudioStyleGuideColor.MainSection</a></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptBackground">StudioStyleGuideColor.ScriptBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>30</span></span> <span><span>to</span> <span>40</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptText">StudioStyleGuideColor.ScriptText</a>
+							<span class="diff-values"><span><span>from</span> <span>31</span></span> <span><span>to</span> <span>41</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSelectionText">StudioStyleGuideColor.ScriptSelectionText</a>
+							<span class="diff-values"><span><span>from</span> <span>32</span></span> <span><span>to</span> <span>42</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSelectionBackground">StudioStyleGuideColor.ScriptSelectionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>33</span></span> <span><span>to</span> <span>43</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptFindSelectionBackground">StudioStyleGuideColor.ScriptFindSelectionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>34</span></span> <span><span>to</span> <span>44</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMachtingWordSelectionBackground">StudioStyleGuideColor.ScriptMachtingWordSelectionBackground</a>
+							<span class="diff-values"><span><span>from</span> <span>35</span></span> <span><span>to</span> <span>45</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptOperator">StudioStyleGuideColor.ScriptOperator</a>
+							<span class="diff-values"><span><span>from</span> <span>36</span></span> <span><span>to</span> <span>46</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptNumber">StudioStyleGuideColor.ScriptNumber</a>
+							<span class="diff-values"><span><span>from</span> <span>37</span></span> <span><span>to</span> <span>47</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptString">StudioStyleGuideColor.ScriptString</a>
+							<span class="diff-values"><span><span>from</span> <span>38</span></span> <span><span>to</span> <span>48</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptComment">StudioStyleGuideColor.ScriptComment</a>
+							<span class="diff-values"><span><span>from</span> <span>39</span></span> <span><span>to</span> <span>49</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptPreprocessor">StudioStyleGuideColor.ScriptPreprocessor</a>
+							<span class="diff-values"><span><span>from</span> <span>40</span></span> <span><span>to</span> <span>50</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptKeyword">StudioStyleGuideColor.ScriptKeyword</a>
+							<span class="diff-values"><span><span>from</span> <span>41</span></span> <span><span>to</span> <span>51</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptBuiltInFunction">StudioStyleGuideColor.ScriptBuiltInFunction</a>
+							<span class="diff-values"><span><span>from</span> <span>42</span></span> <span><span>to</span> <span>52</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptWarning">StudioStyleGuideColor.ScriptWarning</a>
+							<span class="diff-values"><span><span>from</span> <span>43</span></span> <span><span>to</span> <span>53</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptError">StudioStyleGuideColor.ScriptError</a>
+							<span class="diff-values"><span><span>from</span> <span>44</span></span> <span><span>to</span> <span>54</span></span></span></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainBackground">StudioStyleGuideColor.MainBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Titlebar">StudioStyleGuideColor.Titlebar</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Dropdown">StudioStyleGuideColor.Dropdown</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-InputFieldBackground">StudioStyleGuideColor.InputFieldBackground</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-CategoryItem">StudioStyleGuideColor.CategoryItem</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-GameSettingsTableItem">StudioStyleGuideColor.GameSettingsTableItem</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-GameSettingsTooltip">StudioStyleGuideColor.GameSettingsTooltip</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ColorPickerFrame">StudioStyleGuideColor.ColorPickerFrame</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-CurrentMarker">StudioStyleGuideColor.CurrentMarker</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Light">StudioStyleGuideColor.Light</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Dark">StudioStyleGuideColor.Dark</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-SubText">StudioStyleGuideColor.SubText</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-BrightText">StudioStyleGuideColor.BrightText</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DimmedText">StudioStyleGuideColor.DimmedText</a></li>
+						<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSideWidget">StudioStyleGuideColor.ScriptSideWidget</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-b724ac4d89fb4d66" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-08-07 19:01:13-0700">2018-08-07 19:01</time> (v0.349.0.229728)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-b724ac4d89fb4d66">version-b724ac4d89fb4d66</a>
+					<ul class="patch-list">
+						<li>Remove Property <a href="/ref/class/PluginGui.html#member-HostWidgetWasRestored">PluginGui.HostWidgetWasRestored</a></li>
+						<li>Remove Event <a href="/ref/class/PluginGui.html#member-WindowFocusReleased">PluginGui.WindowFocusReleased</a></li>
+						<li>Remove Event <a href="/ref/class/PluginGui.html#member-WindowFocused">PluginGui.WindowFocused</a></li>
+						<li>Add Property <a href="/ref/class/Humanoid.html#member-AutomaticScalingEnabled">Humanoid.AutomaticScalingEnabled</a></li>
+						<li>Add Property <a href="/ref/class/InsertService.html#member-AllowClientInsertModels">InsertService.AllowClientInsertModels</a></li>
+						<li>Add Event <a href="/ref/class/LocalizationService.html#member-AutoTranslateWillRun">LocalizationService.AutoTranslateWillRun</a></li>
+						<li>Add Property <a href="/ref/class/LuaSourceContainer.html#member-CurrentEditor">LuaSourceContainer.CurrentEditor</a></li>
+						<li>Add Property <a href="/ref/class/NotificationService.html#member-IsLuaChatEnabled">NotificationService.IsLuaChatEnabled</a></li>
+						<li>Add Property <a href="/ref/class/MeshPart.html#member-CollisionFidelity">MeshPart.CollisionFidelity</a></li>
+						<li>Add Property <a href="/ref/class/MeshPart.html#member-MeshID">MeshPart.MeshID</a></li>
+						<li>Add Property <a href="/ref/class/PartOperation.html#member-CollisionFidelity">PartOperation.CollisionFidelity</a></li>
+						<li>Add Property <a href="/ref/class/Terrain.html#member-MaterialColors">Terrain.MaterialColors</a></li>
+						<li>Add Property <a href="/ref/class/Workspace.html#member-AutoJointsMode">Workspace.AutoJointsMode</a></li>
+						<li>Add Property <a href="/ref/class/Workspace.html#member-PGSPhysicsSolverEnabled">Workspace.PGSPhysicsSolverEnabled</a></li>
+						<li>Add Property <a href="/ref/class/Workspace.html#member-TemporaryLegacyPhysicsSolverOverride">Workspace.TemporaryLegacyPhysicsSolverOverride</a></li>
+						<li>Add Property <a href="/ref/class/ServerScriptService.html#member-LoadStringEnabled">ServerScriptService.LoadStringEnabled</a></li>
+						<li>Add Function <a href="/ref/class/DataModel.html#member-GetObjects">DataModel.GetObjects</a></li>
+						<li>Add Function <a href="/ref/class/DataModel.html#member-SetPlaceId">DataModel.SetPlaceId</a></li>
+						<li>Add Function <a href="/ref/class/DataModel.html#member-SetUniverseId">DataModel.SetUniverseId</a></li>
+						<li>Add Function <a href="/ref/class/TestService.html#member-isFeatureEnabled">TestService.isFeatureEnabled</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-StartMaximized">UserGameSettings.StartMaximized</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-StartScreenPosition">UserGameSettings.StartScreenPosition</a></li>
+						<li>Add Property <a href="/ref/class/UserGameSettings.html#member-StartScreenSize">UserGameSettings.StartScreenSize</a></li>
+						<li>Add Class <a href="/ref/class/DockWidgetPluginGui.html">DockWidgetPluginGui</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/DockWidgetPluginGui.html#member-HostWidgetWasRestored">HostWidgetWasRestored</a></li>
+								<li>Add Event <a href="/ref/class/DockWidgetPluginGui.html#member-WindowFocusReleased">WindowFocusReleased</a></li>
+								<li>Add Event <a href="/ref/class/DockWidgetPluginGui.html#member-WindowFocused">WindowFocused</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/Studio.html">Studio</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Always%20Save%20Script%20Changes">Always Save Script Changes</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Animate%20Hover%20Over">Animate Hover Over</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Auto%20Indent">Auto Indent</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Auto-Save%20Enabled">Auto-Save Enabled</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Auto-Save%20Interval%20%28Minutes%29">Auto-Save Interval (Minutes)</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Auto-Save%20Path">Auto-Save Path</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Background%20Color">Background Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Basic%20Objects%20Display%20Mode">Basic Objects Display Mode</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Built-in%20Function%20Color">Built-in Function Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Camera%20Mouse%20Wheel%20Speed">Camera Mouse Wheel Speed</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Camera%20Shift%20Speed">Camera Shift Speed</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Camera%20Speed">Camera Speed</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Clear%20Output%20On%20Start">Clear Output On Start</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Comment%20Color">Comment Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-DefaultScriptFileDir">DefaultScriptFileDir</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-DeprecatedObjectsShown">DeprecatedObjectsShown</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Device%20Pairing%20Code">Device Pairing Code</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Drag%20Multiple%20Parts%20As%20Single%20Part">Drag Multiple Parts As Single Part</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Enable%20Autocomplete">Enable Autocomplete</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Enable%20Intellisense">Enable Intellisense</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Error%20Color">Error Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Find%20Selection%20Background%20Color">Find Selection Background Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Font">Font</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Hover%20Animate%20Speed">Hover Animate Speed</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Hover%20Over%20Color">Hover Over Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Keyword%20Color">Keyword Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Line%20Thickness">Line Thickness</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-LuaDebuggerEnabled">LuaDebuggerEnabled</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Matching%20Word%20Background%20Color">Matching Word Background Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Maximum%20Output%20Lines">Maximum Output Lines</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Number%20Color">Number Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Only%20Play%20Audio%20from%20Window%20in%20Focus">Only Play Audio from Window in Focus</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Operator%20Color">Operator Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Output%20Font">Output Font</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Output%20Layout%20Mode">Output Layout Mode</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-OverrideCoreScripts">OverrideCoreScripts</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-OverrideCoreScriptsDir">OverrideCoreScriptsDir</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-PermissionLevelShown">PermissionLevelShown</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-PluginsDir">PluginsDir</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Preprocessor%20Color">Preprocessor Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-RecentSavesDir">RecentSavesDir</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Render%20Throttle%20Percentage">Render Throttle Percentage</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Respect%20Studio%20shortcuts%20when%20game%20has%20focus">Respect Studio shortcuts when game has focus</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-RuntimeUndoBehavior">RuntimeUndoBehavior</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-ScriptTimeoutLength">ScriptTimeoutLength</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Select%20Color">Select Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Select/Hover%20Color">Select/Hover Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Selection%20Background%20Color">Selection Background Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Selection%20Color">Selection Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Server%20Audio%20Behavior">Server Audio Behavior</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Show%20Core%20GUI%20in%20Explorer%20while%20Playing">Show Core GUI in Explorer while Playing</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Show%20Diagnostics%20Bar">Show Diagnostics Bar</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Show%20Hover%20Over">Show Hover Over</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Show%20Navigation%20Mesh">Show Navigation Mesh</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Show%20Plugin%20GUI%20Service%20in%20Explorer">Show Plugin GUI Service in Explorer</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Show%20QT%20warnings%20in%20output">Show QT warnings in output</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Show%20plus%20button%20on%20hover%20in%20Explorer">Show plus button on hover in Explorer</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-String%20Color">String Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Tab%20Width">Tab Width</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Text%20Color">Text Color</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Text%20Wrapping">Text Wrapping</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-UI%20Theme">UI Theme</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Use%20Accurate%20Play%20Solo">Use Accurate Play Solo</a></li>
+								<li>Add Property <a href="/ref/class/Studio.html#member-Warning%20Color">Warning Color</a></li>
+							</ul></li>
+						<li>Add Class <a href="/ref/class/Theme.html">Theme</a>
+							<ul>
+							</ul></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectNewSecurityKeyMismatch">ConnectionError.DisconnectNewSecurityKeyMismatch</a>
+							<span class="diff-values"><span><span>from</span> <span>259</span></span> <span><span>to</span> <span>272</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectProtocolMismatch">ConnectionError.DisconnectProtocolMismatch</a>
+							<span class="diff-values"><span><span>from</span> <span>260</span></span> <span><span>to</span> <span>259</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectReceivePacketError">ConnectionError.DisconnectReceivePacketError</a>
+							<span class="diff-values"><span><span>from</span> <span>261</span></span> <span><span>to</span> <span>260</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectReceivePacketStreamError">ConnectionError.DisconnectReceivePacketStreamError</a>
+							<span class="diff-values"><span><span>from</span> <span>262</span></span> <span><span>to</span> <span>261</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectSendPacketError">ConnectionError.DisconnectSendPacketError</a>
+							<span class="diff-values"><span><span>from</span> <span>263</span></span> <span><span>to</span> <span>262</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectIllegalTeleport">ConnectionError.DisconnectIllegalTeleport</a>
+							<span class="diff-values"><span><span>from</span> <span>264</span></span> <span><span>to</span> <span>263</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectDuplicatePlayer">ConnectionError.DisconnectDuplicatePlayer</a>
+							<span class="diff-values"><span><span>from</span> <span>265</span></span> <span><span>to</span> <span>264</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectDuplicateTicket">ConnectionError.DisconnectDuplicateTicket</a>
+							<span class="diff-values"><span><span>from</span> <span>266</span></span> <span><span>to</span> <span>265</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectTimeout">ConnectionError.DisconnectTimeout</a>
+							<span class="diff-values"><span><span>from</span> <span>267</span></span> <span><span>to</span> <span>266</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectLuaKick">ConnectionError.DisconnectLuaKick</a>
+							<span class="diff-values"><span><span>from</span> <span>268</span></span> <span><span>to</span> <span>267</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectOnRemoteSysStats">ConnectionError.DisconnectOnRemoteSysStats</a>
+							<span class="diff-values"><span><span>from</span> <span>269</span></span> <span><span>to</span> <span>268</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectHashTimeout">ConnectionError.DisconnectHashTimeout</a>
+							<span class="diff-values"><span><span>from</span> <span>270</span></span> <span><span>to</span> <span>269</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectCloudEditKick">ConnectionError.DisconnectCloudEditKick</a>
+							<span class="diff-values"><span><span>from</span> <span>271</span></span> <span><span>to</span> <span>270</span></span></span></li>
+						<li diff-field="Value">Change field Value of EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectPlayerless">ConnectionError.DisconnectPlayerless</a>
+							<span class="diff-values"><span><span>from</span> <span>272</span></span> <span><span>to</span> <span>271</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Enum <a href="/ref/enum/GearGenreSetting.html">GearGenreSetting</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Enum <a href="/ref/enum/Genre.html">Genre</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Enum <a href="/ref/enum/PrivilegeType.html">PrivilegeType</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Enum <a href="/ref/enum/SaveFilter.html">SaveFilter</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li diff-field="Tags">Change field Tags of Enum <a href="/ref/enum/Status.html">Status</a>
+							<span class="diff-values"><span><span>from</span> <span>[]</span></span> <span><span>to</span> <span>[Deprecated]</span></span></span></li>
+						<li>Add Enum <a href="/ref/enum/HoverAnimateSpeed.html">HoverAnimateSpeed</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/HoverAnimateSpeed.html#member-VerySlow">VerySlow</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HoverAnimateSpeed.html#member-Slow">Slow</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HoverAnimateSpeed.html#member-Medium">Medium</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HoverAnimateSpeed.html#member-Fast">Fast</a></li>
+								<li>Add EnumItem <a href="/ref/enum/HoverAnimateSpeed.html#member-VeryFast">VeryFast</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/ListDisplayMode.html">ListDisplayMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ListDisplayMode.html#member-Horizontal">Horizontal</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ListDisplayMode.html#member-Vertical">Vertical</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/OutputLayoutMode.html">OutputLayoutMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/OutputLayoutMode.html#member-Horizontal">Horizontal</a></li>
+								<li>Add EnumItem <a href="/ref/enum/OutputLayoutMode.html#member-Vertical">Vertical</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/PermissionLevelShown.html">PermissionLevelShown</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/PermissionLevelShown.html#member-Game">Game</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PermissionLevelShown.html#member-RobloxGame">RobloxGame</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PermissionLevelShown.html#member-RobloxScript">RobloxScript</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PermissionLevelShown.html#member-Studio">Studio</a></li>
+								<li>Add EnumItem <a href="/ref/enum/PermissionLevelShown.html#member-Roblox">Roblox</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/ServerAudioBehavior.html">ServerAudioBehavior</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ServerAudioBehavior.html#member-Enabled">Enabled</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ServerAudioBehavior.html#member-Muted">Muted</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ServerAudioBehavior.html#member-OnlineGame">OnlineGame</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/StudioStyleGuideColor.html">StudioStyleGuideColor</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Button">Button</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainButton">MainButton</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-RibbonButton">RibbonButton</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainText">MainText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-TitlebarText">TitlebarText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-HighlightText">HighlightText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-DimmerText">DimmerText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-LinkText">LinkText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-WarningText">WarningText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ErrorText">ErrorText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-InfoText">InfoText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-SensitiveText">SensitiveText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-RibbonTab">RibbonTab</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-RibbonTabTopBar">RibbonTabTopBar</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Item">Item</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-TableItem">TableItem</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-TabBar">TabBar</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Tab">Tab</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Notification">Notification</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Tooltip">Tooltip</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-InputField">InputField</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Menu">Menu</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScrollBar">ScrollBar</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScrollBarBackground">ScrollBarBackground</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-EmulatorBar">EmulatorBar</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-EmulatorDropDown">EmulatorDropDown</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Border">Border</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-Shadow">Shadow</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-MainSection">MainSection</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptBackground">ScriptBackground</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptText">ScriptText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSelectionText">ScriptSelectionText</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptSelectionBackground">ScriptSelectionBackground</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptFindSelectionBackground">ScriptFindSelectionBackground</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptMachtingWordSelectionBackground">ScriptMachtingWordSelectionBackground</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptOperator">ScriptOperator</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptNumber">ScriptNumber</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptString">ScriptString</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptComment">ScriptComment</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptPreprocessor">ScriptPreprocessor</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptKeyword">ScriptKeyword</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptBuiltInFunction">ScriptBuiltInFunction</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptWarning">ScriptWarning</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ScriptError">ScriptError</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideColor.html#member-ViewPortBackground">ViewPortBackground</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/StudioStyleGuideModifier.html">StudioStyleGuideModifier</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideModifier.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideModifier.html#member-Selected">Selected</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideModifier.html#member-Pressed">Pressed</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideModifier.html#member-Disabled">Disabled</a></li>
+								<li>Add EnumItem <a href="/ref/enum/StudioStyleGuideModifier.html#member-Hover">Hover</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/UITheme.html">UITheme</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/UITheme.html#member-Light">Light</a></li>
+								<li>Add EnumItem <a href="/ref/enum/UITheme.html#member-Dark">Dark</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-6b060bf0723c4a04" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-08-01 18:32:41-0700">2018-08-01 18:32</time> (v0.348.1.228302)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-6b060bf0723c4a04">version-6b060bf0723c4a04</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a325c22cf38d4b32" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-07-31 17:03:33-0700">2018-07-31 17:03</time> (v0.348.0.227567)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-a325c22cf38d4b32">version-a325c22cf38d4b32</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/AnalyticsService.html#member-SendEventDeferred">AnalyticsService.SendEventDeferred</a></li>
+						<li>Add Function <a href="/ref/class/AnalyticsService.html#member-SendEventImmediately">AnalyticsService.SendEventImmediately</a></li>
+						<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-ScrollBarImageColor3">ScrollingFrame.ScrollBarImageColor3</a></li>
+						<li>Add Property <a href="/ref/class/ScrollingFrame.html#member-ScrollBarImageTransparency">ScrollingFrame.ScrollBarImageTransparency</a></li>
+						<li>Add Property <a href="/ref/class/ScreenGui.html#member-IgnoreGuiInset">ScreenGui.IgnoreGuiInset</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-GetBodyPartR15">Humanoid.GetBodyPartR15</a></li>
+						<li>Add Function <a href="/ref/class/Humanoid.html#member-ReplaceBodyPartR15">Humanoid.ReplaceBodyPartR15</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-HandleGamepadAxisInput">VirtualInputManager.HandleGamepadAxisInput</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-HandleGamepadButtonInput">VirtualInputManager.HandleGamepadButtonInput</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-HandleGamepadConnect">VirtualInputManager.HandleGamepadConnect</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-HandleGamepadDisconnect">VirtualInputManager.HandleGamepadDisconnect</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendAccelerometerEvent">VirtualInputManager.SendAccelerometerEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendGravityEvent">VirtualInputManager.SendGravityEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendGyroscopeEvent">VirtualInputManager.SendGyroscopeEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendKeyEvent">VirtualInputManager.SendKeyEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendMouseButtonEvent">VirtualInputManager.SendMouseButtonEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendMouseMoveEvent">VirtualInputManager.SendMouseMoveEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendMouseWheelEvent">VirtualInputManager.SendMouseWheelEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendTextInputCharacterEvent">VirtualInputManager.SendTextInputCharacterEvent</a></li>
+						<li>Add Function <a href="/ref/class/VirtualInputManager.html#member-SendTouchEvent">VirtualInputManager.SendTouchEvent</a></li>
+						<li>Add Enum <a href="/ref/enum/AutoJointsMode.html">AutoJointsMode</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/AutoJointsMode.html#member-Default">Default</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AutoJointsMode.html#member-Explicit">Explicit</a></li>
+								<li>Add EnumItem <a href="/ref/enum/AutoJointsMode.html#member-LegacyImplicit">LegacyImplicit</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/BodyPartR15.html">BodyPartR15</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-Head">Head</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-UpperTorso">UpperTorso</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-LowerTorso">LowerTorso</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-LeftFoot">LeftFoot</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-LeftLowerLeg">LeftLowerLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-LeftUpperLeg">LeftUpperLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-RightFoot">RightFoot</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-RightLowerLeg">RightLowerLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-RightUpperLeg">RightUpperLeg</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-LeftHand">LeftHand</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-LeftLowerArm">LeftLowerArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-LeftUpperArm">LeftUpperArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-RightHand">RightHand</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-RightLowerArm">RightLowerArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-RightUpperArm">RightUpperArm</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-RootPart">RootPart</a></li>
+								<li>Add EnumItem <a href="/ref/enum/BodyPartR15.html#member-Unknown">Unknown</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-275113b61062497d" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-07-25 18:11:26-0700">2018-07-25 18:11</time> (v0.347.1.225742)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-275113b61062497d">version-275113b61062497d</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-f83b9cfc8ec44bf6" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-07-24 17:48:54-0700">2018-07-24 17:48</time> (v0.347.0.225070)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-f83b9cfc8ec44bf6">version-f83b9cfc8ec44bf6</a>
+					<ul class="patch-list">
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/GuiService.html#member-SetUiMessage">GuiService.SetUiMessage</a>
+							<span class="diff-values"><span><span>from</span> <span>(Enum:UiMessageType msgType, Primitive:string uiMessage)</span></span> <span><span>to</span> <span>(Enum:UiMessageType msgType, Primitive:string uiMessage = errorCode)</span></span></span></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetErrorCode">GuiService.GetErrorCode</a></li>
+						<li>Add Function <a href="/ref/class/GuiService.html#member-GetErrorType">GuiService.GetErrorType</a></li>
+						<li>Remove Function <a href="/ref/class/RunService.html#member-RobloxOnlyIsEdit">RunService.RobloxOnlyIsEdit</a></li>
+						<li>Add Function <a href="/ref/class/TeleportService.html#member-SetTeleportGui">TeleportService.SetTeleportGui</a></li>
+						<li>Add Enum <a href="/ref/enum/ConnectionError.html">ConnectionError</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-OK">OK</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectErrors">DisconnectErrors</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectBadhash">DisconnectBadhash</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectSecurityKeyMismatch">DisconnectSecurityKeyMismatch</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectNewSecurityKeyMismatch">DisconnectNewSecurityKeyMismatch</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectProtocolMismatch">DisconnectProtocolMismatch</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectReceivePacketError">DisconnectReceivePacketError</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectReceivePacketStreamError">DisconnectReceivePacketStreamError</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectSendPacketError">DisconnectSendPacketError</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectIllegalTeleport">DisconnectIllegalTeleport</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectDuplicatePlayer">DisconnectDuplicatePlayer</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectDuplicateTicket">DisconnectDuplicateTicket</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectTimeout">DisconnectTimeout</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectLuaKick">DisconnectLuaKick</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectOnRemoteSysStats">DisconnectOnRemoteSysStats</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectHashTimeout">DisconnectHashTimeout</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectCloudEditKick">DisconnectCloudEditKick</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectPlayerless">DisconnectPlayerless</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectEvicted">DisconnectEvicted</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectDevMaintenance">DisconnectDevMaintenance</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectRobloxMaintenance">DisconnectRobloxMaintenance</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectRejoin">DisconnectRejoin</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-DisconnectConnectionLost">DisconnectConnectionLost</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchErrors">PlacelaunchErrors</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchDisabled">PlacelaunchDisabled</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelauchError">PlacelauchError</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchGameEnded">PlacelaunchGameEnded</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchGameFull">PlacelaunchGameFull</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchUserLeft">PlacelaunchUserLeft</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchRestricted">PlacelaunchRestricted</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchUnauthorized">PlacelaunchUnauthorized</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchFlooded">PlacelaunchFlooded</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchHashExpired">PlacelaunchHashExpired</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchHashException">PlacelaunchHashException</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchPartyCannotFit">PlacelaunchPartyCannotFit</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchHttpError">PlacelaunchHttpError</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchCustomMessage">PlacelaunchCustomMessage</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-PlacelaunchOtherError">PlacelaunchOtherError</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportErrors">TeleportErrors</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportFailure">TeleportFailure</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportGameNotFound">TeleportGameNotFound</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportGameEnded">TeleportGameEnded</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportGameFull">TeleportGameFull</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportUnauthorized">TeleportUnauthorized</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportFlooded">TeleportFlooded</a></li>
+								<li>Add EnumItem <a href="/ref/enum/ConnectionError.html#member-TeleportIsTeleporting">TeleportIsTeleporting</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-f94ed8a819b24d95" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-07-17 18:17:02-0700">2018-07-17 18:17</time> (v0.346.0.222214)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-f94ed8a819b24d95">version-f94ed8a819b24d95</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/HttpRbxApiService.html#member-GetAsyncFullUrl">HttpRbxApiService.GetAsyncFullUrl</a></li>
+						<li>Add Function <a href="/ref/class/HttpRbxApiService.html#member-PostAsyncFullUrl">HttpRbxApiService.PostAsyncFullUrl</a></li>
+						<li>Remove Function <a href="/ref/class/NotificationService.html#member-IsLuaGamesPageEnabled">NotificationService.IsLuaGamesPageEnabled</a></li>
+						<li>Add Function <a href="/ref/class/NotificationService.html#member-IsLuaGamesPageEnabled">NotificationService.IsLuaGamesPageEnabled</a></li>
+						<li>Remove Function <a href="/ref/class/NotificationService.html#member-IsLuaHomePageEnabled">NotificationService.IsLuaHomePageEnabled</a></li>
+						<li>Add Function <a href="/ref/class/NotificationService.html#member-IsLuaHomePageEnabled">NotificationService.IsLuaHomePageEnabled</a></li>
+						<li>Remove Class <a href="/ref/class/PresenceService.html">PresenceService</a>
+							<ul>
+								<li>Remove Function <a href="/ref/class/PresenceService.html#member-GetUsersAsync">GetUsersAsync</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-418137ce542940cc" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-07-10 14:18:12-0700">2018-07-10 14:18</time> (v0.345.0.219036)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-418137ce542940cc">version-418137ce542940cc</a>
+					<ul class="patch-list">
+						<li diff-field="Tags">Change field Tags of Function <a href="/ref/class/BadgeService.html#member-UserHasBadge">BadgeService.UserHasBadge</a>
+							<span class="diff-values"><span><span>from</span> <span>[Yields]</span></span> <span><span>to</span> <span>[Yields, Deprecated]</span></span></span></li>
+						<li>Add Property <a href="/ref/class/ScreenGui.html#member-OnTopOfCoreBlur">ScreenGui.OnTopOfCoreBlur</a></li>
+						<li>Add Function <a href="/ref/class/NotificationService.html#member-IsLuaGamesPageEnabled">NotificationService.IsLuaGamesPageEnabled</a></li>
+						<li>Add Function <a href="/ref/class/NotificationService.html#member-IsLuaHomePageEnabled">NotificationService.IsLuaHomePageEnabled</a></li>
+						<li diff-field="Parameters">Change field Parameters of Function <a href="/ref/class/Plugin.html#member-CreatePluginAction">Plugin.CreatePluginAction</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:string actionId, Primitive:string text, Primitive:string statusTip)</span></span> <span><span>to</span> <span>(Primitive:string actionId, Primitive:string text, Primitive:string statusTip, Primitive:string iconName = )</span></span></span></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-PauseSound">Plugin.PauseSound</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-PlaySound">Plugin.PlaySound</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-ResumeSound">Plugin.ResumeSound</a></li>
+						<li>Add Function <a href="/ref/class/Plugin.html#member-StopAllSounds">Plugin.StopAllSounds</a></li>
+						<li>Add Function <a href="/ref/class/RunService.html#member-SetRobloxGuiFocused">RunService.SetRobloxGuiFocused</a></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/IntConstrainedValue.html#member-ConstrainedValue">IntConstrainedValue.ConstrainedValue</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:int64</span></span></span></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/IntConstrainedValue.html#member-MaxValue">IntConstrainedValue.MaxValue</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:int64</span></span></span></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/IntConstrainedValue.html#member-MinValue">IntConstrainedValue.MinValue</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:int64</span></span></span></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/IntConstrainedValue.html#member-Value">IntConstrainedValue.Value</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:int64</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/IntConstrainedValue.html#member-Changed">IntConstrainedValue.Changed</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:int value)</span></span> <span><span>to</span> <span>(Primitive:int64 value)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/IntConstrainedValue.html#member-changed">IntConstrainedValue.changed</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:int value)</span></span> <span><span>to</span> <span>(Primitive:int64 value)</span></span></span></li>
+						<li diff-field="ValueType">Change field ValueType of Property <a href="/ref/class/IntValue.html#member-Value">IntValue.Value</a>
+							<span class="diff-values"><span><span>from</span> <span>Primitive:int</span></span> <span><span>to</span> <span>Primitive:int64</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/IntValue.html#member-Changed">IntValue.Changed</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:int value)</span></span> <span><span>to</span> <span>(Primitive:int64 value)</span></span></span></li>
+						<li diff-field="Parameters">Change field Parameters of Event <a href="/ref/class/IntValue.html#member-changed">IntValue.changed</a>
+							<span class="diff-values"><span><span>from</span> <span>(Primitive:int value)</span></span> <span><span>to</span> <span>(Primitive:int64 value)</span></span></span></li>
+						<li>Add Class <a href="/ref/class/RenderingTest.html">RenderingTest</a>
+							<ul>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-CFrame">CFrame</a></li>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-ComparisonDiffThreshold">ComparisonDiffThreshold</a></li>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-ComparisonMethod">ComparisonMethod</a></li>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-ComparisonPsnrThreshold">ComparisonPsnrThreshold</a></li>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-FieldOfView">FieldOfView</a></li>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-Orientation">Orientation</a></li>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-Position">Position</a></li>
+								<li>Add Property <a href="/ref/class/RenderingTest.html#member-QualityLevel">QualityLevel</a></li>
+							</ul></li>
+						<li>Add Enum <a href="/ref/enum/RenderingTestComparisonMethod.html">RenderingTestComparisonMethod</a>
+							<ul>
+								<li>Add EnumItem <a href="/ref/enum/RenderingTestComparisonMethod.html#member-psnr">psnr</a></li>
+								<li>Add EnumItem <a href="/ref/enum/RenderingTestComparisonMethod.html#member-diff">diff</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-3131b9dde23e4df9" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-06-28 18:34:56-0700">2018-06-28 18:34</time> (v0.344.1.217637)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-3131b9dde23e4df9">version-3131b9dde23e4df9</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-725d6f10dfbd4792" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-06-26 19:26:18-0700">2018-06-26 19:26</time> (v0.344.0.215411)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-725d6f10dfbd4792">version-725d6f10dfbd4792</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/Player.html#member-AddToBlockList">Player.AddToBlockList</a></li>
+						<li>Add Function <a href="/ref/class/Player.html#member-UpdatePlayerBlocked">Player.UpdatePlayerBlocked</a></li>
+						<li>Add Property <a href="/ref/class/ReflectionMetadataClass.html#member-PreferredParents">ReflectionMetadataClass.PreferredParents</a></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-a6e1765288a24d79" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-06-19 17:02:09-0700">2018-06-19 17:02</time> (v0.343.0.213828)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-a6e1765288a24d79">version-a6e1765288a24d79</a>
+					<ul class="patch-list"><li>No changes</li>
+					
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="update">
+					<a id="version-906f14db11494347" class="anchor"></a>
+					<span class="patch-list-toggle"><time datetime="2018-06-19 16:05:32-0700">2018-06-19 16:05</time> (v0.343.0.213828)</span>
+					<a class="permalink" title="Permanent link" href="/ref/updates/2018.html#version-906f14db11494347">version-906f14db11494347</a>
+					<ul class="patch-list">
+						<li>Add Function <a href="/ref/class/HttpService.html#member-RequestAsync">HttpService.RequestAsync</a></li>
+						<li>Add Class <a href="/ref/class/PresenceService.html">PresenceService</a>
+							<ul>
+								<li>Add Function <a href="/ref/class/PresenceService.html#member-GetUsersAsync">GetUsersAsync</a></li>
+							</ul></li>
+					</ul>
+				</article>
+			</li>
+		</ul>
+	</main>
+</body>
+</html>
