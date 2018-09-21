@@ -1,15 +1,17 @@
-"<div class=\"loading-message\"><div class=\"loading-spinner\"></div>Loading...</div>"
+"use strict";
 
 function expandMemberList(event) {
+	// Prevent clicked anchor from doing anything else.
 	event.preventDefault();
-	var parent = event.target.closest(".inherited-members");
+
+	let parent = event.target.closest(".inherited-members");
 	if (parent === null) {
 		return;
 	};
 
-	var list = parent.querySelector(".member-list");
+	// Attempt to toggle a list that was loaded previously.
+	let list = parent.querySelector("#members .member-list");
 	if (list !== null) {
-		// Toggle list visibility.
 		if (list.classList.contains("hidden")) {
 			list.classList.remove("hidden");
 		} else {
@@ -18,46 +20,51 @@ function expandMemberList(event) {
 		return;
 	}
 
-	// Fetch the list.
-	if (parent.classList.contains("loading")) {
+	let link = parent.querySelector("a.element-link");
+	if (link === null || link.href.length === 0) {
 		return;
 	};
-	parent.classList.add("loading");
+	let url = link.href
 
-	var link = parent.querySelector("a.element-link");
-	if (link === null) {
+	// Create a message indicating that data is being loaded. Also use this
+	// message as a "lock", which will usually prevent multiple requests at
+	// once by this element.
+	if (parent.querySelector(".loading-message") !== null) {
 		return;
 	};
 	parent.insertAdjacentHTML("beforeend", '<div class="loading-message"><div class="loading-spinner"></div>Loading...</div>');
+
 	function clearLoader(event) {
-		parent.classList.remove("loading");
-		var loader = parent.querySelector(".loading-message");
+		let loader = parent.querySelector(".loading-message");
 		if (loader === null) {
 			return;
 		};
 		parent.removeChild(loader);
 	};
+
 	function onLoaded(event) {
-		clearLoader(event);
 		if (event.target.response === null) {
 			return;
 		};
-		var list = parent.querySelector(".member-list");
+		let list = parent.querySelector(".member-list");
 		if (list !== null) {
 			return;
 		};
-		list = event.target.response.querySelector(".member-list");
+		list = event.target.response.querySelector("#members .member-list");
 		if (list === null) {
 			return;
 		};
 		parent.insertBefore(list, null);
 	};
 
-	var req = new XMLHttpRequest();
-	req.addEventListener("load", onLoaded);
+	let req = new XMLHttpRequest();
+	req.addEventListener("load", function(event) {
+		onLoaded(event);
+		clearLoader(event);
+	});
 	req.addEventListener("error", clearLoader);
 	req.addEventListener("abort", clearLoader);
-	req.open("GET", link.href);
+	req.open("GET", url);
 	req.responseType = "document";
 	req.send();
 };
