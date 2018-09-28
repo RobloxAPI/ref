@@ -9,7 +9,7 @@
 	padding-left : var(--indent);
 }
 main article:not(#types) ul {
-	list-style: none;
+	list-style : none;
 }
 main {
 	--indent     : calc(var(--icon-size) + var(--icon-spacing));
@@ -27,7 +27,34 @@ main {
 	grid-template-rows    : auto 1fr;
 }
 #classes {
-	grid-row-end: span 2;
+	grid-row-end : span 2;
+}
+
+/* Class sort controls */
+.class-list-controls {
+	display       : block;
+	margin-top    : var(--baseline);
+	margin-bottom : var(--baseline);
+}
+.class-list-controls input {
+	display : none;
+}
+.class-list-controls label {
+	--border-size    : 2px;
+	display          : inline-block;
+	cursor           : pointer;
+	background-color : var(--table-color);
+	font-size        : var(--font-size);
+	line-height      : var(--line-height);
+	padding-top      : calc(var(--baseline)/2);
+	padding-bottom   : calc(var(--baseline)/2 - var(--border-size));
+	border-bottom    : var(--border-size) solid transparent;
+	transition       : border-bottom 100ms linear;
+	padding-left     : var(--indent);
+	padding-right    : var(--indent);
+}
+.class-list-controls input:checked + label {
+	border-bottom-color : var(--border-color);
 }
 </style>
 	<script src="/ref/res/sort-classes.js" charset="utf-8"></script>
@@ -48,531 +75,531 @@ main {
 	</header>
 	<p>The API defines 390 classes.</p>
 	<ul id="class-list">
-		<li><a class="element-link" href="/ref/class/Instance.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Instance</a>
-		<ul>
-		<li><a class="element-link" href="/ref/class/Accoutrement.html"><span class="class-icon" title="Class" style="background-position: -512px"></span>Accoutrement</a>
-		<ul>
-		<li><a class="element-link" href="/ref/class/Accessory.html"><span class="class-icon" title="Class" style="background-position: -512px"></span>Accessory</a></li>
-		<li><a class="element-link" href="/ref/class/Hat.html"><span class="class-icon" title="Class" style="background-position: -720px"></span>Hat</a></li>
-		</ul></li>
-		<li><a class="element-link" href="/ref/class/AdService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>AdService</a></li>
-		<li><a class="element-link" href="/ref/class/AdvancedDragger.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>AdvancedDragger</a></li>
-		<li><a class="element-link" href="/ref/class/AnalyticsService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>AnalyticsService</a></li>
-		<li><a class="element-link" href="/ref/class/Animation.html"><span class="class-icon" title="Class" style="background-position: -960px"></span>Animation</a></li>
-		<li><a class="element-link" href="/ref/class/AnimationController.html"><span class="class-icon" title="Class" style="background-position: -960px"></span>AnimationController</a></li>
-		<li><a class="element-link" href="/ref/class/AnimationTrack.html"><span class="class-icon" title="Class" style="background-position: -960px"></span>AnimationTrack</a></li>
-		<li><a class="element-link" href="/ref/class/Animator.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Animator</a></li>
-		<li><a class="element-link" href="/ref/class/AssetService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>AssetService</a></li>
-		<li><a class="element-link" href="/ref/class/Attachment.html"><span class="class-icon" title="Class" style="background-position: -1296px"></span>Attachment</a></li>
-		<li><a class="element-link" href="/ref/class/BadgeService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BadgeService</a></li>
-		<li><a class="element-link" href="/ref/class/BasePlayerGui.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BasePlayerGui</a>
-		<ul>
-		<li><a class="element-link" href="/ref/class/CoreGui.html"><span class="class-icon" title="Class" style="background-position: -736px"></span>CoreGui</a></li>
-		<li><a class="element-link" href="/ref/class/PlayerGui.html"><span class="class-icon" title="Class" style="background-position: -736px"></span>PlayerGui</a></li>
-		<li><a class="element-link" href="/ref/class/StarterGui.html"><span class="class-icon" title="Class" style="background-position: -736px"></span>StarterGui</a></li>
-		</ul></li>
-		<li><a class="element-link" href="/ref/class/Beam.html"><span class="class-icon" title="Class" style="background-position: -1536px"></span>Beam</a></li>
-		<li><a class="element-link" href="/ref/class/BindableEvent.html"><span class="class-icon" title="Class" style="background-position: -1072px"></span>BindableEvent</a></li>
-		<li><a class="element-link" href="/ref/class/BindableFunction.html"><span class="class-icon" title="Class" style="background-position: -1056px"></span>BindableFunction</a></li>
-		<li><a class="element-link" href="/ref/class/BodyMover.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BodyMover</a>
-		<ul>
-		<li><a class="element-link" href="/ref/class/BodyAngularVelocity.html"><span class="class-icon" title="Class" style="background-position: -224px"></span>BodyAngularVelocity</a></li>
-		<li><a class="element-link" href="/ref/class/BodyForce.html"><span class="class-icon" title="Class" style="background-position: -224px"></span>BodyForce</a></li>
-		<li><a class="element-link" href="/ref/class/BodyGyro.html"><span class="class-icon" title="Class" style="background-position: -224px"></span>BodyGyro</a></li>
-		<li><a class="element-link" href="/ref/class/BodyPosition.html"><span class="class-icon" title="Class" style="background-position: -224px"></span>BodyPosition</a></li>
-		<li><a class="element-link" href="/ref/class/BodyThrust.html"><span class="class-icon" title="Class" style="background-position: -224px"></span>BodyThrust</a></li>
-		<li><a class="element-link" href="/ref/class/BodyVelocity.html"><span class="class-icon" title="Class" style="background-position: -224px"></span>BodyVelocity</a></li>
-		<li><a class="element-link" href="/ref/class/RocketPropulsion.html"><span class="class-icon" title="Class" style="background-position: -224px"></span>RocketPropulsion</a></li>
-		</ul></li>
-		<li><a class="element-link" href="/ref/class/Button.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Button</a></li>
-		<li><a class="element-link" href="/ref/class/CacheableContentProvider.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CacheableContentProvider</a>
-		<ul>
-		<li><a class="element-link" href="/ref/class/MeshContentProvider.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>MeshContentProvider</a></li>
-		<li><a class="element-link" href="/ref/class/SolidModelContentProvider.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>SolidModelContentProvider</a></li>
-		</ul></li>
-		<li><a class="element-link" href="/ref/class/Camera.html"><span class="class-icon" title="Class" style="background-position: -80px"></span>Camera</a></li>
-		<li><a class="element-link" href="/ref/class/ChangeHistoryService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ChangeHistoryService</a></li>
-		<li><a class="element-link" href="/ref/class/CharacterAppearance.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CharacterAppearance</a>
-		<ul>
-		<li><a class="element-link" href="/ref/class/BodyColors.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BodyColors</a></li>
-		<li><a class="element-link" href="/ref/class/CharacterMesh.html"><span class="class-icon" title="Class" style="background-position: -960px"></span>CharacterMesh</a></li>
-		<li><a class="element-link" href="/ref/class/Clothing.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Clothing</a>
-		<ul>
-		<li><a class="element-link" href="/ref/class/Pants.html"><span class="class-icon" title="Class" style="background-position: -704px"></span>Pants</a></li>
-		<li><a class="element-link" href="/ref/class/Shirt.html"><span class="class-icon" title="Class" style="background-position: -688px"></span>Shirt</a></li>
-		</ul></li>
-		<li><a class="element-link" href="/ref/class/ShirtGraphic.html"><span class="class-icon" title="Class" style="background-position: -640px"></span>ShirtGraphic</a></li>
-		<li><a class="element-link" href="/ref/class/Skin.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Skin</a></li>
-		</ul></li>
-		<li><a class="element-link" href="/ref/class/Chat.html"><span class="class-icon" title="Class" style="background-position: -528px"></span>Chat</a></li>
-		<li><a class="element-link" href="/ref/class/ClickDetector.html"><span class="class-icon" title="Class" style="background-position: -656px"></span>ClickDetector</a></li>
-		<li><a class="element-link" href="/ref/class/ClusterPacketCache.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ClusterPacketCache</a></li>
-		<li><a class="element-link" href="/ref/class/CollectionService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CollectionService</a></li>
-		<li><a class="element-link" href="/ref/class/Configuration.html"><span class="class-icon" title="Class" style="background-position: -928px"></span>Configuration</a></li>
-		<li><a class="element-link" href="/ref/class/Constraint.html"><span class="class-icon" title="Class" style="background-position: -1376px"></span>Constraint</a>
+		<li><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Instance</a>
+		<ul>
+		<li><a class="element-link" href="/ref/class/Accoutrement.html"><span class="icon class-icon" title="Class" style="background-position: -512px"></span>Accoutrement</a>
+		<ul>
+		<li><a class="element-link" href="/ref/class/Accessory.html"><span class="icon class-icon" title="Class" style="background-position: -512px"></span>Accessory</a></li>
+		<li><a class="element-link" href="/ref/class/Hat.html"><span class="icon class-icon" title="Class" style="background-position: -720px"></span>Hat</a></li>
+		</ul></li>
+		<li><a class="element-link" href="/ref/class/AdService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>AdService</a></li>
+		<li><a class="element-link" href="/ref/class/AdvancedDragger.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>AdvancedDragger</a></li>
+		<li><a class="element-link" href="/ref/class/AnalyticsService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>AnalyticsService</a></li>
+		<li><a class="element-link" href="/ref/class/Animation.html"><span class="icon class-icon" title="Class" style="background-position: -960px"></span>Animation</a></li>
+		<li><a class="element-link" href="/ref/class/AnimationController.html"><span class="icon class-icon" title="Class" style="background-position: -960px"></span>AnimationController</a></li>
+		<li><a class="element-link" href="/ref/class/AnimationTrack.html"><span class="icon class-icon" title="Class" style="background-position: -960px"></span>AnimationTrack</a></li>
+		<li><a class="element-link" href="/ref/class/Animator.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Animator</a></li>
+		<li><a class="element-link" href="/ref/class/AssetService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>AssetService</a></li>
+		<li><a class="element-link" href="/ref/class/Attachment.html"><span class="icon class-icon" title="Class" style="background-position: -1296px"></span>Attachment</a></li>
+		<li><a class="element-link" href="/ref/class/BadgeService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BadgeService</a></li>
+		<li><a class="element-link" href="/ref/class/BasePlayerGui.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BasePlayerGui</a>
+		<ul>
+		<li><a class="element-link" href="/ref/class/CoreGui.html"><span class="icon class-icon" title="Class" style="background-position: -736px"></span>CoreGui</a></li>
+		<li><a class="element-link" href="/ref/class/PlayerGui.html"><span class="icon class-icon" title="Class" style="background-position: -736px"></span>PlayerGui</a></li>
+		<li><a class="element-link" href="/ref/class/StarterGui.html"><span class="icon class-icon" title="Class" style="background-position: -736px"></span>StarterGui</a></li>
+		</ul></li>
+		<li><a class="element-link" href="/ref/class/Beam.html"><span class="icon class-icon" title="Class" style="background-position: -1536px"></span>Beam</a></li>
+		<li><a class="element-link" href="/ref/class/BindableEvent.html"><span class="icon class-icon" title="Class" style="background-position: -1072px"></span>BindableEvent</a></li>
+		<li><a class="element-link" href="/ref/class/BindableFunction.html"><span class="icon class-icon" title="Class" style="background-position: -1056px"></span>BindableFunction</a></li>
+		<li><a class="element-link" href="/ref/class/BodyMover.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BodyMover</a>
+		<ul>
+		<li><a class="element-link" href="/ref/class/BodyAngularVelocity.html"><span class="icon class-icon" title="Class" style="background-position: -224px"></span>BodyAngularVelocity</a></li>
+		<li><a class="element-link" href="/ref/class/BodyForce.html"><span class="icon class-icon" title="Class" style="background-position: -224px"></span>BodyForce</a></li>
+		<li><a class="element-link" href="/ref/class/BodyGyro.html"><span class="icon class-icon" title="Class" style="background-position: -224px"></span>BodyGyro</a></li>
+		<li><a class="element-link" href="/ref/class/BodyPosition.html"><span class="icon class-icon" title="Class" style="background-position: -224px"></span>BodyPosition</a></li>
+		<li><a class="element-link" href="/ref/class/BodyThrust.html"><span class="icon class-icon" title="Class" style="background-position: -224px"></span>BodyThrust</a></li>
+		<li><a class="element-link" href="/ref/class/BodyVelocity.html"><span class="icon class-icon" title="Class" style="background-position: -224px"></span>BodyVelocity</a></li>
+		<li><a class="element-link" href="/ref/class/RocketPropulsion.html"><span class="icon class-icon" title="Class" style="background-position: -224px"></span>RocketPropulsion</a></li>
+		</ul></li>
+		<li><a class="element-link" href="/ref/class/Button.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Button</a></li>
+		<li><a class="element-link" href="/ref/class/CacheableContentProvider.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CacheableContentProvider</a>
+		<ul>
+		<li><a class="element-link" href="/ref/class/MeshContentProvider.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>MeshContentProvider</a></li>
+		<li><a class="element-link" href="/ref/class/SolidModelContentProvider.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>SolidModelContentProvider</a></li>
+		</ul></li>
+		<li><a class="element-link" href="/ref/class/Camera.html"><span class="icon class-icon" title="Class" style="background-position: -80px"></span>Camera</a></li>
+		<li><a class="element-link" href="/ref/class/ChangeHistoryService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ChangeHistoryService</a></li>
+		<li><a class="element-link" href="/ref/class/CharacterAppearance.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CharacterAppearance</a>
+		<ul>
+		<li><a class="element-link" href="/ref/class/BodyColors.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BodyColors</a></li>
+		<li><a class="element-link" href="/ref/class/CharacterMesh.html"><span class="icon class-icon" title="Class" style="background-position: -960px"></span>CharacterMesh</a></li>
+		<li><a class="element-link" href="/ref/class/Clothing.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Clothing</a>
+		<ul>
+		<li><a class="element-link" href="/ref/class/Pants.html"><span class="icon class-icon" title="Class" style="background-position: -704px"></span>Pants</a></li>
+		<li><a class="element-link" href="/ref/class/Shirt.html"><span class="icon class-icon" title="Class" style="background-position: -688px"></span>Shirt</a></li>
+		</ul></li>
+		<li><a class="element-link" href="/ref/class/ShirtGraphic.html"><span class="icon class-icon" title="Class" style="background-position: -640px"></span>ShirtGraphic</a></li>
+		<li><a class="element-link" href="/ref/class/Skin.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Skin</a></li>
+		</ul></li>
+		<li><a class="element-link" href="/ref/class/Chat.html"><span class="icon class-icon" title="Class" style="background-position: -528px"></span>Chat</a></li>
+		<li><a class="element-link" href="/ref/class/ClickDetector.html"><span class="icon class-icon" title="Class" style="background-position: -656px"></span>ClickDetector</a></li>
+		<li><a class="element-link" href="/ref/class/ClusterPacketCache.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ClusterPacketCache</a></li>
+		<li><a class="element-link" href="/ref/class/CollectionService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CollectionService</a></li>
+		<li><a class="element-link" href="/ref/class/Configuration.html"><span class="icon class-icon" title="Class" style="background-position: -928px"></span>Configuration</a></li>
+		<li><a class="element-link" href="/ref/class/Constraint.html"><span class="icon class-icon" title="Class" style="background-position: -1376px"></span>Constraint</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/AlignOrientation.html"><span class="class-icon" title="Class" style="background-position: -1312px"></span>AlignOrientation</a></li>
-		<li><a class="element-link" href="/ref/class/AlignPosition.html"><span class="class-icon" title="Class" style="background-position: -1312px"></span>AlignPosition</a></li>
-		<li><a class="element-link" href="/ref/class/BallSocketConstraint.html"><span class="class-icon" title="Class" style="background-position: -1376px"></span>BallSocketConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/HingeConstraint.html"><span class="class-icon" title="Class" style="background-position: -1392px"></span>HingeConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/LineForce.html"><span class="class-icon" title="Class" style="background-position: -1312px"></span>LineForce</a></li>
-		<li><a class="element-link" href="/ref/class/RodConstraint.html"><span class="class-icon" title="Class" style="background-position: -1440px"></span>RodConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/RopeConstraint.html"><span class="class-icon" title="Class" style="background-position: -1424px"></span>RopeConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/SlidingBallConstraint.html"><span class="class-icon" title="Class" style="background-position: -1408px"></span>SlidingBallConstraint</a>
+		<li><a class="element-link" href="/ref/class/AlignOrientation.html"><span class="icon class-icon" title="Class" style="background-position: -1312px"></span>AlignOrientation</a></li>
+		<li><a class="element-link" href="/ref/class/AlignPosition.html"><span class="icon class-icon" title="Class" style="background-position: -1312px"></span>AlignPosition</a></li>
+		<li><a class="element-link" href="/ref/class/BallSocketConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1376px"></span>BallSocketConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/HingeConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1392px"></span>HingeConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/LineForce.html"><span class="icon class-icon" title="Class" style="background-position: -1312px"></span>LineForce</a></li>
+		<li><a class="element-link" href="/ref/class/RodConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1440px"></span>RodConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/RopeConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1424px"></span>RopeConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/SlidingBallConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1408px"></span>SlidingBallConstraint</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/CylindricalConstraint.html"><span class="class-icon" title="Class" style="background-position: -1520px"></span>CylindricalConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/PrismaticConstraint.html"><span class="class-icon" title="Class" style="background-position: -1408px"></span>PrismaticConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/CylindricalConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1520px"></span>CylindricalConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/PrismaticConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1408px"></span>PrismaticConstraint</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/SpringConstraint.html"><span class="class-icon" title="Class" style="background-position: -1456px"></span>SpringConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/Torque.html"><span class="class-icon" title="Class" style="background-position: -1312px"></span>Torque</a></li>
-		<li><a class="element-link" href="/ref/class/VectorForce.html"><span class="class-icon" title="Class" style="background-position: -1312px"></span>VectorForce</a></li>
+		<li><a class="element-link" href="/ref/class/SpringConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1456px"></span>SpringConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/Torque.html"><span class="icon class-icon" title="Class" style="background-position: -1312px"></span>Torque</a></li>
+		<li><a class="element-link" href="/ref/class/VectorForce.html"><span class="icon class-icon" title="Class" style="background-position: -1312px"></span>VectorForce</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ContentProvider.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ContentProvider</a></li>
-		<li><a class="element-link" href="/ref/class/ContextActionService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ContextActionService</a></li>
-		<li><a class="element-link" href="/ref/class/Controller.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Controller</a>
+		<li><a class="element-link" href="/ref/class/ContentProvider.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ContentProvider</a></li>
+		<li><a class="element-link" href="/ref/class/ContextActionService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ContextActionService</a></li>
+		<li><a class="element-link" href="/ref/class/Controller.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Controller</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/HumanoidController.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>HumanoidController</a></li>
-		<li><a class="element-link" href="/ref/class/SkateboardController.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>SkateboardController</a></li>
-		<li><a class="element-link" href="/ref/class/VehicleController.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>VehicleController</a></li>
+		<li><a class="element-link" href="/ref/class/HumanoidController.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>HumanoidController</a></li>
+		<li><a class="element-link" href="/ref/class/SkateboardController.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>SkateboardController</a></li>
+		<li><a class="element-link" href="/ref/class/VehicleController.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>VehicleController</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ControllerService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ControllerService</a></li>
-		<li><a class="element-link" href="/ref/class/CookiesService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CookiesService</a></li>
-		<li><a class="element-link" href="/ref/class/CorePackages.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CorePackages</a></li>
-		<li><a class="element-link" href="/ref/class/CustomEvent.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>CustomEvent</a></li>
-		<li><a class="element-link" href="/ref/class/CustomEventReceiver.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>CustomEventReceiver</a></li>
-		<li><a class="element-link" href="/ref/class/DataModelMesh.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DataModelMesh</a>
+		<li><a class="element-link" href="/ref/class/ControllerService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ControllerService</a></li>
+		<li><a class="element-link" href="/ref/class/CookiesService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CookiesService</a></li>
+		<li><a class="element-link" href="/ref/class/CorePackages.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CorePackages</a></li>
+		<li><a class="element-link" href="/ref/class/CustomEvent.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>CustomEvent</a></li>
+		<li><a class="element-link" href="/ref/class/CustomEventReceiver.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>CustomEventReceiver</a></li>
+		<li><a class="element-link" href="/ref/class/DataModelMesh.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DataModelMesh</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BevelMesh.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BevelMesh</a>
+		<li><a class="element-link" href="/ref/class/BevelMesh.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BevelMesh</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BlockMesh.html"><span class="class-icon" title="Class" style="background-position: -128px"></span>BlockMesh</a></li>
-		<li><a class="element-link" href="/ref/class/CylinderMesh.html"><span class="class-icon" title="Class" style="background-position: -128px"></span>CylinderMesh</a></li>
+		<li><a class="element-link" href="/ref/class/BlockMesh.html"><span class="icon class-icon" title="Class" style="background-position: -128px"></span>BlockMesh</a></li>
+		<li><a class="element-link" href="/ref/class/CylinderMesh.html"><span class="icon class-icon" title="Class" style="background-position: -128px"></span>CylinderMesh</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/FileMesh.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FileMesh</a>
+		<li><a class="element-link" href="/ref/class/FileMesh.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FileMesh</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/SpecialMesh.html"><span class="class-icon" title="Class" style="background-position: -128px"></span>SpecialMesh</a></li>
+		<li><a class="element-link" href="/ref/class/SpecialMesh.html"><span class="icon class-icon" title="Class" style="background-position: -128px"></span>SpecialMesh</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/DataStoreService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DataStoreService</a></li>
-		<li><a class="element-link" href="/ref/class/Debris.html"><span class="class-icon" title="Class" style="background-position: -480px"></span>Debris</a></li>
-		<li><a class="element-link" href="/ref/class/DebugSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DebugSettings</a></li>
-		<li><a class="element-link" href="/ref/class/DebuggerBreakpoint.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DebuggerBreakpoint</a></li>
-		<li><a class="element-link" href="/ref/class/DebuggerManager.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DebuggerManager</a></li>
-		<li><a class="element-link" href="/ref/class/DebuggerWatch.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DebuggerWatch</a></li>
-		<li><a class="element-link" href="/ref/class/Dialog.html"><span class="class-icon" title="Class" style="background-position: -992px"></span>Dialog</a></li>
-		<li><a class="element-link" href="/ref/class/DialogChoice.html"><span class="class-icon" title="Class" style="background-position: -1008px"></span>DialogChoice</a></li>
-		<li><a class="element-link" href="/ref/class/Dragger.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Dragger</a></li>
-		<li><a class="element-link" href="/ref/class/Explosion.html"><span class="class-icon" title="Class" style="background-position: -576px"></span>Explosion</a></li>
-		<li><a class="element-link" href="/ref/class/FaceInstance.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FaceInstance</a>
+		<li><a class="element-link" href="/ref/class/DataStoreService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DataStoreService</a></li>
+		<li><a class="element-link" href="/ref/class/Debris.html"><span class="icon class-icon" title="Class" style="background-position: -480px"></span>Debris</a></li>
+		<li><a class="element-link" href="/ref/class/DebugSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DebugSettings</a></li>
+		<li><a class="element-link" href="/ref/class/DebuggerBreakpoint.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DebuggerBreakpoint</a></li>
+		<li><a class="element-link" href="/ref/class/DebuggerManager.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DebuggerManager</a></li>
+		<li><a class="element-link" href="/ref/class/DebuggerWatch.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DebuggerWatch</a></li>
+		<li><a class="element-link" href="/ref/class/Dialog.html"><span class="icon class-icon" title="Class" style="background-position: -992px"></span>Dialog</a></li>
+		<li><a class="element-link" href="/ref/class/DialogChoice.html"><span class="icon class-icon" title="Class" style="background-position: -1008px"></span>DialogChoice</a></li>
+		<li><a class="element-link" href="/ref/class/Dragger.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Dragger</a></li>
+		<li><a class="element-link" href="/ref/class/Explosion.html"><span class="icon class-icon" title="Class" style="background-position: -576px"></span>Explosion</a></li>
+		<li><a class="element-link" href="/ref/class/FaceInstance.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FaceInstance</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Decal.html"><span class="class-icon" title="Class" style="background-position: -112px"></span>Decal</a>
+		<li><a class="element-link" href="/ref/class/Decal.html"><span class="icon class-icon" title="Class" style="background-position: -112px"></span>Decal</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Texture.html"><span class="class-icon" title="Class" style="background-position: -160px"></span>Texture</a></li>
+		<li><a class="element-link" href="/ref/class/Texture.html"><span class="icon class-icon" title="Class" style="background-position: -160px"></span>Texture</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Feature.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Feature</a>
+		<li><a class="element-link" href="/ref/class/Feature.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Feature</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Hole.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Hole</a></li>
-		<li><a class="element-link" href="/ref/class/MotorFeature.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>MotorFeature</a></li>
+		<li><a class="element-link" href="/ref/class/Hole.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Hole</a></li>
+		<li><a class="element-link" href="/ref/class/MotorFeature.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>MotorFeature</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Fire.html"><span class="class-icon" title="Class" style="background-position: -976px"></span>Fire</a></li>
-		<li><a class="element-link" href="/ref/class/FlagStandService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FlagStandService</a></li>
-		<li><a class="element-link" href="/ref/class/FlyweightService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FlyweightService</a>
+		<li><a class="element-link" href="/ref/class/Fire.html"><span class="icon class-icon" title="Class" style="background-position: -976px"></span>Fire</a></li>
+		<li><a class="element-link" href="/ref/class/FlagStandService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FlagStandService</a></li>
+		<li><a class="element-link" href="/ref/class/FlyweightService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FlyweightService</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/CSGDictionaryService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CSGDictionaryService</a></li>
-		<li><a class="element-link" href="/ref/class/NonReplicatedCSGDictionaryService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>NonReplicatedCSGDictionaryService</a></li>
+		<li><a class="element-link" href="/ref/class/CSGDictionaryService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CSGDictionaryService</a></li>
+		<li><a class="element-link" href="/ref/class/NonReplicatedCSGDictionaryService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>NonReplicatedCSGDictionaryService</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Folder.html"><span class="class-icon" title="Class" style="background-position: -1232px"></span>Folder</a></li>
-		<li><a class="element-link" href="/ref/class/ForceField.html"><span class="class-icon" title="Class" style="background-position: -592px"></span>ForceField</a></li>
-		<li><a class="element-link" href="/ref/class/FriendService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FriendService</a></li>
-		<li><a class="element-link" href="/ref/class/FunctionalTest.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FunctionalTest</a></li>
-		<li><a class="element-link" href="/ref/class/GamePassService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GamePassService</a></li>
-		<li><a class="element-link" href="/ref/class/GameSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GameSettings</a></li>
-		<li><a class="element-link" href="/ref/class/GamepadService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GamepadService</a></li>
-		<li><a class="element-link" href="/ref/class/Geometry.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Geometry</a></li>
-		<li><a class="element-link" href="/ref/class/GlobalDataStore.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GlobalDataStore</a>
+		<li><a class="element-link" href="/ref/class/Folder.html"><span class="icon class-icon" title="Class" style="background-position: -1232px"></span>Folder</a></li>
+		<li><a class="element-link" href="/ref/class/ForceField.html"><span class="icon class-icon" title="Class" style="background-position: -592px"></span>ForceField</a></li>
+		<li><a class="element-link" href="/ref/class/FriendService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FriendService</a></li>
+		<li><a class="element-link" href="/ref/class/FunctionalTest.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FunctionalTest</a></li>
+		<li><a class="element-link" href="/ref/class/GamePassService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GamePassService</a></li>
+		<li><a class="element-link" href="/ref/class/GameSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GameSettings</a></li>
+		<li><a class="element-link" href="/ref/class/GamepadService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GamepadService</a></li>
+		<li><a class="element-link" href="/ref/class/Geometry.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Geometry</a></li>
+		<li><a class="element-link" href="/ref/class/GlobalDataStore.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GlobalDataStore</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/OrderedDataStore.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>OrderedDataStore</a></li>
+		<li><a class="element-link" href="/ref/class/OrderedDataStore.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>OrderedDataStore</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/GoogleAnalyticsConfiguration.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GoogleAnalyticsConfiguration</a></li>
-		<li><a class="element-link" href="/ref/class/GroupService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GroupService</a></li>
-		<li><a class="element-link" href="/ref/class/GuiBase.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiBase</a>
+		<li><a class="element-link" href="/ref/class/GoogleAnalyticsConfiguration.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GoogleAnalyticsConfiguration</a></li>
+		<li><a class="element-link" href="/ref/class/GroupService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GroupService</a></li>
+		<li><a class="element-link" href="/ref/class/GuiBase.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiBase</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/GuiBase2d.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiBase2d</a>
+		<li><a class="element-link" href="/ref/class/GuiBase2d.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiBase2d</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/GuiObject.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiObject</a>
+		<li><a class="element-link" href="/ref/class/GuiObject.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiObject</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Frame.html"><span class="class-icon" title="Class" style="background-position: -768px"></span>Frame</a></li>
-		<li><a class="element-link" href="/ref/class/GuiButton.html"><span class="class-icon" title="Class" style="background-position: -832px"></span>GuiButton</a>
+		<li><a class="element-link" href="/ref/class/Frame.html"><span class="icon class-icon" title="Class" style="background-position: -768px"></span>Frame</a></li>
+		<li><a class="element-link" href="/ref/class/GuiButton.html"><span class="icon class-icon" title="Class" style="background-position: -832px"></span>GuiButton</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/ImageButton.html"><span class="class-icon" title="Class" style="background-position: -832px"></span>ImageButton</a></li>
-		<li><a class="element-link" href="/ref/class/TextButton.html"><span class="class-icon" title="Class" style="background-position: -816px"></span>TextButton</a></li>
+		<li><a class="element-link" href="/ref/class/ImageButton.html"><span class="icon class-icon" title="Class" style="background-position: -832px"></span>ImageButton</a></li>
+		<li><a class="element-link" href="/ref/class/TextButton.html"><span class="icon class-icon" title="Class" style="background-position: -816px"></span>TextButton</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/GuiLabel.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiLabel</a>
+		<li><a class="element-link" href="/ref/class/GuiLabel.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiLabel</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/ImageLabel.html"><span class="class-icon" title="Class" style="background-position: -784px"></span>ImageLabel</a></li>
-		<li><a class="element-link" href="/ref/class/TextLabel.html"><span class="class-icon" title="Class" style="background-position: -800px"></span>TextLabel</a></li>
+		<li><a class="element-link" href="/ref/class/ImageLabel.html"><span class="icon class-icon" title="Class" style="background-position: -784px"></span>ImageLabel</a></li>
+		<li><a class="element-link" href="/ref/class/TextLabel.html"><span class="icon class-icon" title="Class" style="background-position: -800px"></span>TextLabel</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ScrollingFrame.html"><span class="class-icon" title="Class" style="background-position: -768px"></span>ScrollingFrame</a></li>
-		<li><a class="element-link" href="/ref/class/TextBox.html"><span class="class-icon" title="Class" style="background-position: -816px"></span>TextBox</a></li>
+		<li><a class="element-link" href="/ref/class/ScrollingFrame.html"><span class="icon class-icon" title="Class" style="background-position: -768px"></span>ScrollingFrame</a></li>
+		<li><a class="element-link" href="/ref/class/TextBox.html"><span class="icon class-icon" title="Class" style="background-position: -816px"></span>TextBox</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/LayerCollector.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>LayerCollector</a>
+		<li><a class="element-link" href="/ref/class/LayerCollector.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>LayerCollector</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BillboardGui.html"><span class="class-icon" title="Class" style="background-position: -1024px"></span>BillboardGui</a></li>
-		<li><a class="element-link" href="/ref/class/PluginGui.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PluginGui</a>
+		<li><a class="element-link" href="/ref/class/BillboardGui.html"><span class="icon class-icon" title="Class" style="background-position: -1024px"></span>BillboardGui</a></li>
+		<li><a class="element-link" href="/ref/class/PluginGui.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PluginGui</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/DockWidgetPluginGui.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DockWidgetPluginGui</a></li>
-		<li><a class="element-link" href="/ref/class/QWidgetPluginGui.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>QWidgetPluginGui</a></li>
+		<li><a class="element-link" href="/ref/class/DockWidgetPluginGui.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DockWidgetPluginGui</a></li>
+		<li><a class="element-link" href="/ref/class/QWidgetPluginGui.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>QWidgetPluginGui</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ScreenGui.html"><span class="class-icon" title="Class" style="background-position: -752px"></span>ScreenGui</a>
+		<li><a class="element-link" href="/ref/class/ScreenGui.html"><span class="icon class-icon" title="Class" style="background-position: -752px"></span>ScreenGui</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/GuiMain.html"><span class="class-icon" title="Class" style="background-position: -752px"></span>GuiMain</a></li>
+		<li><a class="element-link" href="/ref/class/GuiMain.html"><span class="icon class-icon" title="Class" style="background-position: -752px"></span>GuiMain</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/SurfaceGui.html"><span class="class-icon" title="Class" style="background-position: -1024px"></span>SurfaceGui</a></li>
+		<li><a class="element-link" href="/ref/class/SurfaceGui.html"><span class="icon class-icon" title="Class" style="background-position: -1024px"></span>SurfaceGui</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/GuiBase3d.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiBase3d</a>
+		<li><a class="element-link" href="/ref/class/GuiBase3d.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiBase3d</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/FloorWire.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>FloorWire</a></li>
-		<li><a class="element-link" href="/ref/class/PVAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PVAdornment</a>
+		<li><a class="element-link" href="/ref/class/FloorWire.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>FloorWire</a></li>
+		<li><a class="element-link" href="/ref/class/PVAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PVAdornment</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/HandleAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>HandleAdornment</a>
+		<li><a class="element-link" href="/ref/class/HandleAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>HandleAdornment</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BoxHandleAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BoxHandleAdornment</a></li>
-		<li><a class="element-link" href="/ref/class/ConeHandleAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ConeHandleAdornment</a></li>
-		<li><a class="element-link" href="/ref/class/CylinderHandleAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CylinderHandleAdornment</a></li>
-		<li><a class="element-link" href="/ref/class/ImageHandleAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ImageHandleAdornment</a></li>
-		<li><a class="element-link" href="/ref/class/LineHandleAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>LineHandleAdornment</a></li>
-		<li><a class="element-link" href="/ref/class/SphereHandleAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>SphereHandleAdornment</a></li>
+		<li><a class="element-link" href="/ref/class/BoxHandleAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BoxHandleAdornment</a></li>
+		<li><a class="element-link" href="/ref/class/ConeHandleAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ConeHandleAdornment</a></li>
+		<li><a class="element-link" href="/ref/class/CylinderHandleAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CylinderHandleAdornment</a></li>
+		<li><a class="element-link" href="/ref/class/ImageHandleAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ImageHandleAdornment</a></li>
+		<li><a class="element-link" href="/ref/class/LineHandleAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>LineHandleAdornment</a></li>
+		<li><a class="element-link" href="/ref/class/SphereHandleAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>SphereHandleAdornment</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ParabolaAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ParabolaAdornment</a></li>
-		<li><a class="element-link" href="/ref/class/SelectionBox.html"><span class="class-icon" title="Class" style="background-position: -864px"></span>SelectionBox</a></li>
-		<li><a class="element-link" href="/ref/class/SelectionSphere.html"><span class="class-icon" title="Class" style="background-position: -864px"></span>SelectionSphere</a></li>
+		<li><a class="element-link" href="/ref/class/ParabolaAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ParabolaAdornment</a></li>
+		<li><a class="element-link" href="/ref/class/SelectionBox.html"><span class="icon class-icon" title="Class" style="background-position: -864px"></span>SelectionBox</a></li>
+		<li><a class="element-link" href="/ref/class/SelectionSphere.html"><span class="icon class-icon" title="Class" style="background-position: -864px"></span>SelectionSphere</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/PartAdornment.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PartAdornment</a>
+		<li><a class="element-link" href="/ref/class/PartAdornment.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PartAdornment</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/HandlesBase.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>HandlesBase</a>
+		<li><a class="element-link" href="/ref/class/HandlesBase.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>HandlesBase</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/ArcHandles.html"><span class="class-icon" title="Class" style="background-position: -896px"></span>ArcHandles</a></li>
-		<li><a class="element-link" href="/ref/class/Handles.html"><span class="class-icon" title="Class" style="background-position: -848px"></span>Handles</a></li>
+		<li><a class="element-link" href="/ref/class/ArcHandles.html"><span class="icon class-icon" title="Class" style="background-position: -896px"></span>ArcHandles</a></li>
+		<li><a class="element-link" href="/ref/class/Handles.html"><span class="icon class-icon" title="Class" style="background-position: -848px"></span>Handles</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/SurfaceSelection.html"><span class="class-icon" title="Class" style="background-position: -880px"></span>SurfaceSelection</a></li>
+		<li><a class="element-link" href="/ref/class/SurfaceSelection.html"><span class="icon class-icon" title="Class" style="background-position: -880px"></span>SurfaceSelection</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/SelectionLasso.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>SelectionLasso</a>
+		<li><a class="element-link" href="/ref/class/SelectionLasso.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>SelectionLasso</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/SelectionPartLasso.html"><span class="class-icon" title="Class" style="background-position: -912px"></span>SelectionPartLasso</a></li>
-		<li><a class="element-link" href="/ref/class/SelectionPointLasso.html"><span class="class-icon" title="Class" style="background-position: -912px"></span>SelectionPointLasso</a></li>
+		<li><a class="element-link" href="/ref/class/SelectionPartLasso.html"><span class="icon class-icon" title="Class" style="background-position: -912px"></span>SelectionPartLasso</a></li>
+		<li><a class="element-link" href="/ref/class/SelectionPointLasso.html"><span class="icon class-icon" title="Class" style="background-position: -912px"></span>SelectionPointLasso</a></li>
 		</ul></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/GuiItem.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiItem</a>
+		<li><a class="element-link" href="/ref/class/GuiItem.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiItem</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Backpack.html"><span class="class-icon" title="Class" style="background-position: -320px"></span>Backpack</a></li>
-		<li><a class="element-link" href="/ref/class/BackpackItem.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BackpackItem</a>
+		<li><a class="element-link" href="/ref/class/Backpack.html"><span class="icon class-icon" title="Class" style="background-position: -320px"></span>Backpack</a></li>
+		<li><a class="element-link" href="/ref/class/BackpackItem.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BackpackItem</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/HopperBin.html"><span class="class-icon" title="Class" style="background-position: -352px"></span>HopperBin</a></li>
-		<li><a class="element-link" href="/ref/class/Tool.html"><span class="class-icon" title="Class" style="background-position: -272px"></span>Tool</a>
+		<li><a class="element-link" href="/ref/class/HopperBin.html"><span class="icon class-icon" title="Class" style="background-position: -352px"></span>HopperBin</a></li>
+		<li><a class="element-link" href="/ref/class/Tool.html"><span class="icon class-icon" title="Class" style="background-position: -272px"></span>Tool</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Flag.html"><span class="class-icon" title="Class" style="background-position: -608px"></span>Flag</a></li>
+		<li><a class="element-link" href="/ref/class/Flag.html"><span class="icon class-icon" title="Class" style="background-position: -608px"></span>Flag</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ButtonBindingWidget.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ButtonBindingWidget</a></li>
-		<li><a class="element-link" href="/ref/class/GuiRoot.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiRoot</a></li>
-		<li><a class="element-link" href="/ref/class/Hopper.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Hopper</a></li>
-		<li><a class="element-link" href="/ref/class/StarterPack.html"><span class="class-icon" title="Class" style="background-position: -320px"></span>StarterPack</a></li>
+		<li><a class="element-link" href="/ref/class/ButtonBindingWidget.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ButtonBindingWidget</a></li>
+		<li><a class="element-link" href="/ref/class/GuiRoot.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiRoot</a></li>
+		<li><a class="element-link" href="/ref/class/Hopper.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Hopper</a></li>
+		<li><a class="element-link" href="/ref/class/StarterPack.html"><span class="icon class-icon" title="Class" style="background-position: -320px"></span>StarterPack</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/GuiService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuiService</a></li>
-		<li><a class="element-link" href="/ref/class/GuidRegistryService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GuidRegistryService</a></li>
-		<li><a class="element-link" href="/ref/class/HapticService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>HapticService</a></li>
-		<li><a class="element-link" href="/ref/class/HttpRbxApiService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>HttpRbxApiService</a></li>
-		<li><a class="element-link" href="/ref/class/HttpRequest.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>HttpRequest</a></li>
-		<li><a class="element-link" href="/ref/class/HttpService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>HttpService</a></li>
-		<li><a class="element-link" href="/ref/class/Humanoid.html"><span class="class-icon" title="Class" style="background-position: -144px"></span>Humanoid</a></li>
-		<li><a class="element-link" href="/ref/class/InputObject.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>InputObject</a></li>
-		<li><a class="element-link" href="/ref/class/InsertService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>InsertService</a></li>
-		<li><a class="element-link" href="/ref/class/InstancePacketCache.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>InstancePacketCache</a></li>
-		<li><a class="element-link" href="/ref/class/JointInstance.html"><span class="class-icon" title="Class" style="background-position: -544px"></span>JointInstance</a>
+		<li><a class="element-link" href="/ref/class/GuiService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuiService</a></li>
+		<li><a class="element-link" href="/ref/class/GuidRegistryService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GuidRegistryService</a></li>
+		<li><a class="element-link" href="/ref/class/HapticService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>HapticService</a></li>
+		<li><a class="element-link" href="/ref/class/HttpRbxApiService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>HttpRbxApiService</a></li>
+		<li><a class="element-link" href="/ref/class/HttpRequest.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>HttpRequest</a></li>
+		<li><a class="element-link" href="/ref/class/HttpService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>HttpService</a></li>
+		<li><a class="element-link" href="/ref/class/Humanoid.html"><span class="icon class-icon" title="Class" style="background-position: -144px"></span>Humanoid</a></li>
+		<li><a class="element-link" href="/ref/class/InputObject.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>InputObject</a></li>
+		<li><a class="element-link" href="/ref/class/InsertService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>InsertService</a></li>
+		<li><a class="element-link" href="/ref/class/InstancePacketCache.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>InstancePacketCache</a></li>
+		<li><a class="element-link" href="/ref/class/JointInstance.html"><span class="icon class-icon" title="Class" style="background-position: -544px"></span>JointInstance</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/DynamicRotate.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DynamicRotate</a>
+		<li><a class="element-link" href="/ref/class/DynamicRotate.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DynamicRotate</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/RotateP.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RotateP</a></li>
-		<li><a class="element-link" href="/ref/class/RotateV.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RotateV</a></li>
+		<li><a class="element-link" href="/ref/class/RotateP.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RotateP</a></li>
+		<li><a class="element-link" href="/ref/class/RotateV.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RotateV</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Glue.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Glue</a></li>
-		<li><a class="element-link" href="/ref/class/ManualSurfaceJointInstance.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ManualSurfaceJointInstance</a>
+		<li><a class="element-link" href="/ref/class/Glue.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Glue</a></li>
+		<li><a class="element-link" href="/ref/class/ManualSurfaceJointInstance.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ManualSurfaceJointInstance</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/ManualGlue.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ManualGlue</a></li>
-		<li><a class="element-link" href="/ref/class/ManualWeld.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ManualWeld</a></li>
+		<li><a class="element-link" href="/ref/class/ManualGlue.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ManualGlue</a></li>
+		<li><a class="element-link" href="/ref/class/ManualWeld.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ManualWeld</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Motor.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Motor</a>
+		<li><a class="element-link" href="/ref/class/Motor.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Motor</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Motor6D.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Motor6D</a></li>
+		<li><a class="element-link" href="/ref/class/Motor6D.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Motor6D</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Rotate.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Rotate</a></li>
-		<li><a class="element-link" href="/ref/class/Snap.html"><span class="class-icon" title="Class" style="background-position: -544px"></span>Snap</a></li>
-		<li><a class="element-link" href="/ref/class/VelocityMotor.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>VelocityMotor</a></li>
-		<li><a class="element-link" href="/ref/class/Weld.html"><span class="class-icon" title="Class" style="background-position: -544px"></span>Weld</a></li>
+		<li><a class="element-link" href="/ref/class/Rotate.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Rotate</a></li>
+		<li><a class="element-link" href="/ref/class/Snap.html"><span class="icon class-icon" title="Class" style="background-position: -544px"></span>Snap</a></li>
+		<li><a class="element-link" href="/ref/class/VelocityMotor.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>VelocityMotor</a></li>
+		<li><a class="element-link" href="/ref/class/Weld.html"><span class="icon class-icon" title="Class" style="background-position: -544px"></span>Weld</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/JointsService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>JointsService</a></li>
-		<li><a class="element-link" href="/ref/class/KeyboardService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>KeyboardService</a></li>
-		<li><a class="element-link" href="/ref/class/Keyframe.html"><span class="class-icon" title="Class" style="background-position: -960px"></span>Keyframe</a></li>
-		<li><a class="element-link" href="/ref/class/KeyframeSequence.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>KeyframeSequence</a></li>
-		<li><a class="element-link" href="/ref/class/KeyframeSequenceProvider.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>KeyframeSequenceProvider</a></li>
-		<li><a class="element-link" href="/ref/class/Light.html"><span class="class-icon" title="Class" style="background-position: -208px"></span>Light</a>
+		<li><a class="element-link" href="/ref/class/JointsService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>JointsService</a></li>
+		<li><a class="element-link" href="/ref/class/KeyboardService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>KeyboardService</a></li>
+		<li><a class="element-link" href="/ref/class/Keyframe.html"><span class="icon class-icon" title="Class" style="background-position: -960px"></span>Keyframe</a></li>
+		<li><a class="element-link" href="/ref/class/KeyframeSequence.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>KeyframeSequence</a></li>
+		<li><a class="element-link" href="/ref/class/KeyframeSequenceProvider.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>KeyframeSequenceProvider</a></li>
+		<li><a class="element-link" href="/ref/class/Light.html"><span class="icon class-icon" title="Class" style="background-position: -208px"></span>Light</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/PointLight.html"><span class="class-icon" title="Class" style="background-position: -208px"></span>PointLight</a></li>
-		<li><a class="element-link" href="/ref/class/SpotLight.html"><span class="class-icon" title="Class" style="background-position: -208px"></span>SpotLight</a></li>
-		<li><a class="element-link" href="/ref/class/SurfaceLight.html"><span class="class-icon" title="Class" style="background-position: -208px"></span>SurfaceLight</a></li>
+		<li><a class="element-link" href="/ref/class/PointLight.html"><span class="icon class-icon" title="Class" style="background-position: -208px"></span>PointLight</a></li>
+		<li><a class="element-link" href="/ref/class/SpotLight.html"><span class="icon class-icon" title="Class" style="background-position: -208px"></span>SpotLight</a></li>
+		<li><a class="element-link" href="/ref/class/SurfaceLight.html"><span class="icon class-icon" title="Class" style="background-position: -208px"></span>SurfaceLight</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Lighting.html"><span class="class-icon" title="Class" style="background-position: -208px"></span>Lighting</a></li>
-		<li><a class="element-link" href="/ref/class/LocalizationService.html"><span class="class-icon" title="Class" style="background-position: -1472px"></span>LocalizationService</a></li>
-		<li><a class="element-link" href="/ref/class/LocalizationTable.html"><span class="class-icon" title="Class" style="background-position: -1552px"></span>LocalizationTable</a></li>
-		<li><a class="element-link" href="/ref/class/LogService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>LogService</a></li>
-		<li><a class="element-link" href="/ref/class/LoginService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>LoginService</a></li>
-		<li><a class="element-link" href="/ref/class/LuaSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>LuaSettings</a></li>
-		<li><a class="element-link" href="/ref/class/LuaSourceContainer.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>LuaSourceContainer</a>
+		<li><a class="element-link" href="/ref/class/Lighting.html"><span class="icon class-icon" title="Class" style="background-position: -208px"></span>Lighting</a></li>
+		<li><a class="element-link" href="/ref/class/LocalizationService.html"><span class="icon class-icon" title="Class" style="background-position: -1472px"></span>LocalizationService</a></li>
+		<li><a class="element-link" href="/ref/class/LocalizationTable.html"><span class="icon class-icon" title="Class" style="background-position: -1552px"></span>LocalizationTable</a></li>
+		<li><a class="element-link" href="/ref/class/LogService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>LogService</a></li>
+		<li><a class="element-link" href="/ref/class/LoginService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>LoginService</a></li>
+		<li><a class="element-link" href="/ref/class/LuaSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>LuaSettings</a></li>
+		<li><a class="element-link" href="/ref/class/LuaSourceContainer.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>LuaSourceContainer</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BaseScript.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BaseScript</a>
+		<li><a class="element-link" href="/ref/class/BaseScript.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BaseScript</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/CoreScript.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>CoreScript</a></li>
-		<li><a class="element-link" href="/ref/class/Script.html"><span class="class-icon" title="Class" style="background-position: -96px"></span>Script</a>
+		<li><a class="element-link" href="/ref/class/CoreScript.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>CoreScript</a></li>
+		<li><a class="element-link" href="/ref/class/Script.html"><span class="icon class-icon" title="Class" style="background-position: -96px"></span>Script</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/LocalScript.html"><span class="class-icon" title="Class" style="background-position: -288px"></span>LocalScript</a></li>
+		<li><a class="element-link" href="/ref/class/LocalScript.html"><span class="icon class-icon" title="Class" style="background-position: -288px"></span>LocalScript</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ModuleScript.html"><span class="class-icon" title="Class" style="background-position: -1216px"></span>ModuleScript</a></li>
+		<li><a class="element-link" href="/ref/class/ModuleScript.html"><span class="icon class-icon" title="Class" style="background-position: -1216px"></span>ModuleScript</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/LuaWebService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>LuaWebService</a></li>
-		<li><a class="element-link" href="/ref/class/MarketplaceService.html"><span class="class-icon" title="Class" style="background-position: -736px"></span>MarketplaceService</a></li>
-		<li><a class="element-link" href="/ref/class/Message.html"><span class="class-icon" title="Class" style="background-position: -528px"></span>Message</a>
+		<li><a class="element-link" href="/ref/class/LuaWebService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>LuaWebService</a></li>
+		<li><a class="element-link" href="/ref/class/MarketplaceService.html"><span class="icon class-icon" title="Class" style="background-position: -736px"></span>MarketplaceService</a></li>
+		<li><a class="element-link" href="/ref/class/Message.html"><span class="icon class-icon" title="Class" style="background-position: -528px"></span>Message</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Hint.html"><span class="class-icon" title="Class" style="background-position: -528px"></span>Hint</a></li>
+		<li><a class="element-link" href="/ref/class/Hint.html"><span class="icon class-icon" title="Class" style="background-position: -528px"></span>Hint</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Mouse.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Mouse</a>
+		<li><a class="element-link" href="/ref/class/Mouse.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Mouse</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/PlayerMouse.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PlayerMouse</a></li>
-		<li><a class="element-link" href="/ref/class/PluginMouse.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PluginMouse</a></li>
+		<li><a class="element-link" href="/ref/class/PlayerMouse.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PlayerMouse</a></li>
+		<li><a class="element-link" href="/ref/class/PluginMouse.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PluginMouse</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/MouseService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>MouseService</a></li>
-		<li><a class="element-link" href="/ref/class/NetworkMarker.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>NetworkMarker</a></li>
-		<li><a class="element-link" href="/ref/class/NetworkPeer.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>NetworkPeer</a>
+		<li><a class="element-link" href="/ref/class/MouseService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>MouseService</a></li>
+		<li><a class="element-link" href="/ref/class/NetworkMarker.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>NetworkMarker</a></li>
+		<li><a class="element-link" href="/ref/class/NetworkPeer.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>NetworkPeer</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/NetworkClient.html"><span class="class-icon" title="Class" style="background-position: -256px"></span>NetworkClient</a></li>
-		<li><a class="element-link" href="/ref/class/NetworkServer.html"><span class="class-icon" title="Class" style="background-position: -240px"></span>NetworkServer</a></li>
+		<li><a class="element-link" href="/ref/class/NetworkClient.html"><span class="icon class-icon" title="Class" style="background-position: -256px"></span>NetworkClient</a></li>
+		<li><a class="element-link" href="/ref/class/NetworkServer.html"><span class="icon class-icon" title="Class" style="background-position: -240px"></span>NetworkServer</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/NetworkReplicator.html"><span class="class-icon" title="Class" style="background-position: -464px"></span>NetworkReplicator</a>
+		<li><a class="element-link" href="/ref/class/NetworkReplicator.html"><span class="icon class-icon" title="Class" style="background-position: -464px"></span>NetworkReplicator</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/ClientReplicator.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ClientReplicator</a></li>
-		<li><a class="element-link" href="/ref/class/ServerReplicator.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ServerReplicator</a></li>
+		<li><a class="element-link" href="/ref/class/ClientReplicator.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ClientReplicator</a></li>
+		<li><a class="element-link" href="/ref/class/ServerReplicator.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ServerReplicator</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/NetworkSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>NetworkSettings</a></li>
-		<li><a class="element-link" href="/ref/class/NotificationService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>NotificationService</a></li>
-		<li><a class="element-link" href="/ref/class/PVInstance.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PVInstance</a>
+		<li><a class="element-link" href="/ref/class/NetworkSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>NetworkSettings</a></li>
+		<li><a class="element-link" href="/ref/class/NotificationService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>NotificationService</a></li>
+		<li><a class="element-link" href="/ref/class/PVInstance.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PVInstance</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BasePart.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BasePart</a>
+		<li><a class="element-link" href="/ref/class/BasePart.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BasePart</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/CornerWedgePart.html"><span class="class-icon" title="Class" style="background-position: -16px"></span>CornerWedgePart</a></li>
-		<li><a class="element-link" href="/ref/class/FormFactorPart.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FormFactorPart</a>
+		<li><a class="element-link" href="/ref/class/CornerWedgePart.html"><span class="icon class-icon" title="Class" style="background-position: -16px"></span>CornerWedgePart</a></li>
+		<li><a class="element-link" href="/ref/class/FormFactorPart.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FormFactorPart</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Part.html"><span class="class-icon" title="Class" style="background-position: -16px"></span>Part</a>
+		<li><a class="element-link" href="/ref/class/Part.html"><span class="icon class-icon" title="Class" style="background-position: -16px"></span>Part</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/FlagStand.html"><span class="class-icon" title="Class" style="background-position: -624px"></span>FlagStand</a></li>
-		<li><a class="element-link" href="/ref/class/Platform.html"><span class="class-icon" title="Class" style="background-position: -560px"></span>Platform</a></li>
-		<li><a class="element-link" href="/ref/class/Seat.html"><span class="class-icon" title="Class" style="background-position: -560px"></span>Seat</a></li>
-		<li><a class="element-link" href="/ref/class/SkateboardPlatform.html"><span class="class-icon" title="Class" style="background-position: -560px"></span>SkateboardPlatform</a></li>
-		<li><a class="element-link" href="/ref/class/SpawnLocation.html"><span class="class-icon" title="Class" style="background-position: -400px"></span>SpawnLocation</a></li>
+		<li><a class="element-link" href="/ref/class/FlagStand.html"><span class="icon class-icon" title="Class" style="background-position: -624px"></span>FlagStand</a></li>
+		<li><a class="element-link" href="/ref/class/Platform.html"><span class="icon class-icon" title="Class" style="background-position: -560px"></span>Platform</a></li>
+		<li><a class="element-link" href="/ref/class/Seat.html"><span class="icon class-icon" title="Class" style="background-position: -560px"></span>Seat</a></li>
+		<li><a class="element-link" href="/ref/class/SkateboardPlatform.html"><span class="icon class-icon" title="Class" style="background-position: -560px"></span>SkateboardPlatform</a></li>
+		<li><a class="element-link" href="/ref/class/SpawnLocation.html"><span class="icon class-icon" title="Class" style="background-position: -400px"></span>SpawnLocation</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/WedgePart.html"><span class="class-icon" title="Class" style="background-position: -16px"></span>WedgePart</a></li>
+		<li><a class="element-link" href="/ref/class/WedgePart.html"><span class="icon class-icon" title="Class" style="background-position: -16px"></span>WedgePart</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/MeshPart.html"><span class="class-icon" title="Class" style="background-position: -1168px"></span>MeshPart</a></li>
-		<li><a class="element-link" href="/ref/class/PartOperation.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PartOperation</a>
+		<li><a class="element-link" href="/ref/class/MeshPart.html"><span class="icon class-icon" title="Class" style="background-position: -1168px"></span>MeshPart</a></li>
+		<li><a class="element-link" href="/ref/class/PartOperation.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PartOperation</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/NegateOperation.html"><span class="class-icon" title="Class" style="background-position: -1152px"></span>NegateOperation</a></li>
-		<li><a class="element-link" href="/ref/class/UnionOperation.html"><span class="class-icon" title="Class" style="background-position: -1168px"></span>UnionOperation</a></li>
+		<li><a class="element-link" href="/ref/class/NegateOperation.html"><span class="icon class-icon" title="Class" style="background-position: -1152px"></span>NegateOperation</a></li>
+		<li><a class="element-link" href="/ref/class/UnionOperation.html"><span class="icon class-icon" title="Class" style="background-position: -1168px"></span>UnionOperation</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Terrain.html"><span class="class-icon" title="Class" style="background-position: -1040px"></span>Terrain</a></li>
-		<li><a class="element-link" href="/ref/class/TrussPart.html"><span class="class-icon" title="Class" style="background-position: -16px"></span>TrussPart</a></li>
-		<li><a class="element-link" href="/ref/class/VehicleSeat.html"><span class="class-icon" title="Class" style="background-position: -560px"></span>VehicleSeat</a></li>
+		<li><a class="element-link" href="/ref/class/Terrain.html"><span class="icon class-icon" title="Class" style="background-position: -1040px"></span>Terrain</a></li>
+		<li><a class="element-link" href="/ref/class/TrussPart.html"><span class="icon class-icon" title="Class" style="background-position: -16px"></span>TrussPart</a></li>
+		<li><a class="element-link" href="/ref/class/VehicleSeat.html"><span class="icon class-icon" title="Class" style="background-position: -560px"></span>VehicleSeat</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Model.html"><span class="class-icon" title="Class" style="background-position: -32px"></span>Model</a>
+		<li><a class="element-link" href="/ref/class/Model.html"><span class="icon class-icon" title="Class" style="background-position: -32px"></span>Model</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Status.html"><span class="class-icon" title="Class" style="background-position: -32px"></span>Status</a></li>
-		<li><a class="element-link" href="/ref/class/Workspace.html"><span class="class-icon" title="Class" style="background-position: -304px"></span>Workspace</a></li>
+		<li><a class="element-link" href="/ref/class/Status.html"><span class="icon class-icon" title="Class" style="background-position: -32px"></span>Status</a></li>
+		<li><a class="element-link" href="/ref/class/Workspace.html"><span class="icon class-icon" title="Class" style="background-position: -304px"></span>Workspace</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/PackageLink.html"><span class="class-icon" title="Class" style="background-position: -1568px"></span>PackageLink</a></li>
-		<li><a class="element-link" href="/ref/class/Pages.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Pages</a>
+		<li><a class="element-link" href="/ref/class/PackageLink.html"><span class="icon class-icon" title="Class" style="background-position: -1568px"></span>PackageLink</a></li>
+		<li><a class="element-link" href="/ref/class/Pages.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Pages</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/DataStorePages.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DataStorePages</a></li>
-		<li><a class="element-link" href="/ref/class/FriendPages.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>FriendPages</a></li>
-		<li><a class="element-link" href="/ref/class/InventoryPages.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>InventoryPages</a></li>
-		<li><a class="element-link" href="/ref/class/StandardPages.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>StandardPages</a></li>
+		<li><a class="element-link" href="/ref/class/DataStorePages.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DataStorePages</a></li>
+		<li><a class="element-link" href="/ref/class/FriendPages.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>FriendPages</a></li>
+		<li><a class="element-link" href="/ref/class/InventoryPages.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>InventoryPages</a></li>
+		<li><a class="element-link" href="/ref/class/StandardPages.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>StandardPages</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/PartOperationAsset.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PartOperationAsset</a></li>
-		<li><a class="element-link" href="/ref/class/ParticleEmitter.html"><span class="class-icon" title="Class" style="background-position: -1280px"></span>ParticleEmitter</a></li>
-		<li><a class="element-link" href="/ref/class/Path.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Path</a></li>
-		<li><a class="element-link" href="/ref/class/PathfindingService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PathfindingService</a></li>
-		<li><a class="element-link" href="/ref/class/PhysicsPacketCache.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PhysicsPacketCache</a></li>
-		<li><a class="element-link" href="/ref/class/PhysicsService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PhysicsService</a></li>
-		<li><a class="element-link" href="/ref/class/PhysicsSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PhysicsSettings</a></li>
-		<li><a class="element-link" href="/ref/class/Player.html"><span class="class-icon" title="Class" style="background-position: -192px"></span>Player</a></li>
-		<li><a class="element-link" href="/ref/class/PlayerScripts.html"><span class="class-icon" title="Class" style="background-position: -1248px"></span>PlayerScripts</a></li>
-		<li><a class="element-link" href="/ref/class/Players.html"><span class="class-icon" title="Class" style="background-position: -336px"></span>Players</a></li>
-		<li><a class="element-link" href="/ref/class/Plugin.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Plugin</a></li>
-		<li><a class="element-link" href="/ref/class/PluginAction.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PluginAction</a></li>
-		<li><a class="element-link" href="/ref/class/PluginDragEvent.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PluginDragEvent</a></li>
-		<li><a class="element-link" href="/ref/class/PluginGuiService.html"><span class="class-icon" title="Class" style="background-position: -736px"></span>PluginGuiService</a></li>
-		<li><a class="element-link" href="/ref/class/PluginManager.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PluginManager</a></li>
-		<li><a class="element-link" href="/ref/class/PointsService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PointsService</a></li>
-		<li><a class="element-link" href="/ref/class/Pose.html"><span class="class-icon" title="Class" style="background-position: -960px"></span>Pose</a></li>
-		<li><a class="element-link" href="/ref/class/PostEffect.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>PostEffect</a>
+		<li><a class="element-link" href="/ref/class/PartOperationAsset.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PartOperationAsset</a></li>
+		<li><a class="element-link" href="/ref/class/ParticleEmitter.html"><span class="icon class-icon" title="Class" style="background-position: -1280px"></span>ParticleEmitter</a></li>
+		<li><a class="element-link" href="/ref/class/Path.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Path</a></li>
+		<li><a class="element-link" href="/ref/class/PathfindingService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PathfindingService</a></li>
+		<li><a class="element-link" href="/ref/class/PhysicsPacketCache.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PhysicsPacketCache</a></li>
+		<li><a class="element-link" href="/ref/class/PhysicsService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PhysicsService</a></li>
+		<li><a class="element-link" href="/ref/class/PhysicsSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PhysicsSettings</a></li>
+		<li><a class="element-link" href="/ref/class/Player.html"><span class="icon class-icon" title="Class" style="background-position: -192px"></span>Player</a></li>
+		<li><a class="element-link" href="/ref/class/PlayerScripts.html"><span class="icon class-icon" title="Class" style="background-position: -1248px"></span>PlayerScripts</a></li>
+		<li><a class="element-link" href="/ref/class/Players.html"><span class="icon class-icon" title="Class" style="background-position: -336px"></span>Players</a></li>
+		<li><a class="element-link" href="/ref/class/Plugin.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Plugin</a></li>
+		<li><a class="element-link" href="/ref/class/PluginAction.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PluginAction</a></li>
+		<li><a class="element-link" href="/ref/class/PluginDragEvent.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PluginDragEvent</a></li>
+		<li><a class="element-link" href="/ref/class/PluginGuiService.html"><span class="icon class-icon" title="Class" style="background-position: -736px"></span>PluginGuiService</a></li>
+		<li><a class="element-link" href="/ref/class/PluginManager.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PluginManager</a></li>
+		<li><a class="element-link" href="/ref/class/PointsService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PointsService</a></li>
+		<li><a class="element-link" href="/ref/class/Pose.html"><span class="icon class-icon" title="Class" style="background-position: -960px"></span>Pose</a></li>
+		<li><a class="element-link" href="/ref/class/PostEffect.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>PostEffect</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BloomEffect.html"><span class="class-icon" title="Class" style="background-position: -1328px"></span>BloomEffect</a></li>
-		<li><a class="element-link" href="/ref/class/BlurEffect.html"><span class="class-icon" title="Class" style="background-position: -1328px"></span>BlurEffect</a></li>
-		<li><a class="element-link" href="/ref/class/ColorCorrectionEffect.html"><span class="class-icon" title="Class" style="background-position: -1328px"></span>ColorCorrectionEffect</a></li>
-		<li><a class="element-link" href="/ref/class/SunRaysEffect.html"><span class="class-icon" title="Class" style="background-position: -1328px"></span>SunRaysEffect</a></li>
+		<li><a class="element-link" href="/ref/class/BloomEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1328px"></span>BloomEffect</a></li>
+		<li><a class="element-link" href="/ref/class/BlurEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1328px"></span>BlurEffect</a></li>
+		<li><a class="element-link" href="/ref/class/ColorCorrectionEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1328px"></span>ColorCorrectionEffect</a></li>
+		<li><a class="element-link" href="/ref/class/SunRaysEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1328px"></span>SunRaysEffect</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadata.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadata</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataCallbacks.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataCallbacks</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataClasses.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataClasses</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataEnums.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEnums</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataEvents.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEvents</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataFunctions.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataFunctions</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataItem.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataItem</a>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadata.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadata</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataCallbacks.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataCallbacks</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataClasses.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataClasses</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataEnums.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEnums</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataEvents.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEvents</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataFunctions.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataFunctions</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataItem.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataItem</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataClass.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataClass</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataEnum.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEnum</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataEnumItem.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEnumItem</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataMember.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataMember</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataClass.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataClass</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataEnum.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEnum</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataEnumItem.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataEnumItem</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataMember.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataMember</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataProperties.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataProperties</a></li>
-		<li><a class="element-link" href="/ref/class/ReflectionMetadataYieldFunctions.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataYieldFunctions</a></li>
-		<li><a class="element-link" href="/ref/class/RemoteEvent.html"><span class="class-icon" title="Class" style="background-position: -1200px"></span>RemoteEvent</a></li>
-		<li><a class="element-link" href="/ref/class/RemoteFunction.html"><span class="class-icon" title="Class" style="background-position: -1184px"></span>RemoteFunction</a></li>
-		<li><a class="element-link" href="/ref/class/RenderSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RenderSettings</a></li>
-		<li><a class="element-link" href="/ref/class/RenderingTest.html"><span class="class-icon" title="Class" style="background-position: -80px"></span>RenderingTest</a></li>
-		<li><a class="element-link" href="/ref/class/ReplicatedFirst.html"><span class="class-icon" title="Class" style="background-position: -1120px"></span>ReplicatedFirst</a></li>
-		<li><a class="element-link" href="/ref/class/ReplicatedStorage.html"><span class="class-icon" title="Class" style="background-position: -1120px"></span>ReplicatedStorage</a></li>
-		<li><a class="element-link" href="/ref/class/RobloxReplicatedStorage.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RobloxReplicatedStorage</a></li>
-		<li><a class="element-link" href="/ref/class/RunService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RunService</a></li>
-		<li><a class="element-link" href="/ref/class/RuntimeScriptService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RuntimeScriptService</a></li>
-		<li><a class="element-link" href="/ref/class/ScriptContext.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ScriptContext</a></li>
-		<li><a class="element-link" href="/ref/class/ScriptDebugger.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ScriptDebugger</a></li>
-		<li><a class="element-link" href="/ref/class/ScriptService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ScriptService</a></li>
-		<li><a class="element-link" href="/ref/class/Selection.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Selection</a></li>
-		<li><a class="element-link" href="/ref/class/ServerScriptService.html"><span class="class-icon" title="Class" style="background-position: -1136px"></span>ServerScriptService</a></li>
-		<li><a class="element-link" href="/ref/class/ServerStorage.html"><span class="class-icon" title="Class" style="background-position: -1104px"></span>ServerStorage</a></li>
-		<li><a class="element-link" href="/ref/class/ServiceProvider.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ServiceProvider</a>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataProperties.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataProperties</a></li>
+		<li><a class="element-link" href="/ref/class/ReflectionMetadataYieldFunctions.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ReflectionMetadataYieldFunctions</a></li>
+		<li><a class="element-link" href="/ref/class/RemoteEvent.html"><span class="icon class-icon" title="Class" style="background-position: -1200px"></span>RemoteEvent</a></li>
+		<li><a class="element-link" href="/ref/class/RemoteFunction.html"><span class="icon class-icon" title="Class" style="background-position: -1184px"></span>RemoteFunction</a></li>
+		<li><a class="element-link" href="/ref/class/RenderSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RenderSettings</a></li>
+		<li><a class="element-link" href="/ref/class/RenderingTest.html"><span class="icon class-icon" title="Class" style="background-position: -80px"></span>RenderingTest</a></li>
+		<li><a class="element-link" href="/ref/class/ReplicatedFirst.html"><span class="icon class-icon" title="Class" style="background-position: -1120px"></span>ReplicatedFirst</a></li>
+		<li><a class="element-link" href="/ref/class/ReplicatedStorage.html"><span class="icon class-icon" title="Class" style="background-position: -1120px"></span>ReplicatedStorage</a></li>
+		<li><a class="element-link" href="/ref/class/RobloxReplicatedStorage.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RobloxReplicatedStorage</a></li>
+		<li><a class="element-link" href="/ref/class/RunService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RunService</a></li>
+		<li><a class="element-link" href="/ref/class/RuntimeScriptService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RuntimeScriptService</a></li>
+		<li><a class="element-link" href="/ref/class/ScriptContext.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ScriptContext</a></li>
+		<li><a class="element-link" href="/ref/class/ScriptDebugger.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ScriptDebugger</a></li>
+		<li><a class="element-link" href="/ref/class/ScriptService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ScriptService</a></li>
+		<li><a class="element-link" href="/ref/class/Selection.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Selection</a></li>
+		<li><a class="element-link" href="/ref/class/ServerScriptService.html"><span class="icon class-icon" title="Class" style="background-position: -1136px"></span>ServerScriptService</a></li>
+		<li><a class="element-link" href="/ref/class/ServerStorage.html"><span class="icon class-icon" title="Class" style="background-position: -1104px"></span>ServerStorage</a></li>
+		<li><a class="element-link" href="/ref/class/ServiceProvider.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ServiceProvider</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/DataModel.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>DataModel</a></li>
-		<li><a class="element-link" href="/ref/class/GenericSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GenericSettings</a>
+		<li><a class="element-link" href="/ref/class/DataModel.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>DataModel</a></li>
+		<li><a class="element-link" href="/ref/class/GenericSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GenericSettings</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/AnalysticsSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>AnalysticsSettings</a></li>
-		<li><a class="element-link" href="/ref/class/GlobalSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>GlobalSettings</a></li>
-		<li><a class="element-link" href="/ref/class/UserSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UserSettings</a></li>
+		<li><a class="element-link" href="/ref/class/AnalysticsSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>AnalysticsSettings</a></li>
+		<li><a class="element-link" href="/ref/class/GlobalSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>GlobalSettings</a></li>
+		<li><a class="element-link" href="/ref/class/UserSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UserSettings</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Sky.html"><span class="class-icon" title="Class" style="background-position: -448px"></span>Sky</a></li>
-		<li><a class="element-link" href="/ref/class/Smoke.html"><span class="class-icon" title="Class" style="background-position: -944px"></span>Smoke</a></li>
-		<li><a class="element-link" href="/ref/class/Sound.html"><span class="class-icon" title="Class" style="background-position: -176px"></span>Sound</a></li>
-		<li><a class="element-link" href="/ref/class/SoundEffect.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>SoundEffect</a>
+		<li><a class="element-link" href="/ref/class/Sky.html"><span class="icon class-icon" title="Class" style="background-position: -448px"></span>Sky</a></li>
+		<li><a class="element-link" href="/ref/class/Smoke.html"><span class="icon class-icon" title="Class" style="background-position: -944px"></span>Smoke</a></li>
+		<li><a class="element-link" href="/ref/class/Sound.html"><span class="icon class-icon" title="Class" style="background-position: -176px"></span>Sound</a></li>
+		<li><a class="element-link" href="/ref/class/SoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>SoundEffect</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/ChorusSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>ChorusSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/CompressorSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>CompressorSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/DistortionSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>DistortionSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/EchoSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>EchoSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/EqualizerSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>EqualizerSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/FlangeSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>FlangeSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/PitchShiftSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>PitchShiftSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/ReverbSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>ReverbSoundEffect</a></li>
-		<li><a class="element-link" href="/ref/class/TremoloSoundEffect.html"><span class="class-icon" title="Class" style="background-position: -1344px"></span>TremoloSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/ChorusSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>ChorusSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/CompressorSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>CompressorSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/DistortionSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>DistortionSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/EchoSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>EchoSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/EqualizerSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>EqualizerSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/FlangeSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>FlangeSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/PitchShiftSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>PitchShiftSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/ReverbSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>ReverbSoundEffect</a></li>
+		<li><a class="element-link" href="/ref/class/TremoloSoundEffect.html"><span class="icon class-icon" title="Class" style="background-position: -1344px"></span>TremoloSoundEffect</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/SoundGroup.html"><span class="class-icon" title="Class" style="background-position: -1360px"></span>SoundGroup</a></li>
-		<li><a class="element-link" href="/ref/class/SoundService.html"><span class="class-icon" title="Class" style="background-position: -496px"></span>SoundService</a></li>
-		<li><a class="element-link" href="/ref/class/Sparkles.html"><span class="class-icon" title="Class" style="background-position: -672px"></span>Sparkles</a></li>
-		<li><a class="element-link" href="/ref/class/SpawnerService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>SpawnerService</a></li>
-		<li><a class="element-link" href="/ref/class/StarterGear.html"><span class="class-icon" title="Class" style="background-position: -320px"></span>StarterGear</a></li>
-		<li><a class="element-link" href="/ref/class/StarterPlayer.html"><span class="class-icon" title="Class" style="background-position: -1264px"></span>StarterPlayer</a></li>
-		<li><a class="element-link" href="/ref/class/StarterPlayerScripts.html"><span class="class-icon" title="Class" style="background-position: -1248px"></span>StarterPlayerScripts</a>
+		<li><a class="element-link" href="/ref/class/SoundGroup.html"><span class="icon class-icon" title="Class" style="background-position: -1360px"></span>SoundGroup</a></li>
+		<li><a class="element-link" href="/ref/class/SoundService.html"><span class="icon class-icon" title="Class" style="background-position: -496px"></span>SoundService</a></li>
+		<li><a class="element-link" href="/ref/class/Sparkles.html"><span class="icon class-icon" title="Class" style="background-position: -672px"></span>Sparkles</a></li>
+		<li><a class="element-link" href="/ref/class/SpawnerService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>SpawnerService</a></li>
+		<li><a class="element-link" href="/ref/class/StarterGear.html"><span class="icon class-icon" title="Class" style="background-position: -320px"></span>StarterGear</a></li>
+		<li><a class="element-link" href="/ref/class/StarterPlayer.html"><span class="icon class-icon" title="Class" style="background-position: -1264px"></span>StarterPlayer</a></li>
+		<li><a class="element-link" href="/ref/class/StarterPlayerScripts.html"><span class="icon class-icon" title="Class" style="background-position: -1248px"></span>StarterPlayerScripts</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/StarterCharacterScripts.html"><span class="class-icon" title="Class" style="background-position: -1248px"></span>StarterCharacterScripts</a></li>
+		<li><a class="element-link" href="/ref/class/StarterCharacterScripts.html"><span class="icon class-icon" title="Class" style="background-position: -1248px"></span>StarterCharacterScripts</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Stats.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Stats</a></li>
-		<li><a class="element-link" href="/ref/class/StatsItem.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>StatsItem</a>
+		<li><a class="element-link" href="/ref/class/Stats.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Stats</a></li>
+		<li><a class="element-link" href="/ref/class/StatsItem.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>StatsItem</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/RunningAverageItemDouble.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RunningAverageItemDouble</a></li>
-		<li><a class="element-link" href="/ref/class/RunningAverageItemInt.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RunningAverageItemInt</a></li>
-		<li><a class="element-link" href="/ref/class/RunningAverageTimeIntervalItem.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>RunningAverageTimeIntervalItem</a></li>
-		<li><a class="element-link" href="/ref/class/TotalCountTimeIntervalItem.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TotalCountTimeIntervalItem</a></li>
+		<li><a class="element-link" href="/ref/class/RunningAverageItemDouble.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RunningAverageItemDouble</a></li>
+		<li><a class="element-link" href="/ref/class/RunningAverageItemInt.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RunningAverageItemInt</a></li>
+		<li><a class="element-link" href="/ref/class/RunningAverageTimeIntervalItem.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>RunningAverageTimeIntervalItem</a></li>
+		<li><a class="element-link" href="/ref/class/TotalCountTimeIntervalItem.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TotalCountTimeIntervalItem</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/Studio.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Studio</a></li>
-		<li><a class="element-link" href="/ref/class/StudioTheme.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>StudioTheme</a></li>
-		<li><a class="element-link" href="/ref/class/TaskScheduler.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TaskScheduler</a></li>
-		<li><a class="element-link" href="/ref/class/Team.html"><span class="class-icon" title="Class" style="background-position: -384px"></span>Team</a></li>
-		<li><a class="element-link" href="/ref/class/Teams.html"><span class="class-icon" title="Class" style="background-position: -368px"></span>Teams</a></li>
-		<li><a class="element-link" href="/ref/class/TeleportService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TeleportService</a></li>
-		<li><a class="element-link" href="/ref/class/TerrainRegion.html"><span class="class-icon" title="Class" style="background-position: -1040px"></span>TerrainRegion</a></li>
-		<li><a class="element-link" href="/ref/class/TestService.html"><span class="class-icon" title="Class" style="background-position: -1088px"></span>TestService</a></li>
-		<li><a class="element-link" href="/ref/class/TextFilterResult.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TextFilterResult</a></li>
-		<li><a class="element-link" href="/ref/class/TextService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TextService</a></li>
-		<li><a class="element-link" href="/ref/class/ThirdPartyUserService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>ThirdPartyUserService</a></li>
-		<li><a class="element-link" href="/ref/class/TimerService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TimerService</a></li>
-		<li><a class="element-link" href="/ref/class/Toolbar.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Toolbar</a></li>
-		<li><a class="element-link" href="/ref/class/TouchInputService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TouchInputService</a></li>
-		<li><a class="element-link" href="/ref/class/TouchTransmitter.html"><span class="class-icon" title="Class" style="background-position: -592px"></span>TouchTransmitter</a></li>
-		<li><a class="element-link" href="/ref/class/Trail.html"><span class="class-icon" title="Class" style="background-position: -1488px"></span>Trail</a></li>
-		<li><a class="element-link" href="/ref/class/Translator.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Translator</a></li>
-		<li><a class="element-link" href="/ref/class/TweenBase.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TweenBase</a>
+		<li><a class="element-link" href="/ref/class/Studio.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Studio</a></li>
+		<li><a class="element-link" href="/ref/class/StudioTheme.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>StudioTheme</a></li>
+		<li><a class="element-link" href="/ref/class/TaskScheduler.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TaskScheduler</a></li>
+		<li><a class="element-link" href="/ref/class/Team.html"><span class="icon class-icon" title="Class" style="background-position: -384px"></span>Team</a></li>
+		<li><a class="element-link" href="/ref/class/Teams.html"><span class="icon class-icon" title="Class" style="background-position: -368px"></span>Teams</a></li>
+		<li><a class="element-link" href="/ref/class/TeleportService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TeleportService</a></li>
+		<li><a class="element-link" href="/ref/class/TerrainRegion.html"><span class="icon class-icon" title="Class" style="background-position: -1040px"></span>TerrainRegion</a></li>
+		<li><a class="element-link" href="/ref/class/TestService.html"><span class="icon class-icon" title="Class" style="background-position: -1088px"></span>TestService</a></li>
+		<li><a class="element-link" href="/ref/class/TextFilterResult.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TextFilterResult</a></li>
+		<li><a class="element-link" href="/ref/class/TextService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TextService</a></li>
+		<li><a class="element-link" href="/ref/class/ThirdPartyUserService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>ThirdPartyUserService</a></li>
+		<li><a class="element-link" href="/ref/class/TimerService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TimerService</a></li>
+		<li><a class="element-link" href="/ref/class/Toolbar.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Toolbar</a></li>
+		<li><a class="element-link" href="/ref/class/TouchInputService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TouchInputService</a></li>
+		<li><a class="element-link" href="/ref/class/TouchTransmitter.html"><span class="icon class-icon" title="Class" style="background-position: -592px"></span>TouchTransmitter</a></li>
+		<li><a class="element-link" href="/ref/class/Trail.html"><span class="icon class-icon" title="Class" style="background-position: -1488px"></span>Trail</a></li>
+		<li><a class="element-link" href="/ref/class/Translator.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Translator</a></li>
+		<li><a class="element-link" href="/ref/class/TweenBase.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TweenBase</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/Tween.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Tween</a></li>
+		<li><a class="element-link" href="/ref/class/Tween.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Tween</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/TweenService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>TweenService</a></li>
-		<li><a class="element-link" href="/ref/class/UIBase.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UIBase</a>
+		<li><a class="element-link" href="/ref/class/TweenService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>TweenService</a></li>
+		<li><a class="element-link" href="/ref/class/UIBase.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UIBase</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/UIComponent.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UIComponent</a>
+		<li><a class="element-link" href="/ref/class/UIComponent.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UIComponent</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/UIConstraint.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UIConstraint</a>
+		<li><a class="element-link" href="/ref/class/UIConstraint.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UIConstraint</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/UIAspectRatioConstraint.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UIAspectRatioConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/UISizeConstraint.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UISizeConstraint</a></li>
-		<li><a class="element-link" href="/ref/class/UITextSizeConstraint.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UITextSizeConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/UIAspectRatioConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UIAspectRatioConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/UISizeConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UISizeConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/UITextSizeConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UITextSizeConstraint</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/UILayout.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UILayout</a>
+		<li><a class="element-link" href="/ref/class/UILayout.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UILayout</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/UIGridStyleLayout.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UIGridStyleLayout</a>
+		<li><a class="element-link" href="/ref/class/UIGridStyleLayout.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UIGridStyleLayout</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/UIGridLayout.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UIGridLayout</a></li>
-		<li><a class="element-link" href="/ref/class/UIListLayout.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UIListLayout</a></li>
-		<li><a class="element-link" href="/ref/class/UIPageLayout.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UIPageLayout</a></li>
-		<li><a class="element-link" href="/ref/class/UITableLayout.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UITableLayout</a></li>
+		<li><a class="element-link" href="/ref/class/UIGridLayout.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UIGridLayout</a></li>
+		<li><a class="element-link" href="/ref/class/UIListLayout.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UIListLayout</a></li>
+		<li><a class="element-link" href="/ref/class/UIPageLayout.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UIPageLayout</a></li>
+		<li><a class="element-link" href="/ref/class/UITableLayout.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UITableLayout</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/UIPadding.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UIPadding</a></li>
-		<li><a class="element-link" href="/ref/class/UIScale.html"><span class="class-icon" title="Class" style="background-position: -416px"></span>UIScale</a></li>
+		<li><a class="element-link" href="/ref/class/UIPadding.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UIPadding</a></li>
+		<li><a class="element-link" href="/ref/class/UIScale.html"><span class="icon class-icon" title="Class" style="background-position: -416px"></span>UIScale</a></li>
 		</ul></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/UserGameSettings.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UserGameSettings</a></li>
-		<li><a class="element-link" href="/ref/class/UserInputService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>UserInputService</a></li>
-		<li><a class="element-link" href="/ref/class/VRService.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>VRService</a></li>
-		<li><a class="element-link" href="/ref/class/ValueBase.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>ValueBase</a>
+		<li><a class="element-link" href="/ref/class/UserGameSettings.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UserGameSettings</a></li>
+		<li><a class="element-link" href="/ref/class/UserInputService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>UserInputService</a></li>
+		<li><a class="element-link" href="/ref/class/VRService.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>VRService</a></li>
+		<li><a class="element-link" href="/ref/class/ValueBase.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>ValueBase</a>
 		<ul>
-		<li><a class="element-link" href="/ref/class/BinaryStringValue.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>BinaryStringValue</a></li>
-		<li><a class="element-link" href="/ref/class/BoolValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>BoolValue</a></li>
-		<li><a class="element-link" href="/ref/class/BrickColorValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>BrickColorValue</a></li>
-		<li><a class="element-link" href="/ref/class/CFrameValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>CFrameValue</a></li>
-		<li><a class="element-link" href="/ref/class/Color3Value.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>Color3Value</a></li>
-		<li><a class="element-link" href="/ref/class/DoubleConstrainedValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>DoubleConstrainedValue</a></li>
-		<li><a class="element-link" href="/ref/class/IntConstrainedValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>IntConstrainedValue</a></li>
-		<li><a class="element-link" href="/ref/class/IntValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>IntValue</a></li>
-		<li><a class="element-link" href="/ref/class/NumberValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>NumberValue</a></li>
-		<li><a class="element-link" href="/ref/class/ObjectValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>ObjectValue</a></li>
-		<li><a class="element-link" href="/ref/class/RayValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>RayValue</a></li>
-		<li><a class="element-link" href="/ref/class/StringValue.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>StringValue</a></li>
-		<li><a class="element-link" href="/ref/class/Vector3Value.html"><span class="class-icon" title="Class" style="background-position: -64px"></span>Vector3Value</a></li>
+		<li><a class="element-link" href="/ref/class/BinaryStringValue.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>BinaryStringValue</a></li>
+		<li><a class="element-link" href="/ref/class/BoolValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>BoolValue</a></li>
+		<li><a class="element-link" href="/ref/class/BrickColorValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>BrickColorValue</a></li>
+		<li><a class="element-link" href="/ref/class/CFrameValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>CFrameValue</a></li>
+		<li><a class="element-link" href="/ref/class/Color3Value.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>Color3Value</a></li>
+		<li><a class="element-link" href="/ref/class/DoubleConstrainedValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>DoubleConstrainedValue</a></li>
+		<li><a class="element-link" href="/ref/class/IntConstrainedValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>IntConstrainedValue</a></li>
+		<li><a class="element-link" href="/ref/class/IntValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>IntValue</a></li>
+		<li><a class="element-link" href="/ref/class/NumberValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>NumberValue</a></li>
+		<li><a class="element-link" href="/ref/class/ObjectValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>ObjectValue</a></li>
+		<li><a class="element-link" href="/ref/class/RayValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>RayValue</a></li>
+		<li><a class="element-link" href="/ref/class/StringValue.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>StringValue</a></li>
+		<li><a class="element-link" href="/ref/class/Vector3Value.html"><span class="icon class-icon" title="Class" style="background-position: -64px"></span>Vector3Value</a></li>
 		</ul></li>
-		<li><a class="element-link" href="/ref/class/VirtualInputManager.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>VirtualInputManager</a></li>
-		<li><a class="element-link" href="/ref/class/VirtualUser.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>VirtualUser</a></li>
-		<li><a class="element-link" href="/ref/class/Visit.html"><span class="class-icon" title="Class" style="background-position: 0px"></span>Visit</a></li>
-		<li><a class="element-link" href="/ref/class/WeldConstraint.html"><span class="class-icon" title="Class" style="background-position: -1504px"></span>WeldConstraint</a></li>
+		<li><a class="element-link" href="/ref/class/VirtualInputManager.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>VirtualInputManager</a></li>
+		<li><a class="element-link" href="/ref/class/VirtualUser.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>VirtualUser</a></li>
+		<li><a class="element-link" href="/ref/class/Visit.html"><span class="icon class-icon" title="Class" style="background-position: 0px"></span>Visit</a></li>
+		<li><a class="element-link" href="/ref/class/WeldConstraint.html"><span class="icon class-icon" title="Class" style="background-position: -1504px"></span>WeldConstraint</a></li>
 		</ul></li>
 	</ul>
 </article>
@@ -582,191 +609,191 @@ main {
 	</header>
 	<p>The API defines 185 enums.</p>
 	<ul id="enum-list">
-		<li><a class="element-link" href="/ref/enum/ActionType.html"><span class="enum-icon" title="Enum"></span>ActionType</a></li>
-		<li><a class="element-link" href="/ref/enum/ActuatorRelativeTo.html"><span class="enum-icon" title="Enum"></span>ActuatorRelativeTo</a></li>
-		<li><a class="element-link" href="/ref/enum/ActuatorType.html"><span class="enum-icon" title="Enum"></span>ActuatorType</a></li>
-		<li><a class="element-link" href="/ref/enum/AnimationPriority.html"><span class="enum-icon" title="Enum"></span>AnimationPriority</a></li>
-		<li><a class="element-link" href="/ref/enum/AppShellActionType.html"><span class="enum-icon" title="Enum"></span>AppShellActionType</a></li>
-		<li><a class="element-link" href="/ref/enum/AspectType.html"><span class="enum-icon" title="Enum"></span>AspectType</a></li>
-		<li><a class="element-link" href="/ref/enum/AssetType.html"><span class="enum-icon" title="Enum"></span>AssetType</a></li>
-		<li><a class="element-link" href="/ref/enum/AutoJointsMode.html"><span class="enum-icon" title="Enum"></span>AutoJointsMode</a></li>
-		<li><a class="element-link" href="/ref/enum/AvatarContextMenuOption.html"><span class="enum-icon" title="Enum"></span>AvatarContextMenuOption</a></li>
-		<li><a class="element-link" href="/ref/enum/AvatarJointPositionType.html"><span class="enum-icon" title="Enum"></span>AvatarJointPositionType</a></li>
-		<li><a class="element-link" href="/ref/enum/Axis.html"><span class="enum-icon" title="Enum"></span>Axis</a></li>
-		<li><a class="element-link" href="/ref/enum/BinType.html"><span class="enum-icon" title="Enum"></span>BinType</a></li>
-		<li><a class="element-link" href="/ref/enum/BodyPart.html"><span class="enum-icon" title="Enum"></span>BodyPart</a></li>
-		<li><a class="element-link" href="/ref/enum/BodyPartR15.html"><span class="enum-icon" title="Enum"></span>BodyPartR15</a></li>
-		<li><a class="element-link" href="/ref/enum/Button.html"><span class="enum-icon" title="Enum"></span>Button</a></li>
-		<li><a class="element-link" href="/ref/enum/ButtonStyle.html"><span class="enum-icon" title="Enum"></span>ButtonStyle</a></li>
-		<li><a class="element-link" href="/ref/enum/CameraMode.html"><span class="enum-icon" title="Enum"></span>CameraMode</a></li>
-		<li><a class="element-link" href="/ref/enum/CameraPanMode.html"><span class="enum-icon" title="Enum"></span>CameraPanMode</a></li>
-		<li><a class="element-link" href="/ref/enum/CameraType.html"><span class="enum-icon" title="Enum"></span>CameraType</a></li>
-		<li><a class="element-link" href="/ref/enum/CellBlock.html"><span class="enum-icon" title="Enum"></span>CellBlock</a></li>
-		<li><a class="element-link" href="/ref/enum/CellMaterial.html"><span class="enum-icon" title="Enum"></span>CellMaterial</a></li>
-		<li><a class="element-link" href="/ref/enum/CellOrientation.html"><span class="enum-icon" title="Enum"></span>CellOrientation</a></li>
-		<li><a class="element-link" href="/ref/enum/CenterDialogType.html"><span class="enum-icon" title="Enum"></span>CenterDialogType</a></li>
-		<li><a class="element-link" href="/ref/enum/ChatCallbackType.html"><span class="enum-icon" title="Enum"></span>ChatCallbackType</a></li>
-		<li><a class="element-link" href="/ref/enum/ChatColor.html"><span class="enum-icon" title="Enum"></span>ChatColor</a></li>
-		<li><a class="element-link" href="/ref/enum/ChatMode.html"><span class="enum-icon" title="Enum"></span>ChatMode</a></li>
-		<li><a class="element-link" href="/ref/enum/ChatPrivacyMode.html"><span class="enum-icon" title="Enum"></span>ChatPrivacyMode</a></li>
-		<li><a class="element-link" href="/ref/enum/ChatStyle.html"><span class="enum-icon" title="Enum"></span>ChatStyle</a></li>
-		<li><a class="element-link" href="/ref/enum/CollisionFidelity.html"><span class="enum-icon" title="Enum"></span>CollisionFidelity</a></li>
-		<li><a class="element-link" href="/ref/enum/ComputerCameraMovementMode.html"><span class="enum-icon" title="Enum"></span>ComputerCameraMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/ComputerMovementMode.html"><span class="enum-icon" title="Enum"></span>ComputerMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/ConnectionError.html"><span class="enum-icon" title="Enum"></span>ConnectionError</a></li>
-		<li><a class="element-link" href="/ref/enum/ConnectionState.html"><span class="enum-icon" title="Enum"></span>ConnectionState</a></li>
-		<li><a class="element-link" href="/ref/enum/ContextActionPriority.html"><span class="enum-icon" title="Enum"></span>ContextActionPriority</a></li>
-		<li><a class="element-link" href="/ref/enum/ContextActionResult.html"><span class="enum-icon" title="Enum"></span>ContextActionResult</a></li>
-		<li><a class="element-link" href="/ref/enum/ControlMode.html"><span class="enum-icon" title="Enum"></span>ControlMode</a></li>
-		<li><a class="element-link" href="/ref/enum/CoreGuiType.html"><span class="enum-icon" title="Enum"></span>CoreGuiType</a></li>
-		<li><a class="element-link" href="/ref/enum/CreatorType.html"><span class="enum-icon" title="Enum"></span>CreatorType</a></li>
-		<li><a class="element-link" href="/ref/enum/CurrencyType.html"><span class="enum-icon" title="Enum"></span>CurrencyType</a></li>
-		<li><a class="element-link" href="/ref/enum/CustomCameraMode.html"><span class="enum-icon" title="Enum"></span>CustomCameraMode</a></li>
-		<li><a class="element-link" href="/ref/enum/DataStoreRequestType.html"><span class="enum-icon" title="Enum"></span>DataStoreRequestType</a></li>
-		<li><a class="element-link" href="/ref/enum/DevCameraOcclusionMode.html"><span class="enum-icon" title="Enum"></span>DevCameraOcclusionMode</a></li>
-		<li><a class="element-link" href="/ref/enum/DevComputerCameraMovementMode.html"><span class="enum-icon" title="Enum"></span>DevComputerCameraMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/DevComputerMovementMode.html"><span class="enum-icon" title="Enum"></span>DevComputerMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/DevTouchCameraMovementMode.html"><span class="enum-icon" title="Enum"></span>DevTouchCameraMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/DevTouchMovementMode.html"><span class="enum-icon" title="Enum"></span>DevTouchMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/DeveloperMemoryTag.html"><span class="enum-icon" title="Enum"></span>DeveloperMemoryTag</a></li>
-		<li><a class="element-link" href="/ref/enum/DialogBehaviorType.html"><span class="enum-icon" title="Enum"></span>DialogBehaviorType</a></li>
-		<li><a class="element-link" href="/ref/enum/DialogPurpose.html"><span class="enum-icon" title="Enum"></span>DialogPurpose</a></li>
-		<li><a class="element-link" href="/ref/enum/DialogTone.html"><span class="enum-icon" title="Enum"></span>DialogTone</a></li>
-		<li><a class="element-link" href="/ref/enum/DominantAxis.html"><span class="enum-icon" title="Enum"></span>DominantAxis</a></li>
-		<li><a class="element-link" href="/ref/enum/EasingDirection.html"><span class="enum-icon" title="Enum"></span>EasingDirection</a></li>
-		<li><a class="element-link" href="/ref/enum/EasingStyle.html"><span class="enum-icon" title="Enum"></span>EasingStyle</a></li>
-		<li><a class="element-link" href="/ref/enum/ElasticBehavior.html"><span class="enum-icon" title="Enum"></span>ElasticBehavior</a></li>
-		<li><a class="element-link" href="/ref/enum/EnviromentalPhysicsThrottle.html"><span class="enum-icon" title="Enum"></span>EnviromentalPhysicsThrottle</a></li>
-		<li><a class="element-link" href="/ref/enum/ErrorReporting.html"><span class="enum-icon" title="Enum"></span>ErrorReporting</a></li>
-		<li><a class="element-link" href="/ref/enum/ExplosionType.html"><span class="enum-icon" title="Enum"></span>ExplosionType</a></li>
-		<li><a class="element-link" href="/ref/enum/FillDirection.html"><span class="enum-icon" title="Enum"></span>FillDirection</a></li>
-		<li><a class="element-link" href="/ref/enum/FilterResult.html"><span class="enum-icon" title="Enum"></span>FilterResult</a></li>
-		<li><a class="element-link" href="/ref/enum/Font.html"><span class="enum-icon" title="Enum"></span>Font</a></li>
-		<li><a class="element-link" href="/ref/enum/FontSize.html"><span class="enum-icon" title="Enum"></span>FontSize</a></li>
-		<li><a class="element-link" href="/ref/enum/FormFactor.html"><span class="enum-icon" title="Enum"></span>FormFactor</a></li>
-		<li><a class="element-link" href="/ref/enum/FrameStyle.html"><span class="enum-icon" title="Enum"></span>FrameStyle</a></li>
-		<li><a class="element-link" href="/ref/enum/FramerateManagerMode.html"><span class="enum-icon" title="Enum"></span>FramerateManagerMode</a></li>
-		<li><a class="element-link" href="/ref/enum/FriendRequestEvent.html"><span class="enum-icon" title="Enum"></span>FriendRequestEvent</a></li>
-		<li><a class="element-link" href="/ref/enum/FriendStatus.html"><span class="enum-icon" title="Enum"></span>FriendStatus</a></li>
-		<li><a class="element-link" href="/ref/enum/FunctionalTestResult.html"><span class="enum-icon" title="Enum"></span>FunctionalTestResult</a></li>
-		<li><a class="element-link" href="/ref/enum/GameAvatarType.html"><span class="enum-icon" title="Enum"></span>GameAvatarType</a></li>
-		<li><a class="element-link" href="/ref/enum/GearGenreSetting.html"><span class="enum-icon" title="Enum"></span>GearGenreSetting</a></li>
-		<li><a class="element-link" href="/ref/enum/GearType.html"><span class="enum-icon" title="Enum"></span>GearType</a></li>
-		<li><a class="element-link" href="/ref/enum/Genre.html"><span class="enum-icon" title="Enum"></span>Genre</a></li>
-		<li><a class="element-link" href="/ref/enum/GraphicsMode.html"><span class="enum-icon" title="Enum"></span>GraphicsMode</a></li>
-		<li><a class="element-link" href="/ref/enum/HandlesStyle.html"><span class="enum-icon" title="Enum"></span>HandlesStyle</a></li>
-		<li><a class="element-link" href="/ref/enum/HorizontalAlignment.html"><span class="enum-icon" title="Enum"></span>HorizontalAlignment</a></li>
-		<li><a class="element-link" href="/ref/enum/HoverAnimateSpeed.html"><span class="enum-icon" title="Enum"></span>HoverAnimateSpeed</a></li>
-		<li><a class="element-link" href="/ref/enum/HttpCachePolicy.html"><span class="enum-icon" title="Enum"></span>HttpCachePolicy</a></li>
-		<li><a class="element-link" href="/ref/enum/HttpContentType.html"><span class="enum-icon" title="Enum"></span>HttpContentType</a></li>
-		<li><a class="element-link" href="/ref/enum/HttpError.html"><span class="enum-icon" title="Enum"></span>HttpError</a></li>
-		<li><a class="element-link" href="/ref/enum/HttpRequestType.html"><span class="enum-icon" title="Enum"></span>HttpRequestType</a></li>
-		<li><a class="element-link" href="/ref/enum/HumanoidDisplayDistanceType.html"><span class="enum-icon" title="Enum"></span>HumanoidDisplayDistanceType</a></li>
-		<li><a class="element-link" href="/ref/enum/HumanoidHealthDisplayType.html"><span class="enum-icon" title="Enum"></span>HumanoidHealthDisplayType</a></li>
-		<li><a class="element-link" href="/ref/enum/HumanoidRigType.html"><span class="enum-icon" title="Enum"></span>HumanoidRigType</a></li>
-		<li><a class="element-link" href="/ref/enum/HumanoidStateType.html"><span class="enum-icon" title="Enum"></span>HumanoidStateType</a></li>
-		<li><a class="element-link" href="/ref/enum/InOut.html"><span class="enum-icon" title="Enum"></span>InOut</a></li>
-		<li><a class="element-link" href="/ref/enum/InfoType.html"><span class="enum-icon" title="Enum"></span>InfoType</a></li>
-		<li><a class="element-link" href="/ref/enum/InitialDockState.html"><span class="enum-icon" title="Enum"></span>InitialDockState</a></li>
-		<li><a class="element-link" href="/ref/enum/InputType.html"><span class="enum-icon" title="Enum"></span>InputType</a></li>
-		<li><a class="element-link" href="/ref/enum/JointCreationMode.html"><span class="enum-icon" title="Enum"></span>JointCreationMode</a></li>
-		<li><a class="element-link" href="/ref/enum/JointType.html"><span class="enum-icon" title="Enum"></span>JointType</a></li>
-		<li><a class="element-link" href="/ref/enum/KeyCode.html"><span class="enum-icon" title="Enum"></span>KeyCode</a></li>
-		<li><a class="element-link" href="/ref/enum/KeywordFilterType.html"><span class="enum-icon" title="Enum"></span>KeywordFilterType</a></li>
-		<li><a class="element-link" href="/ref/enum/Language.html"><span class="enum-icon" title="Enum"></span>Language</a></li>
-		<li><a class="element-link" href="/ref/enum/LeftRight.html"><span class="enum-icon" title="Enum"></span>LeftRight</a></li>
-		<li><a class="element-link" href="/ref/enum/LevelOfDetailSetting.html"><span class="enum-icon" title="Enum"></span>LevelOfDetailSetting</a></li>
-		<li><a class="element-link" href="/ref/enum/Limb.html"><span class="enum-icon" title="Enum"></span>Limb</a></li>
-		<li><a class="element-link" href="/ref/enum/ListDisplayMode.html"><span class="enum-icon" title="Enum"></span>ListDisplayMode</a></li>
-		<li><a class="element-link" href="/ref/enum/ListenerType.html"><span class="enum-icon" title="Enum"></span>ListenerType</a></li>
-		<li><a class="element-link" href="/ref/enum/Material.html"><span class="enum-icon" title="Enum"></span>Material</a></li>
-		<li><a class="element-link" href="/ref/enum/MembershipType.html"><span class="enum-icon" title="Enum"></span>MembershipType</a></li>
-		<li><a class="element-link" href="/ref/enum/MeshType.html"><span class="enum-icon" title="Enum"></span>MeshType</a></li>
-		<li><a class="element-link" href="/ref/enum/MessageType.html"><span class="enum-icon" title="Enum"></span>MessageType</a></li>
-		<li><a class="element-link" href="/ref/enum/MouseBehavior.html"><span class="enum-icon" title="Enum"></span>MouseBehavior</a></li>
-		<li><a class="element-link" href="/ref/enum/MoveState.html"><span class="enum-icon" title="Enum"></span>MoveState</a></li>
-		<li><a class="element-link" href="/ref/enum/NameOcclusion.html"><span class="enum-icon" title="Enum"></span>NameOcclusion</a></li>
-		<li><a class="element-link" href="/ref/enum/NetworkOwnership.html"><span class="enum-icon" title="Enum"></span>NetworkOwnership</a></li>
-		<li><a class="element-link" href="/ref/enum/NormalId.html"><span class="enum-icon" title="Enum"></span>NormalId</a></li>
-		<li><a class="element-link" href="/ref/enum/OutputLayoutMode.html"><span class="enum-icon" title="Enum"></span>OutputLayoutMode</a></li>
-		<li><a class="element-link" href="/ref/enum/OverrideMouseIconBehavior.html"><span class="enum-icon" title="Enum"></span>OverrideMouseIconBehavior</a></li>
-		<li><a class="element-link" href="/ref/enum/PacketPriority.html"><span class="enum-icon" title="Enum"></span>PacketPriority</a></li>
-		<li><a class="element-link" href="/ref/enum/PartType.html"><span class="enum-icon" title="Enum"></span>PartType</a></li>
-		<li><a class="element-link" href="/ref/enum/PathStatus.html"><span class="enum-icon" title="Enum"></span>PathStatus</a></li>
-		<li><a class="element-link" href="/ref/enum/PathWaypointAction.html"><span class="enum-icon" title="Enum"></span>PathWaypointAction</a></li>
-		<li><a class="element-link" href="/ref/enum/PermissionLevelShown.html"><span class="enum-icon" title="Enum"></span>PermissionLevelShown</a></li>
-		<li><a class="element-link" href="/ref/enum/Platform.html"><span class="enum-icon" title="Enum"></span>Platform</a></li>
-		<li><a class="element-link" href="/ref/enum/PlaybackState.html"><span class="enum-icon" title="Enum"></span>PlaybackState</a></li>
-		<li><a class="element-link" href="/ref/enum/PlayerActions.html"><span class="enum-icon" title="Enum"></span>PlayerActions</a></li>
-		<li><a class="element-link" href="/ref/enum/PlayerChatType.html"><span class="enum-icon" title="Enum"></span>PlayerChatType</a></li>
-		<li><a class="element-link" href="/ref/enum/PoseEasingDirection.html"><span class="enum-icon" title="Enum"></span>PoseEasingDirection</a></li>
-		<li><a class="element-link" href="/ref/enum/PoseEasingStyle.html"><span class="enum-icon" title="Enum"></span>PoseEasingStyle</a></li>
-		<li><a class="element-link" href="/ref/enum/PrivilegeType.html"><span class="enum-icon" title="Enum"></span>PrivilegeType</a></li>
-		<li><a class="element-link" href="/ref/enum/ProductPurchaseDecision.html"><span class="enum-icon" title="Enum"></span>ProductPurchaseDecision</a></li>
-		<li><a class="element-link" href="/ref/enum/QualityLevel.html"><span class="enum-icon" title="Enum"></span>QualityLevel</a></li>
-		<li><a class="element-link" href="/ref/enum/R15CollisionType.html"><span class="enum-icon" title="Enum"></span>R15CollisionType</a></li>
-		<li><a class="element-link" href="/ref/enum/RenderPriority.html"><span class="enum-icon" title="Enum"></span>RenderPriority</a></li>
-		<li><a class="element-link" href="/ref/enum/RenderingTestComparisonMethod.html"><span class="enum-icon" title="Enum"></span>RenderingTestComparisonMethod</a></li>
-		<li><a class="element-link" href="/ref/enum/ReverbType.html"><span class="enum-icon" title="Enum"></span>ReverbType</a></li>
-		<li><a class="element-link" href="/ref/enum/RibbonTool.html"><span class="enum-icon" title="Enum"></span>RibbonTool</a></li>
-		<li><a class="element-link" href="/ref/enum/RollOffMode.html"><span class="enum-icon" title="Enum"></span>RollOffMode</a></li>
-		<li><a class="element-link" href="/ref/enum/RotationType.html"><span class="enum-icon" title="Enum"></span>RotationType</a></li>
-		<li><a class="element-link" href="/ref/enum/RuntimeUndoBehavior.html"><span class="enum-icon" title="Enum"></span>RuntimeUndoBehavior</a></li>
-		<li><a class="element-link" href="/ref/enum/SaveFilter.html"><span class="enum-icon" title="Enum"></span>SaveFilter</a></li>
-		<li><a class="element-link" href="/ref/enum/SavedQualitySetting.html"><span class="enum-icon" title="Enum"></span>SavedQualitySetting</a></li>
-		<li><a class="element-link" href="/ref/enum/ScaleType.html"><span class="enum-icon" title="Enum"></span>ScaleType</a></li>
-		<li><a class="element-link" href="/ref/enum/ScreenOrientation.html"><span class="enum-icon" title="Enum"></span>ScreenOrientation</a></li>
-		<li><a class="element-link" href="/ref/enum/ScrollBarInset.html"><span class="enum-icon" title="Enum"></span>ScrollBarInset</a></li>
-		<li><a class="element-link" href="/ref/enum/ScrollingDirection.html"><span class="enum-icon" title="Enum"></span>ScrollingDirection</a></li>
-		<li><a class="element-link" href="/ref/enum/ServerAudioBehavior.html"><span class="enum-icon" title="Enum"></span>ServerAudioBehavior</a></li>
-		<li><a class="element-link" href="/ref/enum/SizeConstraint.html"><span class="enum-icon" title="Enum"></span>SizeConstraint</a></li>
-		<li><a class="element-link" href="/ref/enum/SortOrder.html"><span class="enum-icon" title="Enum"></span>SortOrder</a></li>
-		<li><a class="element-link" href="/ref/enum/SoundType.html"><span class="enum-icon" title="Enum"></span>SoundType</a></li>
-		<li><a class="element-link" href="/ref/enum/SpecialKey.html"><span class="enum-icon" title="Enum"></span>SpecialKey</a></li>
-		<li><a class="element-link" href="/ref/enum/StartCorner.html"><span class="enum-icon" title="Enum"></span>StartCorner</a></li>
-		<li><a class="element-link" href="/ref/enum/Status.html"><span class="enum-icon" title="Enum"></span>Status</a></li>
-		<li><a class="element-link" href="/ref/enum/StudioStyleGuideColor.html"><span class="enum-icon" title="Enum"></span>StudioStyleGuideColor</a></li>
-		<li><a class="element-link" href="/ref/enum/StudioStyleGuideModifier.html"><span class="enum-icon" title="Enum"></span>StudioStyleGuideModifier</a></li>
-		<li><a class="element-link" href="/ref/enum/Style.html"><span class="enum-icon" title="Enum"></span>Style</a></li>
-		<li><a class="element-link" href="/ref/enum/SurfaceConstraint.html"><span class="enum-icon" title="Enum"></span>SurfaceConstraint</a></li>
-		<li><a class="element-link" href="/ref/enum/SurfaceType.html"><span class="enum-icon" title="Enum"></span>SurfaceType</a></li>
-		<li><a class="element-link" href="/ref/enum/SwipeDirection.html"><span class="enum-icon" title="Enum"></span>SwipeDirection</a></li>
-		<li><a class="element-link" href="/ref/enum/TableMajorAxis.html"><span class="enum-icon" title="Enum"></span>TableMajorAxis</a></li>
-		<li><a class="element-link" href="/ref/enum/Technology.html"><span class="enum-icon" title="Enum"></span>Technology</a></li>
-		<li><a class="element-link" href="/ref/enum/TeleportResult.html"><span class="enum-icon" title="Enum"></span>TeleportResult</a></li>
-		<li><a class="element-link" href="/ref/enum/TeleportState.html"><span class="enum-icon" title="Enum"></span>TeleportState</a></li>
-		<li><a class="element-link" href="/ref/enum/TeleportType.html"><span class="enum-icon" title="Enum"></span>TeleportType</a></li>
-		<li><a class="element-link" href="/ref/enum/TextFilterContext.html"><span class="enum-icon" title="Enum"></span>TextFilterContext</a></li>
-		<li><a class="element-link" href="/ref/enum/TextTruncate.html"><span class="enum-icon" title="Enum"></span>TextTruncate</a></li>
-		<li><a class="element-link" href="/ref/enum/TextXAlignment.html"><span class="enum-icon" title="Enum"></span>TextXAlignment</a></li>
-		<li><a class="element-link" href="/ref/enum/TextYAlignment.html"><span class="enum-icon" title="Enum"></span>TextYAlignment</a></li>
-		<li><a class="element-link" href="/ref/enum/TextureMode.html"><span class="enum-icon" title="Enum"></span>TextureMode</a></li>
-		<li><a class="element-link" href="/ref/enum/TextureQueryType.html"><span class="enum-icon" title="Enum"></span>TextureQueryType</a></li>
-		<li><a class="element-link" href="/ref/enum/ThreadPoolConfig.html"><span class="enum-icon" title="Enum"></span>ThreadPoolConfig</a></li>
-		<li><a class="element-link" href="/ref/enum/ThrottlingPriority.html"><span class="enum-icon" title="Enum"></span>ThrottlingPriority</a></li>
-		<li><a class="element-link" href="/ref/enum/ThumbnailSize.html"><span class="enum-icon" title="Enum"></span>ThumbnailSize</a></li>
-		<li><a class="element-link" href="/ref/enum/ThumbnailType.html"><span class="enum-icon" title="Enum"></span>ThumbnailType</a></li>
-		<li><a class="element-link" href="/ref/enum/TickCountSampleMethod.html"><span class="enum-icon" title="Enum"></span>TickCountSampleMethod</a></li>
-		<li><a class="element-link" href="/ref/enum/TopBottom.html"><span class="enum-icon" title="Enum"></span>TopBottom</a></li>
-		<li><a class="element-link" href="/ref/enum/TouchCameraMovementMode.html"><span class="enum-icon" title="Enum"></span>TouchCameraMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/TouchMovementMode.html"><span class="enum-icon" title="Enum"></span>TouchMovementMode</a></li>
-		<li><a class="element-link" href="/ref/enum/TweenStatus.html"><span class="enum-icon" title="Enum"></span>TweenStatus</a></li>
-		<li><a class="element-link" href="/ref/enum/UITheme.html"><span class="enum-icon" title="Enum"></span>UITheme</a></li>
-		<li><a class="element-link" href="/ref/enum/UiMessageType.html"><span class="enum-icon" title="Enum"></span>UiMessageType</a></li>
-		<li><a class="element-link" href="/ref/enum/UploadSetting.html"><span class="enum-icon" title="Enum"></span>UploadSetting</a></li>
-		<li><a class="element-link" href="/ref/enum/UserCFrame.html"><span class="enum-icon" title="Enum"></span>UserCFrame</a></li>
-		<li><a class="element-link" href="/ref/enum/UserInputState.html"><span class="enum-icon" title="Enum"></span>UserInputState</a></li>
-		<li><a class="element-link" href="/ref/enum/UserInputType.html"><span class="enum-icon" title="Enum"></span>UserInputType</a></li>
-		<li><a class="element-link" href="/ref/enum/VRTouchpad.html"><span class="enum-icon" title="Enum"></span>VRTouchpad</a></li>
-		<li><a class="element-link" href="/ref/enum/VRTouchpadMode.html"><span class="enum-icon" title="Enum"></span>VRTouchpadMode</a></li>
-		<li><a class="element-link" href="/ref/enum/VerticalAlignment.html"><span class="enum-icon" title="Enum"></span>VerticalAlignment</a></li>
-		<li><a class="element-link" href="/ref/enum/VerticalScrollBarPosition.html"><span class="enum-icon" title="Enum"></span>VerticalScrollBarPosition</a></li>
-		<li><a class="element-link" href="/ref/enum/VibrationMotor.html"><span class="enum-icon" title="Enum"></span>VibrationMotor</a></li>
-		<li><a class="element-link" href="/ref/enum/VideoQualitySettings.html"><span class="enum-icon" title="Enum"></span>VideoQualitySettings</a></li>
-		<li><a class="element-link" href="/ref/enum/VirtualInputMode.html"><span class="enum-icon" title="Enum"></span>VirtualInputMode</a></li>
-		<li><a class="element-link" href="/ref/enum/WaterDirection.html"><span class="enum-icon" title="Enum"></span>WaterDirection</a></li>
-		<li><a class="element-link" href="/ref/enum/WaterForce.html"><span class="enum-icon" title="Enum"></span>WaterForce</a></li>
-		<li><a class="element-link" href="/ref/enum/ZIndexBehavior.html"><span class="enum-icon" title="Enum"></span>ZIndexBehavior</a></li>
+		<li><a class="element-link" href="/ref/enum/ActionType.html"><span class="icon enum-icon" title="Enum"></span>ActionType</a></li>
+		<li><a class="element-link" href="/ref/enum/ActuatorRelativeTo.html"><span class="icon enum-icon" title="Enum"></span>ActuatorRelativeTo</a></li>
+		<li><a class="element-link" href="/ref/enum/ActuatorType.html"><span class="icon enum-icon" title="Enum"></span>ActuatorType</a></li>
+		<li><a class="element-link" href="/ref/enum/AnimationPriority.html"><span class="icon enum-icon" title="Enum"></span>AnimationPriority</a></li>
+		<li><a class="element-link" href="/ref/enum/AppShellActionType.html"><span class="icon enum-icon" title="Enum"></span>AppShellActionType</a></li>
+		<li><a class="element-link" href="/ref/enum/AspectType.html"><span class="icon enum-icon" title="Enum"></span>AspectType</a></li>
+		<li><a class="element-link" href="/ref/enum/AssetType.html"><span class="icon enum-icon" title="Enum"></span>AssetType</a></li>
+		<li><a class="element-link" href="/ref/enum/AutoJointsMode.html"><span class="icon enum-icon" title="Enum"></span>AutoJointsMode</a></li>
+		<li><a class="element-link" href="/ref/enum/AvatarContextMenuOption.html"><span class="icon enum-icon" title="Enum"></span>AvatarContextMenuOption</a></li>
+		<li><a class="element-link" href="/ref/enum/AvatarJointPositionType.html"><span class="icon enum-icon" title="Enum"></span>AvatarJointPositionType</a></li>
+		<li><a class="element-link" href="/ref/enum/Axis.html"><span class="icon enum-icon" title="Enum"></span>Axis</a></li>
+		<li><a class="element-link" href="/ref/enum/BinType.html"><span class="icon enum-icon" title="Enum"></span>BinType</a></li>
+		<li><a class="element-link" href="/ref/enum/BodyPart.html"><span class="icon enum-icon" title="Enum"></span>BodyPart</a></li>
+		<li><a class="element-link" href="/ref/enum/BodyPartR15.html"><span class="icon enum-icon" title="Enum"></span>BodyPartR15</a></li>
+		<li><a class="element-link" href="/ref/enum/Button.html"><span class="icon enum-icon" title="Enum"></span>Button</a></li>
+		<li><a class="element-link" href="/ref/enum/ButtonStyle.html"><span class="icon enum-icon" title="Enum"></span>ButtonStyle</a></li>
+		<li><a class="element-link" href="/ref/enum/CameraMode.html"><span class="icon enum-icon" title="Enum"></span>CameraMode</a></li>
+		<li><a class="element-link" href="/ref/enum/CameraPanMode.html"><span class="icon enum-icon" title="Enum"></span>CameraPanMode</a></li>
+		<li><a class="element-link" href="/ref/enum/CameraType.html"><span class="icon enum-icon" title="Enum"></span>CameraType</a></li>
+		<li><a class="element-link" href="/ref/enum/CellBlock.html"><span class="icon enum-icon" title="Enum"></span>CellBlock</a></li>
+		<li><a class="element-link" href="/ref/enum/CellMaterial.html"><span class="icon enum-icon" title="Enum"></span>CellMaterial</a></li>
+		<li><a class="element-link" href="/ref/enum/CellOrientation.html"><span class="icon enum-icon" title="Enum"></span>CellOrientation</a></li>
+		<li><a class="element-link" href="/ref/enum/CenterDialogType.html"><span class="icon enum-icon" title="Enum"></span>CenterDialogType</a></li>
+		<li><a class="element-link" href="/ref/enum/ChatCallbackType.html"><span class="icon enum-icon" title="Enum"></span>ChatCallbackType</a></li>
+		<li><a class="element-link" href="/ref/enum/ChatColor.html"><span class="icon enum-icon" title="Enum"></span>ChatColor</a></li>
+		<li><a class="element-link" href="/ref/enum/ChatMode.html"><span class="icon enum-icon" title="Enum"></span>ChatMode</a></li>
+		<li><a class="element-link" href="/ref/enum/ChatPrivacyMode.html"><span class="icon enum-icon" title="Enum"></span>ChatPrivacyMode</a></li>
+		<li><a class="element-link" href="/ref/enum/ChatStyle.html"><span class="icon enum-icon" title="Enum"></span>ChatStyle</a></li>
+		<li><a class="element-link" href="/ref/enum/CollisionFidelity.html"><span class="icon enum-icon" title="Enum"></span>CollisionFidelity</a></li>
+		<li><a class="element-link" href="/ref/enum/ComputerCameraMovementMode.html"><span class="icon enum-icon" title="Enum"></span>ComputerCameraMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/ComputerMovementMode.html"><span class="icon enum-icon" title="Enum"></span>ComputerMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/ConnectionError.html"><span class="icon enum-icon" title="Enum"></span>ConnectionError</a></li>
+		<li><a class="element-link" href="/ref/enum/ConnectionState.html"><span class="icon enum-icon" title="Enum"></span>ConnectionState</a></li>
+		<li><a class="element-link" href="/ref/enum/ContextActionPriority.html"><span class="icon enum-icon" title="Enum"></span>ContextActionPriority</a></li>
+		<li><a class="element-link" href="/ref/enum/ContextActionResult.html"><span class="icon enum-icon" title="Enum"></span>ContextActionResult</a></li>
+		<li><a class="element-link" href="/ref/enum/ControlMode.html"><span class="icon enum-icon" title="Enum"></span>ControlMode</a></li>
+		<li><a class="element-link" href="/ref/enum/CoreGuiType.html"><span class="icon enum-icon" title="Enum"></span>CoreGuiType</a></li>
+		<li><a class="element-link" href="/ref/enum/CreatorType.html"><span class="icon enum-icon" title="Enum"></span>CreatorType</a></li>
+		<li><a class="element-link" href="/ref/enum/CurrencyType.html"><span class="icon enum-icon" title="Enum"></span>CurrencyType</a></li>
+		<li><a class="element-link" href="/ref/enum/CustomCameraMode.html"><span class="icon enum-icon" title="Enum"></span>CustomCameraMode</a></li>
+		<li><a class="element-link" href="/ref/enum/DataStoreRequestType.html"><span class="icon enum-icon" title="Enum"></span>DataStoreRequestType</a></li>
+		<li><a class="element-link" href="/ref/enum/DevCameraOcclusionMode.html"><span class="icon enum-icon" title="Enum"></span>DevCameraOcclusionMode</a></li>
+		<li><a class="element-link" href="/ref/enum/DevComputerCameraMovementMode.html"><span class="icon enum-icon" title="Enum"></span>DevComputerCameraMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/DevComputerMovementMode.html"><span class="icon enum-icon" title="Enum"></span>DevComputerMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/DevTouchCameraMovementMode.html"><span class="icon enum-icon" title="Enum"></span>DevTouchCameraMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/DevTouchMovementMode.html"><span class="icon enum-icon" title="Enum"></span>DevTouchMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/DeveloperMemoryTag.html"><span class="icon enum-icon" title="Enum"></span>DeveloperMemoryTag</a></li>
+		<li><a class="element-link" href="/ref/enum/DialogBehaviorType.html"><span class="icon enum-icon" title="Enum"></span>DialogBehaviorType</a></li>
+		<li><a class="element-link" href="/ref/enum/DialogPurpose.html"><span class="icon enum-icon" title="Enum"></span>DialogPurpose</a></li>
+		<li><a class="element-link" href="/ref/enum/DialogTone.html"><span class="icon enum-icon" title="Enum"></span>DialogTone</a></li>
+		<li><a class="element-link" href="/ref/enum/DominantAxis.html"><span class="icon enum-icon" title="Enum"></span>DominantAxis</a></li>
+		<li><a class="element-link" href="/ref/enum/EasingDirection.html"><span class="icon enum-icon" title="Enum"></span>EasingDirection</a></li>
+		<li><a class="element-link" href="/ref/enum/EasingStyle.html"><span class="icon enum-icon" title="Enum"></span>EasingStyle</a></li>
+		<li><a class="element-link" href="/ref/enum/ElasticBehavior.html"><span class="icon enum-icon" title="Enum"></span>ElasticBehavior</a></li>
+		<li><a class="element-link" href="/ref/enum/EnviromentalPhysicsThrottle.html"><span class="icon enum-icon" title="Enum"></span>EnviromentalPhysicsThrottle</a></li>
+		<li><a class="element-link" href="/ref/enum/ErrorReporting.html"><span class="icon enum-icon" title="Enum"></span>ErrorReporting</a></li>
+		<li><a class="element-link" href="/ref/enum/ExplosionType.html"><span class="icon enum-icon" title="Enum"></span>ExplosionType</a></li>
+		<li><a class="element-link" href="/ref/enum/FillDirection.html"><span class="icon enum-icon" title="Enum"></span>FillDirection</a></li>
+		<li><a class="element-link" href="/ref/enum/FilterResult.html"><span class="icon enum-icon" title="Enum"></span>FilterResult</a></li>
+		<li><a class="element-link" href="/ref/enum/Font.html"><span class="icon enum-icon" title="Enum"></span>Font</a></li>
+		<li><a class="element-link" href="/ref/enum/FontSize.html"><span class="icon enum-icon" title="Enum"></span>FontSize</a></li>
+		<li><a class="element-link" href="/ref/enum/FormFactor.html"><span class="icon enum-icon" title="Enum"></span>FormFactor</a></li>
+		<li><a class="element-link" href="/ref/enum/FrameStyle.html"><span class="icon enum-icon" title="Enum"></span>FrameStyle</a></li>
+		<li><a class="element-link" href="/ref/enum/FramerateManagerMode.html"><span class="icon enum-icon" title="Enum"></span>FramerateManagerMode</a></li>
+		<li><a class="element-link" href="/ref/enum/FriendRequestEvent.html"><span class="icon enum-icon" title="Enum"></span>FriendRequestEvent</a></li>
+		<li><a class="element-link" href="/ref/enum/FriendStatus.html"><span class="icon enum-icon" title="Enum"></span>FriendStatus</a></li>
+		<li><a class="element-link" href="/ref/enum/FunctionalTestResult.html"><span class="icon enum-icon" title="Enum"></span>FunctionalTestResult</a></li>
+		<li><a class="element-link" href="/ref/enum/GameAvatarType.html"><span class="icon enum-icon" title="Enum"></span>GameAvatarType</a></li>
+		<li><a class="element-link" href="/ref/enum/GearGenreSetting.html"><span class="icon enum-icon" title="Enum"></span>GearGenreSetting</a></li>
+		<li><a class="element-link" href="/ref/enum/GearType.html"><span class="icon enum-icon" title="Enum"></span>GearType</a></li>
+		<li><a class="element-link" href="/ref/enum/Genre.html"><span class="icon enum-icon" title="Enum"></span>Genre</a></li>
+		<li><a class="element-link" href="/ref/enum/GraphicsMode.html"><span class="icon enum-icon" title="Enum"></span>GraphicsMode</a></li>
+		<li><a class="element-link" href="/ref/enum/HandlesStyle.html"><span class="icon enum-icon" title="Enum"></span>HandlesStyle</a></li>
+		<li><a class="element-link" href="/ref/enum/HorizontalAlignment.html"><span class="icon enum-icon" title="Enum"></span>HorizontalAlignment</a></li>
+		<li><a class="element-link" href="/ref/enum/HoverAnimateSpeed.html"><span class="icon enum-icon" title="Enum"></span>HoverAnimateSpeed</a></li>
+		<li><a class="element-link" href="/ref/enum/HttpCachePolicy.html"><span class="icon enum-icon" title="Enum"></span>HttpCachePolicy</a></li>
+		<li><a class="element-link" href="/ref/enum/HttpContentType.html"><span class="icon enum-icon" title="Enum"></span>HttpContentType</a></li>
+		<li><a class="element-link" href="/ref/enum/HttpError.html"><span class="icon enum-icon" title="Enum"></span>HttpError</a></li>
+		<li><a class="element-link" href="/ref/enum/HttpRequestType.html"><span class="icon enum-icon" title="Enum"></span>HttpRequestType</a></li>
+		<li><a class="element-link" href="/ref/enum/HumanoidDisplayDistanceType.html"><span class="icon enum-icon" title="Enum"></span>HumanoidDisplayDistanceType</a></li>
+		<li><a class="element-link" href="/ref/enum/HumanoidHealthDisplayType.html"><span class="icon enum-icon" title="Enum"></span>HumanoidHealthDisplayType</a></li>
+		<li><a class="element-link" href="/ref/enum/HumanoidRigType.html"><span class="icon enum-icon" title="Enum"></span>HumanoidRigType</a></li>
+		<li><a class="element-link" href="/ref/enum/HumanoidStateType.html"><span class="icon enum-icon" title="Enum"></span>HumanoidStateType</a></li>
+		<li><a class="element-link" href="/ref/enum/InOut.html"><span class="icon enum-icon" title="Enum"></span>InOut</a></li>
+		<li><a class="element-link" href="/ref/enum/InfoType.html"><span class="icon enum-icon" title="Enum"></span>InfoType</a></li>
+		<li><a class="element-link" href="/ref/enum/InitialDockState.html"><span class="icon enum-icon" title="Enum"></span>InitialDockState</a></li>
+		<li><a class="element-link" href="/ref/enum/InputType.html"><span class="icon enum-icon" title="Enum"></span>InputType</a></li>
+		<li><a class="element-link" href="/ref/enum/JointCreationMode.html"><span class="icon enum-icon" title="Enum"></span>JointCreationMode</a></li>
+		<li><a class="element-link" href="/ref/enum/JointType.html"><span class="icon enum-icon" title="Enum"></span>JointType</a></li>
+		<li><a class="element-link" href="/ref/enum/KeyCode.html"><span class="icon enum-icon" title="Enum"></span>KeyCode</a></li>
+		<li><a class="element-link" href="/ref/enum/KeywordFilterType.html"><span class="icon enum-icon" title="Enum"></span>KeywordFilterType</a></li>
+		<li><a class="element-link" href="/ref/enum/Language.html"><span class="icon enum-icon" title="Enum"></span>Language</a></li>
+		<li><a class="element-link" href="/ref/enum/LeftRight.html"><span class="icon enum-icon" title="Enum"></span>LeftRight</a></li>
+		<li><a class="element-link" href="/ref/enum/LevelOfDetailSetting.html"><span class="icon enum-icon" title="Enum"></span>LevelOfDetailSetting</a></li>
+		<li><a class="element-link" href="/ref/enum/Limb.html"><span class="icon enum-icon" title="Enum"></span>Limb</a></li>
+		<li><a class="element-link" href="/ref/enum/ListDisplayMode.html"><span class="icon enum-icon" title="Enum"></span>ListDisplayMode</a></li>
+		<li><a class="element-link" href="/ref/enum/ListenerType.html"><span class="icon enum-icon" title="Enum"></span>ListenerType</a></li>
+		<li><a class="element-link" href="/ref/enum/Material.html"><span class="icon enum-icon" title="Enum"></span>Material</a></li>
+		<li><a class="element-link" href="/ref/enum/MembershipType.html"><span class="icon enum-icon" title="Enum"></span>MembershipType</a></li>
+		<li><a class="element-link" href="/ref/enum/MeshType.html"><span class="icon enum-icon" title="Enum"></span>MeshType</a></li>
+		<li><a class="element-link" href="/ref/enum/MessageType.html"><span class="icon enum-icon" title="Enum"></span>MessageType</a></li>
+		<li><a class="element-link" href="/ref/enum/MouseBehavior.html"><span class="icon enum-icon" title="Enum"></span>MouseBehavior</a></li>
+		<li><a class="element-link" href="/ref/enum/MoveState.html"><span class="icon enum-icon" title="Enum"></span>MoveState</a></li>
+		<li><a class="element-link" href="/ref/enum/NameOcclusion.html"><span class="icon enum-icon" title="Enum"></span>NameOcclusion</a></li>
+		<li><a class="element-link" href="/ref/enum/NetworkOwnership.html"><span class="icon enum-icon" title="Enum"></span>NetworkOwnership</a></li>
+		<li><a class="element-link" href="/ref/enum/NormalId.html"><span class="icon enum-icon" title="Enum"></span>NormalId</a></li>
+		<li><a class="element-link" href="/ref/enum/OutputLayoutMode.html"><span class="icon enum-icon" title="Enum"></span>OutputLayoutMode</a></li>
+		<li><a class="element-link" href="/ref/enum/OverrideMouseIconBehavior.html"><span class="icon enum-icon" title="Enum"></span>OverrideMouseIconBehavior</a></li>
+		<li><a class="element-link" href="/ref/enum/PacketPriority.html"><span class="icon enum-icon" title="Enum"></span>PacketPriority</a></li>
+		<li><a class="element-link" href="/ref/enum/PartType.html"><span class="icon enum-icon" title="Enum"></span>PartType</a></li>
+		<li><a class="element-link" href="/ref/enum/PathStatus.html"><span class="icon enum-icon" title="Enum"></span>PathStatus</a></li>
+		<li><a class="element-link" href="/ref/enum/PathWaypointAction.html"><span class="icon enum-icon" title="Enum"></span>PathWaypointAction</a></li>
+		<li><a class="element-link" href="/ref/enum/PermissionLevelShown.html"><span class="icon enum-icon" title="Enum"></span>PermissionLevelShown</a></li>
+		<li><a class="element-link" href="/ref/enum/Platform.html"><span class="icon enum-icon" title="Enum"></span>Platform</a></li>
+		<li><a class="element-link" href="/ref/enum/PlaybackState.html"><span class="icon enum-icon" title="Enum"></span>PlaybackState</a></li>
+		<li><a class="element-link" href="/ref/enum/PlayerActions.html"><span class="icon enum-icon" title="Enum"></span>PlayerActions</a></li>
+		<li><a class="element-link" href="/ref/enum/PlayerChatType.html"><span class="icon enum-icon" title="Enum"></span>PlayerChatType</a></li>
+		<li><a class="element-link" href="/ref/enum/PoseEasingDirection.html"><span class="icon enum-icon" title="Enum"></span>PoseEasingDirection</a></li>
+		<li><a class="element-link" href="/ref/enum/PoseEasingStyle.html"><span class="icon enum-icon" title="Enum"></span>PoseEasingStyle</a></li>
+		<li><a class="element-link" href="/ref/enum/PrivilegeType.html"><span class="icon enum-icon" title="Enum"></span>PrivilegeType</a></li>
+		<li><a class="element-link" href="/ref/enum/ProductPurchaseDecision.html"><span class="icon enum-icon" title="Enum"></span>ProductPurchaseDecision</a></li>
+		<li><a class="element-link" href="/ref/enum/QualityLevel.html"><span class="icon enum-icon" title="Enum"></span>QualityLevel</a></li>
+		<li><a class="element-link" href="/ref/enum/R15CollisionType.html"><span class="icon enum-icon" title="Enum"></span>R15CollisionType</a></li>
+		<li><a class="element-link" href="/ref/enum/RenderPriority.html"><span class="icon enum-icon" title="Enum"></span>RenderPriority</a></li>
+		<li><a class="element-link" href="/ref/enum/RenderingTestComparisonMethod.html"><span class="icon enum-icon" title="Enum"></span>RenderingTestComparisonMethod</a></li>
+		<li><a class="element-link" href="/ref/enum/ReverbType.html"><span class="icon enum-icon" title="Enum"></span>ReverbType</a></li>
+		<li><a class="element-link" href="/ref/enum/RibbonTool.html"><span class="icon enum-icon" title="Enum"></span>RibbonTool</a></li>
+		<li><a class="element-link" href="/ref/enum/RollOffMode.html"><span class="icon enum-icon" title="Enum"></span>RollOffMode</a></li>
+		<li><a class="element-link" href="/ref/enum/RotationType.html"><span class="icon enum-icon" title="Enum"></span>RotationType</a></li>
+		<li><a class="element-link" href="/ref/enum/RuntimeUndoBehavior.html"><span class="icon enum-icon" title="Enum"></span>RuntimeUndoBehavior</a></li>
+		<li><a class="element-link" href="/ref/enum/SaveFilter.html"><span class="icon enum-icon" title="Enum"></span>SaveFilter</a></li>
+		<li><a class="element-link" href="/ref/enum/SavedQualitySetting.html"><span class="icon enum-icon" title="Enum"></span>SavedQualitySetting</a></li>
+		<li><a class="element-link" href="/ref/enum/ScaleType.html"><span class="icon enum-icon" title="Enum"></span>ScaleType</a></li>
+		<li><a class="element-link" href="/ref/enum/ScreenOrientation.html"><span class="icon enum-icon" title="Enum"></span>ScreenOrientation</a></li>
+		<li><a class="element-link" href="/ref/enum/ScrollBarInset.html"><span class="icon enum-icon" title="Enum"></span>ScrollBarInset</a></li>
+		<li><a class="element-link" href="/ref/enum/ScrollingDirection.html"><span class="icon enum-icon" title="Enum"></span>ScrollingDirection</a></li>
+		<li><a class="element-link" href="/ref/enum/ServerAudioBehavior.html"><span class="icon enum-icon" title="Enum"></span>ServerAudioBehavior</a></li>
+		<li><a class="element-link" href="/ref/enum/SizeConstraint.html"><span class="icon enum-icon" title="Enum"></span>SizeConstraint</a></li>
+		<li><a class="element-link" href="/ref/enum/SortOrder.html"><span class="icon enum-icon" title="Enum"></span>SortOrder</a></li>
+		<li><a class="element-link" href="/ref/enum/SoundType.html"><span class="icon enum-icon" title="Enum"></span>SoundType</a></li>
+		<li><a class="element-link" href="/ref/enum/SpecialKey.html"><span class="icon enum-icon" title="Enum"></span>SpecialKey</a></li>
+		<li><a class="element-link" href="/ref/enum/StartCorner.html"><span class="icon enum-icon" title="Enum"></span>StartCorner</a></li>
+		<li><a class="element-link" href="/ref/enum/Status.html"><span class="icon enum-icon" title="Enum"></span>Status</a></li>
+		<li><a class="element-link" href="/ref/enum/StudioStyleGuideColor.html"><span class="icon enum-icon" title="Enum"></span>StudioStyleGuideColor</a></li>
+		<li><a class="element-link" href="/ref/enum/StudioStyleGuideModifier.html"><span class="icon enum-icon" title="Enum"></span>StudioStyleGuideModifier</a></li>
+		<li><a class="element-link" href="/ref/enum/Style.html"><span class="icon enum-icon" title="Enum"></span>Style</a></li>
+		<li><a class="element-link" href="/ref/enum/SurfaceConstraint.html"><span class="icon enum-icon" title="Enum"></span>SurfaceConstraint</a></li>
+		<li><a class="element-link" href="/ref/enum/SurfaceType.html"><span class="icon enum-icon" title="Enum"></span>SurfaceType</a></li>
+		<li><a class="element-link" href="/ref/enum/SwipeDirection.html"><span class="icon enum-icon" title="Enum"></span>SwipeDirection</a></li>
+		<li><a class="element-link" href="/ref/enum/TableMajorAxis.html"><span class="icon enum-icon" title="Enum"></span>TableMajorAxis</a></li>
+		<li><a class="element-link" href="/ref/enum/Technology.html"><span class="icon enum-icon" title="Enum"></span>Technology</a></li>
+		<li><a class="element-link" href="/ref/enum/TeleportResult.html"><span class="icon enum-icon" title="Enum"></span>TeleportResult</a></li>
+		<li><a class="element-link" href="/ref/enum/TeleportState.html"><span class="icon enum-icon" title="Enum"></span>TeleportState</a></li>
+		<li><a class="element-link" href="/ref/enum/TeleportType.html"><span class="icon enum-icon" title="Enum"></span>TeleportType</a></li>
+		<li><a class="element-link" href="/ref/enum/TextFilterContext.html"><span class="icon enum-icon" title="Enum"></span>TextFilterContext</a></li>
+		<li><a class="element-link" href="/ref/enum/TextTruncate.html"><span class="icon enum-icon" title="Enum"></span>TextTruncate</a></li>
+		<li><a class="element-link" href="/ref/enum/TextXAlignment.html"><span class="icon enum-icon" title="Enum"></span>TextXAlignment</a></li>
+		<li><a class="element-link" href="/ref/enum/TextYAlignment.html"><span class="icon enum-icon" title="Enum"></span>TextYAlignment</a></li>
+		<li><a class="element-link" href="/ref/enum/TextureMode.html"><span class="icon enum-icon" title="Enum"></span>TextureMode</a></li>
+		<li><a class="element-link" href="/ref/enum/TextureQueryType.html"><span class="icon enum-icon" title="Enum"></span>TextureQueryType</a></li>
+		<li><a class="element-link" href="/ref/enum/ThreadPoolConfig.html"><span class="icon enum-icon" title="Enum"></span>ThreadPoolConfig</a></li>
+		<li><a class="element-link" href="/ref/enum/ThrottlingPriority.html"><span class="icon enum-icon" title="Enum"></span>ThrottlingPriority</a></li>
+		<li><a class="element-link" href="/ref/enum/ThumbnailSize.html"><span class="icon enum-icon" title="Enum"></span>ThumbnailSize</a></li>
+		<li><a class="element-link" href="/ref/enum/ThumbnailType.html"><span class="icon enum-icon" title="Enum"></span>ThumbnailType</a></li>
+		<li><a class="element-link" href="/ref/enum/TickCountSampleMethod.html"><span class="icon enum-icon" title="Enum"></span>TickCountSampleMethod</a></li>
+		<li><a class="element-link" href="/ref/enum/TopBottom.html"><span class="icon enum-icon" title="Enum"></span>TopBottom</a></li>
+		<li><a class="element-link" href="/ref/enum/TouchCameraMovementMode.html"><span class="icon enum-icon" title="Enum"></span>TouchCameraMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/TouchMovementMode.html"><span class="icon enum-icon" title="Enum"></span>TouchMovementMode</a></li>
+		<li><a class="element-link" href="/ref/enum/TweenStatus.html"><span class="icon enum-icon" title="Enum"></span>TweenStatus</a></li>
+		<li><a class="element-link" href="/ref/enum/UITheme.html"><span class="icon enum-icon" title="Enum"></span>UITheme</a></li>
+		<li><a class="element-link" href="/ref/enum/UiMessageType.html"><span class="icon enum-icon" title="Enum"></span>UiMessageType</a></li>
+		<li><a class="element-link" href="/ref/enum/UploadSetting.html"><span class="icon enum-icon" title="Enum"></span>UploadSetting</a></li>
+		<li><a class="element-link" href="/ref/enum/UserCFrame.html"><span class="icon enum-icon" title="Enum"></span>UserCFrame</a></li>
+		<li><a class="element-link" href="/ref/enum/UserInputState.html"><span class="icon enum-icon" title="Enum"></span>UserInputState</a></li>
+		<li><a class="element-link" href="/ref/enum/UserInputType.html"><span class="icon enum-icon" title="Enum"></span>UserInputType</a></li>
+		<li><a class="element-link" href="/ref/enum/VRTouchpad.html"><span class="icon enum-icon" title="Enum"></span>VRTouchpad</a></li>
+		<li><a class="element-link" href="/ref/enum/VRTouchpadMode.html"><span class="icon enum-icon" title="Enum"></span>VRTouchpadMode</a></li>
+		<li><a class="element-link" href="/ref/enum/VerticalAlignment.html"><span class="icon enum-icon" title="Enum"></span>VerticalAlignment</a></li>
+		<li><a class="element-link" href="/ref/enum/VerticalScrollBarPosition.html"><span class="icon enum-icon" title="Enum"></span>VerticalScrollBarPosition</a></li>
+		<li><a class="element-link" href="/ref/enum/VibrationMotor.html"><span class="icon enum-icon" title="Enum"></span>VibrationMotor</a></li>
+		<li><a class="element-link" href="/ref/enum/VideoQualitySettings.html"><span class="icon enum-icon" title="Enum"></span>VideoQualitySettings</a></li>
+		<li><a class="element-link" href="/ref/enum/VirtualInputMode.html"><span class="icon enum-icon" title="Enum"></span>VirtualInputMode</a></li>
+		<li><a class="element-link" href="/ref/enum/WaterDirection.html"><span class="icon enum-icon" title="Enum"></span>WaterDirection</a></li>
+		<li><a class="element-link" href="/ref/enum/WaterForce.html"><span class="icon enum-icon" title="Enum"></span>WaterForce</a></li>
+		<li><a class="element-link" href="/ref/enum/ZIndexBehavior.html"><span class="icon enum-icon" title="Enum"></span>ZIndexBehavior</a></li>
 	</ul>
 </article>
 <article id="types">
