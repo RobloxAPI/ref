@@ -2,20 +2,22 @@
 :root {
 	/* Vertical rhythm */
 	--font-size   : 10pt;
-	--line-height : 1.2;
+	--line-height : 1.5;
 	--baseline    : calc(var(--font-size) * var(--line-height));
 
 	/* Top header layout */
-	--header-step   : 4;
+	--header-step   : 3;
 	--header-height : calc(var(--header-step) * var(--baseline));
+	--header-bottom : var(--baseline);
 
 	/* Icon sizing */
 	--icon-size-constant : 16px;
-	--icon-size-dynamic  : var(--baseline);
+	--icon-size-dynamic  : calc(var(--font-size) * 1.2);
 	--icon-scale         : var(--icon-size-constant);
 	--icon-spacing       : 0.5ch;
 
 	/* Colors */
+	--sky-color           : #1F3F8E;
 	--background-color    : #FFFFFF;
 	--text-color          : #333333;
 	--anchor-color        : #3E6DCC;
@@ -30,16 +32,24 @@
 }
 
 /* Global */
+html {
+	background-color : var(--sky-color);
+	display          : flex;
+}
 body {
+	flex             : auto;
 	font             : var(--font-size)/var(--line-height) "Open Sans","Trebuchet MS","DejaVu Sans","Geneva",sans-serif;
 	color            : var(--text-color);
 	background-color : var(--background-color);
-	margin           : 0;
+	margin           : 0px auto;
 	padding          : 0;
+	max-width        : 1200px;
+	box-shadow       : 0 0 24px black;
 }
 main {
-	margin     : var(--baseline);
-	margin-top : 0px;
+	margin        : var(--baseline);
+	margin-top    : 0px;
+	margin-bottom : 0px;
 }
 a[href] {
 	color           : var(--anchor-color);
@@ -52,8 +62,8 @@ h1,h2,h3,h4,h5,h6 {
 	--header-font-size : calc(var(--scale,1) * var(--font-size));
 	font-size          : var(--header-font-size);
 	line-height        : var(--line-height);
-	margin-bottom      : var(--baseline);
-	margin-top         : calc(var(--header-height) - var(--baseline) - var(--header-font-size)*var(--line-height));
+	margin-bottom      : var(--header-bottom);
+	margin-top         : calc(var(--header-height) - var(--header-bottom) - var(--header-font-size)*var(--line-height));
 	margin-left        : 0;
 	margin-right       : 0;
 }
@@ -79,8 +89,9 @@ ul ul {
 	background-color : var(--table-color);
 }
 #main-header h1 {
-	margin-left  : var(--baseline);
-	margin-right : var(--baseline);
+	--header-bottom : calc(var(--baseline)/2);
+	margin-left     : var(--baseline);
+	margin-right    : var(--baseline);
 }
 #main-nav ul {
 	display         : flex;
@@ -90,10 +101,11 @@ ul ul {
 	flex-flow       : wrap row;
 }
 #main-nav li a {
+	--height-factor  : 1;
 	display          : inline-block;
 	font-size        : var(--font-size);
 	line-height      : var(--line-height);
-	padding          : calc(((var(--header-step)) - 1)/2*var(--baseline)) var(--baseline);
+	padding          : calc((var(--header-step) - var(--height-factor))/2*var(--baseline)) var(--baseline);
 	background-color : var(--table-color);
 	transition       : filter 100ms linear;
 }
@@ -140,10 +152,10 @@ li .element-link {
 	margin-right  : var(--icon-offset);
 }
 li .element-link .icon {
-	position            : absolute;
-	top                 : calc(50% - var(--icon-scale)/2);
-	left                : calc(-1 * var(--icon-offset));
-	pointer-events      : none;
+	position       : absolute;
+	top            : calc(50% - var(--icon-scale)/2);
+	left           : calc(-1 * var(--icon-offset));
+	pointer-events : none;
 }
 .icon {
 	display             : inline-block;
@@ -235,4 +247,10 @@ li .element-link .icon {
 .member-list td[colspan],
 .member-list th[colspan] {
 	text-align : left;
+}
+
+@media screen and (max-width: 80ch) {
+	#main-nav li a {
+		--height-factor: 2;
+	}
 }
