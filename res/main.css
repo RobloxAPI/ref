@@ -71,7 +71,7 @@ body {
 	font             : var(--font-size)/var(--line-height) var(--sans-serif);
 	color            : var(--text-color);
 	background-color : var(--background-color);
-	margin           : 0px auto;
+	margin           : 0 auto;
 	padding          : 0;
 	max-width        : 1200px;
 	box-shadow       : 0 0 8px black;
@@ -85,8 +85,8 @@ code {
 	font-family : var(--monospace);
 }
 main {
-	margin        : var(--baseline);
-	margin-top    : 0px;
+	margin     : var(--baseline);
+	margin-top : 0;
 }
 a[href] {
 	color           : var(--anchor-color);
@@ -111,12 +111,19 @@ h4 { --heading-scale: calc(6/6) }
 h5 { --heading-scale: calc(5/6) }
 h6 { --heading-scale: calc(4/6) }
 p, ul, ol {
-	margin-top    : var(--baseline);
-	margin-bottom : var(--baseline);
+	margin : var(--baseline) 0;
 }
-ul ul {
-	margin-top    : 0px;
-	margin-bottom : 0px;
+ul, ol {
+	padding-left: var(--indent);
+}
+@media screen and (max-width: 800px) {
+	ul, ol {
+		padding-left: var(--indent-small);
+	}
+}
+ul ul, ul ol, ol ul, ol ol {
+	margin-top    : 0;
+	margin-bottom : 0;
 }
 main > header > * {
 	display : inline-block;
