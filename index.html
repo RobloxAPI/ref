@@ -8,26 +8,56 @@
 	<link rel="shortcut icon" href="/ref/res/favicons/favicon.ico">
 	<title>Roblox API Reference</title>
 	<link href="/ref/res/main.css" rel="stylesheet" type="text/css" />
-	<style>:root {
-	--column-width : 320px;
+	<style>#main-header {
+	position : relative;
+	z-index  : var(--layer-foreground);
 }
-main article ul {
+main {
+	margin : 0;
+}
+#main article ul {
 	margin-left  : 0;
 	padding-left : var(--indent);
 }
-main article:not(#types) ul {
+#main article:not(#types) ul {
 	list-style : none;
 }
-main {
-	--indent              : calc(var(--icon-scale) + var(--icon-spacing));
-	display               : grid;
-	grid-template-columns : repeat(auto-fit, minmax(var(--column-width), 1fr));
-	justify-items         : left;
-	grid-template-rows    : auto 1fr;
+#main {
+	--indent   : calc(var(--icon-scale) + var(--icon-spacing));
+	display    : flex;
+	flex-flow  : wrap row;
+	column-gap : var(--indent);
+	margin     : var(--baseline);
+	margin-top : 0px;
 }
-#classes {
-	grid-row-end : span 2;
-	min-width    : var(--column-width);
+
+#toc {
+	position       : fixed;
+	position       : sticky;
+	top            : 0;
+	right          : 0;
+	z-index        : var(--layer-below-foreground);
+	pointer-events : none;
+	margin         : 0;
+}
+#toc > ul {
+	display         : flex;
+	flex-flow       : wrap row;
+	justify-content : end;
+	list-style-type : none;
+	padding         : 0;
+	margin          : 0;
+}
+#toc > ul > li {
+	pointer-events : auto;
+}
+#toc .header-block {
+	background-color : var(--table-color);
+}
+@media screen and (min-width: 1200px) {
+	#toc {
+		display : none;
+	}
 }
 
 /* Class sort controls */
@@ -57,19 +87,18 @@ main {
 	border-bottom-color : var(--border-color);
 }
 
-@media screen and (max-width: 80ch) {
-	main {
-		display    : block;
-		overflow-x : auto;
+@media screen and (max-width: 600px) {
+	#toc {
+		display: block;
 	}
-	main article ul ul {
+	#main {
+		display: block;
+	}
+	#main article ul ul {
 		padding-left : var(--indent);
 	}
-	main article ul {
+	#main article ul {
 		padding-left : 0;
-	}
-	#classes {
-		min-width : auto;
 	}
 }
 </style>
@@ -100,6 +129,14 @@ main {
 		</nav>
 	</header>
 	<main>
+<nav id="toc">
+	<ul>
+		<li><a class="header-block" href="#classes">Classes</a></li>
+		<li><a class="header-block" href="#enums">Enums</a></li>
+		<li><a class="header-block" href="#types">Types</a></li>
+	</ul>
+</nav>
+<section id="main">
 <article id="classes">
 	<header>
 		<h2>Classes</h2>
@@ -977,6 +1014,7 @@ main {
 		<li><a title="Category: DataType" href="/ref/type/SystemAddress.html">SystemAddress</a></li>
 		<li><a title="Category: DataType" href="/ref/type/Vector2int16.html">Vector2int16</a></li></ul>
 </article>
+</section>
 </main>
 	<footer id="main-footer">
 		<nav class="main-nav">
