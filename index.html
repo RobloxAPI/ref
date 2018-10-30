@@ -15,11 +15,7 @@
 main {
 	margin : 0;
 }
-#main article:not(#types) ul {
-	list-style : none;
-}
 #main {
-	--indent   : calc(var(--icon-scale) + var(--icon-spacing));
 	display    : flex;
 	flex-flow  : wrap row;
 	column-gap : var(--section-spacing);
@@ -48,7 +44,8 @@ main {
 	pointer-events : auto;
 }
 #toc .header-block {
-	background-color : var(--table-color);
+	--block-color     : var(--table-color);
+	--block-color-dim : var(--table-color-dim);
 }
 @media screen and (min-width: 1200px) {
 	#toc {
@@ -81,6 +78,9 @@ main {
 }
 .class-list-controls input:checked + label {
 	border-bottom-color : var(--border-color);
+}
+#class-list ul {
+	border-left : 1px dotted var(--border-color);
 }
 
 @media screen and (max-width: 600px) {
@@ -134,7 +134,7 @@ main {
 	<header>
 		<h2>Classes<span class="element-count" title="The API defines 392 classes."> (392)</span></h2>
 	</header>
-	<ul id="class-list">
+	<ul id="class-list" class="element-list">
 		<li><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a>
 		<ul>
 		<li><a class="element-link" href="/ref/class/Accoutrement.html"><span class="icon class-icon" title="Class" style="--icon-index: 32"></span>Accoutrement</a>
@@ -665,7 +665,7 @@ main {
 		</ul></li>
 	</ul>
 	<h3>Removed classes<span class="element-count" title="The API has 44 removed classes."> (44)</span></h3>
-	<ul id="removed-class-list">
+	<ul id="removed-class-list" class="element-list">
 		<li><a class="element-link" href="/ref/class/%253C%253C%253CROOT%253E%253E%253E.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>&lt;&lt;&lt;ROOT&gt;&gt;&gt;</a>
 		<li><a class="element-link" href="/ref/class/AnimationTrackState.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>AnimationTrackState</a>
 		<li><a class="element-link" href="/ref/class/App.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>App</a>
@@ -715,7 +715,7 @@ main {
 	<header>
 		<h2>Enums<span class="element-count" title="The API defines 186 enums."> (186)</span></h2>
 	</header>
-	<ul id="enum-list">
+	<ul id="enum-list" class="element-list">
 		<li><a class="element-link" href="/ref/enum/ActionType.html"><span class="icon enum-icon" title="Enum"></span>ActionType</a></li>
 		<li><a class="element-link" href="/ref/enum/ActuatorRelativeTo.html"><span class="icon enum-icon" title="Enum"></span>ActuatorRelativeTo</a></li>
 		<li><a class="element-link" href="/ref/enum/ActuatorType.html"><span class="icon enum-icon" title="Enum"></span>ActuatorType</a></li>
@@ -904,7 +904,7 @@ main {
 		<li><a class="element-link" href="/ref/enum/ZIndexBehavior.html"><span class="icon enum-icon" title="Enum"></span>ZIndexBehavior</a></li>
 	</ul>
 	<h3>Removed enums<span class="element-count" title="The API has 28 removed enums."> (28)</span></h3>
-	<ul id="removed-enum-list">
+	<ul id="removed-enum-list" class="element-list">
 		<li><a class="element-link" href="/ref/enum/AASamples.html"><span class="icon enum-icon" title="Enum"></span>AASamples</a>
 		<li><a class="element-link" href="/ref/enum/AccessType.html"><span class="icon enum-icon" title="Enum"></span>AccessType</a>
 		<li><a class="element-link" href="/ref/enum/Antialiasing.html"><span class="icon enum-icon" title="Enum"></span>Antialiasing</a>
