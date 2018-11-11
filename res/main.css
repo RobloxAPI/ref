@@ -47,8 +47,9 @@ Viewport thresholds:
 	--monospace  : "Consolas", "DejaVu Sans Mono", monospace;
 
 	/* Horizontal spacing */
-	--indent           : 4ch;
-	--indent-small     : calc(var(--indent)/2);
+	--indent-full      : 4ch;
+	--indent-half      : calc(var(--indent-full)/2);
+	--indent           : var(--indent-full); /* Dynamic */
 	--section-spacing  : 2ch;
 
 	/* Z Layers */
@@ -58,6 +59,11 @@ Viewport thresholds:
 
 	/* Misc. */
 	--scrollbar-width : 4ch;
+}
+@media screen and (max-width: 800px) {
+	:root {
+		--indent : var(--indent-half);
+	}
 }
 
 /*////////////////////////////////////////////////////////////////*/
@@ -115,11 +121,6 @@ p, ul, ol {
 ul, ol {
 	padding-left: var(--indent);
 }
-@media screen and (max-width: 800px) {
-	ul, ol {
-		padding-left: var(--indent-small);
-	}
-}
 ul ul, ul ol, ol ul, ol ol {
 	margin-top    : 0;
 	margin-bottom : 0;
@@ -141,12 +142,10 @@ main > header .history {
 .element-list {
 	--element-list-indent : calc(var(--icon-scale) + var(--icon-spacing));
 	--indent              : 0;
-	--indent-small        : 0;
 	list-style            : none;
 }
 .element-list ul {
 	--indent       : var(--element-list-indent);
-	--indent-small : var(--element-list-indent);
 	list-style     : none;
 }
 .params-sep {
@@ -206,6 +205,11 @@ main > header .history {
 	margin          : 0;
 	padding         : 0;
 }
+#search-input {
+	background-color : var(--background-color);
+	color            : var(--text-color);
+	border           : 1px solid var(--border-color);
+}
 /* Header block: has particular sizing. */
 .header-block {
 	display            : inline-block;
@@ -241,6 +245,10 @@ a.header-block:hover {
 	/* TODO: Figure out how to exclude border-top from this.*/
 	opacity : 0.5;
 }
+.api-no-default {
+	font-style : italic;
+	opacity    : 0.5;
+}
 .history-add::before    { content: "+" }
 .history-change::before { content: "Δ" }
 .history-remove::before { content: "−" }
@@ -261,7 +269,7 @@ a.header-block:hover {
 @media screen and (max-width: 600px) {
 	.parameter {
 		flex-basis   : 100%;
-		padding-left : var(--indent-small);
+		padding-left : var(--indent-half);
 	}
 }
 @supports (hyphens:auto) {
@@ -378,16 +386,19 @@ header .icon,
 .index-card td {
 	vertical-align : top;
 }
+.index-card td, .index-card th {
+	text-align : left;
+}
 .index-card .col-value,
 .index-card .col-type,
 .index-card .col-icon {
 	text-align : right;
 }
-.index-card .col-member,
-.index-card .col-history,
-.index-card td[colspan],
-.index-card th[colspan] {
+.param-index-card .col-type {
 	text-align : left;
+}
+.param-index-card {
+	width : calc(100% - var(--card-margin)*2);
 }
 .index-card .member-text {
 	display   : flex;

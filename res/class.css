@@ -27,12 +27,14 @@ main {
 		"examples  "
 		"members   "
 		"rmembers  "
-		"references";
+		"references"
+	;
 }
 main > nav > section {
 	overflow-y    : auto;
 	padding-right : var(--scrollbar-width);
 	max-height    : 61.8vh;
+	--indent      : var(--indent-half);
 }
 @media screen and (min-width: 800px) {
 	main {
@@ -47,12 +49,13 @@ main > nav > section {
 			"examples   nav   "
 			"members    nav   "
 			"rmembers   nav   "
-			"references nav   ";
+			"references nav   "
+		;
 		justify-content    : start;
 		grid-template-rows : repeat(9,auto) 1fr;
 	}
 	main > nav {
-		border-left  : 1px solid lightgray;
+		border-left  : 1px solid var(--border-color);
 		padding-left : var(--section-spacing);
 	}
 	@supports (position:sticky) {
@@ -75,12 +78,13 @@ main > nav > section {
 			"examples   examples   nav   "
 			"members    members    nav   "
 			"rmembers   rmembers   nav   "
-			"references references nav   ";
+			"references references nav   "
+		;
 		justify-content    : start;
 		grid-template-rows : repeat(8,auto) 1fr;
 	}
 	main > #tree {
-		border-right  : 1px solid lightgray;
+		border-right  : 1px solid var(--border-color);
 		padding-right : var(--section-spacing);
 	}
 }
