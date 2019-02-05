@@ -178,9 +178,25 @@ main > header .history {
 	padding-left  : var(--baseline);
 	padding-right : var(--baseline);
 }
-#main-header h1      { order: 0 }
-#main-header nav     { order: 1 }
-#main-header #search { order: 2 }
+#main-header h1        { order: 0 }
+#main-header nav       { order: 1 }
+#main-header #search   { order: 2 }
+#main-header #settings { order: 3 }
+#settings {
+	height : var(--baseline);
+	width  : var(--baseline);
+}
+#settings > img {
+	display  : block;
+	position : relative;
+	--size   : calc(var(--baseline));
+	--size2  : calc((2 - var(--height-factor,0))*var(--size));
+	top      : calc(var(--size)/2 - var(--size2)/2);
+	left     : calc(var(--size)/2 - var(--size2)/2);
+	height   : calc(var(--size2));
+	width    : calc(var(--size2));
+}
+
 /* Footer */
 #main-footer {
 	/* Place content on the right */
