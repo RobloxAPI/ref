@@ -178,25 +178,9 @@ main > header .history {
 	padding-left  : var(--baseline);
 	padding-right : var(--baseline);
 }
-#main-header h1        { order: 0 }
-#main-header nav       { order: 1 }
-#main-header #search   { order: 2 }
-#main-header #settings { order: 3 }
-#settings {
-	height : var(--baseline);
-	width  : var(--baseline);
-}
-#settings > img {
-	display  : block;
-	position : relative;
-	--size   : calc(var(--baseline));
-	--size2  : calc((2 - var(--height-factor,0))*var(--size));
-	top      : calc(var(--size)/2 - var(--size2)/2);
-	left     : calc(var(--size)/2 - var(--size2)/2);
-	height   : calc(var(--size2));
-	width    : calc(var(--size2));
-}
-
+#main-header h1      { order: 0 }
+#main-header nav     { order: 1 }
+#main-header #search { order: 2 }
 /* Footer */
 #main-footer {
 	/* Place content on the right */
@@ -571,3 +555,25 @@ header .devhub-link {
 	color       : gold;
 	white-space : nowrap;
 }
+
+/*////////////////////////////////////////////////////////////////*/
+/* Status boxes */
+.status-list {
+	margin : var(--baseline) 0;
+}
+.status-box {
+	background-color : var(--table-color);
+	border-left      : 4px solid var(--border-color);
+	padding          : 0.5ch 1ch;
+}
+.status-box > .status-header {
+	font-weight : bold;
+}
+
+.status-high   { border-left-color : #FF7E7E; }
+.status-medium { border-left-color : #F2B729; }
+.status-low    { border-left-color : #77D7F6; }
+
+/*////////////////////////////////////////////////////////////////*/
+/* Documentation */
+@import url("doc.css");
