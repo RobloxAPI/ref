@@ -215,9 +215,6 @@ main > header .history {
 	padding-left  : var(--baseline);
 	padding-right : var(--baseline);
 }
-#main-header h1      { order: 0 }
-#main-header nav     { order: 1 }
-#main-header #search { order: 2 }
 /* Footer */
 #main-footer {
 	display         : flex;
@@ -251,6 +248,13 @@ main > header .history {
 	background-color : var(--background-color);
 	color            : var(--text-color);
 	border           : 1px solid var(--border-color);
+}
+#search-input:focus {
+	outline    : 1px solid var(--anchor-color);
+	box-shadow : 0 0 4px var(--anchor-color);
+}
+#search-results .element-link:focus {
+	background-color : var(--member-target-color);
 }
 /* Top navigation */
 #top-nav {
@@ -383,27 +387,35 @@ a.header-block:hover {
 
 /*////////////////////////////////////////////////////////////////*/
 /* Status decorations */
-.index-card .api-deprecated {
-	text-decoration : unset;
-}
-.api-deprecated,
-.index-card .api-deprecated > * {
+
+/* Deprecated */
+li.api-deprecated > :not(ul),
+.index-card tr.api-deprecated .col-type > *,
+.index-card tr.api-deprecated .col-member > *,
+.index-card tr.api-deprecated .col-value > *,
+.element-link.api-deprecated {
 	text-decoration : line-through rgb(0, 0, 0, 0.5);
 }
-.index-card .api-not-browsable {
-	opacity : unset;
-}
-.api-not-browsable,
-.index-card .api-not-browsable > * {
+
+/* NotBrowsable */
+li.api-not-browsable > :not(ul),
+.index-card tr.api-not-browsable .col-type > *,
+.index-card tr.api-not-browsable .col-member > *,
+.index-card tr.api-not-browsable .col-value > *,
+.element-link.api-not-browsable {
 	opacity : 0.5;
 }
-.index-card .api-hidden {
-	opacity : unset;
-}
-.api-hidden,
-.index-card .api-hidden > * {
+
+/* Hidden */
+li.api-hidden > :not(ul),
+.index-card tr.api-hidden .col-type > *,
+.index-card tr.api-hidden .col-member > *,
+.index-card tr.api-hidden .col-value > *,
+.element-link.api-hidden {
 	opacity : 0.5;
 }
+
+/* Strings */
 .api-no-default,
 .api-empty-string {
 	font-style : italic;
@@ -412,6 +424,8 @@ a.header-block:hover {
 .api-empty-string::before {
 	content : "(empty)";
 }
+
+/* History tags */
 .history-add::before    { content: "+" }
 .history-change::before { content: "Δ" }
 .history-remove::before { content: "−" }
