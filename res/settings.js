@@ -15,8 +15,7 @@ const settings = [
 		"name"     : "SecurityIdentity",
 		"type"     : "select",
 		"default"  : "0",
-		"text"     : "Context",
-		"disabled" : true,
+		"text"     : "Permission",
 		"options"  : [
 			{"text": "All",          "value": "0"},
 			{"text": "Server",       "value": "7"},
@@ -38,21 +37,18 @@ const settings = [
 		"type"     : "checkbox",
 		"default"  : true,
 		"text"     : "Show deprecated",
-		"disabled" : true,
 	},
 	{
-		"name"     : "ShowBrowsable",
+		"name"     : "ShowNotBrowsable",
 		"type"     : "checkbox",
 		"default"  : true,
-		"text"     : "Show browsable",
-		"disabled" : true,
+		"text"     : "Show unbrowsable",
 	},
 	{
 		"name"     : "ShowHidden",
 		"type"     : "checkbox",
 		"default"  : true,
 		"text"     : "Show hidden",
-		"disabled" : true,
 	}
 ];
 

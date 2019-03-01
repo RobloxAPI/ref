@@ -43,6 +43,88 @@ function initHistoryToggle() {
 	};
 };
 
+const securityIdentities = [7, 4, 5, 6, 3, 2];
+const securityContexts = [
+	"NotAccessibleSecurity",
+	"RobloxSecurity",
+	"RobloxScriptSecurity",
+	"LocalUserSecurity",
+	"PluginSecurity",
+	"RobloxPlaceSecurity",
+];
+
+function initSettingListeners() {
+	let head = document.head;
+
+	let showDeprecated = document.createElement("style");
+	showDeprecated.innerHTML =
+		".api-deprecated { display: none; }\n" +
+		"#class-list .api-deprecated { display: unset; }\n" +
+		"#class-list .api-deprecated > .element-link { display: none; }\n" +
+		"#class-list .api-deprecated > ul { padding-left:0; border-left:none; }\n";
+	window.rbxapiSettings.Listen("ShowDeprecated", function(name, value, initial) {
+		if (value) {
+			showDeprecated.remove();
+		} else {
+			head.appendChild(showDeprecated);
+		};
+	});
+
+	let showNotBrowsable = document.createElement("style");
+	showNotBrowsable.innerHTML =
+		".api-not-browsable { display: none; }\n" +
+		"#class-list .api-not-browsable { display: unset; }\n" +
+		"#class-list .api-not-browsable > .element-link { display: none; }\n" +
+		"#class-list .api-not-browsable > ul { padding-left:0; border-left:none; }\n";
+	window.rbxapiSettings.Listen("ShowNotBrowsable", function(name, value, initial) {
+		if (value) {
+			showNotBrowsable.remove();
+		} else {
+			head.appendChild(showNotBrowsable);
+		};
+	});
+
+	let showHidden = document.createElement("style");
+	showHidden.innerHTML =
+		".api-hidden { display: none; }\n" +
+		"#class-list .api-hidden { display: unset; }\n" +
+		"#class-list .api-hidden > .element-link { display: none; }\n" +
+		"#class-list .api-hidden > ul { padding-left:0; border-left:none; }\n";
+	window.rbxapiSettings.Listen("ShowHidden", function(name, value, initial) {
+		if (value) {
+			showHidden.remove();
+		} else {
+			head.appendChild(showHidden);
+		};
+	});
+
+	let security = [];
+	for (let i=0; i<securityIdentities.length; i++) {
+		let content = "";
+		for (let c=0; c<=i; c++) {
+			content += ".api-sec-" + securityContexts[c];
+			for (let n=i+1; n<securityContexts.length; n++) {
+				content += ":not(.api-sec-" + securityContexts[n] + ")";
+			};
+			if (c < i) {
+				content += ", ";
+			};
+		};
+		content += " { display: none; }\n";
+		security[i] = document.createElement("style");
+		security[i].innerHTML = content;
+	};
+	window.rbxapiSettings.Listen("SecurityIdentity", function(name, value, initial) {
+		for (let i=0; i<security.length; i++) {
+			if (Number(value) === securityIdentities[i]) {
+				head.appendChild(security[i]);
+			} else {
+				security[i].remove();
+			};
+		};
+	});
+};
+
 if (document.readyState === "loading") {
 	document.addEventListener("DOMContentLoaded", function() {
 		initTopNav();
@@ -51,5 +133,11 @@ if (document.readyState === "loading") {
 } else {
 	initTopNav();
 	initHistoryToggle();
+};
+
+if (window.rbxapiSettings) {
+	initSettingListeners();
+} else {
+	window.addEventListener("rbxapiSettings", initSettingListeners);
 };
 };
