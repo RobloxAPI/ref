@@ -1,5 +1,4 @@
 .doc pre:not(.chroma) {
-	margin           : 0 1em;
 	background-color : var(--table-color);
 	border-left      : 2px solid var(--border-color);
 	padding          : 1em 1.618em;
@@ -11,14 +10,21 @@
 }
 
 .doc > div.chroma {
-	margin           : 0 1em;
 	background-color : var(--table-color);
 	border-left      : 2px solid var(--border-color);
 }
 .doc > div.chroma pre {
 	background-color : unset;
-	white-space      : pre-wrap;
 	-moz-tab-size    : var(--indent);
 	-o-tab-size      : var(--indent);
 	tab-size         : var(--indent);
+}
+.doc > div.chroma .lntd:last-child {
+	display  : block;
+	overflow : auto;
+}
+.doc > div.chroma .lntd:last-child pre {
+	display      : table;
+	table-layout : fixed;
+	width        : 100%;
 }
