@@ -55,7 +55,7 @@ main > nav .toc-members {
 		grid-template-rows : repeat(8,auto) 1fr;
 	}
 	main > nav {
-		border-left  : 1px solid var(--border-color);
+		border-left  : 1px solid var(--theme-border);
 		padding-left : var(--section-spacing);
 	}
 	main > nav .toc-members {
@@ -89,12 +89,17 @@ main > nav .toc-members {
 
 #members > section,
 #removed-members > section {
-	border-bottom : 1px solid var(--border-color);
+	border-bottom : 1px solid var(--theme-border);
 }
 
-.sw {
-	display          : block;
-	width            : 16px;
-	height           : 16px;
-	background-color : var(--c);
+.swatches {
+	width            : calc(var(--baseline) * 5);
+	height           : var(--baseline);
+	background-image : linear-gradient(to right,
+		var(--0) 0% 20%,
+		var(--1) 20% 40%,
+		var(--2) 40% 60%,
+		var(--3) 60% 80%,
+		var(--4) 80% 100%);
+	border           : 1px solid var(--theme-border);
 }
