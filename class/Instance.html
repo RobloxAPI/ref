@@ -55,7 +55,10 @@
 <section id="summary">
 	<header>
 		<h2>Summary</h2>
-	</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This item is not browsable.</span> It is not visible in Studio&#39;s object browser.</div></div><table class="metadata-pairs">
+	</header>
+	<section class="doc">
+<p>The root class of all classes in the API.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This item is not browsable.</span> It is not visible in Studio&#39;s object browser.</div></div><table class="metadata-pairs">
 		<tbody>
 			<tr><th>Memory Category</th><td>Instances</td></tr>
 		</tbody>
@@ -70,6 +73,7 @@
 					<li id="toc-subclasses"><a href="#subclasses">Inherited by</a></li>
 				</ol>
 			</li><li><a href="#members-index">Member index</a></li>
+			<li><a href="#details">Details</a></li>
 			<li><a href="#history">History</a></li>
 			<li id="toc-members"><a href="#members">Members</a>
 				<ol class="toc-members">
@@ -683,6 +687,29 @@
 	</tbody>
 	</table>
 </section>
+<section id="details">
+	<header>
+		<h2>Details</h2>
+	</header>
+	<section class="doc">
+<h3 id="doc-hierarchy">Hierarchy</h3>
+
+<p>Objects are arranged in a tree structure. An object can have zero or more
+<strong>child</strong> objects, which are below it in the tree. Conversely, an object can
+have at most one <strong>parent</strong> object, which is above it in the tree. The <strong>root</strong>
+of a tree can have children, but has no parent.</p>
+
+<p>Objects that share the same parent are referred to as <strong>siblings</strong>.</p>
+
+<p>An <strong>ancestor</strong> is any object that is reachable by repeatedly moving from child
+to parent. That is, an ancestor is the parent of an object, or the parent's
+parent, and so on, all the way to the root of the tree.</p>
+
+<p>A <strong>descendant</strong> is any object that is reachable by repeatedly moving from
+parent to child. That is, a descendant is a child of an object, or a child of
+the child, and so on.</p>
+</section>
+</section>
 <section id="history">
 	<header class="controlled-header">
 		<h2 class="header">History</h2>
@@ -932,7 +959,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 	<section id="member-AncestryChanged">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>AncestryChanged <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Instance/AncestryChanged"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fired after the ancestry of the object changes.</p>
+</section><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
 			</tbody>
@@ -964,6 +994,9 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Archivable <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/Archivable"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether the object can be serialized.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -972,12 +1005,82 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 				<tr><th>Can Save</th><td>false</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>When Archivable is false, the object will not be included when it is a part of a
+place or model that is saved to a file or published to Roblox. The object is
+also excluded from being copied with <a href="#member-Clone">Clone</a>.</p>
+</section>
+		<h4>Examples</h4>
+		<section class="doc">
+<p>Avoid cloning descendants by temporarily setting Archivable.</p>
+<div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="kr">function</span> <span class="nf">CopyObject</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+	<span class="kd">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">object</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+	<span class="kd">local</span> <span class="n">currentState</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="kr">do</span>
+		<span class="n">currentState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">child.Archivable</span>
+		<span class="n">child.Archivable</span> <span class="o">=</span> <span class="kc">false</span>
+	<span class="kr">end</span>
+	<span class="kd">local</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">object</span><span class="p">:</span><span class="n">Clone</span><span class="p">()</span>
+	<span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="kr">do</span>
+		<span class="n">child.Archivable</span> <span class="o">=</span> <span class="n">currentState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+	<span class="kr">end</span>
+	<span class="kr">return</span> <span class="n">copy</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Part&#34;</span><span class="p">)</span>
+<span class="n">part.Name</span> <span class="o">=</span> <span class="s2">&#34;Original&#34;</span>
+<span class="n">part.Color</span> <span class="o">=</span> <span class="n">BrickColor.Red</span><span class="p">().</span><span class="n">Color</span>
+<span class="kd">local</span> <span class="n">smoke</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Smoke&#34;</span><span class="p">,</span> <span class="n">part</span><span class="p">)</span>
+<span class="n">smoke.Archivable</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Fire&#34;</span><span class="p">,</span> <span class="n">part</span><span class="p">)</span>
+<span class="n">part.Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+
+<span class="kd">local</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">CopyObject</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+<span class="n">copy.Name</span> <span class="o">=</span> <span class="s2">&#34;Copy&#34;</span>
+<span class="n">copy.Position</span> <span class="o">=</span> <span class="n">Vector3.new</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">copy.Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+</pre></td></tr></table>
+</div>
+</section></section>
 
 	<section id="member-Changed">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>Changed <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Instance/Changed"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fired after a property of the object changes.</p>
+</section><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
 			</tbody>
@@ -998,12 +1101,114 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 	</tr>
 </tbody>
 </table>
+
+		<section class="doc">
+<p><em>property</em> is the name of the property that changed. This can be used to index
+the object to get the property's new value.</p>
+
+<p>Changed is fired by changes to <em>all</em> properties of the object. If only one or a
+few properties need to be monitored, <a href="#member-GetPropertyChangedSignal">GetPropertyChangedSignal</a> should be
+used instead.</p>
+
+<p>For performance reasons, changes to a property made by the physics engine will
+not cause Changed to fire. For example, Changed will fire when the
+<a href="/ref/class/Part.html#member-Position">Position</a> of a <a href="/ref/class/Part.html">Part</a> is modified by a script,
+but will not fire while the part is falling.</p>
+
+<h4 id="doc-bugs">Bugs</h4>
+
+<p>Certain classes have hidden properties that cannot be indexed, but can still
+cause Changed to fire. When indexing such an object with <em>property</em> unguarded,
+using pcall is recommended.</p>
 </section>
+		<h4>Examples</h4>
+		<section class="doc">
+<p>Copy changes in appearance from one part to another.</p>
+<div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="kd">local</span> <span class="n">appearance</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="n">Color</span>        <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="n">Material</span>     <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="n">Reflectance</span>  <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="n">Transparency</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kd">local</span> <span class="n">original</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Part&#34;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Part&#34;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+<span class="n">original.Changed</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">property</span><span class="p">)</span>
+	<span class="kr">if</span> <span class="ow">not</span> <span class="n">appearance</span><span class="p">[</span><span class="n">property</span><span class="p">]</span> <span class="kr">then</span>
+		<span class="kr">return</span>
+	<span class="kr">end</span>
+	<span class="n">copy</span><span class="p">[</span><span class="n">property</span><span class="p">]</span> <span class="o">=</span> <span class="n">original</span><span class="p">[</span><span class="n">property</span><span class="p">]</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">original.Position</span> <span class="o">=</span> <span class="n">Vector3.new</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">original.Color</span> <span class="o">=</span> <span class="n">BrickColor.Blue</span><span class="p">().</span><span class="n">Color</span>
+</pre></td></tr></table>
+</div>
+
+<p>Safely copy all changes from one part to another.</p>
+<div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="kd">local</span> <span class="n">original</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Part&#34;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Part&#34;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+<span class="n">original.Changed</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">property</span><span class="p">)</span>
+	<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+		<span class="kr">return</span> <span class="n">original</span><span class="p">[</span><span class="n">property</span><span class="p">]</span>
+	<span class="kr">end</span><span class="p">)</span>
+	<span class="kr">if</span> <span class="ow">not</span> <span class="n">ok</span> <span class="kr">then</span>
+		<span class="kr">return</span>
+	<span class="kr">end</span>
+	<span class="n">copy</span><span class="p">[</span><span class="n">property</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">copy.Position</span> <span class="o">=</span> <span class="n">Vector3.new</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">original.Color</span> <span class="o">=</span> <span class="n">BrickColor.Blue</span><span class="p">().</span><span class="n">Color</span>
+</pre></td></tr></table>
+</div>
+</section></section>
 
 	<section id="member-ChildAdded">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>ChildAdded <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Instance/ChildAdded"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fired after a child is added to the object.</p>
+</section><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
 			</tbody>
@@ -1029,7 +1234,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 	<section id="member-ChildRemoved">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>ChildRemoved <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Instance/ChildRemoved"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fired after a child is removed from the object.</p>
+</section><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
 			</tbody>
@@ -1055,7 +1263,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 	<section id="member-ClassName">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>ClassName <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/ClassName"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns the name of the object's class.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/string.html">string</a></td></tr>
@@ -1071,6 +1282,9 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>ClearAllChildren <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/ClearAllChildren"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Removes all of the children from the object.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1108,6 +1322,9 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-ClearAllChildr
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>Clone <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/Clone"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Creates a deep copy of the object.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1137,7 +1354,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-ClearAllChildr
 	<section id="member-DataCost" class="api-deprecated api-sec-LocalUserSecurity">
 		<header>
 			<h3><span class="icon member-icon" title="Protected Property (Read/Write: LocalUserSecurity)" style="--icon-index: 7"></span>DataCost <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/DataCost"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns the cost of saving the object to data persistence, in data units.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
@@ -1171,7 +1391,10 @@ Change WriteSecurity of <a class="element-link" href="/ref/class/Instance.html#m
 	<section id="member-DescendantAdded">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>DescendantAdded <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Instance/DescendantAdded"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fired after a descendant of the object is added.</p>
+</section><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
 			</tbody>
@@ -1197,7 +1420,10 @@ Change WriteSecurity of <a class="element-link" href="/ref/class/Instance.html#m
 	<section id="member-DescendantRemoving">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>DescendantRemoving <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Instance/DescendantRemoving"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fired before a descendant of the object is removed.</p>
+</section><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
 			</tbody>
@@ -1224,6 +1450,9 @@ Change WriteSecurity of <a class="element-link" href="/ref/class/Instance.html#m
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>Destroy <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/Destroy"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Removes the object and marks it as destroyed, preventing reuse.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1261,6 +1490,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-Destroy"><span
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>FindFirstAncestor <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/FindFirstAncestor"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns the first ancestor of the object whose <a href="#member-Name">Name</a> matches the
+given name.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1315,6 +1548,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-FindFirstAnces
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>FindFirstAncestorOfClass <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/FindFirstAncestorOfClass"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns the first ancestor of the object whose <a href="#member-ClassName">ClassName</a>
+matches the given name.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1355,6 +1592,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-FindFirstAnces
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>FindFirstAncestorWhichIsA <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/FindFirstAncestorWhichIsA"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns the first ancestor of the object whose class inherits a class of the
+given name.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1395,6 +1636,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-FindFirstAnces
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>FindFirstChild <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/FindFirstChild"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns the first child of the object whose <a href="#member-Name">Name</a> matches the given
+name.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
@@ -1432,6 +1677,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-FindFirstAnces
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>FindFirstChildOfClass <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/FindFirstChildOfClass"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns the first child of the object whose <a href="#member-ClassName">ClassName</a>
+matches the given name.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1472,6 +1721,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-FindFirstChild
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>FindFirstChildWhichIsA <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/FindFirstChildWhichIsA"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns the first child of the object whose class inherits a class of the given
+name.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
@@ -1517,6 +1770,9 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-FindFirstChild
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetChildren <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/GetChildren"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns a list of the object's children.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1546,7 +1802,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-FindFirstChild
 	<section id="member-GetDebugId" class="api-not-browsable api-sec-PluginSecurity">
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (PluginSecurity)" style="--icon-index: 5"></span>GetDebugId <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/GetDebugId"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This item is not browsable.</span> It is not visible in Studio&#39;s object browser.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns a value that uniquely identifies the object.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This item is not browsable.</span> It is not visible in Studio&#39;s object browser.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1588,7 +1847,10 @@ Change Security of <a class="element-link" href="/ref/class/Instance.html#member
 	<section id="member-GetDescendants">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetDescendants <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/GetDescendants"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"></div>
+		</header>
+		<section class="doc">
+<p>Returns a list of all the descendants of the object.</p>
+</section><div class="status-list"></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1632,6 +1894,9 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-GetDescendants
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetFullName <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/GetFullName"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns a name formatted according to the ascendants of the object.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1662,6 +1927,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-GetDescendants
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetPropertyChangedSignal <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/GetPropertyChangedSignal"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns a <a href="/ref/type/RBXScriptSignal.html">signal</a> that fires after a property of the
+given name changes.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1716,7 +1985,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-GetPropertyCha
 	<section id="member-IsA">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>IsA <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/IsA"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"></div>
+		</header>
+		<section class="doc">
+<p>Returns whether the object's class inherits from a class of the given name.</p>
+</section><div class="status-list"></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1759,6 +2031,9 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-IsA
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>IsAncestorOf <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/IsAncestorOf"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns whether the object is an ancestor of a given object.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1785,12 +2060,19 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-IsA
 			<tbody>
 				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p><code>nil</code> can be passed as an argument. Because <code>nil</code> is not a real object, and
+therefore can never be a child, passing <code>nil</code> always returns false.</p>
+</section></section>
 
 	<section id="member-IsDescendantOf">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>IsDescendantOf <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/IsDescendantOf"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns whether the object is a descendant of a given object.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -1817,12 +2099,22 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-IsA
 			<tbody>
 				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p><code>nil</code> can be passed as an argument. Because the root of a tree always has a nil
+parent, passing <code>nil</code> always returns true.</p>
+</section></section>
 
 	<section id="member-Name">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Name <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/Name"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Specifies a string used to identify the object.</p>
+
+<p>The value of Name is constrained to a maximum length of 100 bytes. On
+assignment, extra bytes are truncated.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/string.html">string</a></td></tr>
@@ -1831,12 +2123,19 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-IsA
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>While Name is generally used to differentiate between sibling objects, no
+attempts to enforce the uniqueness of the value are made.</p>
+</section></section>
 
 	<section id="member-Parent">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Parent <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/Parent"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc">
+<p>Specifies an object that the current object is a child of.</p>
+</section><div class="status-list"><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td></tr>
@@ -1846,6 +2145,45 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-IsA
 				
 			</tbody>
 		</table>
+		<section class="doc">
+<p>An object cannot be its own parent. Attempting to set Parent to the object
+results in the following error:</p>
+
+<pre><code>Attempt to set OBJECT as its own parent
+</code></pre>
+
+<p>Where <code>OBJECT</code> is the <a href="#member-GetFullName">full name</a> of the object.</p>
+
+<p>An object also cannot be a child of one of its descendants. Attempting to set
+Parent to a descendant results in the following error:</p>
+
+<pre><code>Attempt to set parent of OBJECT to VALUE would result in circular reference
+</code></pre>
+
+<p>Where <code>OBJECT</code> is the full name of the object, and <code>VALUE</code> is the full name of
+the descendant.</p>
+
+<h4 id="doc-locking">Locking</h4>
+
+<p>After its value is changed, the Parent property is locked, and cannot be
+changed. This is to prevent events from recursively firing themselves.
+Attempting to set Parent while it is locked fails without throwing an error, and
+the following warning is emitted:</p>
+
+<pre><code>Something unexpectedly tried to set the parent of OBJECT to NEWVALUE while trying to set the parent of OBJECT. Current parent is VALUE.
+</code></pre>
+
+<p><code>OBJECT</code> is the <a href="#member-Name">Name</a> of the object whose Parent is being
+modified. <code>NEWVALUE</code> is the Name of the object to which the Parent was attempted
+to be set. <code>VALUE</code> is the Name of the current parent. &quot;NULL&quot; is used if either
+value is nil.</p>
+
+<p>Once all listeners from associated events have resolved, the Parent is unlocked.
+A listener is resolved when its thread is either dead or has yielded.</p>
+
+<!-- OBJECT appears twice in the message. Find out if its possible for these two
+fragments to be different. -->
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -1859,7 +2197,10 @@ Change ValueType of <a class="element-link" href="/ref/class/Instance.html#membe
 	<section id="member-Remove" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>Remove <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/Remove"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Removes the object from its parent.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1899,6 +2240,9 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-Rem
 		<header>
 			<h3><span class="icon member-icon" title="Protected Property (Read/Write: PluginSecurity)" style="--icon-index: 7"></span>RobloxLocked <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/RobloxLocked"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines the restrictions of indexing the object.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1956,7 +2300,10 @@ Change WriteSecurity of <a class="element-link" href="/ref/class/Instance.html#m
 	<section id="member-WaitForChild">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>WaitForChild <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/WaitForChild"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function can yield.</span> It may or may not block the calling thread until completion.</div></div>
+		</header>
+		<section class="doc">
+<p>Blocks until an object of the given name is a child of the object.</p>
+</section><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function can yield.</span> It may or may not block the calling thread until completion.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
@@ -2036,7 +2383,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-WaitForChild">
 	<section id="member-archivable" class="api-deprecated api-hidden">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>archivable <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/archivable"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This member is hidden.</span> It is not meant to be used, and may have unresolved issues.</div><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc">
+<p>Determines whether the object can be serialized.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This member is hidden.</span> It is not meant to be used, and may have unresolved issues.</div><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -2059,7 +2409,10 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-arc
 	<section id="member-childAdded" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>childAdded <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Instance/childAdded"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fired after a child is added to the object.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
 			</tbody>
@@ -2101,7 +2454,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-childAdded"><s
 	<section id="member-children" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>children <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/children"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns a list of the object's children.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -2132,7 +2488,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-childAdded"><s
 	<section id="member-className" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>className <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Instance/className"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns the name of the object's class.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/string.html">string</a></td></tr>
@@ -2155,7 +2514,10 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-cla
 	<section id="member-clone" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>clone <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/clone"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Creates a deep copy of the object.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -2186,7 +2548,10 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-cla
 	<section id="member-destroy" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>destroy <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/destroy"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Removes the object and marks it as destroyed, preventing reuse.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -2224,7 +2589,11 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-destroy"><span
 	<section id="member-findFirstChild" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>findFirstChild <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/findFirstChild"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns the first child of the object whose <a href="#member-Name">Name</a> matches the given
+name.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
@@ -2262,7 +2631,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-destroy"><span
 	<section id="member-getChildren" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>getChildren <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/getChildren"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns a list of the object's children.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -2300,7 +2672,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 	<section id="member-isA" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>isA <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/isA"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns whether the object's class inherits from a class of the given name.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -2341,7 +2716,10 @@ Change Tags of <a class="element-link" href="/ref/class/Instance.html#member-isA
 	<section id="member-isDescendantOf" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>isDescendantOf <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/isDescendantOf"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Returns whether the object is a descendant of a given object.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -2389,7 +2767,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-isDescendantOf
 	<section id="member-remove" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>remove <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Instance/remove"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		</header>
+		<section class="doc">
+<p>Removes the object from its parent.</p>
+</section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
