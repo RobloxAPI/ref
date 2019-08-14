@@ -132,7 +132,7 @@
 <section id="tree">
 	<section id="subclasses">
 		<header>
-			<h2>Inherited by <span class="element-count">(206)</span></h2>
+			<h2>Inherited by <span class="element-count">(208)</span></h2>
 		</header>
 		<ul class="truncated-list element-list">
 			<li><a class="element-link" href="/ref/class/ABTestService.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>ABTestService</a></li>
@@ -233,6 +233,8 @@
 			<li class="api-not-browsable"><a class="element-link" href="/ref/class/LuaSourceContainer.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>LuaSourceContainer</a></li>
 			<li><a class="element-link" href="/ref/class/LuaWebService.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>LuaWebService</a></li>
 			<li><a class="element-link" href="/ref/class/MarketplaceService.html"><span class="icon class-icon" title="Class" style="--icon-index: 46"></span>MarketplaceService</a></li>
+			<li><a class="element-link" href="/ref/class/MemStorageConnection.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>MemStorageConnection</a></li>
+			<li><a class="element-link" href="/ref/class/MemStorageService.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>MemStorageService</a></li>
 			<li class="api-deprecated"><a class="element-link" href="/ref/class/Message.html"><span class="icon class-icon" title="Class" style="--icon-index: 33"></span>Message</a></li>
 			<li><a class="element-link" href="/ref/class/MessagingService.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>MessagingService</a></li>
 			<li><a class="element-link" href="/ref/class/Mouse.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Mouse</a></li>
@@ -988,7 +990,18 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-getChildren"><
 	</tr>
 </tbody>
 </table>
-</section>
+
+		<section class="doc">
+<p>AncestryChanged fires after the <a href="#member-Parent">Parent</a> of the object or any
+ancestor has changed. <em>child</em> is the object whose Parent has changed, and is
+never nil. <em>parent</em> is the new value of the Parent, which may be nil.</p>
+
+<p>If changes only to the Parent of the object need to be detected, then
+<a href="#member-GetPropertyChangedSignal">GetPropertyChangedSignal</a> should be used instead.</p>
+
+<p>AncestryChanged is affected by <a href="#doc-locking">parent locking</a>. Modifying the
+Parent of <em>child</em> before it has resolved should be avoided.</p>
+</section></section>
 
 	<section id="member-Archivable">
 		<header>
@@ -2811,7 +2824,7 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-isDescendantOf
 	</section>
 <section id="referrers">
 	<header>
-		<h2>Relevant members <span class="element-count">(351)</span></h2>
+		<h2>Relevant members <span class="element-count">(353)</span></h2>
 	</header>
 	<ul class="truncated-list element-list">
 		<li><a class="element-link" href="/ref/class/AnimationController.html#member-AnimationPlayed"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>AnimationController.AnimationPlayed</a> (animationTrack)</li>
@@ -2878,10 +2891,10 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-isDescendantOf
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/Dialog.html#member-SignalDialogChoiceSelected"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>Dialog.SignalDialogChoiceSelected</a> (player)</li>
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-CommitStatusChanged"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.CommitStatusChanged</a> (script)</li>
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-DraftAdded"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.DraftAdded</a> (script)</li>
-		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-DraftDeleted"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.DraftDeleted</a> (script)</li>
+		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-DraftRemoved"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.DraftRemoved</a> (script)</li>
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-EditorsListChanged"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.EditorsListChanged</a> (script)</li>
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-GetEditors"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>DraftsService.GetEditors</a> (script)</li>
-		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-ScriptDeleted"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.ScriptDeleted</a> (script)</li>
+		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-ScriptRemoved"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.ScriptRemoved</a> (script)</li>
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-ScriptServerVersionChanged"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.ScriptServerVersionChanged</a> (script)</li>
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/DraftsService.html#member-UpdateStatusChanged"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>DraftsService.UpdateStatusChanged</a> (script)</li>
 		<li><a class="element-link" href="/ref/class/Dragger.html#member-MouseDown"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>Dragger.MouseDown</a> (mousePart)</li>
@@ -2995,6 +3008,8 @@ Add <a class="element-link" href="/ref/class/Instance.html#member-isDescendantOf
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionCancellationFinished</a> (player)</li>
 		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionPurchaseFinished</a> (player)</li>
 		<li class="api-sec-LocalUserSecurity"><a class="element-link" href="/ref/class/MarketplaceService.html#member-ThirdPartyPurchaseFinished"><span class="icon member-icon" title="Protected Event (LocalUserSecurity)" style="--icon-index: 12"></span>MarketplaceService.ThirdPartyPurchaseFinished</a> (player)</li>
+		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/MemStorageService.html#member-Bind"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MemStorageService.Bind</a></li>
+		<li class="api-sec-RobloxScriptSecurity"><a class="element-link" href="/ref/class/MemStorageService.html#member-BindAndFire"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MemStorageService.BindAndFire</a></li>
 		<li><a class="element-link" href="/ref/class/Mouse.html#member-TargetFilter"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Mouse.TargetFilter</a></li>
 		<li><a class="element-link" href="/ref/class/NetworkClient.html#member-ConnectionAccepted"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>NetworkClient.ConnectionAccepted</a> (replicator)</li>
 		<li><a class="element-link" href="/ref/class/NetworkReplicator.html#member-GetPlayer"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>NetworkReplicator.GetPlayer</a></li>
