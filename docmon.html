@@ -13,56 +13,66 @@
 	<link href="/ref/res/theme-dark.css" rel="stylesheet" type="text/css" />
 	<link href="/ref/res/main.css" rel="stylesheet" type="text/css" />
 	<link href="/ref/res/doc.css" rel="stylesheet" type="text/css" />
-	<style>#doc-status {
+	<style>summary {
+	cursor : pointer;
+}
+
+#status {
 	table-layout : fixed;
-	font-family  : var(--monospace);
-	color        : var(--theme-table-text);
 	text-align   : center;
 }
-#doc-status th:nth-child(1) { width : 7ch }
-#doc-status th:nth-child(2) { width : 14ch }
-#doc-status th:nth-child(3) { width : 66ch }
-#doc-status th:nth-child(4) { width : 9ch }
-#doc-status th:nth-child(5) { width : 9ch }
-#doc-status th:nth-child(6) { width : 10ch }
-#doc-status th:nth-child(7) { width : 11ch }
-
-#doc-status tr > :nth-child(1) {
+#status tr > :nth-child(1) {
 	text-align : right;
 }
-#doc-status tr > :nth-child(2),
-#doc-status tr > :nth-child(3) {
+#status tr > :nth-child(2),
+#status tr > :nth-child(3) {
 	text-align : left;
 }
-#doc-status th {
+#status th:nth-child(1) { width : 7ch }
+#status th:nth-child(2) { width : 14ch }
+#status th:nth-child(3) { width : 66ch }
+#status th:nth-child(4) { width : 9ch }
+#status th:nth-child(5) { width : 9ch }
+#status th:nth-child(6) { width : 10ch }
+#status th:nth-child(7) { width : 11ch }
+#status tr.p > :nth-child(1),
+#status tr.p > :nth-child(2),
+#status tr.p > :nth-child(3) {
 	background-color : var(--theme-table-header);
 	color            : var(--theme-table-header-text);
 }
 
-#doc-status td {
+table {
+	font-family : var(--monospace);
+	color       : var(--theme-table-text);
+}
+th {
+	background-color : var(--theme-table-header);
+	color            : var(--theme-table-header-text);
+}
+td {
 	background-color : var(--theme-table);
 }
-#doc-status tr.p > :nth-child(1),
-#doc-status tr.p > :nth-child(2),
-#doc-status tr.p > :nth-child(3) {
+
+.d {
 	background-color : var(--theme-table-header);
 	color            : var(--theme-table-header-text);
 }
-#doc-status .d {
-	background-color : var(--theme-table-header);
-	color            : var(--theme-table-header-text);
-}
-#doc-status .c {
+.c {
 	background-color : var(--theme-patch-remove);
 	color            : var(--theme-patch-remove-text);
 }
-#doc-status .b {
+.b {
 	background-color : var(--theme-patch-change);
 	color            : var(--theme-patch-change-text);
 }
-#doc-status .a {
+.a {
 	background-color : var(--theme-patch-add);
 	color            : var(--theme-patch-add-text);
+}
+
+.cell {
+	padding : 0 0.5ch;
 }
 </style>
 	<script>document.documentElement.className=window.localStorage.getItem("Theme")</script>
@@ -70,11 +80,7 @@
 	<script src="/ref/res/search.js" charset="utf-8" async></script>
 	<script src="/ref/res/settings.js" charset="utf-8" async></script>
 	<script src="/ref/res/actions.js" charset="utf-8" async></script>
-	<script>"use strict";
-{
-	console.log("LOAD DOCMON");
-};
-</script>
+	<script src="/ref/res/docmon.js" charset="utf-8"></script>
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary" />
 	<meta property="og:title" content="Documentation monitor - Roblox API Reference" />
@@ -105,12 +111,63 @@
 	</header>
 <main>
 <header>
-	<h1>Documentation monitor</h1>
+	<h2>Documentation monitor</h2>
 </header>
-<section id="description">
+<section id="legend">
+<details>
+	<summary>Legend</summary>
+
+	<h3>Entities</h3>
+	<p>The table lists each entity in the API. Primary entities are
+	highlighted.</p>
+
+	<h3>Sections</h3>
+	<p>The Summary, Details, and Example columns indicate the status of the
+	corresponding document sections for each entity. They are colored as
+	follows:</p>
+	<ul>
+		<li><span class="cell d">No file</span>: The entity does not have an
+		associated document file.</li>
+		<li><span class="cell c">No section</span>: The entity has a document file,
+		but there is no section for the corresponding column.</li>
+		<li><span class="cell b">Empty</span>: There is a section, but it has no
+		content.</li>
+		<li><span class="cell a">Filled</span>: The section contains at least some
+		content.</li>
+	</ul>
+
+	<h4>Summary</h4>
+	<p>If the summary of a primary entity is within the orphaned section, then
+	<code>*</code> is displayed, indicating that the summary should be within
+	the explicit Summary section. If the summary of a secondary entity is within
+	the Summary section, then <code>**</code> will be displayed, indicating that
+	the summary should be within the implicit orphaned section.</p>
+
+	<h4>Details</h4>
+		<p>When filled, the number of subheadings within the section will be
+	displayed, indicating a rough estimate of the amount of content.</p>
+
+	<h4>Examples</h4>
+	<p>When filled, the number of code blocks within the section will be
+	displayed, indicating the number of examples.</p>
+
+	<h3>Aggregate</h3>
+	<p>The Aggregate column shows the coverage of documentation for the entity
+	overall. For secondary entities, it is the percentage of filled sections of
+	the entity. For primary entities, it is the percentage of the filled
+	sections of the entity and all of its secondary entities. For enum items,
+	only the summary counts towards the total.</p>
+	<p>Colors in the Aggregate column have the following meaning:</p>
+	<ul>
+		<li><span class="cell d">No file</span>: No associated file.</li>
+		<li><span class="cell c">None</span>: No items are filled.</li>
+		<li><span class="cell b">Some</span>: Some items are filled.</li>
+		<li><span class="cell a">All</span>: All items are filled.</li>
+	</ul>
+</details>
 </section>
-<section id="status">
-<table id="doc-status">
+<section id="data">
+<table id="status">
 <thead>
 	<tr>
 		<th>#</th>
@@ -40333,7 +40390,7 @@
 		<td class="a"></td>
 		<td class="a">0</td>
 		<td class="c"></td>
-		<td class="b">22.22%</td>
+		<td class="b">41.18%</td>
 	</tr>
 	<tr>
 		<td>4468</td>
@@ -40342,7 +40399,7 @@
 		<td class="a"></td>
 		<td class="c"></td>
 		<td class="c"></td>
-		<td class="b">33.33%</td>
+		<td class="a">100.00%</td>
 	</tr>
 	<tr>
 		<td>4469</td>
@@ -40378,7 +40435,7 @@
 		<td class="a"></td>
 		<td class="c"></td>
 		<td class="c"></td>
-		<td class="b">33.33%</td>
+		<td class="a">100.00%</td>
 	</tr>
 	<tr>
 		<td>4473</td>
@@ -40423,7 +40480,7 @@
 		<td class="a"></td>
 		<td class="a">0</td>
 		<td class="c"></td>
-		<td class="b">66.67%</td>
+		<td class="a">100.00%</td>
 	</tr>
 	<tr>
 		<td>4478</td>
@@ -40450,7 +40507,7 @@
 		<td class="a"></td>
 		<td class="a">0</td>
 		<td class="c"></td>
-		<td class="b">66.67%</td>
+		<td class="a">100.00%</td>
 	</tr>
 	<tr>
 		<td>4481</td>
@@ -40459,7 +40516,7 @@
 		<td class="a"></td>
 		<td class="a">0</td>
 		<td class="c"></td>
-		<td class="b">66.67%</td>
+		<td class="a">100.00%</td>
 	</tr>
 	<tr class="p">
 		<td>4482</td>
@@ -43213,7 +43270,7 @@
 		<td class="b"></td>
 		<td class="a">1</td>
 		<td class="c"></td>
-		<td class="b">0.88%</td>
+		<td class="b">2.50%</td>
 	</tr>
 	<tr>
 		<td>4788</td>
