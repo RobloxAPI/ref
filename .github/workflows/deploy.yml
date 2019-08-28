@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "22 * * * *", # hourly
+            "cron": "28 * * * *", # hourly
         },
     },
     "jobs": {
@@ -50,18 +50,24 @@
                 },
                 {
                     "name": "Generate module",
-                    "working-directory": "$GITHUB_WORKSPACE/../../rbxapiref",
-                    "run": "go mod init github.com/robloxapi/rbxapiref",
+                    "run": "
+                        cd $GITHUB_WORKSPACE/../../rbxapiref &&
+                        go mod init github.com/robloxapi/rbxapiref
+                    ",
                 },
                 {
                     "name": "Get dependencies",
-                    "working-directory": "$GITHUB_WORKSPACE/../../rbxapiref",
-                    "run": "go get -v -d ./...",
+                    "run": "
+                        cd $GITHUB_WORKSPACE/../../rbxapiref &&
+                        go get -v -d ./...
+                    ",
                 },
                 {
                     "name": "Compile executable",
-                    "working-directory": "$GITHUB_WORKSPACE/../../rbxapiref",
-                    "run": "go build -v .",
+                    "run": "
+                        cd $GITHUB_WORKSPACE/../../rbxapiref &&
+                        go build -v .
+                    ",
                 },
                 {
                     "name": "Rebuild website",
