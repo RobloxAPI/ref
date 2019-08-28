@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "11 * * * *", # hourly
+            "cron": "16 * * * *", # hourly
         },
     },
     "jobs": {
@@ -50,7 +50,7 @@
                 },
                 {
                     "name": "Move to executable",
-                    "run": "cd ../rbxapiref",
+                    "run": "pushd ../../rbxapiref",
                 },
                 {
                     "name": "Generate module",
@@ -65,8 +65,8 @@
                     "run": "go build -v .",
                 },
                 {
-                    "name": "Move to website",
-                    "run": "cd ../robloxapi.github.io/ref",
+                    "name": "Move back to website",
+                    "run": "popd",
                 },
                 {
                     "name": "Rebuild website",
