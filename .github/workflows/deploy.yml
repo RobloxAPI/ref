@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "32 * * * *", # hourly
+            "cron": "36 * * * *", # hourly
         },
     },
     "jobs": {
@@ -98,7 +98,7 @@
                     "if": "success()",
                     "env": {
                         "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
-                        "PUBLISH_BRANCH": "origin/gh-pages",
+                        "PUBLISH_BRANCH": "gh-pages",
                         "PUBLISH_DIR": ".",
                     },
                 },
