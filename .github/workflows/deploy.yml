@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "12 * * * *", # hourly
+            "cron": "21 * * * *", # hourly
         },
     },
     "jobs": {
@@ -87,6 +87,10 @@
                         git push origin gh-pages ||
                         true
                     ",
+                },
+                {
+                    "name": "Make deploy directory",
+                    "run": "mkdir ./deploy",
                 },
                 {
                     "name": "Force deploy GitHub Pages",
