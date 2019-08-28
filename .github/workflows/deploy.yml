@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "20 * * * *", # hourly
+            "cron": "30 * * * *", # hourly
         },
     },
     "jobs": {
@@ -20,81 +20,71 @@
                         "path": "robloxapi.github.io/ref",
                     },
                 },
-                # {
-                #     "name": "Checkout documentation repository",
-                #     "uses": "actions/checkout@v1",
-                #     "with": {
-                #         "repository": "RobloxAPI/doc",
-                #         "fetch-depth": 1,
-                #         "ref": "master",
-                #         "path": "doc",
-                #     },
-                # },
-                # {
-                #     "name": "Checkout executable repository",
-                #     "uses": "actions/checkout@v1",
-                #     "with": {
-                #         "repository": "RobloxAPI/rbxapiref",
-                #         "fetch-depth": 1,
-                #         "ref": "master",
-                #         "path": "rbxapiref",
-                #     },
-                # },
-                # {
-                #     "name": "Print environment",
-                #     "run": "printenv",
-                # },
-                # {
-                #     "name": "List files",
-                #     "run": "ls -AlR ~/work",
-                # },
-                # {
-                #     "name": "Generate module",
-                #     "run": "
-                #         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                #         go mod init github.com/robloxapi/rbxapiref
-                #     ",
-                # },
-                # {
-                #     "name": "Get dependencies",
-                #     "run": "
-                #         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                #         go get -v -d ./...
-                #     ",
-                # },
-                # {
-                #     "name": "Compile executable",
-                #     "run": "
-                #         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                #         go build -v .
-                #     ",
-                # },
-                # {
-                #     "name": "Rebuild website",
-                #     "run": "$GITHUB_WORKSPACE/../../rbxapiref/rbxapiref -s .github/settings.json",
-                # },
-                # {
-                #     "name": "Commit and push website",
-                #     "env": {
-                #         "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
-                #     },
-                #     "run": "
-                #         git config user.email 'actions@github.com' &&
-                #         git config user.name 'GitHub Actions' &&
-                #         git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git &&
-                #         git add -A &&
-                #         git commit -m 'Update reference.' &&
-                #         git push origin gh-pages ||
-                #         true
-                #     ",
-                # },
                 {
-                    "name": "Force push website",
+                    "name": "Checkout documentation repository",
+                    "uses": "actions/checkout@v1",
+                    "with": {
+                        "repository": "RobloxAPI/doc",
+                        "fetch-depth": 1,
+                        "ref": "master",
+                        "path": "doc",
+                    },
+                },
+                {
+                    "name": "Checkout executable repository",
+                    "uses": "actions/checkout@v1",
+                    "with": {
+                        "repository": "RobloxAPI/rbxapiref",
+                        "fetch-depth": 1,
+                        "ref": "master",
+                        "path": "rbxapiref",
+                    },
+                },
+                {
+                    "name": "Print environment",
+                    "run": "printenv",
+                },
+                {
+                    "name": "List files",
+                    "run": "ls -AlR ~/work",
+                },
+                {
+                    "name": "Generate module",
+                    "run": "
+                        cd $GITHUB_WORKSPACE/../../rbxapiref &&
+                        go mod init github.com/robloxapi/rbxapiref
+                    ",
+                },
+                {
+                    "name": "Get dependencies",
+                    "run": "
+                        cd $GITHUB_WORKSPACE/../../rbxapiref &&
+                        go get -v -d ./...
+                    ",
+                },
+                {
+                    "name": "Compile executable",
+                    "run": "
+                        cd $GITHUB_WORKSPACE/../../rbxapiref &&
+                        go build -v .
+                    ",
+                },
+                {
+                    "name": "Rebuild website",
+                    "run": "$GITHUB_WORKSPACE/../../rbxapiref/rbxapiref -s .github/settings.json",
+                },
+                {
+                    "name": "Commit and push website",
                     "env": {
                         "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
                     },
                     "run": "
-                        git push origin gh-pages --force ||
+                        git config user.email 'anaminus@protonmail.com' &&
+                        git config user.name 'Anaminus' &&
+                        git remote set-url origin 'https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git' &&
+                        git add -A &&
+                        git commit -m 'Update reference.' &&
+                        git push origin gh-pages ||
                         true
                     ",
                 },
