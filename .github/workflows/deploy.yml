@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "28 * * * *", # hourly
+            "cron": "39 * * * *", # hourly
         },
     },
     "jobs": {
@@ -46,7 +46,7 @@
                 },
                 {
                     "name": "List files",
-                    "run": "ls -lR ~",
+                    "run": "ls -alR ~/work",
                 },
                 {
                     "name": "Move to executable",
@@ -57,8 +57,12 @@
                     "run": "go mod init github.com/robloxapi/rbxapiref",
                 },
                 {
+                    "name": "Print go.mod",
+                    "run": "cat go.mod",
+                },
+                {
                     "name": "Get dependencies",
-                    "run": "go get -v -d ./...",
+                    "run": "go get -v -d",
                 },
                 {
                     "name": "Compile executable",
