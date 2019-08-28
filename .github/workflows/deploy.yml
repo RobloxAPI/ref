@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "4 * * * *", # hourly
+            "cron": "11 * * * *", # hourly
         },
     },
     "jobs": {
@@ -41,8 +41,12 @@
                     },
                 },
                 {
+                    "name": "Print environment",
+                    "run": "printenv",
+                },
+                {
                     "name": "List files",
-                    "run": "ls -al ..",
+                    "run": "ls -al",
                 },
                 {
                     "name": "Move to executable",
@@ -76,7 +80,7 @@
                     "run": "
                         git config user.email 'actions@github.com' &&
                         git config user.name 'GitHub Actions' &&
-                        git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/RobloxAPI/ref.git &&
+                        git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git &&
                         git add -A &&
                         git commit -m 'Update reference.' &&
                         git push origin gh-pages
