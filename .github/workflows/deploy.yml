@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "28 * * * *", # hourly
+            "cron": "32 * * * *", # hourly
         },
     },
     "jobs": {
@@ -89,8 +89,8 @@
                     ",
                 },
                 {
-                    "name": "Make deploy directory",
-                    "run": "mkdir ./deploy",
+                    "name": "Remove origin",
+                    "run": "git remote remove origin",
                 },
                 {
                     "name": "Force deploy GitHub Pages",
@@ -99,7 +99,7 @@
                     "env": {
                         "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
                         "PUBLISH_BRANCH": "origin/gh-pages",
-                        "PUBLISH_DIR": "./deploy",
+                        "PUBLISH_DIR": ".",
                     },
                 },
             ],
