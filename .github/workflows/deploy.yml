@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "54 * * * *", # hourly
+            "cron": "58 * * * *", # hourly
         },
     },
     "jobs": {
@@ -109,7 +109,7 @@
                         git add --all
                         timestamp=$(date -u)
                         git commit -m 'Automated deployment: ${timestamp} ${GITHUB_SHA}'
-                        git push origin "${remote_branch}" --force
+                        git push origin '${remote_branch}' --force
                     ",
                 },
             ],
