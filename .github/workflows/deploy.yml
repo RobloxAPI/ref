@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "48 * * * *", # hourly
+            "cron": "54 * * * *", # hourly
         },
     },
     "jobs": {
@@ -90,13 +90,27 @@
                 },
                 {
                     "name": "Force deploy GitHub Pages",
-                    "uses": "peaceiris/actions-gh-pages@v1.1.0",
                     "if": "success()",
                     "env": {
                         "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
                         "PUBLISH_BRANCH": "gh-pages",
                         "PUBLISH_DIR": ".",
                     },
+                    "run": "
+                        remote_repo='https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git'
+                        remote_branch='${PUBLISH_BRANCH}'
+                        git init
+                        git config user.name '${GITHUB_ACTOR}'
+                        git config user.email '${GITHUB_ACTOR}@users.noreply.github.com'
+                        git remote set-url origin '${remote_repo}'
+
+                        # push to publishing branch
+                        git checkout '${remote_branch}' || git checkout --orphan '${remote_branch}'
+                        git add --all
+                        timestamp=$(date -u)
+                        git commit -m 'Automated deployment: ${timestamp} ${GITHUB_SHA}'
+                        git push origin "${remote_branch}" --force
+                    ",
                 },
             ],
         },
