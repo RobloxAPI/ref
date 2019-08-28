@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "30 * * * *", # hourly
+            "cron": "37 * * * *", # hourly
         },
     },
     "jobs": {
@@ -81,7 +81,7 @@
                     "run": "
                         git config user.email 'anaminus@protonmail.com' &&
                         git config user.name 'Anaminus' &&
-                        git remote set-url origin 'https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git' &&
+                        git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git &&
                         git add -A &&
                         git commit -m 'Update reference.' &&
                         git push origin gh-pages ||
