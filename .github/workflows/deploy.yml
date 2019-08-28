@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "2 * * * *", # hourly
+            "cron": "7 * * * *", # hourly
         },
     },
     "jobs": {
@@ -97,17 +97,17 @@
                         "PUBLISH_DIR": ".",
                     },
                     "run": "
-                        remote_repo='https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git';
-                        remote_branch='${PUBLISH_BRANCH}';
+                        remote_repo=\"https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git\";
+                        remote_branch=\"${PUBLISH_BRANCH}\";
                         git init;
-                        git config user.name '${GITHUB_ACTOR}';
-                        git config user.email '${GITHUB_ACTOR}@users.noreply.github.com';
-                        git remote set-url origin '${remote_repo}';
-                        git checkout '${remote_branch}' || git checkout --orphan '${remote_branch}';
+                        git config user.name \"${GITHUB_ACTOR}\";
+                        git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\";
+                        git remote set-url origin \"${remote_repo}\";
+                        git checkout \"${remote_branch}\" || git checkout --orphan \"${remote_branch}\";
                         git add --all;
                         timestamp=$(date -u);
-                        git commit -m 'Automated deployment: ${timestamp} ${GITHUB_SHA}';
-                        git push origin '${remote_branch}' --force
+                        git commit -m \"Automated deployment: ${timestamp} ${GITHUB_SHA}\";
+                        git push origin \"${remote_branch}\" --force
                     ",
                 },
             ],
