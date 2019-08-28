@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "11 * * * *", # hourly
+            "cron": "22 * * * *", # hourly
         },
     },
     "jobs": {
@@ -49,40 +49,23 @@
                     "run": "ls -AlR ~/work",
                 },
                 {
-                    "name": "Move to executable",
-                    "run": "pushd ../../rbxapiref",
-                },
-                {
                     "name": "Generate module",
+                    "working-directory": "$GITHUB_WORKSPACE/../../rbxapiref",
                     "run": "go mod init github.com/robloxapi/rbxapiref",
                 },
                 {
                     "name": "Get dependencies",
+                    "working-directory": "$GITHUB_WORKSPACE/../../rbxapiref",
                     "run": "go get -v -d ./...",
                 },
                 {
-                    "name": "List files",
-                    "run": "ls -Al",
-                },
-                {
-                    "name": "Print go.mod",
-                    "run": "cat go.mod",
-                },
-                {
-                    "name": "Print go.sum",
-                    "run": "cat go.sum",
-                },
-                {
                     "name": "Compile executable",
+                    "working-directory": "$GITHUB_WORKSPACE/../../rbxapiref",
                     "run": "go build -v .",
                 },
                 {
-                    "name": "Move back to website",
-                    "run": "popd",
-                },
-                {
                     "name": "Rebuild website",
-                    "run": "../../rbxapiref/rbxapiref -s .github/settings.json",
+                    "run": "$GITHUB_WORKSPACE/../../rbxapiref/rbxapiref -s .github/settings.json",
                 },
                 {
                     "name": "Commit and deploy website",
