@@ -41,14 +41,6 @@
                     },
                 },
                 {
-                    "name": "Print environment",
-                    "run": "printenv",
-                },
-                {
-                    "name": "List files",
-                    "run": "ls -AlR ~/work",
-                },
-                {
                     "name": "Generate module",
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
@@ -76,31 +68,17 @@
                 {
                     "name": "Commit and push website",
                     "env": {
-                        "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
+                        "ACCESS_TOKEN": "${{ secrets.ACCESS_TOKEN }}",
                     },
                     "run": "
                         git config user.email 'anaminus@protonmail.com' &&
                         git config user.name 'Anaminus' &&
-                        git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git &&
+                        git remote set-url origin https://$GITHUB_ACTOR:$ACCESS_TOKEN@github.com/$GITHUB_REPOSITORY.git &&
                         git add -A &&
                         git commit -m 'Update reference.' &&
                         git push origin gh-pages ||
                         true
                     ",
-                },
-                {
-                    "name": "Remove origin",
-                    "run": "git remote remove origin",
-                },
-                {
-                    "name": "Force deploy GitHub Pages",
-                    "uses": "peaceiris/actions-gh-pages@v1.1.0",
-                    "if": "success()",
-                    "env": {
-                        "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
-                        "PUBLISH_BRANCH": "gh-pages",
-                        "PUBLISH_DIR": ".",
-                    },
                 },
             ],
         },
