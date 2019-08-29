@@ -2,7 +2,7 @@
     "name": "Deploy website",
     "on": {
         "schedule": {
-            "cron": "0 * * * *", # hourly
+            "cron": "9 * * * *", # hourly
         },
     },
     "jobs": {
@@ -63,7 +63,7 @@
                 },
                 {
                     "name": "Rebuild website",
-                    "run": "$GITHUB_WORKSPACE/../../rbxapiref/rbxapiref -s .github/settings.json",
+                    "run": "$GITHUB_WORKSPACE/../../rbxapiref/rbxapiref -s .github/settings.json --stamp",
                 },
                 {
                     "name": "Commit and push website",
