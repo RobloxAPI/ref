@@ -55,7 +55,10 @@
 <section id="summary">
 	<header>
 		<h2>Summary</h2>
-	</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class="metadata-pairs">
+	</header>
+	<section class="doc">
+<p>Configures settings specific to Roblox Studio.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class="metadata-pairs">
 		<tbody>
 			<tr><th>Memory Category</th><td>Instances</td></tr>
 		</tbody>
@@ -971,6 +974,9 @@ Add <a class="element-link" href="/ref/class/Studio.html"><span class="icon clas
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Always Save Script Changes <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Always-Save-Script-Changes"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Sets whether scripts will be updated when modified while the game is running.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -979,12 +985,25 @@ Add <a class="element-link" href="/ref/class/Studio.html"><span class="icon clas
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>When a user is testing a script by running Play Solo, they may accidentally make
+modifications to the script while Play Solo is still running, which would
+normally be discarded once Play Solo is stopped. Studio handles this problem by
+prompting the user to propagate the changes back to scripts in the non-running
+game tree.</p>
+
+<p>When enabled, this setting suppresses the prompt and propagates script changes
+automatically.</p>
+</section></section>
 
 	<section id="member-Animate Hover Over">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Animate Hover Over <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Animate-Hover-Over"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether the hover-over box is animated.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -993,12 +1012,23 @@ Add <a class="element-link" href="/ref/class/Studio.html"><span class="icon clas
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>See <a href="#member-Show%2520Hover%2520Over">Show Hover Over</a> for a description of the hover-over box.</p>
+
+<p>When Animate Hover Over is enabled, the hover-over box will animate between two
+colors determined by <a href="#member-Select%2520Color">Select Color</a> and <a href="#member-Hover%2520Over%2520Color">Hover Over Color</a>.
+The speed of this animation is determined by <a href="#member-Hover%2520Animate%2520Speed">Hover Animate Speed</a>.</p>
+</section></section>
 
 	<section id="member-Auto Closing Brackets">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Auto Closing Brackets <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Auto-Closing-Brackets"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether opening brackets are automatically closed while typing in the
+script editor.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1008,6 +1038,20 @@ Add <a class="element-link" href="/ref/class/Studio.html"><span class="icon clas
 				
 			</tbody>
 		</table>
+		<section class="doc">
+<p>While enabled, when a <code>(</code>, <code>[</code> or <code>{</code> character is typed in the script editor,
+the corresponding closing bracket is inserted after the cursor. The character is
+not inserted if there is a non-whitespace character directly after the cursor.</p>
+
+<p>If an opening bracket is deleted while the cursor is directly between the two
+matching brackets (that is, both characters are adjacent), then both characters
+will be deleted.</p>
+
+<h4 id="doc-bugs-1">Bugs</h4>
+
+<p>When deleting an opening bracket as described previously, the matching closing
+bracket may not always be deleted.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -1020,6 +1064,10 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto%20Closing%2
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Auto Closing Quotes <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Auto-Closing-Quotes"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether opening strings quotes are automatically closed while typing
+in the script editor.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1029,6 +1077,15 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto%20Closing%2
 				
 			</tbody>
 		</table>
+		<section class="doc">
+<p>While enabled, when a <code>&quot;</code> or <code>'</code> character is typed to open a Lua string in the
+script editor, the corresponding character to close the string is inserted after
+the cursor.</p>
+
+<p>The closing character is inserted only within the scope of a quoted Lua string.
+For example, it will not be inserted while in the scope of a comment or a
+multiline string.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -1041,6 +1098,10 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto%20Closing%2
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Auto Indent <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Auto-Indent"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether indentation is automatically inserted while typing in the
+script editor.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1049,12 +1110,23 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto%20Closing%2
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>While enabled, when a new block is opened (such as typing <code>function</code>, <code>while</code>,
+or <code>if</code>), tab characters will be inserted until the cursor is one indentation
+level deeper. The <code>end</code> keyword will also be inserted on the next line to close
+the block. After typing certain keywords like <code>elseif</code> or <code>else</code>, their
+indentation will be adjusted automatically.</p>
+</section></section>
 
 	<section id="member-Auto-Recovery Enabled">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Auto-Recovery Enabled <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/AutoRecovery-Enabled"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether the current place file is periodically backed up to a
+recovery file.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1064,6 +1136,13 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto%20Closing%2
 				
 			</tbody>
 		</table>
+		<section class="doc">
+<p>When Studio is closed, all recovery files are deleted. In the event of a crash,
+such files will not be deleted. Whenever Studio starts up, if it is the only
+instance of Studio running, it will detect existing recovery files, and ask the
+user what to do with them. The user may open a file, ignore, or delete all
+recovery files.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -1076,6 +1155,9 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Auto-Recovery Interval (Minutes) <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/AutoRecovery-Interval-Minutes"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines how often a recovery file is made, in minutes.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
@@ -1097,6 +1179,10 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Auto-Recovery Path <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/AutoRecovery-Path"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines the directory in the file system to which recovery files will be
+written.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/QDir.html">QDir</a></td></tr>
@@ -1118,6 +1204,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Background Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Background-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1132,6 +1219,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Basic Objects Display Mode <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Basic-Objects-Display-Mode"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/ListDisplayMode.html">ListDisplayMode</a></td></tr>
@@ -1146,6 +1234,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Built-in Function Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Builtin-Function-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1160,6 +1249,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Camera Mouse Wheel Speed <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Camera-Mouse-Wheel-Speed"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/float.html">float</a></td></tr>
@@ -1174,6 +1264,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Camera Shift Speed <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Camera-Shift-Speed"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/float.html">float</a></td></tr>
@@ -1188,6 +1279,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Camera Speed <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Camera-Speed"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/float.html">float</a></td></tr>
@@ -1202,6 +1294,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Auto-Recovery%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Camera Zoom to Mouse Position <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Camera-Zoom-to-Mouse-Position"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1223,6 +1316,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Camera%20Zoom%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Clear Output On Start <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Clear-Output-On-Start"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1237,6 +1331,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Camera%20Zoom%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Comment Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Comment-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1251,6 +1346,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Camera%20Zoom%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>DefaultScriptFileDir <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/DefaultScriptFileDir"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/QDir.html">QDir</a></td></tr>
@@ -1265,6 +1361,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Camera%20Zoom%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>DeprecatedObjectsShown <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/DeprecatedObjectsShown"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1279,6 +1376,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Camera%20Zoom%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Device Pairing Code <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Device-Pairing-Code"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
@@ -1293,6 +1391,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Camera%20Zoom%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Disable Accurate Play Solo <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Disable-Accurate-Play-Solo"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1314,6 +1413,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Disable%20Accura
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Drag Multiple Parts As Single Part <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Drag-Multiple-Parts-As-Single-Part"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1328,6 +1428,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Disable%20Accura
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Enable Autocomplete <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Enable-Autocomplete"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1350,6 +1451,7 @@ Change Category of <a class="element-link" href="/ref/class/Studio.html#member-E
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Enable CoreScript Debugger <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Enable-CoreScript-Debugger"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1370,7 +1472,8 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Enable%20CoreScr
 	<section id="member-Enable Intellisense" class="api-deprecated">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Enable Intellisense <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Enable-Intellisense"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc"></section><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1386,6 +1489,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Enable%20CoreScr
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Error Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Error-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1400,6 +1504,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Enable%20CoreScr
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Find Selection Background Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Find-Selection-Background-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1414,6 +1519,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Enable%20CoreScr
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Font <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Font"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/QFont.html">QFont</a></td></tr>
@@ -1428,6 +1534,10 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Enable%20CoreScr
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (PluginSecurity)" style="--icon-index: 5"></span>GetAvailableThemes <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/Studio/GetAvailableThemes"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Returns a list of available studio themes as a list of
+<a href="/ref/class/StudioTheme.html">StudioThemes</a> objects.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -1466,6 +1576,9 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-GetAvailableThem
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Hover Animate Speed <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Hover-Animate-Speed"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines the speed at which the hover-over box animates.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/HoverAnimateSpeed.html">HoverAnimateSpeed</a></td></tr>
@@ -1474,12 +1587,22 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-GetAvailableThem
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>See <a href="#member-Show%2520Hover%2520Over">Show Hover Over</a> for a description of the hover-over box.</p>
+
+<p>The value is a <a href="/ref/enum/HoverAnimateSpeed.html">HoverAnimateSpeed</a> enum, which
+determines the rate at which the color of the hover-over box transitions between
+the <a href="#member-Select%2520Color">Select Color</a> and the <a href="#member-Hover%2520Over%2520Color">Hover Over Color</a>.</p>
+</section></section>
 
 	<section id="member-Hover Over Color">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Hover Over Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Hover-Over-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines the secondary color of the hover-over box.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1488,12 +1611,19 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-GetAvailableThem
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>See <a href="#member-Show%2520Hover%2520Over">Show Hover Over</a> for a description of the hover-over box.</p>
+
+<p>When <a href="#member-Hover%2520Animate%2520Speed">Hover Animate Speed</a> is enabled, the hover-over box will transition
+between the <a href="#member-Select%2520Color">Select Color</a> and this color.</p>
+</section></section>
 
 	<section id="member-Keyword Color">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Keyword Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Keyword-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1508,6 +1638,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-GetAvailableThem
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Language <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Language"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/LanguagePreference.html">LanguagePreference</a></td></tr>
@@ -1529,6 +1660,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Language"><span 
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Line Thickness <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Line-Thickness"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/float.html">float</a></td></tr>
@@ -1543,6 +1675,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Language"><span 
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>LuaDebuggerEnabled <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/LuaDebuggerEnabled"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1556,7 +1689,8 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Language"><span 
 	<section id="member-LuaDebuggerEnabledAtStartup" class="api-hidden">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>LuaDebuggerEnabledAtStartup <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/LuaDebuggerEnabledAtStartup"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-low"><span class="status-header">This member is hidden.</span> It is not meant to be used, and may have unresolved issues.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc"></section><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-low"><span class="status-header">This member is hidden.</span> It is not meant to be used, and may have unresolved issues.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1579,6 +1713,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Matching Word Background Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Matching-Word-Background-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1593,6 +1728,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Maximum Output Lines <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Maximum-Output-Lines"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
@@ -1607,6 +1743,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Number Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Number-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1621,6 +1758,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Only Play Audio from Window in Focus <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Only-Play-Audio-from-Window-in-Focus"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1635,6 +1773,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Operator Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Operator-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1649,6 +1788,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Output Font <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Output-Font"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/QFont.html">QFont</a></td></tr>
@@ -1663,6 +1803,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Output Layout Mode <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Output-Layout-Mode"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/OutputLayoutMode.html">OutputLayoutMode</a></td></tr>
@@ -1677,6 +1818,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>OverrideCoreScripts <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/OverrideCoreScripts"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1691,6 +1833,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>OverrideCoreScriptsDir <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/OverrideCoreScriptsDir"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/QDir.html">QDir</a></td></tr>
@@ -1705,6 +1848,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>PermissionLevelShown <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/PermissionLevelShown"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/PermissionLevelShown.html">PermissionLevelShown</a></td></tr>
@@ -1719,6 +1863,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>PluginsDir <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/PluginsDir"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/QDir.html">QDir</a></td></tr>
@@ -1733,6 +1878,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Preprocessor Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Preprocessor-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1747,6 +1893,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>RecentSavesDir <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/RecentSavesDir"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/QDir.html">QDir</a></td></tr>
@@ -1761,6 +1908,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Render Throttle Percentage <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Render-Throttle-Percentage"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
@@ -1775,6 +1923,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Respect Studio shortcuts when game has focus <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Respect-Studio-shortcuts-when-game-has-focus"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1789,6 +1938,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>RuntimeUndoBehavior <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/RuntimeUndoBehavior"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/RuntimeUndoBehavior.html">RuntimeUndoBehavior</a></td></tr>
@@ -1803,6 +1953,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>ScriptTimeoutLength <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/ScriptTimeoutLength"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
@@ -1817,6 +1968,9 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Select Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Select-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines the color of selection boxes, as well as the hover-over box.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1825,12 +1979,24 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>While an object in the viewport is selected, a bounding-box will be displayed
+around it. Select Color determines the color of this box.</p>
+
+<p>When <a href="#member-Hover%2520Animate%2520Speed">Hover Animate Speed</a> is enabled, the hover-over box will transition
+between the this color and the <a href="#member-Hover%2520Over%2520Color">Hover Over Color</a>. See <a href="#member-Show%2520Hover%2520Over">Show Hover
+Over</a> for a description of the hover-over box.</p>
+</section></section>
 
 	<section id="member-Select/Hover Color">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Select/Hover Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/SelectHover-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines the color of the box displayed around the
+<a href="/ref/class/Model.html#member-PrimaryPart">PrimaryPart</a> while a <a href="/ref/class/Model.html">Model</a> is selected.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1845,6 +2011,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Selection Background Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Selection-Background-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1859,6 +2026,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Selection Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Selection-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -1873,6 +2041,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Server Audio Behavior <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Server-Audio-Behavior"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/ServerAudioBehavior.html">ServerAudioBehavior</a></td></tr>
@@ -1887,6 +2056,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-LuaDebuggerEnabl
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show Core GUI in Explorer while Playing <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-Core-GUI-in-Explorer-while-Playing"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1909,6 +2079,7 @@ Change Category of <a class="element-link" href="/ref/class/Studio.html#member-S
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show Diagnostics Bar <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-Diagnostics-Bar"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1923,6 +2094,7 @@ Change Category of <a class="element-link" href="/ref/class/Studio.html#member-S
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show Hidden Objects in Explorer <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-Hidden-Objects-in-Explorer"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1944,6 +2116,10 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Show%20Hidden%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show Hover Over <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-Hover-Over"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Sets whether selectable objects in the viewport show an indicator when hovered
+over with the mouse.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1952,12 +2128,26 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Show%20Hidden%20
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>If Show Hover Over is enabled, then when the mouse hovers over a selectable 3D
+object in the viewport, a &quot;hover-over&quot; selection box will be shown around the
+object. The appearance of this box can be configured with the following
+settings:</p>
+
+<ul>
+<li><a href="#member-Animate%2520Hover%2520Over">Animate Hover Over</a></li>
+<li><a href="#member-Hover%2520Animate%2520Speed">Hover Animate Speed</a></li>
+<li><a href="#member-Select%2520Color">Select Color</a></li>
+<li><a href="#member-Hover%2520Over%2520Color">Hover Over Color</a></li>
+</ul>
+</section></section>
 
 	<section id="member-Show Navigation Mesh">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show Navigation Mesh <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-Navigation-Mesh"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1972,6 +2162,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Show%20Hidden%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show Plugin GUI Service in Explorer <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-Plugin-GUI-Service-in-Explorer"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -1994,6 +2185,7 @@ Change Category of <a class="element-link" href="/ref/class/Studio.html#member-S
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show QT warnings in output <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-QT-warnings-in-output"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -2008,6 +2200,7 @@ Change Category of <a class="element-link" href="/ref/class/Studio.html#member-S
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show Roblox Plugin GUI Service in Explorer <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-Roblox-Plugin-GUI-Service-in-Explorer"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -2029,6 +2222,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Show%20Roblox%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Show plus button on hover in Explorer <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Show-plus-button-on-hover-in-Explorer"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -2051,6 +2245,10 @@ Change Category of <a class="element-link" href="/ref/class/Studio.html#member-S
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Skip Closing Brackets and Quotes <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Skip-Closing-Brackets-and-Quotes"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether automatically inserted characters are skipped over while
+typing.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -2060,6 +2258,15 @@ Change Category of <a class="element-link" href="/ref/class/Studio.html#member-S
 				
 			</tbody>
 		</table>
+		<section class="doc">
+<p>While enabled, when typing in the script editor, if the typed character is a
+closing bracket or quote that equals the next character after the cursor, and
+the character has a matching opening character, then the cursor moves one
+character forward instead of typing.</p>
+
+<p>This is used in conjunction with <a href="#member-Auto%2520Closing%2520Brackets">Auto Closing Brackets</a> and <a href="#member-Auto%2520Closing%2520Quotes">Auto Closing
+Quotes</a> to skip over characters that have been inserted automatically.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -2072,6 +2279,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Skip%20Closing%2
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>String Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/String-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -2086,6 +2294,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Skip%20Closing%2
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Tab Width <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Tab-Width"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
@@ -2100,6 +2309,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Skip%20Closing%2
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Text Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Text-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
@@ -2114,6 +2324,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Skip%20Closing%2
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Text Wrapping <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Text-Wrapping"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -2128,6 +2339,9 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Skip%20Closing%2
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Theme <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Theme"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines the current studio theme.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td></tr>
@@ -2137,6 +2351,10 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Skip%20Closing%2
 				
 			</tbody>
 		</table>
+		<section class="doc">
+<p>Theme expects a <a href="/ref/class/StudioTheme.html">StudioTheme</a> object. A list of available
+themes can be acquired with <a href="#member-GetAvailableThemes">GetAvailableThemes</a>.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -2148,7 +2366,10 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Theme"><span cla
 	<section id="member-ThemeChanged" class="api-sec-PluginSecurity">
 		<header>
 			<h3><span class="icon member-icon" title="Protected Event (PluginSecurity)" style="--icon-index: 12"></span>ThemeChanged <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/Studio/ThemeChanged"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
+		</header>
+		<section class="doc">
+<p>Fires after the <a href="#member-Theme">Theme</a> property changes.</p>
+</section><table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
 			</tbody>
@@ -2174,6 +2395,7 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-Theme"><span cla
 				
 			</tbody>
 		</table>
+		<section class="doc"></section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -2185,7 +2407,8 @@ Add <a class="element-link" href="/ref/class/Studio.html#member-ThemeChanged"><s
 	<section id="member-UI Theme">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>UI Theme <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/UI-Theme"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
+		</header>
+		<section class="doc"></section><div class="status-list"><div class="status-box status-low"><span class="status-header">This property is read-only.</span> Its value can be read, but it cannot be modified.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Enum" href="/ref/enum/UITheme.html">UITheme</a></td></tr>
@@ -2214,6 +2437,7 @@ Change Tags of <a class="element-link" href="/ref/class/Studio.html#member-UI%20
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Warning Color <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/Studio/Warning-Color"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
