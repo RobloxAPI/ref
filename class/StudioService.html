@@ -55,7 +55,8 @@
 <section id="summary">
 	<header>
 		<h2>Summary</h2>
-	</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class="metadata-pairs">
+	</header>
+	<section class="doc"></section><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class="metadata-pairs">
 		<tbody>
 			<tr><th>Memory Category</th><td>Instances</td></tr>
 		</tbody>
@@ -612,6 +613,9 @@ Add <a class="element-link" href="/ref/class/StudioService.html#member-GamePubli
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (PluginSecurity)" style="--icon-index: 5"></span>GetClassIcon <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StudioService/GetClassIcon"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Gets the explorer icon for a given class.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -640,6 +644,181 @@ Add <a class="element-link" href="/ref/class/StudioService.html#member-GamePubli
 				<tr><th>Security</th><td>PluginSecurity</td></tr>
 			</tbody>
 		</table>
+		<section class="doc">
+<p>GetClassIcon returns the icon for a class as displayed in Studio's explorer
+panel. <em>className</em> is the name of an existing Roblox class. If successful, a
+table with the following fields is returned:</p>
+
+<ul>
+<li><strong>Image</strong>: <a href="/ref/type/string.html">string</a></li>
+<li><strong>ImageRectOffset</strong>: <a href="/ref/type/Vector2.html">Vector2</a></li>
+<li><strong>ImageRectSize</strong>: <a href="/ref/type/Vector2.html">Vector2</a></li>
+</ul>
+
+<p>These correspond to the <a href="/ref/class/ImageLabel.html#member-Image">Image</a>,
+<a href="/ref/class/ImageLabel.html#member-ImageRectOffset">ImageRectOffset</a>, and
+<a href="/ref/class/ImageLabel.html#member-ImageRectSize">ImageRectSize</a> properties of an
+<a href="/ref/class/ImageLabel.html">ImageLabel</a> or <a href="/ref/class/ImageButton.html">ImageButton</a>. The values
+of each fields can be set directly to its corresponding property to display the
+icon correctly.</p>
+
+<p>If the given class does not exist, then following error is thrown:</p>
+
+<pre><code>GetClassIcon: CLASS is not a Roblox class.
+</code></pre>
+
+<p>Where <code>CLASS</code> is the value of the given <em>className</em>.</p>
+</section>
+		<h4>Examples</h4>
+		<section class="doc">
+<p>Generate a GUI displaying the entire game tree.</p>
+<div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="kd">local</span> <span class="n">StudioService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&#34;StudioService&#34;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">TextService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&#34;TextService&#34;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">StarterGui</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&#34;StarterGui&#34;</span><span class="p">)</span>
+
+<span class="c1">-- Get base size of icon, assuming all icons have the same size.</span>
+<span class="kd">local</span> <span class="n">iconSize</span> <span class="o">=</span> <span class="n">StudioService</span><span class="p">:</span><span class="n">GetClassIcon</span><span class="p">(</span><span class="s2">&#34;Instance&#34;</span><span class="p">).</span><span class="n">ImageRectSize</span>
+<span class="kd">local</span> <span class="n">font</span> <span class="o">=</span> <span class="n">Enum.Font</span><span class="p">.</span><span class="n">SourceSans</span>
+<span class="kd">local</span> <span class="n">fontSize</span> <span class="o">=</span> <span class="n">iconSize.Y</span>
+<span class="kd">local</span> <span class="n">labelTextOffset</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1">-- Create label template.</span>
+<span class="kd">local</span> <span class="n">labelTemplate</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Frame&#34;</span><span class="p">)</span>
+<span class="n">labelTemplate.Name</span> <span class="o">=</span> <span class="s2">&#34;ClassLabel&#34;</span>
+<span class="n">labelTemplate.BackgroundTransparency</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="kd">local</span> <span class="n">iconTemplate</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;ImageLabel&#34;</span><span class="p">,</span> <span class="n">labelTemplate</span><span class="p">)</span>
+<span class="n">iconTemplate.Name</span> <span class="o">=</span> <span class="s2">&#34;IconLabel&#34;</span>
+<span class="n">iconTemplate.Size</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">iconSize.X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">iconSize.Y</span><span class="p">)</span>
+<span class="n">iconTemplate.BackgroundTransparency</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="kd">local</span> <span class="n">textTemplate</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;TextLabel&#34;</span><span class="p">,</span> <span class="n">labelTemplate</span><span class="p">)</span>
+<span class="n">textTemplate.Name</span> <span class="o">=</span> <span class="s2">&#34;TextLabel&#34;</span>
+<span class="n">textTemplate.Position</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">iconSize.X</span> <span class="o">+</span> <span class="n">labelTextOffset</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">textTemplate.TextXAlignment</span> <span class="o">=</span> <span class="n">Enum.TextXAlignment</span><span class="p">.</span><span class="n">Left</span>
+<span class="n">textTemplate.BackgroundTransparency</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">textTemplate.TextColor3</span> <span class="o">=</span> <span class="n">Color3.new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">-- Generate labels.</span>
+<span class="kd">local</span> <span class="n">maxWidth</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kd">local</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">createLabels</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+	<span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">object</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span> <span class="kr">do</span>
+		<span class="c1">-- Some objects are not friendly to being indexed.</span>
+		<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">return</span> <span class="n">object.Name</span> <span class="kr">end</span><span class="p">)</span>
+		<span class="kr">if</span> <span class="n">ok</span> <span class="ow">and</span> <span class="n">object.ClassName</span> <span class="o">~=</span> <span class="s2">&#34;&#34;</span> <span class="kr">then</span>
+			<span class="kd">local</span> <span class="n">icon</span> <span class="o">=</span> <span class="n">StudioService</span><span class="p">:</span><span class="n">GetClassIcon</span><span class="p">(</span><span class="n">object.ClassName</span><span class="p">)</span>
+			<span class="kd">local</span> <span class="n">textSize</span> <span class="o">=</span> <span class="n">TextService</span><span class="p">:</span><span class="n">GetTextSize</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fontSize</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">Vector2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+			<span class="kd">local</span> <span class="n">label</span> <span class="o">=</span> <span class="n">labelTemplate</span><span class="p">:</span><span class="n">Clone</span><span class="p">()</span>
+			<span class="n">label.Position</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">depth</span> <span class="o">*</span> <span class="n">iconSize.X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">#</span><span class="n">labels</span> <span class="o">*</span> <span class="n">iconSize.Y</span><span class="p">)</span>
+			<span class="n">label.Size</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">iconSize.X</span> <span class="o">+</span> <span class="n">textSize.X</span> <span class="o">+</span> <span class="n">labelTextOffset</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">iconSize.Y</span><span class="p">)</span>
+			<span class="n">label.IconLabel</span><span class="p">.</span><span class="n">Image</span> <span class="o">=</span> <span class="n">icon.Image</span>
+			<span class="n">label.IconLabel</span><span class="p">.</span><span class="n">ImageRectOffset</span> <span class="o">=</span> <span class="n">icon.ImageRectOffset</span>
+			<span class="n">label.IconLabel</span><span class="p">.</span><span class="n">ImageRectSize</span> <span class="o">=</span> <span class="n">icon.ImageRectSize</span>
+			<span class="n">label.TextLabel</span><span class="p">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">name</span>
+			<span class="n">label.TextLabel</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">textSize.X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">iconSize.Y</span><span class="p">)</span>
+			<span class="kd">local</span> <span class="n">width</span> <span class="o">=</span> <span class="n">label.Position</span><span class="p">.</span><span class="n">X.Offset</span> <span class="o">+</span> <span class="n">label.Size</span><span class="p">.</span><span class="n">X.Offset</span>
+			<span class="kr">if</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="n">maxWidth</span> <span class="kr">then</span>
+				<span class="n">maxWidth</span> <span class="o">=</span> <span class="n">width</span>
+			<span class="kr">end</span>
+			<span class="n">labels</span><span class="p">[</span><span class="o">#</span><span class="n">labels</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+			<span class="n">createLabels</span><span class="p">(</span><span class="n">object</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">(),</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+		<span class="kr">end</span>
+	<span class="kr">end</span>
+<span class="kr">end</span>
+<span class="n">createLabels</span><span class="p">(</span><span class="n">game</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">-- Generate GUI.</span>
+<span class="kd">local</span> <span class="n">screen</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;ScreenGui&#34;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">container</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;ScrollingFrame&#34;</span><span class="p">,</span> <span class="n">screen</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">width</span> <span class="o">=</span> <span class="n">maxWidth</span> <span class="o">+</span> <span class="n">container.ScrollBarThickness</span>
+<span class="n">container.Position</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">container.Size</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">container.CanvasSize</span> <span class="o">=</span> <span class="n">UDim2.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">#</span><span class="n">labels</span> <span class="o">*</span> <span class="n">iconSize.Y</span><span class="p">)</span>
+<span class="n">container.BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3.new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">container.BackgroundTransparency</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">container.BorderSizePixel</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">label</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="kr">do</span>
+	<span class="n">label.Parent</span> <span class="o">=</span> <span class="n">container</span>
+<span class="kr">end</span>
+<span class="n">screen.Parent</span> <span class="o">=</span> <span class="n">game.StarterGui</span>
+</pre></td></tr></table>
+</div>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
