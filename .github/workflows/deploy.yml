@@ -1,7 +1,7 @@
 {
     "name": "Deploy website",
     "on": {
-        "schedule": [{"cron": "43 * * * *"}],
+        "schedule": [{"cron": "50 * * * *"}],
     },
     "jobs": {
         "deploy": {
@@ -15,31 +15,27 @@
                         "ACCESS_TOKEN": "${{ secrets.ACCESS_TOKEN }}",
                     },
                     "run": '
-                        ref_repo=ref
-                        exe_repo=rbxapiref
-                        doc_repo=doc
-                        query="{\"query\":\"{\
-                        $ref_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$ref_repo\\\"){pushedAt}\
-                        $exe_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$exe_repo\\\"){pushedAt}\
-                        $doc_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$doc_repo\\\"){pushedAt}}\
-                        \"}"
-                        echo query: $query
-                        result=$(curl -s -H "Authorization: bearer $ACCESS_TOKEN" -X POST -d $query "https://api.github.com/graphql")
-                        echo result: $result
+                        ref_repo=ref;
+                        exe_repo=rbxapiref;
+                        doc_repo=doc;
+                        query="{\"query\":\"{$ref_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$ref_repo\\\"){pushedAt}$exe_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$exe_repo\\\"){pushedAt}$doc_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$doc_repo\\\"){pushedAt}}\"}";
+                        echo query: $query;
+                        result=$(curl -s -H "Authorization: bearer $ACCESS_TOKEN" -X POST -d $query "https://api.github.com/graphql");
+                        echo result: $result;
                         get_time() {
-                            echo $result | jq -r ".data.$1.pushedAt" | { read date; date -u -d $date +%s; }
-                        }
-                        ref_time=$(get_time $ref_repo)
-                        exe_time=$(get_time $exe_repo)
-                        doc_time=$(get_time $doc_repo)
-                        echo $ref_repo: $ref_time
-                        echo $exe_repo: $exe_time
-                        echo $doc_repo: $doc_time
+                            echo $result | jq -r ".data.$1.pushedAt" | { read date; date -u -d $date +%s; };
+                        };
+                        ref_time=$(get_time $ref_repo);
+                        exe_time=$(get_time $exe_repo);
+                        doc_time=$(get_time $doc_repo);
+                        echo $ref_repo: $ref_time;
+                        echo $exe_repo: $exe_time;
+                        echo $doc_repo: $doc_time;
                         if [ $exe_time -lt $ref_time ] && [ $doc_time -lt $ref_time ]; then
-                            echo "NO UPDATES"
-                            exit 1
-                        fi
-                        echo "UPDATING..."
+                            echo "NO UPDATES";
+                            exit 1;
+                        fi;
+                        echo "UPDATING...";
                     ',
                 },
                 {
