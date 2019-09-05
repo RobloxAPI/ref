@@ -1,7 +1,7 @@
 {
     "name": "Deploy website",
     "on": {
-        "schedule": [{"cron": "0 */2 * * *"}],
+        "schedule": [{"cron": "43 * * * *"}],
     },
     "jobs": {
         "deploy": {
@@ -10,6 +10,39 @@
             "runs-on": "ubuntu-latest",
             "steps": [
                 {
+                    "name": "Check update status",
+                    "env": {
+                        "ACCESS_TOKEN": "${{ secrets.ACCESS_TOKEN }}",
+                    },
+                    "run": '
+                        ref_repo=ref
+                        exe_repo=rbxapiref
+                        doc_repo=doc
+                        query="{\"query\":\"{\
+                        $ref_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$ref_repo\\\"){pushedAt}\
+                        $exe_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$exe_repo\\\"){pushedAt}\
+                        $doc_repo:repository(owner:\\\"RobloxAPI\\\",name:\\\"$doc_repo\\\"){pushedAt}}\
+                        \"}"
+                        echo query: $query
+                        result=$(curl -s -H "Authorization: bearer $ACCESS_TOKEN" -X POST -d $query "https://api.github.com/graphql")
+                        echo result: $result
+                        get_time() {
+                            echo $result | jq -r ".data.$1.pushedAt" | { read date; date -u -d $date +%s; }
+                        }
+                        ref_time=$(get_time $ref_repo)
+                        exe_time=$(get_time $exe_repo)
+                        doc_time=$(get_time $doc_repo)
+                        echo $ref_repo: $ref_time
+                        echo $exe_repo: $exe_time
+                        echo $doc_repo: $doc_time
+                        if [ $exe_time -lt $ref_time ] && [ $doc_time -lt $ref_time ]; then
+                            echo "NO UPDATES"
+                            exit 1
+                        fi
+                        echo "UPDATING..."
+                    ',
+                },
+                {
                     "name": "Checkout website repository",
                     "uses": "actions/checkout@v1",
                     "with": {
@@ -17,6 +50,7 @@
                         "ref": "gh-pages",
                         "path": "robloxapi.github.io/ref",
                     },
+                    "if": "success()",
                 },
                 {
                     "name": "Checkout documentation repository",
@@ -27,6 +61,7 @@
                         "ref": "master",
                         "path": "doc",
                     },
+                    "if": "success()",
                 },
                 {
                     "name": "Checkout executable repository",
@@ -37,6 +72,7 @@
                         "ref": "master",
                         "path": "rbxapiref",
                     },
+                    "if": "success()",
                 },
                 {
                     "name": "Generate module",
@@ -44,6 +80,7 @@
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
                         go mod init github.com/robloxapi/rbxapiref
                     ",
+                    "if": "success()",
                 },
                 {
                     "name": "Get dependencies",
@@ -51,6 +88,7 @@
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
                         go get -v -d ./...
                     ",
+                    "if": "success()",
                 },
                 {
                     "name": "Compile executable",
@@ -58,10 +96,12 @@
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
                         go build -v .
                     ",
+                    "if": "success()",
                 },
                 {
                     "name": "Rebuild website",
                     "run": "$GITHUB_WORKSPACE/../../rbxapiref/rbxapiref -s .github/settings.json",
+                    "if": "success()",
                 },
                 {
                     "name": "Commit and push website",
@@ -77,6 +117,12 @@
                         git push origin gh-pages ||
                         true
                     ",
+                    "if": "success()",
+                },
+                {
+                    "name": "Fail safely",
+                    "run": "true",
+                    "if": "failure()",
                 },
             ],
         },
