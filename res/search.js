@@ -9,6 +9,7 @@ function initStatusFilters() {
 	let deprecated = true;
 	let unbrowsable = true;
 	let hidden = true;
+	let removed = true;
 	window.rbxapiSettings.Listen("SecurityIdentity", function(name, value, initial) {
 		securityID = Number(value);
 	});
@@ -21,6 +22,9 @@ function initStatusFilters() {
 	window.rbxapiSettings.Listen("ShowHidden", function(name, value, initial) {
 		hidden = value;
 	});
+	window.rbxapiSettings.Listen("ShowRemoved", function(name, value, initial) {
+		removed = value;
+	});
 	statusFilter = function(item) {
 		if (item.deprecated && !deprecated) {
 			return true;
@@ -29,6 +33,9 @@ function initStatusFilters() {
 			return true;
 		};
 		if (item.hidden && !hidden) {
+			return true;
+		};
+		if (item.removed && !removed) {
 			return true;
 		};
 
@@ -683,8 +690,21 @@ function sortResults(a,b) {
 	// [0][0]: matched bool
 	// [0][1]: score   int
 	// [0][2]: value   string
+	// [1]   : item    DatabaseItem
 	if (a[0][0] === b[0][0]) {
-		return b[0][1] - a[0][1]
+		if (a[1].removed === b[1].removed) {
+			if (a[1].deprecated === b[1].deprecated) {
+				if (a[1].unbrowsable === b[1].unbrowsable) {
+					if (a[1].hidden === b[1].hidden) {
+						return b[0][1] - a[0][1]
+					};
+					return (a[1].hidden && !b[1].hidden) ? 1 : -1;
+				};
+				return (a[1].unbrowsable && !b[1].unbrowsable) ? 1 : -1;
+			};
+			return (a[1].deprecated && !b[1].deprecated) ? 1 : -1;
+		};
+		return (a[1].removed && !b[1].removed) ? 1 : -1;
 	};
 	return (a[0][0] && !b[0][0]) ? 1 : -1;
 };
@@ -759,6 +779,9 @@ function initSearch() {
 			if (result[1].hidden) {
 				item.classList.add("api-hidden");
 			};
+			if (result[1].removed) {
+				item.classList.add("api-removed");
+			};
 			let sec = result[1].security;
 			if (sec !== null) {
 				if (typeof(sec) === "string") {
@@ -784,7 +807,7 @@ function initSearch() {
 				link.innerHTML += result[0][2];
 				item.appendChild(link);
 			};
-			{
+			if (!result[1].removed) {
 				let u = generateLink(result[1], true);
 				if (u !== "") {
 					let link = document.createElement("a");
@@ -912,7 +935,7 @@ function initSearch() {
 					return;
 				};
 				let u = generateLink(first[1], true);
-				if (u === "") {
+				if (u === "" || first[1].removed) {
 					renderResults(results);
 					return;
 				};
