@@ -1,7 +1,7 @@
 {
     "name": "Deploy website",
     "on": {
-        "schedule": [{"cron": "0 */6 * * *"}],
+        "schedule": [{"cron": "45 */6 * * *"}],
     },
     "jobs": {
         "deploy": {
@@ -42,8 +42,9 @@
                     "name": "Generate module",
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                        go mod init github.com/robloxapi/rbxapiref
-                    ",
+                        go mod init github.com/robloxapi/rbxapiref ||
+                        true
+                    "
                 },
                 {
                     "name": "Get dependencies",
