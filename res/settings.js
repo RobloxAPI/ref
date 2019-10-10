@@ -16,14 +16,30 @@ const settings = [
 		"default"  : "0",
 		"text"     : "Permission",
 		"options"  : [
-			{"text": "All",          "value": "0"},
-			{"text": "Server",       "value": "7"},
-			{"text": "CoreScript",   "value": "4"},
-			{"text": "Command",      "value": "5"},
-			{"text": "Plugin",       "value": "6"},
-			{"text": "RobloxScript", "value": "3"},
-			{"text": "Script",       "value": "2"},
+			{"value": "All"          },
+			{"value": "Server"       },
+			{"value": "CoreScript"   },
+			{"value": "BuiltinPlugin"},
+			{"value": "Command"      },
+			{"value": "Plugin"       },
+			{"value": "Script"       },
 		],
+		"migrate" : function(storage) {
+			let map = new Map([
+				["0", "All"],
+				["7", "Server"],
+				["4", "CoreScript"],
+				["5", "Command"],
+				["6", "Plugin"],
+				["3", "Plugin"], // RobloxScript
+				["2", "Script"],
+			]);
+			let value = storage.getItem("SecurityIdentity");
+			value = map.get(value);
+			if (value) {
+				storage.setItem("SecurityIdentity", value);
+			};
+		},
 	},
 	{
 		"name"    : "ExpandMembers",
@@ -101,7 +117,7 @@ function generateMenu(parent, settings, changed) {
 
 				let label = document.createElement("label");
 				label.htmlFor = input.id;
-				label.textContent = option.text;
+				label.textContent = option.text || option.value;
 
 				section.appendChild(input);
 				section.appendChild(label);
@@ -113,7 +129,7 @@ function generateMenu(parent, settings, changed) {
 			for (let option of setting.options) {
 				let element = document.createElement("option");
 				element.value = option.value;
-				element.text = option.text;
+				element.text = option.text || option.value;
 				element.disabled = setting.disabled || option.disabled;
 				element.defaultSelected = value === option.value;
 				select.appendChild(element);
@@ -212,6 +228,9 @@ for (let setting of settings) {
 		"config": setting,
 		"listeners": [],
 	});
+	if (setting.migrate) {
+		setting.migrate(window.localStorage);
+	};
 	if (setting.disabled) {
 		continue;
 	};
