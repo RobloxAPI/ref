@@ -56,7 +56,8 @@
 	<header>
 		<h2>Summary</h2>
 	</header>
-	<section class="doc"></section><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div></div><table class="metadata-pairs">
+	<section class="doc"><p>Allows a server to make HTTP requests.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div></div><table class="metadata-pairs">
 		<tbody>
 			<tr><th>Memory Category</th><td>Instances</td></tr>
 		</tbody>
@@ -229,9 +230,243 @@
 	<header>
 		<h2>Details</h2>
 	</header>
-	<section class="doc"><p>There is a limit to the number of concurrent connections made by HttpService.
-This amount is subject to change, and so should not be relied upon. At least one
-connection at a time is guaranteed.</p>
+	<section class="doc">
+<p>Requests are made with the <a href="#member-RequestAsync">RequestAsync</a> function. The <a href="#member-GetAsync">GetAsync</a> and
+<a href="#member-PostAsync">PostAsync</a> functions may also be used as shorthand for specific HTTP
+methods, but these are discouraged in favor of RequestAsync.</p>
+
+<h3 id="doc-headers">Headers</h3>
+
+<p>Each request function can receive custom headers to be included in the request.
+However, the following headers are locked, and cannot be included by the caller:</p>
+
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>Accept-Encoding</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Connection</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Content-Encoding</code></td>
+<td>Allowed by RequestAsync.</td>
+</tr>
+
+<tr>
+<td><code>Content-Length</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Content-Type</code></td>
+<td>Allowed by RequestAsync.</td>
+</tr>
+
+<tr>
+<td><code>Expect</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Forwarded</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Host</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Proxy-Connection</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>User-Agent</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Via</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>X-Att-Deviceid</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>X-Forwarded-For</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>X-Forwarded-Host</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>X-Forwarded-Proto</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>X-Wap-Profile</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Attempting to include a locked header causes the following error to be thrown:</p>
+
+<pre><code>Header &quot;HEADER&quot; is not allowed!
+</code></pre>
+
+<p>Where <code>HEADER</code> is the name of the header.</p>
+
+<p>By default, HttpService includes a number of headers along with each request:</p>
+
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>Accept</code></td>
+<td><code>*/*</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Accept-Encoding</code></td>
+<td><code>gzip, deflate</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Cache-Control</code></td>
+<td><code>no-cache</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>Content-Length</code></td>
+<td>(body length)</td>
+<td>Length of the given body. Not included if the body is empty.</td>
+</tr>
+
+<tr>
+<td><code>Host</code></td>
+<td>(URL host)</td>
+<td>Host part of the given URL. Not included if the URL has no host (e.g. an IP is used instead).</td>
+</tr>
+
+<tr>
+<td><code>Roblox-Id</code></td>
+<td>(place ID)</td>
+<td>Corresponds to <a href="/ref/class/DataModel.html#member-PlaceId">DataModel.PlaceId</a>.</td>
+</tr>
+
+<tr>
+<td><code>User-Agent</code></td>
+<td>(user agent)</td>
+<td>Depends on the current peer.</td>
+</tr>
+</tbody>
+</table>
+<p>Such headers that are not locked can be overridden. These headers are included
+with every request, except for <code>Content-Length</code>, which is included with all
+methods except <code>GET</code> and <code>HEAD</code>. Certain request functions may include other
+headers.</p>
+
+<p>Requests are sent with a specific user agent that depends on the current peer:</p>
+
+<table>
+<thead>
+<tr>
+<th>Peer</th>
+<th>User agent</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Server</td>
+<td><code>RobloxGameCloud/1.0 (+http://www.roblox.com)</code></td>
+</tr>
+
+<tr>
+<td>Studio</td>
+<td><code>RobloxStudio/WinInet</code></td>
+</tr>
+</tbody>
+</table>
+<p>Header names are case-insensitive. If multiple equivalent headers are specified,
+only one is chosen (which header is chosen is undefined).</p>
+
+<h3 id="doc-limits">Limits</h3>
+
+<p>Only servers can make requests. If a request function is called on a client, the
+following error is thrown:</p>
+
+<pre><code>Http requests can only be executed by game server
+</code></pre>
+
+<p>The URL schemes allowed by HttpService are <code>http</code> and <code>https</code>. Domains are
+filtered using a blacklist; requests to Roblox domains are disallowed, while
+requests to any other domains are allowed. If a URL is disallowed or otherwise
+invalid, then the following error will be thrown:</p>
+
+<pre><code>URL: Trust check failed
+</code></pre>
+
+<p>Where <code>URL</code> is the given URL. Some request functions may throw a more specific
+error instead.</p>
+
+<p>Requests made by HttpService are rate-limited to 500 requests per minute. When a
+request is made after the limit is exceeded, the following error is thrown:</p>
+
+<pre><code>Number of requests exceeded limit
+</code></pre>
+
+<p>There is a limit to the number of concurrent requests that can be made by
+HttpService. When a request is made, it is put into a &quot;slot&quot;, and remains there
+until the request is resolved. When all slots are occupied, new requests will
+block until a slot becomes available.</p>
+
+<h3 id="doc-other-errors">Other errors</h3>
+
+<p>If a given URL is empty, then the following error will be thrown:</p>
+
+<pre><code>Empty URL
+</code></pre>
+
+<p>If the HTTP client encounters an error while making a request, then it will be
+thrown as the following:</p>
+
+<pre><code>HttpError: MESSAGE
+</code></pre>
+
+<p>Where <code>MESSAGE</code> describes the error. For example, if the DNS server was unable
+to resolve the given domain, the error will be <code>HttpError: DnsResolve</code>.</p>
 </section>
 </section>
 <section id="history">
@@ -352,6 +587,9 @@ Add <a class="element-link" href="/ref/class/HttpService.html"><span class="icon
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GenerateGUID <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/GenerateGUID"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Generates a Universally Unique Identifier (UUID).</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -379,6 +617,13 @@ Add <a class="element-link" href="/ref/class/HttpService.html"><span class="icon
 				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/string.html">string</a></td></tr>
 			</tbody>
 		</table>
+		<section class="doc">
+<p>GenerateGUID returns a UUID version 4 string as defined by <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a>,
+which is generated pseudo-randomly.</p>
+
+<p>If <em>wrapInCurlyBraces</em> is true, then the returned string will begin and end with
+curly braces (<code>{}</code>). If false, then the braces are omitted.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -395,7 +640,13 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-GenerateGUI
 	<section id="member-GetAsync">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/GetAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		</header>
+		<section class="doc">
+<p>Sends a GET request to a website.</p>
+
+<p><em>See the <a href="#details">HttpService Details section</a> for information regarding all
+request functions.</em></p>
+</section><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
@@ -434,6 +685,30 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-GenerateGUI
 		<tr><th>ScriptContext</th><td>Server</td></tr>
 			</tbody>
 		</table>
+		<section class="doc">
+<p>GetAsync makes a request using the GET method. <em>url</em> is the URL to which the
+request will be sent. If <em>nocache</em> is true, then the <code>Cache-Control</code> header of
+the request will be set to <code>no-cache</code>. <em>headers</em> is an optional table of HTTP
+headers.</p>
+
+<p>If successful, GetAsync returns the body of the response.</p>
+
+<p><em>headers</em> is an optional table for specifying additional headers to be included
+with the request. Each entry must be a key-value pair, where the key is a string
+indicating a header name, and the value is a string indicating the header value.</p>
+
+<p>If the response returns a non-successful status code, then the status is thrown
+as an error:</p>
+
+<pre><code>HTTP 000 (MESSAGE)
+</code></pre>
+
+<p>Where <code>000</code> is the status code, and <code>MESSAGE</code> is the status message.</p>
+
+<h4 id="doc-bugs">Bugs</h4>
+
+<p><code>Cache-Control</code> is set to <code>no-cache</code> regardless of the <em>nocache</em> argument.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -463,6 +738,7 @@ Change Parameters of <a class="element-link" href="/ref/class/HttpService.html#m
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>GetHttpEnabled <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/GetHttpEnabled"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
@@ -509,6 +785,9 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-GetHttpEnab
 		<header>
 			<h3><span class="icon member-icon" title="Protected Property (Read/Write: LocalUserSecurity)" style="--icon-index: 7"></span>HttpEnabled <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/HttpService/HttpEnabled"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc">
+<p>Determines whether HttpService can make requests.</p>
+</section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
@@ -518,12 +797,20 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-GetHttpEnab
 				<tr><th>Can Save</th><td>true</td></tr>
 				
 			</tbody>
-		</table></section>
+		</table>
+		<section class="doc">
+<p>If false, then <a href="#member-GetAsync">GetAsync</a>, <a href="#member-PostAsync">PostAsync</a>, and
+<a href="#member-RequestAsync">RequestAsync</a> will throw the following error:</p>
+
+<pre><code>Http requests are not enabled. Enable via game settings
+</code></pre>
+</section></section>
 
 	<section id="member-JSONDecode">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>JSONDecode <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/JSONDecode"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -564,6 +851,7 @@ Change ReturnType of <a class="element-link" href="/ref/class/HttpService.html#m
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>JSONEncode <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/JSONEncode"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -603,7 +891,10 @@ Change Parameters of <a class="element-link" href="/ref/class/HttpService.html#m
 	<section id="member-PostAsync">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>PostAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/PostAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		</header>
+		<section class="doc">
+<p>Sends a POST request to a website.</p>
+</section><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">5</td></tr>
@@ -652,6 +943,30 @@ Change Parameters of <a class="element-link" href="/ref/class/HttpService.html#m
 		<tr><th>ScriptContext</th><td>Server</td></tr>
 			</tbody>
 		</table>
+		<section class="doc">
+<p>PostAsync makes a request using the POST method. <em>url</em> is the URL to which the
+request will be sent, and <em>data</em> is the body of the request.</p>
+
+<p><em>content_type</em> optionally sets the <code>Content-Type</code> header according to the given
+<a href="/ref/enum/HttpContentType.html">HttpContentType</a> value.</p>
+
+<p><em>compress</em> optionally determines whether the body will be compressed with gzip
+encoding. The body will be sent compressed only if the compressed content is
+shorter than the uncompressed content. If compressed, then the
+<code>Content-Encoding</code> header is set to <code>gzip</code>.</p>
+
+<p><em>headers</em> is an optional table for specifying additional headers to be included
+with the request. Each entry must be a key-value pair, where the key is a string
+indicating a header name, and the value is a string indicating the header value.</p>
+
+<p>If the response returns a non-successful status code, then the status is thrown
+as an error:</p>
+
+<pre><code>HTTP 000 (MESSAGE)
+</code></pre>
+
+<p>Where <code>000</code> is the status code, and <code>MESSAGE</code> is the status message.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -680,7 +995,13 @@ Change Parameters of <a class="element-link" href="/ref/class/HttpService.html#m
 	<section id="member-RequestAsync">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>RequestAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/RequestAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		</header>
+		<section class="doc">
+<p>Sends an HTTP request and receives the response.</p>
+
+<p><em>See the <a href="#details">HttpService Details section</a> for information regarding all
+request functions.</em></p>
+</section><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -708,6 +1029,121 @@ Change Parameters of <a class="element-link" href="/ref/class/HttpService.html#m
 				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td></tr>
 			</tbody>
 		</table>
+		<section class="doc">
+<p><em>requestOptions</em> specifies the content of the request using the following
+fields:</p>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>Body</code></td>
+<td>string</td>
+<td>no</td>
+<td>The body of the request.</td>
+</tr>
+
+<tr>
+<td><code>Headers</code></td>
+<td>Dictionary</td>
+<td>no</td>
+<td>A table containing headers to send with the request.</td>
+</tr>
+
+<tr>
+<td><code>Method</code></td>
+<td>string</td>
+<td>no</td>
+<td>The HTTP request method to be used. Defaults to <code>GET</code>.</td>
+</tr>
+
+<tr>
+<td><code>Url</code></td>
+<td>string</td>
+<td>yes</td>
+<td>The URL to which the request will be sent.</td>
+</tr>
+</tbody>
+</table>
+<p>If <code>Url</code> has a blacklisted Roblox domain, then the following error will be
+thrown:</p>
+
+<pre><code>HttpService is not allowed to access ROBLOX resources
+</code></pre>
+
+<p><code>Method</code>, which is case-sensitive, must be one of <code>GET</code>, <code>HEAD</code>, <code>POST</code>, <code>PUT</code>,
+<code>DELETE</code>, <code>TRACE</code>, <code>OPTIONS</code>, <code>CONNECT</code>, or <code>PATCH</code>. If <code>Method</code> is <code>GET</code> or
+<code>HEAD</code>, and <code>Body</code> is specified, then the following error will be thrown:</p>
+
+<pre><code>Invalid request options, Body should be empty for 'GET' or 'HEAD' method
+</code></pre>
+
+<p>RequestAsync blocks until a response has been received and processed, or the
+request has timed out.</p>
+
+<p>Each entry to the <code>Headers</code> table must be a key-value pair, where the key is a
+string indicating a header name, and the value is a string indicating the header
+value.</p>
+
+<h4 id="doc-response">Response</h4>
+
+<p>If successful, RequestAsync returns response data as a table with the following
+fields:</p>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>Body</code></td>
+<td>string</td>
+<td>The body of the response.</td>
+</tr>
+
+<tr>
+<td><code>Headers</code></td>
+<td>Dictionary</td>
+<td>A table of response headers.</td>
+</tr>
+
+<tr>
+<td><code>StatusCode</code></td>
+<td>int</td>
+<td>The HTTP status code of the response.</td>
+</tr>
+
+<tr>
+<td><code>StatusMessage</code></td>
+<td>string</td>
+<td>A readable message corresponding to the StatusCode.</td>
+</tr>
+
+<tr>
+<td><code>Success</code></td>
+<td>bool</td>
+<td>Whether or not the request succeeded.</td>
+</tr>
+</tbody>
+</table>
+<p>The response Headers field is a table, where each key is a string indicating a
+header name, and the value is a string indicating the header value. Header
+names, which are case-insensitive, are normalized to lowercase. If a header was
+sent multiple times, the value of the latest such header is selected.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -721,6 +1157,7 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-RequestAsyn
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>RequestInternal <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/RequestInternal"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -761,6 +1198,7 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-RequestInte
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>SetHttpEnabled <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/SetHttpEnabled"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
@@ -809,6 +1247,7 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-SetHttpEnab
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>UrlEncode <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/UrlEncode"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
+		<section class="doc"></section>
 		<table class="metadata-pairs">
 			<tbody>
 				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
