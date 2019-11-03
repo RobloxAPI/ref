@@ -966,6 +966,16 @@ as an error:</p>
 </code></pre>
 
 <p>Where <code>000</code> is the status code, and <code>MESSAGE</code> is the status message.</p>
+
+<p>The length of <em>data</em> cannot be greater than or equal to 1024KB (maximum is
+1,023,999 bytes). If <em>data</em> is too large, then the following error will be
+thrown:</p>
+
+<pre><code>Post data too large. Limit: 1024 KB. Post size: SIZE KB
+</code></pre>
+
+<p>Where <code>SIZE</code> is the length of <em>data</em> in kilobytes. Note that <a href="#member-RequestAsync">RequestAsync</a>
+does not have this limit.</p>
 </section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
