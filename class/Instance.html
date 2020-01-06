@@ -56,7 +56,9 @@
 	<header>
 		<h2>Summary</h2>
 	</header>
-	<section class="doc"></section><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This item is not browsable.</span> It is not visible in Studio&#39;s object browser.</div></div><table class="metadata-pairs">
+	<section class="doc">
+<p>The root class of all classes in the API.</p>
+</section><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This item is not browsable.</span> It is not visible in Studio&#39;s object browser.</div></div><table class="metadata-pairs">
 		<tbody>
 			<tr><th>Memory Category</th><td>Instances</td></tr>
 		</tbody>
@@ -71,6 +73,8 @@
 					<li id="toc-subclasses"><a href="#subclasses">Inherited by</a></li>
 				</ol>
 			</li><li><a href="#members-index">Member index</a></li>
+			<li><a href="#details">Details</a></li>
+			<li><a href="#examples">Examples</a></li>
 			<li><a href="#history">History</a></li>
 			<li id="toc-members"><a href="#members">Members</a>
 				<ol class="toc-members">
@@ -736,6 +740,181 @@
 		</tr>
 	</tbody>
 	</table>
+</section>
+<section id="details">
+	<header>
+		<h2>Details</h2>
+	</header>
+	<section class="doc">
+<h3 id="doc-hierarchy">Hierarchy</h3>
+
+<p>Objects are arranged in a tree structure. An object can have zero or more
+<strong>child</strong> objects, which are below it in the tree. Conversely, an object can
+have at most one <strong>parent</strong> object, which is above it in the tree. The <strong>root</strong>
+of a tree can have children, but has no parent. Objects that share the same
+parent are referred to as <strong>siblings</strong>.</p>
+
+<p>An <strong>ancestor</strong> is any object that is reachable by repeatedly moving from child
+to parent. That is, an ancestor is the parent of an object, or the parent's
+parent, and so on, all the way to the root of the tree. A <strong>descendant</strong> is any
+object that is reachable by repeatedly moving from parent to child. That is, a
+descendant is a child of an object, or a child of the child, and so on.</p>
+
+<h3 id="doc-references">References</h3>
+
+<p>Whenever Lua accesses an object for the first time, a userdata is created. This
+userdata acts as a &quot;proxy&quot; or &quot;bridge&quot; that enables the object to be accessed in
+Lua. The userdata will be reused while it exists, and recreated when it doesn't,
+which is a process that is meant to be completely opaque to Lua. For all intents
+and purposes, the userdata <em>is</em> the object. As such, almost no distinction will
+be made between the two in this reference.</p>
+
+<p>In regards to garbage collection, Lua's garbage collector has no knowledge of
+the object, and does not affect the object in any way. The memory allocated to
+the object is managed by a separate, internal system. On the other hand, the
+userdata <em>is</em> known by the garbage collector, and may therefore be collected
+when it has no more strong references in Lua, just as any other Lua value.</p>
+
+<p>It must be noted that an object makes no strong references to its userdata. A
+consequence of this is that, when there are only weak references to the
+userdata, <strong>the userdata can be garbage collected while the object is still
+accessible.</strong> For example, if the userdata's only reference is in a weak table,
+and the object is in the game tree, then userdata will be collected, removing it
+from the weak table. Despite this, the object still exists in the game tree, and
+can be accessed as usual.</p>
+
+<h3 id="doc-replication">Replication</h3>
+
+<p>For each connected peer, a particular object will usually have a copy of itself
+that exists on the peer. When an object is &quot;replicated&quot;, each of these copies
+are being synchronized across the network. Several aspects of an object are
+replicated:</p>
+
+<ul>
+<li>The presence or absence of the object.</li>
+<li>The properties of the object.</li>
+<li>The children of the object.</li>
+</ul>
+
+<p>From the perspective of the hierarchy, replication behaves as though the object
+is being added, removed, or modified. Events will fire in response to such
+replicated changes.</p>
+
+<p>When an object exists on the server, changes to the object on the server are
+replicated to each client.</p>
+
+<p>When an object exists on the server, but its class has the NotReplicated tag,
+then no aspects of the object are replicated. This status is &quot;inherited&quot; by the
+object's parent. That is, if an object is tagged as NotReplicated, then its
+descendants will also not replicate.</p>
+
+<p>Note that, while two non-replicating objects (one on each peer) may be similar,
+they are not considered the same object. For example, <a href="/ref/class/ServerStorage.html">ServerStorage</a> will
+exist on both the server and a client. This is because of how singleton services
+are initialized, and not because ServerStorage has somehow been replicated
+partially.</p>
+
+<p>When an object exists on the server, and the object's class has the
+PlayerReplicated tag, then changes to the object are replicated only to a
+specific client.</p>
+
+<p>When an object exists only on the client, changes are generally never
+replicated. In previous versions, changes on a client were allowed to replicate
+to the server (and then to each other client). Because of security concerns, it
+later became possible to disable this behavior with the <a href="/ref/class/Workspace.html#member-FilteringEnabled">FilteringEnabled</a>
+property. Eventually, this toggle was removed entirely, and the behavior became
+generally disallowed.</p>
+
+<p>Physics replication is a separate system with its own behaviors.</p>
+
+<p>Special exceptions may exist. For example, <a href="/ref/class/ReplicatedFirst.html">ReplicatedFirst</a> replicates from
+the server to a client exactly once, per client, after the client connects.
+Another example is player characters: certain aspects of a character can
+replicate from a client to the server (and then to each other client).</p>
+
+<h3 id="doc-constructors">Constructors</h3>
+
+<h4 id="doc-ctor-new"><code>Instance.new(className: string, parent: Instance?): Instance</code></h4>
+
+<p>Returns a new instance of a class. <em>className</em> is the name of the class.
+<em>parent</em> is an optional object to which the <a href="#member-Parent">Parent</a> property
+will be set before the object is returned. If unspecified, then the object's
+Parent will be nil.</p>
+
+<p>Per class, each property of the instance is initialized with a default value.
+The default value of an inherited property depends on the current class (for
+example, the <a href="#member-Name">Name</a> property of a <a href="/ref/class/Seat.html">Seat</a> initializes as
+&quot;Seat&quot; rather than &quot;Part&quot; or &quot;Instance&quot;). Default values are considered a part
+of a class's API, and so will not change arbitrarily over time.</p>
+
+<p>If an instance of the given class cannot be created, then the following error is
+thrown:</p>
+
+<pre><code>Unable to create an Instance of type &quot;CLASS&quot;
+</code></pre>
+
+<p>Where <code>CLASS</code> is the name of the given class. Existing classes that cannot be
+created include abstract classes, services, and classes tagged as NotCreatable.</p>
+</section>
+</section>
+<section id="examples">
+	<header>
+		<h2>Examples</h2>
+	</header>
+	<section class="doc">
+<p>Demonstration of an object's weak reference behavior. An object's userdata can
+be garbage collected while the object is in the game tree.</p>
+<div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="c1">-- Table with weak value references.</span>
+<span class="kd">local</span> <span class="n">weakTable</span> <span class="o">=</span> <span class="n">setmetatable</span><span class="p">({},</span> <span class="p">{</span><span class="n">__mode</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">})</span>
+
+<span class="c1">-- Create an object, then add it to the game tree and the weak table.</span>
+<span class="kd">local</span> <span class="n">object</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;BoolValue&#34;</span><span class="p">)</span>
+<span class="n">object.Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+<span class="n">weakTable</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">object</span>
+<span class="n">object</span> <span class="o">=</span> <span class="kc">nil</span> <span class="c1">-- Remove strong reference to the object.</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;Reference:&#34;</span><span class="p">,</span> <span class="n">weakTable</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">--&gt; Reference: Value (userdata still exists)</span>
+
+<span class="c1">-- Wait until the userdata is collected.</span>
+<span class="kr">while</span> <span class="o">#</span><span class="n">weakTable</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">do</span>
+	<span class="n">wait</span><span class="p">()</span>
+<span class="kr">end</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;Reference:&#34;</span><span class="p">,</span> <span class="n">weakTable</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">--&gt; Reference: nil (userdata was collected)</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;Object:&#34;</span><span class="p">,</span> <span class="n">workspace.Value</span><span class="p">)</span>
+<span class="c1">--&gt; Object: Value (object still exists)</span>
+</pre></td></tr></table>
+</div>
+</section>
 </section>
 <section id="history">
 	<header class="controlled-header">
