@@ -56,43 +56,17 @@
 	<section class="doc"><p>Represents a set of coordinate axes that are considered active.</p>
 </section>
 </section>
-<nav>
-	<section>
-		<h2>Table of Contents</h2>
-		<ol>
-			<li><a href="#details">Details</a>
-<ol>
-<li><a href="#doc-constructors">Constructors</a>
-<ol>
-<li><a href="#doc-axes-new">Axes.new(...)</a>
-</li></ol>
-</li>
-<li><a href="#doc-components">Components</a>
-<ol>
-<li><a href="#doc-x">X</a>
-</li>
-<li><a href="#doc-y">Y</a>
-</li>
-<li><a href="#doc-z">Z</a>
-</li></ol>
-</li></ol>
-			</li>
-			<li id="toc-referrers"><a href="#referrers">Relevant members</a></li></ol>
-	</section>
-</nav>
-<section id="details">
+<section id="constructors">
 	<header>
-		<h2>Details</h2>
+		<h2>Constructors</h2>
 	</header>
 	<section class="doc">
-<h3 id="doc-constructors">Constructors</h3>
-
-<h4 id="doc-axes-new"><code>Axes.new(...)</code></h4>
+<h3 id="doc-ctor-new"><code>Axes.new(components: ...Variant)</code></h3>
 
 <p>All components of Axes are initialized to false. A variable list of arguments is
-received. The first 6 arguments are traversed. When an <a href="/ref/enum/Axis.html">Axis</a> or
-<a href="/ref/enum/NormalId.html">NormalId</a> value is encountered, the component of Axes
-corresponding to the value is set to true. Other values are ignored.</p>
+received, but only the first 6 arguments are traversed. When an
+<a href="/ref/enum/Axis.html">Axis</a> or <a href="/ref/enum/NormalId.html">NormalId</a> value is received, the component
+of Axes corresponding to the value is set to true. Other values are ignored.</p>
 
 <table>
 <thead>
@@ -105,64 +79,92 @@ corresponding to the value is set to true. Other values are ignored.</p>
 <tbody>
 <tr>
 <td><a href="/ref/enum/Axis.html#member-X">Enum.Axis.X</a></td>
-<td>Enables the <a href="#doc-x">X</a> component.</td>
+<td>Enables the <a href="#doc-field-X">X</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/Axis.html#member-X">Enum.Axis.Y</a></td>
-<td>Enables the <a href="#doc-y">Y</a> component.</td>
+<td>Enables the <a href="#doc-field-Y">Y</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/Axis.html#member-X">Enum.Axis.Z</a></td>
-<td>Enables the <a href="#doc-z">Z</a> component.</td>
+<td>Enables the <a href="#doc-field-Z">Z</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/NormalId.html#member-Right">Enum.NormalId.Right</a></td>
-<td>Enables the <a href="#doc-x">X</a> component.</td>
+<td>Enables the <a href="#doc-field-X">X</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/NormalId.html#member-Top">Enum.NormalId.Top</a></td>
-<td>Enables the <a href="#doc-y">Y</a> component.</td>
+<td>Enables the <a href="#doc-field-Y">Y</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/NormalId.html#member-Back">Enum.NormalId.Back</a></td>
-<td>Enables the <a href="#doc-z">Z</a> component.</td>
+<td>Enables the <a href="#doc-field-Z">Z</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/NormalId.html#member-Left">Enum.NormalId.Left</a></td>
-<td>Enables the <a href="#doc-x">X</a> component.</td>
+<td>Enables the <a href="#doc-field-X">X</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/NormalId.html#member-Bottom">Enum.NormalId.Bottom</a></td>
-<td>Enables the <a href="#doc-y">Y</a> component.</td>
+<td>Enables the <a href="#doc-field-Y">Y</a> component.</td>
 </tr>
 
 <tr>
 <td><a href="/ref/enum/NormalId.html#member-Front">Enum.NormalId.Front</a></td>
-<td>Enables the <a href="#doc-z">Z</a> component.</td>
+<td>Enables the <a href="#doc-field-Z">Z</a> component.</td>
 </tr>
 </tbody>
 </table>
+</section>
+</section>
+<section id="fields">
+	<header>
+		<h2>Fields</h2>
+	</header>
+	<section class="doc">
+<h3 id="doc-field-Back"><code>Back: boolean</code></h3>
 
-<h3 id="doc-components">Components</h3>
+<p>Whether the back face is enabled. Corresponds to the Z axis.</p>
 
-<h4 id="doc-x">X</h4>
+<h3 id="doc-field-Bottom"><code>Bottom: boolean</code></h3>
 
-<p>A boolean indicating whether the X axis is enabled.</p>
+<p>Whether the bottom face is enabled. Corresponds to the Y axis.</p>
 
-<h4 id="doc-y">Y</h4>
+<h3 id="doc-field-Front"><code>Front: boolean</code></h3>
 
-<p>A boolean indicating whether the Y axis is enabled.</p>
+<p>Whether the frony face is enabled. Corresponds to the Z axis.</p>
 
-<h4 id="doc-z">Z</h4>
+<h3 id="doc-field-Left"><code>Left: boolean</code></h3>
 
-<p>A boolean indicating whether the Z axis is enabled.</p>
+<p>Whether the left face is enabled. Corresponds to the X axis.</p>
+
+<h3 id="doc-field-Right"><code>Right: boolean</code></h3>
+
+<p>Whether the right face is enabled. Corresponds to the X axis.</p>
+
+<h3 id="doc-field-Top"><code>Top: boolean</code></h3>
+
+<p>Whether the top face is enabled. Corresponds to the Y axis.</p>
+
+<h3 id="doc-field-X"><code>X: boolean</code></h3>
+
+<p>Whether the X axis is enabled.</p>
+
+<h3 id="doc-field-Y"><code>Y: boolean</code></h3>
+
+<p>Whether the Y axis is enabled.</p>
+
+<h3 id="doc-field-Z"><code>Z: boolean</code></h3>
+
+<p>Whether the Z axis is enabled.</p>
 </section>
 </section>
 <section id="referrers">
