@@ -43,28 +43,32 @@
                 },
                 {
                     "name": "Print Go environment",
-                    "run": "/usr/local/go1.13 version && /usr/local/go1.13 env",
+                    "env": {"GOROOT": "/usr/local/go1.13"},
+                    "run": "/usr/local/go1.13/bin/go version && /usr/local/go1.13/bin/go env",
                 },
                 {
                     "name": "Generate module",
+                    "env": {"GOROOT": "/usr/local/go1.13"},
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                        /usr/local/go1.13 mod init github.com/robloxapi/rbxapiref ||
+                        /usr/local/go1.13/bin/go mod init github.com/robloxapi/rbxapiref ||
                         true
                     ",
                 },
                 {
                     "name": "Get dependencies",
+                    "env": {"GOROOT": "/usr/local/go1.13"},
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                        /usr/local/go1.13 get -v -d ./...
+                        /usr/local/go1.13/bin/go get -v -d ./...
                     ",
                 },
                 {
                     "name": "Compile executable",
+                    "env": {"GOROOT": "/usr/local/go1.13"},
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                        /usr/local/go1.13 build -v .
+                        /usr/local/go1.13/bin/go build -v .
                     ",
                 },
                 {
