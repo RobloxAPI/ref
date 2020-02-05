@@ -42,18 +42,14 @@
                     },
                 },
                 {
-                    "name": "Print available Go commands",
-                    "run": "compgen -c",
-                },
-                {
                     "name": "Print Go environment",
-                    "run": "go1.13 version && go1.13 env",
+                    "run": "/usr/local/go1.13 version && /usr/local/go1.13 env",
                 },
                 {
                     "name": "Generate module",
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                        go1.13 mod init github.com/robloxapi/rbxapiref ||
+                        /usr/local/go1.13 mod init github.com/robloxapi/rbxapiref ||
                         true
                     ",
                 },
@@ -61,14 +57,14 @@
                     "name": "Get dependencies",
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                        go1.13 get -v -d ./...
+                        /usr/local/go1.13 get -v -d ./...
                     ",
                 },
                 {
                     "name": "Compile executable",
                     "run": "
                         cd $GITHUB_WORKSPACE/../../rbxapiref &&
-                        go1.13 build -v .
+                        /usr/local/go1.13 build -v .
                     ",
                 },
                 {
