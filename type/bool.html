@@ -52,6 +52,67 @@
 <header>
 	<h1>bool <a class="devhub-link" href="https://developer.roblox.com/api-reference/datatype/bool"><span class="icon devhub-icon"></span>On DevHub</a></h1>
 </header>
+<section id="summary">
+	<section class="doc"><p>A type for representing a Boolean value.</p>
+</section>
+</section>
+<nav>
+	<section>
+		<h2>Table of Contents</h2>
+		<ol>
+			<li><a href="#details">Details</a>
+			</li>
+			<li><a href="#examples">Examples</a>
+			</li>
+			<li id="toc-referrers"><a href="#referrers">Relevant members</a></li></ol>
+	</section>
+</nav>
+<section id="details">
+	<header>
+		<h2>Details</h2>
+	</header>
+	<section class="doc">
+<p>The bool type is used to signal one of two distinct options (either <code>true</code> or
+<code>false</code>). Its semantics vary widely depending on the context.</p>
+</section>
+</section>
+<section id="examples">
+	<header>
+		<h2>Examples</h2>
+	</header>
+	<section class="doc">
+<p><a href="/ref/class/Instance.html#member-FindFirstChild">FindFirstChild</a> has a boolean argument,
+<em>recursive</em>. When <code>true</code>, the method operates recursively:</p>
+<div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="kd">local</span> <span class="n">folder</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Folder&#34;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">middle</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Folder&#34;</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+<span class="n">middle.Name</span> <span class="o">=</span> <span class="s2">&#34;Middle&#34;</span>
+<span class="kd">local</span> <span class="n">inner</span> <span class="o">=</span> <span class="n">Instance.new</span><span class="p">(</span><span class="s2">&#34;Folder&#34;</span><span class="p">,</span> <span class="n">middle</span><span class="p">)</span>
+<span class="n">inner.Name</span> <span class="o">=</span> <span class="s2">&#34;Inner&#34;</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">folder</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&#34;Inner&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">))</span>
+<span class="c1">--&gt; nil</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">folder</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&#34;Inner&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">))</span>
+<span class="c1">--&gt; Inner</span>
+</pre></td></tr></table>
+</div>
+</section>
+</section>
 <section id="referrers">
 	<header>
 		<h2>Relevant members <span class="element-count">(585)</span></h2>
