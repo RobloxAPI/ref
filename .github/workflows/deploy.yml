@@ -22,7 +22,7 @@
 				},
 				{
 					"name": "Checkout website repository",
-					"uses": "actions/checkout@v1",
+					"uses": "actions/checkout@v2",
 					"with": {
 						"fetch-depth": 1,
 						"ref": "gh-pages",
@@ -31,7 +31,7 @@
 				},
 				{
 					"name": "Checkout documentation repository",
-					"uses": "actions/checkout@v1",
+					"uses": "actions/checkout@v2",
 					"with": {
 						"repository": "RobloxAPI/doc",
 						"fetch-depth": 1,
@@ -41,7 +41,7 @@
 				},
 				{
 					"name": "Checkout executable repository",
-					"uses": "actions/checkout@v1",
+					"uses": "actions/checkout@v2",
 					"with": {
 						"repository": "RobloxAPI/rbxapiref",
 						"fetch-depth": 1,
@@ -51,32 +51,32 @@
 				},
 				{
 					"name": "Generate module",
-					"env": {"GOROOT": "/usr/local/go1.13"},
 					"run": "
-						cd $GITHUB_WORKSPACE/../../rbxapiref &&
-						/usr/local/go1.13/bin/go mod init github.com/robloxapi/rbxapiref ||
+						cd rbxapiref &&
+						go mod init github.com/robloxapi/rbxapiref ||
 						true
 					",
 				},
 				{
 					"name": "Get dependencies",
-					"env": {"GOROOT": "/usr/local/go1.13"},
 					"run": "
-						cd $GITHUB_WORKSPACE/../../rbxapiref &&
-						/usr/local/go1.13/bin/go get -v -d ./...
+						cd rbxapiref &&
+						go get -v -d ./...
 					",
 				},
 				{
 					"name": "Compile executable",
-					"env": {"GOROOT": "/usr/local/go1.13"},
 					"run": "
-						cd $GITHUB_WORKSPACE/../../rbxapiref/cmd/rbxapiref &&
-						/usr/local/go1.13/bin/go build -v .
+						cd rbxapiref/cmd/rbxapiref &&
+						go build -v .
 					",
 				},
 				{
 					"name": "Rebuild website",
-					"run": "$GITHUB_WORKSPACE/../../rbxapiref/cmd/rbxapiref/rbxapiref -s .github/settings.json",
+					"run": "
+						cd robloxapi.github.io/ref &&
+						../../rbxapiref/cmd/rbxapiref/rbxapiref -s .github/settings.json
+					",
 				},
 				{
 					"name": "Commit and push website",
@@ -84,6 +84,7 @@
 						"ACCESS_TOKEN": "${{ secrets.ACCESS_TOKEN }}",
 					},
 					"run": "
+						cd robloxapi.github.io/ref &&
 						git config user.email 'anaminus@protonmail.com' &&
 						git config user.name 'Anaminus' &&
 						git remote set-url origin https://$GITHUB_ACTOR:$ACCESS_TOKEN@github.com/$GITHUB_REPOSITORY.git &&
