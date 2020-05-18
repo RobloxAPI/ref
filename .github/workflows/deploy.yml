@@ -13,6 +13,14 @@
 			"runs-on": "ubuntu-latest",
 			"steps": [
 				{
+					"name": "Print environment",
+					"run": "printenv && pwd",
+				},
+				{
+					"name": "Print Go environment",
+					"run": "go version && go env",
+				},
+				{
 					"name": "Checkout website repository",
 					"uses": "actions/checkout@v1",
 					"with": {
@@ -40,11 +48,6 @@
 						"ref": "master",
 						"path": "rbxapiref",
 					},
-				},
-				{
-					"name": "Print Go environment",
-					"env": {"GOROOT": "/usr/local/go1.13"},
-					"run": "/usr/local/go1.13/bin/go version && /usr/local/go1.13/bin/go env",
 				},
 				{
 					"name": "Generate module",
