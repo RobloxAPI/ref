@@ -860,16 +860,6 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-GetUserAgen
 		</header>
 		<section class="doc"><p>Decodes a JSON-formatted string into a value. The string is decoded according to
 <a href="https://tools.ietf.org/html/rfc8259">RFC8259</a>.</p>
-
-<p>The following JSON types are converted into a corresponding Lua type:
-- A null is decoded into a Lua nil.
-- A boolean is decoded into a Lua boolean.
-- A number is decoded into the nearest representing Lua number.
-- A string is decoded into a Lua string.
-- An array is decoded into a Lua table, where each entry in the array is an
-  entry in the table, with indices starting at 1.
-- An object is decoded into a Lua table, where each field of the object is a
-  key-value pair in the table.</p>
 </section>
 		<table class="metadata-pairs">
 			<tbody>
@@ -898,6 +888,20 @@ Add <a class="element-link" href="/ref/class/HttpService.html#member-GetUserAgen
 				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Variant.html">Variant</a></td></tr>
 			</tbody>
 		</table>
+		<section class="doc">
+<p>The following JSON types are converted into a corresponding Lua type:</p>
+
+<ul>
+<li>A null is decoded into a Lua nil.</li>
+<li>A boolean is decoded into a Lua boolean.</li>
+<li>A number is decoded into the nearest representing Lua number.</li>
+<li>A string is decoded into a Lua string.</li>
+<li>An array is decoded into a Lua table, where each entry in the array is an
+entry in the table, with indices starting at 1.</li>
+<li>An object is decoded into a Lua table, where each field of the object is a
+key-value pair in the table.</li>
+</ul>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
@@ -912,8 +916,6 @@ Change ReturnType of <a class="element-link" href="/ref/class/HttpService.html#m
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>JSONEncode <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/HttpService/JSONEncode"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
 		<section class="doc"><p>Encodes <em>input</em> into a JSON-formatted string. <em>input</em> cannot be nil.</p>
-
-<p>The following types are encoded. Other types are encoded as <code>null</code>.</p>
 </section>
 		<table class="metadata-pairs">
 			<tbody>
@@ -942,6 +944,94 @@ Change ReturnType of <a class="element-link" href="/ref/class/HttpService.html#m
 				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/string.html">string</a></td></tr>
 			</tbody>
 		</table>
+		<section class="doc">
+<p>A <strong>boolean</strong> is mapped directly to a JSON boolean. A <strong>number</strong> is encoded as a
+JSON number. Infinity and NaN are encoded as a JSON null.</p>
+
+<p>A <strong>string</strong> is encoded as a UTF-8 string. The following characters are escaped:</p>
+
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Code</th>
+<th>Escape</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Backspace</td>
+<td>0x08</td>
+<td><code>\b</code></td>
+</tr>
+
+<tr>
+<td>Horzontal tab</td>
+<td>0x09</td>
+<td><code>\t</code></td>
+</tr>
+
+<tr>
+<td>Line feed</td>
+<td>0x0A</td>
+<td><code>\n</code></td>
+</tr>
+
+<tr>
+<td>Form feed</td>
+<td>0x0C</td>
+<td><code>\f</code></td>
+</tr>
+
+<tr>
+<td>Carriage Return</td>
+<td>0x0D</td>
+<td><code>\r</code></td>
+</tr>
+
+<tr>
+<td>Double quote</td>
+<td>0x22</td>
+<td><code>\&quot;</code></td>
+</tr>
+
+<tr>
+<td>Backslash</td>
+<td>0x5C</td>
+<td><code>\\</code></td>
+</tr>
+</tbody>
+</table>
+<p>Control characters (0x00 - 0x1F) not in this list are escaped as <code>\u00XX</code>, where
+<code>XX</code> is the character code in hexadecimal.</p>
+
+<p>Other unicode characters are encoded as-is. A malformed unicode character within
+any encoded string causes the following error to be thrown:</p>
+
+<pre><code>Can't convert to JSON
+</code></pre>
+
+<p>A <strong>table</strong> is encoded as either a JSON array or a JSON object, which depends on
+the content. A table is interpreted as an array if it is empty, or if it
+contains the integer 1 as a key. Otherwise, it is treated as an object.</p>
+
+<p>Tables are encoded recursively. If a table that is being or has already been
+encoded is traversed, the following error is thrown:</p>
+
+<pre><code>tables cannot be cyclic
+</code></pre>
+
+<p>A table interpreted as an array encodes integer keys from 1 to the length of
+the table. Other keys are ignored, and are not traversed.</p>
+
+<p>A table interpreted as an object encodes certain types of keys to JSON strings.
+Keys are encoded in the same way as string values. The method for encoding
+non-string keys is undefined. It is possible that such a key will be converted
+to a string, throw an error, or be ignored entirely.</p>
+
+<p>Other types are encoded as a JSON null.</p>
+</section>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
