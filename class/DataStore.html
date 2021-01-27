@@ -75,11 +75,14 @@
 				<ol class="toc-members">
 					<li><a href="#member-GetVersionAsync">GetVersionAsync</a></li>
 					<li><a href="#member-ListKeysAsync">ListKeysAsync</a></li>
+					<li><a href="#member-ListVersionsAsync">ListVersionsAsync</a></li>
+					<li><a href="#member-RemoveVersionAsync">RemoveVersionAsync</a></li>
 				</ol>
 			</li>
 			<li id="toc-references">References
 				<ol>
 					<li id="toc-classes"><a href="#classes">Relevant classes</a></li>
+					<li id="toc-enums"><a href="#enums">Relevant enums</a></li>
 				</ol>
 			</li></ol>
 	</section>
@@ -97,7 +100,7 @@
 </section>
 <section id="members-index">
 	<header>
-		<h2>Member index <span class="element-count">(2)</span></h2>
+		<h2>Member index <span class="element-count">(4)</span></h2>
 	</header>
 	<table class="index-card member-index-card">
 	<thead>
@@ -123,6 +126,22 @@
 			<td class="col-member"><span class="member-text"><a href="/ref/class/DataStore.html#member-ListKeysAsync">ListKeysAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> prefix = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> pageSize = 0</span><span class="params-close">)</span></span></td>
 			<td class="col-history"></td>
 		</tr>
+		<tr class="member-ListVersionsAsync row-Function">
+			<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DataStore.html#member-ListVersionsAsync">ListVersionsAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> key<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/SortDirection.html">SortDirection</a> sortDirection = Ascending<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> minDate = 0<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> maxDate = 0<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> pageSize = 0</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2021-01-25 16:00:15&#10;v0.463.0.417004&#10;version-6e5cfb545b12486e" href="/ref/updates/2021.html#version-6e5cfb545b12486e-2">463</a>
+	</span></td>
+		</tr>
+		<tr class="member-RemoveVersionAsync row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/void.html">void</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DataStore.html#member-RemoveVersionAsync">RemoveVersionAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> key<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> version</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2021-01-25 16:00:15&#10;v0.463.0.417004&#10;version-6e5cfb545b12486e" href="/ref/updates/2021.html#version-6e5cfb545b12486e-3">463</a>
+	</span></td>
+		</tr>
 	</tbody>
 	<thead>
 		<tr>
@@ -142,6 +161,14 @@
 		<aside id="history-controls" class="controls"></aside>
 	</header>
 	<ul class="history patch-list truncated-list">
+				
+<li id="version-6e5cfb545b12486e-2" diff-element="Function">
+	<a class="history-add" title="Added on 2021-01-25 16:00:15&#10;v0.463.0.417004&#10;version-6e5cfb545b12486e" href="/ref/updates/2021.html#version-6e5cfb545b12486e-2">463</a>
+Add <a class="element-link" href="/ref/class/DataStore.html#member-ListVersionsAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>DataStore.ListVersionsAsync</a></li>
+				
+<li id="version-6e5cfb545b12486e-3" diff-element="Function">
+	<a class="history-add" title="Added on 2021-01-25 16:00:15&#10;v0.463.0.417004&#10;version-6e5cfb545b12486e" href="/ref/updates/2021.html#version-6e5cfb545b12486e-3">463</a>
+Add <a class="element-link" href="/ref/class/DataStore.html#member-RemoveVersionAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>DataStore.RemoveVersionAsync</a></li>
 				
 <li id="version-49b4e2a90c9a455c-2" diff-element="Function">
 	<a class="history-add" title="Added on 2021-01-15 15:56:17&#10;v0.462.0.416719&#10;version-49b4e2a90c9a455c" href="/ref/updates/2021.html#version-49b4e2a90c9a455c-2">462</a>
@@ -242,6 +269,111 @@ Add <a class="element-link" href="/ref/class/DataStore.html#member-GetVersionAsy
 		</table>
 		<p class="tags">Tags: [Yields]</p></section>
 
+	<section id="member-ListVersionsAsync">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>ListVersionsAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DataStore/ListVersionsAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">5</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-key">
+		<td class="col-member">key</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-sortDirection">
+		<td class="col-member">sortDirection</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/SortDirection.html">SortDirection</a></td>
+		<td class="col-default"><span class="api-default">Ascending</span></td>
+	</tr>
+	<tr class="row-minDate">
+		<td class="col-member">minDate</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-default">0</span></td>
+	</tr>
+	<tr class="row-maxDate">
+		<td class="col-member">maxDate</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-default">0</span></td>
+	</tr>
+	<tr class="row-pageSize">
+		<td class="col-member">pageSize</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-default">0</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-6e5cfb545b12486e-2" diff-element="Function">
+	<a class="history-add" title="Added on 2021-01-25 16:00:15&#10;v0.463.0.417004&#10;version-6e5cfb545b12486e" href="/ref/updates/2021.html#version-6e5cfb545b12486e-2">463</a>
+Add <a class="element-link" href="/ref/class/DataStore.html#member-ListVersionsAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>DataStore.ListVersionsAsync</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-RemoveVersionAsync">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>RemoveVersionAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DataStore/RemoveVersionAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-key">
+		<td class="col-member">key</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-version">
+		<td class="col-member">version</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/void.html">void</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-6e5cfb545b12486e-3" diff-element="Function">
+	<a class="history-add" title="Added on 2021-01-25 16:00:15&#10;v0.463.0.417004&#10;version-6e5cfb545b12486e" href="/ref/updates/2021.html#version-6e5cfb545b12486e-3">463</a>
+Add <a class="element-link" href="/ref/class/DataStore.html#member-RemoveVersionAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>DataStore.RemoveVersionAsync</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
 	</div>
 </section>
 <section id="references">
@@ -251,6 +383,14 @@ Add <a class="element-link" href="/ref/class/DataStore.html#member-GetVersionAsy
 		</header>
 		<ul class="truncated-list element-list">
 			<li class="api-not-browsable"><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></li>
+		</ul>
+	</section>
+	<section id="enums">
+		<header>
+			<h2>Relevant enums <span class="element-count">(1)</span></h2>
+		</header>
+		<ul class="truncated-list element-list">
+			<li><a class="element-link" href="/ref/enum/SortDirection.html"><span class="icon enum-icon" title="Enum"></span>SortDirection</a></li>
 		</ul>
 	</section></section>
 </main>
