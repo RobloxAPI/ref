@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" sizes="32x32" href="/ref/res/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/ref/res/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" href="/ref/res/favicons/favicon.ico">
+	<title>DynamicMesh - Roblox API Reference</title>
+	<meta name="path-sub" content="/ref">
+	<meta name="search-db" content="/ref/search.db">
+	<link href="/ref/res/theme-light.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/theme-dark.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/main.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/doc.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/class.css" rel="stylesheet" type="text/css" />
+	<script>document.documentElement.className=window.localStorage.getItem("Theme")</script>
+	<script src="/ref/res/main.js" charset="utf-8" async></script>
+	<script src="/ref/res/search.js" charset="utf-8" async></script>
+	<script src="/ref/res/settings.js" charset="utf-8" async></script>
+	<script src="/ref/res/actions.js" charset="utf-8" async></script>
+	<script src="/ref/res/class.js" charset="utf-8" async></script>
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta property="og:title" content="DynamicMesh - Roblox API Reference" />
+	<meta name="twitter:title" content="DynamicMesh - Roblox API Reference" />
+	<meta property="og:description" content="Information about the DynamicMesh class in the Roblox Lua API." />
+	<meta name="twitter:description" content="Information about the DynamicMesh class in the Roblox Lua API." />
+	<meta property="og:image" content="https://robloxapi.github.io/ref/res/favicons/favicon-512x512.png" />
+	<meta name="twitter:image" content="https://robloxapi.github.io/ref/res/favicons/favicon-512x512.png" />
+</head>
+<body>
+	<a id="top"></a>
+	<header id="main-header">
+		<div id="main-header-left">
+			<h1 class="header-block"><a href="/ref/index.html">Roblox API Reference</a></h1>
+			<nav class="main-nav">
+				<ul>
+					<li><a class="header-block" href="/ref/updates.html">Updates</a></li>
+					<li><a class="header-block" href="/ref/about.html">About</a></li>
+				</ul>
+			</nav>
+			<aside id="search" class="header-block">
+				<noscript>
+					<section id="no-search">Searching requires Javascript.</section>
+				</noscript>
+			</aside>
+		</div>
+		<div id="main-header-right"></div>
+	</header>
+<main>
+<header>
+	<h1><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>DynamicMesh <a class="devhub-link" href="https://developer.roblox.com/api-reference/class/DynamicMesh"><span class="icon devhub-icon"></span>On DevHub</a></h1>
+</header>
+<section id="summary">
+	<header>
+		<h2>Summary</h2>
+	</header><table class="metadata-pairs">
+		<tbody>
+			<tr><th>Memory Category</th><td>PhysicsParts</td></tr>
+		<tr>
+			<th>PreferredParent</th>
+			<td class="element-link-list">
+				<a class="element-link api-not-browsable" href="/ref/class/BasePart.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>BasePart</a>
+			</td>
+		</tr>
+		</tbody>
+	</table></section>
+<nav>
+	<section>
+		<h2>Table of contents</h2>
+		<ol>
+			<li id="toc-class-tree">Class tree
+				<ol>
+					<li id="toc-superclasses"><a href="#superclasses">Inherits</a></li>
+				</ol>
+			</li><li><a href="#members-index">Member index</a></li>
+			<li><a href="#history">History</a></li>
+			<li id="toc-members"><a href="#members">Members</a>
+				<ol class="toc-members">
+					<li><a href="#member-AddTriangle">AddTriangle</a></li>
+					<li><a href="#member-AddVertex">AddVertex</a></li>
+					<li><a href="#member-Clear">Clear</a></li>
+					<li><a href="#member-CreateMeshPartAsync">CreateMeshPartAsync</a></li>
+					<li><a href="#member-GetPosition">GetPosition</a></li>
+					<li><a href="#member-GetTriangleVertices">GetTriangleVertices</a></li>
+					<li><a href="#member-GetTriangles">GetTriangles</a></li>
+					<li><a href="#member-GetUV">GetUV</a></li>
+					<li><a href="#member-GetVertexColor">GetVertexColor</a></li>
+					<li><a href="#member-GetVertexColorAlpha">GetVertexColorAlpha</a></li>
+					<li><a href="#member-GetVertexNormal">GetVertexNormal</a></li>
+					<li><a href="#member-GetVertices">GetVertices</a></li>
+					<li><a href="#member-InitializeFromMeshIdAsync">InitializeFromMeshIdAsync</a></li>
+					<li><a href="#member-InitializeFromMeshPartAsync">InitializeFromMeshPartAsync</a></li>
+					<li><a href="#member-RemoveTriangle">RemoveTriangle</a></li>
+					<li><a href="#member-SetPosition">SetPosition</a></li>
+					<li><a href="#member-SetUV">SetUV</a></li>
+					<li><a href="#member-SetVertexColor">SetVertexColor</a></li>
+					<li><a href="#member-SetVertexColorAlpha">SetVertexColorAlpha</a></li>
+					<li><a href="#member-SetVertexNormal">SetVertexNormal</a></li>
+				</ol>
+			</li>
+			<li id="toc-references">References
+				<ol>
+					<li id="toc-classes"><a href="#classes">Relevant classes</a></li>
+					<li id="toc-enums"><a href="#enums">Relevant enums</a></li>
+				</ol>
+			</li></ol>
+	</section>
+</nav>
+<section id="tree">
+	<section id="superclasses">
+		<header>
+			<h2>Inherits <span class="element-count">(3)</span></h2>
+		</header>
+		<ul class="truncated-list element-list">
+			<li><a class="element-link" href="/ref/class/FileMesh.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>FileMesh</a></li>
+			<li class="api-not-browsable"><a class="element-link" href="/ref/class/DataModelMesh.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>DataModelMesh</a></li>
+			<li class="api-not-browsable"><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></li>
+		</ul>
+	</section>
+</section>
+<section id="members-index">
+	<header>
+		<h2>Member index <span class="element-count">(20)</span></h2>
+	</header>
+	<table class="index-card member-index-card">
+	<thead>
+		<tr>
+			<th class="col-type">Type</th>
+			<th class="col-icon"></th>
+			<th class="col-member">Member</th>
+			<th class="col-history">History</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="member-AddTriangle row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-AddTriangle">AddTriangle</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId0<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId1<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId2</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-AddVertex row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-AddVertex">AddVertex</a><span class="params-open"> (</span><span class="parameter"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a> p</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-Clear row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-Clear">Clear</a><span class="params-open"> (</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-CreateMeshPartAsync row-Function">
+			<td class="col-type"><a title="Category: Class" href="/ref/class/MeshPart.html">MeshPart</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-CreateMeshPartAsync">CreateMeshPartAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a> collisionFidelity</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetPosition row-Function">
+			<td class="col-type"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetPosition">GetPosition</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetTriangleVertices row-Function">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Tuple.html">Tuple</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetTriangleVertices">GetTriangleVertices</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> triangleId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetTriangles row-Function">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Array.html">Array</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetTriangles">GetTriangles</a><span class="params-open"> (</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetUV row-Function">
+			<td class="col-type"><a title="Category: DataType" href="/ref/type/Vector2.html">Vector2</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetUV">GetUV</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetVertexColor row-Function">
+			<td class="col-type"><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetVertexColor">GetVertexColor</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetVertexColorAlpha row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/float.html">float</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetVertexColorAlpha">GetVertexColorAlpha</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetVertexNormal row-Function">
+			<td class="col-type"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetVertexNormal">GetVertexNormal</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-GetVertices row-Function">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Array.html">Array</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-GetVertices">GetVertices</a><span class="params-open"> (</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-InitializeFromMeshIdAsync row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-InitializeFromMeshIdAsync">InitializeFromMeshIdAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: DataType" href="/ref/type/Content.html">Content</a> meshId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-InitializeFromMeshPartAsync row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-InitializeFromMeshPartAsync">InitializeFromMeshPartAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> meshPart</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-RemoveTriangle row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-RemoveTriangle">RemoveTriangle</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> triangleId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-SetPosition row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-SetPosition">SetPosition</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a> p</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-SetUV row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-SetUV">SetUV</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: DataType" href="/ref/type/Vector2.html">Vector2</a> uv</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-SetVertexColor row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-SetVertexColor">SetVertexColor</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a> color</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-SetVertexColorAlpha row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-SetVertexColorAlpha">SetVertexColorAlpha</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/float.html">float</a> alpha</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-SetVertexNormal row-Function">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/DynamicMesh.html#member-SetVertexNormal">SetVertexNormal</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> vertexId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a> vnormal</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+	</tbody>
+	<thead>
+		<tr>
+			<th class="inherited-members" colspan="4"><a class="member-count">2 members</a> inherited from <a class="element-link" href="/ref/class/FileMesh.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>FileMesh</a></th>
+		</tr>
+	</thead>
+	<thead>
+		<tr>
+			<th class="inherited-members" colspan="4"><a class="member-count">3 members</a> inherited from <a class="element-link" href="/ref/class/DataModelMesh.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>DataModelMesh</a></th>
+		</tr>
+	</thead>
+	<thead>
+		<tr>
+			<th class="inherited-members" colspan="4"><a class="member-count">57 members</a> inherited from <a class="element-link" href="/ref/class/Instance.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></th>
+		</tr>
+	</thead>
+	</table>
+</section>
+<section id="history">
+	<header class="controlled-header">
+		<h2 class="header">History</h2>
+		<aside id="history-controls" class="controls"></aside>
+	</header>
+	<ul class="history patch-list truncated-list">
+				
+<li id="version-cb457944642b4d94-23" diff-element="Class">
+	<a class="history-add" title="Added on 2023-06-29 12:37:20&#10;v0.582.1.5820387&#10;version-cb457944642b4d94" href="/ref/updates/2023.html#version-cb457944642b4d94-23">582</a>
+Add <a class="element-link" href="/ref/class/DynamicMesh.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>DynamicMesh</a>
+	<ul>
+	</ul></li>
+	</ul>
+</section>
+<section id="members">
+	<header>
+		<h2>Members</h2>
+	</header>
+	<div id="members-sections">
+	<section id="member-AddTriangle">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>AddTriangle <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/AddTriangle"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId0">
+		<td class="col-member">vertexId0</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-vertexId1">
+		<td class="col-member">vertexId1</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-vertexId2">
+		<td class="col-member">vertexId2</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-AddVertex">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>AddVertex <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/AddVertex"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-p">
+		<td class="col-member">p</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/int.html">int</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-Clear">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>Clear <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/Clear"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td colspan="3">No parameters.</td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-CreateMeshPartAsync">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>CreateMeshPartAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/CreateMeshPartAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-collisionFidelity">
+		<td class="col-member">collisionFidelity</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Class" href="/ref/class/MeshPart.html">MeshPart</a></td></tr>
+			</tbody>
+		</table>
+		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-GetPosition">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetPosition <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetPosition"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-GetTriangleVertices">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetTriangleVertices <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetTriangleVertices"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-triangleId">
+		<td class="col-member">triangleId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Tuple.html">Tuple</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-GetTriangles">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetTriangles <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetTriangles"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td colspan="3">No parameters.</td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Array.html">Array</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-GetUV">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetUV <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetUV"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Vector2.html">Vector2</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-GetVertexColor">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetVertexColor <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetVertexColor"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-GetVertexColorAlpha">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetVertexColorAlpha <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetVertexColorAlpha"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/float.html">float</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-GetVertexNormal">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetVertexNormal <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetVertexNormal"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-GetVertices">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetVertices <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/GetVertices"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td colspan="3">No parameters.</td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Array.html">Array</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-InitializeFromMeshIdAsync">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>InitializeFromMeshIdAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/InitializeFromMeshIdAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-meshId">
+		<td class="col-member">meshId</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Content.html">Content</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-InitializeFromMeshPartAsync">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>InitializeFromMeshPartAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/InitializeFromMeshPartAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-meshPart">
+		<td class="col-member">meshPart</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-RemoveTriangle">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>RemoveTriangle <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/RemoveTriangle"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-triangleId">
+		<td class="col-member">triangleId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-SetPosition">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>SetPosition <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/SetPosition"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-p">
+		<td class="col-member">p</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-SetUV">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>SetUV <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/SetUV"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-uv">
+		<td class="col-member">uv</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Vector2.html">Vector2</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-SetVertexColor">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>SetVertexColor <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/SetVertexColor"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-color">
+		<td class="col-member">color</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Color3.html">Color3</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-SetVertexColorAlpha">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>SetVertexColorAlpha <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/SetVertexColorAlpha"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-alpha">
+		<td class="col-member">alpha</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/float.html">float</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-SetVertexNormal">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>SetVertexNormal <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/DynamicMesh/SetVertexNormal"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-vertexId">
+		<td class="col-member">vertexId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-vnormal">
+		<td class="col-member">vnormal</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Vector3.html">Vector3</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table></section>
+
+	</div>
+</section>
+<section id="references">
+	<section id="classes">
+		<header>
+			<h2>Relevant classes <span class="element-count">(2)</span></h2>
+		</header>
+		<ul class="truncated-list element-list">
+			<li class="api-not-browsable"><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></li>
+			<li><a class="element-link" href="/ref/class/MeshPart.html"><span class="icon class-icon" title="Class" style="--icon-index: 73"></span>MeshPart</a></li>
+		</ul>
+	</section>
+	<section id="enums">
+		<header>
+			<h2>Relevant enums <span class="element-count">(1)</span></h2>
+		</header>
+		<ul class="truncated-list element-list">
+			<li><a class="element-link" href="/ref/enum/CollisionFidelity.html"><span class="icon enum-icon" title="Enum"></span>CollisionFidelity</a></li>
+		</ul>
+	</section></section>
+</main>
+	<nav id="top-nav">
+		<a class="header-block" href="#top">Top</a>
+	</nav>
+	<footer id="main-footer">
+		<nav class="main-nav">
+			<ul>
+				<li><a class="header-block" href="/ref/index.html">Main</a></li>
+				<li><a class="header-block" href="/ref/updates.html">Updates</a></li>
+				<li><a class="header-block" href="/ref/about.html">About</a></li>
+				<li><a class="header-block" href="https://www.roblox.com/">Roblox</a></li>
+				<li><a class="header-block" href="https://www.robloxdev.com/api-reference">DevHub</a></li>
+				<li><a class="header-block" href="https://github.com/robloxapi/rbxapiref">Develop</a></li>
+				<li><a class="header-block" href="https://github.com/robloxapi/rbxapiref/issues">Issues</a></li>
+			</ul>
+		</nav>
+		<div class="header-block license">Content is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0.</a></div>
+		<div class="header-block publication"><span class="icon svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7 7" height="7" width="7"><path d="M 2,0 V 1 H 1 V 4 H 2 V 7 H 3 V 6 H 4 V 7 H 5 V 4 H 6 V 1 H 5 V 0 H 4 V 1 H 3 V 0 Z M 2,2 H 3 V 3 H 2 Z M 4,2 H 5 V 3 H 4 Z"/></svg></span> 2018&ndash;2023 Anaminus</div>
+	</footer>
+</body>
+</html>

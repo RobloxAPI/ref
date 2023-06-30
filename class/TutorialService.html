@@ -6,7 +6,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/ref/res/favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/ref/res/favicons/favicon-16x16.png">
 	<link rel="shortcut icon" href="/ref/res/favicons/favicon.ico">
-	<title>GroupImportData - Roblox API Reference</title>
+	<title>TutorialService - Roblox API Reference</title>
 	<meta name="path-sub" content="/ref">
 	<meta name="search-db" content="/ref/search.db">
 	<link href="/ref/res/theme-light.css" rel="stylesheet" type="text/css" />
@@ -22,10 +22,10 @@
 	<script src="/ref/res/class.js" charset="utf-8" async></script>
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary" />
-	<meta property="og:title" content="GroupImportData - Roblox API Reference" />
-	<meta name="twitter:title" content="GroupImportData - Roblox API Reference" />
-	<meta property="og:description" content="Information about the GroupImportData class in the Roblox Lua API." />
-	<meta name="twitter:description" content="Information about the GroupImportData class in the Roblox Lua API." />
+	<meta property="og:title" content="TutorialService - Roblox API Reference" />
+	<meta name="twitter:title" content="TutorialService - Roblox API Reference" />
+	<meta property="og:description" content="Information about the TutorialService class in the Roblox Lua API." />
+	<meta name="twitter:description" content="Information about the TutorialService class in the Roblox Lua API." />
 	<meta property="og:image" content="https://robloxapi.github.io/ref/res/favicons/favicon-512x512.png" />
 	<meta name="twitter:image" content="https://robloxapi.github.io/ref/res/favicons/favicon-512x512.png" />
 </head>
@@ -50,17 +50,17 @@
 	</header>
 <main>
 <header>
-	<h1><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>GroupImportData <a class="devhub-link" href="https://developer.roblox.com/api-reference/class/GroupImportData"><span class="icon devhub-icon"></span>On DevHub</a></h1>
+	<h1><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>TutorialService <a class="devhub-link" href="https://developer.roblox.com/api-reference/class/TutorialService"><span class="icon devhub-icon"></span>On DevHub</a></h1>
 </header>
 <section id="summary">
 	<header>
 		<h2>Summary</h2>
-	</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class="metadata-pairs">
+	</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class="metadata-pairs">
 		<tbody>
 			<tr><th>Memory Category</th><td>Instances</td></tr>
 		</tbody>
 	</table>
-	<p class="tags">Tags: [NotCreatable, NotReplicated]</p></section>
+	<p class="tags">Tags: [NotCreatable, Service, NotReplicated]</p></section>
 <nav>
 	<section>
 		<h2>Table of contents</h2>
@@ -73,9 +73,8 @@
 			<li><a href="#history">History</a></li>
 			<li id="toc-members"><a href="#members">Members</a>
 				<ol class="toc-members">
-					<li><a href="#member-Anchored">Anchored</a></li>
-					<li><a href="#member-ImportAsModelAsset">ImportAsModelAsset</a></li>
-					<li><a href="#member-InsertInWorkspace">InsertInWorkspace</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptCloseStudio">PromptCloseStudio</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-ShouldLaunchTutorial">ShouldLaunchTutorial</a></li>
 				</ol>
 			</li></ol>
 	</section>
@@ -83,17 +82,16 @@
 <section id="tree">
 	<section id="superclasses">
 		<header>
-			<h2>Inherits <span class="element-count">(2)</span></h2>
+			<h2>Inherits <span class="element-count">(1)</span></h2>
 		</header>
 		<ul class="truncated-list element-list">
-			<li><a class="element-link" href="/ref/class/BaseImportData.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>BaseImportData</a></li>
 			<li class="api-not-browsable"><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></li>
 		</ul>
 	</section>
 </section>
 <section id="members-index">
 	<header>
-		<h2>Member index <span class="element-count">(3)</span></h2>
+		<h2>Member index <span class="element-count">(2)</span></h2>
 	</header>
 	<table class="index-card member-index-card">
 	<thead>
@@ -105,30 +103,19 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="member-Anchored row-Property">
-			<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
-			<td class="col-icon"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/GroupImportData.html#member-Anchored">Anchored</a></span></td>
+		<tr class="member-PromptCloseStudio row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/TutorialService.html#member-PromptCloseStudio">PromptCloseStudio</a><span class="params-open"> (</span><span class="params-close">)</span></span></td>
 			<td class="col-history"></td>
 		</tr>
-		<tr class="member-ImportAsModelAsset row-Property">
+		<tr class="member-ShouldLaunchTutorial row-Function api-sec-RobloxScriptSecurity">
 			<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
-			<td class="col-icon"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/GroupImportData.html#member-ImportAsModelAsset">ImportAsModelAsset</a></span></td>
-			<td class="col-history"></td>
-		</tr>
-		<tr class="member-InsertInWorkspace row-Property">
-			<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
-			<td class="col-icon"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/GroupImportData.html#member-InsertInWorkspace">InsertInWorkspace</a></span></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/TutorialService.html#member-ShouldLaunchTutorial">ShouldLaunchTutorial</a><span class="params-open"> (</span><span class="params-close">)</span></span></td>
 			<td class="col-history"></td>
 		</tr>
 	</tbody>
-	<thead>
-		<tr>
-			<th class="inherited-members" colspan="4"><a class="member-count">5 members</a> inherited from <a class="element-link" href="/ref/class/BaseImportData.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>BaseImportData</a></th>
-		</tr>
-	</thead>
 	<thead>
 		<tr>
 			<th class="inherited-members" colspan="4"><a class="member-count">57 members</a> inherited from <a class="element-link" href="/ref/class/Instance.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></th>
@@ -143,9 +130,9 @@
 	</header>
 	<ul class="history patch-list truncated-list">
 				
-<li id="version-da56b3062bbf4871-782" diff-element="Class">
-	<a class="history-add" title="Added on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-782">573</a>
-Add <a class="element-link" href="/ref/class/GroupImportData.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>GroupImportData</a>
+<li id="version-cb457944642b4d94-24" diff-element="Class">
+	<a class="history-add" title="Added on 2023-06-29 12:37:20&#10;v0.582.1.5820387&#10;version-cb457944642b4d94" href="/ref/updates/2023.html#version-cb457944642b4d94-24">582</a>
+Add <a class="element-link" href="/ref/class/TutorialService.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>TutorialService</a>
 	<ul>
 	</ul></li>
 	</ul>
@@ -155,45 +142,65 @@ Add <a class="element-link" href="/ref/class/GroupImportData.html"><span class="
 		<h2>Members</h2>
 	</header>
 	<div id="members-sections">
-	<section id="member-Anchored">
+	<section id="member-PromptCloseStudio" class="api-sec-RobloxScriptSecurity">
 		<header>
-			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>Anchored <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/GroupImportData/Anchored"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>PromptCloseStudio <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/TutorialService/PromptCloseStudio"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
 		<table class="metadata-pairs">
 			<tbody>
-				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
-				<tr><th>Category</th><td>Data</td></tr>
-				<tr><th>Can Load</th><td>true</td></tr>
-				<tr><th>Can Save</th><td>true</td></tr>
-				
+				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td colspan="3">No parameters.</td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
 			</tbody>
 		</table></section>
 
-	<section id="member-ImportAsModelAsset">
+	<section id="member-ShouldLaunchTutorial" class="api-sec-RobloxScriptSecurity">
 		<header>
-			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>ImportAsModelAsset <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/GroupImportData/ImportAsModelAsset"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>ShouldLaunchTutorial <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/TutorialService/ShouldLaunchTutorial"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
 		<table class="metadata-pairs">
 			<tbody>
-				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
-				<tr><th>Category</th><td>Data</td></tr>
-				<tr><th>Can Load</th><td>true</td></tr>
-				<tr><th>Can Save</th><td>true</td></tr>
-				
+				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
 			</tbody>
-		</table></section>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td colspan="3">No parameters.</td>
+	</tr>
+</tbody>
+</table>
 
-	<section id="member-InsertInWorkspace">
-		<header>
-			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>InsertInWorkspace <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/GroupImportData/InsertInWorkspace"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header>
 		<table class="metadata-pairs">
 			<tbody>
-				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
-				<tr><th>Category</th><td>Data</td></tr>
-				<tr><th>Can Load</th><td>true</td></tr>
-				<tr><th>Can Save</th><td>true</td></tr>
-				
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
 			</tbody>
 		</table></section>
 
