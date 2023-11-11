@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" sizes="32x32" href="/ref/res/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/ref/res/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" href="/ref/res/favicons/favicon.ico">
+	<title>StreamingService - Roblox API Reference</title>
+	<meta name="path-sub" content="/ref">
+	<meta name="search-db" content="/ref/search.db">
+	<link href="/ref/res/theme-light.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/theme-dark.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/main.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/doc.css" rel="stylesheet" type="text/css" />
+	<link href="/ref/res/class.css" rel="stylesheet" type="text/css" />
+	<script>document.documentElement.className=window.localStorage.getItem("Theme")</script>
+	<script src="/ref/res/main.js" charset="utf-8" async></script>
+	<script src="/ref/res/search.js" charset="utf-8" async></script>
+	<script src="/ref/res/settings.js" charset="utf-8" async></script>
+	<script src="/ref/res/actions.js" charset="utf-8" async></script>
+	<script src="/ref/res/class.js" charset="utf-8" async></script>
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta property="og:title" content="StreamingService - Roblox API Reference" />
+	<meta name="twitter:title" content="StreamingService - Roblox API Reference" />
+	<meta property="og:description" content="Information about the StreamingService class in the Roblox Lua API." />
+	<meta name="twitter:description" content="Information about the StreamingService class in the Roblox Lua API." />
+	<meta property="og:image" content="https://robloxapi.github.io/ref/res/favicons/favicon-512x512.png" />
+	<meta name="twitter:image" content="https://robloxapi.github.io/ref/res/favicons/favicon-512x512.png" />
+</head>
+<body>
+	<a id="top"></a>
+	<header id="main-header">
+		<div id="main-header-left">
+			<h1 class="header-block"><a href="/ref/index.html">Roblox API Reference</a></h1>
+			<nav class="main-nav">
+				<ul>
+					<li><a class="header-block" href="/ref/updates.html">Updates</a></li>
+					<li><a class="header-block" href="/ref/about.html">About</a></li>
+				</ul>
+			</nav>
+			<aside id="search" class="header-block">
+				<noscript>
+					<section id="no-search">Searching requires Javascript.</section>
+				</noscript>
+			</aside>
+		</div>
+		<div id="main-header-right"></div>
+	</header>
+<main>
+<header>
+	<h1><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>StreamingService <a class="devhub-link" href="https://developer.roblox.com/api-reference/class/StreamingService"><span class="icon devhub-icon"></span>On DevHub</a></h1>
+</header>
+<section id="summary">
+	<header>
+		<h2>Summary</h2>
+	</header><div class="status-list"><div class="status-box status-low"><span class="status-header">This class is not creatable.</span> An object of this class cannot be created with Instance.new.</div><div class="status-box status-low"><span class="status-header">This class is a service.</span> It is a singleton that may be acquired with GetService.</div><div class="status-box status-medium"><span class="status-header">This item is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class="metadata-pairs">
+		<tbody>
+			<tr><th>Memory Category</th><td>Instances</td></tr>
+		</tbody>
+	</table>
+	<p class="tags">Tags: [NotCreatable, Service, NotReplicated]</p></section>
+<nav>
+	<section>
+		<h2>Table of contents</h2>
+		<ol>
+			<li id="toc-class-tree">Class tree
+				<ol>
+					<li id="toc-superclasses"><a href="#superclasses">Inherits</a></li>
+				</ol>
+			</li><li><a href="#members-index">Member index</a></li>
+			<li><a href="#history">History</a></li>
+			<li id="toc-members"><a href="#members">Members</a>
+				<ol class="toc-members">
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-GetEphemeralVariable">GetEphemeralVariable</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-GetInstance">GetInstance</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-InvokeCommand">InvokeCommand</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-RegisterCommand">RegisterCommand</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-RegisterContextCollector">RegisterContextCollector</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-RegisterSequentialCommand">RegisterSequentialCommand</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-RequestEnded">RequestEnded</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-RequestError">RequestError</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-RequestStarted">RequestStarted</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SequentialCommandsFinished">SequentialCommandsFinished</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SetEphemeralVariable">SetEphemeralVariable</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SetPluginInfoCallback">SetPluginInfoCallback</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-Stream">Stream</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-UnregisterCommand">UnregisterCommand</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-UnregisterContextCollector">UnregisterContextCollector</a></li>
+				</ol>
+			</li>
+			<li id="toc-references">References
+				<ol>
+					<li id="toc-classes"><a href="#classes">Relevant classes</a></li>
+				</ol>
+			</li></ol>
+	</section>
+</nav>
+<section id="tree">
+	<section id="superclasses">
+		<header>
+			<h2>Inherits <span class="element-count">(1)</span></h2>
+		</header>
+		<ul class="truncated-list element-list">
+			<li class="api-not-browsable"><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></li>
+		</ul>
+	</section>
+</section>
+<section id="members-index">
+	<header>
+		<h2>Member index <span class="element-count">(15)</span></h2>
+	</header>
+	<table class="index-card member-index-card">
+	<thead>
+		<tr>
+			<th class="col-type">Type</th>
+			<th class="col-icon"></th>
+			<th class="col-member">Member</th>
+			<th class="col-history">History</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="member-GetEphemeralVariable row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Variant.html">Variant</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-GetEphemeralVariable">GetEphemeralVariable</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> key</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-25">601</a>
+	</span></td>
+		</tr>
+		<tr class="member-GetInstance row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-GetInstance">GetInstance</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectorName<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId = instanceId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-16">591</a>
+	</span></td>
+		</tr>
+		<tr class="member-InvokeCommand row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-InvokeCommand">InvokeCommand</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> commandName<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Group" href="/ref/type/Variant.html">Variant</a> arg</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-26">601</a>
+	</span></td>
+		</tr>
+		<tr class="member-RegisterCommand row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-RegisterCommand">RegisterCommand</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> commandName<span class="params-sep">, </span></span><span class="parameter"><a title="Category: DataType" href="/ref/type/Function.html">Function</a> function = nil</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-RegisterContextCollector row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-RegisterContextCollector">RegisterContextCollector</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectorName<span class="params-sep">, </span></span><span class="parameter"><a title="Category: DataType" href="/ref/type/Function.html">Function</a> function = nil</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-17">591</a>
+	</span></td>
+		</tr>
+		<tr class="member-RegisterSequentialCommand row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-RegisterSequentialCommand">RegisterSequentialCommand</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> commandName<span class="params-sep">, </span></span><span class="parameter"><a title="Category: DataType" href="/ref/type/Function.html">Function</a> function = nil</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-27">601</a>
+	</span></td>
+		</tr>
+		<tr class="member-SetEphemeralVariable row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-SetEphemeralVariable">SetEphemeralVariable</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> key<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Group" href="/ref/type/Variant.html">Variant</a> value<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> timeToLive = -1</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-28">601</a>
+	</span></td>
+		</tr>
+		<tr class="member-SetPluginInfoCallback row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-SetPluginInfoCallback">SetPluginInfoCallback</a><span class="params-open"> (</span><span class="parameter"><a title="Category: DataType" href="/ref/type/Function.html">Function</a> function = nil</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-11-07 15:08:33&#10;v0.602.0.6020631&#10;version-59b2169573044c17" href="/ref/updates/2023.html#version-59b2169573044c17-21">602</a>
+	</span></td>
+		</tr>
+		<tr class="member-UnregisterCommand row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-UnregisterCommand">UnregisterCommand</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> commandName</span><span class="params-close">)</span></span></td>
+			<td class="col-history"></td>
+		</tr>
+		<tr class="member-UnregisterContextCollector row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-UnregisterContextCollector">UnregisterContextCollector</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectorName</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-18">591</a>
+	</span></td>
+		</tr>
+		<tr class="member-RequestEnded row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-RequestEnded">RequestEnded</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-19">591</a>
+	</span></td>
+		</tr>
+		<tr class="member-RequestError row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-RequestError">RequestError</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorMessage</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-20">591</a>
+				<a class="history-change" title="Changed on 2023-11-07 15:08:33&#10;v0.602.0.6020631&#10;version-59b2169573044c17" href="/ref/updates/2023.html#version-59b2169573044c17-20">602</a>
+	</span></td>
+		</tr>
+		<tr class="member-RequestStarted row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-RequestStarted">RequestStarted</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> queryToProcess</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-21">591</a>
+				<a class="history-change" title="Changed on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-24">601</a>
+	</span></td>
+		</tr>
+		<tr class="member-SequentialCommandsFinished row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-SequentialCommandsFinished">SequentialCommandsFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> success</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-29">601</a>
+	</span></td>
+		</tr>
+		<tr class="member-Stream row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/StreamingService.html#member-Stream">Stream</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> streamContent</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-22">591</a>
+	</span></td>
+		</tr>
+	</tbody>
+	<thead>
+		<tr>
+			<th class="inherited-members" colspan="4"><a class="member-count">57 members</a> inherited from <a class="element-link" href="/ref/class/Instance.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></th>
+		</tr>
+	</thead>
+	</table>
+</section>
+<section id="history">
+	<header class="controlled-header">
+		<h2 class="header">History</h2>
+		<aside id="history-controls" class="controls"></aside>
+	</header>
+	<ul class="history patch-list truncated-list">
+				
+<li id="version-59b2169573044c17-21" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-07 15:08:33&#10;v0.602.0.6020631&#10;version-59b2169573044c17" href="/ref/updates/2023.html#version-59b2169573044c17-21">602</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-SetPluginInfoCallback"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.SetPluginInfoCallback</a></li>
+				
+<li id="version-59b2169573044c17-20" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-11-07 15:08:33&#10;v0.602.0.6020631&#10;version-59b2169573044c17" href="/ref/updates/2023.html#version-59b2169573044c17-20">602</a>
+Change Parameters of <a class="element-link" href="/ref/class/StreamingService.html#member-RequestError"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestError</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorMessage</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorMessage</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-0098be94f25546e4-25" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-25">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-GetEphemeralVariable"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.GetEphemeralVariable</a></li>
+				
+<li id="version-0098be94f25546e4-26" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-26">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-InvokeCommand"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.InvokeCommand</a></li>
+				
+<li id="version-0098be94f25546e4-27" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-27">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RegisterSequentialCommand"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.RegisterSequentialCommand</a></li>
+				
+<li id="version-0098be94f25546e4-28" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-28">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-SetEphemeralVariable"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.SetEphemeralVariable</a></li>
+				
+<li id="version-0098be94f25546e4-24" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-24">601</a>
+Change Parameters of <a class="element-link" href="/ref/class/StreamingService.html#member-RequestStarted"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestStarted</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> queryToProcess</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-0098be94f25546e4-29" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-29">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-SequentialCommandsFinished"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.SequentialCommandsFinished</a></li>
+				
+<li id="version-5a3824df86134561-16" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-16">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-GetInstance"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.GetInstance</a></li>
+				
+<li id="version-5a3824df86134561-17" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-17">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RegisterContextCollector"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.RegisterContextCollector</a></li>
+				
+<li id="version-5a3824df86134561-18" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-18">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-UnregisterContextCollector"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.UnregisterContextCollector</a></li>
+				
+<li id="version-5a3824df86134561-19" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-19">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RequestEnded"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestEnded</a></li>
+				
+<li id="version-5a3824df86134561-20" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-20">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RequestError"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestError</a></li>
+				
+<li id="version-5a3824df86134561-21" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-21">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RequestStarted"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestStarted</a></li>
+				
+<li id="version-5a3824df86134561-22" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-22">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-Stream"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.Stream</a></li>
+				
+<li id="version-85135ae360224922-25" diff-element="Class">
+	<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-25">590</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>StreamingService</a>
+	<ul>
+	</ul></li>
+	</ul>
+</section>
+<section id="members">
+	<header>
+		<h2>Members</h2>
+	</header>
+	<div id="members-sections">
+	<section id="member-GetEphemeralVariable" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>GetEphemeralVariable <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/GetEphemeralVariable"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-key">
+		<td class="col-member">key</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Variant.html">Variant</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-0098be94f25546e4-25" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-25">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-GetEphemeralVariable"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.GetEphemeralVariable</a></li>
+	</ul></section>
+
+	<section id="member-GetInstance" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>GetInstance <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/GetInstance"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-collectorName">
+		<td class="col-member">collectorName</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-default">instanceId</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-5a3824df86134561-16" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-16">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-GetInstance"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.GetInstance</a></li>
+	</ul></section>
+
+	<section id="member-InvokeCommand" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>InvokeCommand <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/InvokeCommand"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-commandName">
+		<td class="col-member">commandName</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-arg">
+		<td class="col-member">arg</td>
+		<td class="col-type"><a title="Category: Group" href="/ref/type/Variant.html">Variant</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-0098be94f25546e4-26" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-26">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-InvokeCommand"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.InvokeCommand</a></li>
+	</ul></section>
+
+	<section id="member-RegisterCommand" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>RegisterCommand <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/RegisterCommand"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-commandName">
+		<td class="col-member">commandName</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-function">
+		<td class="col-member">function</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Function.html">Function</a></td>
+		<td class="col-default"><span class="api-default">nil</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-RegisterContextCollector" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>RegisterContextCollector <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/RegisterContextCollector"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-collectorName">
+		<td class="col-member">collectorName</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-function">
+		<td class="col-member">function</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Function.html">Function</a></td>
+		<td class="col-default"><span class="api-default">nil</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-5a3824df86134561-17" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-17">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RegisterContextCollector"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.RegisterContextCollector</a></li>
+	</ul></section>
+
+	<section id="member-RegisterSequentialCommand" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>RegisterSequentialCommand <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/RegisterSequentialCommand"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-commandName">
+		<td class="col-member">commandName</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-function">
+		<td class="col-member">function</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Function.html">Function</a></td>
+		<td class="col-default"><span class="api-default">nil</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-0098be94f25546e4-27" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-27">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RegisterSequentialCommand"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.RegisterSequentialCommand</a></li>
+	</ul></section>
+
+	<section id="member-RequestEnded" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>RequestEnded <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/StreamingService/RequestEnded"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-5a3824df86134561-19" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-19">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RequestEnded"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestEnded</a></li>
+	</ul></section>
+
+	<section id="member-RequestError" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>RequestError <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/StreamingService/RequestError"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-errorType">
+		<td class="col-member">errorType</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-errorMessage">
+		<td class="col-member">errorMessage</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-59b2169573044c17-20" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-11-07 15:08:33&#10;v0.602.0.6020631&#10;version-59b2169573044c17" href="/ref/updates/2023.html#version-59b2169573044c17-20">602</a>
+Change Parameters of <a class="element-link" href="/ref/class/StreamingService.html#member-RequestError"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestError</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorMessage</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> errorMessage</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-5a3824df86134561-20" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-20">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RequestError"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestError</a></li>
+	</ul></section>
+
+	<section id="member-RequestStarted" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>RequestStarted <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/StreamingService/RequestStarted"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-queryToProcess">
+		<td class="col-member">queryToProcess</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-0098be94f25546e4-24" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-24">601</a>
+Change Parameters of <a class="element-link" href="/ref/class/StreamingService.html#member-RequestStarted"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestStarted</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> queryToProcess</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-5a3824df86134561-21" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-21">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-RequestStarted"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.RequestStarted</a></li>
+	</ul></section>
+
+	<section id="member-SequentialCommandsFinished" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>SequentialCommandsFinished <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/StreamingService/SequentialCommandsFinished"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-success">
+		<td class="col-member">success</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-0098be94f25546e4-29" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-29">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-SequentialCommandsFinished"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.SequentialCommandsFinished</a></li>
+	</ul></section>
+
+	<section id="member-SetEphemeralVariable" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>SetEphemeralVariable <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/SetEphemeralVariable"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-key">
+		<td class="col-member">key</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-value">
+		<td class="col-member">value</td>
+		<td class="col-type"><a title="Category: Group" href="/ref/type/Variant.html">Variant</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-timeToLive">
+		<td class="col-member">timeToLive</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-default">-1</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-0098be94f25546e4-28" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-01 13:02:31&#10;v0.601.0.6010507&#10;version-0098be94f25546e4" href="/ref/updates/2023.html#version-0098be94f25546e4-28">601</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-SetEphemeralVariable"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.SetEphemeralVariable</a></li>
+	</ul></section>
+
+	<section id="member-SetPluginInfoCallback" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>SetPluginInfoCallback <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/SetPluginInfoCallback"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-function">
+		<td class="col-member">function</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Function.html">Function</a></td>
+		<td class="col-default"><span class="api-default">nil</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-59b2169573044c17-21" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-11-07 15:08:33&#10;v0.602.0.6020631&#10;version-59b2169573044c17" href="/ref/updates/2023.html#version-59b2169573044c17-21">602</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-SetPluginInfoCallback"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.SetPluginInfoCallback</a></li>
+	</ul></section>
+
+	<section id="member-Stream" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>Stream <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/StreamingService/Stream"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-streamContent">
+		<td class="col-member">streamContent</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-5a3824df86134561-22" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-22">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-Stream"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>StreamingService.Stream</a></li>
+	</ul></section>
+
+	<section id="member-UnregisterCommand" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>UnregisterCommand <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/UnregisterCommand"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-commandName">
+		<td class="col-member">commandName</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table></section>
+
+	<section id="member-UnregisterContextCollector" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>UnregisterContextCollector <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/StreamingService/UnregisterContextCollector"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-collectorName">
+		<td class="col-member">collectorName</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-5a3824df86134561-18" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-22 20:43:18&#10;v0.591.0.5910633&#10;version-5a3824df86134561" href="/ref/updates/2023.html#version-5a3824df86134561-18">591</a>
+Add <a class="element-link" href="/ref/class/StreamingService.html#member-UnregisterContextCollector"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>StreamingService.UnregisterContextCollector</a></li>
+	</ul></section>
+
+	</div>
+</section>
+<section id="references">
+	<section id="classes">
+		<header>
+			<h2>Relevant classes <span class="element-count">(1)</span></h2>
+		</header>
+		<ul class="truncated-list element-list">
+			<li class="api-not-browsable"><a class="element-link" href="/ref/class/Instance.html"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></li>
+		</ul>
+	</section></section>
+</main>
+	<nav id="top-nav">
+		<a class="header-block" href="#top">Top</a>
+	</nav>
+	<footer id="main-footer">
+		<nav class="main-nav">
+			<ul>
+				<li><a class="header-block" href="/ref/index.html">Main</a></li>
+				<li><a class="header-block" href="/ref/updates.html">Updates</a></li>
+				<li><a class="header-block" href="/ref/about.html">About</a></li>
+				<li><a class="header-block" href="https://www.roblox.com/">Roblox</a></li>
+				<li><a class="header-block" href="https://www.robloxdev.com/api-reference">DevHub</a></li>
+				<li><a class="header-block" href="https://github.com/robloxapi/rbxapiref">Develop</a></li>
+				<li><a class="header-block" href="https://github.com/robloxapi/rbxapiref/issues">Issues</a></li>
+			</ul>
+		</nav>
+		<div class="header-block license">Content is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0.</a></div>
+		<div class="header-block publication"><span class="icon svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7 7" height="7" width="7"><path d="M 2,0 V 1 H 1 V 4 H 2 V 7 H 3 V 6 H 4 V 7 H 5 V 4 H 6 V 1 H 5 V 0 H 4 V 1 H 3 V 0 Z M 2,2 H 3 V 3 H 2 Z M 4,2 H 5 V 3 H 4 Z"/></svg></span> 2018&ndash;2023 Anaminus</div>
+	</footer>
+</body>
+</html>

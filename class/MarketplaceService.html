@@ -80,17 +80,26 @@
 					<li><a href="#member-GetDeveloperProductsAsync">GetDeveloperProductsAsync</a></li>
 					<li><a href="#member-GetProductInfo">GetProductInfo</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-GetRobuxBalance">GetRobuxBalance</a></li>
-					<li><a href="#member-IsPlayerSubscribed">IsPlayerSubscribed</a></li>
+					<li><a href="#member-GetSubscriptionProductInfoAsync">GetSubscriptionProductInfoAsync</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-GetSubscriptionPurchaseInfoAsync">GetSubscriptionPurchaseInfoAsync</a></li>
+					<li><a href="#member-GetUserSubscriptionPaymentHistoryAsync">GetUserSubscriptionPaymentHistoryAsync</a></li>
+					<li><a href="#member-GetUserSubscriptionStatusAsync">GetUserSubscriptionStatusAsync</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-NativePurchaseFinished">NativePurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-NativePurchaseFinishedWithLocalPlayer">NativePurchaseFinishedWithLocalPlayer</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PerformPurchase">PerformPurchase</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PerformPurchaseV2">PerformPurchaseV2</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PerformSubscriptionPurchase">PerformSubscriptionPurchase</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PlayerCanMakePurchases">PlayerCanMakePurchases</a></li>
 					<li><a href="#member-PlayerOwnsAsset">PlayerOwnsAsset</a></li>
 					<li><a href="#member-PlayerOwnsBundle">PlayerOwnsBundle</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PrepareCollectiblesPurchase">PrepareCollectiblesPurchase</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PrepareCollectiblesPurchaseRequested">PrepareCollectiblesPurchaseRequested</a></li>
 					<li><a href="#member-ProcessReceipt">ProcessReceipt</a></li>
 					<li><a href="#member-PromptBundlePurchase">PromptBundlePurchase</a></li>
 					<li><a href="#member-PromptBundlePurchaseFinished">PromptBundlePurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptBundlePurchaseRequested">PromptBundlePurchaseRequested</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptCollectiblesPurchase">PromptCollectiblesPurchase</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptCollectiblesPurchaseRequested">PromptCollectiblesPurchaseRequested</a></li>
 					<li><a href="#member-PromptGamePassPurchase">PromptGamePassPurchase</a></li>
 					<li><a href="#member-PromptGamePassPurchaseFinished">PromptGamePassPurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptGamePassPurchaseRequested">PromptGamePassPurchaseRequested</a></li>
@@ -105,11 +114,9 @@
 					<li><a href="#member-PromptPurchase">PromptPurchase</a></li>
 					<li><a href="#member-PromptPurchaseFinished">PromptPurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptPurchaseRequested">PromptPurchaseRequested</a></li>
+					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptPurchaseRequestedV2">PromptPurchaseRequestedV2</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptRobloxPurchase">PromptRobloxPurchase</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptRobloxPurchaseRequested">PromptRobloxPurchaseRequested</a></li>
-					<li><a href="#member-PromptSubscriptionCancellation">PromptSubscriptionCancellation</a></li>
-					<li><a href="#member-PromptSubscriptionCancellationFinished">PromptSubscriptionCancellationFinished</a></li>
-					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptSubscriptionCancellationRequested">PromptSubscriptionCancellationRequested</a></li>
 					<li><a href="#member-PromptSubscriptionPurchase">PromptSubscriptionPurchase</a></li>
 					<li><a href="#member-PromptSubscriptionPurchaseFinished">PromptSubscriptionPurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-PromptSubscriptionPurchaseRequested">PromptSubscriptionPurchaseRequested</a></li>
@@ -125,7 +132,6 @@
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SignalPromptPremiumPurchaseFinished">SignalPromptPremiumPurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SignalPromptProductPurchaseFinished">SignalPromptProductPurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SignalPromptPurchaseFinished">SignalPromptPurchaseFinished</a></li>
-					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SignalPromptSubscriptionCancellationFinished">SignalPromptSubscriptionCancellationFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SignalPromptSubscriptionPurchaseFinished">SignalPromptSubscriptionPurchaseFinished</a></li>
 					<li class="api-sec-RobloxScriptSecurity"><a href="#member-SignalServerLuaDialogClosed">SignalServerLuaDialogClosed</a></li>
 					<li class="api-sec-LocalUserSecurity"><a href="#member-ThirdPartyPurchaseFinished">ThirdPartyPurchaseFinished</a></li>
@@ -135,9 +141,14 @@
 			<li id="toc-removed-members"><a href="#removed-members">Removed members</a>
 				<ol class="toc-members">
 					<li class="api-removed"><a href="#member-GetSubscriptionStatus">GetSubscriptionStatus</a></li>
+					<li class="api-deprecated api-removed"><a href="#member-IsPlayerSubscribed">IsPlayerSubscribed</a></li>
+					<li class="api-deprecated api-removed"><a href="#member-PromptSubscriptionCancellation">PromptSubscriptionCancellation</a></li>
+					<li class="api-deprecated api-removed"><a href="#member-PromptSubscriptionCancellationFinished">PromptSubscriptionCancellationFinished</a></li>
+					<li class="api-removed api-sec-RobloxScriptSecurity"><a href="#member-PromptSubscriptionCancellationRequested">PromptSubscriptionCancellationRequested</a></li>
 					<li class="api-removed api-sec-LocalUserSecurity"><a href="#member-SetDevProductInfoUrl">SetDevProductInfoUrl</a></li>
 					<li class="api-removed api-sec-LocalUserSecurity"><a href="#member-SetPlayerOwnsAssetUrl">SetPlayerOwnsAssetUrl</a></li>
 					<li class="api-removed api-sec-LocalUserSecurity"><a href="#member-SetProductInfoUrl">SetProductInfoUrl</a></li>
+					<li class="api-removed api-sec-RobloxScriptSecurity"><a href="#member-SignalPromptSubscriptionCancellationFinished">SignalPromptSubscriptionCancellationFinished</a></li>
 				</ol>
 			</li>
 			<li id="toc-references">References
@@ -160,7 +171,7 @@
 </section>
 <section id="members-index">
 	<header>
-		<h2>Member index <span class="element-count">(55)</span></h2>
+		<h2>Member index <span class="element-count">(61)</span></h2>
 	</header>
 	<table class="index-card member-index-card">
 	<thead>
@@ -198,23 +209,64 @@
 				<a class="history-add" title="Added on 2016-06-29 23:45:09&#10;v0.250.0.78284&#10;version-a10f4d0381364a83" href="/ref/updates/2016.html#version-a10f4d0381364a83-1">250</a>
 	</span></td>
 		</tr>
-		<tr class="member-IsPlayerSubscribed row-Function">
-			<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+		<tr class="member-GetSubscriptionProductInfoAsync row-Function">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td>
 			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed">IsPlayerSubscribed</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-GetSubscriptionProductInfoAsync">GetSubscriptionProductInfoAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></td>
 			<td class="col-history"><span class="history">
-				<a class="history-add" title="Added on 2019-08-05 13:53:31&#10;v0.396.0.327208&#10;version-520a34aef2cc4804" href="/ref/updates/2019.html#version-520a34aef2cc4804-20">396</a>
+				<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-24">593</a>
+	</span></td>
+		</tr>
+		<tr class="member-GetSubscriptionPurchaseInfoAsync row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-GetSubscriptionPurchaseInfoAsync">GetSubscriptionPurchaseInfoAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-15">589</a>
+	</span></td>
+		</tr>
+		<tr class="member-GetUserSubscriptionPaymentHistoryAsync row-Function">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Array.html">Array</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-GetUserSubscriptionPaymentHistoryAsync">GetUserSubscriptionPaymentHistoryAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Player.html">Player</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-25">593</a>
+	</span></td>
+		</tr>
+		<tr class="member-GetUserSubscriptionStatusAsync row-Function">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-GetUserSubscriptionStatusAsync">GetUserSubscriptionStatusAsync</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Player.html">Player</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-26">593</a>
 	</span></td>
 		</tr>
 		<tr class="member-PerformPurchase row-Function api-sec-RobloxScriptSecurity">
 			<td class="col-type"><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td>
 			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PerformPurchase">PerformPurchase</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a> infoType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> productId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> isRobloxPurchase<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey = </span><span class="params-close">)</span></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PerformPurchase">PerformPurchase</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a> infoType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> productId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> isRobloxPurchase<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken = </span><span class="params-close">)</span></span></td>
 			<td class="col-history"><span class="history">
 				<a class="history-add" title="Added on 2016-06-29 23:45:09&#10;v0.250.0.78284&#10;version-a10f4d0381364a83" href="/ref/updates/2016.html#version-a10f4d0381364a83-2">250</a>
 				<a class="history-change" title="Changed on 2018-01-09 16:59:03&#10;v0.320.0.173223&#10;version-1265eba8b0ce4071" href="/ref/updates/2018.html#version-1265eba8b0ce4071-8">320</a>
 				<a class="history-change" title="Changed on 2020-03-13 17:55:12&#10;v0.424.0.392166&#10;version-86599c7df60047ab" href="/ref/updates/2020.html#version-86599c7df60047ab-0">424</a>
 				<a class="history-change" title="Changed on 2023-04-04 19:23:21&#10;v0.570.0.5700563&#10;version-b1b600e23e274c6a" href="/ref/updates/2023.html#version-b1b600e23e274c6a-5">570</a>
+				<a class="history-change" title="Changed on 2023-06-14 11:03:33&#10;v0.580.0.5800572&#10;version-98e00d992f0543ee" href="/ref/updates/2023.html#version-98e00d992f0543ee-14">580</a>
+	</span></td>
+		</tr>
+		<tr class="member-PerformPurchaseV2 row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PerformPurchaseV2">PerformPurchaseV2</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a> infoType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> productId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> isRobloxPurchase<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a> collectiblesProductDetails</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-27">587</a>
+	</span></td>
+		</tr>
+		<tr class="member-PerformSubscriptionPurchase row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PerformSubscriptionPurchase">PerformSubscriptionPurchase</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-10-05 10:24:38&#10;v0.597.1.5970668&#10;version-20001c2f99364dfd" href="/ref/updates/2023.html#version-20001c2f99364dfd-32">597</a>
 	</span></td>
 		</tr>
 		<tr class="member-PlayerCanMakePurchases row-Function api-sec-RobloxScriptSecurity">
@@ -241,6 +293,15 @@
 				<a class="history-add" title="Added on 2022-06-01 12:28:58&#10;v0.529.1.5290370&#10;version-de3d486354ea4bad" href="/ref/updates/2022.html#version-de3d486354ea4bad-11">529</a>
 	</span></td>
 		</tr>
+		<tr class="member-PrepareCollectiblesPurchase row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchase">PrepareCollectiblesPurchase</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-25">587</a>
+				<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-4">588</a>
+	</span></td>
+		</tr>
 		<tr class="member-PromptBundlePurchase row-Function">
 			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
 			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
@@ -249,6 +310,15 @@
 				<a class="history-add" title="Added on 2019-05-06 12:01:20&#10;v0.384.0.300680&#10;version-f7cc9a5caaee4015" href="/ref/updates/2019.html#version-f7cc9a5caaee4015-23">384</a>
 				<a class="history-change" title="Changed on 2020-10-30 14:42:22&#10;v0.455.1.413637&#10;version-a5f99ed7dc1d432f" href="/ref/updates/2020.html#version-a5f99ed7dc1d432f-1">455</a>
 				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-363">573</a>
+	</span></td>
+		</tr>
+		<tr class="member-PromptCollectiblesPurchase row-Function api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchase">PromptCollectiblesPurchase</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-26">587</a>
+				<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-5">588</a>
 	</span></td>
 		</tr>
 		<tr class="member-PromptGamePassPurchase row-Function">
@@ -318,22 +388,16 @@
 				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-370">573</a>
 	</span></td>
 		</tr>
-		<tr class="member-PromptSubscriptionCancellation row-Function">
-			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
-			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation">PromptSubscriptionCancellation</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
-			<td class="col-history"><span class="history">
-				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-0">393</a>
-				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-371">573</a>
-	</span></td>
-		</tr>
 		<tr class="member-PromptSubscriptionPurchase row-Function">
 			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
 			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase">PromptSubscriptionPurchase</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase">PromptSubscriptionPurchase</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Player.html">Player</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></td>
 			<td class="col-history"><span class="history">
 				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-1">393</a>
 				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-372">573</a>
+				<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-21">587</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-6">589</a>
+				<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-16">590</a>
 	</span></td>
 		</tr>
 		<tr class="member-PromptThirdPartyPurchase row-Function api-sec-LocalUserSecurity">
@@ -441,22 +505,16 @@
 				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-383">573</a>
 	</span></td>
 		</tr>
-		<tr class="member-SignalPromptSubscriptionCancellationFinished row-Function api-sec-RobloxScriptSecurity">
-			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
-			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished">SignalPromptSubscriptionCancellationFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> wasCanceled</span><span class="params-close">)</span></span></td>
-			<td class="col-history"><span class="history">
-				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-2">393</a>
-				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-384">573</a>
-	</span></td>
-		</tr>
 		<tr class="member-SignalPromptSubscriptionPurchaseFinished row-Function api-sec-RobloxScriptSecurity">
 			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
 			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished">SignalPromptSubscriptionPurchaseFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> wasPurchased</span><span class="params-close">)</span></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished">SignalPromptSubscriptionPurchaseFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> didTryPurchasing</span><span class="params-close">)</span></span></td>
 			<td class="col-history"><span class="history">
 				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-3">393</a>
 				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-385">573</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-8">589</a>
+				<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-17">590</a>
+				<a class="history-change" title="Changed on 2023-08-30 11:40:38&#10;v0.592.0.5920587&#10;version-f7c5665ed70e4269" href="/ref/updates/2023.html#version-f7c5665ed70e4269-64">592</a>
 	</span></td>
 		</tr>
 		<tr class="member-SignalServerLuaDialogClosed row-Function api-sec-RobloxScriptSecurity">
@@ -509,6 +567,15 @@
 				<a class="history-add" title="Added on 2022-09-27 16:14:41&#10;v0.546.0.5460522&#10;version-3bb02f4680434db0" href="/ref/updates/2022.html#version-3bb02f4680434db0-11">546</a>
 	</span></td>
 		</tr>
+		<tr class="member-PrepareCollectiblesPurchaseRequested row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchaseRequested">PrepareCollectiblesPurchaseRequested</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-28">587</a>
+				<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-6">588</a>
+	</span></td>
+		</tr>
 		<tr class="member-PromptBundlePurchaseFinished row-Event">
 			<td class="col-type"></td>
 			<td class="col-icon"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span></td>
@@ -524,6 +591,15 @@
 			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptBundlePurchaseRequested">PromptBundlePurchaseRequested</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> bundleId</span><span class="params-close">)</span></span></td>
 			<td class="col-history"><span class="history">
 				<a class="history-add" title="Added on 2019-05-06 12:01:20&#10;v0.384.0.300680&#10;version-f7cc9a5caaee4015" href="/ref/updates/2019.html#version-f7cc9a5caaee4015-25">384</a>
+	</span></td>
+		</tr>
+		<tr class="member-PromptCollectiblesPurchaseRequested row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchaseRequested">PromptCollectiblesPurchaseRequested</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-29">587</a>
+				<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-7">588</a>
 	</span></td>
 		</tr>
 		<tr class="member-PromptGamePassPurchaseFinished row-Event">
@@ -600,6 +676,14 @@
 				<a class="history-change" title="Changed on 2018-01-09 16:59:03&#10;v0.320.0.173223&#10;version-1265eba8b0ce4071" href="/ref/updates/2018.html#version-1265eba8b0ce4071-16">320</a>
 	</span></td>
 		</tr>
+		<tr class="member-PromptPurchaseRequestedV2 row-Event api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptPurchaseRequestedV2">PromptPurchaseRequestedV2</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> equipIfPurchased<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CurrencyType.html">CurrencyType</a> currencyType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-06-14 11:03:33&#10;v0.580.0.5800572&#10;version-98e00d992f0543ee" href="/ref/updates/2023.html#version-98e00d992f0543ee-15">580</a>
+	</span></td>
+		</tr>
 		<tr class="member-PromptRobloxPurchaseRequested row-Event api-sec-RobloxScriptSecurity">
 			<td class="col-type"></td>
 			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
@@ -608,36 +692,28 @@
 				<a class="history-add" title="Added on 2020-03-13 17:55:12&#10;v0.424.0.392166&#10;version-86599c7df60047ab" href="/ref/updates/2020.html#version-86599c7df60047ab-2">424</a>
 	</span></td>
 		</tr>
-		<tr class="member-PromptSubscriptionCancellationFinished row-Event">
-			<td class="col-type"></td>
-			<td class="col-icon"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished">PromptSubscriptionCancellationFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> wasCanceled</span><span class="params-close">)</span></span></td>
-			<td class="col-history"><span class="history">
-				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-5">393</a>
-	</span></td>
-		</tr>
-		<tr class="member-PromptSubscriptionCancellationRequested row-Event api-sec-RobloxScriptSecurity">
-			<td class="col-type"></td>
-			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationRequested">PromptSubscriptionCancellationRequested</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
-			<td class="col-history"><span class="history">
-				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-6">393</a>
-	</span></td>
-		</tr>
 		<tr class="member-PromptSubscriptionPurchaseFinished row-Event">
 			<td class="col-type"></td>
 			<td class="col-icon"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished">PromptSubscriptionPurchaseFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> wasPurchased</span><span class="params-close">)</span></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished">PromptSubscriptionPurchaseFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Player.html">Player</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> didTryPurchasing</span><span class="params-close">)</span></span></td>
 			<td class="col-history"><span class="history">
 				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-7">393</a>
+				<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-24">587</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-12">589</a>
+				<a class="history-add" title="Added on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-13">589</a>
+				<a class="history-remove" title="Removed on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-13">590</a>
+				<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-14">590</a>
+				<a class="history-change" title="Changed on 2023-08-30 11:40:38&#10;v0.592.0.5920587&#10;version-f7c5665ed70e4269" href="/ref/updates/2023.html#version-f7c5665ed70e4269-65">592</a>
 	</span></td>
 		</tr>
 		<tr class="member-PromptSubscriptionPurchaseRequested row-Event api-sec-RobloxScriptSecurity">
 			<td class="col-type"></td>
 			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseRequested">PromptSubscriptionPurchaseRequested</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseRequested">PromptSubscriptionPurchaseRequested</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></td>
 			<td class="col-history"><span class="history">
 				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-8">393</a>
+				<a class="history-change" title="Changed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-14">589</a>
+				<a class="history-change" title="Changed on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-15">590</a>
 	</span></td>
 		</tr>
 		<tr class="member-ServerPurchaseVerification row-Event api-sec-RobloxScriptSecurity">
@@ -669,14 +745,14 @@
 	</tbody>
 	<thead>
 		<tr>
-			<th class="inherited-members" colspan="4"><a class="member-count">55 members</a> inherited from <a class="element-link" href="/ref/class/Instance.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></th>
+			<th class="inherited-members" colspan="4"><a class="member-count">57 members</a> inherited from <a class="element-link" href="/ref/class/Instance.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></th>
 		</tr>
 	</thead>
 	</table>
 </section>
 <section id="removed-members-index">
 	<header>
-		<h2>Removed member index <span class="element-count">(4)</span></h2>
+		<h2>Removed member index <span class="element-count">(9)</span></h2>
 	</header>
 	<table class="index-card member-index-card">
 	<thead>
@@ -695,6 +771,27 @@
 			<td class="col-history"><span class="history">
 				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-4">393</a>
 				<a class="history-remove" title="Removed on 2019-08-05 13:53:31&#10;v0.396.0.327208&#10;version-520a34aef2cc4804" href="/ref/updates/2019.html#version-520a34aef2cc4804-19">396</a>
+	</span></td>
+		</tr>
+		<tr class="member-IsPlayerSubscribed row-Function api-deprecated api-removed">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed">IsPlayerSubscribed</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2019-08-05 13:53:31&#10;v0.396.0.327208&#10;version-520a34aef2cc4804" href="/ref/updates/2019.html#version-520a34aef2cc4804-20">396</a>
+				<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-22">587</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-9">589</a>
+	</span></td>
+		</tr>
+		<tr class="member-PromptSubscriptionCancellation row-Function api-deprecated api-removed">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation">PromptSubscriptionCancellation</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-0">393</a>
+				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-371">573</a>
+				<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-20">587</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-5">589</a>
 	</span></td>
 		</tr>
 		<tr class="member-SetDevProductInfoUrl row-Function api-removed api-sec-LocalUserSecurity">
@@ -724,6 +821,35 @@
 				<a class="history-remove" title="Removed on 2014-07-09 23:47:46&#10;v0.158.0.48436&#10;version-1112937d32504d8c" href="/ref/updates/2014.html#version-1112937d32504d8c-3">158</a>
 	</span></td>
 		</tr>
+		<tr class="member-SignalPromptSubscriptionCancellationFinished row-Function api-removed api-sec-RobloxScriptSecurity">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/null.html">null</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished">SignalPromptSubscriptionCancellationFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> wasCanceled</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-2">393</a>
+				<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-384">573</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-7">589</a>
+	</span></td>
+		</tr>
+		<tr class="member-PromptSubscriptionCancellationFinished row-Event api-deprecated api-removed">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished">PromptSubscriptionCancellationFinished</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> wasCanceled</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-5">393</a>
+				<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-23">587</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-10">589</a>
+	</span></td>
+		</tr>
+		<tr class="member-PromptSubscriptionCancellationRequested row-Event api-removed api-sec-RobloxScriptSecurity">
+			<td class="col-type"></td>
+			<td class="col-icon"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationRequested">PromptSubscriptionCancellationRequested</a><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-6">393</a>
+				<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-11">589</a>
+	</span></td>
+		</tr>
 	</tbody>
 	</table>
 </section>
@@ -733,6 +859,172 @@
 		<aside id="history-controls" class="controls"></aside>
 	</header>
 	<ul class="history patch-list truncated-list">
+				
+<li id="version-20001c2f99364dfd-32" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-10-05 10:24:38&#10;v0.597.1.5970668&#10;version-20001c2f99364dfd" href="/ref/updates/2023.html#version-20001c2f99364dfd-32">597</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PerformSubscriptionPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PerformSubscriptionPurchase</a></li>
+				
+<li id="version-e1f058aeb66e4d4f-24" diff-element="Function">
+	<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-24">593</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetSubscriptionProductInfoAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.GetSubscriptionProductInfoAsync</a></li>
+				
+<li id="version-e1f058aeb66e4d4f-25" diff-element="Function">
+	<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-25">593</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetUserSubscriptionPaymentHistoryAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.GetUserSubscriptionPaymentHistoryAsync</a></li>
+				
+<li id="version-e1f058aeb66e4d4f-26" diff-element="Function">
+	<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-26">593</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetUserSubscriptionStatusAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.GetUserSubscriptionStatusAsync</a></li>
+				
+<li id="version-f7c5665ed70e4269-64" diff-element="Function" diff-field="Security">
+	<a class="history-change" title="Changed on 2023-08-30 11:40:38&#10;v0.592.0.5920587&#10;version-f7c5665ed70e4269" href="/ref/updates/2023.html#version-f7c5665ed70e4269-64">592</a>
+Change Security of <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.SignalPromptSubscriptionPurchaseFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">None</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">RobloxScriptSecurity</span></span></span></span></li>
+				
+<li id="version-f7c5665ed70e4269-65" diff-element="Event" diff-field="Security">
+	<a class="history-change" title="Changed on 2023-08-30 11:40:38&#10;v0.592.0.5920587&#10;version-f7c5665ed70e4269" href="/ref/updates/2023.html#version-f7c5665ed70e4269-65">592</a>
+Change Security of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">RobloxScriptSecurity</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">None</span></span></span></span></li>
+				
+<li id="version-85135ae360224922-16" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-16">590</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionPurchase</a></li>
+				
+<li id="version-85135ae360224922-17" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-17">590</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.SignalPromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-85135ae360224922-13" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-13">590</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-85135ae360224922-14" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-14">590</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-85135ae360224922-15" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-15">590</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-b939b3c8c6ae4057-15" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-15">589</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetSubscriptionPurchaseInfoAsync"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.GetSubscriptionPurchaseInfoAsync</a></li>
+				
+<li id="version-b939b3c8c6ae4057-9" class="api-deprecated" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-9">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.IsPlayerSubscribed</a></li>
+				
+<li id="version-b939b3c8c6ae4057-5" class="api-deprecated" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-5">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a></li>
+				
+<li id="version-b939b3c8c6ae4057-6" class="api-deprecated" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-6">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionPurchase</a></li>
+				
+<li id="version-b939b3c8c6ae4057-7" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-7">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionCancellationFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-8" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-8">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-10" class="api-deprecated" diff-element="Event">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-10">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionCancellationFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-11" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-11">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionCancellationRequested</a></li>
+				
+<li id="version-b939b3c8c6ae4057-12" class="api-deprecated" diff-element="Event">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-12">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-13" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-13">589</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-14" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-14">589</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-d0e8cfcd943d4ae2-4" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-4">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PrepareCollectiblesPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-d0e8cfcd943d4ae2-5" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-5">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptCollectiblesPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-d0e8cfcd943d4ae2-6" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-6">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PrepareCollectiblesPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-d0e8cfcd943d4ae2-7" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-7">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptCollectiblesPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-22" diff-element="Function" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-22">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.IsPlayerSubscribed</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[Yields]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Yields, Deprecated]</span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-27" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-27">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PerformPurchaseV2"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PerformPurchaseV2</a></li>
+				
+<li id="version-116c54c684b84afc-25" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-25">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PrepareCollectiblesPurchase</a></li>
+				
+<li id="version-116c54c684b84afc-26" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-26">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptCollectiblesPurchase</a></li>
+				
+<li id="version-116c54c684b84afc-20" diff-element="Function" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-20">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-21" diff-element="Function" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-21">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-28" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-28">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PrepareCollectiblesPurchaseRequested</a></li>
+				
+<li id="version-116c54c684b84afc-29" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-29">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptCollectiblesPurchaseRequested</a></li>
+				
+<li id="version-116c54c684b84afc-23" diff-element="Event" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-23">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionCancellationFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-24" diff-element="Event" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-24">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
+				
+<li id="version-98e00d992f0543ee-14" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-06-14 11:03:33&#10;v0.580.0.5800572&#10;version-98e00d992f0543ee" href="/ref/updates/2023.html#version-98e00d992f0543ee-14">580</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PerformPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PerformPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a> infoType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> productId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> isRobloxPurchase<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey = </span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a> infoType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> productId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> isRobloxPurchase<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken = </span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-98e00d992f0543ee-15" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-06-14 11:03:33&#10;v0.580.0.5800572&#10;version-98e00d992f0543ee" href="/ref/updates/2023.html#version-98e00d992f0543ee-15">580</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptPurchaseRequestedV2"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptPurchaseRequestedV2</a></li>
 				
 <li id="version-da56b3062bbf4871-363" diff-element="Function" diff-field="ReturnType">
 	<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-363">573</a>
@@ -1494,9 +1786,90 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetR
 	</ul>
 		<p class="tags">Tags: [Yields]</p></section>
 
-	<section id="member-IsPlayerSubscribed">
+	<section id="member-GetSubscriptionProductInfoAsync">
 		<header>
-			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>IsPlayerSubscribed <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/IsPlayerSubscribed"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetSubscriptionProductInfoAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/GetSubscriptionProductInfoAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-e1f058aeb66e4d4f-24" diff-element="Function">
+	<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-24">593</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetSubscriptionProductInfoAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.GetSubscriptionProductInfoAsync</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-GetSubscriptionPurchaseInfoAsync" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>GetSubscriptionPurchaseInfoAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/GetSubscriptionPurchaseInfoAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-b939b3c8c6ae4057-15" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-15">589</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetSubscriptionPurchaseInfoAsync"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.GetSubscriptionPurchaseInfoAsync</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-GetUserSubscriptionPaymentHistoryAsync">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetUserSubscriptionPaymentHistoryAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/GetUserSubscriptionPaymentHistoryAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
@@ -1512,14 +1885,14 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetR
 	</tr>
 </thead>
 <tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+	<tr class="row-user">
+		<td class="col-member">user</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Player.html">Player</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
 	<tr class="row-subscriptionId">
 		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
 </tbody>
@@ -1527,15 +1900,60 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetR
 
 		<table class="metadata-pairs">
 			<tbody>
-				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Array.html">Array</a></td></tr>
 			</tbody>
 		</table>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
 				
-<li id="version-520a34aef2cc4804-20" diff-element="Function">
-	<a class="history-add" title="Added on 2019-08-05 13:53:31&#10;v0.396.0.327208&#10;version-520a34aef2cc4804" href="/ref/updates/2019.html#version-520a34aef2cc4804-20">396</a>
-Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.IsPlayerSubscribed</a></li>
+<li id="version-e1f058aeb66e4d4f-25" diff-element="Function">
+	<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-25">593</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetUserSubscriptionPaymentHistoryAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.GetUserSubscriptionPaymentHistoryAsync</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-GetUserSubscriptionStatusAsync">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetUserSubscriptionStatusAsync <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/GetUserSubscriptionStatusAsync"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-user">
+		<td class="col-member">user</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Player.html">Player</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-e1f058aeb66e4d4f-26" diff-element="Function">
+	<a class="history-add" title="Added on 2023-09-06 00:30:24&#10;v0.593.0.5930659&#10;version-e1f058aeb66e4d4f" href="/ref/updates/2023.html#version-e1f058aeb66e4d4f-26">593</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetUserSubscriptionStatusAsync"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.GetUserSubscriptionStatusAsync</a></li>
 	</ul>
 		<p class="tags">Tags: [Yields]</p></section>
 
@@ -1638,7 +2056,7 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Nati
 		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
 		<table class="metadata-pairs">
 			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">8</td></tr>
+				<tr><th>Parameters</th><td><span class="element-count">9</td></tr>
 			</tbody>
 		</table>
 		<table class="index-card param-index-card">
@@ -1690,6 +2108,11 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Nati
 		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
 		<td class="col-default"><span class="api-default"><span class="api-empty-string"></span></span></td>
 	</tr>
+	<tr class="row-purchaseAuthToken">
+		<td class="col-member">purchaseAuthToken</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-default"><span class="api-empty-string"></span></span></td>
+	</tr>
 </tbody>
 </table>
 
@@ -1701,6 +2124,11 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Nati
 		</table>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
+				
+<li id="version-98e00d992f0543ee-14" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-06-14 11:03:33&#10;v0.580.0.5800572&#10;version-98e00d992f0543ee" href="/ref/updates/2023.html#version-98e00d992f0543ee-14">580</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PerformPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PerformPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a> infoType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> productId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> isRobloxPurchase<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey = </span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a> infoType<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> productId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> requestId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> isRobloxPurchase<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey = <span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken = </span><span class="params-close">)</span></span></span></span></span></li>
 				
 <li id="version-b1b600e23e274c6a-5" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="Parameters">
 	<a class="history-change" title="Changed on 2023-04-04 19:23:21&#10;v0.570.0.5700563&#10;version-b1b600e23e274c6a" href="/ref/updates/2023.html#version-b1b600e23e274c6a-5">570</a>
@@ -1720,6 +2148,113 @@ Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService
 <li id="version-a10f4d0381364a83-2" class="api-sec-RobloxScriptSecurity" diff-element="Function">
 	<a class="history-add" title="Added on 2016-06-29 23:45:09&#10;v0.250.0.78284&#10;version-a10f4d0381364a83" href="/ref/updates/2016.html#version-a10f4d0381364a83-2">250</a>
 Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PerformPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PerformPurchase</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-PerformPurchaseV2" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>PerformPurchaseV2 <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/PerformPurchaseV2"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">6</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-infoType">
+		<td class="col-member">infoType</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/InfoType.html">InfoType</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-productId">
+		<td class="col-member">productId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-expectedPrice">
+		<td class="col-member">expectedPrice</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-requestId">
+		<td class="col-member">requestId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-isRobloxPurchase">
+		<td class="col-member">isRobloxPurchase</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectiblesProductDetails">
+		<td class="col-member">collectiblesProductDetails</td>
+		<td class="col-type"><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Group" href="/ref/type/Dictionary.html">Dictionary</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-116c54c684b84afc-27" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-27">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PerformPurchaseV2"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PerformPurchaseV2</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-PerformSubscriptionPurchase" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>PerformSubscriptionPurchase <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/PerformSubscriptionPurchase"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/string.html">string</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-20001c2f99364dfd-32" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-10-05 10:24:38&#10;v0.597.1.5970668&#10;version-20001c2f99364dfd" href="/ref/updates/2023.html#version-20001c2f99364dfd-32">597</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PerformSubscriptionPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PerformSubscriptionPurchase</a></li>
 	</ul>
 		<p class="tags">Tags: [Yields]</p></section>
 
@@ -1853,6 +2388,145 @@ Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService
 Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PlayerOwnsBundle"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PlayerOwnsBundle</a></li>
 	</ul>
 		<p class="tags">Tags: [Yields]</p></section>
+
+	<section id="member-PrepareCollectiblesPurchase" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>PrepareCollectiblesPurchase <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/PrepareCollectiblesPurchase"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">6</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-assetId">
+		<td class="col-member">assetId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemId">
+		<td class="col-member">collectibleItemId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemInstanceId">
+		<td class="col-member">collectibleItemInstanceId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleProductId">
+		<td class="col-member">collectibleProductId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-expectedPrice">
+		<td class="col-member">expectedPrice</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-d0e8cfcd943d4ae2-4" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-4">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PrepareCollectiblesPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-25" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-25">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PrepareCollectiblesPurchase</a></li>
+	</ul></section>
+
+	<section id="member-PrepareCollectiblesPurchaseRequested" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>PrepareCollectiblesPurchaseRequested <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/MarketplaceService/PrepareCollectiblesPurchaseRequested"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">6</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-assetId">
+		<td class="col-member">assetId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemId">
+		<td class="col-member">collectibleItemId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemInstanceId">
+		<td class="col-member">collectibleItemInstanceId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleProductId">
+		<td class="col-member">collectibleProductId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-expectedPrice">
+		<td class="col-member">expectedPrice</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-d0e8cfcd943d4ae2-6" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-6">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PrepareCollectiblesPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-28" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-28">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PrepareCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PrepareCollectiblesPurchaseRequested</a></li>
+	</ul></section>
 
 	<section id="member-ProcessReceipt">
 		<header>
@@ -2042,6 +2716,155 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 <li id="version-f7cc9a5caaee4015-25" class="api-sec-RobloxScriptSecurity" diff-element="Event">
 	<a class="history-add" title="Added on 2019-05-06 12:01:20&#10;v0.384.0.300680&#10;version-f7cc9a5caaee4015" href="/ref/updates/2019.html#version-f7cc9a5caaee4015-25">384</a>
 Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptBundlePurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptBundlePurchaseRequested</a></li>
+	</ul></section>
+
+	<section id="member-PromptCollectiblesPurchase" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>PromptCollectiblesPurchase <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/PromptCollectiblesPurchase"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">6</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-assetId">
+		<td class="col-member">assetId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemId">
+		<td class="col-member">collectibleItemId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemInstanceId">
+		<td class="col-member">collectibleItemInstanceId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleProductId">
+		<td class="col-member">collectibleProductId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-expectedPrice">
+		<td class="col-member">expectedPrice</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-d0e8cfcd943d4ae2-5" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-5">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptCollectiblesPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-26" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-26">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchase"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptCollectiblesPurchase</a></li>
+	</ul></section>
+
+	<section id="member-PromptCollectiblesPurchaseRequested" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>PromptCollectiblesPurchaseRequested <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/MarketplaceService/PromptCollectiblesPurchaseRequested"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">8</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-assetId">
+		<td class="col-member">assetId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemId">
+		<td class="col-member">collectibleItemId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleItemInstanceId">
+		<td class="col-member">collectibleItemInstanceId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collectibleProductId">
+		<td class="col-member">collectibleProductId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-expectedPrice">
+		<td class="col-member">expectedPrice</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int.html">int</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-idempotencyKey">
+		<td class="col-member">idempotencyKey</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-purchaseAuthToken">
+		<td class="col-member">purchaseAuthToken</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-d0e8cfcd943d4ae2-7" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-7">588</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptCollectiblesPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleItemInstanceId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> collectibleProductId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> expectedPrice<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> idempotencyKey<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> purchaseAuthToken</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-116c54c684b84afc-29" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-29">587</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptCollectiblesPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptCollectiblesPurchaseRequested</a></li>
 	</ul></section>
 
 	<section id="member-PromptGamePassPurchase">
@@ -2768,6 +3591,70 @@ Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService
 	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> equipIfPurchased<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CurrencyType.html">CurrencyType</a> currencyType</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> equipIfPurchased<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CurrencyType.html">CurrencyType</a> currencyType</span><span class="params-close">)</span></span></span></span></span></li>
 	</ul></section>
 
+	<section id="member-PromptPurchaseRequestedV2" class="api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>PromptPurchaseRequestedV2 <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/MarketplaceService/PromptPurchaseRequestedV2"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">6</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-assetId">
+		<td class="col-member">assetId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-equipIfPurchased">
+		<td class="col-member">equipIfPurchased</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-currencyType">
+		<td class="col-member">currencyType</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/CurrencyType.html">CurrencyType</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-idempotencyKey">
+		<td class="col-member">idempotencyKey</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-purchaseAuthToken">
+		<td class="col-member">purchaseAuthToken</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-98e00d992f0543ee-15" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-06-14 11:03:33&#10;v0.580.0.5800572&#10;version-98e00d992f0543ee" href="/ref/updates/2023.html#version-98e00d992f0543ee-15">580</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptPurchaseRequestedV2"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptPurchaseRequestedV2</a></li>
+	</ul></section>
+
 	<section id="member-PromptRobloxPurchase" class="api-sec-RobloxScriptSecurity">
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>PromptRobloxPurchase <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/PromptRobloxPurchase"><span class="icon devhub-icon"></span>On DevHub</a></h3>
@@ -2862,142 +3749,6 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptRobloxPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptRobloxPurchaseRequested</a></li>
 	</ul></section>
 
-	<section id="member-PromptSubscriptionCancellation">
-		<header>
-			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>PromptSubscriptionCancellation <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/PromptSubscriptionCancellation"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header>
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
-			</tbody>
-		</table>
-		<table class="index-card param-index-card">
-<thead>
-	<tr>
-		<th class="col-member">Name</th>
-		<th class="col-type">Type</th>
-		<th class="col-default">Default</th>
-	</tr>
-</thead>
-<tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-subscriptionId">
-		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-</tbody>
-</table>
-
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
-			</tbody>
-		</table>
-		<h4>History</h4>
-		<ul class="history patch-list truncated-list">
-				
-<li id="version-da56b3062bbf4871-371" diff-element="Function" diff-field="ReturnType">
-	<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-371">573</a>
-Change ReturnType of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a>
-	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/void.html">void</a></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/null.html">null</a></span></span></span></span></li>
-				
-<li id="version-5c910d55759b4a6d-0" diff-element="Function">
-	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-0">393</a>
-Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a></li>
-	</ul></section>
-
-	<section id="member-PromptSubscriptionCancellationFinished">
-		<header>
-			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>PromptSubscriptionCancellationFinished <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/MarketplaceService/PromptSubscriptionCancellationFinished"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
-			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
-			</tbody>
-		</table>
-		<table class="index-card param-index-card">
-<thead>
-	<tr>
-		<th class="col-member">Name</th>
-		<th class="col-type">Type</th>
-		<th class="col-default">Default</th>
-	</tr>
-</thead>
-<tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-subscriptionId">
-		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-wasCanceled">
-		<td class="col-member">wasCanceled</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-</tbody>
-</table>
-
-		<h4>History</h4>
-		<ul class="history patch-list truncated-list">
-				
-<li id="version-5c910d55759b4a6d-5" diff-element="Event">
-	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-5">393</a>
-Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionCancellationFinished</a></li>
-	</ul></section>
-
-	<section id="member-PromptSubscriptionCancellationRequested" class="api-sec-RobloxScriptSecurity">
-		<header>
-			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>PromptSubscriptionCancellationRequested <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/MarketplaceService/PromptSubscriptionCancellationRequested"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><table class="metadata-pairs">
-			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
-			</tbody>
-		</table>
-		<table class="index-card param-index-card">
-<thead>
-	<tr>
-		<th class="col-member">Name</th>
-		<th class="col-type">Type</th>
-		<th class="col-default">Default</th>
-	</tr>
-</thead>
-<tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-subscriptionId">
-		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-</tbody>
-</table>
-
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
-				
-			</tbody>
-		</table>
-		<h4>History</h4>
-		<ul class="history patch-list truncated-list">
-				
-<li id="version-5c910d55759b4a6d-6" class="api-sec-RobloxScriptSecurity" diff-element="Event">
-	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-6">393</a>
-Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionCancellationRequested</a></li>
-	</ul></section>
-
 	<section id="member-PromptSubscriptionPurchase">
 		<header>
 			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>PromptSubscriptionPurchase <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/PromptSubscriptionPurchase"><span class="icon devhub-icon"></span>On DevHub</a></h3>
@@ -3016,14 +3767,14 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 	</tr>
 </thead>
 <tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+	<tr class="row-user">
+		<td class="col-member">user</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Player.html">Player</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
 	<tr class="row-subscriptionId">
 		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
 </tbody>
@@ -3036,6 +3787,19 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 		</table>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
+				
+<li id="version-85135ae360224922-16" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-16">590</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionPurchase</a></li>
+				
+<li id="version-b939b3c8c6ae4057-6" class="api-deprecated" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-6">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionPurchase</a></li>
+				
+<li id="version-116c54c684b84afc-21" diff-element="Function" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-21">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionPurchase</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
 				
 <li id="version-da56b3062bbf4871-372" diff-element="Function" diff-field="ReturnType">
 	<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-372">573</a>
@@ -3064,18 +3828,18 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 	</tr>
 </thead>
 <tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+	<tr class="row-user">
+		<td class="col-member">user</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Player.html">Player</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
 	<tr class="row-subscriptionId">
 		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
-	<tr class="row-wasPurchased">
-		<td class="col-member">wasPurchased</td>
+	<tr class="row-didTryPurchasing">
+		<td class="col-member">didTryPurchasing</td>
 		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
@@ -3084,6 +3848,32 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
+				
+<li id="version-f7c5665ed70e4269-65" diff-element="Event" diff-field="Security">
+	<a class="history-change" title="Changed on 2023-08-30 11:40:38&#10;v0.592.0.5920587&#10;version-f7c5665ed70e4269" href="/ref/updates/2023.html#version-f7c5665ed70e4269-65">592</a>
+Change Security of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">RobloxScriptSecurity</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">None</span></span></span></span></li>
+				
+<li id="version-85135ae360224922-13" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-13">590</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-85135ae360224922-14" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-14">590</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-12" class="api-deprecated" diff-element="Event">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-12">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-13" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-13">589</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-116c54c684b84afc-24" diff-element="Event" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-24">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionPurchaseFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
 				
 <li id="version-5c910d55759b4a6d-7" diff-element="Event">
 	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-7">393</a>
@@ -3095,7 +3885,7 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>PromptSubscriptionPurchaseRequested <a class="devhub-link" href="https://developer.roblox.com/api-reference/event/MarketplaceService/PromptSubscriptionPurchaseRequested"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header><table class="metadata-pairs">
 			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+				<tr><th>Parameters</th><td><span class="element-count">1</td></tr>
 			</tbody>
 		</table>
 		<table class="index-card param-index-card">
@@ -3107,14 +3897,9 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 	</tr>
 </thead>
 <tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
 	<tr class="row-subscriptionId">
 		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
 </tbody>
@@ -3128,6 +3913,16 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Prom
 		</table>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
+				
+<li id="version-85135ae360224922-15" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-15">590</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></span></span></span></li>
+				
+<li id="version-b939b3c8c6ae4057-14" class="api-sec-RobloxScriptSecurity" diff-element="Event" diff-field="Parameters">
+	<a class="history-change" title="Changed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-14">589</a>
+Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchaseRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionPurchaseRequested</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> subscriptionId</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> user<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/string.html">string</a> subscriptionId</span><span class="params-close">)</span></span></span></span></span></li>
 				
 <li id="version-5c910d55759b4a6d-8" class="api-sec-RobloxScriptSecurity" diff-element="Event">
 	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-8">393</a>
@@ -3758,68 +4553,13 @@ Change Parameters of <a class="element-link" href="/ref/class/MarketplaceService
 	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int.html">int</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> success</span><span class="params-close">)</span></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><span class="params-open"> (</span><span class="parameter"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a> player<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a> assetId<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a> success</span><span class="params-close">)</span></span></span></span></span></li>
 	</ul></section>
 
-	<section id="member-SignalPromptSubscriptionCancellationFinished" class="api-sec-RobloxScriptSecurity">
-		<header>
-			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>SignalPromptSubscriptionCancellationFinished <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/SignalPromptSubscriptionCancellationFinished"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header>
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
-			</tbody>
-		</table>
-		<table class="index-card param-index-card">
-<thead>
-	<tr>
-		<th class="col-member">Name</th>
-		<th class="col-type">Type</th>
-		<th class="col-default">Default</th>
-	</tr>
-</thead>
-<tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-subscriptionId">
-		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-wasCanceled">
-		<td class="col-member">wasCanceled</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-</tbody>
-</table>
-
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
-				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
-			</tbody>
-		</table>
-		<h4>History</h4>
-		<ul class="history patch-list truncated-list">
-				
-<li id="version-da56b3062bbf4871-384" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="ReturnType">
-	<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-384">573</a>
-Change ReturnType of <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionCancellationFinished</a>
-	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/void.html">void</a></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/null.html">null</a></span></span></span></span></li>
-				
-<li id="version-5c910d55759b4a6d-2" class="api-sec-RobloxScriptSecurity" diff-element="Function">
-	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-2">393</a>
-Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionCancellationFinished</a></li>
-	</ul></section>
-
 	<section id="member-SignalPromptSubscriptionPurchaseFinished" class="api-sec-RobloxScriptSecurity">
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>SignalPromptSubscriptionPurchaseFinished <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/MarketplaceService/SignalPromptSubscriptionPurchaseFinished"><span class="icon devhub-icon"></span>On DevHub</a></h3>
 		</header>
 		<table class="metadata-pairs">
 			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
 			</tbody>
 		</table>
 		<table class="index-card param-index-card">
@@ -3831,18 +4571,13 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Sign
 	</tr>
 </thead>
 <tbody>
-	<tr class="row-player">
-		<td class="col-member">player</td>
-		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
 	<tr class="row-subscriptionId">
 		<td class="col-member">subscriptionId</td>
-		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/string.html">string</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
-	<tr class="row-wasPurchased">
-		<td class="col-member">wasPurchased</td>
+	<tr class="row-didTryPurchasing">
+		<td class="col-member">didTryPurchasing</td>
 		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
 		<td class="col-default"><span class="api-no-default">none</span></td>
 	</tr>
@@ -3857,6 +4592,19 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-Sign
 		</table>
 		<h4>History</h4>
 		<ul class="history patch-list truncated-list">
+				
+<li id="version-f7c5665ed70e4269-64" diff-element="Function" diff-field="Security">
+	<a class="history-change" title="Changed on 2023-08-30 11:40:38&#10;v0.592.0.5920587&#10;version-f7c5665ed70e4269" href="/ref/updates/2023.html#version-f7c5665ed70e4269-64">592</a>
+Change Security of <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.SignalPromptSubscriptionPurchaseFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">None</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">RobloxScriptSecurity</span></span></span></span></li>
+				
+<li id="version-85135ae360224922-17" diff-element="Function">
+	<a class="history-add" title="Added on 2023-08-15 19:16:23&#10;v0.590.0.5900679&#10;version-85135ae360224922" href="/ref/updates/2023.html#version-85135ae360224922-17">590</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.SignalPromptSubscriptionPurchaseFinished</a></li>
+				
+<li id="version-b939b3c8c6ae4057-8" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-8">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionPurchaseFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionPurchaseFinished</a></li>
 				
 <li id="version-da56b3062bbf4871-385" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="ReturnType">
 	<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-385">573</a>
@@ -4073,6 +4821,220 @@ Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-GetS
 	</ul>
 		<p class="tags">Tags: [Yields]</p></section>
 
+	<section id="member-IsPlayerSubscribed" class="api-deprecated api-removed">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>IsPlayerSubscribed</h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-b939b3c8c6ae4057-9" class="api-deprecated" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-9">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.IsPlayerSubscribed</a></li>
+				
+<li id="version-116c54c684b84afc-22" diff-element="Function" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-22">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.IsPlayerSubscribed</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[Yields]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Yields, Deprecated]</span></span></span></span></li>
+				
+<li id="version-520a34aef2cc4804-20" diff-element="Function">
+	<a class="history-add" title="Added on 2019-08-05 13:53:31&#10;v0.396.0.327208&#10;version-520a34aef2cc4804" href="/ref/updates/2019.html#version-520a34aef2cc4804-20">396</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-IsPlayerSubscribed"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.IsPlayerSubscribed</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields, Deprecated]</p></section>
+
+	<section id="member-PromptSubscriptionCancellation" class="api-deprecated api-removed">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>PromptSubscriptionCancellation</h3>
+		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-b939b3c8c6ae4057-5" class="api-deprecated" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-5">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a></li>
+				
+<li id="version-116c54c684b84afc-20" diff-element="Function" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-20">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
+				
+<li id="version-da56b3062bbf4871-371" diff-element="Function" diff-field="ReturnType">
+	<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-371">573</a>
+Change ReturnType of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/void.html">void</a></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/null.html">null</a></span></span></span></span></li>
+				
+<li id="version-5c910d55759b4a6d-0" diff-element="Function">
+	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-0">393</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellation"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>MarketplaceService.PromptSubscriptionCancellation</a></li>
+	</ul>
+		<p class="tags">Tags: [Deprecated]</p></section>
+
+	<section id="member-PromptSubscriptionCancellationFinished" class="api-deprecated api-removed">
+		<header>
+			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>PromptSubscriptionCancellationFinished</h3>
+		</header><div class="status-list"><div class="status-box status-high"><span class="status-header">This item is deprecated.</span> It exists for backwards-compatibility only, and should not be used for new work.</div></div><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-wasCanceled">
+		<td class="col-member">wasCanceled</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-b939b3c8c6ae4057-10" class="api-deprecated" diff-element="Event">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-10">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionCancellationFinished</a></li>
+				
+<li id="version-116c54c684b84afc-23" diff-element="Event" diff-field="Tags">
+	<a class="history-change" title="Changed on 2023-07-24 14:36:55&#10;v0.587.0.5870056&#10;version-116c54c684b84afc" href="/ref/updates/2023.html#version-116c54c684b84afc-23">587</a>
+Change Tags of <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionCancellationFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">[]</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">[Deprecated]</span></span></span></span></li>
+				
+<li id="version-5c910d55759b4a6d-5" diff-element="Event">
+	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-5">393</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>MarketplaceService.PromptSubscriptionCancellationFinished</a></li>
+	</ul>
+		<p class="tags">Tags: [Deprecated]</p></section>
+
+	<section id="member-PromptSubscriptionCancellationRequested" class="api-removed api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>PromptSubscriptionCancellationRequested</h3>
+		</header><table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">2</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-b939b3c8c6ae4057-11" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-11">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionCancellationRequested</a></li>
+				
+<li id="version-5c910d55759b4a6d-6" class="api-sec-RobloxScriptSecurity" diff-element="Event">
+	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-6">393</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-PromptSubscriptionCancellationRequested"><span class="icon member-icon" title="Protected Event (RobloxScriptSecurity)" style="--icon-index: 12"></span>MarketplaceService.PromptSubscriptionCancellationRequested</a></li>
+	</ul></section>
+
 	<section id="member-SetDevProductInfoUrl" class="api-removed api-sec-LocalUserSecurity">
 		<header>
 			<h3><span class="icon member-icon" title="Protected Function (LocalUserSecurity)" style="--icon-index: 5"></span>SetDevProductInfoUrl</h3>
@@ -4205,6 +5167,65 @@ Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-S
 	<a class="history-change" title="Changed on 2013-01-17 00:08:48&#10;v0.86.0.28496&#10;version-8348ae4a82a047e4" href="/ref/updates/2013.html#version-8348ae4a82a047e4-1">86</a>
 Change Security of <a class="element-link" href="/ref/class/MarketplaceService.html#member-SetProductInfoUrl"><span class="icon member-icon" title="Protected Function (RobloxSecurity)" style="--icon-index: 5"></span>MarketplaceService.SetProductInfoUrl</a>
 	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content">RobloxSecurity</span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content">LocalUserSecurity</span></span></span></span></li>
+	</ul></section>
+
+	<section id="member-SignalPromptSubscriptionCancellationFinished" class="api-removed api-sec-RobloxScriptSecurity">
+		<header>
+			<h3><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>SignalPromptSubscriptionCancellationFinished</h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-player">
+		<td class="col-member">player</td>
+		<td class="col-type"><a title="Category: Class" href="/ref/class/Instance.html">Instance</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-subscriptionId">
+		<td class="col-member">subscriptionId</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/int64.html">int64</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-wasCanceled">
+		<td class="col-member">wasCanceled</td>
+		<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: Primitive" href="/ref/type/null.html">null</a></td></tr>
+				<tr><th>Security</th><td>RobloxScriptSecurity</td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-b939b3c8c6ae4057-7" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-09 10:54:47&#10;v0.589.0.5890595&#10;version-b939b3c8c6ae4057" href="/ref/updates/2023.html#version-b939b3c8c6ae4057-7">589</a>
+Remove <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionCancellationFinished</a></li>
+				
+<li id="version-da56b3062bbf4871-384" class="api-sec-RobloxScriptSecurity" diff-element="Function" diff-field="ReturnType">
+	<a class="history-change" title="Changed on 2023-04-26 18:50:09&#10;v0.573.0.5730507&#10;version-da56b3062bbf4871" href="/ref/updates/2023.html#version-da56b3062bbf4871-384">573</a>
+Change ReturnType of <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionCancellationFinished</a>
+	<span class="diff-values"><span class="row-from"><span class="col-label">from</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/void.html">void</a></span></span></span> <span class="row-to"><span class="col-label">to</span> <span class="col-value"><span class="value-content"><a title="Category: Primitive" href="/ref/type/null.html">null</a></span></span></span></span></li>
+				
+<li id="version-5c910d55759b4a6d-2" class="api-sec-RobloxScriptSecurity" diff-element="Function">
+	<a class="history-add" title="Added on 2019-07-15 15:41:19&#10;v0.393.0.319623&#10;version-5c910d55759b4a6d" href="/ref/updates/2019.html#version-5c910d55759b4a6d-2">393</a>
+Add <a class="element-link" href="/ref/class/MarketplaceService.html#member-SignalPromptSubscriptionCancellationFinished"><span class="icon member-icon" title="Protected Function (RobloxScriptSecurity)" style="--icon-index: 5"></span>MarketplaceService.SignalPromptSubscriptionCancellationFinished</a></li>
 	</ul></section>
 
 	</div>

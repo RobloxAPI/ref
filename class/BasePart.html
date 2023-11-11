@@ -109,6 +109,7 @@
 					<li><a href="#member-CurrentPhysicalProperties">CurrentPhysicalProperties</a></li>
 					<li><a href="#member-CustomPhysicalProperties">CustomPhysicalProperties</a></li>
 					<li class="api-deprecated api-hidden"><a href="#member-Elasticity">Elasticity</a></li>
+					<li><a href="#member-EnableFluidForces">EnableFluidForces</a></li>
 					<li><a href="#member-ExtentsCFrame">ExtentsCFrame</a></li>
 					<li><a href="#member-ExtentsSize">ExtentsSize</a></li>
 					<li class="api-deprecated api-hidden"><a href="#member-Friction">Friction</a></li>
@@ -122,6 +123,7 @@
 					<li><a href="#member-GetMass">GetMass</a></li>
 					<li><a href="#member-GetNetworkOwner">GetNetworkOwner</a></li>
 					<li><a href="#member-GetNetworkOwnershipAuto">GetNetworkOwnershipAuto</a></li>
+					<li><a href="#member-GetNoCollisionConstraints">GetNoCollisionConstraints</a></li>
 					<li class="api-deprecated"><a href="#member-GetRenderCFrame">GetRenderCFrame</a></li>
 					<li><a href="#member-GetRootPart">GetRootPart</a></li>
 					<li><a href="#member-GetTouchingParts">GetTouchingParts</a></li>
@@ -176,8 +178,6 @@
 					<li class="api-deprecated"><a href="#member-getMass">getMass</a></li>
 					<li class="api-deprecated"><a href="#member-makeJoints">makeJoints</a></li>
 					<li class="api-deprecated"><a href="#member-resize">resize</a></li>
-					<li><a href="#member-subtractAsync2_INTERNAL">subtractAsync2_INTERNAL</a></li>
-					<li><a href="#member-unionAsync2_INTERNAL">unionAsync2_INTERNAL</a></li>
 				</ol>
 			</li>
 			<li id="toc-removed-members"><a href="#removed-members">Removed members</a>
@@ -191,7 +191,9 @@
 					<li class="api-removed api-sec-LocalUserSecurity"><a href="#member-NetworkOwnerChanged">NetworkOwnerChanged</a></li>
 					<li class="api-removed api-sec-LocalUserSecurity"><a href="#member-Separate">Separate</a></li>
 					<li class="api-removed api-sec-LocalUserSecurity"><a href="#member-UnionWith">UnionWith</a></li>
+					<li class="api-removed"><a href="#member-subtractAsync2_INTERNAL">subtractAsync2_INTERNAL</a></li>
 					<li class="api-deprecated api-removed"><a href="#member-touched">touched</a></li>
+					<li class="api-removed"><a href="#member-unionAsync2_INTERNAL">unionAsync2_INTERNAL</a></li>
 				</ol>
 			</li>
 			<li id="toc-references">References
@@ -469,6 +471,14 @@
 				<a class="history-change" title="Changed on 2018-08-22 01:08:01&#10;v0.350.0.231118&#10;version-b1608e1979a946f3" href="/ref/updates/2018.html#version-b1608e1979a946f3-4">350</a>
 				<a class="history-change" title="Changed on 2018-08-22 16:42:54&#10;v0.351.0.232950&#10;version-1d1c92210a5a42f8" href="/ref/updates/2018.html#version-1d1c92210a5a42f8-4">351</a>
 				<a class="history-change" title="Changed on 2021-04-26 15:52:54&#10;v0.476.0.421371&#10;version-7e6cbc662641461f" href="/ref/updates/2021.html#version-7e6cbc662641461f-1">476</a>
+	</span></td>
+		</tr>
+		<tr class="member-EnableFluidForces row-Property">
+			<td class="col-type"><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/BasePart.html#member-EnableFluidForces">EnableFluidForces</a></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-06-21 00:03:46&#10;v0.581.0.5810563&#10;version-d9128aa1071a43de" href="/ref/updates/2023.html#version-d9128aa1071a43de-22">581</a>
 	</span></td>
 		</tr>
 		<tr class="member-ExtentsCFrame row-Property">
@@ -908,6 +918,14 @@
 				<a class="history-add" title="Added on 2015-06-17 23:30:47&#10;v0.200.0.60693&#10;version-ea077ae9bef64263" href="/ref/updates/2015.html#version-ea077ae9bef64263-5">200</a>
 	</span></td>
 		</tr>
+		<tr class="member-GetNoCollisionConstraints row-Function">
+			<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/BasePart.html#member-GetNoCollisionConstraints">GetNoCollisionConstraints</a><span class="params-open"> (</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-07-11 17:15:23&#10;v0.583.2.5831070&#10;version-f5c75c53fe5e490b" href="/ref/updates/2023.html#version-f5c75c53fe5e490b-26">583</a>
+	</span></td>
+		</tr>
 		<tr class="member-GetRenderCFrame row-Function api-deprecated">
 			<td class="col-type"><a title="Category: DataType" href="/ref/type/CFrame.html">CFrame</a></td>
 			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
@@ -1054,22 +1072,6 @@
 				<a class="history-add" title="Added on 2012-02-01 23:51:17&#10;v0.50.0.505&#10;version-87d7b36a1a2e43ec" href="/ref/updates/2012.html#version-87d7b36a1a2e43ec-26">50</a>
 	</span></td>
 		</tr>
-		<tr class="member-subtractAsync2_INTERNAL row-Function">
-			<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
-			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/BasePart.html#member-subtractAsync2_INTERNAL">subtractAsync2_INTERNAL</a><span class="params-open"> (</span><span class="parameter"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a> parts<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a> collisionfidelity = Default<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a> renderFidelity = Automatic</span><span class="params-close">)</span></span></td>
-			<td class="col-history"><span class="history">
-				<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-42">557</a>
-	</span></td>
-		</tr>
-		<tr class="member-unionAsync2_INTERNAL row-Function">
-			<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
-			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
-			<td class="col-member"><span class="member-text"><a href="/ref/class/BasePart.html#member-unionAsync2_INTERNAL">unionAsync2_INTERNAL</a><span class="params-open"> (</span><span class="parameter"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a> parts<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a> collisionfidelity = Default<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a> renderFidelity = Automatic</span><span class="params-close">)</span></span></td>
-			<td class="col-history"><span class="history">
-				<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-43">557</a>
-	</span></td>
-		</tr>
 		<tr class="member-LocalSimulationTouched row-Event api-deprecated">
 			<td class="col-type"></td>
 			<td class="col-icon"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span></td>
@@ -1120,14 +1122,14 @@
 	</thead>
 	<thead>
 		<tr>
-			<th class="inherited-members" colspan="4"><a class="member-count">55 members</a> inherited from <a class="element-link" href="/ref/class/Instance.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></th>
+			<th class="inherited-members" colspan="4"><a class="member-count">57 members</a> inherited from <a class="element-link" href="/ref/class/Instance.html#members-index"><span class="icon class-icon" title="Class" style="--icon-index: 0"></span>Instance</a></th>
 		</tr>
 	</thead>
 	</table>
 </section>
 <section id="removed-members-index">
 	<header>
-		<h2>Removed member index <span class="element-count">(10)</span></h2>
+		<h2>Removed member index <span class="element-count">(12)</span></h2>
 	</header>
 	<table class="index-card member-index-card">
 	<thead>
@@ -1211,6 +1213,24 @@
 				<a class="history-remove" title="Removed on 2018-08-28 17:22:15&#10;v0.352.0.235319&#10;version-a4cddee788a44c99" href="/ref/updates/2018.html#version-a4cddee788a44c99-5">352</a>
 	</span></td>
 		</tr>
+		<tr class="member-subtractAsync2_INTERNAL row-Function api-removed">
+			<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/BasePart.html#member-subtractAsync2_INTERNAL">subtractAsync2_INTERNAL</a><span class="params-open"> (</span><span class="parameter"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a> parts<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a> collisionfidelity = Default<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a> renderFidelity = Automatic</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-42">557</a>
+				<a class="history-remove" title="Removed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-16">588</a>
+	</span></td>
+		</tr>
+		<tr class="member-unionAsync2_INTERNAL row-Function api-removed">
+			<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
+			<td class="col-icon"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span></td>
+			<td class="col-member"><span class="member-text"><a href="/ref/class/BasePart.html#member-unionAsync2_INTERNAL">unionAsync2_INTERNAL</a><span class="params-open"> (</span><span class="parameter"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a> parts<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a> collisionfidelity = Default<span class="params-sep">, </span></span><span class="parameter"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a> renderFidelity = Automatic</span><span class="params-close">)</span></span></td>
+			<td class="col-history"><span class="history">
+				<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-43">557</a>
+				<a class="history-remove" title="Removed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-17">588</a>
+	</span></td>
+		</tr>
 		<tr class="member-NetworkOwnerChanged row-Event api-removed api-sec-LocalUserSecurity">
 			<td class="col-type"></td>
 			<td class="col-icon"><span class="icon member-icon" title="Protected Event (LocalUserSecurity)" style="--icon-index: 12"></span></td>
@@ -1238,6 +1258,22 @@
 		<aside id="history-controls" class="controls"></aside>
 	</header>
 	<ul class="history patch-list truncated-list">
+				
+<li id="version-d0e8cfcd943d4ae2-16" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-16">588</a>
+Remove <a class="element-link" href="/ref/class/BasePart.html#member-subtractAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.subtractAsync2_INTERNAL</a></li>
+				
+<li id="version-d0e8cfcd943d4ae2-17" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-17">588</a>
+Remove <a class="element-link" href="/ref/class/BasePart.html#member-unionAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.unionAsync2_INTERNAL</a></li>
+				
+<li id="version-f5c75c53fe5e490b-26" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-11 17:15:23&#10;v0.583.2.5831070&#10;version-f5c75c53fe5e490b" href="/ref/updates/2023.html#version-f5c75c53fe5e490b-26">583</a>
+Add <a class="element-link" href="/ref/class/BasePart.html#member-GetNoCollisionConstraints"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.GetNoCollisionConstraints</a></li>
+				
+<li id="version-d9128aa1071a43de-22" diff-element="Property">
+	<a class="history-add" title="Added on 2023-06-21 00:03:46&#10;v0.581.0.5810563&#10;version-d9128aa1071a43de" href="/ref/updates/2023.html#version-d9128aa1071a43de-22">581</a>
+Add <a class="element-link" href="/ref/class/BasePart.html#member-EnableFluidForces"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>BasePart.EnableFluidForces</a></li>
 				
 <li id="version-6eaeb4d7cda146c1-7" diff-element="Function">
 	<a class="history-add" title="Added on 2023-05-17 11:55:31&#10;v0.576.0.5760523&#10;version-6eaeb4d7cda146c1" href="/ref/updates/2023.html#version-6eaeb4d7cda146c1-7">576</a>
@@ -3075,6 +3111,27 @@ Change Tags of <a class="element-link" href="/ref/class/BasePart.html#member-Ela
 	</ul>
 		<p class="tags">Tags: [Hidden, NotReplicated, Deprecated]</p></section>
 
+	<section id="member-EnableFluidForces">
+		<header>
+			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>EnableFluidForces <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/BasePart/EnableFluidForces"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Value Type</th><td><a title="Category: Primitive" href="/ref/type/bool.html">bool</a></td></tr>
+				<tr><th>Category</th><td>Behavior</td></tr>
+				<tr><th>Can Load</th><td>true</td></tr>
+				<tr><th>Can Save</th><td>true</td></tr>
+				
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-d9128aa1071a43de-22" diff-element="Property">
+	<a class="history-add" title="Added on 2023-06-21 00:03:46&#10;v0.581.0.5810563&#10;version-d9128aa1071a43de" href="/ref/updates/2023.html#version-d9128aa1071a43de-22">581</a>
+Add <a class="element-link" href="/ref/class/BasePart.html#member-EnableFluidForces"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>BasePart.EnableFluidForces</a></li>
+	</ul></section>
+
 	<section id="member-ExtentsCFrame">
 		<header>
 			<h3><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>ExtentsCFrame <a class="devhub-link" href="https://developer.roblox.com/api-reference/property/BasePart/ExtentsCFrame"><span class="icon devhub-icon"></span>On DevHub</a></h3>
@@ -3490,6 +3547,43 @@ Add <a class="element-link" href="/ref/class/BasePart.html#member-GetNetworkOwne
 <li id="version-ea077ae9bef64263-5" diff-element="Function">
 	<a class="history-add" title="Added on 2015-06-17 23:30:47&#10;v0.200.0.60693&#10;version-ea077ae9bef64263" href="/ref/updates/2015.html#version-ea077ae9bef64263-5">200</a>
 Add <a class="element-link" href="/ref/class/BasePart.html#member-GetNetworkOwnershipAuto"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.GetNetworkOwnershipAuto</a></li>
+	</ul></section>
+
+	<section id="member-GetNoCollisionConstraints">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>GetNoCollisionConstraints <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/BasePart/GetNoCollisionConstraints"><span class="icon devhub-icon"></span>On DevHub</a></h3>
+		</header>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">0</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td colspan="3">No parameters.</td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-f5c75c53fe5e490b-26" diff-element="Function">
+	<a class="history-add" title="Added on 2023-07-11 17:15:23&#10;v0.583.2.5831070&#10;version-f5c75c53fe5e490b" href="/ref/updates/2023.html#version-f5c75c53fe5e490b-26">583</a>
+Add <a class="element-link" href="/ref/class/BasePart.html#member-GetNoCollisionConstraints"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.GetNoCollisionConstraints</a></li>
 	</ul></section>
 
 	<section id="member-GetRenderCFrame" class="api-deprecated">
@@ -5195,106 +5289,6 @@ Add <a class="element-link" href="/ref/class/BasePart.html#member-resize"><span 
 	</ul>
 		<p class="tags">Tags: [Deprecated]</p></section>
 
-	<section id="member-subtractAsync2_INTERNAL">
-		<header>
-			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>subtractAsync2_INTERNAL <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/BasePart/subtractAsync2INTERNAL"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
-			</tbody>
-		</table>
-		<table class="index-card param-index-card">
-<thead>
-	<tr>
-		<th class="col-member">Name</th>
-		<th class="col-type">Type</th>
-		<th class="col-default">Default</th>
-	</tr>
-</thead>
-<tbody>
-	<tr class="row-parts">
-		<td class="col-member">parts</td>
-		<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-collisionfidelity">
-		<td class="col-member">collisionfidelity</td>
-		<td class="col-type"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a></td>
-		<td class="col-default"><span class="api-default">Default</span></td>
-	</tr>
-	<tr class="row-renderFidelity">
-		<td class="col-member">renderFidelity</td>
-		<td class="col-type"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a></td>
-		<td class="col-default"><span class="api-default">Automatic</span></td>
-	</tr>
-</tbody>
-</table>
-
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td></tr>
-			</tbody>
-		</table>
-		<h4>History</h4>
-		<ul class="history patch-list truncated-list">
-				
-<li id="version-e347054dd7884aef-42" diff-element="Function">
-	<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-42">557</a>
-Add <a class="element-link" href="/ref/class/BasePart.html#member-subtractAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.subtractAsync2_INTERNAL</a></li>
-	</ul>
-		<p class="tags">Tags: [Yields]</p></section>
-
-	<section id="member-unionAsync2_INTERNAL">
-		<header>
-			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>unionAsync2_INTERNAL <a class="devhub-link" href="https://developer.roblox.com/api-reference/function/BasePart/unionAsync2INTERNAL"><span class="icon devhub-icon"></span>On DevHub</a></h3>
-		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
-			</tbody>
-		</table>
-		<table class="index-card param-index-card">
-<thead>
-	<tr>
-		<th class="col-member">Name</th>
-		<th class="col-type">Type</th>
-		<th class="col-default">Default</th>
-	</tr>
-</thead>
-<tbody>
-	<tr class="row-parts">
-		<td class="col-member">parts</td>
-		<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
-		<td class="col-default"><span class="api-no-default">none</span></td>
-	</tr>
-	<tr class="row-collisionfidelity">
-		<td class="col-member">collisionfidelity</td>
-		<td class="col-type"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a></td>
-		<td class="col-default"><span class="api-default">Default</span></td>
-	</tr>
-	<tr class="row-renderFidelity">
-		<td class="col-member">renderFidelity</td>
-		<td class="col-type"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a></td>
-		<td class="col-default"><span class="api-default">Automatic</span></td>
-	</tr>
-</tbody>
-</table>
-
-		<table class="metadata-pairs">
-			<tbody>
-				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td></tr>
-			</tbody>
-		</table>
-		<h4>History</h4>
-		<ul class="history patch-list truncated-list">
-				
-<li id="version-e347054dd7884aef-43" diff-element="Function">
-	<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-43">557</a>
-Add <a class="element-link" href="/ref/class/BasePart.html#member-unionAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.unionAsync2_INTERNAL</a></li>
-	</ul>
-		<p class="tags">Tags: [Yields]</p></section>
-
 	</div>
 </section>
 <section id="removed-members">
@@ -5603,6 +5597,60 @@ Remove <a class="element-link" href="/ref/class/BasePart.html#member-UnionWith">
 Add <a class="element-link" href="/ref/class/BasePart.html#member-UnionWith"><span class="icon member-icon" title="Protected Function (LocalUserSecurity)" style="--icon-index: 5"></span>BasePart.UnionWith</a></li>
 	</ul></section>
 
+	<section id="member-subtractAsync2_INTERNAL" class="api-removed">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>subtractAsync2_INTERNAL</h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-parts">
+		<td class="col-member">parts</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collisionfidelity">
+		<td class="col-member">collisionfidelity</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a></td>
+		<td class="col-default"><span class="api-default">Default</span></td>
+	</tr>
+	<tr class="row-renderFidelity">
+		<td class="col-member">renderFidelity</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a></td>
+		<td class="col-default"><span class="api-default">Automatic</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-d0e8cfcd943d4ae2-16" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-16">588</a>
+Remove <a class="element-link" href="/ref/class/BasePart.html#member-subtractAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.subtractAsync2_INTERNAL</a></li>
+				
+<li id="version-e347054dd7884aef-42" diff-element="Function">
+	<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-42">557</a>
+Add <a class="element-link" href="/ref/class/BasePart.html#member-subtractAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.subtractAsync2_INTERNAL</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
 	<section id="member-touched" class="api-deprecated api-removed">
 		<header>
 			<h3><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>touched</h3>
@@ -5641,6 +5689,60 @@ Add <a class="element-link" href="/ref/class/BasePart.html#member-touched"><span
 	</ul>
 		<p class="tags">Tags: [Deprecated]</p></section>
 
+	<section id="member-unionAsync2_INTERNAL" class="api-removed">
+		<header>
+			<h3><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>unionAsync2_INTERNAL</h3>
+		</header><div class="status-list"><div class="status-box status-medium"><span class="status-header">This function yields.</span> It will block the calling thread until completion.</div></div>
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Parameters</th><td><span class="element-count">3</td></tr>
+			</tbody>
+		</table>
+		<table class="index-card param-index-card">
+<thead>
+	<tr>
+		<th class="col-member">Name</th>
+		<th class="col-type">Type</th>
+		<th class="col-default">Default</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="row-parts">
+		<td class="col-member">parts</td>
+		<td class="col-type"><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td>
+		<td class="col-default"><span class="api-no-default">none</span></td>
+	</tr>
+	<tr class="row-collisionfidelity">
+		<td class="col-member">collisionfidelity</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/CollisionFidelity.html">CollisionFidelity</a></td>
+		<td class="col-default"><span class="api-default">Default</span></td>
+	</tr>
+	<tr class="row-renderFidelity">
+		<td class="col-member">renderFidelity</td>
+		<td class="col-type"><a title="Category: Enum" href="/ref/enum/RenderFidelity.html">RenderFidelity</a></td>
+		<td class="col-default"><span class="api-default">Automatic</span></td>
+	</tr>
+</tbody>
+</table>
+
+		<table class="metadata-pairs">
+			<tbody>
+				<tr><th>Return Type</th><td><a title="Category: DataType" href="/ref/type/Objects.html">Objects</a></td></tr>
+			</tbody>
+		</table>
+		<h4>History</h4>
+		<ul class="history patch-list truncated-list">
+				
+<li id="version-d0e8cfcd943d4ae2-17" diff-element="Function">
+	<a class="history-remove" title="Removed on 2023-08-02 14:43:17&#10;v0.588.0.5880517&#10;version-d0e8cfcd943d4ae2" href="/ref/updates/2023.html#version-d0e8cfcd943d4ae2-17">588</a>
+Remove <a class="element-link" href="/ref/class/BasePart.html#member-unionAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.unionAsync2_INTERNAL</a></li>
+				
+<li id="version-e347054dd7884aef-43" diff-element="Function">
+	<a class="history-add" title="Added on 2023-01-03 16:43:41&#10;v0.557.0.5570255&#10;version-e347054dd7884aef" href="/ref/updates/2023.html#version-e347054dd7884aef-43">557</a>
+Add <a class="element-link" href="/ref/class/BasePart.html#member-unionAsync2_INTERNAL"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.unionAsync2_INTERNAL</a></li>
+	</ul>
+		<p class="tags">Tags: [Yields]</p></section>
+
 	</div>
 </section>
 <section id="references">
@@ -5669,15 +5771,18 @@ Add <a class="element-link" href="/ref/class/BasePart.html#member-touched"><span
 	</section>
 <section id="referrers">
 	<header>
-		<h2>Relevant members <span class="element-count">(39)</span></h2>
+		<h2>Relevant members <span class="element-count">(42)</span></h2>
 	</header>
 	<ul class="truncated-list element-list">
+		<li class="api-deprecated api-hidden"><a class="element-link" href="/ref/class/AnimationConstraint.html#member-Part0"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>AnimationConstraint.Part0</a></li>
+		<li class="api-deprecated api-hidden"><a class="element-link" href="/ref/class/AnimationConstraint.html#member-Part1"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>AnimationConstraint.Part1</a></li>
 		<li><a class="element-link" href="/ref/class/BasePart.html#member-AssemblyRootPart"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>BasePart.AssemblyRootPart</a></li>
 		<li><a class="element-link" href="/ref/class/BasePart.html#member-CanCollideWith"><span class="icon member-icon" title="Function" style="--icon-index: 4"></span>BasePart.CanCollideWith</a> (part)</li>
 		<li class="api-deprecated"><a class="element-link" href="/ref/class/BasePart.html#member-LocalSimulationTouched"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>BasePart.LocalSimulationTouched</a> (part)</li>
 		<li class="api-deprecated"><a class="element-link" href="/ref/class/BasePart.html#member-StoppedTouching"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>BasePart.StoppedTouching</a> (otherPart)</li>
 		<li><a class="element-link" href="/ref/class/BasePart.html#member-TouchEnded"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>BasePart.TouchEnded</a> (otherPart)</li>
 		<li><a class="element-link" href="/ref/class/BasePart.html#member-Touched"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>BasePart.Touched</a> (otherPart)</li>
+		<li><a class="element-link" href="/ref/class/ControllerManager.html#member-RootPart"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>ControllerManager.RootPart</a></li>
 		<li><a class="element-link" href="/ref/class/ControllerPartSensor.html#member-SensedPart"><span class="icon member-icon" title="Property" style="--icon-index: 6"></span>ControllerPartSensor.SensedPart</a></li>
 		<li><a class="element-link" href="/ref/class/DragDetector.html#member-DragStart"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>DragDetector.DragStart</a> (clickedPart)</li>
 		<li><a class="element-link" href="/ref/class/Explosion.html#member-Hit"><span class="icon member-icon" title="Event" style="--icon-index: 11"></span>Explosion.Hit</a> (part)</li>
