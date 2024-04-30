@@ -1,101 +1,183 @@
-{
-	"name": "Deploy website",
-	"on": {
-		"schedule": [{"cron": "19 */6 * * *"}],
-		"push": {
-			"branches": ["deploy"],
-		},
-		"workflow_dispatch": {},
-	},
-	"jobs": {
-		"deploy": {
-			"name": "Build and deploy",
-			"timeout-minutes": 5,
-			"runs-on": "ubuntu-latest",
-			"steps": [
-				{
-					"name": "Print environment",
-					"run": "printenv && pwd",
-				},
-				{
-					"name": "Print Go environment",
-					"run": "go version && go env",
-				},
-				{
-					"name": "Checkout website repository",
-					"uses": "actions/checkout@v2",
-					"with": {
-						"fetch-depth": 1,
-						"ref": "gh-pages",
-						"path": "robloxapi.github.io/ref",
-					},
-				},
-				{
-					"name": "Checkout documentation repository",
-					"uses": "actions/checkout@v2",
-					"with": {
-						"repository": "RobloxAPI/doc",
-						"fetch-depth": 1,
-						"ref": "master",
-						"path": "doc",
-					},
-				},
-				{
-					"name": "Checkout executable repository",
-					"uses": "actions/checkout@v2",
-					"with": {
-						"repository": "RobloxAPI/rbxapiref",
-						"fetch-depth": 1,
-						"ref": "master",
-						"path": "rbxapiref",
-					},
-				},
-				{
-					"name": "Generate module",
-					"run": "
-						cd rbxapiref &&
-						go mod init github.com/robloxapi/rbxapiref ||
-						true
-					",
-				},
-				{
-					"name": "Get dependencies",
-					"run": "
-						cd rbxapiref &&
-						go get -v -d ./...
-					",
-				},
-				{
-					"name": "Compile executable",
-					"run": "
-						cd rbxapiref/cmd/rbxapiref &&
-						go build -v .
-					",
-				},
-				{
-					"name": "Rebuild website",
-					"run": "
-						cd robloxapi.github.io/ref &&
-						../../rbxapiref/cmd/rbxapiref/rbxapiref -s .github/settings.json
-					",
-				},
-				{
-					"name": "Commit and push website",
-					"env": {
-						"ACCESS_TOKEN": "${{ secrets.ACCESS_TOKEN }}",
-					},
-					"run": "
-						cd robloxapi.github.io/ref &&
-						git config user.email 'anaminus@protonmail.com' &&
-						git config user.name 'Anaminus' &&
-						git remote set-url origin https://$GITHUB_ACTOR:$ACCESS_TOKEN@github.com/$GITHUB_REPOSITORY.git &&
-						git add -A &&
-						git commit -m 'Update reference.' &&
-						git push origin gh-pages ||
-						true
-					",
-				},
-			],
-		},
-	},
-}
+name: "Deploy website"
+
+env:
+  HUGO_VERSION: "0.123.8"
+
+on:
+  schedule:
+  - cron: "19 */6 * * *"
+  # push:
+  #   branches:
+  #   - "deploy"
+  workflow_dispatch: {}
+
+jobs:
+  "deploy":
+    name: "Build and deploy"
+    timeout-minutes: 10
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: "Print environment"
+      run: |
+        printenv
+        pwd
+
+    # Check commits of build-archive and roar repositories. If both result in a
+    # cache hit, then all subsequent steps can be skipped. The steps for both
+    # repos are the same, other than the repo name. It would be possible to
+    # combine them into a single job with a matrix. However, them being in a
+    # separate job means that their caches would save before the main job
+    # finishes. That is, the repos would still be cached even if the main job
+    # fails for some reason.
+
+    - name: "Fetch latest commit hash of build-archive"
+      id: "check-fetch-build-archive"
+      # Emit hash to output, but also store it in a file to be used as the
+      # cached file, since at least one path is required.
+      run: |
+        mkdir -p meta
+        echo "hash=$(git ls-remote https://github.com/RobloxAPI/build-archive HEAD | cut -f 1)" > meta/commit-build-archive
+        cat meta/commit-build-archive >> "$GITHUB_OUTPUT"
+        cat meta/commit-build-archive
+
+    - name: "Cache commit hash of build-archive"
+      id: "check-cache-build-archive"
+      uses: "actions/cache@v4"
+      with:
+        key: "commit-build-archive-${{ steps.check-fetch-build-archive.outputs.hash }}"
+        path: |
+          meta/commit-build-archive
+
+    - name: "Fetch latest commit hash of roar"
+      id: "check-fetch-roar"
+      # Same as with build-archive. The stored file is also used in a later step
+      # to cache a build result.
+      run: |
+        mkdir -p meta
+        echo "hash=$(git ls-remote https://github.com/RobloxAPI/roar HEAD | cut -f 1)" > meta/commit-roar
+        cat meta/commit-roar >> "$GITHUB_OUTPUT"
+        cat meta/commit-roar
+
+    - name: "Cache commit hash of roar"
+      id: "check-cache-roar"
+      uses: "actions/cache@v4"
+      with:
+        key: "commit-roar-${{ steps.check-fetch-roar.outputs.hash }}"
+        path: |
+          meta/commit-roar
+
+    # If either previous cache did not have a hit, then at least one of them is
+    # fresh, so the following steps must run.
+
+    - name: "Checkout roar"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      uses: "actions/checkout@v4"
+      with:
+        repository: "RobloxAPI/roar"
+        path: "roar"
+
+    - name: "Checkout ref"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      uses: "actions/checkout@v4"
+      with:
+        ref: "gh-pages"
+        path: "ref"
+
+    # roar uses the history file to avoid rebuilding the entire database from
+    # scratch. The cache is abused here to effectively store the latest version
+    # of the file without having to commit it anywhere. The use of run_id forces
+    # a new cache to be generated every run. The restore prefix causes the most
+    # recent cache to be restored.
+    - name: "Cache history"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      uses: "actions/cache@v4"
+      with:
+        path: |
+          roar/site/data/History.json
+        key: "history-${{ github.run_id }}"
+        restore-keys: |
+          history-
+
+    - name: "Cache roar"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      id: "cache-roar"
+      uses: "actions/cache@v4"
+      with:
+        path: |
+          bin/roar
+        # Cache binary by commit hash.
+        key: "bin-roar-${{ steps.check-fetch-roar.outputs.hash }}"
+
+    - name: "Setup Hugo"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      uses: "peaceiris/actions-hugo@v2"
+      with:
+        hugo-version: ${{ env.HUGO_VERSION }}
+        extended: true
+
+    # The steps to build roar run only if there was no cache hit on the roar
+    # binary.
+    - name: "Setup Go"
+      if: |
+        (steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true') &&
+        steps.cache-roar.outputs.cache-hit != 'true'
+      uses: "actions/setup-go@v4"
+      with:
+        go-version-file: "roar/go.mod"
+        cache-dependency-path: |
+          roar/go.sum
+    - name: "Build roar"
+      if: |
+        (steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true') &&
+        steps.cache-roar.outputs.cache-hit != 'true'
+      run: |
+        go build -C "roar" -v -o "../bin/roar" "./cmd/roar"
+
+    - name: "Generate data"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      run: |
+        bin/roar generate \
+        --site "roar/site" \
+        --source "https://raw.githubusercontent.com/RobloxAPI/build-archive/master/data/" \
+        --docs "https://github.com/Roblox/creator-docs" \
+        --update
+
+    - name: "Build website"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      # --destination is relative to --source.
+      run: |
+        hugo \
+        --logLevel info \
+        --minify \
+        --source "roar/site" \
+        --destination "../../ref" \
+        --baseURL "https://robloxapi.github.io/${{ github.event.repository.name }}/"
+
+    - name: "Commit and push website"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      run: |
+        cd "ref"
+        git config user.email 'github-actions@github.com'
+        git config user.name 'github-actions'
+        git add -A
+        git commit -m 'Update reference.'
+        git push
+      continue-on-error: true
