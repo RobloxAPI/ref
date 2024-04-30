@@ -1,0 +1,50 @@
+# Manually rebuild the history cache.
+name: "Refresh cache"
+on:
+  workflow_dispatch: {}
+jobs:
+  "deploy":
+    name: "Build and deploy"
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: "Checkout roar"
+      uses: "actions/checkout@v4"
+      with:
+        repository: "RobloxAPI/roar"
+        path: "roar"
+
+    - name: "Checkout build-archive"
+      uses: "actions/checkout@v4"
+      with:
+        repository: "RobloxAPI/build-archive"
+        path: "build-archive"
+
+    - name: "Setup Go"
+      uses: "actions/setup-go@v4"
+      with:
+        go-version-file: "roar/go.mod"
+        cache-dependency-path: |
+          roar/go.sum
+
+    - name: "Build roar"
+      run: |
+        go build -C "roar" -v -o "../bin/roar" "./cmd/roar"
+
+    - name: "Generate data"
+      run: |
+        bin/roar generate \
+        --site "roar/site" \
+        --source "build-archive/data/" \
+        --update \
+        --no-cache \
+        --disable-index \
+        --disable-dump \
+        --disable-reflect \
+        --disable-pages
+
+    - name: "Cache history"
+      uses: "actions/cache/save@v4"
+      with:
+        path: |
+          roar/site/data/History.json
+        key: "history-${{ github.run_id }}"
