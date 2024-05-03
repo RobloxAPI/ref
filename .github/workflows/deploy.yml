@@ -156,6 +156,15 @@ jobs:
         --docs "https://github.com/Roblox/creator-docs" \
         --update
 
+    - name: "Clear website"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      # Remove everything except hidden files (.git).
+      run: |
+        cd "ref"
+        rm --recursive --force *
+
     - name: "Build website"
       if: |
         steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
@@ -167,7 +176,6 @@ jobs:
         --minify \
         --source "roar/site" \
         --destination "../../ref" \
-        --cleanDestinationDir \
         --baseURL "https://robloxapi.github.io/${{ github.event.repository.name }}/"
 
     - name: "Commit and push website"
