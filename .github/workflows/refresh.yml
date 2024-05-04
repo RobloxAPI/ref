@@ -1,4 +1,4 @@
-# Manually rebuild the history cache.
+# Manually rebuild stored data from scratch.
 name: "Refresh cache"
 on:
   workflow_dispatch: {}
@@ -19,6 +19,12 @@ jobs:
         repository: "RobloxAPI/build-archive"
         path: "build-archive"
 
+    - name: "Checkout ref"
+      uses: "actions/checkout@v4"
+      with:
+        ref: "gh-pages"
+        path: "ref"
+
     - name: "Setup Go"
       uses: "actions/setup-go@v4"
       with:
@@ -37,14 +43,24 @@ jobs:
         --source "build-archive/data/" \
         --update \
         --no-cache \
-        --disable-index \
-        --disable-dump \
-        --disable-reflect \
-        --disable-pages
+        --disable-pages \
+        --disable-icons
 
-    - name: "Cache history"
-      uses: "actions/cache/save@v4"
-      with:
-        path: |
-          roar/site/data/History.json
-        key: "history-${{ github.run_id }}"
+    - name: "Store site data"
+      run: |
+        rm --recursive --force "ref/.roar"
+        mkdir --parents "ref/.roar"
+        cp --archive "roar/site/data/." "ref/.roar"
+
+    - name: "Commit and push website"
+      if: |
+        steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
+        steps.check-cache-roar.outputs.cache-hit != 'true'
+      run: |
+        cd "ref"
+        git config user.email 'github-actions@github.com'
+        git config user.name 'github-actions'
+        git add -A
+        git commit -m 'Refresh data.'
+        git push
+      continue-on-error: true
