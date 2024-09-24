@@ -353,7 +353,9 @@ distance values are directly above and below <code>d</code>. If there is either 
 point below <code>d</code> or no point above <code>d</code>, the volume level of the other point
 is chosen. Essentially, the curve is a sequence of points connected by
 straight lines, and beyond its left and right endpoints the curve extends
-outward infinitely at their respective volume levels.</p><p>If the table is empty or <code>nil</code>, the <a href=/ref/class/AudioEmitter.html>AudioEmitter</a> defaults to using
+outward infinitely at their respective volume levels.</p><p>This volume will be multiplied with the volume from the
+<a href=/ref/class/AudioListener.html#member-DistanceAttenuation>AudioListener.DistanceAttenuation</a> curve of the <a href=/ref/class/AudioListener.html>AudioListener</a>
+to obtain the final audibility.</p><p>If the table is empty or <code>nil</code>, the <a href=/ref/class/AudioEmitter.html>AudioEmitter</a> defaults to using
 a distance attenuation curve determined by the inverse-square law.</p></div><div class=status-list><div class="status-box low"><span class=header>This function has a custom internal state.</span> It may behave in a non-standard way.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2024.html#version-94667ff7b9b64821-4 title="Added on 2024-04-09T13:05:06-07:00
 v0.620.0.6200463
 version-94667ff7b9b64821">620</a>
