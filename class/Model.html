@@ -1226,8 +1226,11 @@ Add <a class="entity-link deco hidden unscriptable" href=/ref/class/Model.html#m
 <a href=/ref/class/BasePart.html>BasePart</a> that acts as the physical reference for the pivot of the
 model. That is, when parts within the model are moved due to physical
 simulation or other means, the pivot will move in sync with the primary
-part. If the primary part is <strong>not</strong> set, the pivot will remain at the
-same location in world space even if parts within the model are moved.</p><p>Note that when setting this property, it must be a <a href=/ref/class/BasePart.html>BasePart</a> that
+part.</p><p>Note that <a href=/ref/class/Model.html>Models</a> do not have <code>PrimaryPart</code> set by
+default. If you are creating a model that needs to be acted upon by
+physics, you should manually set this property in Studio or within a
+script. If the primary part is <strong>not</strong> set, the pivot will remain at the
+same location in world space, even if parts within the model are moved.</p><p>Also note that when setting this property, it must be a <a href=/ref/class/BasePart.html>BasePart</a> that
 is a descendant of the model. If you try to set <a href=/ref/class/Model.html#member-PrimaryPart>Model.PrimaryPart</a>
 to a <a href=/ref/class/BasePart.html>BasePart</a> that is <strong>not</strong> a descendant of the model, it will
 be set to that part but reset to <code>nil</code> during the next simulation step
