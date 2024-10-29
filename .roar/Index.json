@@ -6800,7 +6800,7 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 1,
+					"Index": 0,
 					"Type": {
 						"Category": "Class",
 						"Name": "Annotation"
@@ -6839,7 +6839,7 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 1,
+					"Index": 0,
 					"Type": {
 						"Category": "Class",
 						"Name": "Annotation"
@@ -6884,6 +6884,19 @@
 				"<<<ROOT>>>"
 			],
 			"Related": [
+				{
+					"Class": "AnnotationsService",
+					"Member": "AnnotationsVisible",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
 				{
 					"Class": "AnnotationsService",
 					"Member": "Hovered",
@@ -7006,9 +7019,22 @@
 					"Member": "LoadAnnotationReplies",
 					"MemberType": "Function",
 					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
+					"Member": "LoadResolvedAnnotations",
+					"MemberType": "Function",
+					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 1,
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
@@ -7016,7 +7042,7 @@
 				},
 				{
 					"Class": "AnnotationsService",
-					"Member": "LoadAnnotationReplies",
+					"Member": "LoadResolvedAnnotations",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -7036,19 +7062,6 @@
 					"Kind": "Parameter",
 					"Index": 0,
 					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
-					"Class": "AnnotationsService",
-					"Member": "ResolveAnnotation",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 1,
-					"Type": {
 						"Category": "Class",
 						"Name": "Annotation"
 					}
@@ -7060,7 +7073,7 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 2,
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -7127,19 +7140,6 @@
 					"Kind": "Parameter",
 					"Index": 0,
 					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
-					"Class": "AnnotationsService",
-					"Member": "AnnotationResolved",
-					"MemberType": "Event",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 1,
-					"Type": {
 						"Category": "Class",
 						"Name": "Annotation"
 					}
@@ -7151,7 +7151,7 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 2,
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -7168,6 +7168,19 @@
 					"Type": {
 						"Category": "Class",
 						"Name": "Annotation"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
+					"Member": "ServerLoadResolvedAnnotations",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				},
 				{
@@ -10451,7 +10464,7 @@
 					"Index": 0,
 					"Type": {
 						"Category": "DataType",
-						"Name": "ContentId"
+						"Name": "Content"
 					}
 				},
 				{
@@ -31644,12 +31657,38 @@
 					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
-						"Name": "int64"
+						"Name": "string"
 					}
 				},
 				{
 					"Class": "CommerceService",
 					"Member": "GetCommerceProductInfoAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "PrepareCommerceProductPurchase",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "PrepareCommerceProductPurchase",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -31683,7 +31722,7 @@
 					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
-						"Name": "int64"
+						"Name": "string"
 					}
 				},
 				{
@@ -31740,11 +31779,76 @@
 				},
 				{
 					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CommerceService",
 					"Member": "UserEligibleForRealWorldCommerceAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "BenefitStatusReceived",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
 					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
@@ -31787,7 +31891,7 @@
 					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
-						"Name": "int64"
+						"Name": "string"
 					}
 				},
 				{
@@ -31800,7 +31904,7 @@
 					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
-						"Name": "int64"
+						"Name": "string"
 					}
 				}
 			]
@@ -47752,6 +47856,19 @@
 				},
 				{
 					"Class": "EditableImage",
+					"Member": "Destroy",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "EditableImage",
 					"Member": "DrawCircle",
 					"MemberType": "Function",
 					"Removed": false,
@@ -48168,19 +48285,6 @@
 				},
 				{
 					"Class": "EditableImage",
-					"Member": "GetContent",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "DataType",
-						"Name": "Content"
-					}
-				},
-				{
-					"Class": "EditableImage",
 					"Member": "ReadPixelsBuffer",
 					"MemberType": "Function",
 					"Removed": false,
@@ -48359,6 +48463,19 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "null"
+					}
+				},
+				{
+					"Class": "EditableImage",
+					"Member": "GetContent",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
 					}
 				},
 				{
@@ -48794,6 +48911,19 @@
 				},
 				{
 					"Class": "EditableMesh",
+					"Member": "Destroy",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "EditableMesh",
 					"Member": "FindClosestPointOnSurface",
 					"MemberType": "Function",
 					"Removed": false,
@@ -49000,19 +49130,6 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
-					}
-				},
-				{
-					"Class": "EditableMesh",
-					"Member": "GetContent",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "DataType",
-						"Name": "Content"
 					}
 				},
 				{
@@ -49860,6 +49977,19 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
+					}
+				},
+				{
+					"Class": "EditableMesh",
+					"Member": "GetContent",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
 					}
 				},
 				{
@@ -100742,6 +100872,19 @@
 				},
 				{
 					"Class": "PackageLink",
+					"Member": "HasNewVersion",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "PackageLink",
 					"Member": "ModifiedState",
 					"MemberType": "Property",
 					"Removed": false,
@@ -125782,6 +125925,32 @@
 				},
 				{
 					"Class": "ScriptDocument",
+					"Member": "MultiEditTextAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "ScriptDocument",
+					"Member": "MultiEditTextAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
+					}
+				},
+				{
+					"Class": "ScriptDocument",
 					"Member": "RequestSetSelectionAsync",
 					"MemberType": "Function",
 					"Removed": false,
@@ -135020,6 +135189,32 @@
 				},
 				{
 					"Class": "Stats",
+					"Member": "FrameTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "HeartbeatTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
 					"Member": "HeartbeatTimeMs",
 					"MemberType": "Property",
 					"Removed": false,
@@ -135085,6 +135280,19 @@
 				},
 				{
 					"Class": "Stats",
+					"Member": "PhysicsStepTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
 					"Member": "PhysicsStepTimeMs",
 					"MemberType": "Property",
 					"Removed": false,
@@ -135099,6 +135307,136 @@
 				{
 					"Class": "Stats",
 					"Member": "PrimitivesCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "RenderCPUFrameTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "RenderGPUFrameTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "SceneDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "SceneTriangleCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "ShadowsDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "ShadowsTriangleCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI2DDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI2DTriangleCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI3DDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI3DTriangleCount",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -135558,6 +135896,45 @@
 			"Related": [
 				{
 					"Class": "StreamingService",
+					"Member": "AttemptSaveAndSendPlaceTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "AttemptSaveAndSendPlaceTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "AttemptSaveAndSendPlaceTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
 					"Member": "BindCodeToGuid",
 					"MemberType": "Function",
 					"Removed": false,
@@ -135593,6 +135970,84 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Tuple"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
 					}
 				},
 				{
@@ -135766,7 +136221,7 @@
 				},
 				{
 					"Class": "StreamingService",
-					"Member": "RegisterCommand",
+					"Member": "RegisterCommandInternal",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -135779,7 +136234,7 @@
 				},
 				{
 					"Class": "StreamingService",
-					"Member": "RegisterCommand",
+					"Member": "RegisterCommandInternal",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -135792,7 +136247,33 @@
 				},
 				{
 					"Class": "StreamingService",
-					"Member": "RegisterCommand",
+					"Member": "RegisterCommandInternal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommandInternal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommandInternal",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -135832,45 +136313,6 @@
 				{
 					"Class": "StreamingService",
 					"Member": "RegisterContextCollector",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "null"
-					}
-				},
-				{
-					"Class": "StreamingService",
-					"Member": "RegisterSequentialCommand",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "string"
-					}
-				},
-				{
-					"Class": "StreamingService",
-					"Member": "RegisterSequentialCommand",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 1,
-					"Type": {
-						"Category": "DataType",
-						"Name": "Function"
-					}
-				},
-				{
-					"Class": "StreamingService",
-					"Member": "RegisterSequentialCommand",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -136191,6 +136633,84 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
 					}
 				}
 			]
@@ -152841,6 +153361,45 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TextChatService",
+					"Member": "UpdateChatTimeout",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "TextChatService",
+					"Member": "UpdateChatTimeout",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "TextChatService",
+					"Member": "UpdateChatTimeout",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
 					}
 				},
 				{
@@ -171109,6 +171668,19 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "FetchUserTurnAuthOperationFailed",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "JoinedVoice",
 					"MemberType": "Event",
 					"Removed": false,
@@ -173347,19 +173919,6 @@
 				},
 				{
 					"Class": "Workspace",
-					"Member": "DecreaseMinimumPartDensityMode",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Enum",
-						"Name": "DecreaseMinimumPartDensityMode"
-					}
-				},
-				{
-					"Class": "Workspace",
 					"Member": "DistributedGameTime",
 					"MemberType": "Property",
 					"Removed": false,
@@ -174244,6 +174803,19 @@
 				},
 				{
 					"Class": "Workspace",
+					"Member": "DecreaseMinimumPartDensityMode",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "DecreaseMinimumPartDensityMode"
+					}
+				},
+				{
+					"Class": "Workspace",
 					"Member": "EditorLiveScripting",
 					"MemberType": "Property",
 					"Removed": true,
@@ -175090,9 +175662,61 @@
 				},
 				{
 					"Class": "WorkspaceAnnotation",
-					"Member": "Position",
+					"Member": "AdorneeOffset",
 					"MemberType": "Property",
 					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "GetAbsolutePosition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "SetAdorneeOffsetFromAbsolutePosition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "SetAdorneeOffsetFromAbsolutePosition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "Position",
+					"MemberType": "Property",
+					"Removed": true,
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
@@ -179797,13 +180421,19 @@
 						"Removed": false,
 						"Field": "Parameters",
 						"Kind": "Parameter",
-						"Index": 1,
+						"Index": 0,
 						"Type": {
 							"Category": "Class",
 							"Name": "Annotation"
 						}
 					}
 				]
+			},
+			"AnnotationsVisible": {
+				"Class": "AnnotationsService",
+				"Name": "AnnotationsVisible",
+				"MemberType": "Property",
+				"Removed": false
 			},
 			"CreateAnnotation": {
 				"Class": "AnnotationsService",
@@ -179895,6 +180525,12 @@
 					}
 				]
 			},
+			"LoadResolvedAnnotations": {
+				"Class": "AnnotationsService",
+				"Name": "LoadResolvedAnnotations",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"Mode": {
 				"Class": "AnnotationsService",
 				"Name": "Mode",
@@ -179929,7 +180565,7 @@
 						"Removed": false,
 						"Field": "Parameters",
 						"Kind": "Parameter",
-						"Index": 1,
+						"Index": 0,
 						"Type": {
 							"Category": "Class",
 							"Name": "Annotation"
@@ -179978,6 +180614,12 @@
 						}
 					}
 				]
+			},
+			"ServerLoadResolvedAnnotations": {
+				"Class": "AnnotationsService",
+				"Name": "ServerLoadResolvedAnnotations",
+				"MemberType": "Event",
+				"Removed": false
 			},
 			"createAnnotation": {
 				"Class": "AnnotationsService",
@@ -190633,6 +191275,18 @@
 			}
 		},
 		"CommerceService": {
+			"BenefitStatusReceived": {
+				"Class": "CommerceService",
+				"Name": "BenefitStatusReceived",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"FetchReceipt": {
+				"Class": "CommerceService",
+				"Name": "FetchReceipt",
+				"MemberType": "Event",
+				"Removed": false
+			},
 			"GetCommerceProductInfoAsync": {
 				"Class": "CommerceService",
 				"Name": "GetCommerceProductInfoAsync",
@@ -190643,6 +191297,12 @@
 				"Class": "CommerceService",
 				"Name": "InExperienceBrowserRequested",
 				"MemberType": "Event",
+				"Removed": false
+			},
+			"PrepareCommerceProductPurchase": {
+				"Class": "CommerceService",
+				"Name": "PrepareCommerceProductPurchase",
+				"MemberType": "Function",
 				"Removed": false
 			},
 			"PromptCommerceProductPurchase": {
@@ -190713,6 +191373,18 @@
 						}
 					}
 				]
+			},
+			"PurchaseBrowserClosed": {
+				"Class": "CommerceService",
+				"Name": "PurchaseBrowserClosed",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"SignalPromptCommerceProductPurchaseFinished": {
+				"Class": "CommerceService",
+				"Name": "SignalPromptCommerceProductPurchaseFinished",
+				"MemberType": "Function",
+				"Removed": false
 			},
 			"UserEligibleForRealWorldCommerceAsync": {
 				"Class": "CommerceService",
@@ -197397,6 +198069,12 @@
 				"MemberType": "Function",
 				"Removed": true
 			},
+			"Destroy": {
+				"Class": "EditableImage",
+				"Name": "Destroy",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"DrawCircle": {
 				"Class": "EditableImage",
 				"Name": "DrawCircle",
@@ -197497,7 +198175,7 @@
 				"Class": "EditableImage",
 				"Name": "GetContent",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
 			},
 			"ImageData": {
 				"Class": "EditableImage",
@@ -197606,6 +198284,12 @@
 					}
 				]
 			},
+			"Destroy": {
+				"Class": "EditableMesh",
+				"Name": "Destroy",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"FindClosestPointOnSurface": {
 				"Class": "EditableMesh",
 				"Name": "FindClosestPointOnSurface",
@@ -197670,7 +198354,7 @@
 				"Class": "EditableMesh",
 				"Name": "GetContent",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
 			},
 			"GetFaceColors": {
 				"Class": "EditableMesh",
@@ -217622,6 +218306,12 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"HasNewVersion": {
+				"Class": "PackageLink",
+				"Name": "HasNewVersion",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"ModifiedState": {
 				"Class": "PackageLink",
 				"Name": "ModifiedState",
@@ -228823,6 +229513,12 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"MultiEditTextAsync": {
+				"Class": "ScriptDocument",
+				"Name": "MultiEditTextAsync",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"RequestSetSelectionAsync": {
 				"Class": "ScriptDocument",
 				"Name": "RequestSetSelectionAsync",
@@ -233537,6 +234233,12 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"FrameTime": {
+				"Class": "Stats",
+				"Name": "FrameTime",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"GetBrowserTrackerId": {
 				"Class": "Stats",
 				"Name": "GetBrowserTrackerId",
@@ -233597,6 +234299,12 @@
 				"MemberType": "Function",
 				"Removed": true
 			},
+			"HeartbeatTime": {
+				"Class": "Stats",
+				"Name": "HeartbeatTime",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"HeartbeatTimeMs": {
 				"Class": "Stats",
 				"Name": "HeartbeatTimeMs",
@@ -233633,6 +234341,12 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"PhysicsStepTime": {
+				"Class": "Stats",
+				"Name": "PhysicsStepTime",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"PhysicsStepTimeMs": {
 				"Class": "Stats",
 				"Name": "PhysicsStepTimeMs",
@@ -233642,6 +234356,18 @@
 			"PrimitivesCount": {
 				"Class": "Stats",
 				"Name": "PrimitivesCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"RenderCPUFrameTime": {
+				"Class": "Stats",
+				"Name": "RenderCPUFrameTime",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"RenderGPUFrameTime": {
+				"Class": "Stats",
+				"Name": "RenderGPUFrameTime",
 				"MemberType": "Property",
 				"Removed": false
 			},
@@ -233669,11 +234395,59 @@
 				"MemberType": "Property",
 				"Removed": true
 			},
+			"SceneDrawcallCount": {
+				"Class": "Stats",
+				"Name": "SceneDrawcallCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"SceneTriangleCount": {
+				"Class": "Stats",
+				"Name": "SceneTriangleCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"SetReportUrl": {
 				"Class": "Stats",
 				"Name": "SetReportUrl",
 				"MemberType": "Function",
 				"Removed": true
+			},
+			"ShadowsDrawcallCount": {
+				"Class": "Stats",
+				"Name": "ShadowsDrawcallCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"ShadowsTriangleCount": {
+				"Class": "Stats",
+				"Name": "ShadowsTriangleCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"UI2DDrawcallCount": {
+				"Class": "Stats",
+				"Name": "UI2DDrawcallCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"UI2DTriangleCount": {
+				"Class": "Stats",
+				"Name": "UI2DTriangleCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"UI3DDrawcallCount": {
+				"Class": "Stats",
+				"Name": "UI3DDrawcallCount",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"UI3DTriangleCount": {
+				"Class": "Stats",
+				"Name": "UI3DTriangleCount",
+				"MemberType": "Property",
+				"Removed": false
 			}
 		},
 		"StatsItem": {
@@ -233717,6 +234491,12 @@
 			}
 		},
 		"StreamingService": {
+			"AttemptSaveAndSendPlaceTelemetry": {
+				"Class": "StreamingService",
+				"Name": "AttemptSaveAndSendPlaceTelemetry",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"BindCodeToGuid": {
 				"Class": "StreamingService",
 				"Name": "BindCodeToGuid",
@@ -233727,6 +234507,18 @@
 				"Class": "StreamingService",
 				"Name": "ConversationCleared",
 				"MemberType": "Event",
+				"Removed": false
+			},
+			"DEPRECATED_RegisterCommand": {
+				"Class": "StreamingService",
+				"Name": "DEPRECATED_RegisterCommand",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"DEPRECATED_RegisterSequentialCommand": {
+				"Class": "StreamingService",
+				"Name": "DEPRECATED_RegisterSequentialCommand",
+				"MemberType": "Function",
 				"Removed": false
 			},
 			"ExecuteCommandAsync": {
@@ -233772,6 +234564,12 @@
 				"Class": "StreamingService",
 				"Name": "RegisterCommand",
 				"MemberType": "Function",
+				"Removed": true
+			},
+			"RegisterCommandInternal": {
+				"Class": "StreamingService",
+				"Name": "RegisterCommandInternal",
+				"MemberType": "Function",
 				"Removed": false
 			},
 			"RegisterContextCollector": {
@@ -233784,7 +234582,7 @@
 				"Class": "StreamingService",
 				"Name": "RegisterSequentialCommand",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
 			},
 			"RequestEnded": {
 				"Class": "StreamingService",
@@ -241443,6 +242241,12 @@
 			"ServerToClientMessageReplicateSignalV2": {
 				"Class": "TextChatService",
 				"Name": "ServerToClientMessageReplicateSignalV2",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"UpdateChatTimeout": {
+				"Class": "TextChatService",
+				"Name": "UpdateChatTimeout",
 				"MemberType": "Event",
 				"Removed": false
 			}
@@ -249371,6 +250175,12 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"FetchUserTurnAuthOperationFailed": {
+				"Class": "VoiceChatService",
+				"Name": "FetchUserTurnAuthOperationFailed",
+				"MemberType": "Event",
+				"Removed": false
+			},
 			"GenerateDefaultChannel": {
 				"Class": "VoiceChatService",
 				"Name": "GenerateDefaultChannel",
@@ -249708,6 +250518,12 @@
 			"TurnServerInfoRequested": {
 				"Class": "VoiceChatService",
 				"Name": "TurnServerInfoRequested",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"UpdateTurnAuthInfoRequest": {
+				"Class": "VoiceChatService",
+				"Name": "UpdateTurnAuthInfoRequest",
 				"MemberType": "Event",
 				"Removed": false
 			},
@@ -250348,13 +251164,13 @@
 				"Class": "Workspace",
 				"Name": "DecreaseMinimumPartDensityMode",
 				"MemberType": "Property",
-				"Removed": false,
+				"Removed": true,
 				"Related": [
 					{
 						"Class": "Workspace",
 						"Member": "DecreaseMinimumPartDensityMode",
 						"MemberType": "Property",
-						"Removed": false,
+						"Removed": true,
 						"Field": "ValueType",
 						"Kind": "Type",
 						"Index": -1,
@@ -251423,10 +252239,28 @@
 					}
 				]
 			},
+			"AdorneeOffset": {
+				"Class": "WorkspaceAnnotation",
+				"Name": "AdorneeOffset",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"GetAbsolutePosition": {
+				"Class": "WorkspaceAnnotation",
+				"Name": "GetAbsolutePosition",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"Position": {
 				"Class": "WorkspaceAnnotation",
 				"Name": "Position",
 				"MemberType": "Property",
+				"Removed": true
+			},
+			"SetAdorneeOffsetFromAbsolutePosition": {
+				"Class": "WorkspaceAnnotation",
+				"Name": "SetAdorneeOffsetFromAbsolutePosition",
+				"MemberType": "Function",
 				"Removed": false
 			}
 		},
@@ -257579,7 +258413,7 @@
 		},
 		"DecreaseMinimumPartDensityMode": {
 			"Name": "DecreaseMinimumPartDensityMode",
-			"Removed": false,
+			"Removed": true,
 			"ItemsByValue": [
 				"Default",
 				"Disabled",
@@ -257595,7 +258429,7 @@
 					"Class": "Workspace",
 					"Member": "DecreaseMinimumPartDensityMode",
 					"MemberType": "Property",
-					"Removed": false,
+					"Removed": true,
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
@@ -268668,7 +269502,8 @@
 				"Avatar",
 				"Input",
 				"Environment",
-				"RemoteEvent"
+				"RemoteEvent",
+				"LegacySound"
 			],
 			"ItemsByIndex": [
 				"RunClientScript",
@@ -268690,7 +269525,8 @@
 				"Avatar",
 				"Input",
 				"Environment",
-				"RemoteEvent"
+				"RemoteEvent",
+				"LegacySound"
 			]
 		},
 		"SelectionBehavior": {
@@ -278805,17 +279641,17 @@
 			"Default": {
 				"Enum": "DecreaseMinimumPartDensityMode",
 				"Name": "Default",
-				"Removed": false
+				"Removed": true
 			},
 			"Disabled": {
 				"Enum": "DecreaseMinimumPartDensityMode",
 				"Name": "Disabled",
-				"Removed": false
+				"Removed": true
 			},
 			"Enabled": {
 				"Enum": "DecreaseMinimumPartDensityMode",
 				"Name": "Enabled",
-				"Removed": false
+				"Removed": true
 			}
 		},
 		"DevCameraOcclusionMode": {
@@ -286805,6 +287641,11 @@
 				"Name": "Input",
 				"Removed": false
 			},
+			"LegacySound": {
+				"Enum": "SecurityCapability",
+				"Name": "LegacySound",
+				"Removed": false
+			},
 			"LoadString": {
 				"Enum": "SecurityCapability",
 				"Name": "LoadString",
@@ -292944,6 +293785,19 @@
 					}
 				},
 				{
+					"Class": "ScriptDocument",
+					"Member": "MultiEditTextAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
 					"Class": "SocialService",
 					"Member": "InvokeGameInvitePromptClosed",
 					"MemberType": "Function",
@@ -296879,19 +297733,6 @@
 					}
 				},
 				{
-					"Class": "WorkspaceAnnotation",
-					"Member": "Position",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "DataType",
-						"Name": "CFrame"
-					}
-				},
-				{
 					"Class": "WorldRoot",
 					"Member": "Blockcast",
 					"MemberType": "Function",
@@ -297068,6 +297909,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "Position",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "DataType",
 						"Name": "CFrame"
@@ -299373,6 +300227,19 @@
 					}
 				},
 				{
+					"Class": "AssetService",
+					"Member": "CreateMeshPartAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
 					"Class": "BaseWrap",
 					"Member": "CageMeshContent",
 					"MemberType": "Property",
@@ -299380,32 +300247,6 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
-					"Type": {
-						"Category": "DataType",
-						"Name": "Content"
-					}
-				},
-				{
-					"Class": "EditableImage",
-					"Member": "GetContent",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "DataType",
-						"Name": "Content"
-					}
-				},
-				{
-					"Class": "EditableMesh",
-					"Member": "GetContent",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
 					"Type": {
 						"Category": "DataType",
 						"Name": "Content"
@@ -299574,6 +300415,32 @@
 					"Removed": true,
 					"Field": "Parameters",
 					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "EditableImage",
+					"Member": "GetContent",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "EditableMesh",
+					"Member": "GetContent",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
 					"Index": 0,
 					"Type": {
 						"Category": "DataType",
@@ -299876,19 +300743,6 @@
 				{
 					"Class": "AssetService",
 					"Member": "CreateEditableMeshStripSkinningAsync",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "DataType",
-						"Name": "ContentId"
-					}
-				},
-				{
-					"Class": "AssetService",
-					"Member": "CreateMeshPartAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -302179,6 +303033,19 @@
 				{
 					"Class": "CommerceService",
 					"Member": "GetCommerceProductInfoAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "PrepareCommerceProductPurchase",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -306264,7 +307131,33 @@
 				},
 				{
 					"Class": "StreamingService",
-					"Member": "RegisterCommand",
+					"Member": "DEPRECATED_RegisterCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommandInternal",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -306278,19 +307171,6 @@
 				{
 					"Class": "StreamingService",
 					"Member": "RegisterContextCollector",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 1,
-					"Type": {
-						"Category": "DataType",
-						"Name": "Function"
-					}
-				},
-				{
-					"Class": "StreamingService",
-					"Member": "RegisterSequentialCommand",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -306551,6 +307431,32 @@
 				{
 					"Class": "ScriptEditorService",
 					"Member": "RegisterLSPCallback",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterSequentialCommand",
 					"MemberType": "Function",
 					"Removed": true,
 					"Field": "Parameters",
@@ -313239,6 +314145,19 @@
 				{
 					"Class": "ScriptDocument",
 					"Member": "GetViewport",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
+					}
+				},
+				{
+					"Class": "ScriptDocument",
+					"Member": "MultiEditTextAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -321889,6 +322808,45 @@
 					}
 				},
 				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "AdorneeOffset",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "GetAbsolutePosition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "SetAdorneeOffsetFromAbsolutePosition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
 					"Class": "WorldRoot",
 					"Member": "Blockcast",
 					"MemberType": "Function",
@@ -323321,12 +324279,25 @@
 				},
 				{
 					"Class": "AnnotationsService",
+					"Member": "AnnotationsVisible",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
 					"Member": "ResolveAnnotation",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 2,
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -323339,7 +324310,7 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 2,
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -325154,11 +326125,37 @@
 				},
 				{
 					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "CommerceService",
 					"Member": "UserEligibleForRealWorldCommerceAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "BenefitStatusReceived",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
 					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
@@ -330158,6 +331155,19 @@
 					}
 				},
 				{
+					"Class": "PackageLink",
+					"Member": "HasNewVersion",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
 					"Class": "PackageUIService",
 					"Member": "PublishPackage",
 					"MemberType": "Function",
@@ -333571,6 +334581,32 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommandInternal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommandInternal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -353390,6 +354426,32 @@
 				},
 				{
 					"Class": "Stats",
+					"Member": "FrameTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "HeartbeatTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
 					"Member": "HeartbeatTimeMs",
 					"MemberType": "Property",
 					"Removed": false,
@@ -353429,7 +354491,46 @@
 				},
 				{
 					"Class": "Stats",
+					"Member": "PhysicsStepTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
 					"Member": "PhysicsStepTimeMs",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "RenderCPUFrameTime",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "RenderGPUFrameTime",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -357156,12 +358257,25 @@
 				},
 				{
 					"Class": "AnnotationsService",
-					"Member": "LoadAnnotationReplies",
+					"Member": "LoadResolvedAnnotations",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
-					"Index": 1,
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
+					"Member": "ServerLoadResolvedAnnotations",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
@@ -362240,6 +363354,110 @@
 				},
 				{
 					"Class": "Stats",
+					"Member": "SceneDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "SceneTriangleCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "ShadowsDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "ShadowsTriangleCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI2DDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI2DTriangleCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI3DDrawcallCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
+					"Member": "UI3DTriangleCount",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Stats",
 					"Member": "GetPaginatedMemoryByTexture",
 					"MemberType": "Function",
 					"Removed": false,
@@ -367031,32 +368249,6 @@
 					}
 				},
 				{
-					"Class": "AnnotationsService",
-					"Member": "ResolveAnnotation",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
-					"Class": "AnnotationsService",
-					"Member": "AnnotationResolved",
-					"MemberType": "Event",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
 					"Class": "AssetManagerService",
 					"Member": "AddNewPlace",
 					"MemberType": "Function",
@@ -368346,58 +369538,6 @@
 				{
 					"Class": "CollaboratorsService",
 					"Member": "CollaboratorStatusUpdatedSignal",
-					"MemberType": "Event",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
-					"Class": "CommerceService",
-					"Member": "GetCommerceProductInfoAsync",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
-					"Class": "CommerceService",
-					"Member": "PromptCommerceProductPurchase",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
-					"Class": "CommerceService",
-					"Member": "PromptCommerceProductPurchaseFinished",
-					"MemberType": "Event",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int64"
-					}
-				},
-				{
-					"Class": "CommerceService",
-					"Member": "PromptCommerceProductPurchaseRequested",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -372179,6 +373319,45 @@
 					}
 				},
 				{
+					"Class": "TextChatService",
+					"Member": "UpdateChatTimeout",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "TextChatService",
+					"Member": "UpdateChatTimeout",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "TextChatService",
+					"Member": "UpdateChatTimeout",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
 					"Class": "TextFilterResult",
 					"Member": "GetChatForUserAsync",
 					"MemberType": "Function",
@@ -374059,6 +375238,19 @@
 				},
 				{
 					"Class": "AnnotationsService",
+					"Member": "LoadResolvedAnnotations",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
 					"Member": "ResolveAnnotation",
 					"MemberType": "Function",
 					"Removed": false,
@@ -375813,6 +377005,19 @@
 					}
 				},
 				{
+					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "ContentProvider",
 					"Member": "Preload",
 					"MemberType": "Function",
@@ -377127,6 +378332,19 @@
 				},
 				{
 					"Class": "EditableImage",
+					"Member": "Destroy",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "EditableImage",
 					"Member": "DrawCircle",
 					"MemberType": "Function",
 					"Removed": false,
@@ -377206,6 +378424,19 @@
 				{
 					"Class": "EditableImage",
 					"Member": "WritePixelsBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "EditableMesh",
+					"Member": "Destroy",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -383679,6 +384910,45 @@
 				},
 				{
 					"Class": "StreamingService",
+					"Member": "AttemptSaveAndSendPlaceTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
 					"Member": "InvokeCommand",
 					"MemberType": "Function",
 					"Removed": false,
@@ -383692,7 +384962,7 @@
 				},
 				{
 					"Class": "StreamingService",
-					"Member": "RegisterCommand",
+					"Member": "RegisterCommandInternal",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -383706,19 +384976,6 @@
 				{
 					"Class": "StreamingService",
 					"Member": "RegisterContextCollector",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "null"
-					}
-				},
-				{
-					"Class": "StreamingService",
-					"Member": "RegisterSequentialCommand",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -386291,6 +387548,19 @@
 					}
 				},
 				{
+					"Class": "WorkspaceAnnotation",
+					"Member": "SetAdorneeOffsetFromAbsolutePosition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "WorldRoot",
 					"Member": "BulkMoveTo",
 					"MemberType": "Function",
@@ -387164,6 +388434,32 @@
 				{
 					"Class": "SocialService",
 					"Member": "PromptIrisInvite",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterSequentialCommand",
 					"MemberType": "Function",
 					"Removed": true,
 					"Field": "ReturnType",
@@ -390764,6 +392060,45 @@
 				},
 				{
 					"Class": "CommerceService",
+					"Member": "GetCommerceProductInfoAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "PrepareCommerceProductPurchase",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "PromptCommerceProductPurchase",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
 					"Member": "PromptRealWorldCommerceBrowser",
 					"MemberType": "Function",
 					"Removed": false,
@@ -390777,7 +392112,59 @@
 				},
 				{
 					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "SignalPromptCommerceProductPurchaseFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
 					"Member": "InExperienceBrowserRequested",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "PromptCommerceProductPurchaseFinished",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CommerceService",
+					"Member": "PromptCommerceProductPurchaseRequested",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -403652,6 +405039,32 @@
 				},
 				{
 					"Class": "StreamingService",
+					"Member": "AttemptSaveAndSendPlaceTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "AttemptSaveAndSendPlaceTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
 					"Member": "BindCodeToGuid",
 					"MemberType": "Function",
 					"Removed": false,
@@ -403671,6 +405084,32 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "DEPRECATED_RegisterSequentialCommand",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
@@ -403769,7 +405208,7 @@
 				},
 				{
 					"Class": "StreamingService",
-					"Member": "RegisterCommand",
+					"Member": "RegisterCommandInternal",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -403783,19 +405222,6 @@
 				{
 					"Class": "StreamingService",
 					"Member": "RegisterContextCollector",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "string"
-					}
-				},
-				{
-					"Class": "StreamingService",
-					"Member": "RegisterSequentialCommand",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -407612,6 +409038,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "FetchUserTurnAuthOperationFailed",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
@@ -411994,6 +413433,32 @@
 				{
 					"Class": "Stats",
 					"Member": "SetReportUrl",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterCommand",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "StreamingService",
+					"Member": "RegisterSequentialCommand",
 					"MemberType": "Function",
 					"Removed": true,
 					"Field": "Parameters",

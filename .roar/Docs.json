@@ -107,8 +107,8 @@
 			"Description": "<p>Fog properties are hidden when Lighting contains an Atmosphere object.</p>\n<p>The <strong>Atmosphere</strong> object pushes Roblox closer toward realistic environments\nwhere sunlight scatters in different ways depending on density and other air\nparticle properties. It simulates real-world &#34;aerial perspective&#34; and lets you\ncontrol light transmission from the background sky through distant objects.\nFurthermore, it controls haze and glare conditions, letting you tune a perfect\nsunset, foggy afternoon, and more.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/environment/atmosphere\">Atmospheric Effects</a> for property\ncomparisons and example environments.</li>\n<li><a href=\"https://create.roblox.com/docs/environment/skybox\">Skybox</a> for how to change the default\nskybox for games and customize the lighting.</li>\n<li><a href=\"https://create.roblox.com/docs/environment/post-processing-effects\">Post-Processing Effects</a>\nfor how post-processing effects can quickly improve a game&#39;s visuals with a\nvariety of customizable filters.</li>\n</ul>\n"
 		},
 		"AtmosphereSensor": {
-			"Summary": "<p>A <a href=\"/ref/class/SensorBase.html\">SensorBase</a> that outputs data about the\n<a href=\"/ref/class/AtmosphereSensor.html#member-AirDenstiy\">AirDenstiy</a> and\n<a href=\"/ref/class/AtmosphereSensor.html#member-RelativeWindVelocity\">RelativeWindVelocity</a> at the\nsensor&#39;s position.</p>\n",
-			"Description": "<p>A <a href=\"/ref/class/SensorBase.html\">SensorBase</a> that outputs data about the\n<a href=\"/ref/class/AtmosphereSensor.html#member-AirDenstiy\">AirDenstiy</a> and\n<a href=\"/ref/class/AtmosphereSensor.html#member-RelativeWindVelocity\">RelativeWindVelocity</a> at the\nsensor&#39;s position.</p>\n"
+			"Summary": "<p>A <a href=\"/ref/class/SensorBase.html\">SensorBase</a> that outputs data about the\n<a href=\"/ref/class/AtmosphereSensor.html#member-AirDensity\">AirDensity</a> and\n<a href=\"/ref/class/AtmosphereSensor.html#member-RelativeWindVelocity\">RelativeWindVelocity</a> at the\nsensor&#39;s position.</p>\n",
+			"Description": "<p>A <a href=\"/ref/class/SensorBase.html\">SensorBase</a> that outputs data about the\n<a href=\"/ref/class/AtmosphereSensor.html#member-AirDensity\">AirDensity</a> and\n<a href=\"/ref/class/AtmosphereSensor.html#member-RelativeWindVelocity\">RelativeWindVelocity</a> at the\nsensor&#39;s position.</p>\n"
 		},
 		"Attachment": {
 			"Category": "Constraints",
@@ -180,7 +180,7 @@
 		},
 		"AudioLimiter": {
 			"Summary": "<p>Limits how loud audio streams are allowed to be.</p>\n",
-			"Description": "<p><code>AudioLimiter</code> limits how loud audio streams are allowed to be.\nWhenever its input stream exceeds a specified maximum level, the stream&#39;s volume is reduced for a moment.\n<code>AudioLimiter</code> provides a single <strong>Input</strong> pin, and a single <strong>Output</strong> pin that can be connected to/from by <a href=\"/ref/class/Wires.html\">Wires</a>.</p>\n"
+			"Description": "<p><code>AudioLimiter</code> limits how loud audio streams are allowed to be. Whenever its\ninput stream exceeds a specified maximum level, the stream&#39;s volume is reduced\nfor a moment. <code>AudioLimiter</code> provides a single <strong>Input</strong> pin, and a single\n<strong>Output</strong> pin that can be connected to/from by <a href=\"/ref/class/Wires.html\">Wires</a>.</p>\n"
 		},
 		"AudioListener": {
 			"Summary": "<p>Records an audio stream from its surrounding\n<a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a> in the 3D world.</p>\n",
@@ -761,7 +761,7 @@
 		},
 		"EditableMesh": {
 			"Summary": "<p>Instance which allows for the runtime creation and manipulation of meshes.</p>\n",
-			"Description": "<p><a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> changes the applied visual mesh when parented to a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a>, allowing for querying and modification of the mesh both in\nStudio and in experience.</p>\n<p>An <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> can be created from an existing mesh ID using\n<a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a>, or a blank\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> can be created with <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a>. It can\nthen be displayed, modified, and its collision model updated. Not all of the\nsteps are necessary; for example, you might want to create an\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> just to raycast without ever displaying it.</p>\n<p>An <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> is displayed when it&#39;s parented to a <a href=\"/ref/class/MeshPart.html\">MeshPart</a>,\nbut only the part&#39;s appearance changes while the collision model remains the\nsame.</p>\n<h3>Stable Vertex/Face IDs</h3>\n<p>Many <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> methods take <strong>vertex</strong>, <strong>normal</strong>, <strong>UV</strong>,\n<strong>color</strong> and <strong>face</strong> IDs. These are represented as integers in Luau but they\nrequire some special handling. The main difference is that IDs are stable and\nthey remain the same even if other parts of the mesh change. For example, if\nan <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> has five vertices <code>{1, 2, 3, 4, 5}</code> and you remove\nvertex <code>4</code>, the new vertices will be <code>{1, 2, 3, 5}</code>.</p>\n<p>Note that the IDs are not guaranteed to be in order and there may be holes in\nthe numbering, so when iterating through vertices or faces, you should iterate\nthrough the table returned by <a href=\"/ref/class/EditableMesh.html#member-GetVertices\">GetVertices()</a>\nor <a href=\"/ref/class/EditableMesh.html#member-GetFaces\">GetFaces()</a>.</p>\n<h3>Split Vertex Attributes</h3>\n<p>A <strong>vertex</strong> is a corner of a face, and topologically connects faces together.\nVertices can have several attributes: position, normal, UV coordinate, color,\nand transparency.</p>\n<p>Sometimes it&#39;s useful for all faces that touch a vertex to use the same\nattribute values, but sometimes you&#39;ll want different faces to use different\nattribute values on the same vertex. For example, on a smooth sphere, each\nvertex will only have a single normal. In contrast, at the corner of a cube,\nthe vertex will have 3 different normals (one for each adjacent face). You can\nalso have seams in the UV coordinates or sharp changes in the vertex colors.</p>\n<p>When creating faces, every vertex will by default have one of each attribute:\none normal, one UV coordinate, and one color/transparency. If you want to\ncreate a seam, you should create new attributes and set them on the face. For\nexample, this code will create a sharp cube:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span><span class=\"_lnt\">27\n</span><span class=\"_lnt\">28\n</span><span class=\"_lnt\">29\n</span><span class=\"_lnt\">30\n</span><span class=\"_lnt\">31\n</span><span class=\"_lnt\">32\n</span><span class=\"_lnt\">33\n</span><span class=\"_lnt\">34\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Given 4 vertex IDs, adds a new normal and 2 triangles, making a sharp quad</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">nid</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddNormal</span><span class=\"_p\">()</span>  <span class=\"_c1\">-- This creates a normal ID which is automatically computed</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid1</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid2</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Makes a cube with creased edges between the 6 sides</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">makeSharpCube</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">eMesh</span> <span class=\"_o\">=</span> <span class=\"_n\">Instance.new</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;EditableMesh&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v3</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v4</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v5</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v6</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v7</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v8</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Front</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Back</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Left</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Right</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Bottom</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Top</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">RemoveUnused</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">return</span> <span class=\"_n\">eMesh</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h3>Winding</h3>\n<p>Mesh faces have a front side and a back side. When drawing meshes, only the\nfront of the faces are drawn by default, although you can change this by\nsetting the mesh&#39; <a href=\"/ref/class/MeshPart.html#member-DoubleSided\">DoubleSided</a> property to <code>true</code>.</p>\n<p>The order of the vertices around the face determines whether you are looking\nat the front or the back. The front of the face is visible when the vertices\ngo counterclockwise around it.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Winding.png\" alt=\"Order of the vertices around the face\" width=\"550\"/>\n<h3>Limitations</h3>\n<p><a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> currently has a limit of 60,000 vertices and 20,000\ntriangles. Attempting to add too many vertices or triangles will cause an\nerror.</p>\n"
+			"Description": "<p><code>EditableMesh</code> changes the applied visual mesh when linked to a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a>, allowing for querying and modification of the mesh both in\nStudio and in experience.</p>\n<p>An <code>EditableMesh</code> can be created from an existing <a href=\"/ref/type/Content.html\">Content</a> of a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> or a mesh ID using\n<a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a>, or a blank <code>EditableMesh</code> can\nbe created with <a href=\"/ref/class/AssetService.html#member-CreateEditableMesh\">AssetService:CreateEditableMesh()</a>. It can then be\ndisplayed, modified, and its collision model updated. Not all of the steps are\nnecessary; for example, you might want to create an <code>EditableMesh</code> just to\nraycast without ever displaying it.</p>\n<p>An <code>EditableMesh</code> is displayed when it&#39;s linked to a new <a href=\"/ref/class/MeshPart.html\">MeshPart</a>,\nthrough <a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a>. You can create more\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> instances that reference the same <code>EditableMesh</code> content, or\nlink to an existing <a href=\"/ref/class/MeshPart.html\">MeshPart</a> through <a href=\"/ref/class/MeshPart.html#member-ApplyMesh\">MeshPart:ApplyMesh()</a>.</p>\n<p>Calling <a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a> will recalculate collision\nand fluid geometry with any edits and update the existing <a href=\"/ref/class/MeshPart.html\">MeshPart</a>. It\nis generally recommended to do this at the end of a conceptual edit operation.\n<a href=\"/ref/class/MeshPart.html#member-ApplyMesh\">MeshPart:ApplyMesh()</a> will update the colission and fluid geometry of\nthe target <a href=\"/ref/class/MeshPart.html\">MeshPart</a>.</p>\n<h3>Stable Vertex/Face IDs</h3>\n<p>Many <code>EditableMesh</code> methods take <strong>vertex</strong>, <strong>normal</strong>, <strong>UV</strong>, <strong>color</strong> and\n<strong>face</strong> IDs. These are represented as integers in Luau but they require some\nspecial handling. The main difference is that IDs are stable and they remain\nthe same even if other parts of the mesh change. For example, if an\n<code>EditableMesh</code> has five vertices <code>{1, 2, 3, 4, 5}</code> and you remove vertex <code>4</code>,\nthe new vertices will be <code>{1, 2, 3, 5}</code>.</p>\n<p>Note that the IDs are not guaranteed to be in order and there may be holes in\nthe numbering, so when iterating through vertices or faces, you should iterate\nthrough the table returned by <a href=\"/ref/class/EditableMesh.html#member-GetVertices\">GetVertices()</a>\nor <a href=\"/ref/class/EditableMesh.html#member-GetFaces\">GetFaces()</a>.</p>\n<h3>Split Vertex Attributes</h3>\n<p>A <strong>vertex</strong> is a corner of a face, and topologically connects faces together.\nVertices can have several attributes: position, normal, UV coordinate, color,\nand transparency.</p>\n<p>Sometimes it&#39;s useful for all faces that touch a vertex to use the same\nattribute values, but sometimes you&#39;ll want different faces to use different\nattribute values on the same vertex. For example, on a smooth sphere, each\nvertex will only have a single normal. In contrast, at the corner of a cube,\nthe vertex will have 3 different normals (one for each adjacent face). You can\nalso have seams in the UV coordinates or sharp changes in the vertex colors.</p>\n<p>When creating faces, every vertex will by default have one of each attribute:\none normal, one UV coordinate, and one color/transparency. If you want to\ncreate a seam, you should create new attributes and set them on the face. For\nexample, this code will create a sharp cube:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span><span class=\"_lnt\">27\n</span><span class=\"_lnt\">28\n</span><span class=\"_lnt\">29\n</span><span class=\"_lnt\">30\n</span><span class=\"_lnt\">31\n</span><span class=\"_lnt\">32\n</span><span class=\"_lnt\">33\n</span><span class=\"_lnt\">34\n</span><span class=\"_lnt\">35\n</span><span class=\"_lnt\">36\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">AssetService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;AssetService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Given 4 vertex IDs, adds a new normal and 2 triangles, making a sharp quad</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">nid</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddNormal</span><span class=\"_p\">()</span>  <span class=\"_c1\">-- This creates a normal ID which is automatically computed</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid1</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid2</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Makes a cube with creased edges between the 6 sides</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">makeSharpCube</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">eMesh</span> <span class=\"_o\">=</span> <span class=\"_n\">AssetService</span><span class=\"_p\">:</span><span class=\"_n\">CreateEditableMesh</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v3</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v4</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v5</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v6</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v7</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v8</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Front</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Back</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Left</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Right</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Bottom</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Top</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">RemoveUnused</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">return</span> <span class=\"_n\">eMesh</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h3>Winding</h3>\n<p>Mesh faces have a front side and a back side. When drawing meshes, only the\nfront of the faces are drawn by default, although you can change this by\nsetting the mesh&#39; <a href=\"/ref/class/MeshPart.html#member-DoubleSided\">DoubleSided</a> property to <code>true</code>.</p>\n<p>The order of the vertices around the face determines whether you are looking\nat the front or the back. The front of the face is visible when the vertices\ngo counterclockwise around it.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Winding.png\" alt=\"Order of the vertices around the face\" width=\"550\"/>\n<h3>Limitations</h3>\n<p><code>EditableMesh</code> currently has a limit of 60,000 vertices and 20,000 triangles.\nAttempting to add too many vertices or triangles will cause an error.</p>\n"
 		},
 		"EmotesPages": {},
 		"EqualizerSoundEffect": {
@@ -850,7 +850,10 @@
 			"Description": "<p>A FloorWire attempts to make a wire from two of its properties:\n<a href=\"/ref/class/FloorWire.html#member-From\">FloorWire.From</a> and <a href=\"/ref/class/FloorWire.html#member-To\">FloorWire.To</a>, which both need to be set to\na <a href=\"/ref/class/BasePart.html\">BasePart</a>. It sometimes goes through bricks but the majority of the\ntime it works fine. It starts at From&#39;s center and goes to To&#39;s center. Which\nside of each one it goes into depends on the BaseParts&#39;s positions. It chooses\nthe fastest route.</p>\n",
 			"DeprecationMessage": "<p>The FloorWire object has been deprecated and should not be used in new work.</p>\n"
 		},
-		"FluidForceSensor": {},
+		"FluidForceSensor": {
+			"Summary": "<p>A <a href=\"/ref/class/SensorBase.html\">SensorBase</a> that outputs <a href=\"/ref/class/FluidForceSensor.html#member-Force\">Force</a>, <a href=\"/ref/class/FluidForceSensor.html#member-Torque\">Torque</a> and <a href=\"/ref/class/FluidForceSensor.html#member-CenterOfPressure\">CenterOfPressure</a>.</p>\n",
+			"Description": "<p><code>FluidForceSensor</code> is a <a href=\"/ref/class/SensorBase.html\">SensorBase</a> which outputs the results of fluid\nforce simulation from the last physics frame for the part it is attached to.\nThe sensor outputs the <a href=\"/ref/class/FluidForceSensor.html#member-Force\">Force</a>,\n<a href=\"/ref/class/FluidForceSensor.html#member-Torque\">Torque</a> and\n<a href=\"/ref/class/FluidForceSensor.html#member-CenterOfPressure\">CenterOfPressure</a> which were computed\nby the fluid force simulation on the last physics frame.</p>\n"
+		},
 		"Folder": {
 			"Category": "Utility",
 			"Summary": "<p>A simple container used to hold and organize Roblox instances.</p>\n",
@@ -1119,8 +1122,8 @@
 			"Description": "<p>InsertService is used to insert assets from the Roblox website, typically the\n<a href=\"/ref/class/InsertService.html#member-LoadAsset\">LoadAsset</a> function.</p>\n<p>To load an asset, it must be accessible by the creator of the experience\nloading it, which can be either a user or group. Should an experience be\nuploaded by a different creator, the asset data would not be accessible. See\nthe <a href=\"/ref/class/InsertService.html#member-LoadAsset\">LoadAsset()</a> method for more details on\nthis security check. Note that you should <strong>not</strong> use this service for loading\nAPI keys or other secrets. Use <a href=\"/ref/class/HttpService.html#member-GetSecret\">HttpService:GetSecret()</a> instead.</p>\n<h3>See Also</h3>\n<ul>\n<li><a href=\"/ref/class/AssetService.html\">AssetService</a>, which can provide information about assets you might\nwant to load using InsertService</li>\n</ul>\n"
 		},
 		"Instance": {
-			"Summary": "<p>Instance is the base class for all classes in the Roblox class hierarchy which can be part of the DataModel tree.</p>\n",
-			"Description": "<p>Instance is the base class for all classes in the Roblox class hierarchy which can be part of the DataModel tree. It is not possible to directly create Instance objects.</p>\n<p>Instance has a special function called <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a> which is used\nto create objects via code. This function takes the name of the class as a\nparameter and returns the created object. Abstract classes and services cannot\nbe created with the Instance.new function.</p>\n"
+			"Summary": "<p>Instance is the base class for all classes in the Roblox class hierarchy which\ncan be part of the DataModel tree.</p>\n",
+			"Description": "<p>Instance is the base class for all classes in the Roblox class hierarchy which\ncan be part of the DataModel tree. It is not possible to directly create\nInstance objects.</p>\n<p>Instance has a special function called <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a> which is used\nto create objects via code. This function takes the name of the class as a\nparameter and returns the created object. Abstract classes and services cannot\nbe created with the Instance.new function.</p>\n"
 		},
 		"InstanceAdornment": {
 			"Summary": "<p>A base class for all objects that adorn <a href=\"/ref/class/Instance.html\">Instance</a> classes.</p>\n"
@@ -1427,7 +1430,7 @@
 		},
 		"Object": {
 			"Summary": "<p>Object is the base class for all classes in the Roblox class hierarchy.</p>\n",
-			"Description": "<p>Object is the base class for all classes in the Roblox class hierarchy.\nEvery other class that the Roblox engine defines inherits all of the members\nof Object. It is not possible to directly create Object.</p>\n"
+			"Description": "<p>Object is the base class for all classes in the Roblox class hierarchy. Every\nother class that the Roblox engine defines inherits all of the members of\nObject. It is not possible to directly create Object.</p>\n"
 		},
 		"ObjectValue": {
 			"Category": "Values",
@@ -1806,6 +1809,7 @@
 			"Summary": "<p>Creates a rigid connection between two <a href=\"/ref/class/Attachment.html\">Attachments</a> or\n<a href=\"/ref/class/Bone.html\">Bones</a>.</p>\n",
 			"Description": "<p><strong>RigidConstraint</strong> connects two <a href=\"/ref/class/Attachment.html\">Attachments</a> or\n<a href=\"/ref/class/Bone.html\">Bones</a> and ensures they stay in the same relative\nposition/orientation to each other. This flexibility gives it additional\nfunctionality beyond <a href=\"/ref/class/WeldConstraint.html\">WeldConstraint</a>, such as attaching accessories to\n<a href=\"/ref/class/Attachment.html\">Attachments</a> on a character rig.</p>\n<p>The fastest way to create this constraint is by selecting\n<strong>Rigid Constraint</strong> through Studio&#39;s <strong>Create</strong> menu in the\n<a href=\"https://create.roblox.com/docs/studio/model-tab\">Model</a> tab.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/studio/general/Model-Tab-Constraints-Create-Menu.png\" width=\"754\" alt=\"Constraint picker indicated in Studio toolbar\"/>\n<p>Note that this tool behaves differently depending on whether you click on\nexisting <a href=\"/ref/class/BasePart.html\">BaseParts</a>, <a href=\"/ref/class/Attachment.html\">Attachments</a>, or\n<a href=\"/ref/class/Bone.html\">Bones</a> after the tool is activated:</p>\n<ul>\n<li>Clicking on an existing <a href=\"/ref/class/BasePart.html\">BasePart</a> creates a new <a href=\"/ref/class/Attachment.html\">Attachment</a>\nupon it as the intended <a href=\"/ref/class/RigidConstraint.html#member-Attachment0\">RigidConstraint.Attachment0</a> or\n<a href=\"/ref/class/RigidConstraint.html#member-Attachment1\">RigidConstraint.Attachment1</a>.</li>\n<li>Clicking on an existing <a href=\"/ref/class/Attachment.html\">Attachment</a> or <a href=\"/ref/class/Bone.html\">Bone</a> uses that\ninstance as the intended <a href=\"/ref/class/RigidConstraint.html#member-Attachment0\">RigidConstraint.Attachment0</a> or\n<a href=\"/ref/class/RigidConstraint.html#member-Attachment1\">RigidConstraint.Attachment1</a>.</li>\n</ul>\n<p>Following the second valid click, a new <a href=\"/ref/class/RigidConstraint.html\">RigidConstraint</a> is created to\nconnect the two new attachments. If either the first or second click is\n<strong>not</strong> made on a <a href=\"/ref/class/BasePart.html\">BasePart</a>, <a href=\"/ref/class/Attachment.html\">Attachment</a>, or <a href=\"/ref/class/Bone.html\">Bone</a>, the\nworkflow is canceled and no constraint is created.</p>\n"
 		},
+		"RobloxSerializableInstance": {},
 		"RocketPropulsion": {
 			"Category": "Body Movers",
 			"Summary": "<p>Applies a force so that a part follows and faces another part.</p>\n",
@@ -1817,6 +1821,7 @@
 			"Summary": "<p>Keeps two attachments separated by its defined\n<a href=\"/ref/class/RodConstraint.html#member-Length\">Length</a>.</p>\n",
 			"Description": "<p>A <strong>RodConstraint</strong> keeps two attachments separated by its defined\n<a href=\"/ref/class/RodConstraint.html#member-Length\">Length</a>. By default, both attachments can rotate\nfreely, although you can enable limits to restrict rotational tilt.</p>\n<p>Note that if this constraint attaches one part (<strong>A</strong>) to another part (<strong>B</strong>)\nthat is anchored or connected to an anchored part (<strong>Z</strong>), part <strong>A</strong> will not\nbe locally simulated when interacting with a player.</p>\n<h3>Limits</h3>\n<p>You can limit rotation of the attachments within a cone, independently of each\nother, by enabling the <a href=\"/ref/class/RodConstraint.html#member-LimitsEnabled\">LimitsEnabled</a>\nproperty and setting <a href=\"/ref/class/RodConstraint.html#member-LimitAngle0\">LimitAngle0</a> and\n<a href=\"/ref/class/RodConstraint.html#member-LimitAngle1\">LimitAngle1</a> respectively.</p>\n"
 		},
+		"RomarkRbxAnalyticsService": {},
 		"RopeConstraint": {
 			"Category": "Constraints",
 			"Summary": "<p>Simulates rope dynamics, preventing two attachments from separating further\nthan a defined length.</p>\n",
@@ -2449,7 +2454,7 @@
 		},
 		"UIDragDetector": {
 			"Summary": "<p>Instance which facilitates and encourages interaction with UI elements in an\nexperience.</p>\n",
-			"Description": "<p>The <code>UIDragDetector</code> instance facilitates and encourages interaction with 2D\nuser interface elements in an experience, such as sliders and spinners. Key\nfeatures include:</p>\n<ul>\n<li>\n<p>Place a <code>UIDragDetector</code> under any <a href=\"/ref/class/GuiObject.html\">GuiObject</a> instance to make it\ndraggable via all inputs without a single line of code.</p>\n</li>\n<li>\n<p>Choose from several <a href=\"/ref/class/UIDragDetector.html#member-DragStyle\">DragStyle</a> options,\ndefine how the object responds to motion via\n<a href=\"/ref/class/UIDragDetector.html#member-ResponseStyle\">ResponseStyle</a>, and optionally apply axis,\nmovement limits, or drag boundaries.</p>\n</li>\n<li>\n<p>Scripts can respond to manipulation of dragged objects to drive logic\nresponses, such as adjusting settings.</p>\n</li>\n<li>\n<p><code>UIDragDetectors</code> work in Studio as long as you&#39;re <strong>not</strong> using the\n<strong>Select</strong>, <strong>Move</strong>, <strong>Scale</strong>, or <strong>Rotate</strong> tools, nor certain plugins or\nStudio&#39;s <strong>UI</strong> editor tools.</p>\n</li>\n</ul>\n"
+			"Description": "<p>The <code>UIDragDetector</code> instance facilitates and encourages interaction with 2D\nuser interface elements in an experience, such as sliders and spinners. Key\nfeatures include:</p>\n<ul>\n<li>\n<p>Place a <code>UIDragDetector</code> under any <a href=\"/ref/class/GuiObject.html\">GuiObject</a> instance to make it\ndraggable via all inputs without a single line of code.</p>\n</li>\n<li>\n<p>Choose from several <a href=\"/ref/class/UIDragDetector.html#member-DragStyle\">DragStyle</a> options,\ndefine how the object responds to motion via\n<a href=\"/ref/class/UIDragDetector.html#member-ResponseStyle\">ResponseStyle</a>, and optionally apply\naxis, movement limits, or drag boundaries.</p>\n</li>\n<li>\n<p>Scripts can respond to manipulation of dragged objects to drive logic\nresponses, such as adjusting settings.</p>\n</li>\n<li>\n<p><code>UIDragDetectors</code> work in Studio as long as you&#39;re <strong>not</strong> using the\n<strong>Select</strong>, <strong>Move</strong>, <strong>Scale</strong>, or <strong>Rotate</strong> tools, nor certain plugins or\nStudio&#39;s <strong>UI</strong> editor tools.</p>\n</li>\n</ul>\n"
 		},
 		"UIFlexItem": {
 			"Summary": "<p>Defines flex behavior for a <a href=\"/ref/class/GuiObject.html\">GuiObject</a> within a <a href=\"/ref/class/UIListLayout.html\">UIListLayout</a>.</p>\n",
@@ -2643,8 +2648,9 @@
 		"VisualizationModeService": {},
 		"VoiceChatService": {
 			"Summary": "<p><strong>VoiceChatService</strong> is responsible for voice chat&#39;s high-level functionality.</p>\n",
-			"Description": "<p><strong>VoiceChatService</strong> is responsible for voice chat&#39;s high-level functionality.\nThis mostly consists of configuration options, and functions that are not specifically-controlled by more-specific instances.</p>\n"
+			"Description": "<p><strong>VoiceChatService</strong> is responsible for voice chat&#39;s high-level functionality.\nThis mostly consists of configuration options, and functions that are not\nspecifically-controlled by more-specific instances.</p>\n"
 		},
+		"WebViewService": {},
 		"WedgePart": {
 			"Category": "Building",
 			"Summary": "<p>A type of <a href=\"/ref/class/BasePart.html\">BasePart</a> that has a wedge shape.</p>\n",
@@ -3304,15 +3310,22 @@
 			"PatchId": {}
 		},
 		"AssetService": {
-			"CreateEditableImage": {},
+			"CheckTextureAlphaAsync": {},
+			"CreateEditableImage": {
+				"Summary": "<p>Creates a new <a href=\"/ref/class/EditableImage.html\">EditableImage</a>.</p>\n",
+				"Description": "<p>Creates a new <a href=\"/ref/class/EditableImage.html\">EditableImage</a>. By default, the resolution is set at\n512×512 but it can be specified via the returned object&#39;s\n<a href=\"/ref/class/EditableImage.html#member-Size\">EditableImage.Size</a> parameter. If the device‑specific editable\nmemory budget is exhausted, creation will fail and this method will return\n<code>nil</code>.</p>\n"
+			},
 			"CreateEditableImageAsync": {
 				"Summary": "<p>Creates a new <a href=\"/ref/class/EditableImage.html\">EditableImage</a> instance populated with the given\nimage.</p>\n",
-				"Description": "<p>Creates a new <a href=\"/ref/class/EditableImage.html\">EditableImage</a> instance populated with the given\ntexture. Non-asset texture IDs such as <code>rbxthumb://</code> are supported. If\nusing an image asset, it must be associated with and/or owned by a creator\nof the experience, or it must have been created inside the experience.</p>\n"
+				"Description": "<p>Creates a new <a href=\"/ref/class/EditableImage.html\">EditableImage</a> instance populated with the given\ntexture. Non-asset texture IDs such as <code>rbxthumb://</code> are supported. If\nusing an image asset, it must be associated with and/or owned by a creator\nof the experience, or it must have been created inside the experience. If\nthe device-specific editable memory budget is exhausted, creation will\nfail and this method will return <code>nil</code>.</p>\n"
 			},
-			"CreateEditableMesh": {},
+			"CreateEditableMesh": {
+				"Summary": "<p>Creates a new, empty <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a>.</p>\n",
+				"Description": "<p>Creates a new, empty <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a>. Vertices, triangles and their\nattributes can be added dynamically to it. If the device‑specific editable\nmemory budget is exhausted, creation will fail and this method will return\n<code>nil</code>.</p>\n"
+			},
 			"CreateEditableMeshAsync": {
 				"Summary": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> instance created from an existing mesh\ncontent ID.</p>\n",
-				"Description": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> instance created from an existing mesh\ncontent ID.</p>\n"
+				"Description": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> instance created from an existing mesh\ncontent ID. By default a <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> created from this method\nwill be fixed size such that mesh data can only be modified, not added nor\nremoved. A fixed size <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> consumes less memory and should\nbe preferred when possible.</p>\n<p>If the device-specific editable memory budget is exhausted, creation will\nfail and this method will return <code>nil</code>.</p>\n"
 			},
 			"CreateEditableMeshFromPartAsync": {
 				"Summary": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> instance created from an existing\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a>.</p>\n",
@@ -3660,6 +3673,10 @@
 			}
 		},
 		"AudioEmitter": {
+			"AngleAttenuation": {
+				"Summary": "<p>Represents how the perceived volume of the emitted sound changes based on the\nangle between a <a href=\"/ref/class/AudioListener.html\">AudioListener</a> and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>.</p>\n",
+				"Description": "<p>Represents a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a> associated\nwith the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>.</p>\n<p>This property is internal and can&#39;t be accessed by scripts; it exists to\nsupport replication. See\n<a href=\"/ref/class/AudioEmitter.html#member-SetAngleAttenuation\">SetAngleAttenuation()</a> for\nusage details.</p>\n"
+			},
 			"AudioInteractionGroup": {
 				"Summary": "<p>Controls which <a href=\"/ref/class/AudioListener.html\">AudioListeners</a> are capable of hearing\nthis <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>.</p>\n",
 				"Description": "<p>If an <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> and an <a href=\"/ref/class/AudioListener.html\">AudioListener</a> share an\ninteraction group, then the listener is capable of hearing the emitter.</p>\n"
@@ -3667,6 +3684,10 @@
 			"DistanceAttenuation": {
 				"Summary": "<p>Represents how the perceived volume of the emitted sound changes as the\ndistance between a <a href=\"/ref/class/AudioListener.html\">AudioListener</a> and the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>\nincreases.</p>\n",
 				"Description": "<p>Represents a volume-over-distance curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\ndistance between them.</p>\n<p>This property is internal and can&#39;t be accessed by scripts; it exists to\nsupport replication. See\n<a href=\"/ref/class/AudioEmitter.html#member-SetDistanceAttenuation\">SetDistanceAttenuation()</a> for\nusage details.</p>\n"
+			},
+			"GetAngleAttenuation": {
+				"Summary": "<p>Gets the angle attenuation curve that the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> is\nusing, or an empty table if it&#39;s using the default curve.</p>\n",
+				"Description": "<p>Returns a table mapping angle to volume. Keys are numbers between <code>0</code> and <code>180</code>\n(inclusive), while values are numbers between <code>0</code> and <code>1</code>\n(inclusive) describing how volume attenuates depending on direction. This method returns an\nempty table if the default angle attenuation curve is being used.</p>\n"
 			},
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
@@ -3677,9 +3698,13 @@
 				"Description": "<p>Returns a table mapping distance to volume. Keys are numbers greater than\nor equal to 0, while values are numbers between 0 and 1 (inclusive)\ndescribing how volume attenuates over distance. This method returns an\nempty table if the default distance attenuation curve is being used.</p>\n"
 			},
 			"GetInteractingListeners": {},
+			"SetAngleAttenuation": {
+				"Summary": "<p>Sets the angle attenuation curve that the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> should\nuse, or uses a constant curve of volume <code>1</code> if none is provided.</p>\n",
+				"Description": "<p>Sets a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a> associated\nwith the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>.</p>\n<p>The curve is represented by a table mapping angle keys to volume\nvalues. Keys are expected to be unique numbers between <code>0</code> and <code>180</code> (inclusive),\nwhile values are expected to be numbers between <code>0</code>\nand <code>1</code> (inclusive). Tables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at an angle <code>a</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\nangle values are directly above and below <code>a</code>. If there is either no\npoint below <code>a</code> or no point above <code>a</code>, the volume level of the other point\nis chosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward at their respective volume levels.</p>\n<p>This volume will be multiplied with the volumes from all other\nattenuation curves (including the ones on the receiving\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a>) to obtain the final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> defaults to using\nan angle attenuation curve with the constant volume value of <code>1</code>.</p>\n"
+			},
 			"SetDistanceAttenuation": {
 				"Summary": "<p>Sets the distance attenuation curve that the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> should\nuse, or uses an inverse rolloff curve if none is provided.</p>\n",
-				"Description": "<p>Sets a volume-over-distance curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\ndistance between them.</p>\n<p>The curve is represented by a table mapping distance keys to volume\nvalues. Keys are expected to be unique numbers greater than or equal to 0,\nwhile values are expected to be numbers between 0 and 1 (inclusive).\nTables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at a distance <code>d</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\ndistance values are directly above and below <code>d</code>. If there is either no\npoint below <code>d</code> or no point above <code>d</code>, the volume level of the other point\nis chosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward infinitely at their respective volume levels.</p>\n<p>This volume will be multiplied with the volume from the\n<a href=\"/ref/class/AudioListener.html#member-DistanceAttenuation\">AudioListener.DistanceAttenuation</a> curve of the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> to obtain the final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> defaults to using\na distance attenuation curve determined by the inverse-square law.</p>\n",
+				"Description": "<p>Sets a volume-over-distance curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\ndistance between them.</p>\n<p>The curve is represented by a table mapping distance keys to volume\nvalues. Keys are expected to be unique numbers greater than or equal to 0,\nwhile values are expected to be numbers between 0 and 1 (inclusive).\nTables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at a distance <code>d</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\ndistance values are directly above and below <code>d</code>. If there is either no\npoint below <code>d</code> or no point above <code>d</code>, the volume level of the other point\nis chosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward infinitely at their respective volume levels.</p>\n<p>This volume will be multiplied with the volumes from all other\nattenuation curves (including the ones on the receiving\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a>) to obtain the final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> defaults to using\na distance attenuation curve determined by the inverse-square law.</p>\n",
 				"CodeSamples": [
 					"audio-wiring---custom-distance-attenuation"
 				]
@@ -3785,19 +3810,23 @@
 				"Description": "<p>If <code>true</code>, audio streams are passed-through unaffected by this effect.</p>\n"
 			},
 			"GetConnectedWires": {
-				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified pin.</p>\n",
-				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified pin. <a href=\"/ref/class/AudioLimiter.html\">AudioLimiter</a>\nhas one <strong>Input</strong> pin and one <strong>Output</strong> pin.</p>\n"
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioLimiter.html\">AudioLimiter</a> has one <strong>Input</strong> pin and one <strong>Output</strong> pin.</p>\n"
 			},
 			"MaxLevel": {
 				"Summary": "<p>The maximum volume tolerated.</p>\n",
-				"Description": "<p>The maximum volume, in decibels, that the limiter will allow to pass through without reduction.\nWhenever the input stream exceeds <a href=\"/ref/class/AudioLimiter.html#member-MaxLevel\">MaxLevel</a>, the output\nstream&#39;s volume will be reduced to compensate.\nThis value ranges from <code>-12</code> to <code>0</code>.</p>\n"
+				"Description": "<p>The maximum volume, in decibels, that the limiter will allow to pass\nthrough without reduction. Whenever the input stream exceeds\n<a href=\"/ref/class/AudioLimiter.html#member-MaxLevel\">MaxLevel</a>, the output stream&#39;s volume will be\nreduced to compensate. This value ranges from <code>-12</code> to <code>0</code>.</p>\n"
 			},
 			"Release": {
-				"Summary": "<p>The amount of time it takes for previously limited streams to return to their normal volume.</p>\n",
-				"Description": "<p>The amount of time, in seconds, that it takes for any previously (but not currently) limited streams to\nreturn to their normal volume. This value ranges from <code>0.001</code> to <code>1</code>.</p>\n"
+				"Summary": "<p>The amount of time it takes for previously limited streams to return to\ntheir normal volume.</p>\n",
+				"Description": "<p>The amount of time, in seconds, that it takes for any previously (but not\ncurrently) limited streams to return to their normal volume. This value\nranges from <code>0.001</code> to <code>1</code>.</p>\n"
 			}
 		},
 		"AudioListener": {
+			"AngleAttenuation": {
+				"Summary": "<p>Represents how the perceived volume of the emitted sound changes based on the\nangle between a <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioListener.html\">AudioListener</a>.</p>\n",
+				"Description": "<p>Represents a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioListener.html\">AudioListener</a>.</p>\n<p>This property is internal and can&#39;t be accessed by scripts; it exists to\nsupport replication. See\n<a href=\"/ref/class/AudioListener.html#member-SetAngleAttenuation\">SetAngleAttenuation()</a> for\nusage details.</p>\n"
+			},
 			"AudioInteractionGroup": {
 				"Summary": "<p>Controls which <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a> are audible to this\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a>.</p>\n",
 				"Description": "<p>Controls which <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a> are audible to this\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a>. Emitters that share an interaction group can be\nheard by this Listener.</p>\n"
@@ -3805,6 +3834,10 @@
 			"DistanceAttenuation": {
 				"Summary": "<p>Represents how the perceived volume of emitted sounds change as the\ndistance between <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a> and the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> increases.</p>\n",
 				"Description": "<p>Represents a volume-over-distance curve that affects how loudly the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> hears any <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a>, based\non the distance between them.</p>\n<p>This property is internal and can&#39;t be accessed by scripts; it exists to\nsupport replication. See\n<a href=\"/ref/class/AudioListener.html#member-SetDistanceAttenuation\">SetDistanceAttenuation()</a>\nfor usage details.</p>\n"
+			},
+			"GetAngleAttenuation": {
+				"Summary": "<p>Gets the angle attenuation curve that the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> is\nusing, or an empty table if it&#39;s using the default curve.</p>\n",
+				"Description": "<p>Returns a table mapping angle to volume. Keys are numbers between <code>0</code> and <code>180</code>\n(inclusive), while values are numbers between <code>0</code> and <code>1</code>\n(inclusive) describing how volume attenuates depending on direction. This method returns an\nempty table if the default angle attenuation curve is being used.</p>\n"
 			},
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
@@ -3815,9 +3848,13 @@
 				"Description": "<p>Returns a table mapping distance to volume. Keys are numbers greater than\nor equal to 0, while values are numbers between 0 and 1 (inclusive)\ndescribing how volume attenuates over distance. This method returns an\nempty table if the default distance attenuation curve is being used.</p>\n"
 			},
 			"GetInteractingEmitters": {},
+			"SetAngleAttenuation": {
+				"Summary": "<p>Sets the angle attenuation curve that the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> should\nuse, or uses a constant curve of volume <code>1</code> if none is provided.</p>\n",
+				"Description": "<p>Sets a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioListener.html\">AudioListener</a>.</p>\n<p>The curve is represented by a table mapping angle keys to volume\nvalues. Keys are expected to be unique numbers between <code>0</code> and <code>180</code> (inclusive),\nwhile values are expected to be numbers between <code>0</code>\nand <code>1</code> (inclusive). Tables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of a <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at an angle <code>a</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\nangle values are directly above and below <code>a</code>. If there is either no\npoint below <code>a</code> or no point above <code>a</code>, the volume level of the other point\nis chosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward at their respective volume levels.</p>\n<p>This volume will be multiplied with the volumes from all other\nattenuation curves (including the ones on the sending\n<a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>) to obtain the final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> defaults to using\nan angle attenuation curve with the constant volume value of <code>1</code>.</p>\n"
+			},
 			"SetDistanceAttenuation": {
 				"Summary": "<p>Sets the distance attenuation curve that the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> should\nuse, or uses an inverse rolloff curve if none is provided.</p>\n",
-				"Description": "<p>Sets a volume-over-distance curve that affects how loudly the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear any <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a>,\nbased on the distance between them.</p>\n<p>The curve is represented by a table mapping distance keys to volume\nvalues. Keys are expected to be unique numbers greater than or equal to 0,\nwhile values are expected to be numbers between 0 and 1 (inclusive).\nTables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of a <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at a distance <code>d</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\ndistance values are directly above and below <code>d</code>. If there is either no\npoint below <code>d</code> or no point above <code>d</code>, the volume level of the other point\nis chosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward infinitely at their respective volume levels.</p>\n<p>This volume will be multiplied with the volume from the\n<a href=\"/ref/class/AudioEmitter.html#member-DistanceAttenuation\">AudioEmitter.DistanceAttenuation</a> curve of the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>\nto obtain the final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> defaults to\napplying a constant volume of 1 everywhere.</p>\n"
+				"Description": "<p>Sets a volume-over-distance curve that affects how loudly the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear any <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a>,\nbased on the distance between them.</p>\n<p>The curve is represented by a table mapping distance keys to volume\nvalues. Keys are expected to be unique numbers greater than or equal to 0,\nwhile values are expected to be numbers between 0 and 1 (inclusive).\nTables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of a <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at a distance <code>d</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\ndistance values are directly above and below <code>d</code>. If there is either no\npoint below <code>d</code> or no point above <code>d</code>, the volume level of the other point\nis chosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward infinitely at their respective volume levels.</p>\n<p>This volume will be multiplied with the volumes from all other\nattenuation curves (including the ones on the sending\n<a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>) to obtain the final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> defaults to\napplying a constant volume of 1 everywhere.</p>\n"
 			}
 		},
 		"AudioPages": {},
@@ -3849,6 +3886,7 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> has one &#34;Output&#34; pin.</p>\n"
 			},
+			"GetWaveformAsync": {},
 			"IsPlaying": {
 				"Summary": "<p>Denotes whether this <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> is currently playing.</p>\n",
 				"Description": "<p>Denotes whether this <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> is currently playing. This\nproperty is read-only, but replicates. To play and stop an\n<a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> at runtime, use the <a href=\"/ref/class/AudioPlayer.html#member-Play\">Play()</a>\nand <a href=\"/ref/class/AudioPlayer.html#member-Stop\">Stop()</a> methods.</p>\n"
@@ -3989,6 +4027,7 @@
 			}
 		},
 		"AvatarCreationService": {
+			"DeserializeAvatarModel": {},
 			"GetBatchTokenDetailsAsync": {},
 			"GetValidationRules": {},
 			"PromptCreateAvatarAsync": {},
@@ -4789,6 +4828,7 @@
 			}
 		},
 		"BaseWrap": {
+			"CageMeshContent": {},
 			"CageMeshId": {
 				"Summary": "<p>Asset ID for cage mesh.</p>\n",
 				"Description": "<p>This property is set up automatically by the 3D Importer.</p>\n<p>Asset ID for cage mesh.</p>\n"
@@ -5561,7 +5601,7 @@
 			},
 			"CaptureScreenshot": {
 				"Summary": "<p>Takes a screenshot and provides a temporary <code>contentId</code> to identify it.</p>\n",
-				"Description": "<p>This method captures a screenshot for the user but does not immediately\nsave it to their <strong>Captures</strong> gallery within the experience&#39;s main menu.\nInstead, a temporary <code>contentId</code> is created to identify the new capture.</p>\n<p>The <code>onCaptureReady</code> callback can be used to prompt the user to save or\nshare the screenshot.</p>\n"
+				"Description": "<p>This method captures a screenshot for the user but does not immediately\nsave it to their <strong>Captures</strong> gallery within the experience&#39;s main menu.\nInstead, a temporary <code>contentId</code> is created to identify the new capture.</p>\n<p>The <code>onCaptureReady</code> callback can be used to prompt the user to save or\nshare the screenshot:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">CaptureService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CaptureService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Reference to an ImageLabel parent of the script containing this code</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">imageLabel</span> <span class=\"_o\">=</span> <span class=\"_n\">script.Parent</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">onCaptureReady</span><span class=\"_p\">(</span><span class=\"_n\">contentId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">imageLabel.Image</span> <span class=\"_o\">=</span> <span class=\"_n\">contentId</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">CaptureScreenshot</span><span class=\"_p\">(</span><span class=\"_n\">onCaptureReady</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"PromptSaveCapturesToGallery": {
 				"Summary": "<p>Prompts the user to save specified captures to their gallery.</p>\n",
@@ -6637,7 +6677,7 @@
 			"ItemChanged": {
 				"Summary": "<p>Fires when a property of any object in the <a href=\"/ref/class/DataModel.html\">DataModel</a> is changed.</p>\n",
 				"Description": "<p>This event fires when a property of any object in the <a href=\"/ref/class/DataModel.html\">DataModel</a> is\nchanged.</p>\n",
-				"DeprecationMessage": "<p>This function has been superseded by <a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a>, which\nshould be used in new work instead.</p>\n",
+				"DeprecationMessage": "<p>This function has been superseded by <a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a>, which should\nbe used in new work instead.</p>\n",
 				"CodeSamples": [
 					"DataModel-ItemChanged1"
 				]
@@ -7315,14 +7355,6 @@
 			}
 		},
 		"EditableImage": {
-			"Copy": {
-				"Summary": "<p>Copies a subregion of the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> to a new\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a>.</p>\n",
-				"Description": "<p>Copies a subregion of the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> to a new\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a>.</p>\n"
-			},
-			"Crop": {
-				"Summary": "<p>Crops the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> to the specified subregion.</p>\n",
-				"Description": "<p>Crops the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> to the specified subregion.</p>\n"
-			},
 			"DrawCircle": {
 				"Summary": "<p>Draws a circle at the specified point.</p>\n",
 				"Description": "<p>Draws a circle at the specified point on the <a href=\"/ref/class/EditableImage.html\">EditableImage</a>. If the\ncircle is semi-transparent, it will be blended with the pixels behind it\nusing source over blending.</p>\n"
@@ -7340,35 +7372,14 @@
 				"Summary": "<p>Draws a rectangle of the given size at the given top-left position.</p>\n",
 				"Description": "<p>Draws a rectangle on the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> of the given size at the\ngiven top-left position.</p>\n"
 			},
-			"ReadPixels": {
-				"Summary": "<p>Reads a rectangular region of pixels.</p>\n",
-				"Description": "<p>Reads a rectangular region of pixels. The pixels are returned as a flat\narray where each pixel is represented by four numbers between <code>0</code> and <code>1</code>\n(red, green, blue, and alpha respectively).</p>\n<p>Note that this method uses alpha instead of transparency, unlike the\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a> drawing methods.</p>\n",
-				"CodeSamples": [
-					"EditableImage-ReadPixels1"
-				]
-			},
+			"GetContent": {},
 			"ReadPixelsBuffer": {
 				"Summary": "<p>Reads a rectangular region of pixels into a buffer.</p>\n",
 				"Description": "<p>A version of <a href=\"/ref/class/EditableImage.html#member-ReadPixels\">ReadPixels()</a> that returns\na buffer instead of a table. Each number in the buffer is a single byte,\nwhile each number in the table is 4 bytes, making\n<a href=\"/ref/class/EditableImage.html#member-ReadPixelsBuffer\">ReadPixelsBuffer()</a> more\nmemory-efficient than <a href=\"/ref/class/EditableImage.html#member-ReadPixels\">ReadPixels()</a>.</p>\n<p>Note that this method uses alpha instead of transparency, unlike the\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a> drawing methods.</p>\n"
 			},
-			"Resize": {
-				"Summary": "<p>Resizes the contents and canvas.</p>\n",
-				"Description": "<p>Resizes the contents and canvas of the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> using\nbilinear interpolation. Max allowed size is 1024×1024.</p>\n"
-			},
-			"Rotate": {
-				"Summary": "<p>Rotates the image around its center.</p>\n",
-				"Description": "<p>Rotates the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> around its center using bilinear\ninterpolation.</p>\n"
-			},
 			"Size": {
 				"Summary": "<p>Size of the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> in pixels.</p>\n",
 				"Description": "<p>Size of the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> in pixels. The maximum size is\n1024×1024. Attempting to set this property to a larger size will\ncause it to be clamped at 1024.</p>\n<p>Setting this property changes the <strong>canvas</strong> size of the editable image\nbut does not resize the contents. If changing to a larger size, new pixels\nwill be set to an RGBA value of <code>[0, 0, 0, 0]</code>. If changing to a smaller\nsize, existing pixels will be cropped. Consider using\n<a href=\"/ref/class/EditableImage.html#member-Resize\">Resize()</a> to update the contents while\nchanging the size.</p>\n"
-			},
-			"WritePixels": {
-				"Summary": "<p>Writes a rectangular region of pixels into the image.</p>\n",
-				"Description": "<p>Writes a rectangular region of pixels into the <a href=\"/ref/class/EditableImage.html\">EditableImage</a>. The\npixels are provided as a flat array where each pixel is represented by\nfour numbers between 0 and 1 (red, green, blue, and alpha respectively).</p>\n<p>Note that this method uses alpha instead of transparency, unlike other\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a> drawing methods.</p>\n",
-				"CodeSamples": [
-					"EditableImage-ReadPixelsWritePixels1"
-				]
 			},
 			"WritePixelsBuffer": {
 				"Summary": "<p>Writes a rectangular region of pixels into the image.</p>\n",
@@ -7408,13 +7419,10 @@
 				"Summary": "<p>Finds all vertices within a specific sphere.</p>\n",
 				"Description": "<p>Finds all vertices within a specific sphere and returns a list of stable\nvertex IDs.</p>\n"
 			},
+			"FixedSize": {},
 			"GetAdjacentFaces": {
 				"Summary": "<p>Returns a list of faces adjacent to a given face.</p>\n",
 				"Description": "<p>Given a stable face ID, returns a list of adjacent faces.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/GetAdjacentTriangles.png\" alt=\"Adjacent faces indicated around requested face\" width=\"120\"/>\n"
-			},
-			"GetAdjacentTriangles": {
-				"Summary": "<p>Returns a list of triangles adjacent to a given triangle.</p>\n",
-				"Description": "<p>Given a stable face ID, returns a list of adjacent faces.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/GetAdjacentTriangles.png\" alt=\"Adjacent triangles indicated around requested triangle\" width=\"120\"/>\n"
 			},
 			"GetAdjacentVertices": {
 				"Summary": "<p>Returns a list of vertices adjacent to a given vertex.</p>\n",
@@ -7432,6 +7440,7 @@
 				"Summary": "<p>Returns all colors of the mesh.</p>\n",
 				"Description": "<p>Returns all colors of the mesh as a list of stable color IDs.</p>\n"
 			},
+			"GetContent": {},
 			"GetFaceColors": {
 				"Summary": "<p>Returns the face&#39;s color IDs for the vertices on the face.</p>\n",
 				"Description": "<p>Returns the face&#39;s color IDs for the vertices on the face.</p>\n"
@@ -7465,14 +7474,6 @@
 				"Summary": "<p>Gets the position of a vertex.</p>\n",
 				"Description": "<p>Gets the position of a vertex in the mesh&#39;s local object space.</p>\n"
 			},
-			"GetTriangleVertices": {
-				"Summary": "<p>Returns a triangle&#39;s three vertex IDs.</p>\n",
-				"Description": "<p>Returns a triangle&#39;s three vertex IDs.</p>\n"
-			},
-			"GetTriangles": {
-				"Summary": "<p>Returns all triangles of the mesh.</p>\n",
-				"Description": "<p>Returns all triangles of the mesh as a list of stable face IDs.</p>\n"
-			},
 			"GetUV": {
 				"Summary": "<p>Returns UV coordinates at the given UV ID.</p>\n",
 				"Description": "<p>Returns UV coordinates at the given UV ID.</p>\n"
@@ -7480,18 +7481,6 @@
 			"GetUVs": {
 				"Summary": "<p>Returns all UVs of the mesh.</p>\n",
 				"Description": "<p>Returns all UVs of the mesh as a list of stable UV IDs.</p>\n"
-			},
-			"GetVertexColor": {
-				"Summary": "<p>Returns the color at the given vertex.</p>\n",
-				"Description": "<p>Returns the color at the given vertex.</p>\n"
-			},
-			"GetVertexColorAlpha": {
-				"Summary": "<p>Returns the color alpha (transparency) at the given vertex.</p>\n",
-				"Description": "<p>Returns the color alpha (transparency) at the given vertex.</p>\n"
-			},
-			"GetVertexNormal": {
-				"Summary": "<p>Returns the normal at the given vertex.</p>\n",
-				"Description": "<p>Returns the normal at the given vertex.</p>\n"
 			},
 			"GetVertices": {
 				"Summary": "<p>Returns all vertices as a list of stable vertex IDs.</p>\n",
@@ -7519,17 +7508,9 @@
 				"Summary": "<p>Removes a face using its stable face ID.</p>\n",
 				"Description": "<p>Removes a face using its stable face ID.</p>\n"
 			},
-			"RemoveTriangle": {
-				"Summary": "<p>Removes a triangle using its stable face ID.</p>\n",
-				"Description": "<p>Removes a triangle using its stable face ID.</p>\n"
-			},
 			"RemoveUnused": {
 				"Summary": "<p>Removes all unused vertices, normals, UVs, and colors, and returns the\nremoved IDs.</p>\n",
 				"Description": "<p>Removes all vertices, normals, UVs, and colors which are not used in any\nface, and returns the removed IDs.</p>\n"
-			},
-			"RemoveVertex": {
-				"Summary": "<p>Removes a vertex using its stable vertex ID.</p>\n",
-				"Description": "<p>Removes a vertex using its stable vertex ID.</p>\n"
 			},
 			"ResetNormal": {
 				"Summary": "<p>Reset this normal ID to be automatically calculated.</p>\n",
@@ -7570,18 +7551,6 @@
 			"SetUV": {
 				"Summary": "<p>Sets UV coordinates for a UV ID.</p>\n",
 				"Description": "<p>Sets UV coordinates for a UV ID.</p>\n"
-			},
-			"SetVertexColor": {
-				"Summary": "<p>Sets the color for a vertex.</p>\n",
-				"Description": "<p>Sets the color for a vertex.</p>\n"
-			},
-			"SetVertexColorAlpha": {
-				"Summary": "<p>Sets the color alpha (transparency) for a vertex.</p>\n",
-				"Description": "<p>Sets the color alpha (transparency) for a vertex.</p>\n"
-			},
-			"SetVertexNormal": {
-				"Summary": "<p>Sets the normal for a vertex.</p>\n",
-				"Description": "<p>Sets the normal for a vertex.</p>\n"
 			},
 			"SkinningEnabled": {},
 			"Triangulate": {
@@ -8139,10 +8108,22 @@
 			}
 		},
 		"FluidForceSensor": {
-			"CenterOfPressure": {},
-			"EvaluateAsync": {},
-			"Force": {},
-			"Torque": {}
+			"CenterOfPressure": {
+				"Summary": "<p>Assembly center of pressure offset from its center of mass in world\ncoordinates.</p>\n",
+				"Description": "<p>Assembly center of pressure offset from its center of mass in world\ncoordinates.</p>\n"
+			},
+			"EvaluateAsync": {
+				"Summary": "<p>Asynchronously computes force, torque, and center of pressure for the\nparent part of a sensor given provided inputs.</p>\n",
+				"Description": "<p>Asynchronously computes force, torque, and center of pressure for the\nparent part of a sensor given provided inputs.</p>\n"
+			},
+			"Force": {
+				"Summary": "<p>Assembly fluid force in world coordinates.</p>\n",
+				"Description": "<p>Assembly fluid force in world coordinates.</p>\n"
+			},
+			"Torque": {
+				"Summary": "<p>Assembly fluid torque in world coordinates.</p>\n",
+				"Description": "<p>Assembly fluid torque in world coordinates.</p>\n"
+			}
 		},
 		"Folder": {},
 		"ForceField": {
@@ -8661,7 +8642,7 @@
 			},
 			"GuiState": {
 				"Summary": "<p>Determines whether the player&#39;s mouse is being actively pressed on the\n<a href=\"/ref/class/GuiObject.html\">GuiObject</a> or not.</p>\n",
-				"Description": "<p>When the player&#39;s finger is being tapped and held on the <a href=\"/ref/class/GuiObject.html\">GuiObject</a>, the\n<a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> will be set to <a href=\"/ref/enum/GuiState.html\">Press</a>. Similarly,\nWhen the player&#39;s finger is being released from the <a href=\"/ref/class/GuiObject.html\">GuiObject</a>, the\n<a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> will be set to <a href=\"/ref/enum/GuiState.html\">Idle</a>,\nand when <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> is turned off on the <a href=\"/ref/class/GuiObject.html\">GuiObject</a>, the <a href=\"/ref/class/GuiState.html\">GuiState</a>\nof the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> will be set to <a href=\"/ref/enum/GuiState.html\">NonInteractable</a>.</p>\n"
+				"Description": "<p>When the player&#39;s finger is being tapped and held on the\n<a href=\"/ref/class/GuiObject.html\">GuiObject</a>, the <a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> of the\n<a href=\"/ref/class/GuiObject.html\">GuiObject</a> will be set to <a href=\"/ref/enum/GuiState.html\">Press</a>. Similarly,\nWhen the player&#39;s finger is being released from the <a href=\"/ref/class/GuiObject.html\">GuiObject</a>, the\n<a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> will be set\nto <a href=\"/ref/enum/GuiState.html\">Idle</a>, and when\n<a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> is turned off on the\n<a href=\"/ref/class/GuiObject.html\">GuiObject</a>, the <a href=\"/ref/class/GuiState.html\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> will be\nset to <a href=\"/ref/enum/GuiState.html\">NonInteractable</a>.</p>\n"
 			},
 			"InputBegan": {
 				"Summary": "<p>Fired when a user begins interacting via a Human-Computer Interface device\n(Mouse button down, touch begin, keyboard button down, etc).</p>\n",
@@ -8685,8 +8666,8 @@
 				]
 			},
 			"Interactable": {
-				"Summary": "<p>Determines whether the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> can be interacted with or not, or if\nthe <a href=\"/ref/enum/GuiState.html\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is changing or not.</p>\n",
-				"Description": "<p>Determines whether the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> can be interacted with or not, or if\nthe <a href=\"/ref/enum/GuiState.html\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is changing or not.</p>\n<p>On a <a href=\"/ref/class/GuiButton.html\">GuiButton</a>:</p>\n<ul>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is\nset to <code>false</code>, the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> will no longer be able to be pressed or clicked, and the\n<a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will be constantly set to <a href=\"/ref/enum/GuiState.html\">NonInteractable</a>.</li>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is\nset to <code>true</code>, the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> will behave normally again and the <a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will\nbehave normally.</li>\n</ul>\n<p>On a <a href=\"/ref/class/GuiObject.html\">GuiObject</a>:</p>\n<ul>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is\nset to <code>false</code>, the <a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will be constantly set to <a href=\"/ref/enum/GuiState.html\">NonInteractable</a>.</li>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is\nset to <code>true</code>, the <a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will behave normally again.</li>\n</ul>\n"
+				"Summary": "<p>Determines whether the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> can be interacted with or not, or\nif the <a href=\"/ref/enum/GuiState.html\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is changing or\nnot.</p>\n",
+				"Description": "<p>Determines whether the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> can be interacted with or not, or\nif the <a href=\"/ref/enum/GuiState.html\">GuiState</a> of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is changing or\nnot.</p>\n<p>On a <a href=\"/ref/class/GuiButton.html\">GuiButton</a>:</p>\n<ul>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the\n<a href=\"/ref/class/GuiButton.html\">GuiButton</a> is set to <code>false</code>, the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> will no\nlonger be able to be pressed or clicked, and the\n<a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will be constantly set to\n<a href=\"/ref/enum/GuiState.html\">NonInteractable</a>.</li>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the\n<a href=\"/ref/class/GuiButton.html\">GuiButton</a> is set to <code>true</code>, the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> will behave\nnormally again and the <a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will behave\nnormally.</li>\n</ul>\n<p>On a <a href=\"/ref/class/GuiObject.html\">GuiObject</a>:</p>\n<ul>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the\n<a href=\"/ref/class/GuiButton.html\">GuiButton</a> is set to <code>false</code>, the\n<a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will be constantly set to\n<a href=\"/ref/enum/GuiState.html\">NonInteractable</a>.</li>\n<li>When the <a href=\"/ref/class/GuiObject.html#member-Interactable\">Interactable</a> setting on the\n<a href=\"/ref/class/GuiButton.html\">GuiButton</a> is set to <code>true</code>, the\n<a href=\"/ref/class/GuiObject.html#member-GuiState\">GuiState</a> will behave normally again.</li>\n</ul>\n"
 			},
 			"LayoutOrder": {
 				"Summary": "<p>Controls the sort order of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> when used with a\n<a href=\"/ref/class/UIGridStyleLayout.html\">UIGridStyleLayout</a>.</p>\n",
@@ -8959,7 +8940,7 @@
 			"PreferredTextSize": {},
 			"PreferredTransparency": {
 				"Summary": "<p>Gets the user&#39;s preferred transparency as a number between 0 and 1, which\nindicates how opaque they want the backgrounds of certain UI elements to\nbe. The recommended usage is as a multiplier of an element&#39;s\nBackgroundTransparency. Defaults to 1.</p>\n",
-				"Description": "<p>Gets the user&#39;s preferred transparency as a number between 0 and 1, which\nindicates how much more opaque they want the background of UI elements to\nbe. Defaults to 1.</p>\n<p>This return value reflects a setting which can be set from the user&#39;s side\nin either the app settings or within the in-experience settings menu via\n<strong>Background Transparency</strong>. The default value is 1, indicating that the\nuser prefers the default background transparency. The lowest value is 0,\nindicating that the user prefers backgrounds to be completely opaque,\nimproving readability and contrast for affected UI. Multiplying an\nelement&#39;s <a href=\"/ref/class/GuiObject.html#member-BackgroundTransparency\">GuiObject.BackgroundTransparency</a> with the value returned\nfrom <a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a> is the\nrecommended way to use this setting; backgrounds will become more opaque\nas <a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a>\napproaches 0. This should be used with\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a> so that it automatically\nupdates when the user changes their preferred transparency.</p>\n",
+				"Description": "<p>Gets the user&#39;s preferred transparency as a number between 0 and 1, which\nindicates how much more opaque they want the background of UI elements to\nbe. Defaults to 1.</p>\n<p>This return value reflects a setting which can be set from the user&#39;s side\nin either the app settings or within the in-experience settings menu via\n<strong>Background Transparency</strong>. The default value is 1, indicating that the\nuser prefers the default background transparency. The lowest value is 0,\nindicating that the user prefers backgrounds to be completely opaque,\nimproving readability and contrast for affected UI. Multiplying an\nelement&#39;s <a href=\"/ref/class/GuiObject.html#member-BackgroundTransparency\">GuiObject.BackgroundTransparency</a> with the value returned\nfrom <a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a> is the\nrecommended way to use this setting; backgrounds will become more opaque\nas <a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a>\napproaches 0. This should be used with\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a> so that it automatically updates\nwhen the user changes their preferred transparency.</p>\n",
 				"CodeSamples": [
 					"GuiService-PreferredTransparency"
 				]
@@ -9089,6 +9070,7 @@
 			"Play": {},
 			"Position": {},
 			"Radius": {},
+			"SetKeys": {},
 			"Stop": {},
 			"Type": {},
 			"Waveform": {}
@@ -9417,7 +9399,7 @@
 			},
 			"FloorMaterial": {
 				"Summary": "<p>Describes the <a href=\"/ref/enum/Material.html\">Material</a> that the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> is currently\nstanding on. If the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> isn&#39;t standing on anything, the value\nof this property will be <em>Air</em>.</p>\n",
-				"Description": "<p>This is a read-only property that describes the <a href=\"/ref/enum/Material.html\">Material</a> the\n<a href=\"/ref/class/Humanoid.html\">Humanoid</a> is currently standing on. It works with both regular\n<a href=\"/ref/class/BasePart.html\">Parts</a> and <a href=\"/ref/class/Terrain.html\">Terrain</a> voxels.</p>\n<p>The code sample below demonstrates how to listen to when this property\nchanges using <a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a>. When the\nmaterial the humanoid is standing on changes, it will print a message\nindicating the new material being stood on.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Humanoid</span> <span class=\"_o\">=</span> <span class=\"_n\">route.to</span><span class=\"_p\">.</span><span class=\"_n\">humanoid</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">Humanoid</span><span class=\"_p\">:</span><span class=\"_n\">GetPropertyChangedSignal</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;FloorMaterial&#34;</span><span class=\"_p\">):</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;New value for FloorMaterial: &#34;</span> <span class=\"_o\">..</span> <span class=\"_n\">tostring</span><span class=\"_p\">(</span><span class=\"_n\">Humanoid.FloorMaterial</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Caveats</h4>\n<ul>\n<li>When the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> is not standing on a floor, the value of this\nproperty will be set to <em>Air</em>.\n<ul>\n<li>This occurs because Enum properties cannot have an empty value.</li>\n<li>This can cause some confusion if a part has its material is set to\nAir, though in practice, parts are not supposed to use that material\nin the first place.</li>\n</ul>\n</li>\n<li>The character model of the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> must be able to collide with\nthe floor, or else it will not be detected.\n<ul>\n<li>You cannot test if the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> is swimming with this\nproperty. You should instead use its <a href=\"/ref/class/Humanoid.html#member-GetState\">Humanoid:GetState()</a>\nfunction.</li>\n</ul>\n</li>\n</ul>\n"
+				"Description": "<p>This is a read-only property that describes the <a href=\"/ref/enum/Material.html\">Material</a> the\n<a href=\"/ref/class/Humanoid.html\">Humanoid</a> is currently standing on. It works with both regular\n<a href=\"/ref/class/BasePart.html\">Parts</a> and <a href=\"/ref/class/Terrain.html\">Terrain</a> voxels.</p>\n<p>The code sample below demonstrates how to listen to when this property\nchanges using <a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a>. When the material\nthe humanoid is standing on changes, it will print a message indicating\nthe new material being stood on.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Humanoid</span> <span class=\"_o\">=</span> <span class=\"_n\">route.to</span><span class=\"_p\">.</span><span class=\"_n\">humanoid</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">Humanoid</span><span class=\"_p\">:</span><span class=\"_n\">GetPropertyChangedSignal</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;FloorMaterial&#34;</span><span class=\"_p\">):</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;New value for FloorMaterial: &#34;</span> <span class=\"_o\">..</span> <span class=\"_n\">tostring</span><span class=\"_p\">(</span><span class=\"_n\">Humanoid.FloorMaterial</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Caveats</h4>\n<ul>\n<li>When the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> is not standing on a floor, the value of this\nproperty will be set to <em>Air</em>.\n<ul>\n<li>This occurs because Enum properties cannot have an empty value.</li>\n<li>This can cause some confusion if a part has its material is set to\nAir, though in practice, parts are not supposed to use that material\nin the first place.</li>\n</ul>\n</li>\n<li>The character model of the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> must be able to collide with\nthe floor, or else it will not be detected.\n<ul>\n<li>You cannot test if the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> is swimming with this\nproperty. You should instead use its <a href=\"/ref/class/Humanoid.html#member-GetState\">Humanoid:GetState()</a>\nfunction.</li>\n</ul>\n</li>\n</ul>\n"
 			},
 			"FreeFalling": {
 				"Summary": "<p>Fires when the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> enters or leaves the <code>Freefall</code>\n<a href=\"/ref/enum/HumanoidStateType.html\">HumanoidStateType</a>.</p>\n",
@@ -10180,7 +10162,7 @@
 		"InputObject": {
 			"Delta": {
 				"Summary": "<p>A Vector3 describing the Delta between mouse/joystick movements.</p>\n",
-				"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> describing the Delta (change) between mouse/joystick\nmovements.</p>\n<p>This is useful when used with the input&#39;s\n<a href=\"/ref/class/InputObject.html#member-Position\">position</a> to track the position and movement\nof the user&#39;s mouse/joystick, such as when you&#39;re creating custom movement\nor camera scripts. Consider tracking input object changes using the\n<a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a> event or when user input changes via events such\nas <a href=\"/ref/class/UserInputService.html#member-InputChanged\">UserInputService.InputChanged</a> and\n<a href=\"/ref/class/GuiObject.html#member-InputChanged\">GuiObject.InputChanged</a>.</p>\n<p>Note that an <a href=\"/ref/class/InputObject.html\">InputObject</a> corresponding to\n<a href=\"/ref/enum/UserInputType.html\">UserInputType.MouseButton1</a> (left click) and\n<a href=\"/ref/enum/UserInputType.html\">UserInputType.MouseButton2</a> (right click) supplied from an\n<a href=\"/ref/class/UserInputService.html#member-InputBegan\">InputBegan</a> callback will not have its\n<a href=\"/ref/class/InputObject.html#member-Delta\">Delta</a> or <a href=\"/ref/class/InputObject.html#member-Position\">Position</a>\nupdated once created, except for when the mouse input ends. In order to\nget updated deltas for mouse inputs, you must instead reference an\n<a href=\"/ref/class/InputObject.html\">InputObject</a> from an\n<a href=\"/ref/class/UserInputService.html#member-InputChanged\">InputChanged</a> callback, or call\n<a href=\"/ref/class/UserInputService.html#member-GetMouseDelta\">GetMouseDelta()</a>. However, any\n<a href=\"/ref/class/InputObject.html\">InputObjects</a> corresponding to touch inputs will have\ntheir delta and position updated every frame throughout their lifetime.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/InputObject.html#member-KeyCode\">InputObject.KeyCode</a></li>\n<li><a href=\"/ref/class/InputObject.html#member-Position\">InputObject.Position</a></li>\n<li><a href=\"/ref/class/InputObject.html#member-UserInputState\">InputObject.UserInputState</a></li>\n<li><a href=\"/ref/class/InputObject.html#member-UserInputType\">InputObject.UserInputType</a></li>\n</ul>\n",
+				"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> describing the Delta (change) between mouse/joystick\nmovements.</p>\n<p>This is useful when used with the input&#39;s\n<a href=\"/ref/class/InputObject.html#member-Position\">position</a> to track the position and movement\nof the user&#39;s mouse/joystick, such as when you&#39;re creating custom movement\nor camera scripts. Consider tracking input object changes using the\n<a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a> event or when user input changes via events such as\n<a href=\"/ref/class/UserInputService.html#member-InputChanged\">UserInputService.InputChanged</a> and <a href=\"/ref/class/GuiObject.html#member-InputChanged\">GuiObject.InputChanged</a>.</p>\n<p>Note that an <a href=\"/ref/class/InputObject.html\">InputObject</a> corresponding to\n<a href=\"/ref/enum/UserInputType.html\">UserInputType.MouseButton1</a> (left click) and\n<a href=\"/ref/enum/UserInputType.html\">UserInputType.MouseButton2</a> (right click) supplied from an\n<a href=\"/ref/class/UserInputService.html#member-InputBegan\">InputBegan</a> callback will not have its\n<a href=\"/ref/class/InputObject.html#member-Delta\">Delta</a> or <a href=\"/ref/class/InputObject.html#member-Position\">Position</a>\nupdated once created, except for when the mouse input ends. In order to\nget updated deltas for mouse inputs, you must instead reference an\n<a href=\"/ref/class/InputObject.html\">InputObject</a> from an\n<a href=\"/ref/class/UserInputService.html#member-InputChanged\">InputChanged</a> callback, or call\n<a href=\"/ref/class/UserInputService.html#member-GetMouseDelta\">GetMouseDelta()</a>. However, any\n<a href=\"/ref/class/InputObject.html\">InputObjects</a> corresponding to touch inputs will have\ntheir delta and position updated every frame throughout their lifetime.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/InputObject.html#member-KeyCode\">InputObject.KeyCode</a></li>\n<li><a href=\"/ref/class/InputObject.html#member-Position\">InputObject.Position</a></li>\n<li><a href=\"/ref/class/InputObject.html#member-UserInputState\">InputObject.UserInputState</a></li>\n<li><a href=\"/ref/class/InputObject.html#member-UserInputType\">InputObject.UserInputType</a></li>\n</ul>\n",
 				"CodeSamples": [
 					"UserInputService-InputChanged",
 					"UserInputService-MouseDeltaSensitivity"
@@ -10326,7 +10308,10 @@
 				"Summary": "<p>Fires whenever an attribute is changed on the <a href=\"/ref/class/Instance.html\">Instance</a>.</p>\n",
 				"Description": "<p>This event fires whenever any attribute is changed on the instance,\nincluding when an attribute is set to <code>nil</code>. The name of the changed\nattribute is passed to the connected function.</p>\n<p>For example, the following code snippet connects the <code>attributeChanged()</code>\nfunction to fire whenever one of the part&#39;s attributes changes:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">part</span> <span class=\"_o\">=</span> <span class=\"_n\">workspace.Part</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">attributeChanged</span><span class=\"_p\">(</span><span class=\"_n\">attributeName</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">attributeName</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;changed&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">part.AttributeChanged</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_n\">attributeChanged</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also <a href=\"/ref/class/Instance.html#member-GetAttributeChangedSignal\">Instance:GetAttributeChangedSignal()</a> which returns an\nevent that fires when a specific given attribute changes.</p>\n"
 			},
-			"Capabilities": {},
+			"Capabilities": {
+				"Summary": "<p>The set of capabilities allowed to be used for scripts inside this\ncontainer.</p>\n",
+				"Description": "<p>The set of capabilities allowed to be used for scripts inside this\ninstance. For the capabilities to take effect, <a href=\"/ref/class/Instance.html#member-Sandboxed\">Instance.Sandboxed</a>\nproperty has to be enabled.</p>\n<p>This property is used by an experimental feature. See\n<a href=\"https://create.roblox.com/docs/scripting/capabilities\">Script Capabilities</a> page for further\ndetails.</p>\n"
+			},
 			"ChildAdded": {
 				"Summary": "<p>Fires after an object is parented to this <a href=\"/ref/class/Instance.html\">Instance</a>.</p>\n",
 				"Description": "<p>Fires after an object is parented to this <a href=\"/ref/class/Instance.html\">Instance</a>.</p>\n<p>Note, when using this function on a client to detect objects created by\nthe server it is necessary to use <a href=\"/ref/class/Instance.html#member-WaitForChild\">Instance:WaitForChild()</a> when\nindexing these object&#39;s descendants. This is because the object and its\ndescendants are not guaranteed to replicate from the server to the client\nsimultaneously. For example:</p>\n<pre><code>workspace.ChildAdded:Connect(function(child)\n\t-- need to use WaitForChild as descendants may not have replicated yet\n\tlocal head = child:WaitForChild(&#34;Head&#34;)\nend)\n</code></pre>\n<p>Note, this function only works for immediate children of the\n<a href=\"/ref/class/Instance.html\">Instance</a>. For a function that captures all descendants, use\n<a href=\"/ref/class/Instance.html#member-DescendantAdded\">Instance.DescendantAdded</a>.</p>\n<p>See also, <a href=\"/ref/class/Instance.html#member-ChildRemoved\">Instance.ChildRemoved</a>.</p>\n",
@@ -10377,10 +10362,11 @@
 				]
 			},
 			"Destroying": {
-				"Summary": "<p>Fires immediately before the instance is destroyed via\n<a href=\"/ref/class/Instance.html#member-Destroy\">Instance:Destroy()</a>.</p>\n",
-				"Description": "<p>The Destroying event fires immediately before the Instance or one of its\nancestors is destroyed with <code>Instance.Destroy()</code>.</p>\n<p>The Instance will never be deleted from memory while a connected function\nis still using it. However, if the function yields at any point, the\nInstance and its descendants will be parented to <code>nil</code>.</p>\n<p>When deleting an instance in Studio, such as manually deleting through the\nExplorer or through a plugin, the instance isn&#39;t destroyed. Instead, the\nparent is set to <code>nil</code> which you can track with\n<a href=\"/ref/class/Instance.html#member-AncestryChanged\">Instance.AncestryChanged</a>.</p>\n",
+				"Summary": "<p>Fires immediately before (or is deferred until after) the instance is destroyed via <a href=\"/ref/class/Instance.html#member-Destroy\">Instance:Destroy()</a>.</p>\n",
+				"Description": "<p>The <a href=\"/ref/class/Instance.html\">Instance</a> will\nnever be deleted from memory while a connected function is still using it. However,\nif the function yields at any point, the <a href=\"/ref/class/Instance.html\">Instance</a> and its descendants will be\nparented to <code>nil</code>.</p>\n<p>If the <a href=\"/ref/class/Workspace.html#member-SignalBehavior\">Workspace.SignalBehavior</a> property is set to <a href=\"/ref/enum/SignalBehavior.html\">SignalBehavior.Immediate</a>,\nthis event fires immediately before the <a href=\"/ref/class/Instance.html\">Instance</a> or one of its ancestors is destroyed\nwith <a href=\"/ref/class/Instance.html#member-Destroy\">Instance:Destroy()</a>.</p>\n<p>If the <a href=\"/ref/class/Workspace.html#member-SignalBehavior\">Workspace.SignalBehavior</a> property is set to <a href=\"/ref/enum/SignalBehavior.html\">SignalBehavior.Deferred</a>, this event\nfires at the next resumption point, which will be after the <a href=\"/ref/class/Instance.html\">Instance</a> or one of its ancestors is\ndestroyed with <a href=\"/ref/class/Instance.html#member-Destroy\">Instance:Destroy()</a>.</p>\n<p>With <a href=\"/ref/enum/SignalBehavior.html\">Deferred</a> behavior, connecting a script to its own\n<a href=\"/ref/class/Instance.html#member-Destroying\">Instance.Destroying</a> event is problematic, as the script will be destroyed before the callback\ncan be called (meaning it will not execute).</p>\n<p>When deleting an <a href=\"/ref/class/Instance.html\">Instance</a> in Studio, such as manually deleting through the\n<a href=\"https://create.roblox.com/docs/studio/explorer\">Explorer</a> or through a plugin, the <a href=\"/ref/class/Instance.html\">Instance</a> isn&#39;t destroyed. Instead,\nthe parent is set to <code>nil</code> which you can track with <a href=\"/ref/class/Instance.html#member-AncestryChanged\">Instance.AncestryChanged</a>.</p>\n",
 				"CodeSamples": [
-					"Instance-Destroying"
+					"Instance-Destroying-Immediate",
+					"Instance-Destroying-Deferred"
 				]
 			},
 			"FindFirstAncestor": {
@@ -10510,7 +10496,10 @@
 				"Description": "<p>This property used to protect objects in the <a href=\"/ref/class/CoreGui.html\">CoreGui</a> service from\nbeing altered by users in an unauthorized manner. It has been deprecated\nand does not do anything.</p>\n",
 				"DeprecationMessage": "<p>This property is deprecated and does not do anything.</p>\n"
 			},
-			"Sandboxed": {},
+			"Sandboxed": {
+				"Summary": "<p>Turns the instance to be a Sandboxed Container.</p>\n",
+				"Description": "<p>Turns the instance to be a Sandboxed Container. Sandboxed Containers are\nan experimental feature which limits the actions that scripts inside a\nparticular container can perform.</p>\n<p>See <a href=\"https://create.roblox.com/docs/scripting/capabilities\">Script Capabilities</a> page for\nfurther details.</p>\n"
+			},
 			"SetAttribute": {
 				"Summary": "<p>Sets the attribute with the given name to the given value.</p>\n",
 				"Description": "<p>This method sets the attribute with the given name to the given value. If\nthe value given is <code>nil</code>, the attribute will be removed, since <code>nil</code> is\nreturned by default.</p>\n<p>For example, the following code snippet sets the instance&#39;s\n<strong>InitialPosition</strong> attribute to <a href=\"/ref/type/Vector3.html\">Vector3.new(0, 10, 0)</a>:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">part</span> <span class=\"_o\">=</span> <span class=\"_n\">workspace.Part</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">part</span><span class=\"_p\">:</span><span class=\"_n\">SetAttribute</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;InitialPosition&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">10</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Limitations</h4>\n<p>Naming requirements and restrictions:</p>\n<ul>\n<li>Names must only use alphanumeric characters and underscore.</li>\n<li>No spaces or unique symbols are allowed.</li>\n<li>Strings must be 100 characters or less.</li>\n<li>Names are not allowed to start with <strong>RBX</strong> unless the caller is a\nRoblox core script (reserved for Roblox).</li>\n</ul>\n<p>When attempting to set an attribute to an unsupported type, an error will\nbe thrown.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Instance.html#member-GetAttribute\">Instance:GetAttribute()</a> which returns the value that has been\nassigned to the given attribute name.</li>\n<li><a href=\"/ref/class/Instance.html#member-GetAttributes\">Instance:GetAttributes()</a> which returns a dictionary of key‑value\npairs for each of the instance&#39;s attributes.</li>\n</ul>\n"
@@ -12155,19 +12144,19 @@
 				]
 			},
 			"ClassName": {
-				"Summary": "<p>A read-only string representing the class this <a href=\"/ref/class/Object.html\">Object</a> belongs\nto.</p>\n",
-				"Description": "<p>A read-only string representing the class this <a href=\"/ref/class/Object.html\">Object</a> belongs\nto.</p>\n<p>This property can be used with various other functions that\nare used to identify objects by type, such as <a href=\"/ref/class/Object.html#member-IsA\">Object:IsA()</a> or\n<a href=\"/ref/class/Instance.html#member-FindFirstChildOfClass\">Instance:FindFirstChildOfClass()</a>.</p>\n<p>Note this property is read only and cannot be altered by scripts.\nDevelopers wishing to change an object&#39;s class will instead have to\ncreate a new <a href=\"/ref/class/Object.html\">Object</a>.</p>\n<p>Unlike <a href=\"/ref/class/Object.html#member-IsA\">Object:IsA()</a>, ClassName can be used to check if an object\nbelongs to a specific class ignoring class inheritance. For example:</p>\n<pre><code>for _, child in workspace:GetChildren() do\n    if child.ClassName == &#34;Part&#34; then\n        print(&#34;Found a Part&#34;)\n        -- will find Parts in model, but NOT TrussParts, WedgeParts, etc\n    end\nend\n</code></pre>\n"
+				"Summary": "<p>A read-only string representing the class this <a href=\"/ref/class/Object.html\">Object</a> belongs to.</p>\n",
+				"Description": "<p>A read-only string representing the class this <a href=\"/ref/class/Object.html\">Object</a> belongs to.</p>\n<p>This property can be used with various other functions that are used to\nidentify objects by type, such as <a href=\"/ref/class/Object.html#member-IsA\">Object:IsA()</a> or\n<a href=\"/ref/class/Instance.html#member-FindFirstChildOfClass\">Instance:FindFirstChildOfClass()</a>.</p>\n<p>Note this property is read only and cannot be altered by scripts.\nDevelopers wishing to change an object&#39;s class will instead have to create\na new <a href=\"/ref/class/Object.html\">Object</a>.</p>\n<p>Unlike <a href=\"/ref/class/Object.html#member-IsA\">Object:IsA()</a>, ClassName can be used to check if an object\nbelongs to a specific class ignoring class inheritance. For example:</p>\n<pre><code>for _, child in workspace:GetChildren() do\n    if child.ClassName == &#34;Part&#34; then\n        print(&#34;Found a Part&#34;)\n        -- will find Parts in model, but NOT TrussParts, WedgeParts, etc\n    end\nend\n</code></pre>\n"
 			},
 			"GetPropertyChangedSignal": {
 				"Summary": "<p>Get an event that fires when a given property of the object changes.</p>\n",
-				"Description": "<p>This method returns an event that behaves exactly like the\n<a href=\"/ref/class/Object.html#member-Changed\">Changed</a> event, except that it only fires when the\ngiven property changes. It&#39;s generally a good idea to use this method\ninstead of a connection to <a href=\"/ref/class/Object.html#member-Changed\">Changed</a> with a\nfunction that checks the property name. Subsequent calls to this method on\nthe same object with the same property name return the same event.</p>\n<p><a href=\"/ref/class/ValueBase.html\">ValueBase</a> objects, such as <a href=\"/ref/class/IntValue.html\">IntValue</a> and\n<a href=\"/ref/class/StringValue.html\">StringValue</a>, use a modified <a href=\"/ref/class/Object.html#member-Changed\">Changed</a> event\nthat fires with the contents of their <code>Value</code> property. As such, this\nmethod provides a way to detect changes in other properties of those\nobjects.</p>\n<p>Note that this event will not pass any arguments to a connected function,\nso the value of the changed property must be read directly within a\nscript.</p>\n<h4>Limitations</h4>\n<p>The event returned by this method does <strong>not</strong> fire for physics-related\nchanges, such as when the <a href=\"/ref/class/BasePart.html#member-CFrame\">CFrame</a>,\n<a href=\"/ref/class/BasePart.html#member-AssemblyLinearVelocity\">AssemblyLinearVelocity</a>,\n<a href=\"/ref/class/BasePart.html#member-AssemblyAngularVelocity\">AssemblyAngularVelocity</a>,\n<a href=\"/ref/class/BasePart.html#member-Position\">Position</a>, or\n<a href=\"/ref/class/BasePart.html#member-Orientation\">Orientation</a> properties of a <a href=\"/ref/class/BasePart.html\">BasePart</a>\nchange due to gravity. To detect changes in these properties, consider\nusing a physics-based event like <a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a>.</p>\n<p>Additionally, the returned event may not fire on every modification of\nproperties that change very frequently, and/or it may not fire for such\nproperties at all. It&#39;s recommended that you carefully test for property\nchanges that impact game logic.</p>\n",
+				"Description": "<p>This method returns an event that behaves exactly like the\n<a href=\"/ref/class/Object.html#member-Changed\">Changed</a> event, except that it only fires when the\ngiven property changes. It&#39;s generally a good idea to use this method\ninstead of a connection to <a href=\"/ref/class/Object.html#member-Changed\">Changed</a> with a function\nthat checks the property name. Subsequent calls to this method on the same\nobject with the same property name return the same event.</p>\n<p><a href=\"/ref/class/ValueBase.html\">ValueBase</a> objects, such as <a href=\"/ref/class/IntValue.html\">IntValue</a> and\n<a href=\"/ref/class/StringValue.html\">StringValue</a>, use a modified <a href=\"/ref/class/Object.html#member-Changed\">Changed</a> event\nthat fires with the contents of their <code>Value</code> property. As such, this\nmethod provides a way to detect changes in other properties of those\nobjects.</p>\n<p>Note that this event will not pass any arguments to a connected function,\nso the value of the changed property must be read directly within a\nscript.</p>\n<h4>Limitations</h4>\n<p>The event returned by this method does <strong>not</strong> fire for physics-related\nchanges, such as when the <a href=\"/ref/class/BasePart.html#member-CFrame\">CFrame</a>,\n<a href=\"/ref/class/BasePart.html#member-AssemblyLinearVelocity\">AssemblyLinearVelocity</a>,\n<a href=\"/ref/class/BasePart.html#member-AssemblyAngularVelocity\">AssemblyAngularVelocity</a>,\n<a href=\"/ref/class/BasePart.html#member-Position\">Position</a>, or\n<a href=\"/ref/class/BasePart.html#member-Orientation\">Orientation</a> properties of a <a href=\"/ref/class/BasePart.html\">BasePart</a>\nchange due to gravity. To detect changes in these properties, consider\nusing a physics-based event like <a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a>.</p>\n<p>Additionally, the returned event may not fire on every modification of\nproperties that change very frequently, and/or it may not fire for such\nproperties at all. It&#39;s recommended that you carefully test for property\nchanges that impact game logic.</p>\n",
 				"CodeSamples": [
 					"Changed-Old-to-New",
 					"Changed-and-GetPropertyChangedSignal"
 				]
 			},
 			"IsA": {
-				"Summary": "<p>Returns true if an object&#39;s class matches or inherits from a given\nclass.</p>\n",
+				"Summary": "<p>Returns true if an object&#39;s class matches or inherits from a given class.</p>\n",
 				"Description": "<p>IsA returns true if the object&#39;s class is <strong>equivalent to</strong> or a\n<strong>subclass</strong> of a given class. This function is similar to the\n<strong>instanceof</strong> operators in other languages, and is a form of\n<a href=\"https://en.wikipedia.org/wiki/Type_introspection\">type introspection</a>. To\nignore class inheritance, test the <a href=\"/ref/class/Object.html#member-ClassName\">ClassName</a>\nproperty directly instead. For checking native Lua data types (number,\nstring, etc) use the functions <code>type</code> and <code>typeof</code>.</p>\n<p>Most commonly, this function is used to test if an object is some kind of\npart, such as <a href=\"/ref/class/Part.html\">Part</a> or <a href=\"/ref/class/WedgePart.html\">WedgePart</a>, which inherits from\n<a href=\"/ref/class/BasePart.html\">BasePart</a> (an abstract class). For example, if your goal is to\nchange all of a character&#39;s limbs to the same color, you might use\n<a href=\"/ref/class/Instance.html#member-GetChildren\">GetChildren</a> to iterate over the children,\nthen use IsA to filter non-<a href=\"/ref/class/BasePart.html\">BasePart</a> objects which lack the\n<a href=\"/ref/type/BrickColor.html\">BrickColor</a> property:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">paintFigure</span><span class=\"_p\">(</span><span class=\"_n\">character</span><span class=\"_p\">,</span> <span class=\"_n\">color</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Iterate over the child objects of the character</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">for</span> <span class=\"_n\">_</span><span class=\"_p\">,</span> <span class=\"_n\">child</span> <span class=\"_kr\">in</span> <span class=\"_n\">character</span><span class=\"_p\">:</span><span class=\"_n\">GetChildren</span><span class=\"_p\">()</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- Filter out non-part objects, such as Shirt, Pants and Humanoid</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- R15 use MeshPart and R6 use Part, so we use BasePart here to detect both:</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">if</span> <span class=\"_n\">child</span><span class=\"_p\">:</span><span class=\"_n\">IsA</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;BasePart&#34;</span><span class=\"_p\">)</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_n\">child.BrickColor</span> <span class=\"_o\">=</span> <span class=\"_n\">color</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">paintFigure</span><span class=\"_p\">(</span><span class=\"_n\">game.Players</span><span class=\"_p\">.</span><span class=\"_n\">Player.Character</span><span class=\"_p\">,</span> <span class=\"_n\">BrickColor.new</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Bright blue&#34;</span><span class=\"_p\">))</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Since all classes inherit from <a href=\"/ref/class/Object.html\">Object</a>, calling\n<code>object:IsA(&#34;Object&#34;)</code> will always return true.</p>\n",
 				"CodeSamples": [
 					"Instance-IsA1"
@@ -12177,7 +12166,7 @@
 				"DeprecationMessage": "<p>This deprecated property is a variant of <a href=\"/ref/class/Object.html#member-ClassName\">Object.ClassName</a> which\nshould be used instead.</p>\n"
 			},
 			"isA": {
-				"DeprecationMessage": "<p>This deprecated function is a variant of <a href=\"/ref/class/Object.html#member-IsA\">Object:IsA()</a> which\nshould be used instead.</p>\n"
+				"DeprecationMessage": "<p>This deprecated function is a variant of <a href=\"/ref/class/Object.html#member-IsA\">Object:IsA()</a> which should\nbe used instead.</p>\n"
 			}
 		},
 		"ObjectValue": {
@@ -12902,7 +12891,7 @@
 			},
 			"Character": {
 				"Summary": "<p>A <a href=\"/ref/class/Model.html\">Model</a> controlled by the player that contains a <a href=\"/ref/class/Humanoid.html\">Humanoid</a>,\nbody parts, scripts, and other objects.</p>\n",
-				"Description": "<p>The <strong>Character</strong> property contains a reference to a <a href=\"/ref/class/Model.html\">Model</a>\ncontaining a <a href=\"/ref/class/Humanoid.html\">Humanoid</a>, body parts, scripts, and other objects\nrequired for simulating the player&#39;s avatar in-experience. The model is\nparented to the <a href=\"/ref/class/Workspace.html\">Workspace</a> but it may be moved. It is automatically\nloaded when <a href=\"/ref/class/Players.html#member-CharacterAutoLoads\">Players.CharacterAutoLoads</a> is <code>true</code> and it can be\nmanually loaded otherwise using <a href=\"/ref/class/Player.html#member-LoadCharacter\">Player:LoadCharacter()</a>.</p>\n<p>Initially this property is <code>nil</code> and it is set when the player&#39;s character\nfirst spawns. Use the <a href=\"/ref/class/Player.html#member-CharacterAdded\">Player.CharacterAdded</a> event to detect when a\nplayer&#39;s character properly loads, and the\n<a href=\"/ref/class/Player.html#member-CharacterRemoving\">Player.CharacterRemoving</a> event to detect when the character is\nabout to despawn. Avoid using <a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a>\non this property.</p>\n<p>Note that <a href=\"/ref/class/LocalScript.html\">LocalScripts</a> that are cloned from\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a> or <a href=\"/ref/class/StarterPack.html\">StarterPack</a> into a player&#39;s\n<a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> or <a href=\"/ref/class/Backpack.html\">Backpack</a> respectively are often run before\nthe old character model is replaced, so <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a> may refer\nto the old model whose <a href=\"/ref/class/Instance.html#member-Parent\">Parent</a> property is <code>nil</code>.\nTherefore, in a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> under <a href=\"/ref/class/StarterGui.html\">StarterGui</a> or\n<a href=\"/ref/class/StarterPack.html\">StarterPack</a>, it is advisable to make sure the parent of\n<strong>Character</strong> is not <code>nil</code> before using it, for example:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Players</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Players&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">player</span> <span class=\"_o\">=</span> <span class=\"_n\">Players.LocalPlayer</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">character</span> <span class=\"_o\">=</span> <span class=\"_n\">player.Character</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">character</span> <span class=\"_ow\">or</span> <span class=\"_n\">character.Parent</span> <span class=\"_o\">==</span> <span class=\"_kc\">nil</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">character</span> <span class=\"_o\">=</span> <span class=\"_n\">player.CharacterAdded</span><span class=\"_p\">:</span><span class=\"_n\">Wait</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+				"Description": "<p>The <strong>Character</strong> property contains a reference to a <a href=\"/ref/class/Model.html\">Model</a>\ncontaining a <a href=\"/ref/class/Humanoid.html\">Humanoid</a>, body parts, scripts, and other objects\nrequired for simulating the player&#39;s avatar in-experience. The model is\nparented to the <a href=\"/ref/class/Workspace.html\">Workspace</a> but it may be moved. It is automatically\nloaded when <a href=\"/ref/class/Players.html#member-CharacterAutoLoads\">Players.CharacterAutoLoads</a> is <code>true</code> and it can be\nmanually loaded otherwise using <a href=\"/ref/class/Player.html#member-LoadCharacter\">Player:LoadCharacter()</a>.</p>\n<p>Initially this property is <code>nil</code> and it is set when the player&#39;s character\nfirst spawns. Use the <a href=\"/ref/class/Player.html#member-CharacterAdded\">Player.CharacterAdded</a> event to detect when a\nplayer&#39;s character properly loads, and the\n<a href=\"/ref/class/Player.html#member-CharacterRemoving\">Player.CharacterRemoving</a> event to detect when the character is\nabout to despawn. Avoid using <a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a> on\nthis property.</p>\n<p>Note that <a href=\"/ref/class/LocalScript.html\">LocalScripts</a> that are cloned from\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a> or <a href=\"/ref/class/StarterPack.html\">StarterPack</a> into a player&#39;s\n<a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> or <a href=\"/ref/class/Backpack.html\">Backpack</a> respectively are often run before\nthe old character model is replaced, so <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a> may refer\nto the old model whose <a href=\"/ref/class/Instance.html#member-Parent\">Parent</a> property is <code>nil</code>.\nTherefore, in a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> under <a href=\"/ref/class/StarterGui.html\">StarterGui</a> or\n<a href=\"/ref/class/StarterPack.html\">StarterPack</a>, it is advisable to make sure the parent of\n<strong>Character</strong> is not <code>nil</code> before using it, for example:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Players</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Players&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">player</span> <span class=\"_o\">=</span> <span class=\"_n\">Players.LocalPlayer</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">character</span> <span class=\"_o\">=</span> <span class=\"_n\">player.Character</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">character</span> <span class=\"_ow\">or</span> <span class=\"_n\">character.Parent</span> <span class=\"_o\">==</span> <span class=\"_kc\">nil</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">character</span> <span class=\"_o\">=</span> <span class=\"_n\">player.CharacterAdded</span><span class=\"_p\">:</span><span class=\"_n\">Wait</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"CharacterAdded": {
 				"Summary": "<p>Fired when a player&#39;s character spawns or respawns.</p>\n",
@@ -13035,7 +13024,7 @@
 			},
 			"GetJoinData": {
 				"Summary": "<p>Returns a dictionary containing information describing how the\n<a href=\"/ref/class/Player.html\">Player</a> joins the experience.</p>\n",
-				"Description": "<p>Returns a dictionary containing information describing how the Player\njoins the experience. The dictionary contains any of the following fields:</p>\n<table>\n  <thead>\n    <tr>\n      <th> Key </th>\n      <th> Value Type </th>\n      <th> Description </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th> SourceGameId </th>\n      <td> number </td>\n      <td> The <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the experience the <code>Player</code> teleported from. Only present if the player teleports to the current experience and if a server calls the teleport function. </td>\n    </tr>\n    <tr>\n      <th> SourcePlaceId </th>\n      <td> number </td>\n      <td> The <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the place the <code>Player</code> teleported from. Only present if the player teleports to the current place and a server calls the teleport function. </td>\n    </tr>\n    <tr>\n      <th> Members </th>\n      <td> array </td>\n      <td> An array containing the <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a> numbers of the users teleported alongside the <code>Player</code>. Only present if the player teleported as part of a group. </td>\n    </tr>\n    <tr>\n      <th> TeleportData </th>\n      <td> variant </td>\n      <td> Reflects the <code>teleportData</code> specified in the original teleport. Useful for sharing information between servers the player teleports to. Only present if <code>teleportData</code> was specified and a server calls the teleport function. </td>\n    </tr>\n    <tr>\n      <th> LaunchData </th>\n      <td> string </td>\n      <td>A plain or JSON encoded string that contains launch data specified in a <a href=\"https://create.roblox.com/docs/production/promotion/deeplinking\">deep link</a> URL or\n      <a href=\"/ref/class/ExperienceInviteOptions.html#member-LaunchData\">ExperienceInviteOptions.LaunchData</a>.</td>\n    </tr>\n  </tbody>\n</table>\n<h4>GetJoinData and TeleportData</h4>\n<p>If a server initiates the Player&#39;s teleport, the dictionary that this\nmethod returns includes the player&#39;s teleport data. The\n<a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> method can only be used to fetch teleport\ndata on the server. To fetch the data on the client, use\n<a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>.</p>\n<p>Unlike <a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>,\n<a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> only provides teleport data that meets the\nfollowing security criteria:</p>\n<ul>\n<li>It&#39;s guaranteed to have been sent by a Roblox server in the past 48\nhours.</li>\n<li>It&#39;s guaranteed to have been sent with this <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>The <code>SourcePlaceId</code> and <code>SourceGameId</code> are guaranteed to be the place\nand universe the data was sent from. This means you can verify the\nteleport data came from an approved place.</li>\n</ul>\n<p>As this data is transmitted by the client, it can still potentially be\nabused by an exploiter. Sensitive data such as player currency should be\ntransmitted via a secure solution like\n<a href=\"https://create.roblox.com/docs/cloud-services/memory-stores\">Memory Stores</a>.</p>\n",
+				"Description": "<p>Returns a dictionary containing information describing how the Player\njoins the experience. The dictionary contains any of the following fields:</p>\n<table>\n  <thead>\n    <tr>\n      <th> Key </th>\n      <th> Value Type </th>\n      <th> Description </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th> SourceGameId </th>\n      <td> number </td>\n      <td> The <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the experience the <code>Player</code> teleported from. Only present if the player teleports to the current experience and if a server calls the teleport function. </td>\n    </tr>\n    <tr>\n      <th> SourcePlaceId </th>\n      <td> number </td>\n      <td> The <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the place the <code>Player</code> teleported from. Only present if the player teleports to the current place and a server calls the teleport function. </td>\n    </tr>\n    <tr>\n      <th> ReferredByPlayerId </th>\n      <td> number </td>\n      <td> The <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a> of the player who invited the current player to the experience. Use this data to identify the referrer and trigger reward logic. </td>\n    </tr>\n    <tr>\n      <th> Members </th>\n      <td> array </td>\n      <td> An array containing the <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a> numbers of the users teleported alongside the <code>Player</code>. Only present if the player teleported as part of a group. </td>\n    </tr>\n    <tr>\n      <th> TeleportData </th>\n      <td> variant </td>\n      <td> Reflects the <code>teleportData</code> specified in the original teleport. Useful for sharing information between servers the player teleports to. Only present if <code>teleportData</code> was specified and a server calls the teleport function. </td>\n    </tr>\n    <tr>\n      <th> LaunchData </th>\n      <td> string </td>\n      <td>A plain or JSON encoded string that contains launch data specified in a <a href=\"https://create.roblox.com/docs/production/promotion/deeplinking\">deep link</a> URL or\n      <a href=\"/ref/class/ExperienceInviteOptions.html#member-LaunchData\">ExperienceInviteOptions.LaunchData</a>.</td>\n    </tr>\n  </tbody>\n</table>\n<h4>GetJoinData and TeleportData</h4>\n<p>If a server initiates the Player&#39;s teleport, the dictionary that this\nmethod returns includes the player&#39;s teleport data. The\n<a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> method can only be used to fetch teleport\ndata on the server. To fetch the data on the client, use\n<a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>.</p>\n<p>Unlike <a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>,\n<a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> only provides teleport data that meets the\nfollowing security criteria:</p>\n<ul>\n<li>It&#39;s guaranteed to have been sent by a Roblox server in the past 48\nhours.</li>\n<li>It&#39;s guaranteed to have been sent with this <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>The <code>SourcePlaceId</code> and <code>SourceGameId</code> are guaranteed to be the place\nand universe the data was sent from. This means you can verify the\nteleport data came from an approved place.</li>\n</ul>\n<p>As this data is transmitted by the client, it can still potentially be\nabused by an exploiter. Sensitive data such as player currency should be\ntransmitted via a secure solution like\n<a href=\"https://create.roblox.com/docs/cloud-services/memory-stores\">Memory Stores</a>.</p>\n",
 				"CodeSamples": [
 					"Player-GetJoinData-Tracking-Traffic-Sources",
 					"Player-GetJoinData-Referral-Url-Generator",
@@ -14475,6 +14464,9 @@
 			}
 		},
 		"RigidConstraint": {},
+		"RobloxSerializableInstance": {
+			"Data": {}
+		},
 		"RocketPropulsion": {
 			"Abort": {
 				"Summary": "<p>Causes the Rocket to stop moving towards its target, making it fall.</p>\n",
@@ -14562,6 +14554,7 @@
 				"Description": "<p>The visualized thickness of the <a href=\"/ref/class/RodConstraint.html\">RodConstraint</a>.</p>\n"
 			}
 		},
+		"RomarkRbxAnalyticsService": {},
 		"RopeConstraint": {
 			"CurrentDistance": {
 				"Summary": "<p>The current distance between the constraint&#39;s\n<a href=\"/ref/class/Attachment.html\">Attachments</a>.</p>\n",
@@ -14792,6 +14785,7 @@
 		},
 		"ScriptBuilder": {},
 		"ScriptContext": {
+			"CompressLuaApp": {},
 			"Error": {
 				"Summary": "<p>Fired when an error occurs.</p>\n",
 				"Description": "<p>Fired when an error occurs.</p>\n",
@@ -15826,6 +15820,8 @@
 				"Description": "<p>This function returns the <a href=\"/ref/class/SoundService.html\">SoundService</a> current listener type and\nwhat is set as listener.</p>\n<p>The first result returned is the <a href=\"/ref/enum/ListenerType.html\">ListenerType</a> of the listener, the\nsecond result is dependent on the ListenerType:</p>\n<table>\n    <thead>\n        <tr>\n            <th>ListenerType</th>\n            <th>Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td><a href=\"/ref/enum/ListenerType.html\">ListenerType.Camera</a></td>\n            <td>Does not return a listener object as <code>Workspace/CurrentCamera</code> is always used</td>\n        </tr>\n        <tr>\n            <td><a href=\"/ref/enum/ListenerType.html\">ListenerType.CFrame</a></td>\n            <td>Returns the <a href=\"/ref/type/CFrame.html\">CFrame</a> used in <a href=\"/ref/class/SoundService.html#member-SetListener\">SoundService:SetListener()</a></td>\n        </tr>\n        <tr>\n            <td><a href=\"/ref/enum/ListenerType.html\">ListenerType.ObjectPosition</a></td>\n            <td>Returns the <a href=\"/ref/class/BasePart.html\">BasePart</a> used in <a href=\"/ref/class/SoundService.html#member-SetListener\">SoundService:SetListener()</a></td>\n        </tr>\n        <tr>\n            <td><a href=\"/ref/enum/ListenerType.html\">ListenerType.ObjectCFrame</a></td>\n            <td>Returns the <a href=\"/ref/class/BasePart.html\">BasePart</a> used in <a href=\"/ref/class/SoundService.html#member-SetListener\">SoundService:SetListener()</a></td>\n        </tr>\n    </tbody>\n</table>\n<p>The listener can be changed using <a href=\"/ref/class/SoundService.html#member-SetListener\">SoundService:SetListener()</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">SoundService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;SoundService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">SoundService</span><span class=\"_p\">:</span><span class=\"_n\">SetListener</span><span class=\"_p\">(</span><span class=\"_n\">Enum.ListenerType</span><span class=\"_p\">.</span><span class=\"_n\">CFrame</span><span class=\"_p\">,</span> <span class=\"_n\">CFrame.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">listenerType</span><span class=\"_p\">,</span> <span class=\"_n\">listener</span> <span class=\"_o\">=</span> <span class=\"_n\">SoundService</span><span class=\"_p\">:</span><span class=\"_n\">GetListener</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">listenerType</span><span class=\"_p\">,</span> <span class=\"_n\">listener</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>What is a listener?</h4>\n<p>The listener determines the point from which audio in the game is being\n&#39;heard&#39; by the player. For 3D <a href=\"/ref/class/Sound.html\">Sounds</a> (Sounds parented to a\nBasePart or <a href=\"/ref/class/Attachment.html\">Attachment</a>) the listener influences the volume and\nleft/right balance of a playing sound. Listeners have no influence on the\nplayback of 2D sounds as they have no position of emission.</p>\n<p>By default, the listener is set to the CurrentCamera. However, a range of\ndifferent types of listeners can be used.</p>\n"
 			},
 			"OpenAttenuationCurveEditor": {},
+			"OpenDirectionalCurveEditor": {},
+			"OpenDirectionalCurveEditorSignal": {},
 			"PlayLocalSound": {
 				"Summary": "<p>Plays a <a href=\"/ref/class/Sound.html\">Sound</a> locally, meaning the sound will only be heard by the\nclient calling this function, regardless of where it&#39;s parented to.</p>\n",
 				"Description": "<p>Plays a <a href=\"/ref/class/Sound.html\">Sound</a> locally, meaning the sound will only be heard by the\nclient calling this function, regardless of where it&#39;s parented to. This\nfunction is most useful for playing a <a href=\"/ref/class/Sound.html\">Sound</a> locally in the Studio\nclient, for instance in a <a href=\"/ref/class/Script.html\">Script</a> for a <a href=\"/ref/class/Plugin.html\">Plugin</a>.</p>\n",
@@ -18408,7 +18404,9 @@
 		},
 		"UGCValidationService": {
 			"CalculateEditableMeshInsideMeshPercentage": {},
-			"CalculateMeshInsideMeshPercentage": {}
+			"CalculateMeshInsideMeshPercentage": {},
+			"GetCagingRelevancyMetrics": {},
+			"GetEditableCagingRelevancyMetrics": {}
 		},
 		"UIAspectRatioConstraint": {
 			"AspectRatio": {
@@ -18448,11 +18446,11 @@
 			},
 			"BoundingUI": {
 				"Summary": "<p>Instance whose bounding area defines the drag boundaries for the parent\n<a href=\"/ref/class/GuiObject.html\">GuiObject</a>.</p>\n",
-				"Description": "<p>When set, the <code>UIDragDetector</code> instance will not allow the bounds of\nthe parent <a href=\"/ref/class/GuiObject.html\">GuiObject</a> to be dragged outside the bounds of the\n<strong>BoundingUI</strong> instance.</p>\n<p>Note that if a portion of the parent <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is outside the\n<strong>BoundingUI</strong> bounds, the initial input position at drag start and its\nrelative position during drag will be used for bounding detection until\nthe entirety of the dragged object is within the bounds, after which the\nobject will be constrained inside the bounds.</p>\n"
+				"Description": "<p>When set, the <code>UIDragDetector</code> instance will not allow the bounds of the\nparent <a href=\"/ref/class/GuiObject.html\">GuiObject</a> to be dragged outside the bounds of the\n<strong>BoundingUI</strong> instance.</p>\n<p>Note that if a portion of the parent <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is outside the\n<strong>BoundingUI</strong> bounds, the initial input position at drag start and its\nrelative position during drag will be used for bounding detection until\nthe entirety of the dragged object is within the bounds, after which the\nobject will be constrained inside the bounds.</p>\n"
 			},
 			"CursorIcon": {
 				"Summary": "<p>Sets the cursor icon to display when the mouse is hovered over the parent\nof this <code>UIDragDetector</code>.</p>\n",
-				"Description": "<p>Sets the cursor icon to display when the mouse is hovered over the parent\nof this <code>UIDragDetector</code>. If this property is left blank, the\ndetector will use the default icon.</p>\n<p>To change the cursor icon, set this property to the asset ID of the image\nyou&#39;d like to use.</p>\n"
+				"Description": "<p>Sets the cursor icon to display when the mouse is hovered over the parent\nof this <code>UIDragDetector</code>. If this property is left blank, the detector\nwill use the default icon.</p>\n<p>To change the cursor icon, set this property to the asset ID of the image\nyou&#39;d like to use.</p>\n"
 			},
 			"DragAxis": {
 				"Summary": "<p>The drag axis for the <code>UIDragDetector</code> instance when\n<a href=\"/ref/class/UIDragDetector.html#member-DragStyle\">DragStyle</a> is set to\n<a href=\"/ref/enum/UIDragDetectorDragStyle.html\">UIDragDetectorDragStyle.TranslateLine</a>.</p>\n",
@@ -18492,7 +18490,7 @@
 			},
 			"Enabled": {
 				"Summary": "<p>Whether the <code>UIDragDetector</code> responds to user input.</p>\n",
-				"Description": "<p>If <code>true</code>, the <code>UIDragDetector</code> responds to user input; if <code>false</code>,\nit does not.</p>\n"
+				"Description": "<p>If <code>true</code>, the <code>UIDragDetector</code> responds to user input; if <code>false</code>, it\ndoes not.</p>\n"
 			},
 			"GetReferencePosition": {
 				"Summary": "<p>Returns the reference <a href=\"/ref/type/UDim2.html\">UDim2</a> position of the current drag&#39;s\nreference origin.</p>\n",
@@ -18612,7 +18610,7 @@
 		"UIGridStyleLayout": {
 			"AbsoluteContentSize": {
 				"Summary": "<p>The absolute size of space being taken up by the grid layout.</p>\n",
-				"Description": "<p>The <strong>AbsoluteContentSize</strong> property of a <a href=\"/ref/class/UIGridStyleLayout.html\">UIGridStyleLayout</a>\nreveals how much space the elements of the grid are taking up, including\nany padding created by the grid. This property is particularly useful to\nsize containers of grids such as <a href=\"/ref/class/Frame.html\">Frames</a> to make sure they\naren&#39;t any larger than the grid itself.</p>\n<p>This property updates as soon as it&#39;s read. It will not fire a\n<a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a> event immediately after the UI has changed, but\nif the value is read, it will become current and a\n<a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a> event will fire on the next render step.</p>\n"
+				"Description": "<p>The <strong>AbsoluteContentSize</strong> property of a <a href=\"/ref/class/UIGridStyleLayout.html\">UIGridStyleLayout</a>\nreveals how much space the elements of the grid are taking up, including\nany padding created by the grid. This property is particularly useful to\nsize containers of grids such as <a href=\"/ref/class/Frame.html\">Frames</a> to make sure they\naren&#39;t any larger than the grid itself.</p>\n<p>This property updates as soon as it&#39;s read. It will not fire a\n<a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a> event immediately after the UI has changed, but if\nthe value is read, it will become current and a <a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a>\nevent will fire on the next render step.</p>\n"
 			},
 			"ApplyLayout": {
 				"Summary": "<p>Force re-layout of sibling UI elements.</p>\n",
@@ -19784,17 +19782,25 @@
 		"VisualizationModeService": {},
 		"VoiceChatService": {
 			"EnableDefaultVoice": {
-				"Summary": "<p>Controls whether each voice-eligible player can be heard as though they were speaking through their character.</p>\n",
-				"Description": "<p>When enabled, each voice-eligible player can be heard as though they were speaking through their character.\nThe implementation details of the voice setup depend on <a href=\"/ref/class/VoiceChatService.html#member-UseAudioApi\">UseAudioApi</a>.</p>\n<p>When <a href=\"/ref/class/VoiceChatService.html#member-UseAudioApi\">UseAudioApi</a> is <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>,\ndisabling the default voice setup effectively disables voice chat altogether.</p>\n"
+				"Summary": "<p>Controls whether each voice-eligible player can be heard as though they\nwere speaking through their character.</p>\n",
+				"Description": "<p>When enabled, each voice-eligible player can be heard as though they were\nspeaking through their character. The implementation details of the voice\nsetup depend on <a href=\"/ref/class/VoiceChatService.html#member-UseAudioApi\">UseAudioApi</a>.</p>\n<p>When <a href=\"/ref/class/VoiceChatService.html#member-UseAudioApi\">UseAudioApi</a> is\n<a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>, disabling the default voice setup\neffectively disables voice chat altogether.</p>\n"
 			},
 			"IsVoiceEnabledForUserIdAsync": {
 				"Summary": "<p>Returns whether or not the given user has voice enabled.</p>\n",
 				"Description": "<p>Returns whether or not the given user has voice enabled. On the\nclient-side, this can only be used to check the voice status of the local\nplayer. On the server-side, this can only check the voice status for\nplayers in that server.</p>\n<p>This function can throw an error if the HTTP call fails.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Players</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Players&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">VoiceChatService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;VoiceChatService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">localPlayer</span> <span class=\"_o\">=</span> <span class=\"_n\">Players.LocalPlayer</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">success</span><span class=\"_p\">,</span> <span class=\"_n\">enabled</span> <span class=\"_o\">=</span> <span class=\"_n\">pcall</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">return</span> <span class=\"_n\">VoiceChatService</span><span class=\"_p\">:</span><span class=\"_n\">IsVoiceEnabledForUserIdAsync</span><span class=\"_p\">(</span><span class=\"_n\">localPlayer.UserId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">success</span> <span class=\"_ow\">and</span> <span class=\"_n\">enabled</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Voice chat enabled!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"UseAudioApi": {
-				"Summary": "<p>Controls whether voice chat is represented and controlled by <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n",
-				"Description": "<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, the voice chat setup is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects. More specifically:</p>\n<ul>\n<li>An <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> will be created and parented to each voice-eligible <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>An <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> will be created and parented to each voice-eligible player&#39;s <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</li>\n<li>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</li>\n</ul>\n<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>, the voice chat setup is done through an internal-only system.</p>\n<p>Currently, setting this to <a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> has the same meaning as <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>.\nHowever, in the future, <a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> will become <a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, so that new\nexperiences can achieve greater customization over voice.</p>\n"
+				"Summary": "<p>Controls whether voice chat is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n",
+				"Description": "<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, the voice chat setup is represented and\ncontrolled by <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects. More specifically:</p>\n<ul>\n<li>An <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> will be created and parented to each\nvoice-eligible <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>An <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> will be created and parented to each\nvoice-eligible player&#39;s <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</li>\n<li>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</li>\n</ul>\n<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>, the voice chat setup is done through\nan internal-only system.</p>\n<p>Currently, setting this to <a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> has the same\nmeaning as <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>. However, in the future,\n<a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> will become\n<a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, so that new experiences can achieve\ngreater customization over voice.</p>\n"
 			}
+		},
+		"WebViewService": {
+			"CloseWindow": {},
+			"IsAvailable": {},
+			"MutateWindow": {},
+			"OnJavaScriptCall": {},
+			"OnWindowClosed": {},
+			"OpenWindow": {}
 		},
 		"WedgePart": {},
 		"Weld": {},
@@ -19960,7 +19966,11 @@
 			"RenderingCacheOptimizations": {},
 			"ReplicateInstanceDestroySetting": {},
 			"Retargeting": {},
-			"SignalBehavior": {},
+			"SandboxedInstanceMode": {},
+			"SignalBehavior": {
+				"Summary": "<p>Configures when the engine resumes event handlers.</p>\n",
+				"Description": "<p>This property determines whether event handlers will be resumed immediately when the event fires,\nor deferred and then resumed at a later resumption point. Resumption points currently include:</p>\n<ul>\n<li><a href=\"/ref/class/RunService.html#member-RenderStepped\">RunService.RenderStepped</a></li>\n<li>Waiting script resumption such as <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#wait\">task.wait()</a>, <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#spawn\">task.spawn()</a>, and <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#delay\">task.delay()</a></li>\n<li><a href=\"/ref/class/RunService.html#member-Stepped\">RunService.Stepped</a></li>\n<li><a href=\"/ref/class/RunService.html#member-Heartbeat\">RunService.Heartbeat</a></li>\n<li><a href=\"/ref/class/DataModel.html#member-BindToClose\">DataModel.BindToClose</a></li>\n</ul>\n"
+			},
 			"StreamOutBehavior": {
 				"Summary": "<p>Configures how the engine decides when to Stream content away from\nplayers.</p>\n",
 				"Description": "<p>The <strong>StreamOutBehavior</strong> controls where content will be unloaded from the\n<a href=\"/ref/class/Player.html#member-ReplicationFocus\">ReplicationFocus</a> based on device Memory\nConditions, or based on Streaming Radius.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingMinRadius\">Workspace.StreamingMinRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingTargetRadius\">Workspace.StreamingTargetRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
@@ -20106,7 +20116,8 @@
 		},
 		"WrapDeformer": {
 			"CreateEditableMeshAsync": {},
-			"GetDeformedCFrameAsync": {}
+			"GetDeformedCFrameAsync": {},
+			"SetCageMeshContent": {}
 		},
 		"WrapLayer": {
 			"AutoSkin": {},
@@ -20134,6 +20145,7 @@
 				"Summary": "<p>Controls how much underlying clothing items inflate the current clothing\nitem.</p>\n",
 				"Description": "<p>Controls how much underlying clothing items inflate the current clothing\nitem.</p>\n<p>Valid range is -1 to 1. A value of -1 compresses the clothing, body, and\nall underlying layers such that the clothing itself takes the shape of the\nbody. A value of 0 makes the clothing item fit as if it was the only piece\nof clothing being worn, compressing all underlying layers. A value of 1\n(default) never compresses anything and infinitely inflates over\nunderlying clothing items.</p>\n"
 			},
+			"ReferenceMeshContent": {},
 			"ReferenceMeshId": {
 				"Summary": "<p>AssetID for reference mesh used to define Inner Cage of a 3D object.</p>\n",
 				"Description": "<p>AssetID for reference mesh used to define Inner Cage of a 3D object</p>\n<p>Reference mesh is used to define standard topology and UV coordinates for\nindex matching. It is expected that for all catalog avatars, this will\npoint to one of 15 standard reference meshes provided by Roblox. But for\nsome NPCs or a custom avatar system, this might point to other meshes.</p>\n<p>Note: this property is set up automatically by the FBX importer</p>\n"
@@ -20256,8 +20268,8 @@
 			"Description": "<p>Determines the asset type verification mode used when calling\n<a href=\"/ref/class/Humanoid.html#member-ApplyDescription\">Humanoid:ApplyDescription()</a>. Asset type verification determines if\nApplyDescription will load models or not. Loading models can be insecure if\nit&#39;s possible for malicious users to trick your game into loading unexpected\nmodels that you own which may include malicious scripts. You should set this\nto Always unless you want to load non-catalog assets.</p>\n"
 		},
 		"AudioApiRollout": {
-			"Summary": "<p>Used to determine whether voice chat is represented and controlled by <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n",
-			"Description": "<p>Used to determine whether voice chat is represented and controlled by <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n"
+			"Summary": "<p>Used to determine whether voice chat is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n",
+			"Description": "<p>Used to determine whether voice chat is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n"
 		},
 		"AudioFilterType": {
 			"Summary": "<p>Filter types used for <a href=\"/ref/class/AudioFilter.html\">AudioFilter</a> instances.</p>\n",
@@ -20410,7 +20422,10 @@
 			"Summary": "<p>Used to determine the connection state of the client to the game server.</p>\n",
 			"Description": "<p>Used to determine the connection state of the client to the game server.</p>\n"
 		},
-		"ContentSourceType": {},
+		"ContentSourceType": {
+			"Summary": "<p>The source type of a <a href=\"/ref/type/Content.html\">Content</a> value.</p>\n",
+			"Description": "<p>The source type of <a href=\"/ref/type/Content.html\">Content</a> value. Indicates which properties of a\n<a href=\"/ref/type/Content.html\">Content</a> contain the referenced content.</p>\n"
+		},
 		"ContextActionPriority": {
 			"Summary": "<p>Describes the priority of a context action.</p>\n",
 			"Description": "<p>The ContextActionPriority is used to set the priority of a context action.\nThis priority is used to determine context action order.</p>\n"
@@ -20741,7 +20756,9 @@
 			"Summary": "<p>Used to set the scrolling mode of the Advanced Objects tab.</p>\n",
 			"Description": "<p>Used to set the scrolling mode of the Advanced Objects tab.</p>\n"
 		},
-		"ListenerLocation": {},
+		"ListenerLocation": {
+			"Description": "<p>Provides a script-free and configuration-free way to spawn an <a href=\"/ref/class/AudioListener.html\">AudioListener</a> by default. Determines where, if anywhere, a default <a href=\"/ref/class/AudioListener.html\">AudioListener</a> should go.</p>\n"
+		},
 		"ListenerType": {
 			"Summary": "<p>Defines where and how the listener is positioned when picking up spatial\naudio.</p>\n",
 			"Description": "<p>Defines where and how the listener is positioned when picking up spatial\naudio. Used in <a href=\"/ref/class/SoundService.html#member-SetListener\">SoundService.SetListener</a> and\n<a href=\"/ref/class/SoundService.html#member-GetListener\">SoundService.GetListener</a>.</p>\n"
@@ -20999,6 +21016,7 @@
 			"Description": "<p>This enum describes the automatic compatibility transformations that apply to\ndescendant &#34;fullscreen&#34; <a href=\"/ref/class/GuiObject.html\">GuiObjects</a> of a <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> on\ndisplays with screen cutouts.</p>\n"
 		},
 		"SalesTypeFilter": {},
+		"SandboxedInstanceMode": {},
 		"SaveAvatarThumbnailCustomizationFailure": {},
 		"SaveFilter": {
 			"Summary": "<p>Used by <a href=\"/ref/class/DataModel.html#member-SavePlace\">DataModel.SavePlace</a> to determine the type of save operation\nThis enum determines which aspects of the current place are saved, based on\nthe following options.</p>\n",
@@ -21041,7 +21059,10 @@
 		"ServerLiveEditingMode": {},
 		"ServiceVisibility": {},
 		"Severity": {},
-		"SignalBehavior": {},
+		"SignalBehavior": {
+			"Summary": "<p>Determines when the engine resumes event handlers.</p>\n",
+			"Description": "<p>Determines when the engine resumes event handlers. At some future point, the default mode will\nbe <code>Deferred</code> but opt-out will still be possible through use of <code>Immediate</code>.</p>\n"
+		},
 		"SizeConstraint": {
 			"Summary": "<p>Used to constrain the scale of a GUI object.</p>\n",
 			"Description": "<p>Used to constrain the scale of a GUI object.</p>\n"
@@ -21457,7 +21478,9 @@
 			"CloseButtonClicked": {},
 			"FullscreenButtonClicked": {},
 			"PauseButtonClicked": {},
+			"PauseEventTriggered": {},
 			"PlayButtonClicked": {},
+			"PlayEventTriggered": {},
 			"VolumeButtonClicked": {},
 			"WhyThisAdClicked": {}
 		},
@@ -21879,13 +21902,13 @@
 		},
 		"AudioApiRollout": {
 			"Automatic": {
-				"Summary": "<p>Currently means the same thing as <code>Disabled</code>, but will be updated to mean <code>Enabled</code> in the future.</p>\n"
+				"Summary": "<p>Currently means the same thing as <code>Disabled</code>, but will be updated to mean\n<code>Enabled</code> in the future.</p>\n"
 			},
 			"Disabled": {
-				"Summary": "<p>Voice chat will use an internal voice chat implementation that is automatic and hidden.</p>\n"
+				"Summary": "<p>Voice chat will use an internal voice chat implementation that is\nautomatic and hidden.</p>\n"
 			},
 			"Enabled": {
-				"Summary": "<p>Voice chat can be customized or controlled via <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInputs</a>.</p>\n"
+				"Summary": "<p>Voice chat can be customized or controlled via\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInputs</a>.</p>\n"
 			}
 		},
 		"AudioFilterType": {
@@ -22580,6 +22603,7 @@
 			"Deprecated": {
 				"Summary": "<p>Indicates that the completion is deprecated, applying a penalty towards\nits score and crossing it out in the completion list.</p>\n"
 			},
+			"ElideLeftOverride": {},
 			"IncorrectIndexType": {
 				"Summary": "<p>Indicates that the completion is a member and being accessed with the\nwrong index type (e.g. using <code>:</code> to access a property), hiding it from the\ncompletion list.</p>\n"
 			},
@@ -22596,7 +22620,8 @@
 			},
 			"TypeCorrect": {
 				"Summary": "<p>Indicates that the completion is type correct in the current context,\ngranting a bonus to its score.</p>\n"
-			}
+			},
+			"UseTextEditForAutocompleteScore": {}
 		},
 		"CompletionTriggerKind": {
 			"Invoked": {},
@@ -22714,9 +22739,15 @@
 			}
 		},
 		"ContentSourceType": {
-			"None": {},
-			"Object": {},
-			"Uri": {}
+			"None": {
+				"Summary": "<p>Empty value with no source type. Does not reference any content or hold\nany non‑<code>nil</code> value.</p>\n"
+			},
+			"Object": {
+				"Summary": "<p>A non-<code>nil</code> <a href=\"/ref/class/Object.html\">Object</a> reference contained in <a href=\"/ref/type/Content.html#member-Object\">Content.Object</a>.</p>\n"
+			},
+			"Uri": {
+				"Summary": "<p>An <a href=\"https://create.roblox.com/docs/projects/assets#asset-uris\">asset URI</a> <code>string</code> value contained in <a href=\"/ref/type/Content.html#member-Uri\">Content.Uri</a>.</p>\n"
+			}
 		},
 		"ContextActionPriority": {
 			"High": {
@@ -25064,10 +25095,18 @@
 			}
 		},
 		"ListenerLocation": {
-			"Camera": {},
-			"Character": {},
-			"Default": {},
-			"None": {}
+			"Camera": {
+				"Summary": "<p>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</p>\n"
+			},
+			"Character": {
+				"Summary": "<p>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and attached to the local player&#39;s\n<a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</p>\n"
+			},
+			"Default": {
+				"Summary": "<p>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> in experiences that enable voice chat.</p>\n"
+			},
+			"None": {
+				"Summary": "<p>No <a href=\"/ref/class/AudioListener.html\">AudioListeners</a> will be spawned by default.</p>\n"
+			}
 		},
 		"ListenerType": {
 			"CFrame": {
@@ -26393,6 +26432,10 @@
 			"Collectibles": {},
 			"Premium": {}
 		},
+		"SandboxedInstanceMode": {
+			"Default": {},
+			"Experimental": {}
+		},
 		"SaveAvatarThumbnailCustomizationFailure": {
 			"BadDistanceScale": {},
 			"BadFieldOfViewDeg": {},
@@ -26582,10 +26625,18 @@
 			"Warning": {}
 		},
 		"SignalBehavior": {
-			"AncestryDeferred": {},
-			"Default": {},
-			"Deferred": {},
-			"Immediate": {}
+			"AncestryDeferred": {
+				"Summary": "<p>Equivalent to <code>Deferred</code> but only for events triggered by changes in ancestry.</p>\n"
+			},
+			"Default": {
+				"Summary": "<p>The default behavior; currently equivalent to <code>Immediate</code> but this will eventually change to <code>Deferred</code>.</p>\n"
+			},
+			"Deferred": {
+				"Summary": "<p>All events are deferred and their handlers resumed at specific resumptions points each frame.</p>\n"
+			},
+			"Immediate": {
+				"Summary": "<p>Event handlers are resumed immediately when the event occurs.</p>\n"
+			}
 		},
 		"SizeConstraint": {
 			"RelativeXX": {
@@ -29388,8 +29439,70 @@
 			"Summary": "<p>A color and time value that represents a keypoint in a\n<a href=\"/ref/type/ColorSequence.html\">ColorSequence</a>.</p>\n"
 		},
 		"Content": {
-			"Summary": "<p>A formatted string with a specific structure to reference some form of\ncontent.</p>\n",
-			"Description": "<p>Assets and other content are reflected through formatted strings, each of\nwhich points to an online file or a file saved to the client&#39;s device. The\nbasic structure is a <strong>protocol</strong> followed by <code>://</code> and a <strong>string</strong> that\nvaries according to the protocol.</p>\n<p><code>[Protocol]://[String]</code></p>\n<table>\n  <thead>\n        <tr>\n            <th>Protocol</th>\n            <th>String</th>\n            <th>Description</th>\n            <th>Example</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td><b>rbxassetid</b></td>\n            <td>An existing asset ID</td>\n            <td>Fetches a user-created asset uploaded to Roblox.</td>\n            <td>rbxassetid://7229442422</td>\n        </tr>\n    <tr>\n            <td><b>rbxasset</b></td>\n            <td>A file path</td>\n            <td>Fetches a file from Roblox&#39;s content folders.</td>\n            <td>rbxasset://textures/face.png</td>\n        </tr>\n        <tr>\n            <td><b>rbxthumb</b></td>\n            <td>Parameters and values</td>\n            <td>Allows for easy loading of thumbnails.</td>\n            <td>rbxthumb://type=Asset&amp;id=24813339&amp;w=150&amp;h=150</td>\n        </tr>\n        <tr>\n            <td><b>rbxhttp</b></td>\n            <td>A path on the Roblox website</td>\n            <td>Fetches content from the Roblox website.</td>\n            <td>rbxhttp://Thumbs/Avatar.ashx?x=100&amp;y=100&amp;format=png</td>\n        </tr>\n        <tr>\n            <td><b>rbxtemp</b></td>\n            <td>A temporary asset</td>\n            <td>Loads a temporary asset. Often generated by `Class.File:GetTemporaryId()`.</td>\n            <td>rbxtemp://1</td>\n        </tr>\n        <tr>\n            <td><b>https</b>/<b>http</b></td>\n            <td>A website URL</td>\n            <td>Fetches content from a website using a URL.</td>\n            <td>https://www.roblox.com/asset/?id=9723979220</td>\n        </tr>\n    </tbody>\n</table>\n<p>For further guidance on using content, see\n<a href=\"https://create.roblox.com/docs/projects/assets#asset-format-strings\">Asset Format Strings</a>.</p>\n"
+			"Constants": [
+				{
+					"Name": "none",
+					"Type": "Content",
+					"Summary": "<p>An empty <code>Content</code> value with <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> of <a href=\"/ref/enum/ContentSourceType.html\">None</a>.</p>\n",
+					"Description": "<p>An empty <code>Content</code> value with <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> of <a href=\"/ref/enum/ContentSourceType.html\">None</a>.</p>\n"
+				}
+			],
+			"Constructors": [
+				{
+					"Name": "fromUri",
+					"Parameters": [
+						{
+							"Name": "uri",
+							"Type": "string",
+							"Default": null,
+							"Summary": "The [asset URI](../../../projects/assets/index.md#asset-uris) string.\n"
+						}
+					],
+					"Summary": "<p>Returns a new <code>Content</code> with an <a href=\"https://create.roblox.com/docs/projects/assets#asset-uris\">asset URI</a> <code>string</code> value referencing content external to the place.</p>\n",
+					"Description": "<p>Returns a new <code>Content</code> with an <a href=\"https://create.roblox.com/docs/projects/assets#asset-uris\">asset URI</a> <code>string</code> value referencing content external to the place.</p>\n<p><a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> will be <a href=\"/ref/enum/ContentSourceType.html\">Uri</a>, and <a href=\"/ref/type/Content.html#member-Uri\">Content.Uri</a> will contain a non‑<code>nil</code> <code>string</code> value.</p>\n<p>If <code>uri</code> is empty, <a href=\"/ref/type/Content.html#member-none\">Content.none</a> will be returned instead.</p>\n"
+				},
+				{
+					"Name": "fromObject",
+					"Parameters": [
+						{
+							"Name": "object",
+							"Type": "Object",
+							"Default": null,
+							"Summary": "The `Class.Object` to reference.\n"
+						}
+					],
+					"Summary": "<p>Returns a new <code>Content</code> with a strong reference to an <a href=\"/ref/class/Object.html\">Object</a>.</p>\n",
+					"Description": "<p>Returns a new <code>Content</code> with a strong reference to an <a href=\"/ref/class/Object.html\">Object</a>.</p>\n<p><a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> will be <a href=\"/ref/enum/ContentSourceType.html\">Object</a>, and <a href=\"/ref/type/Content.html#member-Object\">Content.Object</a> will contain a non‑<code>nil</code> <a href=\"/ref/class/Object.html\">Object</a> reference.</p>\n<p><a href=\"/ref/type/Content.html#member-Object\">Content.Object</a> references are <strong>strong</strong> references that hold <strong>shared ownership</strong> of the <a href=\"/ref/class/Object.html\">Object</a>. Any <a href=\"/ref/type/Content.html#member-Object\">Content.Object</a> reference will extend the lifetime of that <a href=\"/ref/class/Object.html\">Object</a> and prevent it from being garbage collected.</p>\n<p>Throws if <code>object</code> is <code>nil</code>.</p>\n"
+				}
+			],
+			"Properties": [
+				{
+					"Name": "none",
+					"Type": "Content",
+					"Summary": "<p>An empty <code>Content</code> value with <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> of\n<a href=\"/ref/enum/ContentSourceType.html\">None</a>.</p>\n",
+					"Description": "<p>An empty <code>Content</code> value with <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> of\n<a href=\"/ref/enum/ContentSourceType.html\">None</a>.</p>\n"
+				},
+				{
+					"Name": "SourceType",
+					"Type": "Enum.ContentSourceType",
+					"Summary": "<p>The source type of the contained value.</p>\n",
+					"Description": "<p>The source type of the contained value. Indicates which property contains\na non‑<code>nil</code> value.</p>\n"
+				},
+				{
+					"Name": "Uri",
+					"Type": "string?",
+					"Summary": "<p>A URI <code>string</code> if <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> is\n<a href=\"/ref/enum/ContentSourceType.html\">Uri</a>, otherwise <code>nil</code>.</p>\n",
+					"Description": "<p>A URI <code>string</code> if <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a> is\n<a href=\"/ref/enum/ContentSourceType.html\">Uri</a>, otherwise <code>nil</code>.</p>\n"
+				},
+				{
+					"Name": "Object",
+					"Type": "Object?",
+					"Summary": "<p>A reference to a non-<code>nil</code> <a href=\"/ref/class/Object.html\">Object</a> if <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a>\nis <a href=\"/ref/enum/ContentSourceType.html\">Object</a>, otherwise <code>nil</code>.</p>\n",
+					"Description": "<p>A reference to a non-<code>nil</code> <a href=\"/ref/class/Object.html\">Object</a> if <a href=\"/ref/type/Content.html#member-SourceType\">Content.SourceType</a>\nis <a href=\"/ref/enum/ContentSourceType.html\">Object</a>, otherwise <code>nil</code>.</p>\n"
+				}
+			],
+			"Summary": "<p>Represents a reference to asset content stored externally or as an object\nwithin the place.</p>\n",
+			"Description": "<p>The <code>Content</code> data type represents a reference to asset content stored externally or as an object\nwithin the place, wrapping a single value of one of the supported <a href=\"/ref/enum/ContentSourceType.html\">ContentSourceType</a> values.</p>\n"
 		},
 		"DateTime": {
 			"Constructors": [
