@@ -433,7 +433,10 @@
 			"Summary": "<p><strong>Must</strong> be used by plugins to communicate to Studio how to undo and redo the\nchanges which they make to the experience.</p>\n",
 			"Description": "<p>Plugin developers <strong>must</strong> use <a href=\"/ref/class/ChangeHistoryService.html\">ChangeHistoryService</a> to tell Studio how\nto undo and redo changes that their plugins make to experiences by recording.\nBefore making changes, a plugin calls\n<a href=\"/ref/class/ChangeHistoryService.html#member-TryBeginRecording\">ChangeHistoryService:TryBeginRecording()</a>, remembering the identifier\nit assigns, then after making changes, the Plugin calls\n<a href=\"/ref/class/ChangeHistoryService.html#member-FinishRecording\">ChangeHistoryService:FinishRecording()</a> to complete the recording.</p>\n<p>Plugins may also programmatically invoke an undo or redo through\n<a href=\"/ref/class/ChangeHistoryService.html#member-Undo\">ChangeHistoryService:Undo()</a> or <a href=\"/ref/class/ChangeHistoryService.html#member-Redo\">ChangeHistoryService:Redo()</a>.</p>\n<p><a href=\"/ref/class/ChangeHistoryService.html\">ChangeHistoryService</a> is not enabled at runtime, so calling its methods\nin a running experience has no effect.</p>\n"
 		},
-		"ChannelTabsConfiguration": {},
+		"ChannelTabsConfiguration": {
+			"Summary": "<p>Configures properties of the optional channel tabs in the default chat window.</p>\n",
+			"Description": "<p>Configures properties of the optional channel tabs in the default chat window.\nIt is parented to <a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n"
+		},
 		"CharacterAppearance": {
 			"Summary": "<p>The base class for objects that change the character&#39;s appearance, such as the\n<a href=\"/ref/class/BodyColors.html\">BodyColors</a>, <a href=\"/ref/class/CharacterMesh.html\">CharacterMesh</a>, <a href=\"/ref/class/ShirtGraphic.html\">ShirtGraphic</a>, <a href=\"/ref/class/Pants.html\">Pants</a>\nand <a href=\"/ref/class/Shirt.html\">Shirt</a> objects.</p>\n",
 			"Description": "<p>Base class for objects that change a character&#39;s appearance.</p>\n"
@@ -451,11 +454,11 @@
 		},
 		"ChatInputBarConfiguration": {
 			"Summary": "<p>Configures properties of the default chat input bar.</p>\n",
-			"Description": "<p>Configures properties of the default chat input bar.</p>\n<p>It is parented to <a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n"
+			"Description": "<p>Configures properties of the default text chat input bar. It is parented to\n<a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n"
 		},
 		"ChatWindowConfiguration": {
 			"Summary": "<p>Configures properties of the default chat window.</p>\n",
-			"Description": "<p>Configures properties of the default chat window.</p>\n<p>It is parented to <a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n"
+			"Description": "<p>Configures properties of the default text chat window. It is parented to\n<a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n"
 		},
 		"ChatWindowMessageProperties": {},
 		"ChorusSoundEffect": {
@@ -2310,7 +2313,7 @@
 		},
 		"TextChatMessageProperties": {
 			"Summary": "<p>Overrides <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> properties when returned by callbacks\ndefined in <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> or\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>.</p>\n",
-			"Description": "<p>Overrides <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> properties when returned by callbacks\ndefined in <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> or\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>.</p>\n<p><a href=\"/ref/class/TextChatMessageProperties.html\">TextChatMessageProperties</a> overrides the matching properties of the\ncorresponding <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a>.</p>\n<p>This can be used to customize the appearance of a message with rich text tags.\nSee <a href=\"https://create.roblox.com/docs/ui/rich-text\">Rich Text Markup</a> for more.</p>\n<p>To learn more about using TextChatMessageProperties, see\n<a href=\"https://create.roblox.com/docs/chat/customizing-in-experience-text-chat\">In-Experience Text Chat</a>.</p>\n"
+			"Description": "<p>Overrides <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> properties when returned by callbacks\ndefined in <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> or\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>. This can be used to customize the\nappearance of a message with <a href=\"https://create.roblox.com/docs/ui/rich-text\">rich text</a> tags.</p>\n"
 		},
 		"TextChatService": {
 			"Summary": "<p>A service handling in-experience text chat.</p>\n",
@@ -5697,18 +5700,54 @@
 			}
 		},
 		"ChannelTabsConfiguration": {
-			"AbsolutePosition": {},
-			"AbsoluteSize": {},
-			"BackgroundColor3": {},
-			"BackgroundTransparency": {},
-			"Enabled": {},
-			"FontFace": {},
-			"HoverBackgroundColor3": {},
-			"SelectedTabTextColor3": {},
-			"TextColor3": {},
-			"TextSize": {},
-			"TextStrokeColor3": {},
-			"TextStrokeTransparency": {}
+			"AbsolutePosition": {
+				"Summary": "<p>Actual screen position of the channel tab bar, in pixels.</p>\n",
+				"Description": "<p>Read-only property that provides the screen position of the channel tab bar in pixels. Behaves similarly to <a href=\"/ref/class/GuiBase2d.html#member-AbsolutePosition\">GuiBase2d.AbsolutePosition</a>.</p>\n"
+			},
+			"AbsoluteSize": {
+				"Summary": "<p>Actual screen size of the channel tab bar, in pixels.</p>\n",
+				"Description": "<p>Read-only property that provides the screen size of the channel tab bar in pixels. Behaves similarly to <a href=\"/ref/class/GuiBase2d.html#member-AbsoluteSize\">GuiBase2d.AbsoluteSize</a>.</p>\n"
+			},
+			"BackgroundColor3": {
+				"Summary": "<p>Background color of the channel tabs.</p>\n",
+				"Description": "<p>Background color of the channel tabs. If the background color is not\noverridden, this value will respect the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> by making the menu more gray as\nthe transparency of the menu decreases. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(25, 27, 29)</a>.</p>\n"
+			},
+			"BackgroundTransparency": {
+				"Summary": "<p>Background transparency of the channel tabs.</p>\n",
+				"Description": "<p>Background transparency of the channel tabs as a number between <code>0</code> and\n<code>1</code>. This value is multiplied with the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> to create the effective\nbackground transparency used by the channel tabs, which may be more opaque\nthan this value set here. Default value is <code>0</code>.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>Whether to show the channel tabs.</p>\n",
+				"Description": "<p>Whether to show the channel tabs. Set to <code>false</code> to hide.</p>\n"
+			},
+			"FontFace": {
+				"Summary": "<p>Font used to render text in the channel tabs.</p>\n",
+				"Description": "<p>Font used to render text in the channel tabs. Default is <a href=\"/ref/enum/Font.html\">Font.BuilderSansBold</a>.</p>\n"
+			},
+			"HoverBackgroundColor3": {
+				"Summary": "<p>Background color of a channel tab when hovering over it.</p>\n",
+				"Description": "<p>Background color of a channel tab when hovering over it. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(125, 125, 125)</a>.</p>\n"
+			},
+			"SelectedTabTextColor3": {
+				"Summary": "<p>Color of text in a selected tab.</p>\n",
+				"Description": "<p>Color of text in a selected tab. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(255, 255, 255)</a>.</p>\n"
+			},
+			"TextColor3": {
+				"Summary": "<p>Color of text in an unselected tab.</p>\n",
+				"Description": "<p>Color of text in an unselected tab. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(175, 175, 175)</a>.</p>\n"
+			},
+			"TextSize": {
+				"Summary": "<p>Size of the text in channel tabs.</p>\n",
+				"Description": "<p>Size of the text in channel tabs. Default value is <code>14</code>.</p>\n"
+			},
+			"TextStrokeColor3": {
+				"Summary": "<p>Color of the text stroke for text in channel tabs.</p>\n",
+				"Description": "<p>Color of the text stroke for text in channel tabs. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(0, 0, 0)</a>.</p>\n"
+			},
+			"TextStrokeTransparency": {
+				"Summary": "<p>Transparency of the text stroke for text in channel tabs.</p>\n",
+				"Description": "<p>Transparency of the text stroke for text in channel tabs. Default value is\n<code>1</code>.</p>\n"
+			}
 		},
 		"CharacterAppearance": {},
 		"CharacterMesh": {
@@ -5792,139 +5831,160 @@
 		},
 		"ChatInputBarConfiguration": {
 			"AbsolutePosition": {
-				"Summary": "<p>Describes the actual screen position of the default chat input bar in\npixels.</p>\n",
+				"Summary": "<p>Actual screen position of the default chat input bar in pixels.</p>\n",
 				"Description": "<p>Read-only property that provides the screen position of the default chat\ninput bar in pixels. Behaves similarly to\n<a href=\"/ref/class/GuiBase2d.html#member-AbsolutePosition\">GuiBase2d.AbsolutePosition</a>.</p>\n"
 			},
 			"AbsoluteSize": {
-				"Summary": "<p>Describes the actual screen size of the default chat input bar in pixels.</p>\n",
+				"Summary": "<p>Actual screen size of the default chat input bar in pixels.</p>\n",
 				"Description": "<p>Read-only property that provides the screen size of the default chat input\nbar in pixels. Behaves similarly to <a href=\"/ref/class/GuiBase2d.html#member-AbsoluteSize\">GuiBase2d.AbsoluteSize</a>.</p>\n"
 			},
 			"AutocompleteEnabled": {
-				"Summary": "<p>Determines whether to enable autocomplete for the chat input bar.</p>\n",
-				"Description": "<p>Determines whether to enable autocomplete for the chat input bar. Set to\nfalse to disable autocomplete.</p>\n"
+				"Summary": "<p>Whether to enable autocomplete for the chat input bar.</p>\n",
+				"Description": "<p>Whether to enable autocomplete for the chat input bar. Set to <code>false</code> to\ndisable autocomplete.</p>\n"
 			},
 			"BackgroundColor3": {
-				"Summary": "<p>Determines the background color of the default chat input bar.</p>\n",
-				"Description": "<p>Determines the background color of the default chat input bar. Default\nvalue is <a href=\"/ref/type/Color3.html\">Color3.new(25,27,29)</a>.</p>\n"
+				"Summary": "<p>Background color of the default chat input bar.</p>\n",
+				"Description": "<p>Background color of the default chat input bar. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(25, 27, 29)</a>.</p>\n"
 			},
 			"BackgroundTransparency": {
-				"Summary": "<p>Determines the background transparency of the default chat input bar.</p>\n",
-				"Description": "<p>Determines the background transparency of the default chat input bar as a\nnumber between 0 and 1. This value is multiplied with the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> to create the effective\nbackground transparency used by the chat input bar, which may be more\nopaque than this value set here. Default value is 0.2.</p>\n"
+				"Summary": "<p>Background transparency of the default chat input bar.</p>\n",
+				"Description": "<p>Background transparency of the default chat input bar as a number between\n<code>0</code> and <code>1</code>. This value is multiplied with the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> to create the effective\nbackground transparency used by the chat input bar, which may be more\nopaque than this value set here. Default value is <code>0.2</code>.</p>\n"
 			},
 			"Enabled": {
-				"Summary": "<p>Determines whether to show the default chat input bar.</p>\n",
-				"Description": "<p>Determines whether to show the default chat input bar.</p>\n<p>Set to false to hide the default chat input bar.</p>\n"
+				"Summary": "<p>Whether to show the default chat input bar.</p>\n",
+				"Description": "<p>Whether to show the default chat input bar. Set to <code>false</code> to hide.</p>\n"
 			},
 			"FontFace": {
-				"Summary": "<p>Determines the font used to render text in the default chat input bar.</p>\n",
-				"Description": "<p>Determines the font used to render text in the default chat input bar.</p>\n"
+				"Summary": "<p>Font used to render text in the default chat input bar.</p>\n",
+				"Description": "<p>Font used to render text in the default chat input bar. Default is <a href=\"/ref/enum/Font.html\">Font.BuilderSansMedium</a>.</p>\n"
 			},
 			"IsFocused": {
-				"Summary": "<p>Describes if the default chat input bar is focused or not.</p>\n",
+				"Summary": "<p>Whether the default chat input bar is focused or not.</p>\n",
 				"Description": "<p>Indicates whether the default chat input bar is focused or not. Useful for\nfiring property changed events so you can implement callback functions\nthat respond to changes in the input bar&#39;s focus state.</p>\n",
 				"CodeSamples": [
 					"ChatInputBarConfiguration-Typing-Indicator"
 				]
 			},
 			"KeyboardKeyCode": {
-				"Summary": "<p>Determines an additional key users can press to trigger focusing on the\ndefault chat input bar.</p>\n",
-				"Description": "<p>Determines an additional key users can press to trigger focusing on the\ndefault chat input bar. Useful when you want to have an extra hotkey for\nfocusing in addition to the &#34;/&#34; key.</p>\n"
+				"Summary": "<p>Additional key users can press to trigger focusing on the default chat\ninput bar.</p>\n",
+				"Description": "<p>Additional key users can press to trigger focusing on the default chat\ninput bar. Useful when you want to have an extra hotkey for focusing in\naddition to the <kbd>/</kbd> key.</p>\n"
 			},
 			"PlaceholderColor3": {
-				"Summary": "<p>Determines the color of the text of the placeholder text in the default\nchat input bar.</p>\n",
-				"Description": "<p>Determines the color of the text of the placeholder text in the default\nchat input bar. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(178, 178, 178)</a>.</p>\n"
+				"Summary": "<p>Color of the text of the placeholder text in the default chat input bar.</p>\n",
+				"Description": "<p>Color of the text of the placeholder text in the default chat input bar.\nDefault value is <a href=\"/ref/type/Color3.html\">Color3.new(178, 178, 178)</a>.</p>\n"
 			},
 			"TargetTextChannel": {
 				"Summary": "<p>A reference to the target <a href=\"/ref/class/TextChannel.html\">TextChannel</a>.</p>\n",
-				"Description": "<p>A reference to the target <a href=\"/ref/class/TextChannel.html\">TextChannel</a>.</p>\n<p>Determines which <a href=\"/ref/class/TextChannel.html\">TextChannel</a> to use when the user sends a message\nwith the default chat input bar.</p>\n"
+				"Description": "<p>Determines which <a href=\"/ref/class/TextChannel.html\">TextChannel</a> to use when the user sends a message\nwith the default chat input bar.</p>\n"
 			},
 			"TextBox": {
-				"Summary": "<p>A reference to a designated <a href=\"/ref/class/TextBox.html\">TextBox</a> Instance that sends messages\non behalf of the user. This property only accepts TextBox instances.</p>\n",
-				"Description": "<p>A reference to a designated <a href=\"/ref/class/TextBox.html\">TextBox</a> Instance that sends messages\non behalf of the user. This property only accepts TextBox instances.</p>\n<p>You can use it to further integrate your custom chat input bar UI into\nyour experience by freely manipulating appearance, location, and layout.\nWhen opting to set this property to a custom TextBox, you don&#39;t need to\nwrite any code for the following behavior:</p>\n<ul>\n<li>When a user types a message and presses <a href=\"/ref/enum/KeyCode.html\">KeyCode.Return</a>, the\nmessage will be sent to\n<a href=\"/ref/class/ChatInputBarConfiguration.html#member-TargetTextChannel\">ChatInputBarConfiguration.TargetTextChannel</a>.</li>\n<li>When a message is sent, <a href=\"/ref/class/TextBox.html#member-Text\">TextBox.Text</a> will automatically clear.</li>\n</ul>\n<p>For security, some limitations are imposed on the TextBox when it is\npromoted to <a href=\"/ref/class/ChatInputBarConfiguration.html#member-TextBox\">ChatInputBarConfiguration.TextBox</a>. Lua code will not\nbe able to:</p>\n<ul>\n<li>Change the <a href=\"/ref/class/TextBox.html#member-Text\">TextBox.Text</a> property.</li>\n<li>Use the <a href=\"/ref/class/TextBox.html#member-CaptureFocus\">TextBox.CaptureFocus</a> or <a href=\"/ref/class/TextBox.html#member-ReleaseFocus\">TextBox.ReleaseFocus</a>\nmethods.</li>\n</ul>\n"
+				"Summary": "<p>Reference to a designated <a href=\"/ref/class/TextBox.html\">TextBox</a> instance that sends messages on\nbehalf of the user.</p>\n",
+				"Description": "<p>Reference to a designated <a href=\"/ref/class/TextBox.html\">TextBox</a> instance that sends messages on\nbehalf of the user. You can use it to further integrate your custom chat\ninput bar UI into your experience by freely manipulating appearance,\nlocation, and layout. When opting to set this property to a custom\n<a href=\"/ref/class/TextBox.html\">TextBox</a>, you don&#39;t need to write any code for the following\nbehavior:</p>\n<ul>\n<li>When a user types a message and presses <a href=\"/ref/enum/KeyCode.html\">KeyCode.Return</a>, the\nmessage will be sent to\n<a href=\"/ref/class/ChatInputBarConfiguration.html#member-TargetTextChannel\">ChatInputBarConfiguration.TargetTextChannel</a>.</li>\n<li>When a message is sent, <a href=\"/ref/class/TextBox.html#member-Text\">TextBox.Text</a> will automatically clear.</li>\n</ul>\n<p>For security, some limitations are imposed on the <a href=\"/ref/class/TextBox.html\">TextBox</a> when it\nis promoted to <a href=\"/ref/class/ChatInputBarConfiguration.html#member-TextBox\">ChatInputBarConfiguration.TextBox</a>. Lua code will\nnot be able to:</p>\n<ul>\n<li>Change the <a href=\"/ref/class/TextBox.html#member-Text\">TextBox.Text</a> property.</li>\n<li>Use the <a href=\"/ref/class/TextBox.html#member-CaptureFocus\">TextBox:CaptureFocus()</a> or <a href=\"/ref/class/TextBox.html#member-ReleaseFocus\">TextBox:ReleaseFocus()</a>\nmethods.</li>\n</ul>\n"
 			},
 			"TextColor3": {
-				"Summary": "<p>Determines the color of the text in default chat input bar.</p>\n",
-				"Description": "<p>Determines the color of the text in default chat input bar. Default value\nis <a href=\"/ref/type/Color3.html\">Color3.new(255, 255, 255)</a> (white).</p>\n"
+				"Summary": "<p>Color of the text in default chat input bar.</p>\n",
+				"Description": "<p>Color of the text in default chat input bar. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(255, 255, 255)</a>.</p>\n"
 			},
 			"TextSize": {
-				"Summary": "<p>Determines the size of the text in default chat input bar.</p>\n",
-				"Description": "<p>Determines the size of the text in default chat input bar. Default value\nis 14.</p>\n"
+				"Summary": "<p>Size of the text in default chat input bar.</p>\n",
+				"Description": "<p>Size of the text in default chat input bar. Default value is <code>14</code>.</p>\n"
 			},
 			"TextStrokeColor3": {
-				"Summary": "<p>Determines the color of the text stroke of text in default chat input bar.</p>\n",
-				"Description": "<p>Determines the color of the text stroke of text in default chat input bar.\nDefault value is <a href=\"/ref/type/Color3.html\">Color3.new(0, 0, 0)</a> (black).</p>\n"
+				"Summary": "<p>Color of the text stroke for text in default chat input bar.</p>\n",
+				"Description": "<p>Color of the text stroke for text in default chat input bar. Default value\nis <a href=\"/ref/type/Color3.html\">Color3.new(0, 0, 0)</a>.</p>\n"
 			},
 			"TextStrokeTransparency": {
-				"Summary": "<p>Determines the transparency of the text stroke of text in default chat\ninput bar.</p>\n",
-				"Description": "<p>Determines the color of the text stroke of text in default chat input bar.\nDefault value is 0.5.</p>\n"
+				"Summary": "<p>Transparency of the text stroke for text in default chat input bar.</p>\n",
+				"Description": "<p>Transparency of the text stroke for text in default chat input bar.\nDefault value is <code>0.5</code>.</p>\n"
 			}
 		},
 		"ChatWindowConfiguration": {
 			"AbsolutePosition": {
-				"Summary": "<p>Describes the actual screen position of the default chat window, in\npixels.</p>\n",
+				"Summary": "<p>Actual screen position of the default chat window, in pixels.</p>\n",
 				"Description": "<p>Read-only property that provides the screen position of the default chat\nwindow in pixels. Behaves similarly to <a href=\"/ref/class/GuiBase2d.html#member-AbsolutePosition\">GuiBase2d.AbsolutePosition</a>.</p>\n"
 			},
 			"AbsoluteSize": {
-				"Summary": "<p>Describes the actual screen size of the default chat window, in pixels.</p>\n",
+				"Summary": "<p>Actual screen size of the default chat window, in pixels.</p>\n",
 				"Description": "<p>Read-only property that provides the screen size of the default chat\nwindow in pixels. Behaves similarly to <a href=\"/ref/class/GuiBase2d.html#member-AbsoluteSize\">GuiBase2d.AbsoluteSize</a>.</p>\n"
 			},
 			"BackgroundColor3": {
-				"Summary": "<p>Determines the background color of the default chat window.</p>\n",
-				"Description": "<p>Determines the background color of the default chat window. If the\nbackground color is not overridden, this value will respect the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> by making the menu more gray as\nthe transparency of the menu decreases. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(25,27,29)</a>.</p>\n"
+				"Summary": "<p>Background color of the default chat window.</p>\n",
+				"Description": "<p>Background color of the default chat window. If the background color is\nnot overridden, this value will respect the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> by making the menu more gray as\nthe transparency of the menu decreases. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(25, 27, 29)</a>.</p>\n"
 			},
 			"BackgroundTransparency": {
-				"Summary": "<p>Determines the background transparency of the default chat window.</p>\n",
-				"Description": "<p>Determines the background transparency of the default chat window in a\nnumber between 0 and 1. This value is multiplied with the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> to create the effective\nbackground transparency used by the chat window, which may be more opaque\nthan this value set here. Default value is 0.3.</p>\n"
+				"Summary": "<p>Background transparency of the default chat window.</p>\n",
+				"Description": "<p>Background transparency of the default chat window as a number between <code>0</code>\nand <code>1</code>. This value is multiplied with the user&#39;s\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">GuiService.PreferredTransparency</a> to create the effective\nbackground transparency used by the chat window, which may be more opaque\nthan this value set here. Default value is <code>0.3</code>.</p>\n"
 			},
-			"DeriveNewMessageProperties": {},
+			"DeriveNewMessageProperties": {
+				"Summary": "<p>Creates a new <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a> instance that can be\nused to customize the appearance of messages in the chat window.</p>\n",
+				"Description": "<p>Creates a new <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a> instance that can be\nused to customize the appearance of messages in the chat window.\n<a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a> inherits from\n<a href=\"/ref/class/TextChatMessageProperties.html\">TextChatMessageProperties</a>.</p>\n"
+			},
 			"Enabled": {
-				"Summary": "<p>Determines whether to show the default chat window.</p>\n",
-				"Description": "<p>Determines whether to show the default chat window.</p>\n<p>Set to <code>false</code> to hide the default chat window.</p>\n"
+				"Summary": "<p>Whether to show the default chat window.</p>\n",
+				"Description": "<p>Whether to show the default chat window. Set to <code>false</code> to hide.</p>\n"
 			},
 			"FontFace": {
-				"Summary": "<p>Determines the font used to render text in the default chat window.</p>\n",
-				"Description": "<p>Determines the font used to render text in the default chat window.</p>\n"
+				"Summary": "<p>Font used to render text in the default chat window.</p>\n",
+				"Description": "<p>Font used to render text in the default chat window. Default is <a href=\"/ref/enum/Font.html\">Font.BuilderSansMedium</a>.</p>\n"
 			},
 			"HeightScale": {
-				"Summary": "<p>Determines by what factor the height of the default chat window should be\nscaled.</p>\n",
-				"Description": "<p>Determines by what factor the height of the default chat window should be\nscaled. Must be a value between 0.5 and 2. Defining a value outside of\nrange clamps the actual value to the closest bound.</p>\n"
+				"Summary": "<p>Factor by which the height of the default chat window should be scaled.</p>\n",
+				"Description": "<p>Factor by which the height of the default chat window should be scaled.\nMust be a value between <code>0.5</code> and <code>2</code>. Defining a value outside of range\nclamps the actual value to the closest bound.</p>\n"
 			},
 			"HorizontalAlignment": {
-				"Summary": "<p>Determines the horizontal alignment of the chat window.</p>\n",
-				"Description": "<p>Determines the horizontal alignment of the chat window. Behaves similarly\nto <a href=\"/ref/class/UIGridStyleLayout.html#member-HorizontalAlignment\">UIGridStyleLayout.HorizontalAlignment</a>. Setting to <code>Left</code> or\n<code>Right</code> adding a small padding away from touching the corresponding\nhorizontal edge of the screen. Setting to <code>Center</code> aligns the window in\nthe horizontal middle of the screen. Default value is <code>Left</code>.</p>\n"
+				"Summary": "<p>Horizontal alignment of the chat window.</p>\n",
+				"Description": "<p>Horizontal alignment of the chat window. Behaves similarly to\n<a href=\"/ref/class/UIGridStyleLayout.html#member-HorizontalAlignment\">UIGridStyleLayout.HorizontalAlignment</a>. Setting to\n<a href=\"/ref/enum/HorizontalAlignment.html\">Left</a> or <a href=\"/ref/enum/HorizontalAlignment.html\">Right</a> adding\na small padding away from touching the corresponding horizontal edge of\nthe screen. Setting to <a href=\"/ref/enum/HorizontalAlignment.html\">Center</a> aligns the window\nin the horizontal middle of the screen. Default value is\n<a href=\"/ref/enum/HorizontalAlignment.html\">Left</a>.</p>\n"
 			},
 			"TextColor3": {
-				"Summary": "<p>Determines the color of the text in default chat window.</p>\n",
-				"Description": "<p>Determines the color of the text in default chat window. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(255, 255, 255)</a> (white).</p>\n"
+				"Summary": "<p>Color of the text in default chat window.</p>\n",
+				"Description": "<p>Color of the text in default chat window. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(255, 255, 255)</a>.</p>\n"
 			},
 			"TextSize": {
-				"Summary": "<p>Determines the size of the text in default chat window.</p>\n",
-				"Description": "<p>Determines the size of the text in default chat window. Default value\nis 14.</p>\n"
+				"Summary": "<p>Size of the text in default chat window.</p>\n",
+				"Description": "<p>Size of the text in default chat window. Default value is <code>14</code>.</p>\n"
 			},
 			"TextStrokeColor3": {
-				"Summary": "<p>Determines the color of the text stroke of text in default chat window.</p>\n",
-				"Description": "<p>Determines the color of the text stroke of text in default chat window.\nDefault value is <a href=\"/ref/type/Color3.html\">Color3.new(0, 0, 0)</a> (black).</p>\n"
+				"Summary": "<p>Color of the text stroke for text in default chat window.</p>\n",
+				"Description": "<p>Color of the text stroke for text in default chat window. Default value is\n<a href=\"/ref/type/Color3.html\">Color3.new(0, 0, 0)</a>.</p>\n"
 			},
 			"TextStrokeTransparency": {
-				"Summary": "<p>Determines the transparency of the text stroke of text in default chat\nwindow.</p>\n",
-				"Description": "<p>Determines the color of the text stroke of text in default chat window.\nDefault value is 0.5.</p>\n"
+				"Summary": "<p>Transparency of the text stroke for text in default chat window.</p>\n",
+				"Description": "<p>Transparency of the text stroke for text in default chat window. Default\nvalue is <code>0.5</code>.</p>\n"
 			},
 			"VerticalAlignment": {
-				"Summary": "<p>Determines the vertical alignment of the chat window.</p>\n",
-				"Description": "<p>Determines the vertical alignment of the chat window. Behaves similarly to\n<a href=\"/ref/class/UIGridStyleLayout.html#member-VerticalAlignment\">UIGridStyleLayout.VerticalAlignment</a>. Setting to <code>Top</code> or <code>Bottom</code>\nadds a small padding away from touching the corresponding edge of the\nscreen. Setting to Center aligns the window in the vertical middle of the\nscreen. Default value is <code>Top</code>.</p>\n"
+				"Summary": "<p>Vertical alignment of the chat window.</p>\n",
+				"Description": "<p>Vertical alignment of the chat window. Behaves similarly to\n<a href=\"/ref/class/UIGridStyleLayout.html#member-VerticalAlignment\">UIGridStyleLayout.VerticalAlignment</a>. Setting to\n<a href=\"/ref/enum/VerticalAlignment.html\">Top</a> or <a href=\"/ref/enum/VerticalAlignment.html\">Bottom</a> adds a\nsmall padding away from touching the corresponding edge of the screen.\nSetting to <a href=\"/ref/enum/VerticalAlignment.html\">Center</a> aligns the window in the\nvertical middle of the screen. Default value is\n<a href=\"/ref/enum/VerticalAlignment.html\">Top</a>.</p>\n"
 			},
 			"WidthScale": {
-				"Summary": "<p>Determines by what factor the width of the default chat window should be\nscaled.</p>\n",
-				"Description": "<p>Determines by what factor the width of the default chat window should be\nscaled. Must be a value between 0.5 and 2. Defining a value outside of\nrange clamps the actual value to the closest bound.</p>\n"
+				"Summary": "<p>Factor by which the width of the default chat window should be scaled.</p>\n",
+				"Description": "<p>Factor by which the width of the default chat window should be scaled.\nMust be a value between <code>0.5</code> and <code>2</code>. Defining a value outside of range\nclamps the actual value to the closest bound.</p>\n"
 			}
 		},
 		"ChatWindowMessageProperties": {
-			"FontFace": {},
-			"PrefixTextProperties": {},
-			"TextColor3": {},
-			"TextSize": {},
-			"TextStrokeColor3": {},
-			"TextStrokeTransparency": {}
+			"FontFace": {
+				"Summary": "<p>Font used to render text in the chat window.</p>\n",
+				"Description": "<p>Determines the font used to render text in the chat window. Default is <a href=\"/ref/enum/Font.html\">Font.BuilderSansMedium</a>.</p>\n"
+			},
+			"PrefixTextProperties": {
+				"Summary": "<p>Determines the properties of the <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">PrefixText</a> preceding the chat message.</p>\n",
+				"Description": "<p>Determines the properties of the <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">TextChatMessage.PrefixText</a> preceding the chat message.</p>\n"
+			},
+			"TextColor3": {
+				"Summary": "<p>Color of the text in the chat window.</p>\n",
+				"Description": "<p>Determines the color of the text in the chat window. Default value is <a href=\"/ref/type/Color3.html#member-new\">Color3.new(255, 255, 255)</a> (white).</p>\n"
+			},
+			"TextSize": {
+				"Summary": "<p>Size of the text in the chat window.</p>\n",
+				"Description": "<p>Determines the size of the text in the chat window.</p>\n"
+			},
+			"TextStrokeColor3": {
+				"Summary": "<p>Stroke color applied to text in the chat window.</p>\n",
+				"Description": "<p>Determines the stroke color applied to text in the chat window. Default value is <a href=\"/ref/type/Color3.html#member-new\">Color3.new(0, 0, 0)</a> (black).</p>\n"
+			},
+			"TextStrokeTransparency": {
+				"Summary": "<p>Transparency of the stroke applied to text in the chat window.</p>\n",
+				"Description": "<p>Determines the transparency of the stroke applied to text in the chat window. Default value is <code>0.5</code>.</p>\n"
+			}
 		},
 		"ChorusSoundEffect": {
 			"Depth": {
@@ -17823,7 +17883,10 @@
 				"Summary": "<p>The <a href=\"/ref/class/TextChatMessage.html#member-Text\">TextChatMessage.Text</a> to override.</p>\n",
 				"Description": "<p>The <a href=\"/ref/class/TextChatMessage.html#member-Text\">TextChatMessage.Text</a> to override.</p>\n"
 			},
-			"Translation": {}
+			"Translation": {
+				"Summary": "<p>The <a href=\"/ref/class/TextChatMessage.html#member-Translation\">TextChatMessage.Translation</a> to override.</p>\n",
+				"Description": "<p>The <a href=\"/ref/class/TextChatMessage.html#member-Translation\">TextChatMessage.Translation</a> to override; represents <a href=\"https://create.roblox.com/docs/production/localization/automatic-translations\">automatically translated</a> and filtered text messages based on players&#39; localization settings.</p>\n"
+			}
 		},
 		"TextChatService": {
 			"BubbleDisplayed": {
@@ -17857,7 +17920,10 @@
 				"Summary": "<p>Called when a bubble chat is about to be displayed.</p>\n",
 				"Description": "<p>Called when a bubble chat is about to be displayed. This can only be\nimplemented on the client.</p>\n<p>Use this to customize individual bubble chat messages. If this callback\nreturns a <a href=\"/ref/class/BubbleChatMessageProperties.html\">BubbleChatMessageProperties</a>, those properties will be\napplied to the associated bubble, overriding\n<a href=\"/ref/class/BubbleChatConfiguration.html\">BubbleChatConfiguration</a> properties. If a <a href=\"/ref/class/UICorner.html\">UICorner</a>,\n<a href=\"/ref/class/UIGradient.html\">UIGradient</a>, or <a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> is parented under\n<a href=\"/ref/class/BubbleChatMessageProperties.html\">BubbleChatMessageProperties</a>, they will also override their\nrespective counterparts defined in <a href=\"/ref/class/BubbleChatConfiguration.html\">BubbleChatConfiguration</a>.</p>\n<p>If the chat message is sent by a player, <code>message.TextSource</code> will\ncorrespond to that player, and <code>adornee</code> will be <code>nil</code>.</p>\n<p>If the chat message is sent via <a href=\"/ref/class/TextChatService.html#member-DisplayBubble\">TextChatService:DisplayBubble</a>,\n<code>adornee</code> will be the <code>partOrCharacter</code> provided, and <code>message.TextSource</code>\nwill be <code>nil</code>.</p>\n"
 			},
-			"OnChatWindowAdded": {},
+			"OnChatWindowAdded": {
+				"Summary": "<p>Called when a new message is about to be displayed in the chat window.\nThis can only be implemented on the client.</p>\n",
+				"Description": "<p>Called when a new message is about to be displayed in the chat window.\nThis can only be implemented on the client.</p>\n<p>Use this to customize individual messages that appear in the chat window.\nIf this callback returns a <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a>, those\nproperties will be applied to the associated message, overriding\n<a href=\"/ref/class/ChatWindowConfiguration.html\">ChatWindowConfiguration</a> properties. If a <a href=\"/ref/class/UIGradient.html\">UIGradient</a> is\nparented under <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a>, it will also override\nthe <a href=\"/ref/class/ChatWindowConfiguration.html#member-TextColor3\">TextColor3</a> property defined\nin <a href=\"/ref/class/ChatWindowConfiguration.html\">ChatWindowConfiguration</a>.</p>\n"
+			},
 			"OnIncomingMessage": {
 				"Summary": "<p>Called when <a href=\"/ref/class/TextChatService.html\">TextChatService</a> is receiving an incoming message.</p>\n",
 				"Description": "<p>Called when <a href=\"/ref/class/TextChatService.html\">TextChatService</a> is receiving an incoming message. Can\nonly be implemented on the client.</p>\n<p>Use this to decorate <a href=\"/ref/class/TextChatMessage.html\">TextChatMessages</a>. If this\ncallback returns a <a href=\"/ref/class/TextChatMessageProperties.html\">TextChatMessageProperties</a>, those properties are\nmerged with the <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> parameter to create a new\n<a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a>.</p>\n<p>When bound to the client sending a message, this callback is run twice;\nfirst when the message is initially sent and received locally, and again\nwhen the client receives the result of the filtered message from the\nserver.</p>\n<p>Note that this <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> callback runs\n<strong>before</strong> any <a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a> callbacks.</p>\n<p>This should be defined only once in the source code. Multiple bindings\nwill override one another in a non‑deterministic manner.</p>\n"
