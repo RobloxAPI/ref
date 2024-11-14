@@ -65,7 +65,10 @@
 			"Summary": "<p>Provides functions to load and preview <a href=\"/ref/class/AnimationClip.html\">AnimationClips</a>.</p>\n",
 			"Description": "<p>Provides functions to load and preview <a href=\"/ref/class/AnimationClip.html\">AnimationClips</a>.\nIt includes a number of functions that are useful when working with an\n<a href=\"/ref/class/Animation.html\">Animation</a>.</p>\n<p>The <a href=\"/ref/class/AnimationClipProvider.html\">AnimationClipProvider</a> replaces the deprecated\n<a href=\"/ref/class/KeyframeSequenceProvider.html\">KeyframeSequenceProvider</a> that was used to download <code>KeyframeSequences</code>\nby content ID.</p>\n<p>The AnimationClipProvider has a number of uses.</p>\n<ul>\n<li>Download the <a href=\"/ref/class/AnimationClip.html\">AnimationClip</a> associated with an animation content ID\nfrom the Roblox website, regardless of the underlying type of\n<a href=\"/ref/class/AnimationClip.html\">AnimationClip</a> (<a href=\"/ref/class/KeyframeSequence.html\">KeyframeSequence</a> or <a href=\"/ref/class/CurveAnimation.html\">CurveAnimation</a>).</li>\n<li>Generate a temporary id to locally preview an animation.</li>\n<li>Fetch the content IDs of animations owned by a particular user.</li>\n</ul>\n"
 		},
-		"AnimationConstraint": {},
+		"AnimationConstraint": {
+			"Summary": "<p>Aligns two <a href=\"/ref/class/BasePart.html\">BaseParts</a> with an animate-able kinematic or\nforce-based joint.</p>\n",
+			"Description": "<p>An <strong>AnimationConstraint</strong> constrains its <a href=\"/ref/class/Attachment.html\">Attachments</a> so\nthat they&#39;re offset by the <a href=\"/ref/class/AnimationConstraint.html#member-Transform\">Transform</a>\n<code>CFrame</code>. The <a href=\"/ref/class/AnimationConstraint.html#member-Transform\">Transform</a> can be set\nmanually during <a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a> or by an <a href=\"/ref/class/Animator.html\">Animator</a>.</p>\n"
+		},
 		"AnimationController": {
 			"Category": "Animations",
 			"Summary": "<p>Allows animations to be loaded and applied to a character or model in place of\na <a href=\"/ref/class/Humanoid.html\">Humanoid</a>.</p>\n",
@@ -435,7 +438,7 @@
 		},
 		"ChannelTabsConfiguration": {
 			"Summary": "<p>Configures properties of the optional channel tabs in the default chat window.</p>\n",
-			"Description": "<p>Configures properties of the optional channel tabs in the default chat window.\nIt is parented to <a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n<p>To learn more, see <a href=\"https://create.roblox.com/docs/chat/customizing-in-experience-text-chat\">Customizing Text Chat</a>.</p>\n"
+			"Description": "<p>Configures properties of the optional channel tabs in the default chat window.\nIt is parented to <a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n<p>To learn more, see\n<a href=\"https://create.roblox.com/docs/chat/customizing-in-experience-text-chat\">Customizing Text Chat</a>.</p>\n"
 		},
 		"CharacterAppearance": {
 			"Summary": "<p>The base class for objects that change the character&#39;s appearance, such as the\n<a href=\"/ref/class/BodyColors.html\">BodyColors</a>, <a href=\"/ref/class/CharacterMesh.html\">CharacterMesh</a>, <a href=\"/ref/class/ShirtGraphic.html\">ShirtGraphic</a>, <a href=\"/ref/class/Pants.html\">Pants</a>\nand <a href=\"/ref/class/Shirt.html\">Shirt</a> objects.</p>\n",
@@ -2247,6 +2250,7 @@
 				"Team-Kill-Check"
 			]
 		},
+		"TelemetryService": {},
 		"TeleportAsyncResult": {
 			"Summary": "<p>The return structure of the <code>TeleportAsync</code> function call.</p>\n",
 			"Description": "<p>This class is an instance that is returned by the <code>TeleportAsync</code> function\nwith information about the teleport.</p>\n"
@@ -2297,7 +2301,7 @@
 		},
 		"TextChannel": {
 			"Summary": "<p>Represents a text chat channel.</p>\n",
-			"Description": "<p>Represents a text chat channel. Contains <a href=\"/ref/class/TextSource.html\">TextSources</a> as\ndescendants.</p>\n<p>To send a chat message to the <a href=\"/ref/class/TextChannel.html\">TextChannel</a>, call\n<a href=\"/ref/class/TextChannel.html#member-SendAsync\">TextChannel:SendAsync()</a> from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>. The corresponding\n<a href=\"/ref/class/TextSource.html\">TextSource</a> of the user with <code>TextSource.CanSend = true</code> must be in\nthat channel.</p>\n<p>Messages from different TextChannels can be separated into different tabs in the chat window using <a href=\"/ref/class/ChannelTabsConfiguration.html\">ChannelTabsConfiguration</a>.</p>\n<p>To learn more, see\n<a href=\"https://create.roblox.com/docs/chat/in-experience-text-chat\">In-Experience Text Chat</a>.</p>\n"
+			"Description": "<p>Represents a text chat channel. Contains <a href=\"/ref/class/TextSource.html\">TextSources</a> as\ndescendants.</p>\n<p>To send a chat message to the <a href=\"/ref/class/TextChannel.html\">TextChannel</a>, call\n<a href=\"/ref/class/TextChannel.html#member-SendAsync\">TextChannel:SendAsync()</a> from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>. The corresponding\n<a href=\"/ref/class/TextSource.html\">TextSource</a> of the user with <code>TextSource.CanSend = true</code> must be in\nthat channel.</p>\n<p>Messages from different TextChannels can be separated into different tabs in\nthe chat window using <a href=\"/ref/class/ChannelTabsConfiguration.html\">ChannelTabsConfiguration</a>.</p>\n<p>To learn more, see\n<a href=\"https://create.roblox.com/docs/chat/in-experience-text-chat\">In-Experience Text Chat</a>.</p>\n"
 		},
 		"TextChatCommand": {
 			"Summary": "<p>Represents a text chat command.</p>\n",
@@ -3090,14 +3094,34 @@
 			}
 		},
 		"AnimationConstraint": {
-			"C0": {},
-			"C1": {},
-			"IsKinematic": {},
-			"MaxForce": {},
-			"MaxTorque": {},
-			"Part0": {},
-			"Part1": {},
-			"Transform": {}
+			"C0": {
+				"Description": "<p>The <a href=\"/ref/class/AnimationConstraint.html#member-Attachment0\">Attachment0</a>\n<a href=\"/ref/class/Attachment.html#member-CFrame\">CFrame</a> for backwards compatibility with\n<a href=\"/ref/class/Motor6D.html#member-C0\">Motor6D.C0</a>.</p>\n"
+			},
+			"C1": {
+				"Description": "<p>The <a href=\"/ref/class/AnimationConstraint.html#member-Attachment1\">Attachment1</a>\n<a href=\"/ref/class/Attachment.html#member-CFrame\">CFrame</a> for backwards compatibility with\n<a href=\"/ref/class/Motor6D.html#member-C1\">Motor6D.C1</a>.</p>\n"
+			},
+			"IsKinematic": {
+				"Summary": "<p>Toggles whether the <a href=\"/ref/class/AnimationConstraint.html\">AnimationConstraint</a> is kinematic or physically\nsimulated.</p>\n",
+				"Description": "<p>When true, the connected parts follow the\n<a href=\"/ref/class/AnimationConstraint.html#member-Transform\">Transform</a> perfectly without\nparticipating in physics simulation. When false, the connected parts\nfollow the trajectory using forces and torques limited by\n<a href=\"/ref/class/AnimationConstraint.html#member-MaxForce\">AnimationConstraint.MaxForce</a> and\n<a href=\"/ref/class/AnimationConstraint.html#member-MaxTorque\">AnimationConstraint.MaxTorque</a>.</p>\n"
+			},
+			"MaxForce": {
+				"Summary": "<p>Maximum force magnitude the constraint can apply to achieve its goal.</p>\n",
+				"Description": "<p>Maximum force magnitude the constraint can apply to achieve its goal. Only\nused if <a href=\"/ref/class/AnimationConstraint.html#member-IsKinematic\">IsKinematic</a> is false.</p>\n"
+			},
+			"MaxTorque": {
+				"Summary": "<p>Maximum torque the constraint can apply to reach its goal.</p>\n",
+				"Description": "<p>Maximum torque the constraint can use to reach its goal. Only used if\n<a href=\"/ref/class/AnimationConstraint.html#member-IsKinematic\">IsKinematic</a> is false.</p>\n"
+			},
+			"Part0": {
+				"Description": "<p>The <a href=\"/ref/class/AnimationConstraint.html#member-Attachment0\">Attachment0</a>\n<a href=\"/ref/class/Instance.html#member-Parent\">Parent</a> for backwards compatibility with\n<a href=\"/ref/class/Motor6D.html#member-Part0\">Motor6D.Part0</a>.</p>\n"
+			},
+			"Part1": {
+				"Description": "<p>The <a href=\"/ref/class/AnimationConstraint.html#member-Attachment1\">Attachment1</a>\n<a href=\"/ref/class/Instance.html#member-Parent\">Parent</a> for backwards compatibility with\n<a href=\"/ref/class/Motor6D.html#member-Part1\">Motor6D.Part1</a>.</p>\n"
+			},
+			"Transform": {
+				"Summary": "<p>Describes the current animation offset of the <a href=\"/ref/class/AnimationConstraint.html\">AnimationConstraint</a>\njoint.</p>\n",
+				"Description": "<p>The internal <a href=\"/ref/type/CFrame.html\">CFrame</a> that is manipulated when a\n<a href=\"/ref/class/AnimationConstraint.html\">AnimationConstraint</a> is being animated.</p>\n<h4>Timing</h4>\n<p><a href=\"/ref/class/AnimationConstraint.html\">AnimationConstraint</a> transforms are not applied immediately, but\nrather as a batch in a parallel job after\n<a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a>, immediately before physics steps. The\ndeferred batch update is much more efficient than many immediate updates.</p>\n<p>If the <a href=\"/ref/class/AnimationConstraint.html\">AnimationConstraint</a> is part of an animated model with an\n<a href=\"/ref/class/Animator.html\">Animator</a>, then <a href=\"/ref/class/AnimationConstraint.html#member-Transform\">AnimationConstraint.Transform</a> is usually\noverwritten every frame by the <a href=\"/ref/class/Animator.html\">Animator</a> after\n<a href=\"/ref/class/RunService.html#member-PreAnimation\">RunService.PreAnimation</a> and before\n<a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a>.</p>\n"
+			}
 		},
 		"AnimationController": {
 			"AnimationPlayed": {
@@ -3286,7 +3310,11 @@
 				]
 			}
 		},
-		"Annotation": {},
+		"Annotation": {
+			"GetRequests": {},
+			"RequestCompleted": {},
+			"RequestInitiated": {}
+		},
 		"ArcHandles": {
 			"Axes": {
 				"Summary": "<p>Sets the current Axes ArcHandles will show.</p>\n",
@@ -3528,7 +3556,7 @@
 			},
 			"GetSpectrum": {
 				"Summary": "<p>Returns the frequency spectrum of the last audio buffer.</p>\n",
-				"Description": "<p>Returns the frequency spectrum of the last audio buffer, as an array of\nnumbers. The elements of the array are root-mean-square volume levels,\nevenly spaced from 0 hertz to 24,000 hertz.\nIf any of the analyzer&#39;s inputs come from an <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a>, this method returns an empty array.</p>\n"
+				"Description": "<p>Returns the frequency spectrum of the last audio buffer, as an array of\nnumbers. The elements of the array are root-mean-square volume levels,\nevenly spaced from 0 hertz to 24,000 hertz. If any of the analyzer&#39;s\ninputs come from an <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a>, this method returns an empty\narray.</p>\n"
 			},
 			"PeakLevel": {
 				"Summary": "<p>The loudest volume observed during the last audio buffer.</p>\n",
@@ -7552,7 +7580,10 @@
 				"Summary": "<p>Returns the face&#39;s UV IDs for the vertices on the face.</p>\n",
 				"Description": "<p>Returns the face&#39;s UV IDs for the vertices on the face.</p>\n"
 			},
-			"GetFaceVertices": {},
+			"GetFaceVertices": {
+				"Summary": "<p>Returns the face&#39;s vertex IDs.</p>\n",
+				"Description": "<p>Returns the face&#39;s vertex IDs.</p>\n"
+			},
 			"GetFaces": {
 				"Summary": "<p>Returns all faces of the mesh.</p>\n",
 				"Description": "<p>Returns all faces of the mesh as a list of stable face IDs.</p>\n"
@@ -8993,6 +9024,7 @@
 				"Summary": "<p>Returns whether the Inspect and Buy menu functionality is enabled.</p>\n",
 				"Description": "<p>This function returns whether the Inspect and Buy menu functionality is\ncurrently enabled. The feature is enabled by default and can be set using\nthe <a href=\"/ref/class/GuiService.html#member-SetInspectMenuEnabled\">GuiService:SetInspectMenuEnabled()</a> function.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a>, an\narticle providing a more detailed explanation of the Inspect and Buy\nfeature and how it works</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromHumanoidDescription\">GuiService:InspectPlayerFromHumanoidDescription()</a>, allows a\ndeveloper to bring up the Inspect menu showing the assets listed in this\n<a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object. This is especially useful when what\nis being worn on a player&#39;s avatar on the Roblox platform is not\nnecessarily the same as their in-game appearance</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromUserId\">GuiService:InspectPlayerFromUserId()</a>, allows the Inspect Menu to\nappear showing the user that has the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.\nThis is especially useful when you want to inspect players who aren&#39;t in\nthe current game</li>\n</ul>\n"
 			},
+			"GetRawScreenScale": {},
 			"GuiNavigationEnabled": {
 				"Summary": "<p>Used to enable and disable the default controller GUI navigation.</p>\n",
 				"Description": "<p>Used to enable and disable the default controller GUI navigation.</p>\n"
@@ -12650,7 +12682,7 @@
 			},
 			"GetLength": {
 				"Summary": "<p>Returns the length of the <a href=\"/ref/class/Path2D.html\">Path2D</a>.</p>\n",
-				"Description": "<p>Returns the length of the <a href=\"/ref/class/Path2D.html\">Path2D</a>. This function can be expensive if called too frequently.</p>\n"
+				"Description": "<p>Returns the length of the <a href=\"/ref/class/Path2D.html\">Path2D</a>. This function can be expensive\nif called too frequently.</p>\n"
 			},
 			"GetMaxControlPoints": {
 				"Summary": "<p>Returns the maximum allowed number of control points.</p>\n",
@@ -13531,11 +13563,15 @@
 		},
 		"Players": {
 			"BanAsync": {
-				"Summary": "<p>Bans users from your experience, with options to specify duration, reason,\nwhether the ban applies to the entire universe or just the current place,\nand more.</p>\n",
-				"Description": "<p>The <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a> method allows you to easily ban users who\nviolate your experience&#39;s guidelines. You can specify the ban duration,\nenable the ban to propagate to suspected alternate accounts, and provide a\nmessage to the banned user in accordance with the\n<a href=\"https://create.roblox.com/docs/players#banning-users\">Usage Guidelines</a>. You should\nalso post your experience rules somewhere accessible to all users and\nprovide a way for them to appeal.</p>\n<h4>Banning and Messaging</h4>\n<p>Banned users will be immediately evicted and prevented from rejoining your\nexperiences. They will be presented with an error modal displaying the\ntime left on their ban and your <code>DisplayReason</code>. Roblox&#39;s backend systems\nwill evict players across all servers from the place(s) that you specify.\n<code>DisplayReason</code> can have a maximum length of 400 characters and is subject\nto a text filter. For more information on acceptable modal text, see\n<a href=\"https://create.roblox.com/docs/players#message-guidelines\">ban messaging</a>.</p>\n<h4>Places and Universe</h4>\n<p>By default, bans extend to any place within that universe. To limit the\nban to only the place from which this API is called, configure\n<code>ApplyToUniverse</code> to <code>false</code>. However, if a user is banned in the start\nplace of the universe, it effectively results in the user being excluded\nfrom the entirety of the universe, irrespective of whether a universal ban\nis in place or not.</p>\n<h4>Alternative Accounts</h4>\n<p>Users often play under multiple different accounts, known as alternate\naccounts or alt accounts, which are sometimes used to circumvent account\nbans. To help you keep banned users out, the default behavior of this API\nwill propagate all bans from the source account you banned to any of their\nsuspected alt accounts. You can turn off ban propagations to alt accounts\nby configuring <code>ExcludeAltAccounts</code> to <code>true</code>.</p>\n<h4>Ban Duration</h4>\n<p>Not all transgressions are the same, so not all bans should be the same\nlength. This API lets you configure the duration of the ban, in seconds,\nwith the <code>Duration</code> field. To specify a permanent ban, set the field to\n<code>-1</code>. You may also want to dynamically configure the ban duration based on\nthe user&#39;s ban history, which you can query for using\n<a href=\"/ref/class/Players.html#member-GetBanHistoryAsync\">Players:GetBanHistoryAsync()</a>. For example, you may want to\nconsider the number of bans, the duration of previous bans, or build logic\noff of the notes you save under <code>PrivateReason</code> which can be up to 1000\ncharacters and are not text filtered. <code>PrivateReason</code> notes are never\nshared with the client and can be considered safe from attackers.</p>\n<h4>Errors and Throttling</h4>\n<p>This method invokes an HTTP call to backend services which are subject to\nthrottling and may fail. If you&#39;re calling this API with more than one\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a>, this method will attempt to make the HTTP\ncall for each ID. It will then aggregate any error messages and join them\nas a comma separated list. For example, if this method is invoked for five\nusers and requests for those with <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a> 2 and 4\nfail, the following error message appears:</p>\n<p><code>HTTP failure for UserId 2: Timedout, HTTP 504 (Service unavailable) failure for UserId 4: Service exception</code></p>\n<p>The message will always include <code>failure for UserId {}</code> if it is an HTTP\nerror.</p>\n<h4>Client-Side Requirement</h4>\n<p>Because of the risks associated with banning users, this method may only\nbe called on the backend experience server (client-side calls will result\nin an error). You may test this API in Studio, during\n<a href=\"https://create.roblox.com/docs/projects/collaboration\">collaborative</a> creation, or in a\n<a href=\"https://create.roblox.com/docs/studio/testing-modes#collaborative-testing\">team test</a>, but\nthe bans will not apply to production.</p>\n<p>This API uses the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>. You\nwill be able to utilize these APIs to manage your bans in third party\napplications.</p>\n",
+				"Summary": "<p>Bans users from your experience, with options to specify duration, reason,\nwhether the ban applies to the entire universe or just the current place,\nand more. This method is enabled and disabled by the\n<a href=\"/ref/class/Players.html#member-BanningEnabled\">Players.BanningEnabled</a> property, which you can toggle in Studio.</p>\n",
+				"Description": "<p>The <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a> method allows you to easily ban users who\nviolate your experience&#39;s guidelines. You can specify the ban duration,\nenable the ban to propagate to suspected alternate accounts, and provide a\nmessage to the banned user in accordance with the\n<a href=\"https://create.roblox.com/docs/players#banning-users\">Usage Guidelines</a>. You should\nalso post your experience rules somewhere accessible to all users and\nprovide a way for them to appeal. This method is enabled and disabled by\nthe <a href=\"/ref/class/Players.html#member-BanningEnabled\">Players.BanningEnabled</a> property, which you can toggle in Studio.</p>\n<h4>Banning and Messaging</h4>\n<p>Banned users will be immediately evicted and prevented from rejoining your\nexperiences. They will be presented with an error modal displaying the\ntime left on their ban and your <code>DisplayReason</code>. Roblox&#39;s backend systems\nwill evict players across all servers from the place(s) that you specify.\n<code>DisplayReason</code> can have a maximum length of 400 characters and is subject\nto a text filter. For more information on acceptable modal text, see\n<a href=\"https://create.roblox.com/docs/players#message-guidelines\">ban messaging</a>.</p>\n<h4>Places and Universe</h4>\n<p>By default, bans extend to any place within that universe. To limit the\nban to only the place from which this API is called, configure\n<code>ApplyToUniverse</code> to <code>false</code>. However, if a user is banned in the start\nplace of the universe, it effectively results in the user being excluded\nfrom the entirety of the universe, irrespective of whether a universal ban\nis in place or not.</p>\n<h4>Alternative Accounts</h4>\n<p>Users often play under multiple different accounts, known as alternate\naccounts or alt accounts, which are sometimes used to circumvent account\nbans. To help you keep banned users out, the default behavior of this API\nwill propagate all bans from the source account you banned to any of their\nsuspected alt accounts. You can turn off ban propagations to alt accounts\nby configuring <code>ExcludeAltAccounts</code> to <code>true</code>.</p>\n<h4>Ban Duration</h4>\n<p>Not all transgressions are the same, so not all bans should be the same\nlength. This API lets you configure the duration of the ban, in seconds,\nwith the <code>Duration</code> field. To specify a permanent ban, set the field to\n<code>-1</code>. You may also want to dynamically configure the ban duration based on\nthe user&#39;s ban history, which you can query for using\n<a href=\"/ref/class/Players.html#member-GetBanHistoryAsync\">Players:GetBanHistoryAsync()</a>. For example, you may want to\nconsider the number of bans, the duration of previous bans, or build logic\noff of the notes you save under <code>PrivateReason</code> which can be up to 1000\ncharacters and are not text filtered. <code>PrivateReason</code> notes are never\nshared with the client and can be considered safe from attackers.</p>\n<h4>Errors and Throttling</h4>\n<p>This method invokes an HTTP call to backend services which are subject to\nthrottling and may fail. If you&#39;re calling this API with more than one\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a>, this method will attempt to make the HTTP\ncall for each ID. It will then aggregate any error messages and join them\nas a comma separated list. For example, if this method is invoked for five\nusers and requests for those with <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a> 2 and 4\nfail, the following error message appears:</p>\n<p><code>HTTP failure for UserId 2: Timedout, HTTP 504 (Service unavailable) failure for UserId 4: Service exception</code></p>\n<p>The message will always include <code>failure for UserId {}</code> if it is an HTTP\nerror.</p>\n<h4>Client-Side Requirement</h4>\n<p>Because of the risks associated with banning users, this method may only\nbe called on the backend experience server (client-side calls will result\nin an error). You may test this API in Studio, during\n<a href=\"https://create.roblox.com/docs/projects/collaboration\">collaborative</a> creation, or in a\n<a href=\"https://create.roblox.com/docs/studio/testing-modes#collaborative-testing\">team test</a>, but\nthe bans will not apply to production.</p>\n<p>This API uses the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>. You\nwill be able to utilize these APIs to manage your bans in third party\napplications.</p>\n",
 				"CodeSamples": [
 					"Players-Ban"
 				]
+			},
+			"BanningEnabled": {
+				"Summary": "<p>Enables or disables the three <code>Players</code> methods\n(<a href=\"/ref/class/Players.html#member-BanAsync\">BanAsync()</a>,\n<a href=\"/ref/class/Players.html#member-UnbanAsync\">UnbanAsync()</a>, and\n<a href=\"/ref/class/Players.html#member-GetBanHistoryAsync\">GetBanHistoryAsync()</a>) that constitute\nthe ban API. This property is not scriptable and can only be modified in\nStudio.</p>\n",
+				"Description": "<p>Enables or disables the three <code>Players</code> methods\n(<a href=\"/ref/class/Players.html#member-BanAsync\">BanAsync()</a>,\n<a href=\"/ref/class/Players.html#member-UnbanAsync\">UnbanAsync()</a>, and\n<a href=\"/ref/class/Players.html#member-GetBanHistoryAsync\">GetBanHistoryAsync()</a>) that constitute\nthe ban API. This property is not scriptable and can only be modified in\nStudio.</p>\n"
 			},
 			"BubbleChat": {
 				"Summary": "<p>Indicates whether or not bubble chat is enabled. It is set with the\n<a href=\"/ref/class/Players.html#member-SetChatStyle\">Players:SetChatStyle()</a> method.</p>\n",
@@ -13574,8 +13610,8 @@
 				]
 			},
 			"GetBanHistoryAsync": {
-				"Summary": "<p>Retrieves the ban and unban history of any user within the experience&#39;s\nuniverse.&#39;</p>\n",
-				"Description": "<p>Retrieves the ban and unban history of any user within the experience&#39;s\nuniverse. This method returns a <a href=\"/ref/class/BanHistoryPages.html\">BanHistoryPages</a> instance that\ninherits from <a href=\"/ref/class/Pages.html\">Pages</a>.</p>\n<p>This function call will only succeed on production game servers and not on\nclient devices or in Studio.</p>\n<p>This API uses the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>. You\nwill be able to utilize these APIs to manage your bans in third party\napplications.</p>\n"
+				"Summary": "<p>Retrieves the ban and unban history of any user within the experience&#39;s\nuniverse. This method is enabled and disabled by the\n<a href=\"/ref/class/Players.html#member-BanningEnabled\">Players.BanningEnabled</a> property, which you can toggle in Studio.</p>\n",
+				"Description": "<p>Retrieves the ban and unban history of any user within the experience&#39;s\nuniverse. This method returns a <a href=\"/ref/class/BanHistoryPages.html\">BanHistoryPages</a> instance that\ninherits from <a href=\"/ref/class/Pages.html\">Pages</a>. This method is enabled and disabled by the\n<a href=\"/ref/class/Players.html#member-BanningEnabled\">Players.BanningEnabled</a> property, which you can toggle in Studio.</p>\n<p>This function call will only succeed on production game servers and not on\nclient devices or in Studio.</p>\n<p>This API uses the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>. You\nwill be able to utilize these APIs to manage your bans in third party\napplications.</p>\n"
 			},
 			"GetCharacterAppearanceAsync": {
 				"Summary": "<p>Returns a <a href=\"/ref/class/Model.html\">Model</a> containing the assets which the player is wearing,\nexcluding gear.</p>\n",
@@ -13714,8 +13750,8 @@
 				]
 			},
 			"UnbanAsync": {
-				"Summary": "<p>Unbans players banned from <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a> or the User\nRestrictions Open Cloud API.</p>\n",
-				"Description": "<p>Unbans players banned from <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a> or the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>.</p>\n<p>Like <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a>, this method takes in a <code>config</code>\ndictionary that will let you bulk unban users. This configures the users\nthat are unbanned and the scope from which they are unbanned from.</p>\n<p>Unbans will only take effect on bans with the same <code>ApplyToUniverse</code>\nscope. For example, an unban with <code>ApplyToUniverse</code> set to <code>true</code> will not\ninvalidate a previous ban with <code>ApplyToUniverse</code> set to <code>false</code>. In other\nwords, a universe level unban will not invalidate a place level ban. The\nopposite also holds true.</p>\n<p>This method invokes a HTTP call to backend services, which are throttled\nand may fail. If you are calling this API with multiple UserIds, this\nmethod will attempt to make this HTTP call for each UserId. It will then\naggregate any error messages and join them as a comma separated list. For\nexample, if this method is invoked for five <code>UserIds</code>: <code>{1, 2, 3, 4, 5}</code>\nand requests for users 2 and 4 fail then the following error message\nappears:\n<code>HTTP failure for UserId 2: Timedout, HTTP 504 (Service unavailable) failure for UserId 4: Service exception.</code>\nThe message will always include <code>failure for UserId {}</code> if it is an HTTP\nerror. It is undefined behavior if you pass in both valid and invalid\nUserIds, i.e. a <code>UserId</code> that is not a positive number, as some network\nrequests may succeed before all input is validated.</p>\n<p>Because of the risks associated with banning users, this method may only\nbe called on the backend game server. Client side calls will result in an\nerror. You may test this API in Studio, Team Create, and Team Test, but\nthe bans will not apply to production. This function call will only\nattempt ban requests on production game servers and not in Studio testing.\nHowever, all input validation steps will still work in Studio.</p>\n<p>This API uses the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>. You\nwill be able to utilize these APIs to manage your bans in third party\napplications.</p>\n",
+				"Summary": "<p>Unbans players banned from <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a> or the User\nRestrictions Open Cloud API. This method is enabled and disabled by the\n<a href=\"/ref/class/Players.html#member-BanningEnabled\">Players.BanningEnabled</a> property, which you can toggle in Studio.</p>\n",
+				"Description": "<p>Unbans players banned from <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a> or the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>.\nThis method is enabled and disabled by the\n<a href=\"/ref/class/Players.html#member-BanningEnabled\">Players.BanningEnabled</a> property, which you can toggle in Studio.</p>\n<p>Like <a href=\"/ref/class/Players.html#member-BanAsync\">Players:BanAsync()</a>, this method takes in a <code>config</code>\ndictionary that will let you bulk unban users. This configures the users\nthat are unbanned and the scope from which they are unbanned from.</p>\n<p>Unbans will only take effect on bans with the same <code>ApplyToUniverse</code>\nscope. For example, an unban with <code>ApplyToUniverse</code> set to <code>true</code> will not\ninvalidate a previous ban with <code>ApplyToUniverse</code> set to <code>false</code>. In other\nwords, a universe level unban will not invalidate a place level ban. The\nopposite also holds true.</p>\n<p>This method invokes a HTTP call to backend services, which are throttled\nand may fail. If you are calling this API with multiple UserIds, this\nmethod will attempt to make this HTTP call for each UserId. It will then\naggregate any error messages and join them as a comma separated list. For\nexample, if this method is invoked for five <code>UserIds</code>: <code>{1, 2, 3, 4, 5}</code>\nand requests for users 2 and 4 fail then the following error message\nappears:\n<code>HTTP failure for UserId 2: Timedout, HTTP 504 (Service unavailable) failure for UserId 4: Service exception.</code>\nThe message will always include <code>failure for UserId {}</code> if it is an HTTP\nerror. It is undefined behavior if you pass in both valid and invalid\nUserIds, i.e. a <code>UserId</code> that is not a positive number, as some network\nrequests may succeed before all input is validated.</p>\n<p>Because of the risks associated with banning users, this method may only\nbe called on the backend game server. Client side calls will result in an\nerror. You may test this API in Studio, Team Create, and Team Test, but\nthe bans will not apply to production. This function call will only\nattempt ban requests on production game servers and not in Studio testing.\nHowever, all input validation steps will still work in Studio.</p>\n<p>This API uses the\n<a href=\"https://create.roblox.com/docs/cloud/reference/UserRestriction\">User Restrictions Open Cloud API</a>. You\nwill be able to utilize these APIs to manage your bans in third party\napplications.</p>\n",
 				"CodeSamples": [
 					"Players-Unban"
 				]
@@ -13946,6 +13982,11 @@
 					"plugingui-getrelativemouseposition"
 				]
 			},
+			"InputBegan": {},
+			"InputChanged": {},
+			"InputEnded": {},
+			"MouseEnter": {},
+			"MouseLeave": {},
 			"PluginDragDropped": {
 				"Summary": "<p>Fires when the user releases their mouse when hovering over a PluginGui\nduring a drag operation started by <a href=\"/ref/class/Plugin.html#member-StartDrag\">Plugin:StartDrag()</a>.</p>\n",
 				"Description": "<p><strong>PluginDragDropped</strong> fires when the user releases their mouse over a\n<a href=\"/ref/class/PluginGui.html\">PluginGui</a> during a drag operation started by\n<a href=\"/ref/class/Plugin.html#member-StartDrag\">Plugin:StartDrag()</a>.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/PluginGui.html#member-PluginDragEntered\">PluginGui.PluginDragEntered</a></li>\n<li><a href=\"/ref/class/PluginGui.html#member-PluginDragLeft\">PluginGui.PluginDragLeft</a></li>\n<li><a href=\"/ref/class/PluginGui.html#member-PluginDragMoved\">PluginGui.PluginDragMoved</a></li>\n</ul>\n",
@@ -16975,6 +17016,13 @@
 				"DeprecationMessage": "<p>This function has been deprecated and no longer functions correctly. It\nshould not be used. Developers should instead implement their own team\nsorting systems.</p>\n"
 			}
 		},
+		"TelemetryService": {
+			"LogCounter": {},
+			"LogDurationEvent": {},
+			"LogDurationEventWithTimestamp": {},
+			"LogEvent": {},
+			"LogStat": {}
+		},
 		"TeleportAsyncResult": {
 			"PrivateServerId": {
 				"Summary": "<p>The private server ID of the reserved server that the players are being\nteleported to.</p>\n",
@@ -17822,6 +17870,7 @@
 				"Summary": "<p>Adds a <a href=\"/ref/class/TextSource.html\">TextSource</a> to the <a href=\"/ref/class/TextChannel.html\">TextChannel</a> given userId of a\n<a href=\"/ref/class/Player.html\">Player</a>.</p>\n",
 				"Description": "<p>Adds a <a href=\"/ref/class/TextSource.html\">TextSource</a> to the <a href=\"/ref/class/TextChannel.html\">TextChannel</a> given userId of the\nuser (with <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a>). Can only be used in a <a href=\"/ref/class/Script.html\">Script</a>.</p>\n<p>If a <a href=\"/ref/class/TextSource.html\">TextSource</a> representing the user does not exist, this adds a\n<a href=\"/ref/class/TextSource.html\">TextSource</a>.</p>\n<p>If a <a href=\"/ref/class/TextSource.html\">TextSource</a> representing the user does exist, this returns the\n<a href=\"/ref/class/TextSource.html\">TextSource</a>.</p>\n<p>If the user has chat off or isn&#39;t in the server, this returns a tuple\n<code>nil</code>, <code>false</code>.</p>\n"
 			},
+			"DirectChatRequester": {},
 			"DisplaySystemMessage": {
 				"Summary": "<p>Displays a system message to the user.</p>\n",
 				"Description": "<p>Displays a system message to user. Can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, or in a <a href=\"/ref/class/Script.html\">Script</a> with\n<a href=\"/ref/class/Script.html#member-RunContext\">RunContext</a> of <a href=\"/ref/enum/RunContext.html\">RunContext.Client</a>. Messages\nare only visible to that user and aren&#39;t automatically filtered or\nlocalized.</p>\n"
@@ -17838,6 +17887,7 @@
 				"Summary": "<p>Sends a <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> to the server.</p>\n",
 				"Description": "<p>Sends a <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> to the server. Can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, or in a <a href=\"/ref/class/Script.html\">Script</a> with\n<a href=\"/ref/class/Script.html#member-RunContext\">RunContext</a> of <a href=\"/ref/enum/RunContext.html\">RunContext.Client</a>.</p>\n"
 			},
+			"SetDirectChatRequester": {},
 			"ShouldDeliverCallback": {
 				"Summary": "<p>Called for each client when <a href=\"/ref/class/TextChannel.html\">TextChannel</a> is receiving an incoming\nmessage to determine whether or not it should be delivered to that client.</p>\n",
 				"Description": "<p>Called for each client when <a href=\"/ref/class/TextChannel.html\">TextChannel</a> is receiving an incoming\nmessage to determine whether or not it should be delivered to that client.\nCan only be defined on the server.</p>\n<p>Once defined, this callback needs to return a truthy value such as <code>true</code>,\n<code>1</code>, or <code>&#34;hello&#34;</code> to deliver the message to said client. If the callback\nreturns anything else (including <code>nil</code>), the message won&#39;t be delivered to\nthat client, although the sender will see the message regardless.</p>\n<p>The sender can be referenced by <a href=\"/ref/class/TextChatMessage.html#member-TextSource\">TextChatMessage.TextSource</a>.</p>\n"
@@ -17942,7 +17992,7 @@
 			},
 			"CreateDefaultTextChannels": {
 				"Summary": "<p>Determines whether <a href=\"/ref/class/TextChatService.html\">TextChatService</a> should create default\n<a href=\"/ref/class/TextChannel.html\">TextChannels</a>.</p>\n",
-				"Description": "<p>Determines whether <a href=\"/ref/class/TextChatService.html\">TextChatService</a> should create default\n<a href=\"/ref/class/TextChannel.html\">TextChannels</a>. If true, a <a href=\"/ref/class/Folder.html\">Folder</a> named\n<strong>TextChannels</strong> is created inside <a href=\"/ref/class/TextChatService.html\">TextChatService</a> at runtime to\ncontain the <a href=\"/ref/class/TextChannel.html\">TextChannels</a> outlined in the table below.\nEach of the default channels has the described special behavior applied to\nmessages using its internally bound <a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>\ncallback function, changing how messages appear when sent through the\nchannel. The callback is assigned automatically either at runtime (if the\n<a href=\"/ref/class/TextChannel.html\">TextChannel</a> exists) or when the <a href=\"/ref/class/TextChannel.html\">TextChannel</a> is created.</p>\n<table>\n  <thead>\n    <tr>\n      <th>Channel</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><b>RBXGeneral</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for player messages. In the chat window, messages are modified such that <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">PrefixText</a> receives a <a href=\"https://create.roblox.com/docs/ui/rich-text\">rich text</a> font color tag to give chatting players their distinctive name color. If <a href=\"/ref/class/Player.html#member-Team\">Player.Team</a> exists, that <a href=\"/ref/class/Team.html#member-TeamColor\">Team.TeamColor</a> is used instead of the default name color.</td>\n    </tr>\n    <tr>\n      <td><b>RBXSystem</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for system messages. In the chat window, messages are modified such that <a href=\"/ref/class/TextChatMessage.html#member-Text\">TextChatMessage.Text</a> is given a light grey color tag by default, or a red color tag if <a href=\"/ref/class/TextChatMessage.html#member-Metadata\">TextChatMessage.Metadata</a> contains the word <code>&#34;Error&#34;</code>.</td>\n    </tr>\n    <tr>\n      <td><b>RBXTeam[BrickColor]</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for team-specific player messages, created when a <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a> is in use by any <a href=\"/ref/class/Team.html\">Team</a> within the <a href=\"/ref/class/Teams.html\">Teams</a> service. Name of the created channel is <b>RBXTeam</b> followed by the <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a> name. For example, <b>RBXTeamCrimson</b> is a <a href=\"/ref/class/TextChannel.html\">TextChannel</a> created when there is an active team whose <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a> property is the &#34;Crimson&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.<br/><br/>In the chat window, messages are modified such that <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">PrefixText</a> is colored according to the <a href=\"/ref/class/Player.html#member-TeamColor\">TeamColor</a> and is prepended with <b>[Team]</b>.<br/><br/>Team channels create <a href=\"/ref/class/TextSource.html\">TextSources</a> for all non‑<a href=\"/ref/class/Player.html#member-Neutral\">Neutral</a> players with the matching <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a>, allowing them to use team‑only chat. Channels are removed if there are no remaining teams with an associated <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a>.</td>\n    </tr>\n    <tr>\n      <td><b>RBXWhisper:[UserId1]_[UserId2]</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for whisper messages between two players, created when a player uses the <code>/whisper</code> command on another player. For example <b>RBXWhisper:2276836_505306092</b> is a <a href=\"/ref/class/TextChannel.html\">TextChannel</a> for players with <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a> <b>2276836</b> and <b>505306092</b>. Inside whisper channels are two <a href=\"/ref/class/TextSource.html\">TextSources</a> associated with the respective <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a>.<br/><br/>In the chat window, messages are colored the same as those in <b>RBXGeneral</b> and <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">TextChatMessage.PrefixText</a> is modified to show whether a message was sent from or received by the local user.<br/><br/>Whisper channels are removed when either player leaves the experience.</td>\n    </tr>\n  </tbody>\n</table>\n<p>Note that the default <a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a> callbacks can\nbe overwritten. Also note that you can edit, create, and remove\n<a href=\"/ref/class/TextChannel.html\">TextChannels</a> even if\n<a href=\"/ref/class/TextChatService.html#member-CreateDefaultTextChannels\">CreateDefaultTextChannels</a>\nis true.</p>\n<p>Messages from different TextChannels can be separated into different tabs in the chat window using <a href=\"/ref/class/ChannelTabsConfiguration.html\">ChannelTabsConfiguration</a>.</p>\n"
+				"Description": "<p>Determines whether <a href=\"/ref/class/TextChatService.html\">TextChatService</a> should create default\n<a href=\"/ref/class/TextChannel.html\">TextChannels</a>. If true, a <a href=\"/ref/class/Folder.html\">Folder</a> named\n<strong>TextChannels</strong> is created inside <a href=\"/ref/class/TextChatService.html\">TextChatService</a> at runtime to\ncontain the <a href=\"/ref/class/TextChannel.html\">TextChannels</a> outlined in the table below.\nEach of the default channels has the described special behavior applied to\nmessages using its internally bound <a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>\ncallback function, changing how messages appear when sent through the\nchannel. The callback is assigned automatically either at runtime (if the\n<a href=\"/ref/class/TextChannel.html\">TextChannel</a> exists) or when the <a href=\"/ref/class/TextChannel.html\">TextChannel</a> is created.</p>\n<table>\n  <thead>\n    <tr>\n      <th>Channel</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><b>RBXGeneral</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for player messages. In the chat window, messages are modified such that <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">PrefixText</a> receives a <a href=\"https://create.roblox.com/docs/ui/rich-text\">rich text</a> font color tag to give chatting players their distinctive name color. If <a href=\"/ref/class/Player.html#member-Team\">Player.Team</a> exists, that <a href=\"/ref/class/Team.html#member-TeamColor\">Team.TeamColor</a> is used instead of the default name color.</td>\n    </tr>\n    <tr>\n      <td><b>RBXSystem</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for system messages. In the chat window, messages are modified such that <a href=\"/ref/class/TextChatMessage.html#member-Text\">TextChatMessage.Text</a> is given a light grey color tag by default, or a red color tag if <a href=\"/ref/class/TextChatMessage.html#member-Metadata\">TextChatMessage.Metadata</a> contains the word <code>&#34;Error&#34;</code>.</td>\n    </tr>\n    <tr>\n      <td><b>RBXTeam[BrickColor]</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for team-specific player messages, created when a <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a> is in use by any <a href=\"/ref/class/Team.html\">Team</a> within the <a href=\"/ref/class/Teams.html\">Teams</a> service. Name of the created channel is <b>RBXTeam</b> followed by the <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a> name. For example, <b>RBXTeamCrimson</b> is a <a href=\"/ref/class/TextChannel.html\">TextChannel</a> created when there is an active team whose <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a> property is the &#34;Crimson&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.<br/><br/>In the chat window, messages are modified such that <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">PrefixText</a> is colored according to the <a href=\"/ref/class/Player.html#member-TeamColor\">TeamColor</a> and is prepended with <b>[Team]</b>.<br/><br/>Team channels create <a href=\"/ref/class/TextSource.html\">TextSources</a> for all non‑<a href=\"/ref/class/Player.html#member-Neutral\">Neutral</a> players with the matching <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a>, allowing them to use team‑only chat. Channels are removed if there are no remaining teams with an associated <a href=\"/ref/class/Team.html#member-TeamColor\">TeamColor</a>.</td>\n    </tr>\n    <tr>\n      <td><b>RBXWhisper:[UserId1]_[UserId2]</b></td>\n      <td><a href=\"/ref/class/TextChannel.html\">TextChannel</a> for whisper messages between two players, created when a player uses the <code>/whisper</code> command on another player. For example <b>RBXWhisper:2276836_505306092</b> is a <a href=\"/ref/class/TextChannel.html\">TextChannel</a> for players with <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a> <b>2276836</b> and <b>505306092</b>. Inside whisper channels are two <a href=\"/ref/class/TextSource.html\">TextSources</a> associated with the respective <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a>.<br/><br/>In the chat window, messages are colored the same as those in <b>RBXGeneral</b> and <a href=\"/ref/class/TextChatMessage.html#member-PrefixText\">TextChatMessage.PrefixText</a> is modified to show whether a message was sent from or received by the local user.<br/><br/>Whisper channels are removed when either player leaves the experience.</td>\n    </tr>\n  </tbody>\n</table>\n<p>Note that the default <a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a> callbacks can\nbe overwritten. Also note that you can edit, create, and remove\n<a href=\"/ref/class/TextChannel.html\">TextChannels</a> even if\n<a href=\"/ref/class/TextChatService.html#member-CreateDefaultTextChannels\">CreateDefaultTextChannels</a>\nis true.</p>\n<p>Messages from different TextChannels can be separated into different tabs\nin the chat window using <a href=\"/ref/class/ChannelTabsConfiguration.html\">ChannelTabsConfiguration</a>.</p>\n"
 			},
 			"DisplayBubble": {
 				"Summary": "<p>Displays a chat bubble above the provided part or player character.</p>\n",
@@ -18549,10 +18599,14 @@
 			"SmoothDamp": {}
 		},
 		"UGCValidationService": {
+			"CalculateAverageCageMeshDistance": {},
+			"CalculateAverageEditableCageMeshDistance": {},
 			"CalculateEditableMeshInsideMeshPercentage": {},
 			"CalculateMeshInsideMeshPercentage": {},
 			"GetCagingRelevancyMetrics": {},
-			"GetEditableCagingRelevancyMetrics": {}
+			"GetEditableCagingRelevancyMetrics": {},
+			"ValidateFacialBounds": {},
+			"ValidateFacialExpressiveness": {}
 		},
 		"UIAspectRatioConstraint": {
 			"AspectRatio": {
@@ -20114,7 +20168,7 @@
 			"SandboxedInstanceMode": {},
 			"SignalBehavior": {
 				"Summary": "<p>Configures when the engine resumes event handlers.</p>\n",
-				"Description": "<p>This property determines whether event handlers will be resumed\nimmediately when the event fires, or deferred and then resumed at a later\nresumption point. Resumption points currently include:</p>\n<ul>\n<li>Input processing (resumes once per input to be processed, see <a href=\"/ref/class/UserInputService.html\">UserInputService</a>)</li>\n<li><a href=\"/ref/class/RunService.html#member-PreRender\">RunService.PreRender</a></li>\n<li>Legacy waiting script resumption such as <code>wait()</code>, <code>spawn()</code>, and <code>delay()</code></li>\n<li><a href=\"/ref/class/RunService.html#member-PreAnimation\">RunService.PreAnimation</a></li>\n<li><a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a></li>\n<li><a href=\"/ref/class/RunService.html#member-PostSimulation\">RunService.PostSimulation</a></li>\n<li>Waiting script resumption such as <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#wait\">task.wait()</a>, <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#spawn\">task.spawn()</a>, and <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#delay\">task.delay()</a></li>\n<li><a href=\"/ref/class/RunService.html#member-Heartbeat\">RunService.Heartbeat</a></li>\n<li><a href=\"/ref/class/DataModel.html#member-BindToClose\">DataModel.BindToClose</a></li>\n</ul>\n<p>For more information, see <a href=\"https://create.roblox.com/docs/scripting/events/deferred\">Deferred Events</a>.</p>\n"
+				"Description": "<p>This property determines whether event handlers will be resumed\nimmediately when the event fires, or deferred and then resumed at a later\nresumption point. Resumption points currently include:</p>\n<ul>\n<li>Input processing (resumes once per input to be processed, see\n<a href=\"/ref/class/UserInputService.html\">UserInputService</a>)</li>\n<li><a href=\"/ref/class/RunService.html#member-PreRender\">RunService.PreRender</a></li>\n<li>Legacy waiting script resumption such as <code>wait()</code>, <code>spawn()</code>, and\n<code>delay()</code></li>\n<li><a href=\"/ref/class/RunService.html#member-PreAnimation\">RunService.PreAnimation</a></li>\n<li><a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a></li>\n<li><a href=\"/ref/class/RunService.html#member-PostSimulation\">RunService.PostSimulation</a></li>\n<li>Waiting script resumption such as <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#wait\">task.wait()</a>,\n<a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#spawn\">task.spawn()</a>, and <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#delay\">task.delay()</a></li>\n<li><a href=\"/ref/class/RunService.html#member-Heartbeat\">RunService.Heartbeat</a></li>\n<li><a href=\"/ref/class/DataModel.html#member-BindToClose\">DataModel.BindToClose</a></li>\n</ul>\n<p>For more information, see\n<a href=\"https://create.roblox.com/docs/scripting/events/deferred\">Deferred Events</a>.</p>\n"
 			},
 			"StreamOutBehavior": {
 				"Summary": "<p>Configures how the engine decides when to Stream content away from\nplayers.</p>\n",
@@ -20395,6 +20449,8 @@
 			"Description": "<p>The AnimatorRetargetingMode Enum describes the setting for Animation\nRetargeting. Retargeting adapts animations to various character rigs based on\ntheir proportions.</p>\n"
 		},
 		"AnnotationEditingMode": {},
+		"AnnotationRequestResult": {},
+		"AnnotationRequestType": {},
 		"AppLifecycleManagerState": {},
 		"AppShellActionType": {},
 		"AppShellFeature": {},
@@ -20696,7 +20752,6 @@
 			"Summary": "<p>Pass to <a href=\"/ref/type/TweenInfo.html\">TweenInfo.new</a> to control the motion of a\n<a href=\"/ref/class/Tween.html\">Tween</a>.</p>\n",
 			"Description": "<p>Passed to <a href=\"/ref/type/TweenInfo.html\">TweenInfo.new()</a> to control the motion of a\n<a href=\"/ref/class/Tween.html\">Tween</a>. The following graphs reflect easing styles for\n<a href=\"/ref/enum/EasingDirection.html\">Enum.EasingDirection.In</a>. For graphs reflecting\n<a href=\"/ref/enum/EasingDirection.html\">Enum.EasingDirection.Out</a> and\n<a href=\"/ref/enum/EasingDirection.html\">Enum.EasingDirection.InOut</a>, see\n<a href=\"https://create.roblox.com/docs/ui/animation#style\">UI Animations</a>.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/enums/EasingStyle/Easing-Styles-In.png\" width=\"800\" alt=\"Graphs of EasingStyle variations with an &#39;In&#39; EasingDirection.\"/>\n"
 		},
-		"EditableStatus": {},
 		"ElasticBehavior": {
 			"Summary": "<p>This enum is used by <a href=\"/ref/class/ScrollingFrame.html#member-ElasticBehavior\">ScrollingFrame.ElasticBehavior</a> to specifies how\nelastic scrolling behaves for a <a href=\"/ref/class/ScrollingFrame.html\">ScrollingFrame</a>.</p>\n",
 			"Description": "<p>This enum is used by <a href=\"/ref/class/ScrollingFrame.html#member-ElasticBehavior\">ScrollingFrame.ElasticBehavior</a> to control when\nelastic scrolling is active for a <a href=\"/ref/class/ScrollingFrame.html\">ScrollingFrame</a>.</p>\n"
@@ -21210,7 +21265,7 @@
 		"Severity": {},
 		"SignalBehavior": {
 			"Summary": "<p>Determines when the engine resumes event handlers.</p>\n",
-			"Description": "<p>Determines when the engine resumes event handlers. At some future point, the\ndefault mode will be <code>Deferred</code> but opt-out will still be possible through use\nof <code>Immediate</code>.</p>\n<p>For more information, see <a href=\"https://create.roblox.com/docs/scripting/events/deferred\">Deferred Events</a>.</p>\n"
+			"Description": "<p>Determines when the engine resumes event handlers. At some future point, the\ndefault mode will be <code>Deferred</code> but opt-out will still be possible through use\nof <code>Immediate</code>.</p>\n<p>For more information, see\n<a href=\"https://create.roblox.com/docs/scripting/events/deferred\">Deferred Events</a>.</p>\n"
 		},
 		"SizeConstraint": {
 			"Summary": "<p>Used to constrain the scale of a GUI object.</p>\n",
@@ -21820,6 +21875,18 @@
 			"None": {},
 			"PlacingNew": {},
 			"WritingNew": {}
+		},
+		"AnnotationRequestResult": {
+			"ErrorInternalFailure": {},
+			"ErrorNotFound": {},
+			"Success": {}
+		},
+		"AnnotationRequestType": {
+			"Create": {},
+			"Delete": {},
+			"Edit": {},
+			"Resolve": {},
+			"Unknown": {}
 		},
 		"AppLifecycleManagerState": {
 			"Active": {},
@@ -22748,7 +22815,6 @@
 			"Deprecated": {
 				"Summary": "<p>Indicates that the completion is deprecated, applying a penalty towards\nits score and crossing it out in the completion list.</p>\n"
 			},
-			"ElideLeftOverride": {},
 			"IncorrectIndexType": {
 				"Summary": "<p>Indicates that the completion is a member and being accessed with the\nwrong index type (e.g. using <code>:</code> to access a property), hiding it from the\ncompletion list.</p>\n"
 			},
@@ -22765,8 +22831,7 @@
 			},
 			"TypeCorrect": {
 				"Summary": "<p>Indicates that the completion is type correct in the current context,\ngranting a bonus to its score.</p>\n"
-			},
-			"UseTextEditForAutocompleteScore": {}
+			}
 		},
 		"CompletionTriggerKind": {
 			"Invoked": {},
@@ -23422,11 +23487,6 @@
 			"Sine": {
 				"Summary": "<p>Speed is determined by a sine wave for a gentle easing motion.</p>\n"
 			}
-		},
-		"EditableStatus": {
-			"Allowed": {},
-			"Disallowed": {},
-			"Unknown": {}
 		},
 		"ElasticBehavior": {
 			"Always": {
@@ -27404,6 +27464,7 @@
 			"MessageTooLong": {
 				"Summary": "<p>Message is too long.</p>\n"
 			},
+			"ModerationTimeout": {},
 			"Sending": {
 				"Summary": "<p>Message is sending.</p>\n"
 			},
