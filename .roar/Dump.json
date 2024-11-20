@@ -947,6 +947,61 @@
 				"NotReplicated"
 			]
 		},
+		"ActivityHistoryEventService": {
+			"Name": "ActivityHistoryEventService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"WriteActivityHistoryEventFromStudio": {
+					"MemberType": "Event",
+					"Name": "WriteActivityHistoryEventFromStudio",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "eventType",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "resourceId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "metadata",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service"
+			]
+		},
 		"ActivityHistoryService": {
 			"Name": "ActivityHistoryService",
 			"Superclass": "Instance",
@@ -11851,6 +11906,111 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"CreateAssetAsync": {
+					"MemberType": "Function",
+					"Name": "CreateAssetAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Object"
+							},
+							"Name": "object",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "AssetType"
+							},
+							"Name": "assetType",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "requestParameters",
+							"Optional": true,
+							"Default": "nil"
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"CreateAssetVersionAsync": {
+					"MemberType": "Function",
+					"Name": "CreateAssetVersionAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Object"
+							},
+							"Name": "object",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "AssetType"
+							},
+							"Name": "assetType",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "assetId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "requestParameters",
+							"Optional": true,
+							"Default": "nil"
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"CreateDynamicImageAsync": {
 					"MemberType": "Function",
 					"Name": "CreateDynamicImageAsync",
@@ -13808,6 +13968,55 @@
 						"Name": "bool"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -13928,6 +14137,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -14088,6 +14346,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -14342,6 +14649,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -14402,6 +14758,55 @@
 						"Name": "Player"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -14482,6 +14887,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -14642,6 +15096,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -14888,6 +15391,75 @@
 						"CustomLuaState"
 					],
 					"ThreadSafety": "Unsafe"
+				},
+				"SimulationFidelity": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Simulation",
+					"Default": "Automatic",
+					"MemberType": "Property",
+					"Name": "SimulationFidelity",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "AudioSimulationFidelity"
+					},
+					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -15050,6 +15622,55 @@
 						"Name": "NumberRange"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -15130,6 +15751,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -15320,6 +15990,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -15440,6 +16159,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -15773,6 +16541,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -16019,6 +16836,75 @@
 						"CustomLuaState"
 					],
 					"ThreadSafety": "Unsafe"
+				},
+				"SimulationFidelity": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Simulation",
+					"Default": "Automatic",
+					"MemberType": "Property",
+					"Name": "SimulationFidelity",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "AudioSimulationFidelity"
+					},
+					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -16113,6 +16999,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -16501,6 +17436,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -16801,6 +17785,55 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"WiringChanged": {
+					"MemberType": "Event",
+					"Name": "WiringChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "connected",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "pin",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Wire"
+							},
+							"Name": "wire",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -21065,6 +22098,50 @@
 				"NotReplicated"
 			]
 		},
+		"AvatarPreloader": {
+			"Name": "AvatarPreloader",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"PreloadModelAssets": {
+					"MemberType": "Function",
+					"Name": "PreloadModelAssets",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Instances"
+							},
+							"Name": "models",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Array"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service",
+				"NotReplicated"
+			]
+		},
 		"Backpack": {
 			"Name": "Backpack",
 			"Superclass": "Instance",
@@ -22309,6 +23386,26 @@
 					"ValueType": {
 						"Category": "Class",
 						"Name": "BasePart"
+					},
+					"WriteSecurity": "None"
+				},
+				"AudioCanCollide": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Collision",
+					"Default": "__api_dump_class_not_creatable__",
+					"MemberType": "Property",
+					"Name": "AudioCanCollide",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
 					},
 					"WriteSecurity": "None"
 				},
@@ -34024,6 +35121,39 @@
 					"Security": "RobloxScriptSecurity",
 					"Tags": [],
 					"ThreadSafety": ""
+				},
+				"TimeoutChatAttempt": {
+					"MemberType": "Event",
+					"Name": "TimeoutChatAttempt",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "isPermanentTimeout",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "endTime",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -46525,6 +47655,45 @@
 								"Name": "string"
 							},
 							"Name": "version",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetVersionAtTimeAsync": {
+					"MemberType": "Function",
+					"Name": "GetVersionAtTimeAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "key",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "timestamp",
 							"Optional": false,
 							"Default": ""
 						}
@@ -61423,6 +62592,50 @@
 				"ThreadSafety": ""
 			},
 			"Tags": [
+				"NotReplicated"
+			]
+		},
+		"ExplorerServiceVisibilityService": {
+			"Name": "ExplorerServiceVisibilityService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"GetServiceVisibility": {
+					"MemberType": "Function",
+					"Name": "GetServiceVisibility",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "service",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service",
 				"NotReplicated"
 			]
 		},
@@ -94698,6 +95911,20 @@
 			},
 			"Tags": [
 				"NotCreatable"
+			]
+		},
+		"MLModelDeliveryService": {
+			"Name": "MLModelDeliveryService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": null,
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service"
 			]
 		},
 		"ManualGlue": {
@@ -129443,6 +130670,45 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"CanViewBrandProjectAsync": {
+					"MemberType": "Function",
+					"Name": "CanViewBrandProjectAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Player"
+							},
+							"Name": "player",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "brandProjectId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"GetPolicyInfoForPlayerAsync": {
 					"MemberType": "Function",
 					"Name": "GetPolicyInfoForPlayerAsync",
@@ -145036,6 +146302,43 @@
 					},
 					"WriteSecurity": "RobloxSecurity"
 				},
+				"SetServiceVisibilityPreference": {
+					"MemberType": "Function",
+					"Name": "SetServiceVisibilityPreference",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "service",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "visible",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"VisibleServices": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -151441,6 +152744,24 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"getTutorialVersionForUser": {
+					"MemberType": "Function",
+					"Name": "getTutorialVersionForUser",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "string"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"isTutorialBannerClosed": {
 					"MemberType": "Function",
 					"Name": "isTutorialBannerClosed",
@@ -154890,6 +156211,36 @@
 					],
 					"Security": "RobloxScriptSecurity",
 					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetRequiredScripts": {
+					"MemberType": "Function",
+					"Name": "GetRequiredScripts",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "script",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Variant"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
 					"ThreadSafety": "Unsafe"
 				},
 				"InvokeCommand": {
@@ -167175,6 +168526,15 @@
 								"Name": "TeamCreateErrorState"
 							},
 							"Name": "result",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "teamCreateSaveData",
 							"Optional": false,
 							"Default": ""
 						}
@@ -184106,6 +185466,43 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"ValidateEditableMeshUVDuplicates": {
+					"MemberType": "Function",
+					"Name": "ValidateEditableMeshUVDuplicates",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "referenceValues",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Object"
+							},
+							"Name": "editableMesh",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"ValidateEditableMeshUVSpace": {
 					"MemberType": "Function",
 					"Name": "ValidateEditableMeshUVSpace",
@@ -185060,6 +186457,45 @@
 						{
 							"Category": "Primitive",
 							"Name": "bool"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"ValidateUVDuplicates": {
+					"MemberType": "Function",
+					"Name": "ValidateUVDuplicates",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "referenceValues",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "meshId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int"
 						}
 					],
 					"Security": "RobloxScriptSecurity",
@@ -202755,8 +204191,7 @@
 					},
 					"ReadSecurity": "None",
 					"Tags": [
-						"NotScriptable",
-						"NotBrowsable"
+						"NotScriptable"
 					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
@@ -209152,6 +210587,38 @@
 			},
 			"Tags": []
 		},
+		"AudioSimulationFidelity": {
+			"Name": "AudioSimulationFidelity",
+			"Items": {
+				"Automatic": {
+					"Name": "Automatic",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"None": {
+					"Name": "None",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
 		"AudioSubType": {
 			"Name": "AudioSubType",
 			"Items": {
@@ -214687,6 +216154,60 @@
 					"Name": "SelfView",
 					"Value": 6,
 					"Index": 6,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"CreateAssetResult": {
+			"Name": "CreateAssetResult",
+			"Items": {
+				"PermissionDenied": {
+					"Name": "PermissionDenied",
+					"Value": 2,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Success": {
+					"Name": "Success",
+					"Value": 1,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Unknown": {
+					"Name": "Unknown",
+					"Value": 4,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"UploadFailed": {
+					"Name": "UploadFailed",
+					"Value": 3,
+					"Index": 2,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
