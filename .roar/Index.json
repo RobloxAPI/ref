@@ -73825,6 +73825,7 @@
 				"PathfindingModifier",
 				"PathfindingService",
 				"PausedState",
+				"PerformanceControlService",
 				"PermissionsService",
 				"PersonalServerService",
 				"PhysicsPacketCache",
@@ -74039,6 +74040,7 @@
 				"VersionControlService",
 				"VideoCaptureService",
 				"VideoDeviceInput",
+				"VideoPlayer",
 				"VideoService",
 				"VirtualInputManager",
 				"VirtualUser",
@@ -83598,7 +83600,7 @@
 				},
 				{
 					"Class": "Lighting",
-					"Member": "Intent",
+					"Member": "LightingStyle",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -83606,7 +83608,7 @@
 					"Index": -1,
 					"Type": {
 						"Category": "Enum",
-						"Name": "Intent"
+						"Name": "LightingStyle"
 					}
 				},
 				{
@@ -83637,15 +83639,15 @@
 				},
 				{
 					"Class": "Lighting",
-					"Member": "Quality",
+					"Member": "PrioritizeLightingQuality",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
 					"Type": {
-						"Category": "Enum",
-						"Name": "Quality"
+						"Category": "Primitive",
+						"Name": "bool"
 					}
 				},
 				{
@@ -83832,6 +83834,19 @@
 				},
 				{
 					"Class": "Lighting",
+					"Member": "Intent",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "Intent"
+					}
+				},
+				{
+					"Class": "Lighting",
 					"Member": "LegacyOutlines",
 					"MemberType": "Property",
 					"Removed": true,
@@ -83841,6 +83856,19 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
+					}
+				},
+				{
+					"Class": "Lighting",
+					"Member": "Quality",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "Quality"
 					}
 				},
 				{
@@ -102289,6 +102317,19 @@
 					"Member": "InvokeAsync",
 					"MemberType": "Function",
 					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "OpenCloudService",
+					"Member": "InvokeAsync",
+					"MemberType": "Function",
+					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
 					"Index": 0,
@@ -105854,6 +105895,45 @@
 					"Type": {
 						"Category": "Class",
 						"Name": "ThreadState"
+					}
+				}
+			]
+		},
+		"PerformanceControlService": {
+			"Name": "PerformanceControlService",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "PerformanceControlService",
+					"Member": "IsCrossExperienceLaunchFeasible",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "PerformanceControlService",
+					"Member": "IsCrossExperienceLaunchFeasible",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
 					}
 				}
 			]
@@ -135703,19 +135783,6 @@
 				},
 				{
 					"Class": "StartPageService",
-					"Member": "getStartPageVersionForUser",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int"
-					}
-				},
-				{
-					"Class": "StartPageService",
 					"Member": "getTempUrlInContentProvider",
 					"MemberType": "Function",
 					"Removed": false,
@@ -136063,6 +136130,19 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
+					}
+				},
+				{
+					"Class": "StartPageService",
+					"Member": "getStartPageVersionForUser",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				}
 			]
@@ -162050,6 +162130,71 @@
 				},
 				{
 					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationCounter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationCounter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationCounter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationFailureTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationFailureTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
 					"Member": "ReportUGCValidationTelemetry",
 					"MemberType": "Function",
 					"Removed": false,
@@ -171822,6 +171967,240 @@
 				}
 			]
 		},
+		"VideoPlayer": {
+			"Name": "VideoPlayer",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "VideoPlayer",
+					"Member": "Asset",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "ContentId"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "AutoLoad",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "IsPlaying",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "IsReady",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Looping",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "PlaybackSpeed",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Resolution",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector2"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Thumbnail",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "ContentId"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "TimeLength",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "TimePosition",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Volume",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "GetConnectedWires",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "GetConnectedWires",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Instances"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Play",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "SetStudioPreview",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "SetStudioPreview",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Stop",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				}
+			]
+		},
 		"VideoService": {
 			"Name": "VideoService",
 			"Removed": false,
@@ -174522,6 +174901,19 @@
 				{
 					"Class": "VoiceChatService",
 					"Member": "joinVoice",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "rejoinVoice",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -213988,13 +214380,13 @@
 				"Class": "Lighting",
 				"Name": "Intent",
 				"MemberType": "Property",
-				"Removed": false,
+				"Removed": true,
 				"Related": [
 					{
 						"Class": "Lighting",
 						"Member": "Intent",
 						"MemberType": "Property",
-						"Removed": false,
+						"Removed": true,
 						"Field": "ValueType",
 						"Kind": "Type",
 						"Index": -1,
@@ -214017,6 +214409,27 @@
 				"MemberType": "Event",
 				"Removed": false
 			},
+			"LightingStyle": {
+				"Class": "Lighting",
+				"Name": "LightingStyle",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Lighting",
+						"Member": "LightingStyle",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "LightingStyle"
+						}
+					}
+				]
+			},
 			"OutdoorAmbient": {
 				"Class": "Lighting",
 				"Name": "OutdoorAmbient",
@@ -214029,17 +214442,23 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"PrioritizeLightingQuality": {
+				"Class": "Lighting",
+				"Name": "PrioritizeLightingQuality",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"Quality": {
 				"Class": "Lighting",
 				"Name": "Quality",
 				"MemberType": "Property",
-				"Removed": false,
+				"Removed": true,
 				"Related": [
 					{
 						"Class": "Lighting",
 						"Member": "Quality",
 						"MemberType": "Property",
-						"Removed": false,
+						"Removed": true,
 						"Field": "ValueType",
 						"Kind": "Type",
 						"Index": -1,
@@ -223773,6 +224192,14 @@
 						}
 					}
 				]
+			}
+		},
+		"PerformanceControlService": {
+			"IsCrossExperienceLaunchFeasible": {
+				"Class": "PerformanceControlService",
+				"Name": "IsCrossExperienceLaunchFeasible",
+				"MemberType": "Function",
+				"Removed": false
 			}
 		},
 		"PermissionsService": {
@@ -234498,6 +234925,12 @@
 				"MemberType": "Event",
 				"Removed": false
 			},
+			"SelectionChangedThisFrame": {
+				"Class": "Selection",
+				"Name": "SelectionChangedThisFrame",
+				"MemberType": "Event",
+				"Removed": false
+			},
 			"SelectionLineThickness": {
 				"Class": "Selection",
 				"Name": "SelectionLineThickness",
@@ -237369,7 +237802,7 @@
 				"Class": "StartPageService",
 				"Name": "getStartPageVersionForUser",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
 			},
 			"getTempUrlInContentProvider": {
 				"Class": "StartPageService",
@@ -248745,6 +249178,18 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"ReportUGCValidationCounter": {
+				"Class": "UGCValidationService",
+				"Name": "ReportUGCValidationCounter",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"ReportUGCValidationFailureTelemetry": {
+				"Class": "UGCValidationService",
+				"Name": "ReportUGCValidationFailureTelemetry",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"ReportUGCValidationTelemetry": {
 				"Class": "UGCValidationService",
 				"Name": "ReportUGCValidationTelemetry",
@@ -253661,6 +254106,110 @@
 				"Removed": false
 			}
 		},
+		"VideoPlayer": {
+			"Asset": {
+				"Class": "VideoPlayer",
+				"Name": "Asset",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"AutoLoad": {
+				"Class": "VideoPlayer",
+				"Name": "AutoLoad",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Ended": {
+				"Class": "VideoPlayer",
+				"Name": "Ended",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"GetConnectedWires": {
+				"Class": "VideoPlayer",
+				"Name": "GetConnectedWires",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"IsPlaying": {
+				"Class": "VideoPlayer",
+				"Name": "IsPlaying",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"IsReady": {
+				"Class": "VideoPlayer",
+				"Name": "IsReady",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Looped": {
+				"Class": "VideoPlayer",
+				"Name": "Looped",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"Looping": {
+				"Class": "VideoPlayer",
+				"Name": "Looping",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Play": {
+				"Class": "VideoPlayer",
+				"Name": "Play",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"PlaybackSpeed": {
+				"Class": "VideoPlayer",
+				"Name": "PlaybackSpeed",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Resolution": {
+				"Class": "VideoPlayer",
+				"Name": "Resolution",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"SetStudioPreview": {
+				"Class": "VideoPlayer",
+				"Name": "SetStudioPreview",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"Stop": {
+				"Class": "VideoPlayer",
+				"Name": "Stop",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"Thumbnail": {
+				"Class": "VideoPlayer",
+				"Name": "Thumbnail",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"TimeLength": {
+				"Class": "VideoPlayer",
+				"Name": "TimeLength",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"TimePosition": {
+				"Class": "VideoPlayer",
+				"Name": "TimePosition",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Volume": {
+				"Class": "VideoPlayer",
+				"Name": "Volume",
+				"MemberType": "Property",
+				"Removed": false
+			}
+		},
 		"ViewportFrame": {
 			"Ambient": {
 				"Class": "ViewportFrame",
@@ -254989,6 +255538,12 @@
 			"joinVoice": {
 				"Class": "VoiceChatService",
 				"Name": "joinVoice",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"rejoinVoice": {
+				"Class": "VoiceChatService",
+				"Name": "rejoinVoice",
 				"MemberType": "Function",
 				"Removed": false
 			}
@@ -263199,6 +263754,24 @@
 				}
 			]
 		},
+		"DeviceForm": {
+			"Name": "DeviceForm",
+			"Removed": false,
+			"ItemsByValue": [
+				"Console",
+				"Phone",
+				"Tablet",
+				"Desktop",
+				"VR"
+			],
+			"ItemsByIndex": [
+				"Console",
+				"Phone",
+				"Tablet",
+				"Desktop",
+				"VR"
+			]
+		},
 		"DeviceLevel": {
 			"Name": "DeviceLevel",
 			"Removed": false,
@@ -267014,7 +267587,7 @@
 		},
 		"Intent": {
 			"Name": "Intent",
-			"Removed": false,
+			"Removed": true,
 			"ItemsByValue": [
 				"Realistic",
 				"Flat"
@@ -267028,7 +267601,7 @@
 					"Class": "Lighting",
 					"Member": "Intent",
 					"MemberType": "Property",
-					"Removed": false,
+					"Removed": true,
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
@@ -268320,6 +268893,33 @@
 				"Star",
 				"DoubleStar",
 				"ReservedSpecial"
+			]
+		},
+		"LightingStyle": {
+			"Name": "LightingStyle",
+			"Removed": false,
+			"ItemsByValue": [
+				"Realistic",
+				"Soft"
+			],
+			"ItemsByIndex": [
+				"Realistic",
+				"Soft"
+			],
+			"Related": [
+				{
+					"Class": "Lighting",
+					"Member": "LightingStyle",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "LightingStyle"
+					}
+				}
 			]
 		},
 		"Limb": {
@@ -272344,7 +272944,7 @@
 		},
 		"Quality": {
 			"Name": "Quality",
-			"Removed": false,
+			"Removed": true,
 			"ItemsByValue": [
 				"Performance",
 				"Quality"
@@ -272358,7 +272958,7 @@
 					"Class": "Lighting",
 					"Member": "Quality",
 					"MemberType": "Property",
-					"Removed": false,
+					"Removed": true,
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
@@ -284520,6 +285120,33 @@
 				"Removed": false
 			}
 		},
+		"DeviceForm": {
+			"Console": {
+				"Enum": "DeviceForm",
+				"Name": "Console",
+				"Removed": false
+			},
+			"Desktop": {
+				"Enum": "DeviceForm",
+				"Name": "Desktop",
+				"Removed": false
+			},
+			"Phone": {
+				"Enum": "DeviceForm",
+				"Name": "Phone",
+				"Removed": false
+			},
+			"Tablet": {
+				"Enum": "DeviceForm",
+				"Name": "Tablet",
+				"Removed": false
+			},
+			"VR": {
+				"Enum": "DeviceForm",
+				"Name": "VR",
+				"Removed": false
+			}
+		},
 		"DeviceLevel": {
 			"High": {
 				"Enum": "DeviceLevel",
@@ -286919,12 +287546,12 @@
 			"Flat": {
 				"Enum": "Intent",
 				"Name": "Flat",
-				"Removed": false
+				"Removed": true
 			},
 			"Realistic": {
 				"Enum": "Intent",
 				"Name": "Realistic",
-				"Removed": false
+				"Removed": true
 			}
 		},
 		"InterpolationThrottlingMode": {
@@ -288721,6 +289348,18 @@
 			"TildeEqual": {
 				"Enum": "LexemeType",
 				"Name": "TildeEqual",
+				"Removed": false
+			}
+		},
+		"LightingStyle": {
+			"Realistic": {
+				"Enum": "LightingStyle",
+				"Name": "Realistic",
+				"Removed": false
+			},
+			"Soft": {
+				"Enum": "LightingStyle",
+				"Name": "Soft",
 				"Removed": false
 			}
 		},
@@ -291078,12 +291717,12 @@
 			"Performance": {
 				"Enum": "Quality",
 				"Name": "Performance",
-				"Removed": false
+				"Removed": true
 			},
 			"Quality": {
 				"Enum": "Quality",
 				"Name": "Quality",
-				"Removed": false
+				"Removed": true
 			}
 		},
 		"QualityLevel": {
@@ -306902,6 +307541,32 @@
 					}
 				},
 				{
+					"Class": "VideoPlayer",
+					"Member": "Asset",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "ContentId"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Thumbnail",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "ContentId"
+					}
+				},
+				{
 					"Class": "ViewportFrame",
 					"Member": "CaptureSnapshotAsync",
 					"MemberType": "Function",
@@ -309084,6 +309749,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "OpenCloudService",
+					"Member": "InvokeAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
 					"Type": {
 						"Category": "Group",
 						"Name": "Dictionary"
@@ -314005,6 +314683,19 @@
 				{
 					"Class": "UGCValidationService",
 					"Member": "FetchAssetWithFormat",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Instances"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "GetConnectedWires",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -323965,6 +324656,19 @@
 				},
 				{
 					"Class": "VideoFrame",
+					"Member": "Resolution",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector2"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
 					"Member": "Resolution",
 					"MemberType": "Property",
 					"Removed": false,
@@ -335214,6 +335918,19 @@
 				},
 				{
 					"Class": "Lighting",
+					"Member": "PrioritizeLightingQuality",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "Lighting",
 					"Member": "LightingChanged",
 					"MemberType": "Event",
 					"Removed": false,
@@ -336897,6 +337614,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "PerformanceControlService",
+					"Member": "IsCrossExperienceLaunchFeasible",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -342936,6 +343666,19 @@
 				},
 				{
 					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationCounter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
 					"Member": "ValidateCageUVCoincident",
 					"MemberType": "Function",
 					"Removed": false,
@@ -344927,6 +345670,71 @@
 					"Class": "VideoFrame",
 					"Member": "PlayingUpdatedFromServer",
 					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "AutoLoad",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "IsPlaying",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "IsReady",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Looping",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "SetStudioPreview",
+					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
@@ -351253,6 +352061,32 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "TimeLength",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "TimePosition",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "double"
@@ -362216,6 +363050,32 @@
 					}
 				},
 				{
+					"Class": "VideoPlayer",
+					"Member": "PlaybackSpeed",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Volume",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
 					"Class": "ViewportFrame",
 					"Member": "CameraFieldOfView",
 					"MemberType": "Property",
@@ -369075,19 +369935,6 @@
 					}
 				},
 				{
-					"Class": "StartPageService",
-					"Member": "getStartPageVersionForUser",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int"
-					}
-				},
-				{
 					"Class": "Stats",
 					"Member": "ContactsCount",
 					"MemberType": "Property",
@@ -373412,6 +374259,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "StartPageService",
+					"Member": "getStartPageVersionForUser",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
@@ -392348,6 +393208,32 @@
 				},
 				{
 					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationCounter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationFailureTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
 					"Member": "ReportUGCValidationTelemetry",
 					"MemberType": "Function",
 					"Removed": false,
@@ -392752,6 +393638,45 @@
 				{
 					"Class": "VideoFrame",
 					"Member": "SetStudioPreview",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Play",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "SetStudioPreview",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "Stop",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -393259,6 +394184,19 @@
 				{
 					"Class": "VoiceChatService",
 					"Member": "joinVoice",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "rejoinVoice",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -406806,6 +407744,19 @@
 					}
 				},
 				{
+					"Class": "PerformanceControlService",
+					"Member": "IsCrossExperienceLaunchFeasible",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
 					"Class": "PermissionsService",
 					"Member": "GetPermissions",
 					"MemberType": "Function",
@@ -414182,6 +415133,32 @@
 				},
 				{
 					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationCounter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
+					"Member": "ReportUGCValidationFailureTelemetry",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "UGCValidationService",
 					"Member": "ReportUGCValidationTelemetry",
 					"MemberType": "Function",
 					"Removed": false,
@@ -415042,6 +416019,19 @@
 					"Class": "VideoFrame",
 					"Member": "Played",
 					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VideoPlayer",
+					"Member": "GetConnectedWires",
+					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",

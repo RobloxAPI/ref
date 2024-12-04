@@ -83,15 +83,15 @@ image:</p><ul><li>Top-left: <code>(0, 0)</code></li><li>Bottom-right: <code>(Siz
 object that has a <a href=/ref/type/Content.html>Content</a> property which references an
 <a href=/ref/class/EditableImage.html>EditableImage</a>, the editable image is published as an image and the
 property is set to a new asset ID.</p><h3>Enabling EditableImage for Published Experiences</h3><p>For security purposes, using <a href=/ref/class/EditableImage.html>EditableImage</a> fails by default for
-published experiences. To enable the use of <a href=/ref/class/EditableImage.html>EditableImage</a>, you
-must be 13+ age verified and ID verified. After you are
-verified, open **Studio. Select <strong>File > Game Settings > Security</strong> and enable the
-<strong>Allow Mesh & Image APIs</strong> toggle. Remember to review the Terms of Use before
-enabling the toggle.</p><h3>Permissions</h3><p>To prevent misuse, <a href=/ref/class/AssetService.html#member-CreateEditableImageAsync>AssetService:CreateEditableImageAsync()</a> only
-allows you to load and edit image assets:</p><ul><li>That are owned by the creator of the experience (if the experience is owned
+published experiences. To enable the use of <a href=/ref/class/EditableImage.html>EditableImage</a>, you must be
+13+ age verified and ID verified. After you are verified, open <strong>Studio</strong>.
+Select <strong>File > Game Settings > Security</strong> and enable the <strong>Allow Mesh & Image
+APIs</strong> toggle. Remember to review the Terms of Use before enabling the
+toggle.</p><h3>Permissions</h3><p>To prevent misuse, <a href=/ref/class/AssetService.html#member-CreateEditableImageAsync>AssetService:CreateEditableImageAsync()</a> only allows
+you to load and edit image assets:</p><ul><li>That are owned by the creator of the experience (if the experience is owned
 by an individual).</li><li>That are owned by a group (if the experience is owned by the group).</li><li>That are owned by the logged in Studio user (if the place file has not yet
-been saved or published to Roblox).</li></ul><p>The APIs throw an error if they are used to load an asset that does
-not meet the criteria above.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>48</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+been saved or published to Roblox).</li></ul><p>The APIs throw an error if they are used to load an asset that does not meet
+the criteria above.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>48</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag removed" href=/ref/updates/2024.html#version-ea4e72f3b3894847-3 title="Removed on 2024-11-05T11:00:15-08:00
 v0.650.0.6500742
 version-ea4e72f3b3894847">650</a>
@@ -413,10 +413,12 @@ memory-efficient than <a href=/ref/class/EditableImage.html#member-ReadPixels>Re
 v0.640.0.6400731
 version-046f2d8fc733479b">640</a>
 Add <a class="entity-link deco" href=/ref/class/EditableImage.html#member-ReadPixelsBuffer><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>ReadPixelsBuffer</a></li></ul></details><div class=tags>Tags: [CustomLuaState]</div></section><section id=member-Size class=set><header><h3><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>Size<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/EditableImage#Size target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-valuetype colspan=2>Type</th><th class=col-default>Default</th></tr></thead><tbody><tr><td class=col-valuetype colspan=2><a class="entity-link deco" href=/ref/type/Vector2.html><span class=picture title="DataType type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/ACCodeSnippet.png');--dark:url('/ref/icons/dark/ACCodeSnippet.png')"></span></span>Vector2</a></td><td class=col-default>__api_dump_failed_to_create_class__</td></tr></tbody></table><div class=docs><p>Size of the <a href=/ref/class/EditableImage.html>EditableImage</a> in pixels. The maximum size is
-1024×1024. An <a href=/ref/class/EditableImage.html>EditableImage</a> cannot be resized; this property is read-only.
-In order to resize or crop an image, create a new <a href=/ref/class/EditableImage.html>EditableImage</a> and
-use <a href=/ref/class/EditableImage.html#member-DrawImageTransformed>DrawImageTransformed()</a> to transfer
-the contents; then call <a href=/ref/class/EditableImage.html#member-Destroy>Destroy()</a>.</p></div><div class=status-list><div class="status-box medium"><span class=header>This property is not replicated.</span> Its interface does not cross the network boundary.</div><div class="status-box low"><span class=header>This property is read-only.</span> Its value can be read, but it cannot be modified.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Data</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>false/true</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Tags><a class="history-tag changed" href=/ref/updates/2024.html#version-9b68669a3b644e31-79 title="Changed on 2024-10-22T11:55:24-07:00
+1024×1024. An <a href=/ref/class/EditableImage.html>EditableImage</a> cannot be resized; this property
+is read-only. In order to resize or crop an image, create a new
+<a href=/ref/class/EditableImage.html>EditableImage</a> and use
+<a href=/ref/class/EditableImage.html#member-DrawImageTransformed>DrawImageTransformed()</a> to
+transfer the contents; then call
+<a href=/ref/class/EditableImage.html#member-Destroy>Destroy()</a>.</p></div><div class=status-list><div class="status-box medium"><span class=header>This property is not replicated.</span> Its interface does not cross the network boundary.</div><div class="status-box low"><span class=header>This property is read-only.</span> Its value can be read, but it cannot be modified.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Data</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>false/true</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Tags><a class="history-tag changed" href=/ref/updates/2024.html#version-9b68669a3b644e31-79 title="Changed on 2024-10-22T11:55:24-07:00
 v0.648.0.6480781
 version-9b68669a3b644e31">648</a>
 Change Tags of <a class="entity-link deco" href=/ref/class/EditableImage.html#member-Size><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>Size</a>
