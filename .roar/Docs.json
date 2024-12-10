@@ -220,7 +220,10 @@
 			"Summary": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n",
 			"Description": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n"
 		},
-		"AvatarCreationService": {},
+		"AvatarCreationService": {
+			"Summary": "<p>A service to support developer avatar creators.</p>\n",
+			"Description": "<p><code>AvatarCreationService</code> is a service that supports developer avatar creators,\nproviding methods that support the prompting of avatar creation from within\nexperiences.</p>\n"
+		},
 		"AvatarEditorService": {
 			"Summary": "<p>A service to support developer Avatar Editors.</p>\n",
 			"Description": "<p>AvatarEditorService is a service to support developer Avatar Editors. It\nprovides methods to modify the player&#39;s platform avatar, request information\nabout a user&#39;s inventory, and request information about the catalog.</p>\n<p>For more information regarding the Avatar Editor, see\n<a href=\"https://create.roblox.com/docs/players/avatar-editor\">Avatar Editor Service</a>.</p>\n<h3>Throttling</h3>\n<p>The following endpoints on <code>AvatarEditorService</code> have experience-level\nthrottling:</p>\n<ul>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-GetItemDetails\">AvatarEditorService.GetItemDetails</a></li>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-GetBatchItemDetails\">AvatarEditorService.GetBatchItemDetails</a></li>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-GetRecommendedAssets\">AvatarEditorService.GetRecommendedAssets</a></li>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-GetRecommendedBundles\">AvatarEditorService.GetRecommendedBundles</a></li>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-SearchCatalog\">AvatarEditorService.SearchCatalog</a></li>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-PromptSetFavorite\">AvatarEditorService.PromptSetFavorite</a></li>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-GetFavorite\">AvatarEditorService.GetFavorite</a></li>\n</ul>\n<p>For each experience, this throttling allows you to send up to 100 requests per\nsecond to these <code>AvatarEditorService</code> endpoints, regardless of the number of\nservers or user count. Exceeding these limits returns a\n<code>429 Too Many Requests</code> error.</p>\n<p>If you find that your experience requires an adjustment to this throttling,\nyou can submit a\n<a href=\"https://devforum.roblox.com/t/how-to-post-a-feature-request/37232\">feature request</a>.</p>\n"
@@ -2148,7 +2151,7 @@
 		"Stats": {
 			"Category": "Debugging",
 			"Summary": "<p>Performance metrics for a game.</p>\n",
-			"Description": "<p>Stats is a service that provides real-time performance information about the\ncurrent running game instance. Its primary purpose is to provide developers\nwith an end point to measure where resources are being consumed, as well as\nhow much memory is being consumed overall.</p>\n<p>The service also stores a tree of <a href=\"/ref/class/StatsItem.html\">StatsItem</a>, which can have their\nvalues read by plugins.</p>\n"
+			"Description": "<p><a href=\"/ref/class/Stats.html\">Stats</a> is a service that provides real-time performance information about\nthe current running game instance. Its primary purpose is to provide an end point\nto measure where resources are being consumed, as well as how much memory is\nbeing consumed overall.</p>\n<p>The service also stores a tree of <a href=\"/ref/class/StatsItem.html\">StatsItem</a> objects which can have their\nvalues read by plugins.</p>\n"
 		},
 		"StatsItem": {
 			"Category": "Plugins",
@@ -4156,13 +4159,34 @@
 		},
 		"AvatarCreationService": {
 			"DeserializeAvatarModel": {},
-			"GetBatchTokenDetailsAsync": {},
-			"GetValidationRules": {},
-			"PromptCreateAvatarAsync": {},
+			"GetBatchTokenDetailsAsync": {
+				"Summary": "<p>Gets the avatar creation token details for a list of avatar creation\ntokens at once.</p>\n",
+				"Description": "<p>Gets the avatar creation token details for a list of avatar creation\ntokens at once. Returns an array of avatar creation token details; each\ntoken detail is a dictionary with the fields indicated in the example\nresult below:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;Name&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;string&#34;</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;Description&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;string&#34;</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;UniverseId&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;CreatorId&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;CreatorType&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_n\">Enum.CreatorType</span><span class=\"_p\">.</span><span class=\"_n\">User</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;OnSale&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_kc\">true</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;Price&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;OffSaleReasons&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_s2\">&#34;string&#34;</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">}</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			},
+			"GetValidationRules": {
+				"Summary": "<p>Gets data regarding rules that assets must abide by to pass UGC validation.</p>\n",
+				"Description": "<p>Gets data regarding rules that assets must abide by to pass UGC\nvalidation. Validation is an essential step before creating avatars and\nthere are various checks that occur, including mesh triangle limits,\ntexture sizes, body part size limits, attachment positions, and more.</p>\n<p>The returned dictionary of validation rules takes the following form:</p>\n<pre><code>{\n\t[&#34;MeshRules&#34;] = {\n\t\t[&#34;BodyPartMaxTriangles&#34;] = {\n\t\t\tEnum.AssetType.DynamicHead: number,\n\t\t\tEnum.AssetType.LeftArm: number,\n\t\t\tEnum.AssetType.RightArm: number,\n\t\t\tEnum.AssetType.Torso: number,\n\t\t\tEnum.AssetType.LeftLeg: number,\n\t\t\tEnum.AssetType.RightLeg: number,\n\t\t},\n\t\t\t[&#34;AccessoryMaxTriangles&#34;]: number,\n\t\t\t[&#34;MeshVertColor&#34;]: Color3,\n\t\t\t[&#34;CageMeshMaxDistanceFromRenderMesh&#34;]: number,\n\t},\n\t[&#34;TextureRules&#34;] = {\n\t\t[&#34;MaxTextureSize&#34;]: number,\n\t},\n\t[&#34;BodyPartRules&#34;] = {\n\t\t[Enum.AssetType.DynamicHead] = {\n\t\t\t[&#34;Bounds&#34;] = {\n\t\t\t\t[&#34;Classic&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t},\n\t\t\t\t[&#34;ProportionsSlender&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t\t[&#34;ProportionsNormal&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t},\n\t\t\t[&#34;SubParts&#34;] = {\n\t\t\t\t[&#34;Head&#34;] = {\n\t\t\t\t\t[&#34;NeckRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;FaceFrontAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;HatAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;HairAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;FaceCenterAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t},\n\t\t[Enum.AssetType.LeftArm] = {\n\t\t\t[&#34;Bounds&#34;] = {\n\t\t\t\t[&#34;Classic&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t\t[&#34;ProportionsSlender&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t\t[&#34;ProportionsNormal&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t},\n\t\t\t[&#34;SubParts&#34;] = {\n\t\t\t\t[&#34;LeftHand&#34;] = {\n\t\t\t\t\t[&#34;LeftWristRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;LeftGripAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t[&#34;LeftUpperArm&#34;] = {\n\t\t\t\t\t[&#34;LeftShoulderRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;LeftShoulderAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t\t[&#34;LeftElbowRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t[&#34;LeftLowerArm&#34;] = {\n\t\t\t\t\t[&#34;LeftElbowRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;LeftWristRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t},\n\t\t...\n\t},\n\t[&#34;AccessoryRules&#34;] = {\n\t\t[Enum.AssetType.HairAccessory] = {\n\t\t\t[&#34;Attachments&#34;] = {\n\t\t\t\t{\n\t\t\t\t\t[&#34;Size&#34;]: Vector3,\n\t\t\t\t\t[&#34;Offset&#34;]: Vector3,\n\t\t\t\t\t[&#34;Name&#34;]: string,\n\t\t\t\t},\n\t\t\t},\n\t\t\t[&#34;RigidAllowed&#34;]: boolean,\n\t\t},\n\t\t...\n\t}\n}      \n</code></pre>\n"
+			},
+			"PromptCreateAvatarAsync": {
+				"Summary": "<p>Prompts a <a href=\"/ref/class/Player.html\">Player</a> to purchase and create an avatar from a <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</p>\n",
+				"Description": "<p>Prompts a <a href=\"/ref/class/Player.html\">Player</a> to purchase and create an avatar from a\n<a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>. The price of the creation is dictated by the\nprice attributed to the avatar creation token.</p>\n<p>For avatar creation, the <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> is expected to\ninclude new assets to be created for each of the 6 body parts\n(<a href=\"/ref/enum/BodyPart.html\">Head</a>,\n<a href=\"/ref/enum/BodyPart.html\">Torso</a>,\n<a href=\"/ref/enum/BodyPart.html\">RightLeg</a>,\n<a href=\"/ref/enum/BodyPart.html\">LeftLeg</a>,\n<a href=\"/ref/enum/BodyPart.html\">RightArm</a>,\n<a href=\"/ref/enum/BodyPart.html\">LeftArm</a>). Optionally, it can also\ninclude a new <a href=\"/ref/enum/AccessoryType.html\">Hair</a> accessory.</p>\n<p>To support this, the <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> should include 6\n<a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a> children (one for each body part). For each,\nthe <a href=\"/ref/class/BodyPartDescription.html#member-Instance\">BodyPartDescription.Instance</a> property references a\n<a href=\"/ref/class/Folder.html\">Folder</a> which includes all of the <a href=\"/ref/class/MeshPart.html\">MeshPart</a> instances which\nmake up the body part, for example a <code>LeftArm</code> folder which has\n<code>LeftHand</code>, <code>LeftUpperArm</code>, and <code>LeftLowerArm</code> <a href=\"/ref/class/MeshPart.html\">MeshParts</a>.\nThe <a href=\"/ref/class/BodyPartDescription.html#member-BodyPart\">BodyPartDescription.BodyPart</a> property should also be set to\nthe relevant <a href=\"/ref/enum/BodyPart.html\">BodyPart</a>.</p>\n<p>Each body part <a href=\"/ref/class/MeshPart.html\">MeshPart</a> will also need to include:</p>\n<ul>\n<li>An <a href=\"/ref/class/EditableImage.html\">EditableImage</a>.</li>\n<li>A <a href=\"/ref/class/WrapDeformer.html\">WrapDeformer</a> with an <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a>.</li>\n</ul>\n<p>If including an accessory such as hair, the <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>\nshould include a child <a href=\"/ref/class/AccessoryDescription.html\">AccessoryDescription</a> where:</p>\n<ul>\n<li>The <a href=\"/ref/class/AccessoryDescription.html#member-Instance\">AccessoryDescription.Instance</a> property references\nthe <a href=\"/ref/class/Accessory.html\">Accessory</a> instance.</li>\n<li>The <a href=\"/ref/class/AccessoryDescription.html#member-AccessoryType\">AccessoryDescription.AccessoryType</a> property is\nset to the relevant <a href=\"/ref/enum/AccessoryType.html\">AccessoryType</a>.</li>\n</ul>\n<p>Finally, the <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> should include the humanoid\nscales of <a href=\"/ref/class/HumanoidDescription.html#member-BodyTypeScale\">BodyTypeScale</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-HeadScale\">HeadScale</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-HeightScale\">HeightScale</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-WidthScale\">WidthScale</a>, and\n<a href=\"/ref/class/HumanoidDescription.html#member-ProportionScale\">ProportionScale</a>. Be mindful of\nthe scales that a base body is imported with so that they match the scales\nprovided to the <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</p>\n",
+				"CodeSamples": [
+					"AvatarCreationService-PromptCreateAvatarAsync"
+				]
+			},
 			"PromptSelectAvatarGenerationImageAsync": {},
-			"ValidateUGCAccessoryAsync": {},
-			"ValidateUGCBodyPartAsync": {},
-			"ValidateUGCFullBodyAsync": {}
+			"ValidateUGCAccessoryAsync": {
+				"Summary": "<p>Studio only. Runs UGC validation for an <a href=\"/ref/enum/AccessoryType.html\">AccessoryType</a>.</p>\n",
+				"Description": "<p>Studio only. Given a <a href=\"/ref/class/Player.html\">Player</a> and <a href=\"/ref/class/Instance.html\">Instance</a> for an <a href=\"/ref/enum/AccessoryType.html\">AccessoryType</a>,\ndetermines if UGC validation passes.</p>\n"
+			},
+			"ValidateUGCBodyPartAsync": {
+				"Summary": "<p>Studio only. Runs UGC validation for an <a href=\"/ref/enum/BodyPart.html\">BodyPart</a>.</p>\n",
+				"Description": "<p>Studio only. Given a <a href=\"/ref/class/Player.html\">Player</a> and <a href=\"/ref/class/Instance.html\">Instance</a> for an <a href=\"/ref/enum/BodyPart.html\">BodyPart</a>,\ndetermines if UGC validation passes. The <code>instance</code> parameter is expected as a <a href=\"/ref/class/Folder.html\">Folder</a> in the following example format with relevant <a href=\"/ref/class/MeshPart.html\">MeshParts</a>:</p>\n<ul>\n<li><code>LeftArm</code> (<a href=\"/ref/class/Folder.html\">Folder</a>)\n<ul>\n<li><code>R15ArtistIntent</code> (<a href=\"/ref/class/Folder.html\">Folder</a>)\n<ul>\n<li><code>LeftLowerArm</code> (<a href=\"/ref/class/MeshPart.html\">MeshPart</a>)</li>\n<li><code>LeftUpperArm</code> (<a href=\"/ref/class/MeshPart.html\">MeshPart</a>)</li>\n<li><code>LeftHand</code> (<a href=\"/ref/class/MeshPart.html\">MeshPart</a>)</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<p>However, if the expected <code>bodyPart</code> is <a href=\"/ref/enum/BodyPart.html\">BodyPart.Head</a>, the function\ntakes a singular <code>Head</code> <a href=\"/ref/class/MeshPart.html\">MeshPart</a> directly.</p>\n"
+			},
+			"ValidateUGCFullBodyAsync": {
+				"Summary": "<p>Studio only. Runs UGC validation for a whole body.</p>\n",
+				"Description": "<p>Studio only. Given a <a href=\"/ref/class/Player.html\">Player</a> and <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>, all instances in\nthe <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> will be validated.</p>\n<p>The <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> is expected to include instances set on\n<a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a> children for each of the 6 required\n<a href=\"/ref/enum/BodyPart.html\">BodyPart</a> values. Optionally, it can include instances set on\n<a href=\"/ref/class/AccessoryDescription.html\">AccessoryDescription</a> children for <code>Eyebrow</code>, <code>Eyelash</code>, and <code>Hair</code>\n<a href=\"/ref/enum/AccessoryType.html\">AccessoryTypes</a>.</p>\n"
+			}
 		},
 		"AvatarEditorService": {
 			"CheckApplyDefaultClothing": {
@@ -16352,17 +16376,20 @@
 		"Stats": {
 			"ContactsCount": {
 				"Summary": "<p>A measurement of how many parts are currently in contact with one another.</p>\n",
-				"Description": "<p>ContactsCount describes how many parts are currently in contact with each\nother, such that one of the two parts are being physically simulated, and\nthus can be recognized by the <a href=\"/ref/class/BasePart.html#member-GetTouchingParts\">BasePart:GetTouchingParts()</a> method.</p>\n"
+				"Description": "<p>This property describes how many parts are currently in contact with each\nother, such that one of the two parts are being physically simulated, and\nthus can be recognized by the <a href=\"/ref/class/BasePart.html#member-GetTouchingParts\">BasePart:GetTouchingParts()</a> method.</p>\n"
 			},
 			"DataReceiveKbps": {
 				"Summary": "<p>In a networked game, this describes roughly how many kilobytes of data are\nbeing received by the current instance, per second.</p>\n",
-				"Description": "<p>In a networked game, DataReceiveKbps describes roughly how many kilobytes\nof data are being received by the current instance, per second. If from\nthe server&#39;s perspective, this represents the total amount of data being\nreceived from the clients connected to the server.If from a client&#39;s\nperspective, this represents the total amount of data being received from\nthe server.</p>\n"
+				"Description": "<p>In a networked game, this property describes roughly how many kilobytes\nof data are being received by the current instance, per second. If from\nthe server&#39;s perspective, this represents the total amount of data being\nreceived from the clients connected to the server. If from a client&#39;s\nperspective, this represents the total amount of data being received from\nthe server.</p>\n"
 			},
 			"DataSendKbps": {
 				"Summary": "<p>In a networked game, this describes roughly how many kilobytes of data are\nbeing sent by the current instance, per second.</p>\n",
-				"Description": "<p>In a networked game, DataSendKbps describes roughly how many kilobytes of\ndata are being sent by the current instance, per second. If from the\nserver&#39;s perspective, this represents the total amount of data being sent\nto the clients connected to the server.If from a client&#39;s perspective,\nthis represents the total amount of data being sent to the server.</p>\n"
+				"Description": "<p>In a networked game, this property describes roughly how many kilobytes of\ndata are being sent by the current instance, per second. If from the\nserver&#39;s perspective, this represents the total amount of data being sent\nto the clients connected to the server. If from a client&#39;s perspective,\nthis represents the total amount of data being sent to the server.</p>\n"
 			},
-			"FrameTime": {},
+			"FrameTime": {
+				"Summary": "<p>A measurement of how long it takes for the engine to process all tasks required to render a frame.</p>\n",
+				"Description": "<p>This property is only available in client scripts and is a measurement of how long it took to render the most-recent frame in seconds. Divide 1 by this value to calculate an FPS value for the frame time. High frame times are indicative of performance problems on the device. Consider using the <a href=\"https://create.roblox.com/docs/studio/microprofiler\">MicroProfiler</a> to troubleshoot.</p>\n"
+			},
 			"GetMemoryUsageMbForTag": {
 				"Summary": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n",
 				"Description": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n"
@@ -16371,7 +16398,10 @@
 				"Summary": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes.</p>\n",
 				"Description": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes.</p>\n"
 			},
-			"HeartbeatTime": {},
+			"HeartbeatTime": {
+				"Summary": "<p>A measurement of the total amount of time it takes for the server to update its Task Scheduler jobs in seconds.</p>\n",
+				"Description": "<p>This property is a measurement of the total amount of time it takes for the server to update its Task Scheduler jobs in seconds. If this value is high, examine <a href=\"https://create.roblox.com/docs/performance-optimization/identifying#server-compute\">server compute</a>.</p>\n"
+			},
 			"HeartbeatTimeMs": {
 				"Summary": "<p>A measurement of the total amount of time it takes long it takes for\nRoblox to update all of its Task Scheduler jobs, in milliseconds.</p>\n",
 				"Description": "<p>The HeartbeatTimeMs property is a measurement of the total amount of time\nit takes long it takes for Roblox to update all of its Task Scheduler\njobs, in milliseconds. If this value is high, then it means one of the\ntasks are hogging up a lot of resources.</p>\n"
@@ -16392,7 +16422,10 @@
 				"Summary": "<p>In a networked game, this describes roughly how many kilobytes of physics\ndata are being sent by the current instance, per second.</p>\n",
 				"Description": "<p>PhysicsSendKbps describes roughly how many kilobytes of physics data are\nbeing sent by the current instance, per second.If from the server&#39;s\nperspective, this represents the total amount of physics data being sent\nto the clients connected to the server.If from a client&#39;s perspective,\nthis represents the total amount of physics data being sent to the server.</p>\n"
 			},
-			"PhysicsStepTime": {},
+			"PhysicsStepTime": {
+				"Summary": "<p>A measurement of how long it takes for the physics engine to update its current state.</p>\n",
+				"Description": "<p>This property is a measurement of how long it takes for the physics engine to update its current state. If this value is high, it means the game instance is under stress from the physics simulations taking place.</p>\n"
+			},
 			"PhysicsStepTimeMs": {
 				"Summary": "<p>A measurement of how long it takes for the physics engine to update its\ncurrent state, in milliseconds. If this value is high, then it means the\ngame instance is under stress from the physics simulations taking place.</p>\n",
 				"Description": "<p>A measurement of how long it takes for the physics engine to update its\ncurrent state, in milliseconds. If this value is high, then it means the\ngame instance is under stress from the physics simulations taking place.</p>\n"
@@ -16401,16 +16434,46 @@
 				"Summary": "<p>A measurement of how many physically simulated components currently exist\nin the game world.</p>\n",
 				"Description": "<p>A measurement of how many physically simulated components currently exist\nin the game world.</p>\n"
 			},
-			"RenderCPUFrameTime": {},
-			"RenderGPUFrameTime": {},
-			"SceneDrawcallCount": {},
-			"SceneTriangleCount": {},
-			"ShadowsDrawcallCount": {},
-			"ShadowsTriangleCount": {},
-			"UI2DDrawcallCount": {},
-			"UI2DTriangleCount": {},
-			"UI3DDrawcallCount": {},
-			"UI3DTriangleCount": {}
+			"RenderCPUFrameTime": {
+				"Summary": "<p>A measurement of how long it takes for the CPU to process all of its tasks required to render a frame.</p>\n",
+				"Description": "<p>This property is a measurement of how long it takes for the CPU to process all of its tasks required to render a frame. A high value can indicate that the CPU is taking longer to render a frame, which can lead to performance issues.</p>\n"
+			},
+			"RenderGPUFrameTime": {
+				"Summary": "<p>A measurement of how long it takes for the GPU to process all of its tasks required to render a frame.</p>\n",
+				"Description": "<p>This property is a measurement of how long it takes for the GPU to process all of its tasks required to render a frame. A high value can indicate that the GPU is taking longer to render a frame, which can lead to performance issues.</p>\n"
+			},
+			"SceneDrawcallCount": {
+				"Summary": "<p>A measurement of the number of draw calls made by the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of draw calls made by the game&#39;s current scene. A draw call is a single rendering operation, such as drawing a mesh. A high draw call count could mean a scene is too complex or unoptimized, which can lead to performance issues.</p>\n"
+			},
+			"SceneTriangleCount": {
+				"Summary": "<p>A measurement of the number of triangles rendered by the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of triangles rendered by the game&#39;s current scene. A count of triangles rendered is useful when trying to estimate the complexity and performance of a scene.</p>\n"
+			},
+			"ShadowsDrawcallCount": {
+				"Summary": "<p>A measurement of the number of draw calls being made for shadows by the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of draw calls being made for shadows by the game&#39;s current scene. A high count means more shadows are being created by the amount of rendered objects in a scene.</p>\n"
+			},
+			"ShadowsTriangleCount": {
+				"Summary": "<p>A measurement of the number of traingles rendered as shadows in the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of triangles rendered as shadows in the game&#39;s current scene. A high count means there are a lot of triangles used to cast shadows, which can hinder performance.</p>\n"
+			},
+			"UI2DDrawcallCount": {
+				"Summary": "<p>A measurement of the number of 2D draw calls made for UI elements in the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of 2D draw calls made for UI elements in the game&#39;s current scene. A high count can mean there are a lot of 2D UI elements being used.</p>\n"
+			},
+			"UI2DTriangleCount": {
+				"Summary": "<p>A measurement of the number of triangles that are being rendered for 2D UI elements in the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of triangles that are being rendered for 2D UI elements in the game&#39;s current scene. A high count can mean there are many or complex 2D UI elements used, which can contribute to performance loss in regards to rendering.</p>\n"
+			},
+			"UI3DDrawcallCount": {
+				"Summary": "<p>A measurement of the number of 3D draw calls made for UI elements in the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of 3D draw calls made for UI elements in the game&#39;s current scene. A high count could indicate a high amount of 3D objects being used within UI, potentially hurting performance; however, it is very unlikely you would see a significant count since UI elements are typically 2D.</p>\n"
+			},
+			"UI3DTriangleCount": {
+				"Summary": "<p>A measurement of the number of triangles being rendered for 3D UI elements in the game&#39;s current scene.</p>\n",
+				"Description": "<p>This property is a measurement of the number of triangles being rendered for 3D UI elements in the game&#39;s current scene; however, it is very unlikely you would see a significant count since UI elements are typically 2D.</p>\n"
+			}
 		},
 		"StatsItem": {
 			"DisplayName": {},
