@@ -53671,6 +53671,28 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"TextureContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "TextureContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "None"
+				},
 				"Transparency": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -79848,6 +79870,35 @@
 						"Name": "HumanoidCollisionType"
 					},
 					"WriteSecurity": "PluginSecurity"
+				},
+				"ComputeOriginalSizeForPart": {
+					"MemberType": "Function",
+					"Name": "ComputeOriginalSizeForPart",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "part",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "Vector3",
+							"Optional": true
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				},
 				"CustomStatusAdded": {
 					"MemberType": "Event",
@@ -113609,7 +113660,6 @@
 					"ReadSecurity": "RobloxScriptSecurity",
 					"Tags": [
 						"Hidden",
-						"ReadOnly",
 						"NotReplicated"
 					],
 					"ThreadSafety": "ReadSafe",
@@ -113946,6 +113996,34 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"ConvertToMockPackage": {
+					"MemberType": "Function",
+					"Name": "ConvertToMockPackage",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"ConvertToPackageUpload": {
 					"MemberType": "Function",
 					"Name": "ConvertToPackageUpload",
@@ -153833,6 +153911,42 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"shouldShowMacOSDeprecationWarning": {
+					"MemberType": "Function",
+					"Name": "shouldShowMacOSDeprecationWarning",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"shouldShowWinOSDeprecationWarning": {
+					"MemberType": "Function",
+					"Name": "shouldShowWinOSDeprecationWarning",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"startTutorial": {
 					"MemberType": "Function",
 					"Name": "startTutorial",
@@ -158265,6 +158379,26 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"AutocompleteAcceptanceBehavior": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Script Editor",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "AutocompleteAcceptanceBehavior",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "CompletionAcceptanceBehavior"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
 				"Automatically commit locked scripts when you save or publish to Roblox": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -161711,6 +161845,30 @@
 					"Security": "PluginSecurity",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
+				},
+				"TypeColor": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Script Editor Colors",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "TypeColor",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"Hidden",
+						"NotReplicated",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Color3"
+					},
+					"WriteSecurity": "None"
 				},
 				"UI Theme": {
 					"CanLoad": false,
@@ -215791,6 +215949,60 @@
 			},
 			"Tags": []
 		},
+		"CompletionAcceptanceBehavior": {
+			"Name": "CompletionAcceptanceBehavior",
+			"Items": {
+				"Insert": {
+					"Name": "Insert",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"InsertOnEnterReplaceOnTab": {
+					"Name": "InsertOnEnterReplaceOnTab",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Replace": {
+					"Name": "Replace",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"ReplaceOnEnterInsertOnTab": {
+					"Name": "ReplaceOnEnterInsertOnTab",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
 		"CompletionItemKind": {
 			"Name": "CompletionItemKind",
 			"Items": {
@@ -239965,17 +240177,6 @@
 			"Items": {
 				"AICOOverlayButtonBackground": {
 					"Name": "AICOOverlayButtonBackground",
-					"Value": 42,
-					"Index": 42,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"AICOOverlayButtonBackgroundHover": {
-					"Name": "AICOOverlayButtonBackgroundHover",
 					"Value": 43,
 					"Index": 43,
 					"LegacyNames": null,
@@ -239985,8 +240186,8 @@
 					},
 					"Tags": []
 				},
-				"AICOOverlayButtonBackgroundPressed": {
-					"Name": "AICOOverlayButtonBackgroundPressed",
+				"AICOOverlayButtonBackgroundHover": {
+					"Name": "AICOOverlayButtonBackgroundHover",
 					"Value": 44,
 					"Index": 44,
 					"LegacyNames": null,
@@ -239996,10 +240197,21 @@
 					},
 					"Tags": []
 				},
+				"AICOOverlayButtonBackgroundPressed": {
+					"Name": "AICOOverlayButtonBackgroundPressed",
+					"Value": 45,
+					"Index": 45,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"AICOOverlayText": {
 					"Name": "AICOOverlayText",
-					"Value": 41,
-					"Index": 41,
+					"Value": 42,
+					"Index": 42,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -240108,8 +240320,8 @@
 				},
 				"DocViewCodeBackground": {
 					"Name": "DocViewCodeBackground",
-					"Value": 40,
-					"Index": 40,
+					"Value": 41,
+					"Index": 41,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -240185,8 +240397,8 @@
 				},
 				"IndentationRuler": {
 					"Name": "IndentationRuler",
-					"Value": 45,
-					"Index": 45,
+					"Value": 46,
+					"Index": 46,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -240251,72 +240463,6 @@
 				},
 				"MenuBackground": {
 					"Name": "MenuBackground",
-					"Value": 35,
-					"Index": 35,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"MenuBorder": {
-					"Name": "MenuBorder",
-					"Value": 39,
-					"Index": 39,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"MenuPrimaryText": {
-					"Name": "MenuPrimaryText",
-					"Value": 32,
-					"Index": 32,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"MenuScrollbarBackground": {
-					"Name": "MenuScrollbarBackground",
-					"Value": 37,
-					"Index": 37,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"MenuScrollbarHandle": {
-					"Name": "MenuScrollbarHandle",
-					"Value": 38,
-					"Index": 38,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"MenuSecondaryText": {
-					"Name": "MenuSecondaryText",
-					"Value": 33,
-					"Index": 33,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"MenuSelectedBackground": {
-					"Name": "MenuSelectedBackground",
 					"Value": 36,
 					"Index": 36,
 					"LegacyNames": null,
@@ -240326,10 +240472,76 @@
 					},
 					"Tags": []
 				},
-				"MenuSelectedText": {
-					"Name": "MenuSelectedText",
+				"MenuBorder": {
+					"Name": "MenuBorder",
+					"Value": 40,
+					"Index": 40,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MenuPrimaryText": {
+					"Name": "MenuPrimaryText",
+					"Value": 33,
+					"Index": 33,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MenuScrollbarBackground": {
+					"Name": "MenuScrollbarBackground",
+					"Value": 38,
+					"Index": 38,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MenuScrollbarHandle": {
+					"Name": "MenuScrollbarHandle",
+					"Value": 39,
+					"Index": 39,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MenuSecondaryText": {
+					"Name": "MenuSecondaryText",
 					"Value": 34,
 					"Index": 34,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MenuSelectedBackground": {
+					"Name": "MenuSelectedBackground",
+					"Value": 37,
+					"Index": 37,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MenuSelectedText": {
+					"Name": "MenuSelectedText",
+					"Value": 35,
+					"Index": 35,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -240460,8 +240672,8 @@
 				},
 				"Type": {
 					"Name": "Type",
-					"Value": 15,
-					"Index": 15,
+					"Value": 32,
+					"Index": 32,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
