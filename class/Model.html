@@ -952,8 +952,12 @@ bounding box will be aligned to the world axes.</p><div class=_chroma><table cla
 </span><span class=_lnt>5
 </span><span class=_lnt>6
 </span><span class=_lnt>7
-</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>model</span> <span class=_o>=</span> <span class=_n>workspace.Model</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>part</span> <span class=_o>=</span> <span class=_n>workspace.Part</span>
+</span><span class=_lnt>8
+</span><span class=_lnt>9
+</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>model</span> <span class=_o>=</span> <span class=_n>Workspace.Model</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>part</span> <span class=_o>=</span> <span class=_n>Workspace.Part</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>orientation</span><span class=_p>,</span> <span class=_n>size</span> <span class=_o>=</span> <span class=_n>model</span><span class=_p>:</span><span class=_n>GetBoundingBox</span><span class=_p>()</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_c1>-- Resize and position part equal to bounding box of model</span>
@@ -1487,10 +1491,12 @@ movement functions such as <a href=/ref/class/PVInstance.html#member-PivotTo>PVI
 model behavior.</p><p>The purpose of this behavior is to allow Lua code to get a sensible pivot
 simply by creating a new model and parenting objects to it, avoiding the
 need to explicitly set <a href=/ref/class/Model.html#member-WorldPivot>Model.WorldPivot</a> every time you create a
-model in code.</p><pre><code>local model = Instance.new(&#34;Model&#34;)
-workspace.BluePart.Parent = model
-workspace.RedPart.Parent = model
-model.Parent = workspace
+model in code.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+local model = Instance.new(&#34;Model&#34;)
+Workspace.BluePart.Parent = model
+Workspace.RedPart.Parent = model
+model.Parent = Workspace
 
 print(model:GetPivot())  -- Currently equal to the center of the bounding box containing &#34;BluePart&#34; and &#34;RedPart&#34;
 

@@ -35,16 +35,20 @@ along the X, Y, and Z axes. The <code>RotationOrder</code> enum specifies the or
 which the engine performs these rotations.</p><p>To help visualize the many rotation orders, you can test them manually in
 Studio with the <a href=https://create.roblox.com/docs/parts#rotate>Rotate</a> tool or by inserting
 <a href=https://create.roblox.com/docs/reference/engine/libraries/task#wait>task.wait()</a> statements between individual rotations of a cube with a
-unique face:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre tabindex=0 class=_chroma><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span><span class=_lnt>7
-</span><span class=_lnt>8
-</span><span class=_lnt>9
-</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>cube</span> <span class=_o>=</span> <span class=_n>workspace.Cube</span>
+unique face:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre tabindex=0 class=_chroma><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span><span class=_lnt>11
+</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>cube</span> <span class=_o>=</span> <span class=_n>Workspace.Cube</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>rx</span><span class=_p>,</span> <span class=_n>ry</span><span class=_p>,</span> <span class=_n>rz</span> <span class=_o>=</span> <span class=_n>math.rad</span><span class=_p>(</span><span class=_mi>90</span><span class=_p>),</span> <span class=_n>math.rad</span><span class=_p>(</span><span class=_mi>90</span><span class=_p>),</span> <span class=_n>math.rad</span><span class=_p>(</span><span class=_mi>90</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_n>task.wait</span><span class=_p>(</span><span class=_mi>5</span><span class=_p>)</span>
@@ -57,7 +61,11 @@ unique face:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_l
 </span><span class=_lnt>2
 </span><span class=_lnt>3
 </span><span class=_lnt>4
-</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>cube</span> <span class=_o>=</span> <span class=_n>workspace.Cube</span>
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>cube</span> <span class=_o>=</span> <span class=_n>Workspace.Cube</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>rx</span><span class=_p>,</span> <span class=_n>ry</span><span class=_p>,</span> <span class=_n>rz</span> <span class=_o>=</span> <span class=_n>math.rad</span><span class=_p>(</span><span class=_mi>90</span><span class=_p>),</span> <span class=_n>math.rad</span><span class=_p>(</span><span class=_mi>90</span><span class=_p>),</span> <span class=_n>math.rad</span><span class=_p>(</span><span class=_mi>90</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_n>cube.CFrame</span> <span class=_o>=</span> <span class=_n>CFrame.fromEulerAngles</span><span class=_p>(</span><span class=_n>rx</span><span class=_p>,</span> <span class=_n>ry</span><span class=_p>,</span> <span class=_n>rz</span><span class=_p>,</span> <span class=_n>Enum.RotationOrder</span><span class=_p>.</span><span class=_n>XYZ</span><span class=_p>)</span>

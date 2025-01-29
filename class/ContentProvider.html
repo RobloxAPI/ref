@@ -219,10 +219,11 @@ whether <a href=https://create.roblox.com/docs/workspace/streaming>Streaming</a>
 the content loads into the experience.</p><p><code>ContentProvider</code> lets you preload assets into an experience using the
 <a href=/ref/class/ContentProvider.html#member-PreloadAsync>ContentProvider:PreloadAsync()</a> method. You might want to display a
 loading screen, preload critical assets, and only then allow the player into
-the experience.</p><h3>Best Practices for Preloading</h3><ul><li>Only preload essential assets, <strong>not</strong> the entire Workspace. You might get
-occasional pop-in, but it decreases load times and generally doesn't disrupt
-the player experience. Assets that are good candidates for preloading
-include those required for the loading screen, the UI, or the starting area.</li><li>Let players skip the loading screen, or automatically skip it after a
+the experience.</p><h3>Best Practices for Preloading</h3><ul><li>Only preload essential assets, <strong>not</strong> the entire <a href=/ref/class/Workspace.html>Workspace</a>. You
+might get occasional pop-in, but it decreases load times and generally
+doesn't disrupt the player experience. Assets that are good candidates for
+preloading include those required for the loading screen, the UI, or the
+starting area.</li><li>Let players skip the loading screen, or automatically skip it after a
 certain amount of time.</li></ul></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>78</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag removed" href=/ref/updates/2024.html#version-297eb79ede584243-12 title="Removed on 2024-10-08T11:21:30-07:00
 v0.646.0.6460700
@@ -781,7 +782,12 @@ asset's final <a href=/ref/enum/AssetFetchStatus.html>AssetFetchStatus</a>.</p><
 strings must correspond to <strong>image</strong> assets. Attempting to load non-image
 assets through the use of their content ID strings will result in failure.</p><p>If any of the assets fail to load, an error message appears in the output.
 The method itself will not error and it will continue executing until it
-has processed each requested instance or asset ID.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-138 title="Changed on 2023-04-26T18:50:09-07:00
+has processed each requested instance or asset ID.</p><h4>Limitations</h4><p><a href=/ref/class/SurfaceAppearance.html>SurfaceAppearance</a> and <a href=/ref/class/MaterialVariant.html>MaterialVariant</a> are not supported by
+<a href=/ref/class/ContentProvider.html#member-PreloadAsync>PreloadAsync()</a> because these
+objects rely on processed texture pack assets rather than directly loading
+individual textures. Calling it on a <a href=/ref/class/SurfaceAppearance.html>SurfaceAppearance</a> instance
+will not do anything, but the associated textures will still be streamed
+in during runtime.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-138 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
 version-da56b3062bbf4871">573</a>
 Change ReturnType of <a class="entity-link deco" href=/ref/class/ContentProvider.html#member-PreloadAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PreloadAsync</a>

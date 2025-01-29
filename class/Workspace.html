@@ -480,17 +480,16 @@ means they will be rendered, and physically interact with other parts and the
 world. For <a href=/ref/class/Attachment.html>Attachments</a>, this means that objects adorned to
 them, such as <a href=/ref/class/ParticleEmitter.html>ParticleEmitters</a>, <a href=/ref/class/Beam.html>Beams</a>,
 and <a href=/ref/class/BillboardGui.html>BillboardGuis</a>, will render.</p><p>Understanding this behavior is important, as it means objects can be removed
-from <strong>Workspace</strong> when they are not needed. For example, map
-<a href=/ref/class/Model.html>Models</a> can be removed from the <a href=/ref/class/Workspace.html>Workspace</a> when a
-different map is being played on. Objects that are not immediately needed in
-the 3D world are generally stored in <a href=/ref/class/ReplicatedStorage.html>ReplicatedStorage</a> or
-<a href=/ref/class/ServerStorage.html>ServerStorage</a>.</p><p>In its role as the holder of active 3D objects, <a href=/ref/class/Workspace.html>Workspace</a> includes a
+from <a href=/ref/class/Workspace.html>Workspace</a> when they are not needed. For example, map
+<a href=/ref/class/Model.html>Models</a> can be removed when a different map is being played on.
+Objects that are not immediately needed in the 3D world are generally stored
+in <a href=/ref/class/ReplicatedStorage.html>ReplicatedStorage</a> or <a href=/ref/class/ServerStorage.html>ServerStorage</a>.</p><p>In its role as the holder of active 3D objects, <a href=/ref/class/Workspace.html>Workspace</a> includes a
 number of useful functions related to parts, their positions, and joints
-between them.</p><h3>Accessing the Workspace</h3><p><a href=/ref/class/Workspace.html>Workspace</a> can be accessed several ways, all of which are valid.</p><ul><li><code>workspace</code></li><li><code>game.Workspace</code></li><li><code>game:GetService("Workspace")</code></li></ul><h3>Notes</h3><ul><li>Objects that require adornment, such as
+between them.</p><h3>Accessing the Workspace</h3><p><a href=/ref/class/Workspace.html>Workspace</a> can be accessed several ways, all of which are valid.</p><ul><li><code>game:GetService("Workspace")</code> (recommended)</li><li><code>workspace</code></li><li><code>game.Workspace</code></li></ul><h3>Notes</h3><ul><li>Objects that require adornment, such as
 <a href=/ref/class/ParticleEmitter.html>ParticleEmitters</a> and
-<a href=/ref/class/BillboardGui.html>BillboardGuis</a>, will be at the 0, 0, 0
-position when parented to <a href=/ref/class/Workspace.html>Workspace</a> without an adornee otherwise
-being set.</li><li>The <a href=/ref/class/Model.html#member-MakeJoints>Model:MakeJoints()</a> and <a href=/ref/class/Model.html#member-BreakJoints>Model:BreakJoints()</a> methods
+<a href=/ref/class/BillboardGui.html>BillboardGuis</a>, will be at the
+<typography nowrap><code>(0, 0, 0)</code></typography> position when parented to
+<a href=/ref/class/Workspace.html>Workspace</a> without an adornee otherwise being set.</li><li>The <a href=/ref/class/Model.html#member-MakeJoints>Model:MakeJoints()</a> and <a href=/ref/class/Model.html#member-BreakJoints>Model:BreakJoints()</a> methods
 inherited from the <a href=/ref/class/Model.html>Model</a> class are overridden by
 <a href=/ref/class/Workspace.html#member-MakeJoints>Workspace:MakeJoints()</a> and <a href=/ref/class/Workspace.html#member-BreakJoints>Workspace:BreakJoints()</a> which can
 only be used in plugins.</li><li>It is impossible to delete <a href=/ref/class/Workspace.html>Workspace</a>.</li><li><a href=/ref/class/Workspace.html>Workspace</a> automatically cleans up <a href=/ref/class/BasePart.html>BaseParts</a> that
@@ -1968,7 +1967,11 @@ Add <a class="entity-link deco unscriptable" href=/ref/class/Workspace.html#memb
 connected to these parts. This function will break any of the following
 types of joints:</p><ul><li><a href=/ref/class/JointInstance.html>JointInstances</a> such as <a href=/ref/class/Weld.html>Welds</a></li><li><a href=/ref/class/WeldConstraint.html>WeldConstraints</a></li></ul><p>Unlike <a href=/ref/class/Model.html#member-MakeJoints>Model:MakeJoints()</a>, this function requires an array of
 <a href=/ref/class/BasePart.html>BaseParts</a> as a parameter. This array is given as follows:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre tabindex=0 class=_chroma><span class=_lnt>1
-</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_n>workspace</span><span class=_p>:</span><span class=_n>BreakJoints</span><span class=_p>({</span><span class=_n>part1</span><span class=_p>,</span> <span class=_n>part2</span><span class=_p>,</span> <span class=_n>part3</span><span class=_p>})</span>
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_n>Workspace</span><span class=_p>:</span><span class=_n>BreakJoints</span><span class=_p>({</span><span class=_n>part1</span><span class=_p>,</span> <span class=_n>part2</span><span class=_p>,</span> <span class=_n>part3</span><span class=_p>})</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>Note, this function cannot be used by scripts and will only function in
 plugins.</p></div><div class=status-list><div class="status-box high"><span class=header>This function is deprecated.</span> It exists only for backward compatibility, and should not be used for new work.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Security</th><td class=value>PluginSecurity</td></tr><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>6</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2024.html#version-9b68669a3b644e31-230 title="Changed on 2024-10-22T11:55:24-07:00
 v0.648.0.6480781
@@ -2111,11 +2114,13 @@ server has been running. On the client, it represents how long the client
 has been connected to the server.</p><p>Developers should not rely on the above behavior, and it is possible this
 property will be synchronized across clients and the server in the future.</p><p>Those looking for the time since the program started running should use
 the 'time' function instead. See below for a comparison between
-DistributedGameTime and its alternatives.</p><pre><code>print(workspace.DistributedGameTime)  --&gt; Time the game started running
-print(os.time())  --&gt; Time since epoch (1 January 1970, 00:00:00) UTC
-print(tick())  --&gt; Time since epoch (1 January 1970, 00:00:00) system time
-print(time())  --&gt; Time the game started running
-print(elapsedTime())  --&gt; Time since Roblox started running
+DistributedGameTime and its alternatives.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+print(Workspace.DistributedGameTime) -- Time the game started running
+print(os.time()) -- Time since epoch (1 January 1970, 00:00:00) UTC
+print(tick()) -- Time since epoch (1 January 1970, 00:00:00) system time
+print(time()) -- Time the game started running
+print(elapsedTime()) -- Time since Roblox started running
 </code></pre></div><div class=status-list><div class="status-box medium"><span class=header>This property is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Data</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2022.html#version-ec81b0ea2163459b-2612 title="Changed on 2022-11-16T09:50:21-08:00
 v0.553.0.5530621
 version-ec81b0ea2163459b">553</a>
@@ -2266,7 +2271,9 @@ version-116c54c684b84afc">587</a>
 Add <a class="entity-link deco unscriptable" href=/ref/class/Workspace.html#member-FluidForces><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>FluidForces</a></li></ul></details><div class=tags>Tags: [NotScriptable]</div></section><section id=member-GetNumAwakeParts class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetNumAwakeParts<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Workspace#GetNumAwakeParts target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/int.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>int</a></td></tr></tbody></table><div class=docs><p>Returns the number of <a href=/ref/class/BasePart.html>BaseParts</a> that are deemed
 physically active, due to being recently under the influence of physics.</p><p>This function provides a measure of how many <a href=/ref/class/BasePart.html>BaseParts</a>
 are being influenced by, or recently under the influence of, physical
-forces.</p><pre><code>print(workspace:GetNumAwakeParts()) -- prints the number of &#39;awake&#39; parts
+forces.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+print(Workspace:GetNumAwakeParts())
 </code></pre><h4>Sleeping vs Awake Parts</h4><p>In order to ensure good performance, Roblox sets <code>BaseParts</code> in which
 physics are not being applied to a 'sleeping' state.
 <a href=/ref/class/BasePart.html>BaseParts</a> with <a href=/ref/class/BasePart.html#member-Anchored>BasePart.Anchored</a> set to true, for
@@ -2303,13 +2310,15 @@ undesirable behavior.</p><p>Objects associated with <a href=/ref/class/Humanoid.
 throttling.</p><p>See also <a href=/ref/class/Workspace.html#member-SetPhysicsThrottleEnabled>Workspace:SetPhysicsThrottleEnabled()</a>.</p><h4>Demonstrating physics throttling</h4><p>Developers should always avoid creating places that overload the physics
 engine, as it leads to sub-par experience for players. Those wishing to
 simulate physics throttling for research purposes however, need only
-create a lot of <a href=/ref/class/Part.html>Parts</a> very quickly.</p><pre><code>local i = 0
+create a lot of <a href=/ref/class/Part.html>Parts</a> very quickly.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+local i = 0
 while true do
 	i += 1
 	if i % 5 == 0 then
 		task.wait()
 	end
-	local part = Instance.new(&#34;Part&#34;, workspace)
+	local part = Instance.new(&#34;Part&#34;, Workspace)
 end
 </code></pre></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>7</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2023.html#version-a2c9272a32ba4a46-28 title="Changed on 2023-03-08T12:46:16-08:00
 v0.566.0.5660545
@@ -2516,18 +2525,26 @@ build tools. See the snippets below for an example.</p><div class=_chroma><table
 </span><span class=_lnt>3
 </span><span class=_lnt>4
 </span><span class=_lnt>5
-</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_c1>-- finished moving a selection, make joints</span>
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Finished moving a selection; make joints</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>finishedMovingParts</span><span class=_p>(</span><span class=_n>parts</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>joinMode</span> <span class=_o>=</span> <span class=_n>Plugin</span><span class=_p>:</span><span class=_n>GetJoinMode</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>workspace</span><span class=_p>:</span><span class=_n>JoinToOutsiders</span><span class=_p>(</span><span class=_n>parts</span><span class=_p>,</span> <span class=_n>joinMode</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Workspace</span><span class=_p>:</span><span class=_n>JoinToOutsiders</span><span class=_p>(</span><span class=_n>parts</span><span class=_p>,</span> <span class=_n>joinMode</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span>
 </span></span></code></pre></td></tr></tbody></table></div><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre tabindex=0 class=_chroma><span class=_lnt>1
 </span><span class=_lnt>2
 </span><span class=_lnt>3
 </span><span class=_lnt>4
-</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_c1>-- started moving a selection, break joints</span>
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Started moving a selection; break joints</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>startMovingParts</span><span class=_p>(</span><span class=_n>parts</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>workspace</span><span class=_p>:</span><span class=_n>UnjoinFromOutsiders</span><span class=_p>(</span><span class=_n>parts</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Workspace</span><span class=_p>:</span><span class=_n>UnjoinFromOutsiders</span><span class=_p>(</span><span class=_n>parts</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span>
 </span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2024.html#version-9b68669a3b644e31-231 title="Changed on 2024-10-22T11:55:24-07:00
 v0.648.0.6480781
@@ -2563,7 +2580,9 @@ Unjoinable</li><li>Studs, Inlet, or Universal will each create a <a href=/ref/cl
 either of other the other two surfaces (e.g. Studs with Inlet and
 Universal)</li><li>Hinge and Motor surfaces create <a href=/ref/class/Rotate.html>Rotate</a> and <a href=/ref/class/RotateV.html>RotateV</a> joint
 instances</li></ul><p>Unlike <a href=/ref/class/Model.html#member-MakeJoints>Model:MakeJoints()</a>, this function requires an array of
-parts as a parameter. This array is given as follows:</p><pre><code>workspace:MakeJoints({part1, part2, part3})
+parts as a parameter. This array is given as follows:</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+Workspace:MakeJoints({part1, part2, part3})
 </code></pre><p>Joints are broken if enough force is applied to them due to an
 <a href=/ref/class/Explosion.html>Explosion</a>, unless a <a href=/ref/class/ForceField.html>ForceField</a> object is parented to the
 <a href=/ref/class/BasePart.html>BasePart</a> or ancestor <a href=/ref/class/Model.html>Model</a>. For this reason, they are
@@ -2643,11 +2662,9 @@ inconsistent network ownership and delays when adding these constraints to
 a mechanism.</p></div><div class=status-list><div class="status-box high"><span class=header>This property is not scriptable.</span> It cannot be accessed by script code.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Behavior</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property><a class="history-tag added" href=/ref/updates/2024.html#version-36164c1c616f4598-31 title="Added on 2024-06-04T12:06:02-07:00
 v0.628.0.6280391
 version-36164c1c616f4598">628</a>
-Add <a class="entity-link deco unscriptable" href=/ref/class/Workspace.html#member-MoverConstraintRootBehavior><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>MoverConstraintRootBehavior</a></li></ul></details><div class=tags>Tags: [NotScriptable]</div></section><section id=member-PGSIsEnabled class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PGSIsEnabled<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Workspace#PGSIsEnabled target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/bool.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>bool</a></td></tr></tbody></table><div class=docs><p>Returns true if the game has the PGS Physics solver enabled.</p><p>As <a href=/ref/class/Workspace.html#member-PGSPhysicsSolverEnabled>Workspace.PGSPhysicsSolverEnabled</a> cannot be accessed by
+Add <a class="entity-link deco unscriptable" href=/ref/class/Workspace.html#member-MoverConstraintRootBehavior><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>MoverConstraintRootBehavior</a></li></ul></details><div class=tags>Tags: [NotScriptable]</div></section><section id=member-PGSIsEnabled class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PGSIsEnabled<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Workspace#PGSIsEnabled target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/bool.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>bool</a></td></tr></tbody></table><div class=docs><p>Returns <code>true</code> if the game has the PGS Physics solver enabled.</p><p>As <a href=/ref/class/Workspace.html#member-PGSPhysicsSolverEnabled>Workspace.PGSPhysicsSolverEnabled</a> cannot be accessed by
 scripts, the PGSIsEnabled function allows developers to tell which physics
-solver the game is using.</p><pre><code>print(workspace:PGSIsEnabled()) -- true = PGS solver enabled
-print(workspace:PGSIsEnabled()) -- false = Legacy solver enabled
-</code></pre></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-3223 title="Changed on 2021-01-15T15:56:17-08:00
+solver the game is using.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-3223 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Workspace.html#member-PGSIsEnabled><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PGSIsEnabled</a>
@@ -3102,14 +3119,18 @@ other), only between these <a href=/ref/class/BasePart.html>BaseParts</a> and ot
 moving a selection. In conjunction with <a href=/ref/class/Plugin.html#member-GetJoinMode>Plugin:GetJoinMode()</a> and
 <a href=/ref/class/Workspace.html#member-JoinToOutsiders>Workspace:JoinToOutsiders()</a> it can be used to retain join
 functionality when developing custom Studio build tools. See the snippets
-below for an example.</p><pre><code>-- finished moving a selection, make joints
+below for an example.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+-- Finished moving a selection; make joints
 local function finishedMovingParts(parts)
 	local joinMode = Plugin:GetJoinMode()
-	workspace:JoinToOutsiders(parts, joinMode)
+	Workspace:JoinToOutsiders(parts, joinMode)
 end
-</code></pre><pre><code>-- started moving a selection, break joints
+</code></pre><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+-- Started moving a selection; break joints
 local function startMovingParts(parts)
-	workspace:UnjoinFromOutsiders(parts)
+	Workspace:UnjoinFromOutsiders(parts)
 end
 </code></pre></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2024.html#version-9b68669a3b644e31-233 title="Changed on 2024-10-22T11:55:24-07:00
 v0.648.0.6480781

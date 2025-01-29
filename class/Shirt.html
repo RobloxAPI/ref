@@ -205,13 +205,16 @@ version-87de5333d4254860">47</a>
 Add <a class="entity-link deco" href=/ref/class/Shirt.html><span class=picture title=Class data-type=Class><span class=icon style="--light:url('/ref/icons/light/Shirt.png');--dark:url('/ref/icons/dark/Shirt.png')"></span></span>Shirt</a></li></ul></section><section id=members><header><h2>Members <span class=element-count>1</span></h2></header><div class=members-sections><section id=member-ShirtTemplate class=set><header><h3><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>ShirtTemplate<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Shirt#ShirtTemplate target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-valuetype colspan=2>Type</th><th class=col-default>Default</th></tr></thead><tbody><tr><td class=col-valuetype colspan=2><a class="entity-link deco" href=/ref/type/ContentId.html><span class=picture title="DataType type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/ACCodeSnippet.png');--dark:url('/ref/icons/dark/ACCodeSnippet.png')"></span></span>ContentId</a></td><td class=col-default><span class=api-none></span></td></tr></tbody></table><div class=docs><p>The content ID link pointing to the shirt template hosted on Roblox.</p><p>This content ID is different than the website URL of the shirt. It can be
 found by pasting the website URL of the shirt into the <strong>ShirtTemplate</strong>
 property in Studio. Alternatively, <a href=/ref/class/InsertService.html#member-LoadAsset>InsertService:LoadAsset()</a> can
-be used to insert the shirt into the workspace, for example:</p><pre><code>local webURL = &#34;https://www.roblox.com/catalog/1804747/White-Shirt&#34;
+be used to insert the shirt into the workspace, for example:</p><pre><code>local InsertService = game:GetService(&#34;InsertService&#34;)
+local Workspace = game:GetService(&#34;Workspace&#34;)
+
+local webURL = &#34;https://www.roblox.com/catalog/1804747/White-Shirt&#34;
 local assetId = tonumber(string.match(webURL, &#34;%d+&#34;) or 0)  -- Extract the number
 local success, model = pcall(function()
-	return game:GetService(&#34;InsertService&#34;):LoadAsset(assetId)
+	return InsertService:LoadAsset(assetId)
 end)
 if success then
-	model.Parent = workspace
+	model.Parent = Workspace
 end
 </code></pre><p>See also <a href=/ref/class/ShirtGraphic.html#member-Graphic>ShirtGraphic.Graphic</a> for the image applied to T-shirts.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Appearance</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=ValueType><a class="history-tag changed" href=/ref/updates/2024.html#version-880ce149439340c1-98 title="Changed on 2024-10-01T11:27:30-07:00
 v0.645.0.6450665

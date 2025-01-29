@@ -5591,7 +5591,9 @@ Add <a class="entity-link deco hidden unscriptable sec-RobloxSecurity" href=/ref
 <a href=/ref/type/CFrame.html>CFrame</a>, that is <code>part:GetPivot()</code> is the same as
 <code>part.CFrame * part.PivotOffset</code>.</p><p>This is convenient for setting the pivot to a location in <strong>local</strong> space,
 but setting a part's pivot to a location in <strong>world</strong> space can be done as
-follows:</p><pre><code>local part = workspace.BluePart
+follows:</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+
+local part = Workspace.BluePart
 local desiredPivotCFrameInWorldSpace = CFrame.new(0, 10, 0)
 part.PivotOffset = part.CFrame:ToObjectSpace(desiredPivotCFrameInWorldSpace)
 </code></pre></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Pivot</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2022.html#version-ec81b0ea2163459b-181 title="Changed on 2022-11-16T09:50:21-08:00
