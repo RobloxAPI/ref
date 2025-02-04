@@ -8179,6 +8179,46 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"AnnotationEdited": {
+					"MemberType": "Event",
+					"Name": "AnnotationEdited",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "requestId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "uniqueId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "contents",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"AnnotationResolved": {
 					"MemberType": "Event",
 					"Name": "AnnotationResolved",
@@ -8280,6 +8320,43 @@
 								"Name": "Annotation"
 							},
 							"Name": "annotation",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"EditAnnotation": {
+					"MemberType": "Function",
+					"Name": "EditAnnotation",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "uniqueId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "contents",
 							"Optional": false,
 							"Default": ""
 						}
@@ -14351,6 +14428,26 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"WindowSize": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "State",
+					"Default": "Medium",
+					"MemberType": "Property",
+					"Name": "WindowSize",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "AudioWindowSize"
+					},
+					"WriteSecurity": "None"
+				},
 				"WiringChanged": {
 					"MemberType": "Event",
 					"Name": "WiringChanged",
@@ -15480,6 +15577,24 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"Reset": {
+					"MemberType": "Function",
+					"Name": "Reset",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				},
 				"WetLevel": {
 					"CanLoad": true,
@@ -17203,6 +17318,24 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"Reset": {
+					"MemberType": "Function",
+					"Name": "Reset",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"SetAngleAttenuation": {
 					"MemberType": "Function",
 					"Name": "SetAngleAttenuation",
@@ -17426,6 +17559,26 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"WindowSize": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "State",
+					"Default": "Medium",
+					"MemberType": "Property",
+					"Name": "WindowSize",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "AudioWindowSize"
+					},
+					"WriteSecurity": "None"
+				},
 				"WiringChanged": {
 					"MemberType": "Event",
 					"Name": "WiringChanged",
@@ -17489,7 +17642,7 @@
 			"Members": {
 				"Asset": {
 					"CanLoad": true,
-					"CanSave": false,
+					"CanSave": true,
 					"Category": "Asset",
 					"Default": "",
 					"MemberType": "Property",
@@ -17499,10 +17652,7 @@
 						"ThreadSafety": ""
 					},
 					"ReadSecurity": "None",
-					"Tags": [
-						"Hidden",
-						"NotScriptable"
-					],
+					"Tags": [],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "DataType",
@@ -17512,17 +17662,21 @@
 				},
 				"AssetId": {
 					"CanLoad": true,
-					"CanSave": true,
+					"CanSave": false,
 					"Category": "Asset",
 					"Default": "",
 					"MemberType": "Property",
 					"Name": "AssetId",
 					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
+						"Name": "Asset",
+						"ThreadSafety": "Unknown"
 					},
 					"ReadSecurity": "None",
-					"Tags": [],
+					"Tags": [
+						"Hidden",
+						"NotReplicated",
+						"Deprecated"
+					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "Primitive",
@@ -18191,6 +18345,24 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"Reset": {
+					"MemberType": "Function",
+					"Name": "Reset",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				},
 				"WetLevel": {
 					"CanLoad": true,
@@ -70448,6 +70620,24 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"GetFFlagOverrides": {
+					"MemberType": "Function",
+					"Name": "GetFFlagOverrides",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "string"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"GetFFlags": {
 					"MemberType": "Function",
 					"Name": "GetFFlags",
@@ -70458,13 +70648,13 @@
 					},
 					"ReturnType": [
 						{
-							"Category": "Group",
-							"Name": "Dictionary"
+							"Category": "Primitive",
+							"Name": "string"
 						}
 					],
-					"Security": "None",
+					"Security": "RobloxScriptSecurity",
 					"Tags": [],
-					"ThreadSafety": ""
+					"ThreadSafety": "Unsafe"
 				},
 				"GetFVariable": {
 					"MemberType": "Function",
@@ -70511,6 +70701,34 @@
 					"Security": "RobloxScriptSecurity",
 					"Tags": [],
 					"ThreadSafety": ""
+				},
+				"SetFFlagOverrides": {
+					"MemberType": "Function",
+					"Name": "SetFFlagOverrides",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "overrides",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				}
 			},
 			"PreferredDescriptor": {
@@ -115580,6 +115798,29 @@
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
+				"SolidMeshData": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "SolidMeshData",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"Hidden",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "NetAssetRef"
+					},
+					"WriteSecurity": "None"
+				},
 				"SubstituteGeometry": {
 					"MemberType": "Function",
 					"Name": "SubstituteGeometry",
@@ -152122,6 +152363,26 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"CharacterSoundsUseNewApi": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "Default",
+					"MemberType": "Property",
+					"Name": "CharacterSoundsUseNewApi",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "RolloutState"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
 				"ClientLoggedEvent": {
 					"MemberType": "Event",
 					"Name": "ClientLoggedEvent",
@@ -156931,6 +157192,24 @@
 					},
 					"WriteSecurity": "RobloxScriptSecurity"
 				},
+				"ResetHarmonyMemoryTarget": {
+					"MemberType": "Function",
+					"Name": "ResetHarmonyMemoryTarget",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"SceneDrawcallCount": {
 					"CanLoad": false,
 					"CanSave": false,
@@ -156976,6 +157255,34 @@
 						"Name": "int"
 					},
 					"WriteSecurity": "None"
+				},
+				"SetHarmonyMemoryTarget": {
+					"MemberType": "Function",
+					"Name": "SetHarmonyMemoryTarget",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "targetMB",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				},
 				"SetReportUrl": {
 					"MemberType": "Function",
@@ -158861,6 +159168,26 @@
 						"Name": "QDir"
 					},
 					"WriteSecurity": "None"
+				},
+				"AutoResumeSyncOnPlaceOpen": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Directories",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "AutoResumeSyncOnPlaceOpen",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxSecurity"
 				},
 				"AutocompleteAcceptanceBehavior": {
 					"CanLoad": true,
@@ -179179,7 +179506,10 @@
 						"ThreadSafety": ""
 					},
 					"ReadSecurity": "RobloxScriptSecurity",
-					"Tags": [],
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "Primitive",
@@ -185435,6 +185765,62 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"CreateEditableImageFromBinaryStringRobloxOnly": {
+					"MemberType": "Function",
+					"Name": "CreateEditableImageFromBinaryStringRobloxOnly",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "BinaryStringValue"
+							},
+							"Name": "value",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "Object"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"CreateEditableMeshFromBinaryStringRobloxOnly": {
+					"MemberType": "Function",
+					"Name": "CreateEditableMeshFromBinaryStringRobloxOnly",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "BinaryStringValue"
+							},
+							"Name": "value",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "Object"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"FetchAssetWithFormat": {
 					"MemberType": "Function",
 					"Name": "FetchAssetWithFormat",
@@ -185674,6 +186060,34 @@
 						{
 							"Category": "Group",
 							"Name": "Tuple"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetEditableImageData": {
+					"MemberType": "Function",
+					"Name": "GetEditableImageData",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Object"
+							},
+							"Name": "editableImage",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "BinaryStringValue"
 						}
 					],
 					"Security": "RobloxScriptSecurity",
@@ -185955,6 +186369,36 @@
 						{
 							"Category": "Primitive",
 							"Name": "int"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetMeshDataBinaryString": {
+					"MemberType": "Function",
+					"Name": "GetMeshDataBinaryString",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "meshId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "BinaryStringValue"
 						}
 					],
 					"Security": "RobloxScriptSecurity",
@@ -186353,6 +186797,43 @@
 					"Tags": [
 						"Yields"
 					],
+					"ThreadSafety": "Unsafe"
+				},
+				"RegisterAlternateMesh": {
+					"MemberType": "Function",
+					"Name": "RegisterAlternateMesh",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "alternateId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "BinaryStringValue"
+							},
+							"Name": "binaryStringValue",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
 				"RegisterUGCValidationFunction": {
@@ -203967,6 +204448,24 @@
 				"joinVoice": {
 					"MemberType": "Function",
 					"Name": "joinVoice",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"leaveVoice": {
+					"MemberType": "Function",
+					"Name": "leaveVoice",
 					"Parameters": [],
 					"PreferredDescriptor": {
 						"Name": "",
@@ -235775,6 +236274,28 @@
 		"ProductPurchaseChannel": {
 			"Name": "ProductPurchaseChannel",
 			"Items": {
+				"AdReward": {
+					"Name": "AdReward",
+					"Value": 3,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"CommerceProduct": {
+					"Name": "CommerceProduct",
+					"Value": 4,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"ExperienceDetailsPage": {
 					"Name": "ExperienceDetailsPage",
 					"Value": 2,
