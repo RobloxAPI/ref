@@ -468,6 +468,7 @@ then they correspond to each other:
       preselect: boolean?,
       textEdit: {
         newText: string,
+        insert: { start: { line: number, character: number }, [&#34;end&#34;]: { line: number, character: number } },
         replace: { start: { line: number, character: number }, [&#34;end&#34;]: { line: number, character: number } },
       }?
     }
@@ -495,8 +496,8 @@ no other URLs display in the editor.</li><li><code>Response.items[n].codeSample<
 item. <code>documentation</code> must be non-empty to display this field.</li><li><code>Response.items[n].preselect</code> If true, the editor sorts this completion
 item ahead of all others and selects it for the user by default. No
 effect if false or missing.</li><li><code>Response.items[n].textEdit</code> If present, accepting the completion
-applies this text edit - replacing the span between the positions start
-and end with newText.</li></ul><p>If a callback returns a malformed result or encounters an error, the
+applies this text edit - inserting or replacing the span between the
+positions start and end with newText.</li></ul><p>If a callback returns a malformed result or encounters an error, the
 editor discards the modified Response table and uses the built-in
 autocomplete result list.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Security</th><td class=value>PluginSecurity</td></tr><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-642 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
