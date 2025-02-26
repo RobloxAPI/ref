@@ -1879,11 +1879,11 @@ Add <a class="entity-link deco sec-RobloxScriptSecurity" href=/ref/class/Marketp
 should use <code>ProcessReceipt</code> to grant users their purchased product over
 any other granting method. If your <code>ProcessReceipt</code> implementation isn't
 correct, you will <strong>not</strong> be able to grant users the products they have
-purchased on the Experience Detail page.</p><p>A callback to process receipts from
+purchased on the Store tab of your experience details page.</p><p>A callback to process receipts from
 <a href=https://create.roblox.com/docs/production/monetization/developer-products>developer product</a>
 purchases. You can sell developer products inside an experience using
-<code>MarketplaceService</code> functions, or outside an experience on the Experience
-Detail page.</p><p>You should only set the <code>ProcessReceipt</code> callback one time in a single
+<code>MarketplaceService</code> functions, or outside an experience on the Store tab
+of your experience details page.</p><p>You should only set the <code>ProcessReceipt</code> callback one time in a single
 server-side <a href=/ref/class/Script.html>Script</a>. This callback must handle the receipts
 for all developer products you have for sale.</p><h4>Guarantees</h4><p>The <code>ProcessReceipt</code> callback is called for all unresolved developer
 product purchases when:</p><ul><li>A user successfully completes the purchase of a developer product.</li><li>A successful developer product purchase prompt appears to the user.</li><li>A user joins the server.</li></ul><p>A purchase is considered <strong>successfully initiated</strong> when:</p><ul><li>The purchase is processed on Roblox's backend.</li><li>The funds are placed in escrow.</li></ul><p>A purchase is considered <strong>resolved</strong> when:</p><ul><li>The <code>ProcessReceipt</code> callback returns a <a href=/ref/enum/ProductPurchaseDecision.html>ProductPurchaseDecision</a>
