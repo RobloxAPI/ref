@@ -221,6 +221,7 @@
 			"Summary": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n",
 			"Description": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n"
 		},
+		"AudioTextToSpeech": {},
 		"AvatarCreationService": {
 			"Summary": "<p>A service to support developer avatar creators.</p>\n",
 			"Description": "<p><code>AvatarCreationService</code> is a service that supports developer avatar creators,\nproviding methods that support the prompting of avatar creation from within\nexperiences.</p>\n"
@@ -431,6 +432,7 @@
 			"Summary": "<p>Blends descendants as a group with color/transparency.</p>\n",
 			"Description": "<p>CanvasGroup renders descendants as a group with color and transparency applied\nto the render result. GuiEffect (<a href=\"/ref/class/UICorner.html\">UICorner</a> and <a href=\"/ref/class/UIGradient.html\">UIGradient</a>)\nunder CanvasGroup will also apply to the whole group. CanvasGroup always has\n<a href=\"/ref/class/GuiObject.html#member-ClipsDescendants\">GuiObject.ClipsDescendants</a> set to true and all descendants will render\nwithin CanvasGroup&#39;s viewport.</p>\n<h3>Important notes:</h3>\n<ul>\n<li>Descendants of CanvasGroup will be rendered as a flattened texture only when\nthe ancestor <a href=\"/ref/class/LayerCollector.html\">LayerCollector</a> has its\n<a href=\"/ref/class/LayerCollector.html#member-ZIndexBehavior\">LayerCollector.ZIndexBehavior</a> set to <a href=\"/ref/enum/ZIndexBehavior.html\">ZIndexBehavior.Sibling</a>.</li>\n<li>CanvasGroup consumes extra texture memory. The quality of the texture and\ntotal memory usage is limited by the <a href=\"/ref/enum/QualityLevel.html\">QualityLevel</a> of the client. When\nexceeding the memory cap, CanvasGroup will render as a blank texture.</li>\n<li>We recommend using CanvasGroup with static sizes, otherwise a new texture\nwould need to be created to accommodate new sizes.</li>\n</ul>\n"
 		},
+		"Capture": {},
 		"CaptureService": {
 			"Summary": "<p>A service which provides control over screenshot capture features.</p>\n",
 			"Description": "<p><strong>CaptureService</strong> is a client-side service that allows developers to control\nhow the screenshot capture feature integrates with their experiences. It can\nbe used to include preset moments where a screenshot is automatically taken\nfor a user, and that user can then save, share, or delete the screenshot.</p>\n"
@@ -1093,6 +1095,7 @@
 			"Summary": "<p>Describes the appearance of a Humanoid character including body parts,\naccessories, colors, scales, animations, and emotes.</p>\n",
 			"Description": "<p><strong>HumanoidDescription</strong> is an object that stores a description of a\n<a href=\"/ref/class/Humanoid.html\">Humanoid</a> for R6 and R15 rigs. It can be\n<a href=\"/ref/class/Humanoid.html#member-ApplyDescription\">applied</a> in order to set a rig&#39;s scaling,\nclothing (<a href=\"/ref/class/Shirt.html\">Shirt</a>, <a href=\"/ref/class/Pants.html\">Pants</a>, <a href=\"/ref/class/ShirtGraphic.html\">ShirtGraphic</a>),\n<a href=\"/ref/class/Accessory.html\">Accessories</a>, <a href=\"/ref/class/Animation.html\">Animations</a> and\n<a href=\"/ref/class/BodyColors.html\">BodyColors</a>.</p>\n<p>You can get a HumanoidDescription by using the following functions:</p>\n<ul>\n<li><a href=\"/ref/class/Players.html#member-GetHumanoidDescriptionFromUserId\">Players:GetHumanoidDescriptionFromUserId()</a>, for an outfit currently\nbeing worn by a user on Roblox.</li>\n<li><a href=\"/ref/class/Players.html#member-GetHumanoidDescriptionFromOutfitId\">Players:GetHumanoidDescriptionFromOutfitId()</a>, for an outfit created\nby a user on Roblox.</li>\n<li>You can create a Humanoid rig model from a HumanoidDescription through\n<a href=\"/ref/class/Players.html#member-CreateHumanoidModelFromDescription\">Players:CreateHumanoidModelFromDescription()</a>.</li>\n</ul>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/characters/appearance#humanoiddescription\">HumanoidDescription System</a>,\nfor more information on <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</li>\n</ul>\n"
 		},
+		"HumanoidRigDescription": {},
 		"IKControl": {
 			"Category": "Animations",
 			"Summary": "<p>Specifies a control to generate a procedural animation pose using Inverse\nKinematics.</p>\n",
@@ -1349,7 +1352,7 @@
 		},
 		"MessagingService": {
 			"Summary": "<p>Allows servers of the same experience to communicate with each other.</p>\n",
-			"Description": "<p><strong>MessagingService</strong> allows servers of the same experience to communicate with\neach other in real time (less than 1 second) using topics. Topics are\ndeveloper‑defined strings (1–80 characters) that servers use to send and\nreceive messages.</p>\n<p>Delivery is best effort and not guaranteed. Make sure to architect your\nexperience so delivery failures are not critical.</p>\n<p><a href=\"https://create.roblox.com/docs/cloud-services/cross-server-messaging\">Cross-Server Messaging</a>\nexplores how to communicate between servers in greater detail.</p>\n<p>If you want to publish ad-hoc messages to live game servers, you can use the\n<a href=\"https://create.roblox.com/docs/cloud/open-cloud/usage-messaging\">Open Cloud APIs</a>.</p>\n<h3>Limitations</h3>\n<p>Note that these limits are subject to change.</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Limit</th>\n\t\t\t<th>Maximum</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Size of message</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t1kB\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages sent per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 600 + 240 * (number of players in this game server) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received per topic</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t(40 + 80 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received for entire game</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t (400 + 200 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscriptions allowed per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 20 + 8 * (number of players in this game server)\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscribe requests per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 240 requests per minute\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n"
+			"Description": "<p><strong>MessagingService</strong> allows servers of the same experience to communicate with\neach other in real time (less than 1 second) using topics. Topics are\ndeveloper‑defined strings (1–80 characters) that servers use to send and\nreceive messages.</p>\n<p>Delivery is best effort and not guaranteed. Make sure to architect your\nexperience so delivery failures are not critical.</p>\n<p><a href=\"https://create.roblox.com/docs/cloud-services/cross-server-messaging\">Cross-Server Messaging</a>\nexplores how to communicate between servers in greater detail.</p>\n<p>If you want to publish ad-hoc messages to live game servers, you can use the\n<a href=\"https://create.roblox.com/docs/cloud/guides/usage-messaging\">Open Cloud APIs</a>.</p>\n<h3>Limitations</h3>\n<p>Note that these limits are subject to change.</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Limit</th>\n\t\t\t<th>Maximum</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Size of message</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t1kB\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages sent per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 600 + 240 * (number of players in this game server) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received per topic</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t(40 + 80 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received for entire game</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t (400 + 200 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscriptions allowed per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 20 + 8 * (number of players in this game server)\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscribe requests per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 240 requests per minute\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n"
 		},
 		"Model": {
 			"Category": "Building",
@@ -1580,10 +1583,6 @@
 				"Leaderstats"
 			]
 		},
-		"PlayerData": {},
-		"PlayerDataRecord": {},
-		"PlayerDataRecordConfig": {},
-		"PlayerDataService": {},
 		"PlayerGui": {
 			"Category": "GUI",
 			"Summary": "<p>A container for a player&#39;s currently rendered <a href=\"/ref/class/ScreenGui.html\">ScreenGuis</a>.</p>\n",
@@ -1882,6 +1881,7 @@
 			"Summary": "<p>Primary container of on-screen 2D user interface elements.</p>\n",
 			"Description": "<p><a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> is a storage container for 2D <a href=\"/ref/class/GuiObject.html\">GuiObjects</a>\ndisplayed on the user&#39;s screen. A <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> only shows if parented to\na player&#39;s <a href=\"/ref/class/PlayerGui.html\">PlayerGui</a>; parenting a <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> to\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a> ensures it clones into each player&#39;s <a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> when\nthey join the experience and their character first spawns. See\n<a href=\"https://create.roblox.com/docs/ui/on-screen-containers\">On‑Screen UI Containers</a> for further\ndetails.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/ui-objects/ScreenGui-Example.jpg\" width=\"840\" alt=\"Example ScreenGui with various GuiObject children, including a Frame, TextLabel, TextBox, and ImageButton.\"/>\n<p>For performance improvements, the appearance of a <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> is cached\nuntil one of the following events occurs:</p>\n<ul>\n<li>A descendant is added to or removed from it.</li>\n<li>A property of a descendant changes.</li>\n<li>A property of the <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> itself changes.</li>\n</ul>\n<p>If any of these events occur, the <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> appearance is recomputed\non the next frame it gets rendered.</p>\n"
 		},
+		"ScreenshotCapture": {},
 		"ScreenshotHud": {
 			"Category": "GUI",
 			"Summary": "<p>A 2D user interface that allows users to capture and save screenshots to their\nlocal device.</p>\n",
@@ -2151,7 +2151,7 @@
 		"StarterPlayerScripts": {
 			"Category": "Scripting",
 			"Summary": "<p>A container for objects to be copied to a Player&#39;s PlayerScripts when they\njoin a game.</p>\n",
-			"Description": "<p><a href=\"/ref/class/StarterPlayerScripts.html\">StarterPlayerScripts</a> is a container object located within the\n<a href=\"/ref/class/StarterPlayer.html\">StarterPlayer</a> service. It can contain <a href=\"/ref/class/LocalScript.html\">LocalScripts</a>\nand other objects to be copied to the <a href=\"/ref/class/PlayerScripts.html\">PlayerScripts</a> container once\nwhen a <a href=\"/ref/class/Player.html\">Player</a> joins the game. For example, if you want to create\nspecial effects on the client when certain conditions are met, you can place a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a> within this container to do that.</p>\n<p>This object is also a good place for <a href=\"/ref/class/LocalScript.html\">LocalScripts</a> that\ndefine additional inputs with <a href=\"/ref/class/ContextActionService.html\">ContextActionService</a>. For inputs that\nare only relevant when a player has spawned in, you can use\n<a href=\"/ref/class/ContextActionService.html#member-BindAction\">ContextActionService:BindAction()</a> when the <a href=\"/ref/class/Players.html#member-LocalPlayer\">Players.LocalPlayer</a>\ncharacter spawns, then use <a href=\"/ref/class/ContextActionService.html#member-UnbindAction\">ContextActionService:UnbindAction()</a> when\nthey die or despawn.</p>\n<p>When an experience is run, this object will also house the default\nmulti-platform Roblox control scripts for the camera and character. If\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> named <code>CameraScript</code> or <code>ControlScript</code> are\nplaced within this container, they will <strong>replace</strong> the Roblox defaults for\nthose scripts respectively. If desired, you can add empty\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> for each of these to disable them altogether;\nthis is useful for experiences that do not follow the typical control\nparadigms of a Roblox experience.</p>\n"
+			"Description": "<p><a href=\"/ref/class/StarterPlayerScripts.html\">StarterPlayerScripts</a> is a container object located within the\n<a href=\"/ref/class/StarterPlayer.html\">StarterPlayer</a> service. It can contain <a href=\"/ref/class/LocalScript.html\">LocalScripts</a>\nand other objects to be copied to the <a href=\"/ref/class/PlayerScripts.html\">PlayerScripts</a> container once\nwhen a <a href=\"/ref/class/Player.html\">Player</a> joins the game. For example, if you want to create\nspecial effects on the client when certain conditions are met, you can place a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a> within this container to do that.</p>\n<p>This object is also a good place for <a href=\"/ref/class/LocalScript.html\">LocalScripts</a> that\ndefine additional inputs with <a href=\"/ref/class/ContextActionService.html\">ContextActionService</a>. For inputs that\nare only relevant when a player has spawned in, you can use\n<a href=\"/ref/class/ContextActionService.html#member-BindAction\">ContextActionService:BindAction()</a> when the <a href=\"/ref/class/Players.html#member-LocalPlayer\">Players.LocalPlayer</a>\ncharacter spawns, then use <a href=\"/ref/class/ContextActionService.html#member-UnbindAction\">ContextActionService:UnbindAction()</a> when\nthey die or despawn.</p>\n<h3>Modifying control scripts</h3>\n<p>When an experience is run, this object will also house the default\nmulti-platform Roblox control scripts for the camera and character. If\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> named <code>CameraScript</code> or <code>ControlScript</code> are\nplaced within this container, they will <strong>replace</strong> the Roblox defaults for\nthose scripts respectively. If desired, you can add empty\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> for each of these to disable them altogether;\nthis is useful for experiences that do not follow the typical control\nparadigms of a Roblox experience.</p>\n"
 		},
 		"StartupMessageService": {},
 		"Stats": {
@@ -2673,7 +2673,7 @@
 		"Workspace": {
 			"Category": "Gameplay",
 			"Summary": "<p><strong>Workspace</strong> houses 3D objects which are rendered to the 3D world. Objects\nnot descending from it will not be rendered or physically interact with the\nworld.</p>\n",
-			"Description": "<p>The core job of <a href=\"/ref/class/Workspace.html\">Workspace</a> is to hold objects that exist in the 3D\nworld, effectively <a href=\"/ref/class/BasePart.html\">BaseParts</a> and\n<a href=\"/ref/class/Attachment.html\">Attachments</a>. While such objects are descendant of\n<a href=\"/ref/class/Workspace.html\">Workspace</a>, they will be active. For <a href=\"/ref/class/BasePart.html\">BaseParts</a>, this\nmeans they will be rendered, and physically interact with other parts and the\nworld. For <a href=\"/ref/class/Attachment.html\">Attachments</a>, this means that objects adorned to\nthem, such as <a href=\"/ref/class/ParticleEmitter.html\">ParticleEmitters</a>, <a href=\"/ref/class/Beam.html\">Beams</a>,\nand <a href=\"/ref/class/BillboardGui.html\">BillboardGuis</a>, will render.</p>\n<p>Understanding this behavior is important, as it means objects can be removed\nfrom <a href=\"/ref/class/Workspace.html\">Workspace</a> when they are not needed. For example, map\n<a href=\"/ref/class/Model.html\">Models</a> can be removed when a different map is being played on.\nObjects that are not immediately needed in the 3D world are generally stored\nin <a href=\"/ref/class/ReplicatedStorage.html\">ReplicatedStorage</a> or <a href=\"/ref/class/ServerStorage.html\">ServerStorage</a>.</p>\n<p>In its role as the holder of active 3D objects, <a href=\"/ref/class/Workspace.html\">Workspace</a> includes a\nnumber of useful functions related to parts, their positions, and joints\nbetween them.</p>\n<h3>Accessing the Workspace</h3>\n<p><a href=\"/ref/class/Workspace.html\">Workspace</a> can be accessed several ways, all of which are valid.</p>\n<ul>\n<li><code>game:GetService(&#34;Workspace&#34;)</code> (recommended)</li>\n<li><code>workspace</code></li>\n<li><code>game.Workspace</code></li>\n</ul>\n<h3>Notes</h3>\n<ul>\n<li>Objects that require adornment, such as\n<a href=\"/ref/class/ParticleEmitter.html\">ParticleEmitters</a> and\n<a href=\"/ref/class/BillboardGui.html\">BillboardGuis</a>, will be at the\n<typography nowrap=\"\"><code>(0, 0, 0)</code></typography> position when parented to\n<a href=\"/ref/class/Workspace.html\">Workspace</a> without an adornee otherwise being set.</li>\n<li>The <a href=\"/ref/class/Model.html#member-MakeJoints\">Model:MakeJoints()</a> and <a href=\"/ref/class/Model.html#member-BreakJoints\">Model:BreakJoints()</a> methods\ninherited from the <a href=\"/ref/class/Model.html\">Model</a> class are overridden by\n<a href=\"/ref/class/Workspace.html#member-MakeJoints\">Workspace:MakeJoints()</a> and <a href=\"/ref/class/Workspace.html#member-BreakJoints\">Workspace:BreakJoints()</a> which can\nonly be used in plugins.</li>\n<li>It is impossible to delete <a href=\"/ref/class/Workspace.html\">Workspace</a>.</li>\n<li><a href=\"/ref/class/Workspace.html\">Workspace</a> automatically cleans up <a href=\"/ref/class/BasePart.html\">BaseParts</a> that\nfall beneath\n<a href=\"/ref/class/Workspace.html#member-FallenPartsDestroyHeight\">FallenPartsDestroyHeight</a>.</li>\n<li>A client&#39;s current <a href=\"/ref/class/Camera.html\">Camera</a> object can be accessed using the\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> property.</li>\n<li>The <a href=\"/ref/class/Terrain.html\">Terrain</a> object can be accessed using the\n<a href=\"/ref/class/Workspace.html#member-Terrain\">Workspace.Terrain</a> property.</li>\n</ul>\n"
+			"Description": "<p>The core job of <a href=\"/ref/class/Workspace.html\">Workspace</a> is to hold objects that exist in the 3D\nworld, effectively <a href=\"/ref/class/BasePart.html\">BaseParts</a> and\n<a href=\"/ref/class/Attachment.html\">Attachments</a>. While such objects are descendant of\n<a href=\"/ref/class/Workspace.html\">Workspace</a>, they will be active. For <a href=\"/ref/class/BasePart.html\">BaseParts</a>, this\nmeans they will be rendered, and physically interact with other parts and the\nworld. For <a href=\"/ref/class/Attachment.html\">Attachments</a>, this means that objects adorned to\nthem, such as <a href=\"/ref/class/ParticleEmitter.html\">ParticleEmitters</a>, <a href=\"/ref/class/Beam.html\">Beams</a>,\nand <a href=\"/ref/class/BillboardGui.html\">BillboardGuis</a>, will render.</p>\n<p>Understanding this behavior is important, as it means objects can be removed\nfrom <a href=\"/ref/class/Workspace.html\">Workspace</a> when they are not needed. For example, map\n<a href=\"/ref/class/Model.html\">Models</a> can be removed when a different map is being played on.\nObjects that are not immediately needed in the 3D world are generally stored\nin <a href=\"/ref/class/ReplicatedStorage.html\">ReplicatedStorage</a> or <a href=\"/ref/class/ServerStorage.html\">ServerStorage</a>.</p>\n<p>In its role as the holder of active 3D objects, <a href=\"/ref/class/Workspace.html\">Workspace</a> includes a\nnumber of useful functions related to parts, their positions, and joints\nbetween them.</p>\n<h3>Accessing the Workspace</h3>\n<p><a href=\"/ref/class/Workspace.html\">Workspace</a> can be accessed several ways, all of which are valid.</p>\n<ul>\n<li><code>workspace</code></li>\n<li><code>game:GetService(&#34;Workspace&#34;)</code></li>\n<li><code>game.Workspace</code></li>\n</ul>\n<h3>Notes</h3>\n<ul>\n<li>Objects that require adornment, such as\n<a href=\"/ref/class/ParticleEmitter.html\">ParticleEmitters</a> and\n<a href=\"/ref/class/BillboardGui.html\">BillboardGuis</a>, will be at the\n<typography nowrap=\"\"><code>(0, 0, 0)</code></typography> position when parented to\n<a href=\"/ref/class/Workspace.html\">Workspace</a> without an adornee otherwise being set.</li>\n<li>The <a href=\"/ref/class/Model.html#member-MakeJoints\">Model:MakeJoints()</a> and <a href=\"/ref/class/Model.html#member-BreakJoints\">Model:BreakJoints()</a> methods\ninherited from the <a href=\"/ref/class/Model.html\">Model</a> class are overridden by\n<a href=\"/ref/class/Workspace.html#member-MakeJoints\">Workspace:MakeJoints()</a> and <a href=\"/ref/class/Workspace.html#member-BreakJoints\">Workspace:BreakJoints()</a> which can\nonly be used in plugins.</li>\n<li>It is impossible to delete <a href=\"/ref/class/Workspace.html\">Workspace</a>.</li>\n<li><a href=\"/ref/class/Workspace.html\">Workspace</a> automatically cleans up <a href=\"/ref/class/BasePart.html\">BaseParts</a> that\nfall beneath\n<a href=\"/ref/class/Workspace.html#member-FallenPartsDestroyHeight\">FallenPartsDestroyHeight</a>.</li>\n<li>A client&#39;s current <a href=\"/ref/class/Camera.html\">Camera</a> object can be accessed using the\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> property.</li>\n<li>The <a href=\"/ref/class/Terrain.html\">Terrain</a> object can be accessed using the\n<a href=\"/ref/class/Workspace.html#member-Terrain\">Workspace.Terrain</a> property.</li>\n</ul>\n"
 		},
 		"WorkspaceAnnotation": {},
 		"WorldModel": {
@@ -3243,8 +3243,8 @@
 				]
 			},
 			"Stop": {
-				"Summary": "<p>Stops the <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a>. Once called playback of the\n<a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a> will stop and the weight of the animation will move\ntowards zero over a length of time specified by the optional fadeTime\nparameter.</p>\n",
-				"Description": "<p>Stops the <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a>. Once called playback of the\n<a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a> will stop and the weight of the animation will move\ntowards zero over a length of time specified by the optional fadeTime\nparameter.</p>\n<p>For example, if Stop is called with a fadeTime of 2 seconds it will take\ntwo seconds for the weight of the <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a> to reach zero and\nits effects completely end. Please note this will be the case regardless\nof the initial weight of the animation.</p>\n<p>It is not recommended to use a fadeTime of 0 seconds to try to override\nthis effect and end the animation immediately as presently, this causes\nthe <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a> poses to freeze.</p>\n",
+				"Summary": "<p>Stops the <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a>.</p>\n",
+				"Description": "<p>Stops the <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a>. Once called, the weight of the animation\nwill move towards zero over a length of time specified by the optional\n<code>fadeTime</code> parameter. For example, if <code>Stop()</code> is called with a <code>fadeTime</code>\nof <code>2</code>, it will take two seconds for the weight of the track to reach zero\nand its effects completely end. Please note this will be the case\nregardless of the initial weight of the animation.</p>\n<p>It is not recommended to use a <code>fadeTime</code> of <code>0</code> in an attempt to override\nthis effect and end the animation immediately for <a href=\"/ref/class/Motor6D.html\">Motor6Ds</a>\nthat have their <a href=\"/ref/class/Motor.html#member-MaxVelocity\">Motor.MaxVelocity</a> set to zero, as this causes the\njoints to freeze in place. If it must end immediately, ensure the\n<a href=\"/ref/class/Motor.html#member-MaxVelocity\">Motor.MaxVelocity</a> of <a href=\"/ref/class/Motor6D.html\">Motor6Ds</a> in your rig are high\nenough for them to snap properly.</p>\n",
 				"CodeSamples": [
 					"AnimationTrack-Stop"
 				]
@@ -3308,7 +3308,9 @@
 				]
 			}
 		},
-		"Annotation": {},
+		"Annotation": {
+			"IsThreadParent": {}
+		},
 		"ArcHandles": {
 			"Axes": {
 				"Summary": "<p>Sets the current Axes ArcHandles will show.</p>\n",
@@ -3582,11 +3584,15 @@
 		},
 		"AudioChannelMixer": {
 			"GetConnectedWires": {},
+			"GetInputPins": {},
+			"GetOutputPins": {},
 			"Layout": {},
 			"WiringChanged": {}
 		},
 		"AudioChannelSplitter": {
 			"GetConnectedWires": {},
+			"GetInputPins": {},
+			"GetOutputPins": {},
 			"Layout": {},
 			"WiringChanged": {}
 		},
@@ -4203,6 +4209,7 @@
 				"Description": "<p>Searches for audio with this title. Needs to be an exact match.</p>\n"
 			}
 		},
+		"AudioTextToSpeech": {},
 		"AvatarCreationService": {
 			"GenerateAvatar2DPreviewAsync": {},
 			"GetBatchTokenDetailsAsync": {
@@ -5783,6 +5790,7 @@
 			},
 			"ResolutionScale": {}
 		},
+		"Capture": {},
 		"CaptureService": {
 			"CaptureBegan": {
 				"Summary": "<p>Fires immediately before a capture begins.</p>\n",
@@ -5807,6 +5815,7 @@
 				"Summary": "<p>Prompts the user to share a specified screenshot capture.</p>\n",
 				"Description": "<p>This method prompts the user to share the screenshot identified by the\nprovided <code>contentId</code> using the native share sheet on their device.</p>\n<p>The capture image is shared along with an invite link to the experience\nwhen supported. Not all devices support including both a screenshot and\ninvite link.</p>\n<p>The <code>launchData</code> will be available in the <code>launchData</code> field for users who\njoin through the invite link.</p>\n<p>To avoid an error when calling this method, first call\n<a href=\"/ref/class/PolicyService.html#member-GetPolicyInfoForPlayerAsync\">PolicyService:GetPolicyInfoForPlayerAsync()</a> and check that\n<code>IsContentSharingAllowed</code> is true in the returned dictionary.</p>\n"
 			},
+			"TakeCapture": {},
 			"UserCaptureSaved": {
 				"Summary": "<p>Fires when the user saves a capture.</p>\n",
 				"Description": "<p>This event fires when the user saves a screenshot using the Roblox\nscreenshot capture UI. It can be used for analytics or to prompt the user\nto share their capture.</p>\n"
@@ -6949,6 +6958,7 @@
 				"Summary": "<p>Fires on the client when the game finishes loading for the first time.</p>\n",
 				"Description": "<p>This event fires on the client when the game finishes loading for the\nfirst time.</p>\n<p>The Loaded event fires when all initial <a href=\"/ref/class/Instance.html\">Instances</a> in the\ngame have finished replicating to the client.</p>\n<p>Unless they are parented to <a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a>,\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> will not run prior to this event firing.\nThe following snippet, ran from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> in\n<a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a>, will yield until the game has loaded:</p>\n<pre><code>if not game:IsLoaded() then\n    game.Loaded:Wait()\nend\n</code></pre>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/DataModel.html#member-IsLoaded\">DataModel:IsLoaded()</a>, a function that returns if the game is\nloaded or not</li>\n<li><a href=\"/ref/class/Instance.html#member-WaitForChild\">Instance:WaitForChild()</a>, a function which can be used to wait\nfor an individual <a href=\"/ref/class/Instance.html\">Instance</a> to replicate without having to wait\nfor the whole game to load.</li>\n</ul>\n"
 			},
+			"MatchmakingType": {},
 			"OnClose": {
 				"Summary": "<p>Invoked before the game is shut down. When this callback returns, or the\ntimeout period is hit, the game finishes shutting down.</p>\n",
 				"Description": "<p>Invoked before the game is shut down. When this callback returns, or the\ntimeout period is hit, the game finishes shutting down.</p>\n",
@@ -8521,6 +8531,7 @@
 		},
 		"GenerationService": {
 			"GenerateMeshAsync": {},
+			"InternalGenerateMeshAsync": {},
 			"LoadGeneratedMeshAsync": {}
 		},
 		"GenericChallengeService": {},
@@ -9792,7 +9803,7 @@
 			},
 			"Move": {
 				"Summary": "<p>Causes the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> to walk in the given direction.</p>\n",
-				"Description": "<p>This method causes the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> to walk in the given\n<a href=\"/ref/type/Vector3.html\">Vector3</a> direction.</p>\n<p>By default, the direction is in world terms, but if the <code>relativeToCamera</code>\nparameter is <code>true</code>, the direction is relative to the <a href=\"/ref/type/CFrame.html\">CFrame</a> of\nthe <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">CurrentCamera</a>. As the negative <strong>Z</strong>\ndirection is considered &#34;forwards&#34; in Roblox, the following code will make\nthe humanoid walk in the direction of the\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">CurrentCamera</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">humanoid</span><span class=\"_p\">:</span><span class=\"_n\">Move</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_o\">-</span><span class=\"_mi\">1</span><span class=\"_p\">),</span> <span class=\"_kc\">true</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>When this method is called, the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> will move until the\nmethod is called again. However, if the default control scripts are being\nused, this method will be overwritten when called on player\n<a href=\"/ref/class/Player.html#member-Character\">Characters</a>. This can be avoided by either not\nusing the default control scripts, or calling this function every frame\nusing <a href=\"/ref/class/RunService.html#member-BindToRenderStep\">RunService:BindToRenderStep()</a> (see example).</p>\n<p>This method can be called on the server, but this should only be done when\nthe server has <a href=\"https://create.roblox.com/docs/physics/network-ownership\">network ownership</a>\nof the humanoid&#39;s assembly.</p>\n<p>See also <a href=\"/ref/class/Humanoid.html#member-MoveTo\">Humanoid:MoveTo()</a> which makes a<a href=\"/ref/class/Humanoid.html\">Humanoid</a> walk to a\npoint, and <a href=\"/ref/class/Player.html#member-Move\">Player:Move()</a> which effectively calls this function.</p>\n",
+				"Description": "<p>This method causes the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> to walk in the given\n<a href=\"/ref/type/Vector3.html\">Vector3</a> direction.</p>\n<p>By default, the direction is in world terms, but if the <code>relativeToCamera</code>\nparameter is <code>true</code>, the direction is relative to the <a href=\"/ref/type/CFrame.html\">CFrame</a> of\nthe <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">CurrentCamera</a>. As the negative <strong>Z</strong>\ndirection is considered &#34;forwards&#34; in Roblox, the following code will make\nthe humanoid walk in the direction of the\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">CurrentCamera</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">humanoid</span><span class=\"_p\">:</span><span class=\"_n\">Move</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_o\">-</span><span class=\"_mi\">1</span><span class=\"_p\">),</span> <span class=\"_kc\">true</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>When this method is called, the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> will move until the\nmethod is called again. However, this method will be overwritten in the\nnext frame by Roblox&#39;s default character control script. This can be\navoided by either calling this function every frame using\n<a href=\"/ref/class/RunService.html#member-BindToRenderStep\">RunService:BindToRenderStep()</a> (see example), or overwriting the\ncontrol scripts in <a href=\"/ref/class/StarterPlayerScripts.html\">StarterPlayerScripts</a>.</p>\n<p>This method can be called on the server, but this should only be done when\nthe server has <a href=\"https://create.roblox.com/docs/physics/network-ownership\">network ownership</a>\nof the humanoid&#39;s assembly.</p>\n<p>See also <a href=\"/ref/class/Humanoid.html#member-MoveTo\">Humanoid:MoveTo()</a> which makes a<a href=\"/ref/class/Humanoid.html\">Humanoid</a> walk to a\npoint, and <a href=\"/ref/class/Player.html#member-Move\">Player:Move()</a> which effectively calls this function.</p>\n",
 				"CodeSamples": [
 					"moving-a-humanoid-forwards"
 				]
@@ -10211,6 +10222,122 @@
 				"Summary": "<p>Determines by what factor the width (left-to-right distance) of a\n<a href=\"/ref/class/Humanoid.html\">Humanoid</a> is scaled, as well as all accessories not attached to its\nhead.</p>\n",
 				"Description": "<p><strong>WidthScale</strong> determines by what factor the width (left-to-right\ndistance) of a <a href=\"/ref/class/Humanoid.html\">Humanoid</a> is scaled, as well as all accessories not\nattached to its head. When the description is applied through\n<a href=\"/ref/class/Humanoid.html#member-ApplyDescription\">Humanoid:ApplyDescription()</a>, this value maps to a\n<strong>BodyWidthScale</strong> <a href=\"/ref/class/NumberValue.html\">NumberValue</a> within the <a href=\"/ref/class/Humanoid.html\">Humanoid</a>.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/characters/appearance#humanoiddescription\">HumanoidDescription System</a>,\nfor more information on <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-BodyTypeScale\">BodyTypeScale</a> and\n<a href=\"/ref/class/HumanoidDescription.html#member-ProportionScale\">ProportionScale</a>, which can\nprovide more realistic rig proportions</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-HeightScale\">HeightScale</a> and\n<a href=\"/ref/class/HumanoidDescription.html#member-DepthScale\">DepthScale</a></li>\n</ul>\n"
 			}
+		},
+		"HumanoidRigDescription": {
+			"Automap": {},
+			"Chest": {},
+			"ChestRangeMax": {},
+			"ChestRangeMin": {},
+			"ChestSize": {},
+			"ChestTposeAdjustment": {},
+			"GetJointNames": {},
+			"GetR15JointNames": {},
+			"GetR6JointNames": {},
+			"Head": {},
+			"HeadRangeMax": {},
+			"HeadRangeMin": {},
+			"HeadSize": {},
+			"HeadTposeAdjustment": {},
+			"LeftAnkle": {},
+			"LeftAnkleRangeMax": {},
+			"LeftAnkleRangeMin": {},
+			"LeftAnkleSize": {},
+			"LeftAnkleTposeAdjustment": {},
+			"LeftClavicle": {},
+			"LeftClavicleRangeMax": {},
+			"LeftClavicleRangeMin": {},
+			"LeftClavicleSize": {},
+			"LeftClavicleTposeAdjustment": {},
+			"LeftElbow": {},
+			"LeftElbowRangeMax": {},
+			"LeftElbowRangeMin": {},
+			"LeftElbowSize": {},
+			"LeftElbowTposeAdjustment": {},
+			"LeftHip": {},
+			"LeftHipRangeMax": {},
+			"LeftHipRangeMin": {},
+			"LeftHipSize": {},
+			"LeftHipTposeAdjustment": {},
+			"LeftKnee": {},
+			"LeftKneeRangeMax": {},
+			"LeftKneeRangeMin": {},
+			"LeftKneeSize": {},
+			"LeftKneeTposeAdjustment": {},
+			"LeftShoulder": {},
+			"LeftShoulderRangeMax": {},
+			"LeftShoulderRangeMin": {},
+			"LeftShoulderSize": {},
+			"LeftShoulderTposeAdjustment": {},
+			"LeftToes": {},
+			"LeftToesRangeMax": {},
+			"LeftToesRangeMin": {},
+			"LeftToesSize": {},
+			"LeftToesTposeAdjustment": {},
+			"LeftWrist": {},
+			"LeftWristRangeMax": {},
+			"LeftWristRangeMin": {},
+			"LeftWristSize": {},
+			"LeftWristTposeAdjustment": {},
+			"Neck": {},
+			"NeckRangeMax": {},
+			"NeckRangeMin": {},
+			"NeckSize": {},
+			"NeckTposeAdjustment": {},
+			"Pelvis": {},
+			"PelvisRangeMax": {},
+			"PelvisRangeMin": {},
+			"PelvisSize": {},
+			"PelvisTposeAdjustment": {},
+			"RightAnkle": {},
+			"RightAnkleRangeMax": {},
+			"RightAnkleRangeMin": {},
+			"RightAnkleSize": {},
+			"RightAnkleTposeAdjustment": {},
+			"RightClavicle": {},
+			"RightClavicleRangeMax": {},
+			"RightClavicleRangeMin": {},
+			"RightClavicleSize": {},
+			"RightClavicleTposeAdjustment": {},
+			"RightElbow": {},
+			"RightElbowRangeMax": {},
+			"RightElbowRangeMin": {},
+			"RightElbowSize": {},
+			"RightElbowTposeAdjustment": {},
+			"RightHip": {},
+			"RightHipRangeMax": {},
+			"RightHipRangeMin": {},
+			"RightHipSize": {},
+			"RightHipTposeAdjustment": {},
+			"RightKnee": {},
+			"RightKneeRangeMax": {},
+			"RightKneeRangeMin": {},
+			"RightKneeSize": {},
+			"RightKneeTposeAdjustment": {},
+			"RightShoulder": {},
+			"RightShoulderRangeMax": {},
+			"RightShoulderRangeMin": {},
+			"RightShoulderSize": {},
+			"RightShoulderTposeAdjustment": {},
+			"RightToes": {},
+			"RightToesRangeMax": {},
+			"RightToesRangeMin": {},
+			"RightToesSize": {},
+			"RightToesTposeAdjustment": {},
+			"RightWrist": {},
+			"RightWristRangeMax": {},
+			"RightWristRangeMin": {},
+			"RightWristSize": {},
+			"RightWristTposeAdjustment": {},
+			"Root": {},
+			"RootRangeMax": {},
+			"RootRangeMin": {},
+			"RootSize": {},
+			"RootTposeAdjustment": {},
+			"Waist": {},
+			"WaistRangeMax": {},
+			"WaistRangeMin": {},
+			"WaistSize": {},
+			"WaistTposeAdjustment": {}
 		},
 		"IKControl": {
 			"ChainRoot": {
@@ -11478,7 +11605,7 @@
 			},
 			"GetProductInfo": {
 				"Summary": "<p>Returns the product information of an asset using its asset ID.</p>\n",
-				"Description": "<p>This method provides information about an asset,\n<a href=\"https://create.roblox.com/docs/production/monetization/developer-products\">developer product</a>,\nor <a href=\"https://create.roblox.com/docs/production/monetization/game-passes\">pass</a> based on the\nasset ID and the <a href=\"/ref/enum/InfoType.html\">InfoType</a>. If an item with the given ID does not\nexist, this method throws an error.</p>\n<p>Information about the queried item is provided in a dictionary with the\nfollowing keys. Note that not all information is provided or necessarily\nrelevant for the kind of product you&#39;re querying.</p>\n<table size=\"small\">\n\t<thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>Name</code></td>\n\t  <td>string</td>\n\t  <td>The name shown on the asset&#39;s page.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Description</code></td>\n\t  <td>string</td>\n\t  <td>The description shown on the asset&#39;s page; can be <code>nil</code> if blank.</td>\n  </tr>\n\t<tr>\n\t  <td><code>PriceInRobux</code></td>\n\t  <td>number</td>\n\t  <td>The cost of purchasing the asset using Robux.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Created</code></td>\n\t  <td>string</td>\n\t  <td>Timestamp of when the asset was created, for example <code>2022-01-02T10:30:45Z</code>. Formatted using ISO 8601.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Updated</code></td>\n\t  <td>string</td>\n\t  <td>Timestamp of when the asset was last updated by its creator, for example <code>2022-02-12T11:22:15Z</code>. Formatted using ISO 8601.</td>\n  </tr>\n\t<tr>\n\t  <td><code>ContentRatingTypeId</code></td>\n\t  <td>number</td>\n\t  <td>Indicates whether the item is marked as 13+ in catalog.</td>\n  </tr>\n\t<tr>\n\t  <td><code>MinimumMembershipLevel</code></td>\n\t  <td>number</td>\n\t  <td>The minimum subscription level necessary to purchase the item.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsPublicDomain</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset can be taken for free.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>Creator Information</h4>\n<table size=\"small\">\n  <thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>Creator</code></td>\n\t  <td>table</td>\n\t  <td>Dictionary table of information describing the creator of the asset (see following lines).</td>\n  </tr>\n\t<tr>\n\t  <td><code>Creator.CreatorType</code></td>\n\t  <td>string</td>\n\t  <td>Either <code>User</code> or <code>Group</code>.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Creator.CreatorTargetId</code></td>\n\t  <td>number</td>\n\t  <td>The ID of the creator user or group.</td>\n  </tr>\n  <tr>\n\t  <td><code>Creator.HasVerifiedBadge</code></td>\n\t  <td>boolean</td>\n\t  <td>Whether the creator has a verified badge.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Creator.Name</code></td>\n\t  <td>string</td>\n\t  <td>The name/username of the creator.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Creator.Id</code></td>\n\t  <td>number</td>\n\t  <td>Use <b>Creator.CreatorTargetId</b> instead.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>Asset Information</h4>\n<table size=\"small\">\n  <thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>AssetId</code></td>\n\t  <td>number</td>\n\t  <td>The asset ID if <a href=\"/ref/enum/InfoType.html\">InfoType</a> is <b>Asset</b>.</td>\n  </tr>\n\t<tr>\n\t  <td><code>AssetTypeId</code></td>\n\t  <td>number</td>\n\t  <td>The type of asset. See <a href=\"/ref/enum/AssetType.html\">AssetType</a> for the asset type ID numbers.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsForSale</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is purchasable.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsLimited</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is a Roblox Limited that is no longer (if ever) sold.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsLimitedUnique</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is a unique Roblox Limited (&#34;Limited U&#34;) item that only has a fixed number sold.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsNew</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is marked as &#34;new&#34; in the catalog.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Remaining</code></td>\n\t  <td>number</td>\n\t  <td>The remaining number of items a limited unique item may be sold.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Sales</code></td>\n\t  <td>number</td>\n\t  <td>The number of items the asset has been sold.</td>\n  </tr>\n  <tr>\n\t  <td><code>SaleAvailabilityLocations</code></td>\n\t  <td>table</td>\n\t  <td>The item&#39;s <a href=\"/ref/enum/ProductLocationRestriction.html\">ProductLocationRestriction</a> or sale location setting.</td>\n  </tr>\n  <tr>\n\t  <td><code>CanBeSoldInThisGame</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is purchasable in the current experience.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>Developer Products and Passes</h4>\n<table size=\"small\">\n  <thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>ProductId</code></td>\n\t  <td>number</td>\n\t  <td>The product ID if <a href=\"/ref/enum/InfoType.html\">InfoType</a> is <b>Product</b>.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IconImageAssetId</code></td>\n\t  <td>number</td>\n\t  <td>The asset ID of the product/pass icon, or <code>0</code> if there isn&#39;t one.</td>\n  </tr>\n</tbody></table>\n",
+				"Description": "<p>This method provides information about an asset,\n<a href=\"https://create.roblox.com/docs/production/monetization/developer-products\">developer product</a>,\nor <a href=\"https://create.roblox.com/docs/production/monetization/game-passes\">pass</a> based on the\nasset ID and the <a href=\"/ref/enum/InfoType.html\">InfoType</a>. If an item with the given ID does not\nexist, this method throws an error.</p>\n<p>Information about the queried item is provided in a dictionary with the\nfollowing keys. Note that not all information is provided or necessarily\nrelevant for the kind of product you&#39;re querying.</p>\n<table size=\"small\">\n\t<thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>Name</code></td>\n\t  <td>string</td>\n\t  <td>The name shown on the asset&#39;s page.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Description</code></td>\n\t  <td>string</td>\n\t  <td>The description shown on the asset&#39;s page; can be <code>nil</code> if blank.</td>\n  </tr>\n\t<tr>\n\t  <td><code>PriceInRobux</code></td>\n\t  <td>number</td>\n\t  <td>The cost of purchasing the asset using Robux.</td>\n  </tr>\n  <tr>\n\t  <td><code>ProductId</code></td>\n\t  <td>number</td>\n\t  <td>The product ID if <a href=\"/ref/enum/InfoType.html\">InfoType</a> is <code>Product</code>.</td>\n  </tr>\n  <tr>\n\t  <td><code>ProductType</code></td>\n\t  <td>string</td>\n\t  <td>A string describing what the product is. Not to be confused with <a href=\"/ref/enum/MarketplaceProductType.html\">MarketplaceProductType</a>.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Created</code></td>\n\t  <td>string</td>\n\t  <td>Timestamp of when the asset was created, for example <code>2022-01-02T10:30:45Z</code>. Formatted using ISO 8601.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Updated</code></td>\n\t  <td>string</td>\n\t  <td>Timestamp of when the asset was last updated by its creator, for example <code>2022-02-12T11:22:15Z</code>. Formatted using ISO 8601.</td>\n  </tr>\n\t<tr>\n\t  <td><code>ContentRatingTypeId</code></td>\n\t  <td>number</td>\n\t  <td>Indicates whether the item is marked as 13+ in catalog.</td>\n  </tr>\n\t<tr>\n\t  <td><code>MinimumMembershipLevel</code></td>\n\t  <td>number</td>\n\t  <td>The minimum subscription level necessary to purchase the item.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsPublicDomain</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset can be taken for free.</td>\n  </tr>\n  <tr>\n\t  <td><code>TargetId</code></td>\n\t  <td>number</td>\n\t  <td>The ID of the product or asset.</td>\n  </tr>\n  </tbody>\n</table>\n<h5>Creator Information</h5>\n<table size=\"small\">\n  <thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>Creator</code></td>\n\t  <td>table</td>\n\t  <td>Dictionary table of information describing the creator of the asset, containing the following fields:</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>CreatorType</code>: Either <code>User</code> or <code>Group</code>.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>CreatorTargetId</code>: The ID of the creator user or group.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>HasVerifiedBadge</code>: Boolean of whether the creator has a verified badge.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>Name</code>: The name/username of the creator.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>Id</code>: Use <code>CreatorTargetId</code> instead.</td>\n  </tr>\n  </tbody>\n</table>\n<h5>Asset Information</h5>\n<table size=\"small\">\n  <thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>AssetId</code></td>\n\t  <td>number</td>\n\t  <td>The asset ID if <a href=\"/ref/enum/InfoType.html\">InfoType</a> is <code>Asset</code>.</td>\n  </tr>\n\t<tr>\n\t  <td><code>AssetTypeId</code></td>\n\t  <td>number</td>\n\t  <td>The type of asset. See <a href=\"/ref/enum/AssetType.html\">AssetType</a> for the asset type ID numbers.</td>\n  </tr>\n  <tr>\n\t  <td><code>IconImageAssetId</code></td>\n\t  <td>number</td>\n\t  <td>The asset ID of the product&#39;s icon, or <code>0</code> if there isn&#39;t one.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsForSale</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is purchasable.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsLimited</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is a Roblox Limited that is no longer (if ever) sold.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsLimitedUnique</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is a unique Roblox Limited (&#34;Limited U&#34;) item that only has a fixed number sold.</td>\n  </tr>\n\t<tr>\n\t  <td><code>IsNew</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is marked as &#34;new&#34; in the catalog.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Remaining</code></td>\n\t  <td>number</td>\n\t  <td>The remaining number of times a limited unique item may be sold.</td>\n  </tr>\n\t<tr>\n\t  <td><code>Sales</code></td>\n\t  <td>number</td>\n\t  <td>The number of times the asset has been sold.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>Collectibles Information</h4>\n<table size=\"small\">\n  <thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n  <tr>\n\t  <td><code>CollectibleItemId</code></td>\n\t  <td>string</td>\n\t  <td>The unique item ID of the collectible.</td>\n  </tr>\n\t<tr>\n\t  <td><code>CollectibleProductId</code></td>\n\t  <td>string</td>\n\t  <td>The unique product ID of the collectible.</td>\n  </tr>\n  <tr>\n\t  <td><code>CollectiblesItemDetails</code></td>\n\t  <td>table</td>\n\t  <td>Dictionary table of information describing the collectible, containing the following fields:</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>CollectibleLowestAvailableResaleItemInstanceId</code>: The unique item instance ID of the lowest available resale for the collectible.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>CollectibleLowestAvailableResaleProductId</code>: The unique product ID of the lowest available resale for the collectible.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>CollectibleLowestResalePrice</code>: The lowest resale price for the collectible in Robux.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>IsForSale</code>: Boolean of whether the collectible is available for sale (not resale).</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>IsLimited</code>: Boolean of whether or not the collectible is limited.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n    <td><code>TotalQuantity</code>: The total quantity of the collectible available for purchase (not resale).</td>\n  </tr>\n  </tbody>\n</table>\n<h5>Sale Location Settings</h5>\n<table size=\"small\">\n  <thead>\n\t  <tr>\n\t    <th>Key</th>\n\t    <th>Type</th>\n\t    <th>Description</th>\n\t  </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n\t  <td><code>CanBeSoldInThisGame</code></td>\n\t  <td>boolean</td>\n\t  <td>Describes whether the asset is purchasable in the current experience.</td>\n  </tr>\n  <tr>\n\t  <td><code>SaleLocation</code></td>\n\t  <td>table</td>\n\t  <td>Dictionary table of information describing where the item can be sold, containing the following fields:</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n\t  <td><code>SaleLocationType</code>: The type of sale location setting. See <a href=\"/ref/enum/ProductLocationRestriction.html\">ProductLocationRestriction</a> for the sale location setting ID numbers.</td>\n  </tr>\n  <tr>\n\t  <td colspan=\"2\"></td>\n\t  <td><code>UniverseIds</code>: Array table of universes in which the item can be sold (not currently implemented).</td>\n  </tr>\n  </tbody>\n</table>\n",
 				"CodeSamples": [
 					"MarketplaceService-GetProductInfo1"
 				]
@@ -13121,6 +13248,7 @@
 				]
 			},
 			"AddReplicationFocus": {},
+			"AddReplicationFocusPosition": {},
 			"AutoJumpEnabled": {
 				"Summary": "<p>Determines whether the character of a player using a mobile device will\nautomatically jump upon hitting an obstacle.</p>\n",
 				"Description": "<p>The AutoJumpEnabled property determines whether the\n<a href=\"/ref/class/Player.html#member-Character\">Player.Character</a> of a <a href=\"/ref/class/Player.html\">Player</a> using a mobile device will\nautomatically jump when they hit an obstacle. This can make levels more\nnavigable while on a mobile device.</p>\n<p>When the player joins the game, the <a href=\"/ref/class/StarterPlayer.html#member-AutoJumpEnabled\">StarterPlayer.AutoJumpEnabled</a>\nvalue determines the initial state of this property. Then, this property\ndetermines the value of the <a href=\"/ref/class/Humanoid.html#member-AutoJumpEnabled\">Humanoid.AutoJumpEnabled</a> property of\nthe <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a> on spawn. In other words, it is possible to\nset the auto-jump behavior on a per-character, per-player and per-game\nbasis using these three properties.</p>\n",
@@ -13473,6 +13601,7 @@
 				]
 			},
 			"RemoveReplicationFocus": {},
+			"RemoveReplicationFocusPosition": {},
 			"ReplicationFocus": {
 				"Summary": "<p>Sets the part to focus replication around.</p>\n",
 				"Description": "<p>The ReplicationFocus <a href=\"/ref/class/Player.html\">Player</a> property sets the part to focus\nreplication around a Player. Different Roblox systems that communicate\nover the network (such as physics, streaming, etc) replicate at different\nrates depending on how close objects are to the replication focus.</p>\n<p>When this property is nil, it reverts to its default behavior which is to\ntreat the local player&#39;s character&#39;s <a href=\"/ref/class/Model.html#member-PrimaryPart\">PrimaryPart</a>\nas the replication focus.</p>\n<p>This property should only be set on the server with a <a href=\"/ref/class/Script.html\">Script</a>, not\na <a href=\"/ref/class/LocalScript.html\">LocalScript</a>. Note that this property does not change or update\nnetwork ownership of parts.</p>\n",
@@ -13598,43 +13727,6 @@
 			"waitForDataReady": {
 				"DeprecationMessage": "<p>This function is a deprecated variant of <a href=\"/ref/class/Player.html#member-WaitForDataReady\">Player:WaitForDataReady()</a>\nwhich has also been deprecated. Neither function should be used in new\nwork.</p>\n"
 			}
-		},
-		"PlayerData": {
-			"GetPlayer": {},
-			"GetRecord": {}
-		},
-		"PlayerDataRecord": {
-			"Changed": {},
-			"CreatedTime": {},
-			"DefaultRecordName": {},
-			"Dirty": {},
-			"Error": {},
-			"Flushed": {},
-			"FlushedTime": {},
-			"GetPlayer": {},
-			"GetValue": {},
-			"GetValueChangedSignal": {},
-			"Loaded": {},
-			"LoadedTime": {},
-			"ModifiedTime": {},
-			"NewRecord": {},
-			"Readable": {},
-			"RecordName": {},
-			"Release": {},
-			"RemoveValue": {},
-			"RequestFlushAsync": {},
-			"SetValue": {},
-			"WaitForLoadAsync": {},
-			"Writable": {}
-		},
-		"PlayerDataRecordConfig": {
-			"GetDefaultValue": {},
-			"RecordName": {},
-			"SetDefaultValue": {}
-		},
-		"PlayerDataService": {
-			"GetRecordConfig": {},
-			"LoadFailureBehavior": {}
 		},
 		"PlayerGui": {
 			"CurrentScreenOrientation": {
@@ -14036,6 +14128,7 @@
 				"Summary": "<p>Negates the given parts and returns the resulting NegateOperations.</p>\n",
 				"Description": "<p>Negates the given parts and returns the resulting NegateOperations.</p>\n"
 			},
+			"OnInvokeSuspendOverride": {},
 			"OpenScript": {
 				"Summary": "<p>Used to open the given script instance in an editor window, in Roblox\nstudio, at the given line. If no line is given as an argument it will\ndefault to 1.</p>\n",
 				"Description": "<p>Used to open the given script instance in an editor window, in Roblox\nstudio, at the given line. If no line is given as an argument it will\ndefault to 1.</p>\n",
@@ -14996,15 +15089,15 @@
 			},
 			"PreRender": {
 				"Summary": "<p>Fires every frame, prior to the frame being rendered.</p>\n",
-				"Description": "<p>The <code>PreRender</code> event (equivalent to\n<a href=\"/ref/class/RunService.html#member-RenderStepped\">RenderStepped</a>) fires every frame, prior\nto the frame being rendered. The <code>deltaTimeRender</code> argument indicates the\ntime that has elapsed since the previous frame.</p>\n<p>This event allows you to run code and update the world before it&#39;s drawn\non a player&#39;s screen. This is useful for last‑minute adjustments such as\nchanging object positions, updating animations, or preparing visual\neffects, but it should be used sparingly as the engine cannot start to\nrender the frame until code running in this event has finished executing.</p>\n<p>As <code>PreRender</code> is client-side, it can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, in a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> required by a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, or in a <a href=\"/ref/class/Script.html\">Script</a> with\n<a href=\"/ref/class/BaseScript.html#member-RunContext\">RunContext</a> set to <a href=\"/ref/enum/RunContext.html\">RunContext.Client</a>.</p>\n<p>Following the <code>PreRender</code> phase, the simulation phase begins with the\n<a href=\"/ref/class/RunService.html#member-PreAnimation\">PreAnimation</a> event.</p>\n"
+				"Description": "<p>The <code>PreRender</code> event (replacement for\n<a href=\"/ref/class/RunService.html#member-RenderStepped\">RenderStepped</a>) fires every frame, prior\nto the frame being rendered. The <code>deltaTimeRender</code> argument indicates the\ntime that has elapsed since the previous frame.</p>\n<p>This event allows you to run code and update the world before it&#39;s drawn\non a player&#39;s screen. This is useful for last‑minute adjustments such as\nchanging object positions, updating animations, or preparing visual\neffects, but it should be used sparingly as the engine cannot start to\nrender the frame until code running in this event has finished executing.</p>\n<p>As <code>PreRender</code> is client-side, it can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, in a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> required by a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, or in a <a href=\"/ref/class/Script.html\">Script</a> with\n<a href=\"/ref/class/BaseScript.html#member-RunContext\">RunContext</a> set to <a href=\"/ref/enum/RunContext.html\">RunContext.Client</a>.</p>\n<p>Following the <code>PreRender</code> phase, the simulation phase begins with the\n<a href=\"/ref/class/RunService.html#member-PreAnimation\">PreAnimation</a> event.</p>\n"
 			},
 			"PreSimulation": {
 				"Summary": "<p>Fires every frame, prior to the physics simulation.</p>\n",
-				"Description": "<p>The <code>PreSimulation</code> event (equivalent to\n<a href=\"/ref/class/RunService.html#member-Stepped\">Stepped</a>) fires every frame, prior to the\nphysics simulation. The <code>deltaTimeSim</code> argument indicates the time that\nhas elapsed since the previous frame.</p>\n<p>This event is useful for adjusting properties like velocity or forces just\nbefore they&#39;re applied as part of the simulation. The simulation then\nruns, potentially multiple times, as the physics solver runs at a higher\nfrequency than other engine systems. Once this is complete, the\n<a href=\"/ref/class/RunService.html#member-PostSimulation\">PostSimulation</a> event is fired.</p>\n"
+				"Description": "<p>The <code>PreSimulation</code> event (replacement for\n<a href=\"/ref/class/RunService.html#member-Stepped\">Stepped</a>) fires every frame, prior to the\nphysics simulation. The <code>deltaTimeSim</code> argument indicates the time that\nhas elapsed since the previous frame.</p>\n<p>This event is useful for adjusting properties like velocity or forces just\nbefore they&#39;re applied as part of the simulation. The simulation then\nruns, potentially multiple times, as the physics solver runs at a higher\nfrequency than other engine systems. Once this is complete, the\n<a href=\"/ref/class/RunService.html#member-PostSimulation\">PostSimulation</a> event is fired.</p>\n"
 			},
 			"RenderStepped": {
 				"Summary": "<p>Fires every frame, prior to the frame being rendered.</p>\n",
-				"Description": "<p>The <code>RenderStepped</code> event (equivalent to\n<a href=\"/ref/class/RunService.html#member-PreRender\">PreRender</a>) fires every frame, prior to the\nframe being rendered. The <code>deltaTime</code> argument indicates the time that has\nelapsed since the previous frame.</p>\n<p>This event allows you to run code and update the world before it&#39;s drawn\non a player&#39;s screen. This is useful for last‑minute adjustments such as\nchanging object positions, updating animations, or preparing visual\neffects, but it should be used sparingly as the engine cannot start to\nrender the frame until code running in this event has finished executing.</p>\n<p>As <code>RenderStepped</code> is client-side, it can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, in a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> required by a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, or in a <a href=\"/ref/class/Script.html\">Script</a> with\n<a href=\"/ref/class/BaseScript.html#member-RunContext\">RunContext</a> set to <a href=\"/ref/enum/RunContext.html\">RunContext.Client</a>.</p>\n<p>Following the <code>RenderStepped</code> phase, the simulation phase begins with the\n<a href=\"/ref/class/RunService.html#member-PreAnimation\">PreAnimation</a> event.</p>\n"
+				"DeprecationMessage": "<p>This event has been superseded by <a href=\"/ref/class/RunService.html#member-PreRender\">PreRender</a> which should be used for new work.</p>\n"
 			},
 			"Reset": {
 				"Summary": "<p>Resets the current game to a waypoint set when <a href=\"/ref/class/RunService.html#member-Run\">RunService:Run()</a>\nwas called.</p>\n",
@@ -15018,7 +15111,7 @@
 			"RunState": {},
 			"Stepped": {
 				"Summary": "<p>Fires every frame, prior to the physics simulation.</p>\n",
-				"Description": "<p>The <code>Stepped</code> event (equivalent to\n<a href=\"/ref/class/RunService.html#member-PreSimulation\">PreSimulation</a>) fires every frame, prior\nto the physics simulation. The <code>deltaTime</code> argument indicates the time\nthat has elapsed since the previous frame.</p>\n<p>This event is useful for adjusting properties like velocity or forces just\nbefore they&#39;re applied as part of the simulation. The simulation then\nruns, potentially multiple times, as the physics solver runs at a higher\nfrequency than other engine systems. Once this is complete, the\n<a href=\"/ref/class/RunService.html#member-PostSimulation\">PostSimulation</a> event is fired.</p>\n"
+				"DeprecationMessage": "<p>This event has been superseded by <a href=\"/ref/class/RunService.html#member-PreSimulation\">PreSimulation</a> which should be used for new work.</p>\n"
 			},
 			"Stop": {
 				"Summary": "<p>Stops the experience&#39;s simulation if it is running.</p>\n",
@@ -15054,6 +15147,7 @@
 				"Description": "<p>This property controls the safe area insets that are applied to the\ncontents of the <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a>.</p>\n<p>The default of <a href=\"/ref/enum/ScreenInsets.html\">CoreUISafeInsets</a> keeps all descendant\n<a href=\"/ref/class/GuiObject.html\">GuiObjects</a> inside the core UI safe area, clear of the\nRoblox top bar buttons and other screen cutouts like the device&#39;s camera\nnotch.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/enums/ScreenInsets/CoreUISafeInsets.png\" width=\"840\" alt=\"Mobile device showing UI buttons inside core UI safe area\"/>\n<p>If you set this property to <a href=\"/ref/enum/ScreenInsets.html\">None</a>, UI objects may be\nobscured behind core UI objects or device cutouts like the camera notch.\nAs a result, you should only use <a href=\"/ref/enum/ScreenInsets.html\">None</a> for a\n<a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> that contains noninteractive content like background\nimages.</p>\n<p>See\n<a href=\"https://create.roblox.com/docs/ui/on-screen-containers#screen-insets\">On-Screen UI Containers</a>\nfor alternative examples.</p>\n"
 			}
 		},
+		"ScreenshotCapture": {},
 		"ScreenshotHud": {
 			"CameraButtonIcon": {
 				"Summary": "<p>Asset ID of the icon used for the camera button.</p>\n",
@@ -15541,6 +15635,7 @@
 		},
 		"ServiceVisibilityService": {
 			"HiddenServices": {},
+			"ServiceVisibilityChanged": {},
 			"VisibleServices": {}
 		},
 		"SharedTableRegistry": {
@@ -17782,6 +17877,7 @@
 					"textbox-selections"
 				]
 			},
+			"ShouldEmitReturnEvents": {},
 			"ShouldEmitUpAndDownArrowEvents": {},
 			"ShowNativeInput": {
 				"Summary": "<p>If set to true, input native to the platform is used instead of Roblox&#39;s\nbuilt-in keyboard.</p>\n",
@@ -18718,7 +18814,9 @@
 				"Description": "<p>Returns a tuple that allows smoothing a value towards a target, simulating\na critically damped spring. Supports <a href=\"/ref/type/Vector2.html\">Vector2</a>,\n<a href=\"/ref/type/Vector3.html\">Vector3</a>, <a href=\"/ref/type/CFrame.html\">CFrame</a>, and number.</p>\n"
 			}
 		},
-		"UGCValidationService": {},
+		"UGCValidationService": {
+			"DoesMeshHaveSkinningData": {}
+		},
 		"UIAspectRatioConstraint": {
 			"AspectRatio": {
 				"Summary": "<p>Determines the width-to-height ratio to maintain.</p>\n",
@@ -20098,7 +20196,9 @@
 				"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> representing the direction of the light source from\nposition <typography nowrap=\"\"><code>(0, 0, 0)</code></typography>. Defaults to\n<typography nowrap=\"\"><a href=\"/ref/type/Vector3.html\">Vector3.new(-1, -1, -1)</a></typography>.</p>\n"
 			}
 		},
-		"VirtualInputManager": {},
+		"VirtualInputManager": {
+			"SendScroll": {}
+		},
 		"VirtualUser": {},
 		"VisibilityCheckDispatcher": {},
 		"Visit": {},
@@ -20279,6 +20379,7 @@
 				"Summary": "<p>Fires when persistent models have been sent to the specified player.</p>\n",
 				"Description": "<p>This event fires every time a player has been sent all current persistent\nmodels and part-less atomic models. The <code>player</code> parameter indicates which\nplayer has received all applicable instances.</p>\n<p>Note that experience loading happens before persistent loading, and firing\nof the <a href=\"/ref/class/DataModel.html#member-Loaded\">DataModel.Loaded</a> event does not indicate that all\npersistent models are present.</p>\n"
 			},
+			"PhysicsImprovedSleep": {},
 			"PhysicsSteppingMethod": {
 				"Summary": "<p>Sets how the solver will advance the physics simulation forward in time.</p>\n",
 				"Description": "<p>Sets how the solver will advance the physics simulation forward in time.\nThis option is not scriptable and must be set from the\n<strong>PhysicsSteppingMethod</strong> property of <strong>Workspace</strong> within Studio. See\n<a href=\"https://create.roblox.com/docs/physics/adaptive-timestepping\">Adaptive Timestepping</a> for\ndetails.</p>\n<table>\n    <thead>\n        <tr>\n            <th>Option</th>\n            <th>Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td><b>Adaptive</b></td>\n            <td>The engine attempts to assign optimal simulation rates for individual assemblies of either 240 Hz, 120 Hz, or 60 Hz. This setting is optimized for performance.</td>\n        </tr>\n        <tr>\n            <td><b>Fixed</b></td>\n            <td>All simulated assemblies inside the workspace will advance forward at 240 Hz. This option is best for optimal stability and simulation accuracy.</td>\n        </tr>\n        <tr>\n            <td><b>Default</b></td>\n            <td>The current default is <b>Fixed</b>.</td>\n        </tr>\n    </tbody>\n</table>\n<p>Note that when assemblies of different simulation rates become connected\nvia <a href=\"/ref/class/Constraint.html\">Constraints</a> or collisions, the combined mechanism\nwill default to the highest simulation rate for stability.</p>\n"
@@ -20692,6 +20793,7 @@
 			"Summary": "<p>Describes the camera behavior mode if using the default PlayerScripts.</p>\n",
 			"Description": "<p>The CameraType Enum is used in <a href=\"/ref/class/Camera.html#member-CameraType\">Camera.CameraType</a> to set the behavior\nof the Camera object.</p>\n<p>Attach, Watch, Track, and Follow all require a valid\n<a href=\"/ref/class/Camera.html#member-CameraSubject\">Camera.CameraSubject</a> to work properly.</p>\n"
 		},
+		"CaptureUIHideMode": {},
 		"CatalogCategoryFilter": {},
 		"CatalogSortAggregation": {},
 		"CatalogSortType": {},
@@ -21128,6 +21230,7 @@
 			"Description": "<p>Indicates if an avatar item is an asset or bundle. Used with\n<a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> and similar services.</p>\n"
 		},
 		"MarkupKind": {},
+		"MatchmakingType": {},
 		"Material": {
 			"Summary": "<p>Materials used for parts and/or terrain.</p>\n",
 			"Description": "<p>The following base materials are used for <a href=\"https://create.roblox.com/docs/parts\">parts</a>\nand/or <a href=\"https://create.roblox.com/docs/parts/terrain\">terrain</a>. See the\n<a href=\"https://create.roblox.com/docs/parts/materials\">Materials</a> guide for more details on using and\nmodifying materials.</p>\n"
@@ -21287,7 +21390,7 @@
 		},
 		"ProductLocationRestriction": {},
 		"ProductPurchaseChannel": {
-			"Summary": "<p>Enum which works with <a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> to represent how the <br/>\nuser acquired the developer product.</p>\n",
+			"Summary": "<p>Enum which works with <a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> to represent how the<br/>\nuser acquired the developer product.</p>\n",
 			"Description": "<p>The <code>ProductPurchaseChannel</code> enum works with <a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> and\nrepresents how the user acquired the developer product.</p>\n"
 		},
 		"ProductPurchaseDecision": {
@@ -22753,6 +22856,11 @@
 				"Summary": "<p>Camera is stationary but will rotate to keep the subject in the center of\nthe screen.</p>\n"
 			}
 		},
+		"CaptureUIHideMode": {
+			"All": {},
+			"Core": {},
+			"None": {}
+		},
 		"CatalogCategoryFilter": {
 			"Collectibles": {},
 			"CommunityCreations": {},
@@ -23044,6 +23152,8 @@
 			}
 		},
 		"ConnectionError": {
+			"AndroidAnticheatKick": {},
+			"AndroidEmulatorKick": {},
 			"DisconnectBadhash": {},
 			"DisconnectBlockedIP": {},
 			"DisconnectBySecurityPolicy": {},
@@ -25634,6 +25744,11 @@
 		"MarkupKind": {
 			"Markdown": {},
 			"PlainText": {}
+		},
+		"MatchmakingType": {
+			"Default": {},
+			"PlayStationOnly": {},
+			"XboxOnly": {}
 		},
 		"Material": {
 			"Air": {

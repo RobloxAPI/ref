@@ -4219,11 +4219,11 @@ the humanoid walk in the direction of the
 <a href=/ref/class/Workspace.html#member-CurrentCamera>CurrentCamera</a>.</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre tabindex=0 class=_chroma><span class=_lnt>1
 </span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_n>humanoid</span><span class=_p>:</span><span class=_n>Move</span><span class=_p>(</span><span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>,</span> <span class=_o>-</span><span class=_mi>1</span><span class=_p>),</span> <span class=_kc>true</span><span class=_p>)</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>When this method is called, the <a href=/ref/class/Humanoid.html>Humanoid</a> will move until the
-method is called again. However, if the default control scripts are being
-used, this method will be overwritten when called on player
-<a href=/ref/class/Player.html#member-Character>Characters</a>. This can be avoided by either not
-using the default control scripts, or calling this function every frame
-using <a href=/ref/class/RunService.html#member-BindToRenderStep>RunService:BindToRenderStep()</a> (see example).</p><p>This method can be called on the server, but this should only be done when
+method is called again. However, this method will be overwritten in the
+next frame by Roblox's default character control script. This can be
+avoided by either calling this function every frame using
+<a href=/ref/class/RunService.html#member-BindToRenderStep>RunService:BindToRenderStep()</a> (see example), or overwriting the
+control scripts in <a href=/ref/class/StarterPlayerScripts.html>StarterPlayerScripts</a>.</p><p>This method can be called on the server, but this should only be done when
 the server has <a href=https://create.roblox.com/docs/physics/network-ownership>network ownership</a>
 of the humanoid's assembly.</p><p>See also <a href=/ref/class/Humanoid.html#member-MoveTo>Humanoid:MoveTo()</a> which makes a<a href=/ref/class/Humanoid.html>Humanoid</a> walk to a
 point, and <a href=/ref/class/Player.html#member-Move>Player:Move()</a> which effectively calls this function.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-294 title="Changed on 2023-04-26T18:50:09-07:00
