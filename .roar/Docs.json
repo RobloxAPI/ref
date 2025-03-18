@@ -221,6 +221,7 @@
 			"Summary": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n",
 			"Description": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n"
 		},
+		"AudioTextToSpeech": {},
 		"AvatarCreationService": {
 			"Summary": "<p>A service to support developer avatar creators.</p>\n",
 			"Description": "<p><code>AvatarCreationService</code> is a service that supports developer avatar creators,\nproviding methods that support the prompting of avatar creation from within\nexperiences.</p>\n"
@@ -1301,6 +1302,7 @@
 			"Summary": "<p>The service responsible for in-experience transactions.</p>\n",
 			"Description": "<p><a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> is responsible for in-experience transactions. The\nmost notable methods are\n<a href=\"/ref/class/MarketplaceService.html#member-PromptProductPurchase\">PromptProductPurchase</a> and\n<a href=\"/ref/class/MarketplaceService.html#member-PromptPurchase\">PromptPurchase</a>, as well as the\ncallback <a href=\"/ref/class/MarketplaceService.html#member-ProcessReceipt\">ProcessReceipt</a> which must\nbe defined so that developer product transactions do not fail.</p>\n<p><a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> also has methods that fetch information about\n<a href=\"https://create.roblox.com/docs/production/monetization/developer-products\">developer products</a>\n(<a href=\"/ref/class/MarketplaceService.html#member-GetProductInfo\">GetProductInfo</a> and\n<a href=\"/ref/class/MarketplaceService.html#member-GetDeveloperProductsAsync\">GetDeveloperProductsAsync</a>),\n<a href=\"https://create.roblox.com/docs/production/monetization/game-passes\">passes</a>\n(<a href=\"/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync\">UserOwnsGamePassAsync</a>),\nand other assets\n(<a href=\"/ref/class/MarketplaceService.html#member-PlayerOwnsAsset\">PlayerOwnsAsset</a>,\n<a href=\"/ref/class/MarketplaceService.html#member-PlayerOwnsBundle\">PlayerOwnsBundle</a>).</p>\n<p>Understanding <a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> is the first step towards learning to\n<a href=\"https://create.roblox.com/docs/production/monetization\">monetize</a> an experience on Roblox,\nas well as learning to use <a href=\"/ref/class/DataStoreService.html\">DataStoreService</a>, which is responsible for\nsaving and loading all data related to purchases.</p>\n"
 		},
+		"MatchmakingService": {},
 		"MaterialService": {
 			"Summary": "<p>The game service responsible for managing materials.</p>\n",
 			"Description": "<p>MaterialService is the game service responsible for managing materials. It is\nthe container for global <a href=\"/ref/class/MaterialVariant.html\">MaterialVariant</a> instances.\n<a href=\"/ref/class/MaterialVariant.html\">MaterialVariant</a> can be child or descendant of MaterialService. For\neach base Material type, MaterialService internally keeps a set of\nMaterialVariant references. <a href=\"/ref/class/MaterialVariant.html#member-Name\">MaterialVariant.Name</a> is the key to access\nit. The <a href=\"/ref/class/MaterialVariant.html#member-Name\">MaterialVariant.Name</a> and <a href=\"/ref/class/MaterialVariant.html#member-BaseMaterial\">MaterialVariant.BaseMaterial</a>\nare combined to work as an identifier. If more than one MaterialVariant object\nhas the same name and BaseMaterial under MaterialService, only one of them can\nbe used.</p>\n<p>MaterialService has some (Material)Name properties. Assigning a\nMaterialVariant Name replaces the built-in material with the specified\nMaterialVariant. If the MaterialService can&#39;t find a matching MaterialVariant,\nit falls back to built-in material. Note BaseMaterial should also match, for\nexample, a MaterialVariant with BaseMaterial Grass can only be assigned to\nMaterialService.GrassName, not AsphaltName or any other names. These\nproperties are not scriptable but can read and write using\n<a href=\"/ref/class/MaterialService.html#member-GetBaseMaterialOverride\">MaterialService:GetBaseMaterialOverride()</a> and\n<a href=\"/ref/class/MaterialService.html#member-SetBaseMaterialOverride\">MaterialService:SetBaseMaterialOverride()</a> function.</p>\n<p>MaterialService has a <a href=\"/ref/class/MaterialService.html#member-Use2022Materials\">MaterialService.Use2022Materials</a> property that\nswitches between legacy materials and new materials introduced in year 2022.\nBecause legacy and user-generated (new) terrain materials use different\nencoding, using legacy terrain materials and MaterialVariant at the same time\nhas a performance penalty. If your game is using pre-2022 terrain materials,\navoid overriding any built-in materials. Migrate to 2022 materials if\npossible.</p>\n"
@@ -2302,7 +2304,7 @@
 		},
 		"TextChatCommand": {
 			"Summary": "<p>Represents a text chat command.</p>\n",
-			"Description": "<p>Represents a text chat command. Can be used to create custom text chat\ncommands when parented to <a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n<p>Custom commands can have up to two aliases, and the Triggered event fires when a user types\n&#34;/{PrimaryAlias}&#34; or &#34;/{SecondaryAlias}&#34; into the chat. For an example of custom commands,\nsee <a href=\"https://create.roblox.com/docs/chat/examples/custom-text-chat-commands\">Custom text chat commands</a>.</p>\n<p>To learn more about using <a href=\"/ref/class/TextChatService.html\">TextChatService</a>, see\n<a href=\"https://create.roblox.com/docs/chat/in-experience-text-chat\">In-experience text chat</a>.</p>\n"
+			"Description": "<p>Represents a text chat command. Can be used to create custom text chat\ncommands when parented to <a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n<p>Custom commands can have up to two aliases, and the Triggered event fires when\na user types &#34;/{PrimaryAlias}&#34; or &#34;/{SecondaryAlias}&#34; into the chat. For an\nexample of custom commands, see\n<a href=\"https://create.roblox.com/docs/chat/examples/custom-text-chat-commands\">Custom text chat commands</a>.</p>\n<p>To learn more about using <a href=\"/ref/class/TextChatService.html\">TextChatService</a>, see\n<a href=\"https://create.roblox.com/docs/chat/in-experience-text-chat\">In-experience text chat</a>.</p>\n"
 		},
 		"TextChatConfigurations": {
 			"Summary": "<p>The parental class of all text chat configurations.</p>\n",
@@ -2314,7 +2316,7 @@
 		},
 		"TextChatMessageProperties": {
 			"Summary": "<p>Overrides <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> properties when returned by callbacks\ndefined in <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> or\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>.</p>\n",
-			"Description": "<p>Overrides <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> properties when returned by callbacks\ndefined in <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> or\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>. This can be used to customize the\nappearance of a message with <a href=\"https://create.roblox.com/docs/ui/rich-text\">rich text</a> tags.</p>\n"
+			"Description": "<p>Overrides <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> properties when returned by callbacks\ndefined in <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> or\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>. This can be used to customize the\nappearance of a message with <a href=\"https://create.roblox.com/docs/ui/rich-text\">rich text</a> tags.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">TextChatService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;TextChatService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">TextChatService.OnIncomingMessage</span> <span class=\"_o\">=</span> <span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">message</span><span class=\"_p\">:</span> <span class=\"_n\">TextChatMessage</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_c1\">-- Derive chat message properties</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_kd\">local</span> <span class=\"_n\">properties</span> <span class=\"_o\">=</span> <span class=\"_n\">TextChatService.ChatWindowConfiguration</span><span class=\"_p\">:</span><span class=\"_n\">DeriveNewMessageProperties</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_c1\">-- Change color of message</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_n\">properties.TextColor3</span> <span class=\"_o\">=</span> <span class=\"_n\">Color3.fromRGB</span><span class=\"_p\">(</span><span class=\"_mi\">255</span><span class=\"_p\">,</span> <span class=\"_mi\">121</span><span class=\"_p\">,</span> <span class=\"_mi\">121</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Set chat window message properties</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_n\">message.ChatWindowMessageProperties</span> <span class=\"_o\">=</span> <span class=\"_n\">properties</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_kr\">return</span> <span class=\"_n\">properties</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 		},
 		"TextChatService": {
 			"Summary": "<p>A service handling in-experience text chat.</p>\n",
@@ -3345,6 +3347,7 @@
 			"PatchId": {}
 		},
 		"AssetService": {
+			"CanEditAssetAsync": {},
 			"CreateAssetAsync": {
 				"Summary": "<p>Creates a new asset from the given object.</p>\n",
 				"Description": "<p>Creates a new asset from the given object in Plugin or Open Cloud Luau\nExecution context.</p>\n",
@@ -3373,7 +3376,7 @@
 			},
 			"CreateEditableMeshAsync": {
 				"Summary": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> object created from an existing mesh\ncontent ID.</p>\n",
-				"Description": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> object created from an existing <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a>\nor mesh <a href=\"/ref/type/Content.html\">Content</a> ID. By default, an <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> created from this method\nwill be fixed size such that mesh data can only be modified, not added nor\nremoved. A fixed size <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> consumes less memory and should\nbe preferred when possible.</p>\n<p>If the device-specific editable memory budget is exhausted, creation will\nfail and this method will return <code>nil</code>.</p>\n<p>See the <strong>Enabling EditableMesh for Published Experiences</strong> and\n<strong>Permissions</strong> sections of <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> for special\nconsiderations when using this API.</p>\n"
+				"Description": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> object created from an existing\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> or mesh <a href=\"/ref/type/Content.html\">Content</a> ID. By default, an\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> created from this method will be fixed size such that\nmesh data can only be modified, not added nor removed. A fixed size\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> consumes less memory and should be preferred when\npossible.</p>\n<p>If the device-specific editable memory budget is exhausted, creation will\nfail and this method will return <code>nil</code>.</p>\n<p>See the <strong>Enabling EditableMesh for Published Experiences</strong> and\n<strong>Permissions</strong> sections of <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> for special\nconsiderations when using this API.</p>\n"
 			},
 			"CreateMeshPartAsync": {
 				"Summary": "<p>Creates a new <a href=\"/ref/class/MeshPart.html\">MeshPart</a> with a specified mesh ID and an optional\ntable of fidelity values.</p>\n",
@@ -4205,6 +4208,28 @@
 				"Summary": "<p>The title of the audio asset.</p>\n",
 				"Description": "<p>Searches for audio with this title. Needs to be an exact match.</p>\n"
 			}
+		},
+		"AudioTextToSpeech": {
+			"Ended": {},
+			"GetConnectedWires": {},
+			"GetWaveformAsync": {},
+			"IsLoaded": {},
+			"IsPlaying": {},
+			"LoadAsync": {},
+			"Looped": {},
+			"Looping": {},
+			"Pause": {},
+			"Pitch": {},
+			"Play": {},
+			"PlaybackSpeed": {},
+			"Speed": {},
+			"Text": {},
+			"TimeLength": {},
+			"TimePosition": {},
+			"Unload": {},
+			"VoiceId": {},
+			"Volume": {},
+			"WiringChanged": {}
 		},
 		"AvatarCreationService": {
 			"AvatarModerationCompleted": {},
@@ -6935,7 +6960,7 @@
 			},
 			"IsLoaded": {
 				"Summary": "<p>Returns true if the client has finished loading the game for the first\ntime.</p>\n",
-				"Description": "<p>When all initial <a href=\"/ref/class/Instance.html\">Instances</a> in the game have finished\nreplicating to the client, this function returns true.</p>\n<p>Unless they are parented to <a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a>,\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> do not run until the game has loaded.\nThe following snippet, run from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> in\n<a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a> yields until the game has loaded:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">IsLoaded</span><span class=\"_p\">()</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">game.Loaded</span><span class=\"_p\">:</span><span class=\"_n\">Wait</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/scripting/attributes#replication-order\">Replication order</a>\nfor a more detailed summary of the loading process.</li>\n<li><a href=\"/ref/class/DataModel.html#member-Loaded\">DataModel.Loaded</a>, an event that fires when the game has loaded</li>\n<li><a href=\"/ref/class/Instance.html#member-WaitForChild\">Instance:WaitForChild()</a>, a function which can be used to wait\nfor an individual <a href=\"/ref/class/Instance.html\">Instance</a> to replicate without having to wait\nfor the whole game to finish loading.</li>\n</ul>\n",
+				"Description": "<p>When all initial <a href=\"/ref/class/Instance.html\">Instances</a> in the game have finished\nreplicating to the client, this function returns true.</p>\n<p>Unless they are parented to <a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a>,\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> do not run until the game has loaded. The\nfollowing snippet, run from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> in\n<a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a> yields until the game has loaded:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">IsLoaded</span><span class=\"_p\">()</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">game.Loaded</span><span class=\"_p\">:</span><span class=\"_n\">Wait</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/scripting/attributes#replication-order\">Replication order</a>\nfor a more detailed summary of the loading process.</li>\n<li><a href=\"/ref/class/DataModel.html#member-Loaded\">DataModel.Loaded</a>, an event that fires when the game has loaded</li>\n<li><a href=\"/ref/class/Instance.html#member-WaitForChild\">Instance:WaitForChild()</a>, a function which can be used to wait\nfor an individual <a href=\"/ref/class/Instance.html\">Instance</a> to replicate without having to wait\nfor the whole game to finish loading.</li>\n</ul>\n",
 				"CodeSamples": [
 					"Custom-Loading-Screen"
 				]
@@ -6954,9 +6979,12 @@
 			},
 			"Loaded": {
 				"Summary": "<p>Fires on the client when the game finishes loading for the first time.</p>\n",
-				"Description": "<p>This event fires on the client when all initial <a href=\"/ref/class/Instance.html\">Instances</a>\nin the game have finished replicating to the client.</p>\n<p>Unless they are parented to <a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a>,\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> do not run until the game has loaded.\nThe following snippet, run from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> in\n<a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a> yields until the game has loaded:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">IsLoaded</span><span class=\"_p\">()</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">game.Loaded</span><span class=\"_p\">:</span><span class=\"_n\">Wait</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/scripting/attributes#replication-order\">Replication order</a>\nfor a more detailed summary of the loading process.</li>\n<li><a href=\"/ref/class/DataModel.html#member-Loaded\">DataModel.Loaded</a>, an event that fires when the game has loaded</li>\n<li><a href=\"/ref/class/Instance.html#member-WaitForChild\">Instance:WaitForChild()</a>, a function which can be used to wait\nfor an individual <a href=\"/ref/class/Instance.html\">Instance</a> to replicate without having to wait\nfor the whole game to finish loading.</li>\n</ul>\n"
+				"Description": "<p>This event fires on the client when all initial <a href=\"/ref/class/Instance.html\">Instances</a>\nin the game have finished replicating to the client.</p>\n<p>Unless they are parented to <a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a>,\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> do not run until the game has loaded. The\nfollowing snippet, run from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> in\n<a href=\"/ref/class/ReplicatedFirst.html\">ReplicatedFirst</a> yields until the game has loaded:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">IsLoaded</span><span class=\"_p\">()</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">game.Loaded</span><span class=\"_p\">:</span><span class=\"_n\">Wait</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/scripting/attributes#replication-order\">Replication order</a>\nfor a more detailed summary of the loading process.</li>\n<li><a href=\"/ref/class/DataModel.html#member-Loaded\">DataModel.Loaded</a>, an event that fires when the game has loaded</li>\n<li><a href=\"/ref/class/Instance.html#member-WaitForChild\">Instance:WaitForChild()</a>, a function which can be used to wait\nfor an individual <a href=\"/ref/class/Instance.html\">Instance</a> to replicate without having to wait\nfor the whole game to finish loading.</li>\n</ul>\n"
 			},
-			"MatchmakingType": {},
+			"MatchmakingType": {
+				"Summary": "<p>Represents how players in the server are handled by matchmaking.</p>\n",
+				"Description": "<p>This property represents how players in the server are handled by\nmatchmaking. Players with different\n<a href=\"/ref/class/DataModel.html#member-MatchmakingType\">MatchmakingTypes</a> cannot be in or\nteleport to the same server.</p>\n<p>Note that this property is only valid on the server <a href=\"/ref/class/DataModel.html\">DataModel</a> and\nit will be the <a href=\"/ref/enum/MatchmakingType.html\">MatchmakingType.Default</a> value for all clients, so\nonly reference this property inside of a server‑side <a href=\"/ref/class/Script.html\">Script</a>.</p>\n"
+			},
 			"OnClose": {
 				"Summary": "<p>Invoked before the game is shut down. When this callback returns, or the\ntimeout period is hit, the game finishes shutting down.</p>\n",
 				"Description": "<p>Invoked before the game is shut down. When this callback returns, or the\ntimeout period is hit, the game finishes shutting down.</p>\n",
@@ -11743,6 +11771,11 @@
 				"Description": "<p>Returns true if the user with the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> owns\nthe <a href=\"https://create.roblox.com/docs/production/monetization/game-passes\">pass</a> with the given\n<code>gamePassId</code> (not to be confused with an asset ID).</p>\n<h4>Caching Behavior</h4>\n<p>The results of this function are remembered so that repeated calls are\nreturned faster.</p>\n<p>This function always returns true when the user first enters a server\nafter purchasing the pass.</p>\n<p>If the user has purchased the pass inside an experience through\n<a href=\"/ref/class/MarketplaceService.html#member-PromptGamePassPurchase\">PromptGamePassPurchase</a>,\nthe\n<a href=\"/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync\">UserOwnsGamePassAsync</a>\nfunction might return false because of caching behavior. Alternatively,\nthe function might return true even after the user has deleted the pass\nfrom their inventory.</p>\n"
 			}
 		},
+		"MatchmakingService": {
+			"GetServerAttribute": {},
+			"InitializeServerAttributesForStudio": {},
+			"SetServerAttribute": {}
+		},
 		"MaterialService": {
 			"AsphaltName": {
 				"Summary": "<p>Specify <a href=\"/ref/class/MaterialVariant.html\">MaterialVariant</a> name to override built-in Asphalt.</p>\n",
@@ -13607,6 +13640,7 @@
 					"Player-OnTeleport1"
 				]
 			},
+			"PartyId": {},
 			"RemoveReplicationFocus": {},
 			"ReplicationFocus": {
 				"Summary": "<p>Sets the part to focus replication around.</p>\n",
@@ -16427,6 +16461,7 @@
 				"Summary": "<p>Determines whether the contents of <a href=\"/ref/class/StarterGui.html\">StarterGui</a> is visible in\nStudio.</p>\n",
 				"Description": "<p>This property determines whether the contents of <a href=\"/ref/class/StarterGui.html\">StarterGui</a> is\nvisible in Studio.</p>\n"
 			},
+			"StudioDefaultStyleSheet": {},
 			"VirtualCursorMode": {}
 		},
 		"StarterPack": {},
@@ -16574,6 +16609,7 @@
 				"Summary": "<p>A measurement of how long it takes for the engine to process all tasks\nrequired to render a frame.</p>\n",
 				"Description": "<p>This property is only available in client scripts and is a measurement of\nhow long it took to render the most-recent frame in seconds. Divide 1 by\nthis value to calculate an FPS value for the frame time. High frame times\nare indicative of performance problems on the device. Consider using the\n<a href=\"https://create.roblox.com/docs/studio/microprofiler\">MicroProfiler</a> to troubleshoot.</p>\n"
 			},
+			"GetHarmonyQualityLevel": {},
 			"GetMemoryUsageMbForTag": {
 				"Summary": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n",
 				"Description": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n"
@@ -17095,7 +17131,7 @@
 		"SurfaceAppearance": {
 			"AlphaMode": {
 				"Summary": "<p>Determines how the alpha channel of the <a href=\"/ref/class/SurfaceAppearance.html#member-ColorMap\">SurfaceAppearance.ColorMap</a>\nis used.</p>\n",
-				"Description": "<p>This property determines how the alpha channel of the\n<a href=\"/ref/class/SurfaceAppearance.html#member-ColorMap\">SurfaceAppearance.ColorMap</a> is used.</p>\n<p>When set to <a href=\"/ref/enum/AlphaMode.html\">Transparency</a> and the\n<a href=\"/ref/class/BasePart.html#member-Transparency\">MeshPart.Transparency</a> is set to 0, opaque\npixels in the <a href=\"/ref/class/SurfaceAppearance.html#member-ColorMap\">SurfaceAppearance.ColorMap</a> will render as completely\nopaque in the 3D scene. This solves various problems for textures with\ndifferent transparent and opaque areas, such as foliage. When parts of the\nsurface are fully opaque, the Roblox Engine can render them with proper\ndepth-based occlusion. Opaque surfaces also generally work better with\ndepth-based effects like <a href=\"/ref/class/DepthOfFieldEffect.html\">DepthOfFieldEffect</a>, glass and water\nrefraction, and water reflection.</p>\n<p>See <a href=\"https://create.roblox.com/docs/art/modeling/surface-appearance#alpha-modes\">here</a> for\nmore information.</p>\n"
+				"Description": "<p>This property determines how the alpha channel of the\n<a href=\"/ref/class/SurfaceAppearance.html#member-ColorMap\">SurfaceAppearance.ColorMap</a> is used.</p>\n<p>When set to <a href=\"/ref/enum/AlphaMode.html\">Transparency</a> and the\n<a href=\"/ref/class/MeshPart.html#member-Transparency\">MeshPart.Transparency</a> is set to <code>0</code>, opaque pixels in the\n<a href=\"/ref/class/SurfaceAppearance.html#member-ColorMap\">ColorMap</a> will render as completely\nopaque in the 3D scene. This combination works better with depth-based\neffects and occlusion.</p>\n<p>When set to <a href=\"/ref/enum/AlphaMode.html\">Transparency</a> and the\n<a href=\"/ref/class/MeshPart.html#member-Transparency\">MeshPart.Transparency</a> is set to at least <code>0.02</code>, a different\nblending method is used that can better represent smooth transparency\ngradients and soft edges. This combination does not support all effects\nand occlusion may not be perfect.</p>\n<p>See <a href=\"https://create.roblox.com/docs/art/modeling/surface-appearance#alpha-modes\">here</a> for\nmore information.</p>\n"
 			},
 			"Color": {
 				"Summary": "<p>Applies a tint to your existing colormap. Set directly with color picker\nor programmatically with <a href=\"/ref/type/Color3.html\">Color3</a>.</p>\n",
@@ -17372,7 +17408,7 @@
 			},
 			"ReserveServer": {
 				"Summary": "<p>Returns an access code that can be used to teleport players to a reserved\nserver, along with the <a href=\"/ref/class/DataModel.html#member-PrivateServerId\">DataModel.PrivateServerId</a> for it.</p>\n",
-				"Description": "<p>This function returns an access code that can be used to teleport players\nto a reserved server, along with the server&#39;s\n<a href=\"/ref/class/DataModel.html#member-PrivateServerId\">DataModel.PrivateServerId</a>. It can only be called on the server.</p>\n<h4>Reserved Servers</h4>\n<p>You can access reserved servers using:</p>\n<ul>\n<li><a href=\"/ref/class/TeleportService.html#member-TeleportAsync\">TeleportService:TeleportAsync()</a> with the\n<a href=\"/ref/class/TeleportOptions.html#member-ReservedServerAccessCode\">TeleportOptions.ReservedServerAccessCode</a> parameter.</li>\n<li><a href=\"/ref/class/TeleportService.html#member-TeleportToPrivateServer\">TeleportService:TeleportToPrivateServer()</a>, with the access code\n<code>ReserveServer</code> returns.\n<ul>\n<li>A server is started when the access code is first used.</li>\n<li>Access codes remain valid indefinitely, meaning reserved servers can\nstill be joined if no game server is running (in this case a new\nserver will be started).</li>\n</ul>\n</li>\n</ul>\n<p>You can see if the current server is a reserved server by using the\nfollowing code:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">isReserved</span> <span class=\"_o\">=</span> <span class=\"_n\">game.PrivateServerId</span> <span class=\"_o\">~=</span> <span class=\"_s2\">&#34;&#34;</span> <span class=\"_ow\">and</span> <span class=\"_n\">game.PrivateServerOwnerId</span> <span class=\"_o\">==</span> <span class=\"_mi\">0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>The <a href=\"/ref/class/DataModel.html#member-PrivateServerId\">DataModel.PrivateServerId</a> is constant across all server\ninstances associated with the server access code, the\n<a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a> is not.</p>\n<h4>Studio Limitation</h4>\n<p>This service does not work during playtesting in Roblox Studio; to test\naspects of your game using it, you must publish the game and play it in\nthe Roblox application.</p>\n<h4>Cross-Platform Play</h4>\n<p>Players on Xbox One with cross-platform play disabled will arrive in a\ndifferent server with players with cross-platform play enabled. This can\ncause multiple game servers with the same PrivateServerId to exist.</p>\n",
+				"Description": "<p>This function returns an access code that can be used to teleport players\nto a reserved server, along with the server&#39;s\n<a href=\"/ref/class/DataModel.html#member-PrivateServerId\">DataModel.PrivateServerId</a>. It can only be called on the server.</p>\n<h4>Reserved Servers</h4>\n<p>You can access reserved servers using:</p>\n<ul>\n<li><a href=\"/ref/class/TeleportService.html#member-TeleportAsync\">TeleportService:TeleportAsync()</a> with the\n<a href=\"/ref/class/TeleportOptions.html#member-ReservedServerAccessCode\">TeleportOptions.ReservedServerAccessCode</a> parameter.</li>\n<li><a href=\"/ref/class/TeleportService.html#member-TeleportToPrivateServer\">TeleportService:TeleportToPrivateServer()</a>, with the access code\n<code>ReserveServer</code> returns.\n<ul>\n<li>A server is started when the access code is first used.</li>\n<li>Access codes remain valid indefinitely, meaning reserved servers can\nstill be joined if no game server is running (in this case a new\nserver will be started).</li>\n</ul>\n</li>\n</ul>\n<p>You can see if the current server is a reserved server by using the\nfollowing code:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">isReserved</span> <span class=\"_o\">=</span> <span class=\"_n\">game.PrivateServerId</span> <span class=\"_o\">~=</span> <span class=\"_s2\">&#34;&#34;</span> <span class=\"_ow\">and</span> <span class=\"_n\">game.PrivateServerOwnerId</span> <span class=\"_o\">==</span> <span class=\"_mi\">0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>The <a href=\"/ref/class/DataModel.html#member-PrivateServerId\">DataModel.PrivateServerId</a> is constant across all server\ninstances associated with the server access code, the\n<a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a> is not.</p>\n<h4>Studio Limitation</h4>\n<p>This service does not work during playtesting in Roblox Studio; to test\naspects of your game using it, you must publish the game and play it in\nthe Roblox application.</p>\n<h4>Cross-Platform Play</h4>\n<p>Players on Xbox and PlayStation with cross‑play disabled will arrive in a\ndifferent server than players with cross‑play enabled. This can cause\nmultiple game servers with the same\n<a href=\"/ref/class/DataModel.html#member-PrivateServerId\">PrivateServerId</a> to exist. You can use\n<a href=\"/ref/class/DataModel.html#member-MatchmakingType\">DataModel.MatchmakingType</a> to differentiate these game servers.</p>\n",
 				"CodeSamples": [
 					"TeleportService-ReserveServer1",
 					"teleportservice-teleport-to-a-reserved-server-via-chat"
@@ -18144,7 +18180,7 @@
 			},
 			"ShouldDeliverCallback": {
 				"Summary": "<p>Called for each client when <a href=\"/ref/class/TextChannel.html\">TextChannel</a> is receiving an incoming\nmessage to determine whether or not it should be delivered to that client.</p>\n",
-				"Description": "<p>Called for each client when <a href=\"/ref/class/TextChannel.html\">TextChannel</a> is receiving an incoming\nmessage to determine whether or not it should be delivered to that client.\nCan only be defined on the server.</p>\n<p>Once defined, this callback needs to return a truthy value such as <code>true</code>,\n<code>1</code>, or <code>&#34;hello&#34;</code> to deliver the message to said client. If the callback\nreturns anything else (including <code>nil</code>), the message won&#39;t be delivered to\nthat client, although the sender will see the message regardless.</p>\n<p>The sender can be referenced by <a href=\"/ref/class/TextChatMessage.html#member-TextSource\">TextChatMessage.TextSource</a>.</p>\n"
+				"Description": "<p>Called for each client when <a href=\"/ref/class/TextChannel.html\">TextChannel</a> is receiving an incoming\nmessage to determine whether or not it should be delivered to that client.\nCan only be defined on the server.</p>\n<p>Once defined, this callback needs to return a truthy value such as <code>true</code>,\n<code>1</code>, or <code>&#34;hello&#34;</code> to deliver the message to said client. If the callback\nreturns anything else (including <code>nil</code>), the message won&#39;t be delivered to\nthat client, although the sender will see the message regardless.</p>\n<p>The sender can be referenced by <a href=\"/ref/class/TextChatMessage.html#member-TextSource\">TextChatMessage.TextSource</a>,\nwhile the receiver is the <code>textSource</code> argument. Note that the sender\nand receiver can be the same, as the callback iterates through all possible\nreceivers. In Roblox Studio, you will be the only sender and recipient of a\nmessage while in solo <strong>Play</strong> mode.</p>\n"
 			}
 		},
 		"TextChatCommand": {
@@ -18825,7 +18861,10 @@
 				"Description": "<p>Returns a tuple that allows smoothing a value towards a target, simulating\na critically damped spring. Supports <a href=\"/ref/type/Vector2.html\">Vector2</a>,\n<a href=\"/ref/type/Vector3.html\">Vector3</a>, <a href=\"/ref/type/CFrame.html\">CFrame</a>, and number.</p>\n"
 			}
 		},
-		"UGCValidationService": {},
+		"UGCValidationService": {
+			"CalculateEditableMeshModifiedCageBoundingBox": {},
+			"CalculateEditableMeshNumModifiedCageUVsInSet": {}
+		},
 		"UIAspectRatioConstraint": {
 			"AspectRatio": {
 				"Summary": "<p>Determines the width-to-height ratio to maintain.</p>\n",
@@ -20233,7 +20272,15 @@
 			"UseAudioApi": {
 				"Summary": "<p>Controls whether voice chat is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n",
 				"Description": "<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, the voice chat setup is represented and\ncontrolled by <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects. More specifically:</p>\n<ul>\n<li>An <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> will be created and parented to each\nvoice-eligible <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>An <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> will be created and parented to each\nvoice-eligible player&#39;s <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</li>\n<li>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</li>\n</ul>\n<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>, the voice chat setup is done through\nan internal-only system.</p>\n<p>Currently, setting this to <a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> has the same\nmeaning as <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>. However, in the future,\n<a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> will become\n<a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, so that new experiences can achieve\ngreater customization over voice.</p>\n"
-			}
+			},
+			"getInternalChannelId": {},
+			"getInternalGroupId": {},
+			"getInternalPublishPause": {},
+			"getInternalSessionId": {},
+			"getInternalSubscribePause": {},
+			"getInternalSubscribePauseAll": {},
+			"getInternalVoiceChatApiVersion": {},
+			"isInternalPublishPaused": {}
 		},
 		"WedgePart": {},
 		"Weld": {},
@@ -21240,7 +21287,10 @@
 			"Description": "<p>Indicates if an avatar item is an asset or bundle. Used with\n<a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> and similar services.</p>\n"
 		},
 		"MarkupKind": {},
-		"MatchmakingType": {},
+		"MatchmakingType": {
+			"Summary": "<p>Used with <a href=\"/ref/class/DataModel.html#member-MatchmakingType\">DataModel.MatchmakingType</a> to represent how players in the\nserver are handled by matchmaking.</p>\n",
+			"Description": "<p>This enum is used with <a href=\"/ref/class/DataModel.html#member-MatchmakingType\">DataModel.MatchmakingType</a> to represent how\nplayers in the server are handled by matchmaking.</p>\n"
+		},
 		"Material": {
 			"Summary": "<p>Materials used for parts and/or terrain.</p>\n",
 			"Description": "<p>The following base materials are used for <a href=\"https://create.roblox.com/docs/parts\">parts</a>\nand/or <a href=\"https://create.roblox.com/docs/parts/terrain\">terrain</a>. See the\n<a href=\"https://create.roblox.com/docs/parts/materials\">Materials</a> guide for more details on using and\nmodifying materials.</p>\n"
@@ -22149,6 +22199,7 @@
 		},
 		"AnnotationRequestResult": {
 			"ErrorInternalFailure": {},
+			"ErrorModerated": {},
 			"ErrorNotFound": {},
 			"Success": {}
 		},
@@ -25633,7 +25684,7 @@
 		},
 		"ListenerLocation": {
 			"Camera": {
-				"Summary": "<p>All of the following, resulting in the world being heard from the\nperspective (postition and orientation) of the camera.</p>\n<ul>\n<li>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</li>\n<li>An <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a> will be created and parented to <a href=\"/ref/class/SoundService.html\">SoundService</a>.</li>\n<li>A <a href=\"/ref/class/Wire.html\">Wire</a> will be created and parented to the previously-created <a href=\"/ref/class/AudioListener.html\">AudioListener</a>. The wire&#39;s <a href=\"/ref/class/Wire.html#member-SourceInstance\">SourceInstance</a> will be set to the previously-created <a href=\"/ref/class/AudioListener.html\">AudioListener</a> and its <a href=\"/ref/class/Wire.html#member-TargetInstance\">TargetInstance</a> will be set to the previously-created <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a>.</li>\n</ul>\n"
+				"Summary": "<p>All of the following, resulting in the world being heard from the\nperspective (postition and orientation) of the camera.</p>\n<ul>\n<li>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</li>\n<li>An <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a> will be created and parented to\n<a href=\"/ref/class/SoundService.html\">SoundService</a>.</li>\n<li>A <a href=\"/ref/class/Wire.html\">Wire</a> will be created and parented to the previously-created\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a>. The wire&#39;s\n<a href=\"/ref/class/Wire.html#member-SourceInstance\">SourceInstance</a> will be set to the\npreviously-created <a href=\"/ref/class/AudioListener.html\">AudioListener</a> and its\n<a href=\"/ref/class/Wire.html#member-TargetInstance\">TargetInstance</a> will be set to the\npreviously-created <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a>.</li>\n</ul>\n"
 			},
 			"Character": {
 				"Summary": "<p>All of the following, resulting in the world being heard from the position\nof your character while matching the orientation of your camera.</p>\n<ul>\n<li>\n<p>An <a href=\"/ref/class/Attachment.html\">Attachment</a> will be created and parented to the\n<a href=\"/ref/class/Model.html#member-PrimaryPart\">PrimaryPart</a> of the local player&#39;s\n<a href=\"/ref/class/Player.html#member-Character\">Character</a> model.</p>\n</li>\n<li>\n<p>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to the\n<a href=\"/ref/class/Attachment.html\">Attachment</a>.</p>\n</li>\n<li>\n<p>An <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a> will be created and parented to\n<a href=\"/ref/class/SoundService.html\">SoundService</a>.</p>\n</li>\n<li>\n<p>A <a href=\"/ref/class/Wire.html\">Wire</a> will be created and parented to the previously-created\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a>. The wire&#39;s\n<a href=\"/ref/class/Wire.html#member-SourceInstance\">SourceInstance</a> will be set to the\npreviously-created <a href=\"/ref/class/AudioListener.html\">AudioListener</a> and its\n<a href=\"/ref/class/Wire.html#member-TargetInstance\">TargetInstance</a> will be set to the\npreviously-created <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a>.</p>\n</li>\n<li>\n<p>The previously-created <a href=\"/ref/class/Attachment.html\">Attachment</a> will be updated once per frame\nto face the same direction as <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</p>\n</li>\n</ul>\n"
@@ -25756,9 +25807,15 @@
 			"PlainText": {}
 		},
 		"MatchmakingType": {
-			"Default": {},
-			"PlayStationOnly": {},
-			"XboxOnly": {}
+			"Default": {
+				"Summary": "<p>Includes desktop, mobile, cross-play enabled players, etc.</p>\n"
+			},
+			"PlayStationOnly": {
+				"Summary": "<p>PlayStation players with cross-play disabled.</p>\n"
+			},
+			"XboxOnly": {
+				"Summary": "<p>Xbox players with cross-play disabled.</p>\n"
+			}
 		},
 		"Material": {
 			"Air": {
@@ -27129,6 +27186,7 @@
 			"LoadString": {},
 			"Network": {},
 			"Physics": {},
+			"Players": {},
 			"RemoteEvent": {},
 			"RunClientScript": {},
 			"RunServerScript": {},

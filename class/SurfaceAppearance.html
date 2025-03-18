@@ -472,14 +472,14 @@ v0.422.0.387564
 version-9f868fb6c93f478d">422</a>
 Add <a class="entity-link deco" href=/ref/class/SurfaceAppearance.html><span class=picture title=Class data-type=Class><span class=icon style="--light:url('/ref/icons/light/SurfaceAppearance.png');--dark:url('/ref/icons/dark/SurfaceAppearance.png')"></span></span>SurfaceAppearance</a></li></ul></section><section id=members><header><h2>Members <span class=element-count>7</span></h2></header><div class=members-sections><section id=member-AlphaMode class="set sec-PluginSecurity"><header><h3><span class=picture title="Protected Property (Read/Write: PluginSecurity)" data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty_hu16156984507187102636.png');--dark:url('/ref/icons/dark/ACProperty_hu1191931434052784666.png')"></span></span>AlphaMode<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/SurfaceAppearance#AlphaMode target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-valuetype colspan=2>Type</th><th class=col-default>Default</th></tr></thead><tbody><tr><td class=col-valuetype colspan=2><a class="entity-link deco" href=/ref/enum/AlphaMode.html><span class=picture title=Enum data-type=Enum><span class=icon style="--light:url('/ref/icons/light/Enum_hu17137888250511111681.png');--dark:url('/ref/icons/light/Enum_hu17454104736576643296.png')"></span></span>AlphaMode</a></td><td class=col-default><a class="entity-link deco" href=/ref/enum/AlphaMode.html#member-Overlay><span class=picture title=EnumItem data-type=EnumItem><span class=icon style="--light:url('/ref/icons/light/EnumMember_hu11655409036040285860.png');--dark:url('/ref/icons/light/EnumMember_hu5096319486954849392.png')"></span></span>Overlay</a></td></tr></tbody></table><div class=docs><p>This property determines how the alpha channel of the
 <a href=/ref/class/SurfaceAppearance.html#member-ColorMap>SurfaceAppearance.ColorMap</a> is used.</p><p>When set to <a href=/ref/enum/AlphaMode.html>Transparency</a> and the
-<a href=/ref/class/BasePart.html#member-Transparency>MeshPart.Transparency</a> is set to 0, opaque
-pixels in the <a href=/ref/class/SurfaceAppearance.html#member-ColorMap>SurfaceAppearance.ColorMap</a> will render as completely
-opaque in the 3D scene. This solves various problems for textures with
-different transparent and opaque areas, such as foliage. When parts of the
-surface are fully opaque, the Roblox Engine can render them with proper
-depth-based occlusion. Opaque surfaces also generally work better with
-depth-based effects like <a href=/ref/class/DepthOfFieldEffect.html>DepthOfFieldEffect</a>, glass and water
-refraction, and water reflection.</p><p>See <a href=https://create.roblox.com/docs/art/modeling/surface-appearance#alpha-modes>here</a> for
+<a href=/ref/class/MeshPart.html#member-Transparency>MeshPart.Transparency</a> is set to <code>0</code>, opaque pixels in the
+<a href=/ref/class/SurfaceAppearance.html#member-ColorMap>ColorMap</a> will render as completely
+opaque in the 3D scene. This combination works better with depth-based
+effects and occlusion.</p><p>When set to <a href=/ref/enum/AlphaMode.html>Transparency</a> and the
+<a href=/ref/class/MeshPart.html#member-Transparency>MeshPart.Transparency</a> is set to at least <code>0.02</code>, a different
+blending method is used that can better represent smooth transparency
+gradients and soft edges. This combination does not support all effects
+and occlusion may not be perfect.</p><p>See <a href=https://create.roblox.com/docs/art/modeling/surface-appearance#alpha-modes>here</a> for
 more information.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Security</th><td class=value>PluginSecurity</td></tr><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Appearance</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>10</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2022.html#version-ec81b0ea2163459b-2165 title="Changed on 2022-11-16T09:50:21-08:00
 v0.553.0.5530621
 version-ec81b0ea2163459b">553</a>
