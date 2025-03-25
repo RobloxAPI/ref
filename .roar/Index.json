@@ -18157,7 +18157,7 @@
 			"Related": [
 				{
 					"Class": "AuroraService",
-					"Member": "GetDesyncedInstances",
+					"Member": "GetPredictedInstances",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -18222,7 +18222,7 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "IsDesynced",
+					"Member": "IsPredicted",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -18235,7 +18235,7 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "IsDesynced",
+					"Member": "IsPredicted",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -18443,19 +18443,6 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "Desynced",
-					"MemberType": "Event",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Class",
-						"Name": "Instance"
-					}
-				},
-				{
-					"Class": "AuroraService",
 					"Member": "FixedRateTick",
 					"MemberType": "Event",
 					"Removed": false,
@@ -18495,9 +18482,35 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "Synced",
-					"MemberType": "Event",
-					"Removed": false,
+					"Member": "RollbackEnabled",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "GetDesyncedInstances",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "IsDesynced",
+					"MemberType": "Function",
+					"Removed": true,
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
@@ -18508,12 +18521,12 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "RollbackEnabled",
-					"MemberType": "Property",
+					"Member": "IsDesynced",
+					"MemberType": "Function",
 					"Removed": true,
-					"Field": "ValueType",
+					"Field": "ReturnType",
 					"Kind": "Type",
-					"Index": -1,
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -18569,6 +18582,32 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "null"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "Desynced",
+					"MemberType": "Event",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "Synced",
+					"MemberType": "Event",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
 					}
 				}
 			]
@@ -18818,6 +18857,45 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
+					}
+				},
+				{
+					"Class": "AvatarChatService",
+					"Member": "DebugCounterGet",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AvatarChatService",
+					"Member": "DebugCounterGet",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "AvatarChatService",
+					"Member": "DebugCounterGet",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
 					}
 				},
 				{
@@ -36512,6 +36590,174 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "float"
+					}
+				}
+			]
+		},
+		"ConfigService": {
+			"Name": "ConfigService",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "ConfigService",
+					"Member": "GetConfigAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Object"
+					}
+				},
+				{
+					"Class": "ConfigService",
+					"Member": "GetConfigForPlayerAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Player"
+					}
+				},
+				{
+					"Class": "ConfigService",
+					"Member": "GetConfigForPlayerAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Object"
+					}
+				}
+			]
+		},
+		"ConfigSnapshot": {
+			"Name": "ConfigSnapshot",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "Error",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "ConfigSnapshotErrorState"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "Outdated",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValue",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValue",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValue",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValueChangedSignal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValueChangedSignal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "Refresh",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
 					}
 				}
 			]
@@ -79654,6 +79900,7 @@
 				"CommandInstance",
 				"CommandService",
 				"CommerceService",
+				"ConfigService",
 				"Configuration",
 				"ConfigureServerService",
 				"ConnectivityService",
@@ -80769,7 +81016,7 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "IsDesynced",
+					"Member": "IsPredicted",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -80823,32 +81070,6 @@
 					"Class": "AuroraService",
 					"Member": "UpdateProperties",
 					"MemberType": "Function",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Class",
-						"Name": "Instance"
-					}
-				},
-				{
-					"Class": "AuroraService",
-					"Member": "Desynced",
-					"MemberType": "Event",
-					"Removed": false,
-					"Field": "Parameters",
-					"Kind": "Parameter",
-					"Index": 0,
-					"Type": {
-						"Category": "Class",
-						"Name": "Instance"
-					}
-				},
-				{
-					"Class": "AuroraService",
-					"Member": "Synced",
-					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
@@ -87425,6 +87646,19 @@
 				},
 				{
 					"Class": "AuroraService",
+					"Member": "IsDesynced",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "AuroraService",
 					"Member": "NetDesync",
 					"MemberType": "Function",
 					"Removed": true,
@@ -87440,6 +87674,32 @@
 					"Class": "AuroraService",
 					"Member": "NetSync",
 					"MemberType": "Function",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "Desynced",
+					"MemberType": "Event",
+					"Removed": true,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "Synced",
+					"MemberType": "Event",
 					"Removed": true,
 					"Field": "Parameters",
 					"Kind": "Parameter",
@@ -108790,6 +109050,7 @@
 			"HasRemoved": true,
 			"Subclasses": [
 				"Capture",
+				"ConfigSnapshot",
 				"EditableImage",
 				"EditableMesh",
 				"Instance"
@@ -115427,6 +115688,19 @@
 					}
 				},
 				{
+					"Class": "ConfigService",
+					"Member": "GetConfigForPlayerAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Player"
+					}
+				},
+				{
 					"Class": "DragDetector",
 					"Member": "DragContinue",
 					"MemberType": "Event",
@@ -117157,6 +117431,45 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "OverrideStreamingRadii",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "OverrideStreamingRadii",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "OverrideStreamingRadii",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "RemoveCharacter",
 					"MemberType": "Function",
 					"Removed": false,
@@ -118310,6 +118623,32 @@
 					"Type": {
 						"Category": "Class",
 						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "OverrideStreamRadii",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "OverrideStreamRadii",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				},
 				{
@@ -141196,6 +141535,32 @@
 				{
 					"Class": "SocialService",
 					"Member": "ShowSelfView",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "UpdatePlayerPartyData",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "UpdatePlayerPartyData",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -198976,13 +199341,13 @@
 				"Class": "AuroraService",
 				"Name": "Desynced",
 				"MemberType": "Event",
-				"Removed": false,
+				"Removed": true,
 				"Related": [
 					{
 						"Class": "AuroraService",
 						"Member": "Desynced",
 						"MemberType": "Event",
-						"Removed": false,
+						"Removed": true,
 						"Field": "Parameters",
 						"Kind": "Parameter",
 						"Index": 0,
@@ -199002,6 +199367,12 @@
 			"GetDesyncedInstances": {
 				"Class": "AuroraService",
 				"Name": "GetDesyncedInstances",
+				"MemberType": "Function",
+				"Removed": true
+			},
+			"GetPredictedInstances": {
+				"Class": "AuroraService",
+				"Name": "GetPredictedInstances",
 				"MemberType": "Function",
 				"Removed": false
 			},
@@ -199055,11 +199426,32 @@
 				"Class": "AuroraService",
 				"Name": "IsDesynced",
 				"MemberType": "Function",
-				"Removed": false,
+				"Removed": true,
 				"Related": [
 					{
 						"Class": "AuroraService",
 						"Member": "IsDesynced",
+						"MemberType": "Function",
+						"Removed": true,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"IsPredicted": {
+				"Class": "AuroraService",
+				"Name": "IsPredicted",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "AuroraService",
+						"Member": "IsPredicted",
 						"MemberType": "Function",
 						"Removed": false,
 						"Field": "Parameters",
@@ -199211,13 +199603,13 @@
 				"Class": "AuroraService",
 				"Name": "Synced",
 				"MemberType": "Event",
-				"Removed": false,
+				"Removed": true,
 				"Related": [
 					{
 						"Class": "AuroraService",
 						"Member": "Synced",
 						"MemberType": "Event",
-						"Removed": false,
+						"Removed": true,
 						"Field": "Parameters",
 						"Kind": "Parameter",
 						"Index": 0,
@@ -199336,6 +199728,12 @@
 				"Class": "AvatarChatService",
 				"Name": "ClientFeaturesInitialized",
 				"MemberType": "Property",
+				"Removed": false
+			},
+			"DebugCounterGet": {
+				"Class": "AvatarChatService",
+				"Name": "DebugCounterGet",
+				"MemberType": "Function",
 				"Removed": false
 			},
 			"EnableVoice": {
@@ -207324,6 +207722,88 @@
 				"Class": "ConeHandleAdornment",
 				"Name": "Radius",
 				"MemberType": "Property",
+				"Removed": false
+			}
+		},
+		"ConfigService": {
+			"GetConfigAsync": {
+				"Class": "ConfigService",
+				"Name": "GetConfigAsync",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetConfigForPlayerAsync": {
+				"Class": "ConfigService",
+				"Name": "GetConfigForPlayerAsync",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "ConfigService",
+						"Member": "GetConfigForPlayerAsync",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Player"
+						}
+					}
+				]
+			}
+		},
+		"ConfigSnapshot": {
+			"Error": {
+				"Class": "ConfigSnapshot",
+				"Name": "Error",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "ConfigSnapshot",
+						"Member": "Error",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "ConfigSnapshotErrorState"
+						}
+					}
+				]
+			},
+			"GetValue": {
+				"Class": "ConfigSnapshot",
+				"Name": "GetValue",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetValueChangedSignal": {
+				"Class": "ConfigSnapshot",
+				"Name": "GetValueChangedSignal",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"Outdated": {
+				"Class": "ConfigSnapshot",
+				"Name": "Outdated",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Refresh": {
+				"Class": "ConfigSnapshot",
+				"Name": "Refresh",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"UpdateAvailable": {
+				"Class": "ConfigSnapshot",
+				"Name": "UpdateAvailable",
+				"MemberType": "Event",
 				"Removed": false
 			}
 		},
@@ -239220,6 +239700,18 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"OverrideStreamRadii": {
+				"Class": "Player",
+				"Name": "OverrideStreamRadii",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"OverrideStreamingRadii": {
+				"Class": "Player",
+				"Name": "OverrideStreamingRadii",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"PartyId": {
 				"Class": "Player",
 				"Name": "PartyId",
@@ -250378,6 +250870,12 @@
 						}
 					}
 				]
+			},
+			"UpdatePlayerPartyData": {
+				"Class": "SocialService",
+				"Name": "UpdatePlayerPartyData",
+				"MemberType": "Function",
+				"Removed": false
 			}
 		},
 		"Sound": {
@@ -277167,6 +277665,33 @@
 				}
 			]
 		},
+		"ConfigSnapshotErrorState": {
+			"Name": "ConfigSnapshotErrorState",
+			"Removed": false,
+			"ItemsByValue": [
+				"None",
+				"LoadFailed"
+			],
+			"ItemsByIndex": [
+				"None",
+				"LoadFailed"
+			],
+			"Related": [
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "Error",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "ConfigSnapshotErrorState"
+					}
+				}
+			]
+		},
 		"ConnectionError": {
 			"Name": "ConnectionError",
 			"Removed": false,
@@ -282942,6 +283467,88 @@
 				"RightCurly",
 				"Tilde",
 				"Delete",
+				"KeypadZero",
+				"KeypadOne",
+				"KeypadTwo",
+				"KeypadThree",
+				"KeypadFour",
+				"KeypadFive",
+				"KeypadSix",
+				"KeypadSeven",
+				"KeypadEight",
+				"KeypadNine",
+				"KeypadPeriod",
+				"KeypadDivide",
+				"KeypadMultiply",
+				"KeypadMinus",
+				"KeypadPlus",
+				"KeypadEnter",
+				"KeypadEquals",
+				"Up",
+				"Down",
+				"Right",
+				"Left",
+				"Insert",
+				"Home",
+				"End",
+				"PageUp",
+				"PageDown",
+				"F1",
+				"F2",
+				"F3",
+				"F4",
+				"F5",
+				"F6",
+				"F7",
+				"F8",
+				"F9",
+				"F10",
+				"F11",
+				"F12",
+				"F13",
+				"F14",
+				"F15",
+				"NumLock",
+				"CapsLock",
+				"ScrollLock",
+				"RightShift",
+				"LeftShift",
+				"RightControl",
+				"LeftControl",
+				"RightAlt",
+				"LeftAlt",
+				"RightMeta",
+				"LeftMeta",
+				"LeftSuper",
+				"RightSuper",
+				"Mode",
+				"Compose",
+				"Help",
+				"Print",
+				"SysReq",
+				"Break",
+				"Menu",
+				"Power",
+				"Euro",
+				"Undo",
+				"ButtonX",
+				"ButtonY",
+				"ButtonA",
+				"ButtonB",
+				"ButtonR1",
+				"ButtonL1",
+				"ButtonR2",
+				"ButtonL2",
+				"ButtonR3",
+				"ButtonL3",
+				"ButtonStart",
+				"ButtonSelect",
+				"DPadLeft",
+				"DPadRight",
+				"DPadUp",
+				"DPadDown",
+				"Thumbstick1",
+				"Thumbstick2",
 				"World0",
 				"World1",
 				"World2",
@@ -283038,88 +283645,6 @@
 				"World93",
 				"World94",
 				"World95",
-				"KeypadZero",
-				"KeypadOne",
-				"KeypadTwo",
-				"KeypadThree",
-				"KeypadFour",
-				"KeypadFive",
-				"KeypadSix",
-				"KeypadSeven",
-				"KeypadEight",
-				"KeypadNine",
-				"KeypadPeriod",
-				"KeypadDivide",
-				"KeypadMultiply",
-				"KeypadMinus",
-				"KeypadPlus",
-				"KeypadEnter",
-				"KeypadEquals",
-				"Up",
-				"Down",
-				"Right",
-				"Left",
-				"Insert",
-				"Home",
-				"End",
-				"PageUp",
-				"PageDown",
-				"F1",
-				"F2",
-				"F3",
-				"F4",
-				"F5",
-				"F6",
-				"F7",
-				"F8",
-				"F9",
-				"F10",
-				"F11",
-				"F12",
-				"F13",
-				"F14",
-				"F15",
-				"NumLock",
-				"CapsLock",
-				"ScrollLock",
-				"RightShift",
-				"LeftShift",
-				"RightControl",
-				"LeftControl",
-				"RightAlt",
-				"LeftAlt",
-				"RightMeta",
-				"LeftMeta",
-				"LeftSuper",
-				"RightSuper",
-				"Mode",
-				"Compose",
-				"Help",
-				"Print",
-				"SysReq",
-				"Break",
-				"Menu",
-				"Power",
-				"Euro",
-				"Undo",
-				"ButtonX",
-				"ButtonY",
-				"ButtonA",
-				"ButtonB",
-				"ButtonR1",
-				"ButtonL1",
-				"ButtonR2",
-				"ButtonL2",
-				"ButtonR3",
-				"ButtonL3",
-				"ButtonStart",
-				"ButtonSelect",
-				"DPadLeft",
-				"DPadRight",
-				"DPadUp",
-				"DPadDown",
-				"Thumbstick1",
-				"Thumbstick2",
 				"MouseLeftButton",
 				"MouseRightButton",
 				"MouseMiddleButton",
@@ -299019,6 +299544,18 @@
 				"Removed": true
 			}
 		},
+		"ConfigSnapshotErrorState": {
+			"LoadFailed": {
+				"Enum": "ConfigSnapshotErrorState",
+				"Name": "LoadFailed",
+				"Removed": false
+			},
+			"None": {
+				"Enum": "ConfigSnapshotErrorState",
+				"Name": "None",
+				"Removed": false
+			}
+		},
 		"ConnectionError": {
 			"AndroidAnticheatKick": {
 				"Enum": "ConnectionError",
@@ -313336,7 +313873,7 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "GetDesyncedInstances",
+					"Member": "GetPredictedInstances",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -316046,6 +316583,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "GetDesyncedInstances",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
@@ -332683,6 +333233,32 @@
 					}
 				},
 				{
+					"Class": "ConfigService",
+					"Member": "GetConfigAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Object"
+					}
+				},
+				{
+					"Class": "ConfigService",
+					"Member": "GetConfigForPlayerAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Object"
+					}
+				},
+				{
 					"Class": "EditableImage",
 					"Member": "DrawImage",
 					"MemberType": "Function",
@@ -334613,6 +335189,19 @@
 				{
 					"Class": "CollectionService",
 					"Member": "GetInstanceRemovedSignal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValueChangedSignal",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -339248,6 +339837,32 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValue",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValue",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Group",
 						"Name": "Variant"
@@ -349460,7 +350075,7 @@
 				},
 				{
 					"Class": "AuroraService",
-					"Member": "IsDesynced",
+					"Member": "IsPredicted",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -350896,6 +351511,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "Outdated",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -365837,6 +366465,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "IsDesynced",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -388590,6 +389231,32 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "OverrideStreamingRadii",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "OverrideStreamingRadii",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "RemoveReplicationFocusPosition",
 					"MemberType": "Function",
 					"Removed": false,
@@ -388609,6 +389276,32 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "OverrideStreamRadii",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "OverrideStreamRadii",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
@@ -395505,6 +396198,32 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "AvatarChatService",
+					"Member": "DebugCounterGet",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "AvatarChatService",
+					"Member": "DebugCounterGet",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
 					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
@@ -404387,6 +405106,19 @@
 					}
 				},
 				{
+					"Class": "ConfigSnapshot",
+					"Member": "Refresh",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "ContentProvider",
 					"Member": "Preload",
 					"MemberType": "Function",
@@ -409822,6 +410554,19 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "OverrideStreamingRadii",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "RemoveCharacter",
 					"MemberType": "Function",
 					"Removed": false,
@@ -412150,6 +412895,19 @@
 				{
 					"Class": "SocialService",
 					"Member": "ShowSelfView",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "UpdatePlayerPartyData",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -419045,6 +419803,19 @@
 					}
 				},
 				{
+					"Class": "AvatarChatService",
+					"Member": "DebugCounterGet",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
 					"Class": "AvatarCreationService",
 					"Member": "DeserializeAvatarModel",
 					"MemberType": "Function",
@@ -420874,6 +421645,32 @@
 					"Class": "CommerceService",
 					"Member": "PromptCommerceProductPurchaseRequested",
 					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValue",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "ConfigSnapshot",
+					"Member": "GetValueChangedSignal",
+					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
@@ -433885,6 +434682,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "UpdatePlayerPartyData",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
