@@ -193,10 +193,10 @@ Using an <a href=/ref/class/Attachment.html>Attachment</a> as a Parent instead a
 position/direction to be modified by changing the <a href=/ref/class/Attachment.html#member-CFrame>Attachment.CFrame</a> or
 related properties.</p><p>When <a href=/ref/class/Fire.html#member-Enabled>Enabled</a> is off, existing particles continue to
 render until they expire. However, if the Fire's
-<a href=/ref/class/Instance.html#member-Parent>Parent</a> is set to nil all existing particles
+<a href=/ref/class/Instance.html#member-Parent>Parent</a> is set to <code>nil</code> all existing particles
 immediately disappear, similar to the behavior of
 <a href=/ref/class/ParticleEmitter.html#member-Clear>ParticleEmitter:Clear()</a>. It is possible to set the
-<a href=/ref/class/Instance.html#member-Parent>Parent</a> to nil and back to the exact original object to
+<a href=/ref/class/Instance.html#member-Parent>Parent</a> to <code>nil</code> and back to the exact original object to
 achieve the same effect. If immediate disappearance is not desired, try moving
 the Fire's parent to some far away position, then
 <a href=/ref/class/Instance.html#member-Destroy>Destroy</a> the Fire after a few seconds using
@@ -431,7 +431,7 @@ determines whether flame particles are emit. Any particles already emit
 will continue to render until their lifetime expires. This property is
 useful for keeping pre-made fire effects off until they are needed later.
 Since flame particles are destroyed when the <a href=/ref/class/Fire.html>Fire</a> object's
-<a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> is set to nil, this property is useful in allowing
+<a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> is set to <code>nil</code>, this property is useful in allowing
 existing particles the opportunity to expire before destroying the Fire
 object altogether. See the function below.</p><pre><code>local Debris = game:GetService(&#34;Debris&#34;)
 local part = script.Parent

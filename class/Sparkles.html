@@ -181,12 +181,12 @@ lacks many different customization properties and special methods, such as
 useful to create a quick special effect in a pinch; for more detailed work it
 is preferable to use a <a href=/ref/class/ParticleEmitter.html>ParticleEmitter</a> instead.</p><p>When <a href=/ref/class/Sparkles.html#member-Enabled>Sparkles.Enabled</a> is toggled off, particles emit by this object
 will continue to render until their lifetime expires. When a Sparkles object's
-<a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> is set to nil (and/or <a href=/ref/class/Instance.html#member-Destroy>Instance:Destroy()</a>ed),
+<a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> is set to <code>nil</code> (and/or <a href=/ref/class/Instance.html#member-Destroy>Instance:Destroy()</a>ed),
 all particles will instantly disappear. If this effect is not desired, try
 hiding the parent object at a far away position, then removing the Sparkles
 after a few seconds using <a href=/ref/class/Debris.html>Debris</a> to give the last particles a chance
 to expire. This object does not have a <a href=/ref/class/ParticleEmitter.html#member-Clear>ParticleEmitter:Clear()</a> method,
-but it is possible to set the <a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> to nil and back to the
+but it is possible to set the <a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> to <code>nil</code> and back to the
 exact same object for the same effect.</p><p>Sparkles particles are only emitted from the center of <a href=/ref/class/BasePart.html>BasePart</a> to
 which they are parented. Parenting a Sparkles object to an <a href=/ref/class/Attachment.html>Attachment</a>
 instead allows customization of the particles' start position.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>18</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
@@ -324,7 +324,7 @@ determines whether sparkle particles are emit. Any particles already emit
 will continue to render until their lifetime expires. This property is
 useful for keeping pre-made sparkle effects off until they are needed
 later. Since sparkle particles are destroyed when the <code>Sparkle</code> object's
-<a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> is set to nil, this property is useful in allowing
+<a href=/ref/class/Instance.html#member-Parent>Instance.Parent</a> is set to <code>nil</code>, this property is useful in allowing
 existing particles the opportunity to expire before destroying the Fire
 object altogether. See the function below.</p><pre><code>local Debris = game:GetService(&#34;Debris&#34;)
 local part = script.Parent

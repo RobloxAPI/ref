@@ -328,12 +328,12 @@ old sort key into the updated value and updated sort key as required. The
 method retrieves the existing key value and sort key and passes it to the
 transform function which returns the new value and sort key for the item,
 with these exceptions:</p><ul><li>If the key does not exist, the old value and old sort key passed to the
-function will be nil.</li><li>If the function returns nil, the update is canceled.</li></ul><p>The new value and new sort key is saved only if the key was not updated
+function will be <code>nil</code>.</li><li>If the function returns <code>nil</code>, the update is canceled.</li></ul><p>The new value and new sort key is saved only if the key was not updated
 (e.g. by a different game server) since the moment it was read. If the
 value or sort key did change, the transform function is invoked again with
 the most recent item value and sort key. This cycle repeats until the
 value and sort key are saved successfully or the transform function
-returns nil to abort the operation.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>5</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-136dd6d101d24a75-10 title="Changed on 2023-10-25T15:43:41-07:00
+returns <code>nil</code> to abort the operation.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>5</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-136dd6d101d24a75-10 title="Changed on 2023-10-25T15:43:41-07:00
 v0.600.1.6000716
 version-136dd6d101d24a75">600</a>
 Change ReturnType of <a class="entity-link deco" href=/ref/class/MemoryStoreSortedMap.html#member-UpdateAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>UpdateAsync</a>
