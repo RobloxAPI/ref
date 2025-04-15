@@ -1036,18 +1036,20 @@
 		},
 		"Handles": {
 			"Category": "Adornments",
-			"Summary": "<p>The Handles object places 3D handles around any object that its Adornee is set\nto.</p>\n",
-			"Description": "<p>For handles to be interactive, they must be parented to a player&#39;s PlayerGui\nor the CoreGui.</p>\n<p>The <strong>Handles</strong> object places 3D handles around any object that its Adornee is\nset to. The Adornee property must be set to a 3D object for the handles to\nappear. The color can be changed, and the shape of the handles can be set to\neither arrows or spheres.</p>\n"
+			"Summary": "<p>Places 3D handles around any object that its <a href=\"/ref/class/Handles.html#member-Adornee\">Adornee</a>\nis set to.</p>\n",
+			"Description": "<p>The <code>Handles</code> object places 3D handles around any object that its\n<a href=\"/ref/class/Handles.html#member-Adornee\">Adornee</a> is set to; this property must be set to a 3D\nobject for the handles to appear. The color can be changed and the shape\nof the handles can be set to either arrows or spheres.</p>\n<p>For handles to be interactive, they must be parented to a player&#39;s\n<a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> or the <a href=\"/ref/class/CoreGui.html\">CoreGui</a>.</p>\n"
 		},
 		"HandlesBase": {
 			"Summary": "<p>An abstract class for Handle objects, such as <a href=\"/ref/class/ArcHandles.html\">ArcHandles</a> and\n<a href=\"/ref/class/Handles.html\">Handles</a>.</p>\n",
 			"Description": "<p>An abstract class for Handle objects, such as <a href=\"/ref/class/ArcHandles.html\">ArcHandles</a> and\n<a href=\"/ref/class/Handles.html\">Handles</a>.</p>\n"
 		},
+		"HapticEffect": {
+			"Description": "<p>Modern controllers and devices have motors built‑in to provide haptic\nfeedback. Adding rumbles and vibrations can provide subtle feedback that is\nhard to convey through visuals or audio.</p>\n<p>Roblox supports haptics for the following devices:</p>\n<ul>\n<li>Android and iOS phones supporting haptics including most iPhone, Pixel, and\nSamsung Galaxy devices</li>\n<li>PlayStation gamepads</li>\n<li>Xbox gamepads</li>\n<li>Quest Touch controller</li>\n</ul>\n"
+		},
 		"HapticService": {
 			"Category": "Input",
 			"Summary": "<p>Provides haptic feedback to controllers and devices.</p>\n",
-			"Description": "<p>Modern controllers and devices have motors built‑in to provide haptic\nfeedback. Adding rumbles and vibrations can provide subtle feedback that is\nhard to convey through visuals or audio alone.</p>\n<p>Roblox supports haptics for the following devices:</p>\n<ul>\n<li>Android and iOS phones supporting haptics including most iPhone, Pixel, and\nSamsung Galaxy devices</li>\n<li>PlayStation gamepads</li>\n<li>Xbox gamepads</li>\n<li>Quest Touch controller</li>\n</ul>\n",
-			"DeprecationMessage": "<p>This service will be superseded by <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a>, a newer\ninstance that will support multiple haptic effect types, looped effects, and\ncustomizable haptics.</p>\n"
+			"DeprecationMessage": "<p>This service has been superseded by <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a>, a newer instance\nthat supports multiple haptic effect types, looped effects, and customizable\nhaptics.</p>\n"
 		},
 		"Hat": {
 			"DeprecationMessage": "<p>This class has been superseded by the <a href=\"/ref/class/Accessory.html\">Accessory</a> class. Do not use it\nfor new work.</p>\n",
@@ -1141,7 +1143,6 @@
 			"Summary": "<p>A 2D user interface element that displays a single non-interactive image.</p>\n",
 			"Description": "<p>An <a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> renders a rectangle, like a <a href=\"/ref/class/Frame.html\">Frame</a> does, with an\nimage asset. The display of the image can be manipulated through the\n<a href=\"/ref/class/ImageLabel.html#member-ImageColor3\">ImageColor3</a> and\n<a href=\"/ref/class/ImageLabel.html#member-ImageTransparency\">ImageTransparency</a> properties. To display\nonly the image and hide the rectangle, set\n<a href=\"/ref/class/GuiObject.html#member-BackgroundTransparency\">GuiObject.BackgroundTransparency</a> to <code>1</code>.</p>\n<p>Advanced <a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> usage includes:</p>\n<ul>\n<li>\n<p>Tiled images can be created by setting\n<a href=\"/ref/class/ImageLabel.html#member-ScaleType\">ScaleType</a> to <a href=\"/ref/enum/ScaleType.html\">ScaleType.Tile</a>, then\n<a href=\"/ref/class/ImageLabel.html#member-TileSize\">TileSize</a> to the size of rendered tiles.</p>\n</li>\n<li>\n<p>9-slice images can be created by setting\n<a href=\"/ref/class/ImageLabel.html#member-ScaleType\">ScaleType</a> to <a href=\"/ref/enum/ScaleType.html\">ScaleType.Slice</a>, then\n<a href=\"/ref/class/ImageLabel.html#member-SliceCenter\">SliceCenter</a> to the center area of the 9‑slice\nimage.</p>\n</li>\n<li>\n<p>Sprite sheets can be implemented through the use of\n<a href=\"/ref/class/ImageLabel.html#member-ImageRectOffset\">ImageRectOffset</a> and\n<a href=\"/ref/class/ImageLabel.html#member-ImageRectSize\">ImageRectSize</a>. Packing multiple images into\none and using this property can make your experience&#39;s image assets load\nmuch quicker, especially if you use many small icons in your GUIs.</p>\n</li>\n</ul>\n"
 		},
-		"ImportSession": {},
 		"IncrementalPatchBuilder": {},
 		"InputAction": {},
 		"InputBinding": {},
@@ -2679,8 +2680,6 @@
 			"Summary": "<p><strong>VoiceChatService</strong> is responsible for voice chat&#39;s high-level functionality.</p>\n",
 			"Description": "<p><strong>VoiceChatService</strong> is responsible for voice chat&#39;s high-level functionality.\nThis mostly consists of configuration options, and functions that are not\nspecifically-controlled by more-specific instances.</p>\n"
 		},
-		"WebSocketClient": {},
-		"WebSocketService": {},
 		"WedgePart": {
 			"Category": "Building",
 			"Summary": "<p>A type of <a href=\"/ref/class/BasePart.html\">BasePart</a> that has a wedge shape.</p>\n",
@@ -3379,7 +3378,6 @@
 			"PatchId": {}
 		},
 		"AssetService": {
-			"CanEditAssetAsync": {},
 			"CreateAssetAsync": {
 				"Summary": "<p>Uploads a new asset to Roblox from the given object.</p>\n",
 				"Description": "<p>Uploads a new asset to Roblox from the given object.</p>\n<p>Currently, this method can only be used in locally loaded plugins and\nuploads assets without prompting first.</p>\n",
@@ -8924,7 +8922,10 @@
 				"Summary": "<p>Determines whether the button automatically changes color when the mouse\nhovers over or clicks on it.</p>\n",
 				"Description": "<p>This property determines whether the button automatically changes color\nwhen the user&#39;s <a href=\"/ref/class/Mouse.html\">Mouse</a> hovers over or clicks on it. If <code>true</code>, the\nbutton will automatically change color when the mouse hovers over or\nclicks on it. If <code>false</code>, the button will not change.</p>\n<p>If you would like to customize how a button changes when the user&#39;s mouse\nhovers over or clicks on it, consider using an <a href=\"/ref/class/ImageButton.html\">ImageButton</a> and\nchanging the element&#39;s <a href=\"/ref/class/ImageButton.html#member-HoverImage\">HoverImage</a> and\n<a href=\"/ref/class/ImageButton.html#member-PressedImage\">PressedImage</a>.</p>\n<p>Please note that this property will not have an effect on an\n<a href=\"/ref/class/ImageButton.html\">ImageButton</a> if its <a href=\"/ref/class/ImageButton.html#member-Image\">Image</a> property is set\nto an image. Additionally, this property will not affect an\n<a href=\"/ref/class/ImageButton.html\">ImageButton</a> on mouse hover when its\n<a href=\"/ref/class/ImageButton.html#member-HoverImage\">HoverImage</a> is not <code>nil</code>, nor on mouse click\nif its <a href=\"/ref/class/ImageButton.html#member-PressedImage\">PressedImage</a> is not <code>nil</code>.</p>\n"
 			},
-			"HoverHapticEffect": {},
+			"HoverHapticEffect": {
+				"Summary": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being hovered.</p>\n",
+				"Description": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being hovered.</p>\n"
+			},
 			"Modal": {
 				"Summary": "<p>If <code>true</code> while the GUI element is visible, the mouse will not be locked\nunless the right mouse button is down.</p>\n",
 				"Description": "<p>If <code>true</code> while the GUI element is visible, the mouse will not be locked\nunless the right mouse button is down.</p>\n"
@@ -8953,7 +8954,10 @@
 				"Summary": "<p>Fires when the user releases their right mouse button off of the\n<a href=\"/ref/class/GuiButton.html\">GuiButton</a>.</p>\n",
 				"Description": "<p>This event fires when the user releases their right mouse button off of\nthe <a href=\"/ref/class/GuiButton.html\">GuiButton</a>.</p>\n<p>For an event requiring the user to press <strong>and</strong> release their right mouse\non a <a href=\"/ref/class/GuiButton.html\">GuiButton</a> in order for the event to fire, consider using\n<a href=\"/ref/class/GuiButton.html#member-MouseButton2Click\">MouseButton2Click</a>.</p>\n"
 			},
-			"PressHapticEffect": {},
+			"PressHapticEffect": {
+				"Summary": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being pressed.</p>\n",
+				"Description": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being pressed.</p>\n"
+			},
 			"Selected": {
 				"Summary": "<p>A boolean property which indicates whether the object has been selected.</p>\n",
 				"Description": "<p>A boolean property which indicates whether the object has been selected.</p>\n"
@@ -9172,7 +9176,6 @@
 				"Summary": "<p>The order of <a href=\"/ref/class/GuiObject.html\">GuiObjects</a> selected by the gamepad UI\nselection.</p>\n",
 				"Description": "<p>GuiObjects with a lower SelectionOrder are selected earlier than\nGuiObjects with a higher SelectionOrder when starting the gamepad\nselection or calling <a href=\"/ref/class/GuiService.html#member-Select\">GuiService:Select()</a> on an ancestor. This\nproperty does not affect directional navigation. Default value is 0.</p>\n"
 			},
-			"SelectionRect2D": {},
 			"Size": {
 				"Summary": "<p>Determines the pixel and scalar size of the <a href=\"/ref/class/GuiObject.html\">GuiObject</a>.</p>\n",
 				"Description": "<p>This property determines the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> scalar and pixel size using\na <a href=\"/ref/type/UDim2.html\">UDim2</a>.</p>\n<p>The scalar size is relative to the size of the parent GUI element, if any.</p>\n<p>The pixel portions of the <a href=\"/ref/type/UDim2.html\">UDim2</a> value are the same regardless\nof the parent GUI&#39;s size. The values represent the size of the object in\npixels. An object&#39;s actual pixel size can be read from the\n<a href=\"/ref/class/GuiBase2d.html#member-AbsoluteSize\">GuiBase2d.AbsoluteSize</a> property.</p>\n<p>If the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> has a parent, its size along each axis is also\ninfluenced by the parent&#39;s\n<a href=\"/ref/class/GuiObject.html#member-SizeConstraint\">SizeConstraint</a>.</p>\n",
@@ -9472,11 +9475,42 @@
 				"Description": "<p>Fired when the mouse leaves the GUI handle.</p>\n"
 			},
 			"Style": {
-				"Summary": "<p>Sets the GUI style of the handles. Currently there are only two types;\nResize and Movement.</p>\n",
-				"Description": "<p>Sets the GUI style of the handles. Currently there are only two types;\nResize and Movement.</p>\n"
+				"Summary": "<p>Sets the GUI style of the handles.</p>\n",
+				"Description": "<p>Sets the GUI style of the handles. Currently there are only two types:\n<a href=\"/ref/enum/HandlesStyle.html\">Resize</a> and <a href=\"/ref/enum/HandlesStyle.html\">Movement</a>.</p>\n"
 			}
 		},
 		"HandlesBase": {},
+		"HapticEffect": {
+			"Looped": {
+				"Summary": "<p>Whether the haptic effect loops continuously.</p>\n",
+				"Description": "<p>Whether the haptic effect loops continuously.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\neffect.Type = Enum.HapticEffectType.GameplayExplosion\neffect.Looped = true\neffect.Parent = Workspace\n\n-- Start the haptic effect\neffect:Play()\n-- After two seconds, stop the effect\ntask.wait(2)\neffect:Stop()\n</code></pre>\n"
+			},
+			"Play": {
+				"Summary": "<p>Plays the haptic effect.</p>\n",
+				"Description": "<p>Plays the haptic effect.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\neffect.Type = Enum.HapticEffectType.GameplayExplosion\neffect.Parent = Workspace\n\n-- Play the haptic effect\neffect:Play()\n</code></pre>\n"
+			},
+			"Position": {
+				"Summary": "<p>Along with <a href=\"/ref/class/HapticEffect.html#member-Radius\">Radius</a>, specifies the impact\nposition relative to the input device and, effectively, how broadly that\nimpact effects nearby motors.</p>\n",
+				"Description": "<p>Along with <a href=\"/ref/class/HapticEffect.html#member-Radius\">Radius</a>, specifies the impact\nposition relative to the input device and, effectively, how broadly that\nimpact effects nearby motors. Note that some gamepads do not have both\n&#34;small&#34; and &#34;large&#34; motors, and that &#34;gamepad large left/right&#34; is not\nsupported on PC.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/HapticEffect/Position-Radius.png\" width=\"780\"/>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\n\n-- Set the position and radius of impact\neffect.Position = Vector3.new(0.5, 0.5, 0)\neffect.Radius = 1\neffect.Parent = Workspace\n\neffect:Play()\n</code></pre>\n"
+			},
+			"Radius": {
+				"Summary": "<p>Along with <a href=\"/ref/class/HapticEffect.html#member-Position\">Position</a>, specifies the impact\nradius relative to the input device and, effectively, how broadly that\nimpact effects nearby motors.</p>\n",
+				"Description": "<p>Along with <a href=\"/ref/class/HapticEffect.html#member-Position\">Position</a>, specifies the impact\nradius relative to the input device and, effectively, how broadly that\nimpact effects nearby motors. Note that some gamepads do not have both\n&#34;small&#34; and &#34;large&#34; motors, and that &#34;gamepad large left/right&#34; is not\nsupported on PC.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/HapticEffect/Position-Radius.png\" width=\"780\"/>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\n\n-- Set the position and radius of impact\neffect.Position = Vector3.new(0.5, 0.5, 0)\neffect.Radius = 1\neffect.Parent = Workspace\n\n-- Play the haptic effect\neffect:Play()\n</code></pre>\n"
+			},
+			"SetWaveformKeys": {
+				"Summary": "<p>Method used to define a custom waveform as a table and apply it to the\nhaptic.</p>\n",
+				"Description": "<p>This method lets you define a custom waveform as a table and apply it to\nthe haptic.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\n\n-- Set effect type to custom in order to define a waveform\neffect.Type = Enum.HapticEffectType.Custom\neffect.Parent = Workspace\n\n-- Define the custom waveform curve through a table\nlocal rampUpWaveform = {\n\tFloatCurveKey.new(0, 0.3),\n\tFloatCurveKey.new(100, 0.4),\n\tFloatCurveKey.new(300, 0.8),\n\tFloatCurveKey.new(400, 1.0)\n}\n\n-- Set waveform through the effect&#39;s method\neffect:SetWaveformKeys(rampUpWaveform)\n</code></pre>\n"
+			},
+			"Stop": {
+				"Summary": "<p>Stops the haptic effect.</p>\n",
+				"Description": "<p>Stops the haptic effect.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\neffect.Type = Enum.HapticEffectType.GameplayExplosion\neffect.Looped = true\neffect.Parent = Workspace\n\n-- Start the haptic effect\neffect:Play()\n-- After two seconds, stop the effect\ntask.wait(2)\neffect:Stop()\n</code></pre>\n"
+			},
+			"Type": {
+				"Summary": "<p><a href=\"/ref/enum/HapticEffectType.html\">HapticEffectType</a> describing the haptic type.</p>\n",
+				"Description": "<p>The haptic type, such as <a href=\"/ref/enum/HapticEffectType.html\">HapticEffectType.GameplayCollision</a> for a\nlarge immediate rumble that dies down quickly. The\n<a href=\"/ref/enum/HapticEffectType.html\">HapticEffectType.Custom</a> value lets you specify a haptic with custom\nwaveform keys defined through\n<a href=\"/ref/class/HapticEffect.html#member-SetWaveformKeys\">SetWaveformKeys()</a>.</p>\n"
+			},
+			"Waveform": {}
+		},
 		"HapticService": {
 			"GetMotor": {
 				"Summary": "<p>Returns the current vibration value set to the specified\n<a href=\"/ref/class/InputObject.html#member-UserInputType\">UserInputType</a> and <a href=\"/ref/enum/VibrationMotor.html\">VibrationMotor</a>.</p>\n",
@@ -10510,7 +10544,6 @@
 				"Summary": "<p>Specifies the average number of seconds that it takes for the\n<a href=\"/ref/class/IKControl.html#member-EndEffector\">EndEffector</a> to smoothly reach the\n<a href=\"/ref/class/IKControl.html#member-Target\">Target</a>.</p>\n",
 				"Description": "<p>This value specifies the average number of seconds that it takes for the\n<a href=\"/ref/class/IKControl.html#member-EndEffector\">EndEffector</a> to reach the\n<a href=\"/ref/class/IKControl.html#member-Target\">Target</a>. The behavior is that of a\ncritically-damped spring, where the rate of change is proportional to the\ndistance to the target and no oscillations are present when approaching\nthe target. Smaller values create a quicker convergence, and larger values\ncreate a slower convergence. A value of 0 disables smoothing. The default\nvalue is 0.05 to provide a very slight smoothing that makes the motion\nfeel realistic.</p>\n"
 			},
-			"Solve": {},
 			"Target": {
 				"Summary": "<p>The object that the <a href=\"/ref/class/IKControl.html#member-EndEffector\">EndEffector</a> reaches for\nor points at. It can be anything that has a position in the world, such as\n<a href=\"/ref/class/BasePart.html\">BasePart</a>, <a href=\"/ref/class/Attachment.html\">Attachment</a>, <a href=\"/ref/class/Bone.html\">Bone</a>, or <a href=\"/ref/class/Motor6D.html\">Motor6D</a>.</p>\n",
 				"Description": "<p>The <a href=\"/ref/class/IKControl.html#member-Target\">Target</a> represents a point (<a href=\"/ref/type/CFrame.html\">CFrame</a>)\nin the world that you want your <a href=\"/ref/class/IKControl.html#member-EndEffector\">EndEffector</a>\nto reach. The exact behavior of reaching can be set via the\n<a href=\"/ref/class/IKControl.html#member-Type\">Type</a> property, and an additional\n<a href=\"/ref/class/IKControl.html#member-Offset\">Offset</a> can be applied on top of it to modify it.\nIf you set a <a href=\"/ref/class/IKControl.html#member-Target\">Target</a> that will be moved either by\nphysics or a script, at each frame the <a href=\"/ref/class/IKControl.html\">IKControl</a> will try to\nsatisfy it, automatically updating the point to reach.</p>\n"
@@ -10666,14 +10699,6 @@
 					"Image-ScaleType-Demo"
 				]
 			}
-		},
-		"ImportSession": {
-			"Cancel": {},
-			"GetFilename": {},
-			"GetStatuses": {},
-			"Upload": {},
-			"UploadComplete": {},
-			"UploadProgress": {}
 		},
 		"IncrementalPatchBuilder": {
 			"AddPathsToBundle": {},
@@ -13775,7 +13800,6 @@
 					"Player-OnTeleport1"
 				]
 			},
-			"OverrideStreamingRadii": {},
 			"PartyId": {},
 			"RemoveReplicationFocus": {},
 			"ReplicationFocus": {
@@ -14303,7 +14327,6 @@
 				"Description": "<p>This function returns true if this plugin is currently active with an\nexclusive mouse, after having been activated via the\n<a href=\"/ref/class/Plugin.html#member-Activate\">Plugin:Activate()</a> function. If this returns true, a\n<a href=\"/ref/class/PluginMouse.html\">PluginMouse</a> can be retrieved via <a href=\"/ref/class/Plugin.html#member-GetMouse\">Plugin:GetMouse()</a>.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Plugin.html#member-Deactivation\">Plugin.Deactivation</a>, fires when the plugin is deactivated</li>\n<li><a href=\"/ref/class/Plugin.html#member-Unloading\">Plugin.Unloading</a>, fires immediately before the plugin is\nunloaded or reloaded via uninstallation, deactivation, or updating</li>\n</ul>\n"
 			},
 			"IsDebuggable": {},
-			"IsLoadedFromProject": {},
 			"Negate": {
 				"Summary": "<p>Negates the given parts and returns the resulting NegateOperations.</p>\n",
 				"Description": "<p>Negates the given parts and returns the resulting NegateOperations.</p>\n"
@@ -14975,8 +14998,8 @@
 				"Description": "<p>The graphics API that Roblox will use on startup.</p>\n"
 			},
 			"MeshCacheSize": {
-				"Summary": "<p>The size in bytes of the mesh cache. Defaults to 32 MBs.</p>\n",
-				"Description": "<p>The size in bytes of the mesh cache. Defaults to 32 MBs.</p>\n"
+				"Summary": "<p>The size in bytes of the mesh cache. Defaults to 32 MB.</p>\n",
+				"Description": "<p>The size in bytes of the mesh cache. Defaults to 32 MB (32 * 2^20 bytes).</p>\n"
 			},
 			"MeshPartDetailLevel": {
 				"Summary": "<p>Studio only. Used to visually verify the quality of\n<a href=\"/ref/class/MeshPart.html\">MeshParts</a> at lower level of detail at close range.</p>\n",
@@ -15640,7 +15663,6 @@
 				"Summary": "<p>Thickness of the scroll bar in pixels; applies to both horizontal and\nvertical scroll bars.</p>\n",
 				"Description": "<p>Thickness of the scroll bar in pixels; applies to both horizontal and\nvertical scroll bars. If set to <code>0</code>, no scroll bars are rendered.</p>\n"
 			},
-			"ScrollRate": {},
 			"ScrollingDirection": {
 				"Summary": "<p>Determines the direction(s) in which scrolling is allowed.</p>\n",
 				"Description": "<p>This property determines the direction(s) in which scrolling is allowed.\nIf scrolling is disallowed in a direction, the associated scroll bar will\nnot appear. Defaults to <a href=\"/ref/enum/ScrollingDirection.html\">ScrollingDirection.XY</a>.</p>\n"
@@ -15649,7 +15671,6 @@
 				"Summary": "<p>Determines whether scrolling is allowed on the frame.</p>\n",
 				"Description": "<p>Determines whether scrolling is allowed on the frame. If <code>false</code>, no\nscroll bars will be rendered.</p>\n"
 			},
-			"SmoothScroll": {},
 			"TopImage": {
 				"Summary": "<p>Image which displays on the top of a vertical scroll bar, or the left of a\nhorizontal scroll bar (rotated 90° counterclockwise for a horizontal\nscroll bar).</p>\n",
 				"Description": "<p>Image which displays on the top of a vertical scroll bar, or the left of a\nhorizontal scroll bar (rotated 90° counterclockwise for a horizontal\nscroll bar).</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/ui-objects/ScrollingFrame-Scroll-Bar-Elements.png\" width=\"600\" alt=\"Diagram showing the three image asset elements which construct a scrolling frame&#39;s scroll bar.\"/>\n"
@@ -15770,8 +15791,20 @@
 			}
 		},
 		"SerializationService": {
-			"DeserializeInstancesAsync": {},
-			"SerializeInstancesAsync": {}
+			"DeserializeInstancesAsync": {
+				"Summary": "<p>Deserializes a <a href=\"https://create.roblox.com/docs/reference/engine/libraries/buffer#\">buffer</a> containing <code>.rbxm</code> content, returning a\nlist of <a href=\"/ref/class/Instance.html\">instances</a>.</p>\n",
+				"Description": "<p>Deserializes a <a href=\"https://create.roblox.com/docs/reference/engine/libraries/buffer#\">buffer</a> containing <code>.rbxm</code> content, returning a\nlist of <a href=\"/ref/class/Instance.html\">instances</a>.</p>\n<p>This API can only be called from Studio plugins or Open Cloud Luau\nExecution Sessions. If non-creatable instances or services are included in\nthe content, an error is thrown.</p>\n<p>No stability contract is offered for the <code>.rbxm</code> format and the\ncomposition of this data may change at any time. This API will faithfully\nparse <code>.rbxm</code> content that was serialized by the Roblox engine, including\n<code>.rbxm</code> files generated by Studio or via\n<a href=\"/ref/class/SerializationService.html#member-SerializeInstancesAsync\">SerializeInstancesAsync()</a>.</p>\n<p>Although it is possible to use this API to deserialize <code>.rbxm</code> content\ngenerated by any other means, this is done at the user&#39;s own risk. The\nengine may fail to deserialize such content faithfully, or at all.</p>\n",
+				"CodeSamples": [
+					"SerializationService-Roundtrip-Sample"
+				]
+			},
+			"SerializeInstancesAsync": {
+				"Summary": "<p>Serializes a list of <a href=\"/ref/class/Instance.html\">instances</a> to the <code>.rbxm</code> format,\nreturning a <a href=\"https://create.roblox.com/docs/reference/engine/libraries/buffer#\">buffer</a> or <code>.rbxm</code> content.</p>\n",
+				"Description": "<p>Serializes a list of <a href=\"/ref/class/Instance.html\">instances</a> to the <code>.rbxm</code> format,\nreturning a <a href=\"https://create.roblox.com/docs/reference/engine/libraries/buffer#\">buffer</a> or <code>.rbxm</code> content.</p>\n<p>This API can only be called from Studio plugins or Open Cloud Luau\nExecution Sessions. If non-creatable instances or services are included in\nthe list of instances, an error is thrown.</p>\n<p>No stability contract is offered for the <code>.rbxm</code> format and the\ncomposition of this data may change at any time. This API will serialize\ncontent according to the serialization behavior of the current engine\nversion.</p>\n<p>Although it is possible for other tools to parse <code>.rbxm</code> content, this is\ndone at the user&#39;s own risk. The engine may still generate <code>.rbxm</code> content\nthat 3rd-party tools fail to parse faithfully.</p>\n",
+				"CodeSamples": [
+					"SerializationService-Roundtrip-Sample"
+				]
+			}
 		},
 		"ServerReplicator": {},
 		"ServerScriptService": {
@@ -16120,7 +16153,6 @@
 				"Summary": "<p>Fires when a player closes the phone book prompt.</p>\n",
 				"Description": "<p>Fires when a player closes the phone book prompt.</p>\n"
 			},
-			"PlayerPartyDataChanged": {},
 			"PromptGameInvite": {
 				"Summary": "<p>Prompts the given <a href=\"/ref/class/Player.html\">Player</a> with the invite screen.</p>\n",
 				"Description": "<p><a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a> displays an\ninvite prompt to the local player through which they may invite their\nfriends to the current experience. Before calling this method, you should\nuse\n<a href=\"/ref/class/SocialService.html#member-CanSendGameInviteAsync\">CanSendGameInviteAsync()</a> to\ndetermine whether the player can send an invite, as this ability may vary\ndepending on the platform or player.</p>\n<p>See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">Player Invite Prompts</a>\nfor more details on implementing invite prompts, customizing prompts and\nnotifications, and using launch data.</p>\n",
@@ -16138,8 +16170,7 @@
 			"ShowSelfView": {
 				"Summary": "<p>Shows the calling player&#39;s self view.</p>\n",
 				"Description": "<p>Shows the calling player&#39;s self view. If this method is called while the\nself view is already visible, it does nothing.</p>\n"
-			},
-			"UpdatePlayerPartyData": {}
+			}
 		},
 		"SolidModelContentProvider": {},
 		"Sound": {
@@ -16605,7 +16636,6 @@
 				"Summary": "<p>Determines whether the contents of <a href=\"/ref/class/StarterGui.html\">StarterGui</a> is visible in\nStudio.</p>\n",
 				"Description": "<p>This property determines whether the contents of <a href=\"/ref/class/StarterGui.html\">StarterGui</a> is\nvisible in Studio.</p>\n"
 			},
-			"StudioDefaultStyleSheet": {},
 			"VirtualCursorMode": {}
 		},
 		"StarterPack": {},
@@ -16753,7 +16783,6 @@
 				"Summary": "<p>A measurement of how long it takes for the engine to process all tasks\nrequired to render a frame.</p>\n",
 				"Description": "<p>This property is only available in client scripts and is a measurement of\nhow long it took to render the most-recent frame in seconds. Divide 1 by\nthis value to calculate an FPS value for the frame time. High frame times\nare indicative of performance problems on the device. Consider using the\n<a href=\"https://create.roblox.com/docs/studio/microprofiler\">MicroProfiler</a> to troubleshoot.</p>\n"
 			},
-			"GetHarmonyQualityLevel": {},
 			"GetMemoryUsageMbForTag": {
 				"Summary": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n",
 				"Description": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n"
@@ -19010,12 +19039,7 @@
 				"Description": "<p>Returns a tuple that allows smoothing a value towards a target, simulating\na critically damped spring. Supports <a href=\"/ref/type/Vector2.html\">Vector2</a>,\n<a href=\"/ref/type/Vector3.html\">Vector3</a>, <a href=\"/ref/type/CFrame.html\">CFrame</a>, and number.</p>\n"
 			}
 		},
-		"UGCValidationService": {
-			"CalculateEditableMeshModifiedCageBoundingBox": {},
-			"CalculateEditableMeshNumModifiedCageUVsInSet": {},
-			"ValidateEditableMeshFacialBounds": {},
-			"ValidateEditableMeshFacialExpressiveness": {}
-		},
+		"UGCValidationService": {},
 		"UIAspectRatioConstraint": {
 			"AspectRatio": {
 				"Summary": "<p>Determines the width-to-height ratio to maintain.</p>\n",
@@ -19935,8 +19959,8 @@
 				]
 			},
 			"TouchMoved": {
-				"Summary": "<p>Fired when a user moves their finger on a TouchEnabled device - such as\nthe screen of an Apple iPad or iPhone or a Google Android phone.</p>\n",
-				"Description": "<p>The TouchMoved event fires when a user moves their finger on a\nTouchEnabled device.</p>\n<p>This event can be used to determine when a user moves their finger while\ntouching the screen of a TouchEnabled device. It can be useful to track\nwhether a user is moving their finger on the screen, as well as where the\nuser is moving their finger.</p>\n<p>The code below prints &#34;Touch moved from&#34; the previous Vector2 position &#34;to\n&#34; the new Vector2 position of the user&#39;s touch on a TouchEnabled device.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">UserInputService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;UserInputService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">function</span> <span class=\"_nf\">onTouchMoved</span><span class=\"_p\">(</span><span class=\"_n\">touch</span><span class=\"_p\">,</span> <span class=\"_n\">gameProcessedEvent</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">oldPosition</span> <span class=\"_o\">=</span> <span class=\"_n\">touch.Position</span> <span class=\"_o\">-</span> <span class=\"_n\">touch.Delta</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Touch moved from &#34;</span> <span class=\"_o\">..</span> <span class=\"_n\">tostring</span><span class=\"_p\">(</span><span class=\"_n\">oldPosition</span><span class=\"_p\">)</span> <span class=\"_o\">..</span> <span class=\"_s2\">&#34;to &#34;</span> <span class=\"_o\">..</span> <span class=\"_n\">tostring</span><span class=\"_p\">(</span><span class=\"_n\">touch.Position</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">UserInputService.TouchMoved</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_n\">onTouchMoved</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>It can be paired with <a href=\"/ref/class/UserInputService.html#member-TouchStarted\">UserInputService.TouchStarted</a> and\n<a href=\"/ref/class/UserInputService.html#member-TouchEnded\">UserInputService.TouchEnded</a> to determine when a user starts\ntouching the screen, how their finger moves while touching it, and when\nthe they stop touching the screen.</p>\n<p>To check if a user&#39;s device is TouchEnabled, and that touch events will\nfire, see <a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">UserInputService.TouchEnabled</a>.</p>\n<p>This event only fires when the Roblox client window is in focus. For\nexample, inputs will not be captured when the window is minimized.</p>\n<p>As this event only fires locally, it can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchTap\">UserInputService.TouchTap</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchTapInWorld\">UserInputService.TouchTapInWorld</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchLongPress\">UserInputService.TouchLongPress</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchPan\">UserInputService.TouchPan</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchPinch\">UserInputService.TouchPinch</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchRotate\">UserInputService.TouchRotate</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchSwipe\">UserInputService.TouchSwipe</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchDrag\">UserInputService.TouchDrag</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchStarted\">UserInputService.TouchStarted</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchEnded\">UserInputService.TouchEnded</a></li>\n</ul>\n",
+				"Summary": "<p>Fires when a user moves their finger on a <code>TouchEnabled</code> device, such as a\ntablet or smartphone.</p>\n",
+				"Description": "<p>Fires when a user moves their finger on a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device, such as a\ntablet or smartphone.</p>\n<p>This event is useful for tracking whether a user is moving their finger on\nthe screen, as well as where the user is moving their finger.</p>\n<p>The code below shows the touch moving from its previous position to a new\nposition on a <a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device.\nNote that the <a href=\"/ref/class/InputObject.html#member-Position\">InputObject.Position</a> on the passed <code>touch</code> parameter\nis a <a href=\"/ref/type/Vector3.html\">Vector3</a>, but only includes X and Y coordinates; Z is\nalways 0.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">UserInputService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;UserInputService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">function</span> <span class=\"_nf\">onTouchMoved</span><span class=\"_p\">(</span><span class=\"_n\">touch</span><span class=\"_p\">,</span> <span class=\"_n\">gameProcessedEvent</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">oldPosition</span> <span class=\"_o\">=</span> <span class=\"_n\">touch.Position</span> <span class=\"_o\">-</span> <span class=\"_n\">touch.Delta</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Touch moved from &#34;</span> <span class=\"_o\">..</span> <span class=\"_n\">tostring</span><span class=\"_p\">(</span><span class=\"_n\">oldPosition</span><span class=\"_p\">)</span> <span class=\"_o\">..</span> <span class=\"_s2\">&#34; to &#34;</span> <span class=\"_o\">..</span> <span class=\"_n\">tostring</span><span class=\"_p\">(</span><span class=\"_n\">touch.Position</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">UserInputService.TouchMoved</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_n\">onTouchMoved</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Pair this event with <a href=\"/ref/class/UserInputService.html#member-TouchStarted\">UserInputService.TouchStarted</a> and\n<a href=\"/ref/class/UserInputService.html#member-TouchEnded\">UserInputService.TouchEnded</a> to determine when a user starts\ntouching the screen, how their finger moves while touching it, and when\nthe they stop touching the screen.</p>\n<p>To check if a user&#39;s device supports touch and that touch events will\nfire, see <a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">UserInputService.TouchEnabled</a>.</p>\n<p>This event only fires when the Roblox client window is in focus. For\nexample, inputs will not be captured when the window is minimized.</p>\n<p>As this event only fires locally, it can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchTap\">UserInputService.TouchTap</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchTapInWorld\">UserInputService.TouchTapInWorld</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchLongPress\">UserInputService.TouchLongPress</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchPan\">UserInputService.TouchPan</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchPinch\">UserInputService.TouchPinch</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchRotate\">UserInputService.TouchRotate</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchSwipe\">UserInputService.TouchSwipe</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchDrag\">UserInputService.TouchDrag</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchStarted\">UserInputService.TouchStarted</a></li>\n<li><a href=\"/ref/class/UserInputService.html#member-TouchEnded\">UserInputService.TouchEnded</a></li>\n</ul>\n",
 				"CodeSamples": [
 					"UserInputService-TouchTap"
 				]
@@ -20403,9 +20427,7 @@
 				"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> representing the direction of the light source from\nposition <typography nowrap=\"\"><code>(0, 0, 0)</code></typography>. Defaults to\n<typography nowrap=\"\"><a href=\"/ref/type/Vector3.html\">Vector3.new(-1, -1, -1)</a></typography>.</p>\n"
 			}
 		},
-		"VirtualInputManager": {
-			"SendMouseMoveDeltaEvent": {}
-		},
+		"VirtualInputManager": {},
 		"VirtualUser": {},
 		"VisibilityCheckDispatcher": {},
 		"Visit": {},
@@ -20432,26 +20454,7 @@
 			"UseAudioApi": {
 				"Summary": "<p>Controls whether voice chat is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n",
 				"Description": "<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, the voice chat setup is represented and\ncontrolled by <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects. More specifically:</p>\n<ul>\n<li>An <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> will be created and parented to each\nvoice-eligible <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>An <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> will be created and parented to each\nvoice-eligible player&#39;s <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</li>\n<li>An <a href=\"/ref/class/AudioListener.html\">AudioListener</a> will be created and parented to\n<a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>.</li>\n</ul>\n<p>You can disable the default setup by setting\n<a href=\"/ref/class/VoiceChatService.html#member-EnableDefaultVoice\">VoiceChatService.EnableDefaultVoice</a> to <code>false</code>.</p>\n<p>If <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>, the voice chat setup is done through\nan internal-only system.</p>\n<p>Currently, setting this to <a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> has the same\nmeaning as <a href=\"/ref/enum/AudioApiRollout.html\">Disabled</a>. However, in the future,\n<a href=\"/ref/enum/AudioApiRollout.html\">Automatic</a> will become\n<a href=\"/ref/enum/AudioApiRollout.html\">Enabled</a>, so that new experiences can achieve\ngreater customization over voice.</p>\n"
-			},
-			"getInternalChannelId": {},
-			"getInternalGroupId": {},
-			"getInternalPublishPause": {},
-			"getInternalSessionId": {},
-			"getInternalSubscribePause": {},
-			"getInternalSubscribePauseAll": {},
-			"getInternalVoiceChatApiVersion": {},
-			"isInternalPublishPaused": {}
-		},
-		"WebSocketClient": {
-			"Close": {},
-			"Closed": {},
-			"ConnectionState": {},
-			"MessageReceived": {},
-			"Opened": {},
-			"Send": {}
-		},
-		"WebSocketService": {
-			"CreateClient": {}
+			}
 		},
 		"WedgePart": {},
 		"Weld": {},
@@ -21313,6 +21316,10 @@
 		"GuiState": {},
 		"GuiType": {},
 		"HandlesStyle": {},
+		"HapticEffectType": {
+			"Summary": "<p>Enum used alongside <a href=\"/ref/class/HapticEffect.html#member-Type\">HapticEffect.Type</a>.</p>\n",
+			"Description": "<p>Enum used alongside <a href=\"/ref/class/HapticEffect.html#member-Type\">HapticEffect.Type</a>.</p>\n"
+		},
 		"HighlightDepthMode": {
 			"Summary": "<p>Controls how the <a href=\"/ref/class/Highlight.html\">Highlight</a> effect displays with respect to other\nobjects in the world.</p>\n",
 			"Description": "<p>Controls how the <a href=\"/ref/class/Highlight.html\">Highlight</a> effect displays with respect to other\nobjects in the world.</p>\n"
@@ -21427,7 +21434,7 @@
 		},
 		"LineJoinMode": {
 			"Summary": "<p>This enum is used by <a href=\"/ref/class/UIStroke.html#member-LineJoinMode\">UIStroke.LineJoinMode</a> to determine how corners\nare interpreted.</p>\n",
-			"Description": "<p>This enum is used by <a href=\"/ref/class/UIStroke.html#member-LineJoinMode\">UIStroke.LineJoinMode</a> to determine how corners\nare interpreted.</p>\n<p>See also:</p>\n<p>For a more detailed walkthrough of the UIStroke object, take a look at the\nApplying Strokes article.</p>\n"
+			"Description": "<p>This enum is used by <a href=\"/ref/class/UIStroke.html#member-LineJoinMode\">UIStroke.LineJoinMode</a> to determine how corners\nare interpreted.</p>\n<p>For a more detailed walkthrough of the <a href=\"/ref/class/UIStroke.html\">UIStroke</a> object, see\n<a href=\"https://create.roblox.com/docs/ui/appearance-modifiers#stroke\">here</a>.</p>\n"
 		},
 		"ListDisplayMode": {
 			"Summary": "<p>Used to set the scrolling mode of the Advanced Objects tab.</p>\n",
@@ -24635,6 +24642,26 @@
 			"Movement": {},
 			"Resize": {}
 		},
+		"HapticEffectType": {
+			"Custom": {
+				"Summary": "<p>Allows for application of a custom haptic waveform through the <a href=\"/ref/class/HapticEffect.html#member-SetWaveformKeys\">HapticEffect:SetWaveformKeys()</a> method.</p>\n"
+			},
+			"GameplayCollision": {
+				"Summary": "<p>This effect is a large immediate rumble that dies down quickly, useful to signify a clear and purposeful impact between objects.</p>\n"
+			},
+			"GameplayExplosion": {
+				"Summary": "<p>Useful to signify a large-scale physics event that triggers impact across\na large portion of a given scene. This effect is high intensity in order\nto represent the magnitude of the impact and it lingers for a longer\nperiod of time than <code>GameplayCollision</code>.</p>\n"
+			},
+			"UIClick": {
+				"Summary": "<p>Useful for when a player has selected an object (often a UI object) with\nthe intention of triggering its action. This effect type is crisp and it\nprovides immediate feedback without being overwhelming.</p>\n"
+			},
+			"UIHover": {
+				"Summary": "<p>Useful for when a player browses over an object (often a UI object)\nwithout the intention of triggering its action; it can also alert the\nplayer that they have browsed over an interactable object. This effect\ntype is subtle and does not disrupt the gameplay experience.</p>\n"
+			},
+			"UINotification": {
+				"Summary": "<p>Useful for when there is an inbound message that should draw the player&#39;s\nattention away from their current gameplay and prompt them that the\nnotification requires immediate attention or action.</p>\n"
+			}
+		},
 		"HighlightDepthMode": {
 			"AlwaysOnTop": {
 				"Summary": "<p>Allows the <a href=\"/ref/class/Highlight.html\">Highlight</a> to display regardless if there are objects\nbetween the camera and the highlighted object. This means the viewer is\nalways able to see the highlight regardless of what is between the\nhighlighted object and the camera.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/DepthMode-AlwaysOnTop.jpg\"/>\n"
@@ -25673,13 +25700,13 @@
 		},
 		"LineJoinMode": {
 			"Bevel": {
-				"Summary": "<p>The corners are beveled (see image above).</p>\n"
+				"Summary": "<p>The corners are beveled.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/ui-objects/UIStroke-LineJoinMode-Bevel.png\" width=\"376\"/>\n"
 			},
 			"Miter": {
-				"Summary": "<p>The corners are mitered (see image above).</p>\n"
+				"Summary": "<p>The corners are mitered.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/ui-objects/UIStroke-LineJoinMode-Miter.png\" width=\"376\"/>\n"
 			},
 			"Round": {
-				"Summary": "<p>The corners are rounded (see image above).</p>\n"
+				"Summary": "<p>The corners are rounded.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/ui-objects/UIStroke-LineJoinMode-Round.png\" width=\"376\"/>\n"
 			}
 		},
 		"ListDisplayMode": {
@@ -31097,7 +31124,7 @@
 					],
 					"Returns": [
 						{
-							"Type": "void"
+							"Type": "()"
 						}
 					],
 					"Summary": "<p>Adds the instances provided to\n<a href=\"/ref/type/OverlapParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>.</p>\n",
@@ -31347,7 +31374,7 @@
 					"Parameters": null,
 					"Returns": [
 						{
-							"Type": "void"
+							"Type": "()"
 						}
 					],
 					"Summary": "<p>Disconnects the connection from the event.</p>\n",
@@ -31510,7 +31537,7 @@
 					],
 					"Returns": [
 						{
-							"Type": "void"
+							"Type": "()"
 						}
 					],
 					"Summary": "<p>Uniformly shuffles a table in-place.</p>\n",
@@ -31682,7 +31709,7 @@
 					],
 					"Returns": [
 						{
-							"Type": "void"
+							"Type": "()"
 						}
 					],
 					"Summary": "<p>Adds the instances provided to\n<a href=\"/ref/type/RaycastParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>.</p>\n",
@@ -32040,7 +32067,7 @@
 					],
 					"Returns": [
 						{
-							"Type": "void"
+							"Type": "()"
 						}
 					],
 					"Summary": "<p>Removes all of the elements from the <a href=\"/ref/type/SharedTable.html\">SharedTable</a>.</p>\n",
@@ -32192,7 +32219,7 @@
 					],
 					"Returns": [
 						{
-							"Type": "void"
+							"Type": "()"
 						}
 					],
 					"Summary": "<p>Updates the value with the provided key via the provided update function.</p>\n",

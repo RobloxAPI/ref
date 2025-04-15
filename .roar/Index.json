@@ -7284,7 +7284,7 @@
 					"Index": 2,
 					"Type": {
 						"Category": "Enum",
-						"Name": "AnnotationRequestResult"
+						"Name": "AnnotationRequestStatus"
 					}
 				},
 				{
@@ -7545,6 +7545,32 @@
 					"Type": {
 						"Category": "Class",
 						"Name": "Annotation"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
+					"Member": "annotationsLoadingStatus",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnnotationRequestStatus"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
+					"Member": "resolvedLoadingStatus",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnnotationRequestStatus"
 					}
 				},
 				{
@@ -11675,6 +11701,32 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int64"
+					}
+				},
+				{
+					"Class": "AssetService",
+					"Member": "CreateSurfaceAppearance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AssetService",
+					"Member": "CreateSurfaceAppearance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "SurfaceAppearance"
 					}
 				},
 				{
@@ -17677,7 +17729,7 @@
 			"Related": [
 				{
 					"Class": "AuroraScript",
-					"Member": "DumpMispredictions",
+					"Member": "EnableCulling",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -17703,20 +17755,7 @@
 				},
 				{
 					"Class": "AuroraScript",
-					"Member": "LODDistanceFactor",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int"
-					}
-				},
-				{
-					"Class": "AuroraScript",
-					"Member": "LODFrequencyFactor",
+					"Member": "LODCriticality",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -17985,6 +18024,45 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AuroraScript",
+					"Member": "DumpMispredictions",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AuroraScript",
+					"Member": "LODDistanceFactor",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "AuroraScript",
+					"Member": "LODFrequencyFactor",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				}
 			]
@@ -41688,6 +41766,19 @@
 				},
 				{
 					"Class": "DataModel",
+					"Member": "Environment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "DataModel",
 					"Member": "ForceR15",
 					"MemberType": "Property",
 					"Removed": false,
@@ -60111,6 +60202,58 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "NormalId"
+					}
+				}
+			]
+		},
+		"FacialAgeEstimationService": {
+			"Name": "FacialAgeEstimationService",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "FacialAgeEstimationService",
+					"Member": "InquiryAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "FacialAgeEstimationService",
+					"Member": "InquiryAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "FacialAgeEstimationService",
+					"Member": "IsAvailable",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
 					}
 				}
 			]
@@ -81579,6 +81722,7 @@
 				"FaceAnimatorService",
 				"FaceControls",
 				"FaceInstance",
+				"FacialAgeEstimationService",
 				"FacialAnimationRecordingService",
 				"FacialAnimationStreamingService",
 				"FacialAnimationStreamingServiceStats",
@@ -81886,6 +82030,7 @@
 				"StyleLink",
 				"StylingService",
 				"SurfaceAppearance",
+				"SystemThemeService",
 				"TaskScheduler",
 				"Team",
 				"TeamCreateData",
@@ -94425,6 +94570,19 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "null"
+					}
+				},
+				{
+					"Class": "LocalizationService",
+					"Member": "DynamicTranslationServerToClientResponse",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
 					}
 				},
 				{
@@ -112577,6 +112735,19 @@
 					"Type": {
 						"Category": "DataType",
 						"Name": "SharedString"
+					}
+				},
+				{
+					"Class": "PartOperation",
+					"Member": "ComponentIndex",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				},
 				{
@@ -134601,19 +134772,6 @@
 				},
 				{
 					"Class": "RootImportData",
-					"Member": "UseSceneOriginAsCFrame",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "bool"
-					}
-				},
-				{
-					"Class": "RootImportData",
 					"Member": "UseSceneOriginAsPivot",
 					"MemberType": "Property",
 					"Removed": false,
@@ -134675,6 +134833,19 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "NormalId"
+					}
+				},
+				{
+					"Class": "RootImportData",
+					"Member": "UseSceneOriginAsCFrame",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
 					}
 				}
 			]
@@ -143073,6 +143244,32 @@
 				},
 				{
 					"Class": "SocialService",
+					"Member": "GetPartyAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "GetPartyAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "SocialService",
 					"Member": "GetPlayersByPartyId",
 					"MemberType": "Function",
 					"Removed": false,
@@ -143349,6 +143546,19 @@
 					"Member": "UpdatePlayerPartyData",
 					"MemberType": "Function",
 					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "UpdatePlayerPartyData",
+					"MemberType": "Function",
+					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
 					"Index": 0,
@@ -143446,6 +143656,19 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "PlayerPartyDataChanged",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
 					}
 				},
 				{
@@ -150611,6 +150834,19 @@
 				},
 				{
 					"Class": "Studio",
+					"Member": "EnableSelectionTooltips",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "Studio",
 					"Member": "Error Color",
 					"MemberType": "Property",
 					"Removed": false,
@@ -157574,6 +157810,19 @@
 			],
 			"Related": [
 				{
+					"Class": "AssetService",
+					"Member": "CreateSurfaceAppearance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "SurfaceAppearance"
+					}
+				},
+				{
 					"Class": "SurfaceAppearance",
 					"Member": "AlphaMode",
 					"MemberType": "Property",
@@ -158263,6 +158512,84 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
+					}
+				}
+			]
+		},
+		"SystemThemeService": {
+			"Name": "SystemThemeService",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "SystemThemeService",
+					"Member": "getSystemThemeAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "SystemThemeValue"
+					}
+				},
+				{
+					"Class": "SystemThemeService",
+					"Member": "isSystemThemeAvailable",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SystemThemeService",
+					"Member": "setTheme",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "SystemThemeValue"
+					}
+				},
+				{
+					"Class": "SystemThemeService",
+					"Member": "setTheme",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "SystemThemeService",
+					"Member": "OnLuaThemeUpdated",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "SystemThemeValue"
 					}
 				}
 			]
@@ -196822,7 +197149,7 @@
 						"Index": 2,
 						"Type": {
 							"Category": "Enum",
-							"Name": "AnnotationRequestResult"
+							"Name": "AnnotationRequestStatus"
 						}
 					}
 				]
@@ -197183,6 +197510,27 @@
 				"MemberType": "Event",
 				"Removed": false
 			},
+			"annotationsLoadingStatus": {
+				"Class": "AnnotationsService",
+				"Name": "annotationsLoadingStatus",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "AnnotationsService",
+						"Member": "annotationsLoadingStatus",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "AnnotationRequestStatus"
+						}
+					}
+				]
+			},
 			"createAnnotation": {
 				"Class": "AnnotationsService",
 				"Name": "createAnnotation",
@@ -197221,6 +197569,27 @@
 						"Type": {
 							"Category": "Class",
 							"Name": "PVInstance"
+						}
+					}
+				]
+			},
+			"resolvedLoadingStatus": {
+				"Class": "AnnotationsService",
+				"Name": "resolvedLoadingStatus",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "AnnotationsService",
+						"Member": "resolvedLoadingStatus",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "AnnotationRequestStatus"
 						}
 					}
 				]
@@ -198675,6 +199044,27 @@
 						"Type": {
 							"Category": "Class",
 							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"CreateSurfaceAppearance": {
+				"Class": "AssetService",
+				"Name": "CreateSurfaceAppearance",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "AssetService",
+						"Member": "CreateSurfaceAppearance",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "SurfaceAppearance"
 						}
 					}
 				]
@@ -201491,6 +201881,12 @@
 				"Class": "AuroraScript",
 				"Name": "DumpMispredictions",
 				"MemberType": "Property",
+				"Removed": true
+			},
+			"EnableCulling": {
+				"Class": "AuroraScript",
+				"Name": "EnableCulling",
+				"MemberType": "Property",
 				"Removed": false
 			},
 			"EnableLOD": {
@@ -201520,17 +201916,23 @@
 					}
 				]
 			},
+			"LODCriticality": {
+				"Class": "AuroraScript",
+				"Name": "LODCriticality",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"LODDistanceFactor": {
 				"Class": "AuroraScript",
 				"Name": "LODDistanceFactor",
 				"MemberType": "Property",
-				"Removed": false
+				"Removed": true
 			},
 			"LODFrequencyFactor": {
 				"Class": "AuroraScript",
 				"Name": "LODFrequencyFactor",
 				"MemberType": "Property",
-				"Removed": false
+				"Removed": true
 			},
 			"LODUpdate": {
 				"Class": "AuroraScript",
@@ -211976,6 +212378,12 @@
 				"MemberType": "Property",
 				"Removed": true
 			},
+			"Environment": {
+				"Class": "DataModel",
+				"Name": "Environment",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"FinishShutdown": {
 				"Class": "DataModel",
 				"Name": "FinishShutdown",
@@ -218925,6 +219333,20 @@
 						}
 					}
 				]
+			}
+		},
+		"FacialAgeEstimationService": {
+			"InquiryAsync": {
+				"Class": "FacialAgeEstimationService",
+				"Name": "InquiryAsync",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"IsAvailable": {
+				"Class": "FacialAgeEstimationService",
+				"Name": "IsAvailable",
+				"MemberType": "Function",
+				"Removed": false
 			}
 		},
 		"FacialAnimationRecordingService": {
@@ -231450,6 +231872,12 @@
 				"MemberType": "Event",
 				"Removed": false
 			},
+			"DynamicTranslationServerToClientResponse": {
+				"Class": "LocalizationService",
+				"Name": "DynamicTranslationServerToClientResponse",
+				"MemberType": "Event",
+				"Removed": false
+			},
 			"ForcePlayModeGameLocaleId": {
 				"Class": "LocalizationService",
 				"Name": "ForcePlayModeGameLocaleId",
@@ -239441,6 +239869,12 @@
 						}
 					}
 				]
+			},
+			"ComponentIndex": {
+				"Class": "PartOperation",
+				"Name": "ComponentIndex",
+				"MemberType": "Property",
+				"Removed": false
 			},
 			"DCDPropertyData": {
 				"Class": "PartOperation",
@@ -249384,7 +249818,7 @@
 				"Class": "RootImportData",
 				"Name": "UseSceneOriginAsCFrame",
 				"MemberType": "Property",
-				"Removed": false
+				"Removed": true
 			},
 			"UseSceneOriginAsPivot": {
 				"Class": "RootImportData",
@@ -253200,6 +253634,12 @@
 					}
 				]
 			},
+			"GetPartyAsync": {
+				"Class": "SocialService",
+				"Name": "GetPartyAsync",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"GetPlayersByPartyId": {
 				"Class": "SocialService",
 				"Name": "GetPlayersByPartyId",
@@ -256948,6 +257388,12 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"EnableSelectionTooltips": {
+				"Class": "Studio",
+				"Name": "EnableSelectionTooltips",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"Error Color": {
 				"Class": "Studio",
 				"Name": "Error Color",
@@ -260235,6 +260681,77 @@
 				"Name": "RawBytecode",
 				"MemberType": "Property",
 				"Removed": false
+			}
+		},
+		"SystemThemeService": {
+			"OnLuaThemeUpdated": {
+				"Class": "SystemThemeService",
+				"Name": "OnLuaThemeUpdated",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "SystemThemeService",
+						"Member": "OnLuaThemeUpdated",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Enum",
+							"Name": "SystemThemeValue"
+						}
+					}
+				]
+			},
+			"getSystemThemeAsync": {
+				"Class": "SystemThemeService",
+				"Name": "getSystemThemeAsync",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "SystemThemeService",
+						"Member": "getSystemThemeAsync",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Enum",
+							"Name": "SystemThemeValue"
+						}
+					}
+				]
+			},
+			"isSystemThemeAvailable": {
+				"Class": "SystemThemeService",
+				"Name": "isSystemThemeAvailable",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"setTheme": {
+				"Class": "SystemThemeService",
+				"Name": "setTheme",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "SystemThemeService",
+						"Member": "setTheme",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Enum",
+							"Name": "SystemThemeValue"
+						}
+					}
+				]
 			}
 		},
 		"TaskScheduler": {
@@ -277667,7 +278184,7 @@
 		},
 		"AnnotationRequestResult": {
 			"Name": "AnnotationRequestResult",
-			"Removed": false,
+			"Removed": true,
 			"ItemsByValue": [
 				"Success",
 				"ErrorInternalFailure",
@@ -277676,6 +278193,24 @@
 			],
 			"ItemsByIndex": [
 				"Success",
+				"ErrorInternalFailure",
+				"ErrorNotFound",
+				"ErrorModerated"
+			]
+		},
+		"AnnotationRequestStatus": {
+			"Name": "AnnotationRequestStatus",
+			"Removed": false,
+			"ItemsByValue": [
+				"Success",
+				"Loading",
+				"ErrorInternalFailure",
+				"ErrorNotFound",
+				"ErrorModerated"
+			],
+			"ItemsByIndex": [
+				"Success",
+				"Loading",
 				"ErrorInternalFailure",
 				"ErrorNotFound",
 				"ErrorModerated"
@@ -277691,7 +278226,33 @@
 					"Index": 2,
 					"Type": {
 						"Category": "Enum",
-						"Name": "AnnotationRequestResult"
+						"Name": "AnnotationRequestStatus"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
+					"Member": "annotationsLoadingStatus",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnnotationRequestStatus"
+					}
+				},
+				{
+					"Class": "AnnotationsService",
+					"Member": "resolvedLoadingStatus",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnnotationRequestStatus"
 					}
 				}
 			]
@@ -283605,6 +284166,20 @@
 						"Name": "FACSDataLod"
 					}
 				}
+			]
+		},
+		"FacialAgeEstimationResultType": {
+			"Name": "FacialAgeEstimationResultType",
+			"Removed": false,
+			"ItemsByValue": [
+				"Complete",
+				"Cancel",
+				"Error"
+			],
+			"ItemsByIndex": [
+				"Complete",
+				"Cancel",
+				"Error"
 			]
 		},
 		"FacialAnimationFlags": {
@@ -296091,6 +296666,65 @@
 				}
 			]
 		},
+		"SystemThemeValue": {
+			"Name": "SystemThemeValue",
+			"Removed": false,
+			"ItemsByValue": [
+				"error",
+				"light",
+				"dark",
+				"systemLight",
+				"systemDark"
+			],
+			"ItemsByIndex": [
+				"error",
+				"light",
+				"dark",
+				"systemLight",
+				"systemDark"
+			],
+			"Related": [
+				{
+					"Class": "SystemThemeService",
+					"Member": "getSystemThemeAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "SystemThemeValue"
+					}
+				},
+				{
+					"Class": "SystemThemeService",
+					"Member": "setTheme",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "SystemThemeValue"
+					}
+				},
+				{
+					"Class": "SystemThemeService",
+					"Member": "OnLuaThemeUpdated",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "SystemThemeValue"
+					}
+				}
+			]
+		},
 		"TableMajorAxis": {
 			"Name": "TableMajorAxis",
 			"Removed": false,
@@ -300773,20 +301407,47 @@
 			"ErrorInternalFailure": {
 				"Enum": "AnnotationRequestResult",
 				"Name": "ErrorInternalFailure",
-				"Removed": false
+				"Removed": true
 			},
 			"ErrorModerated": {
 				"Enum": "AnnotationRequestResult",
 				"Name": "ErrorModerated",
-				"Removed": false
+				"Removed": true
 			},
 			"ErrorNotFound": {
 				"Enum": "AnnotationRequestResult",
 				"Name": "ErrorNotFound",
-				"Removed": false
+				"Removed": true
 			},
 			"Success": {
 				"Enum": "AnnotationRequestResult",
+				"Name": "Success",
+				"Removed": true
+			}
+		},
+		"AnnotationRequestStatus": {
+			"ErrorInternalFailure": {
+				"Enum": "AnnotationRequestStatus",
+				"Name": "ErrorInternalFailure",
+				"Removed": false
+			},
+			"ErrorModerated": {
+				"Enum": "AnnotationRequestStatus",
+				"Name": "ErrorModerated",
+				"Removed": false
+			},
+			"ErrorNotFound": {
+				"Enum": "AnnotationRequestStatus",
+				"Name": "ErrorNotFound",
+				"Removed": false
+			},
+			"Loading": {
+				"Enum": "AnnotationRequestStatus",
+				"Name": "Loading",
+				"Removed": false
+			},
+			"Success": {
+				"Enum": "AnnotationRequestStatus",
 				"Name": "Success",
 				"Removed": false
 			}
@@ -305283,6 +305944,23 @@
 			"LODCount": {
 				"Enum": "FACSDataLod",
 				"Name": "LODCount",
+				"Removed": false
+			}
+		},
+		"FacialAgeEstimationResultType": {
+			"Cancel": {
+				"Enum": "FacialAgeEstimationResultType",
+				"Name": "Cancel",
+				"Removed": false
+			},
+			"Complete": {
+				"Enum": "FacialAgeEstimationResultType",
+				"Name": "Complete",
+				"Removed": false
+			},
+			"Error": {
+				"Enum": "FacialAgeEstimationResultType",
+				"Name": "Error",
 				"Removed": false
 			}
 		},
@@ -314725,6 +315403,33 @@
 				"Removed": false
 			}
 		},
+		"SystemThemeValue": {
+			"dark": {
+				"Enum": "SystemThemeValue",
+				"Name": "dark",
+				"Removed": false
+			},
+			"error": {
+				"Enum": "SystemThemeValue",
+				"Name": "error",
+				"Removed": false
+			},
+			"light": {
+				"Enum": "SystemThemeValue",
+				"Name": "light",
+				"Removed": false
+			},
+			"systemDark": {
+				"Enum": "SystemThemeValue",
+				"Name": "systemDark",
+				"Removed": false
+			},
+			"systemLight": {
+				"Enum": "SystemThemeValue",
+				"Name": "systemLight",
+				"Removed": false
+			}
+		},
 		"TableMajorAxis": {
 			"ColumnMajor": {
 				"Enum": "TableMajorAxis",
@@ -319795,6 +320500,19 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "GetPartyAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
 					"Index": 0,
 					"Type": {
 						"Category": "Group",
@@ -329321,6 +330039,19 @@
 				},
 				{
 					"Class": "AssetService",
+					"Member": "CreateSurfaceAppearance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AssetService",
 					"Member": "GetBundleDetailsAsync",
 					"MemberType": "Function",
 					"Removed": false,
@@ -330291,6 +331022,19 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "FacialAgeEstimationService",
+					"Member": "InquiryAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
 					"Index": 0,
 					"Type": {
 						"Category": "Group",
@@ -340700,6 +341444,19 @@
 					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
+					}
+				},
+				{
+					"Class": "LocalizationService",
+					"Member": "DynamicTranslationServerToClientResponse",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
 					"Index": 0,
 					"Type": {
 						"Category": "Group",
@@ -353418,7 +354175,7 @@
 				},
 				{
 					"Class": "AuroraScript",
-					"Member": "DumpMispredictions",
+					"Member": "EnableCulling",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -356357,6 +357114,19 @@
 				{
 					"Class": "FaceAnimatorService",
 					"Member": "IsStarted",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "FacialAgeEstimationService",
+					"Member": "IsAvailable",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -362505,19 +363275,6 @@
 				},
 				{
 					"Class": "RootImportData",
-					"Member": "UseSceneOriginAsCFrame",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "bool"
-					}
-				},
-				{
-					"Class": "RootImportData",
 					"Member": "UseSceneOriginAsPivot",
 					"MemberType": "Property",
 					"Removed": false,
@@ -363213,6 +363970,32 @@
 					"Field": "ReturnType",
 					"Kind": "Type",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "UpdatePlayerPartyData",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "PlayerPartyDataChanged",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -364274,6 +365057,19 @@
 				{
 					"Class": "Studio",
 					"Member": "EnableOnTypeAutocomplete",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "Studio",
+					"Member": "EnableSelectionTooltips",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -365410,6 +366206,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SystemThemeService",
+					"Member": "isSystemThemeAvailable",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -369866,6 +370675,19 @@
 					}
 				},
 				{
+					"Class": "AuroraScript",
+					"Member": "DumpMispredictions",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
 					"Class": "AuroraService",
 					"Member": "RollbackEnabled",
 					"MemberType": "Property",
@@ -372364,6 +373186,19 @@
 				{
 					"Class": "RigidConstraint",
 					"Member": "DestructionEnabled",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "RootImportData",
+					"Member": "UseSceneOriginAsCFrame",
 					"MemberType": "Property",
 					"Removed": true,
 					"Field": "ValueType",
@@ -389062,20 +389897,7 @@
 				},
 				{
 					"Class": "AuroraScript",
-					"Member": "LODDistanceFactor",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "int"
-					}
-				},
-				{
-					"Class": "AuroraScript",
-					"Member": "LODFrequencyFactor",
+					"Member": "LODCriticality",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -392354,6 +393176,19 @@
 				{
 					"Class": "PackageLink",
 					"Member": "ModifiedState",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "PartOperation",
+					"Member": "ComponentIndex",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -396389,6 +397224,32 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "AuroraScript",
+					"Member": "LODDistanceFactor",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "AuroraScript",
+					"Member": "LODFrequencyFactor",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
@@ -417926,6 +418787,19 @@
 					}
 				},
 				{
+					"Class": "SystemThemeService",
+					"Member": "setTheme",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "TeamCreateService",
 					"Member": "CloseGameIfUserDoesntHavePerms",
 					"MemberType": "Function",
@@ -426650,6 +427524,19 @@
 				},
 				{
 					"Class": "DataModel",
+					"Member": "Environment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "DataModel",
 					"Member": "JobId",
 					"MemberType": "Property",
 					"Removed": false,
@@ -428185,6 +429072,19 @@
 				{
 					"Class": "ExplorerFilter",
 					"Member": "SetFilter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "FacialAgeEstimationService",
+					"Member": "InquiryAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -438684,6 +439584,19 @@
 					"Class": "SkateboardController",
 					"Member": "AxisChanged",
 					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "GetPartyAsync",
+					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
