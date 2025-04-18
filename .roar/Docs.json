@@ -233,7 +233,13 @@
 			"Summary": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n",
 			"Description": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n"
 		},
-		"AudioTextToSpeech": {},
+		"AudioTextToSpeech": {
+			"Summary": "<p>Used to play text as speech audio.</p>\n",
+			"Description": "<p><a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> is used to play text as speech audio. It provides a single\n<strong>Output</strong> pin which can be connected to other pins via <a href=\"/ref/class/Wire.html\">Wires</a>.\nThis API is still in development and is not yet publicly available</p>\n",
+			"CodeSamples": [
+				"audio-wiring---text-to-speech"
+			]
+		},
 		"AvatarCreationService": {
 			"Summary": "<p>A service to support developer avatar creators.</p>\n",
 			"Description": "<p><code>AvatarCreationService</code> is a service that supports developer avatar creators,\nproviding methods that support the prompting of avatar creation from within\nexperiences.</p>\n"
@@ -437,7 +443,7 @@
 		"Camera": {
 			"Category": "Gameplay",
 			"Summary": "<p>A class which defines a view of the 3D world.</p>\n",
-			"Description": "<p>The <code>Camera</code> object defines a view of the 3D world. In a running experience,\neach client has its own <code>Camera</code> object which resides in that client&#39;s local\n<a href=\"/ref/class/Workspace.html\">Workspace</a>, accessible through the <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>\nproperty.</p>\n<p>The most important camera properties are:</p>\n<ul>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-CFrame\">CFrame</a> which represents the position and orientation\nof the camera.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-CameraType\">CameraType</a> which is read by the experience&#39;s\ncamera scripts and determines how the camera should update each frame.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-CameraSubject\">CameraSubject</a> which is read by the experience&#39;s\ncamera scripts and determines what object the camera should follow.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-FieldOfView\">FieldOfView</a> which represents the visible extent\nof the observable world.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-Focus\">Focus</a> which represents the point the camera is looking\nat. It&#39;s important this property is set, as certain visuals will be more\ndetailed and will update more frequently depending on how close they are to\nthe focus point.</p>\n</li>\n</ul>\n<p>See <a href=\"https://create.roblox.com/docs/workspace/camera\">Customizing the Camera</a> for more\ninformation on how to adjust and customize the camera&#39;s behavior.</p>\n"
+			"Description": "<p>The <code>Camera</code> object defines a view of the 3D world. In a running experience,\neach client has its own <code>Camera</code> object which resides in that client&#39;s local\n<a href=\"/ref/class/Workspace.html\">Workspace</a>, accessible through the <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a>\nproperty.</p>\n<p>The most important camera properties are:</p>\n<ul>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-CFrame\">CFrame</a> which represents the position and orientation\nof the camera.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-CameraType\">CameraType</a> which is read by the experience&#39;s\ncamera scripts and determines how the camera should update each frame.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-CameraSubject\">CameraSubject</a> which is read by the experience&#39;s\ncamera scripts and determines what object the camera should follow.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-FieldOfView\">FieldOfView</a> which represents the visible extent\nof the observable world.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/Camera.html#member-Focus\">Focus</a> which represents the point the camera is looking\nat. It&#39;s important this property is set, as certain visuals will be more\ndetailed and will update more frequently depending on how close they are to\nthe focus point.</p>\n</li>\n</ul>\n<p>See <a href=\"https://create.roblox.com/docs/workspace/camera\">Customizing the Camera</a> for more\ninformation on how to adjust and customize the camera&#39;s behavior.</p>\n<h3>Storing Multiple Cameras</h3>\n<p>Note that when changing <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> to a new\n<a href=\"/ref/class/Camera.html\">Camera</a>, all other <a href=\"/ref/class/Camera.html\">Cameras</a> directly descending from\n<a href=\"/ref/class/Workspace.html\">Workspace</a> will be destroyed. If you need to store multiple cameras and\nswap between them on demand, it&#39;s recommended that you store them in a\n<a href=\"/ref/class/Folder.html\">Folder</a> or <a href=\"/ref/class/Model.html\">Model</a> under <a href=\"/ref/class/Workspace.html\">Workspace</a>, inside which they\nwill remain even when <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">CurrentCamera</a> is\nchanged.</p>\n"
 		},
 		"CanvasGroup": {
 			"Category": "GUI",
@@ -825,6 +831,7 @@
 			"Summary": "<p>The FaceInstance class is an abstract class from which the <a href=\"/ref/class/Decal.html\">Decal</a> class\ninherits.</p>\n",
 			"Description": "<p>The FaceInstance class is an abstract class from which the <a href=\"/ref/class/Decal.html\">Decal</a> class\ninherits.</p>\n"
 		},
+		"FacialAgeEstimationService": {},
 		"Feature": {
 			"Summary": "<p>The base class for the legacy motor system.</p>\n",
 			"Description": "<p>The base class for the legacy motor system.</p>\n"
@@ -1037,7 +1044,7 @@
 		"Handles": {
 			"Category": "Adornments",
 			"Summary": "<p>Places 3D handles around any object that its <a href=\"/ref/class/Handles.html#member-Adornee\">Adornee</a>\nis set to.</p>\n",
-			"Description": "<p>The <code>Handles</code> object places 3D handles around any object that its\n<a href=\"/ref/class/Handles.html#member-Adornee\">Adornee</a> is set to; this property must be set to a 3D\nobject for the handles to appear. The color can be changed and the shape\nof the handles can be set to either arrows or spheres.</p>\n<p>For handles to be interactive, they must be parented to a player&#39;s\n<a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> or the <a href=\"/ref/class/CoreGui.html\">CoreGui</a>.</p>\n"
+			"Description": "<p>The <code>Handles</code> object places 3D handles around any object that its\n<a href=\"/ref/class/Handles.html#member-Adornee\">Adornee</a> is set to; this property must be set to a 3D\nobject for the handles to appear. The color can be changed and the shape of\nthe handles can be set to either arrows or spheres.</p>\n<p>For handles to be interactive, they must be parented to a player&#39;s\n<a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> or the <a href=\"/ref/class/CoreGui.html\">CoreGui</a>.</p>\n"
 		},
 		"HandlesBase": {
 			"Summary": "<p>An abstract class for Handle objects, such as <a href=\"/ref/class/ArcHandles.html\">ArcHandles</a> and\n<a href=\"/ref/class/Handles.html\">Handles</a>.</p>\n",
@@ -2252,6 +2259,7 @@
 		},
 		"SwimController": {},
 		"SyncScriptBuilder": {},
+		"SystemThemeService": {},
 		"TaskScheduler": {
 			"Category": "Settings",
 			"Summary": "<p>Collection of settings for the <em>Task Scheduler</em> feature.</p>\n",
@@ -2696,7 +2704,7 @@
 		},
 		"Wire": {
 			"Summary": "<p>Connects one or more <a href=\"/ref/class/Instance.html\">Instances</a> to form a processing graph of\ntheir streams. At the moment, only audio streams are supported, but this may\nexpand in the future.</p>\n",
-			"Description": "<p><a href=\"/ref/class/Wire.html\">Wire</a> connects one or more <a href=\"/ref/class/Instance.html\">Instances</a> to form a\nprocessing graph of their streams. Each <a href=\"/ref/class/Wire.html\">Wire</a> connects a source and\ntarget instance, and a source and target &#34;pin&#34; within each of those instances.\nPins are string identifiers that select which stream is to be carried by the\nwire.</p>\n<p>At the moment, only audio streams are supported, but this may expand in the\nfuture.</p>\n<p>The following instances may be connected by <a href=\"/ref/class/Wire.html\">Wires</a>:</p>\n<ul>\n<li><a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a></li>\n<li><a href=\"/ref/class/AudioCompressor.html\">AudioCompressor</a></li>\n<li><a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a></li>\n<li><a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a></li>\n<li><a href=\"/ref/class/AudioDistortion.html\">AudioDistortion</a></li>\n<li><a href=\"/ref/class/AudioEcho.html\">AudioEcho</a></li>\n<li><a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a></li>\n<li><a href=\"/ref/class/AudioEqualizer.html\">AudioEqualizer</a></li>\n<li><a href=\"/ref/class/AudioFader.html\">AudioFader</a></li>\n<li><a href=\"/ref/class/AudioFilter.html\">AudioFilter</a></li>\n<li><a href=\"/ref/class/AudioFlanger.html\">AudioFlanger</a></li>\n<li><a href=\"/ref/class/AudioListener.html\">AudioListener</a></li>\n<li><a href=\"/ref/class/AudioLimiter.html\">AudioLimiter</a></li>\n<li><a href=\"/ref/class/AudioPitchShifter.html\">AudioPitchShifter</a></li>\n<li><a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a></li>\n<li><a href=\"/ref/class/AudioReverb.html\">AudioReverb</a></li>\n</ul>\n"
+			"Description": "<p><a href=\"/ref/class/Wire.html\">Wire</a> connects one or more <a href=\"/ref/class/Instance.html\">Instances</a> to form a\nprocessing graph of their streams. Each <a href=\"/ref/class/Wire.html\">Wire</a> connects a source and\ntarget instance, and a source and target &#34;pin&#34; within each of those instances.\nPins are string identifiers that select which stream is to be carried by the\nwire.</p>\n<p>At the moment, only audio streams are supported, but this may expand in the\nfuture.</p>\n<p>The following instances may be connected by <a href=\"/ref/class/Wire.html\">Wires</a>:</p>\n<ul>\n<li><a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a></li>\n<li><a href=\"/ref/class/AudioCompressor.html\">AudioCompressor</a></li>\n<li><a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a></li>\n<li><a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a></li>\n<li><a href=\"/ref/class/AudioDistortion.html\">AudioDistortion</a></li>\n<li><a href=\"/ref/class/AudioEcho.html\">AudioEcho</a></li>\n<li><a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a></li>\n<li><a href=\"/ref/class/AudioEqualizer.html\">AudioEqualizer</a></li>\n<li><a href=\"/ref/class/AudioFader.html\">AudioFader</a></li>\n<li><a href=\"/ref/class/AudioFilter.html\">AudioFilter</a></li>\n<li><a href=\"/ref/class/AudioFlanger.html\">AudioFlanger</a></li>\n<li><a href=\"/ref/class/AudioListener.html\">AudioListener</a></li>\n<li><a href=\"/ref/class/AudioLimiter.html\">AudioLimiter</a></li>\n<li><a href=\"/ref/class/AudioPitchShifter.html\">AudioPitchShifter</a></li>\n<li><a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a></li>\n<li><a href=\"/ref/class/AudioReverb.html\">AudioReverb</a></li>\n<li><a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a></li>\n</ul>\n"
 		},
 		"WireframeHandleAdornment": {},
 		"Workspace": {
@@ -3420,6 +3428,7 @@
 				"Summary": "<p>Clones a place through the given <code>templatePlaceID</code> and puts it into the\ninventory of the given player.</p>\n",
 				"DeprecationMessage": "<p>This method has been removed and is no longer functional.</p>\n"
 			},
+			"CreateSurfaceAppearance": {},
 			"GetAssetIdsForPackage": {
 				"Summary": "<p>Returns an array of asset IDs that are contained in a specified package.</p>\n",
 				"Description": "<p>Returns an array of asset IDs that are contained in a specified package.</p>\n"
@@ -4270,26 +4279,83 @@
 			}
 		},
 		"AudioTextToSpeech": {
-			"Ended": {},
-			"GetConnectedWires": {},
+			"Ended": {
+				"Summary": "<p>Fires when the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object has completed playback and paused.</p>\n",
+				"Description": "<p>Fires after the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object has completed playback and paused.\nNote this event will <strong>not</strong> fire for audio with\n<a href=\"/ref/class/AudioTextToSpeech.html#member-Looped\">Looped</a> set to <code>true</code> since it continues playing\nupon reaching its end. This event will also <strong>not</strong> fire when the audio is\npaused before playback has completed; for this, use\n<a href=\"/ref/class/AudioTextToSpeech.html#member-GetPropertyChangedSignal\">AudioTextToSpeech:GetPropertyChangedSignal()</a> on the\n<a href=\"/ref/class/AudioTextToSpeech.html#member-IsPlaying\">IsPlaying</a> property.</p>\n<p>This event is may be used to destroy an <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object when it has\ncompleted playback.</p>\n"
+			},
+			"GetConnectedWires": {
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> has one &#34;Output&#34; pin.</p>\n"
+			},
 			"GetWaveformAsync": {},
-			"IsLoaded": {},
-			"IsPlaying": {},
-			"LoadAsync": {},
-			"Looped": {},
-			"Looping": {},
-			"Pause": {},
-			"Pitch": {},
-			"Play": {},
-			"PlaybackSpeed": {},
-			"Speed": {},
-			"Text": {},
-			"TimeLength": {},
-			"TimePosition": {},
-			"Unload": {},
-			"VoiceId": {},
-			"Volume": {},
-			"WiringChanged": {}
+			"IsLoaded": {
+				"Summary": "<p>Denotes whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object is loaded, buffered, and ready to\nplay.</p>\n",
+				"Description": "<p>Denotes whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object is loaded, buffered, and ready to\nplay. Although uncommon, <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> objects may have their\nassets unloaded at runtime if there is extreme memory pressure, in which\ncase <a href=\"/ref/class/AudioTextToSpeech.html#member-IsLoaded\">IsLoaded</a> will become false.</p>\n"
+			},
+			"IsPlaying": {
+				"Summary": "<p>Denotes whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object is currently playing.</p>\n",
+				"Description": "<p>Denotes whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object is currently playing. This\nproperty is read-only, but replicates. To play and stop an\n<a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object at runtime, use the <a href=\"/ref/class/AudioTextToSpeech.html#member-Play\">Play()</a>\nand <a href=\"/ref/class/AudioTextToSpeech.html#member-Pause\">Pause()</a> methods.</p>\n"
+			},
+			"LoadAsync": {
+				"Summary": "<p>Generates speech audio.</p>\n",
+				"Description": "<p>A blocking call that begins the generation of speech audio based on the\ncurrent parameters. It will yield until the speech generation either\ncompletes or fails.\nStatus is returned by an AssetFetchStatus value.</p>\n"
+			},
+			"Looped": {
+				"Summary": "<p>Fires when the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object loops.</p>\n",
+				"Description": "<p>Event that fires after the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object loops. This happens when\nthe audio reaches the end of its content and\n<a href=\"/ref/class/AudioTextToSpeech.html#member-Looping\">Looping</a> is <code>true</code>.</p>\n<p>This event does <strong>not</strong> fire if the audio is looped manually by changing\nits <a href=\"/ref/class/AudioTextToSpeech.html#member-TimePosition\">TimePosition</a>.</p>\n"
+			},
+			"Looping": {
+				"Summary": "<p>Controls whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object loops.</p>\n",
+				"Description": "<p>Controls whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object loops when exceeding the end of\nits <a href=\"/ref/class/AudioTextToSpeech.html#member-TimeLength\">TimeLength</a>.</p>\n"
+			},
+			"Pause": {
+				"Summary": "<p>Pauses the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object wherever its\n<a href=\"/ref/class/AudioTextToSpeech.html#member-TimePosition\">TimePosition</a> is.</p>\n",
+				"Description": "<p>Pauses the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object wherever its\n<a href=\"/ref/class/AudioTextToSpeech.html#member-TimePosition\">TimePosition</a> is. Replicates from server\nto client.</p>\n"
+			},
+			"Pitch": {
+				"Summary": "<p>Controls the pitch of the generated speech audio, which will be independent of its speed.</p>\n",
+				"Description": "<p>A value in musical semitones. The pitch of the generated speech audio is shifted from\nits default value by <code>AudioTextToSpeech.Pitch</code> semitones. Ranges from -12.0 to 12.0.</p>\n"
+			},
+			"Play": {
+				"Summary": "<p>Plays the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> from wherever its\n<a href=\"/ref/class/AudioTextToSpeech.html#member-TimePosition\">TimePosition</a> is.</p>\n",
+				"Description": "<p>Plays the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> from wherever its\n<a href=\"/ref/class/AudioTextToSpeech.html#member-TimePosition\">TimePosition</a> is. Replicates from server\nto client.</p>\n"
+			},
+			"PlaybackSpeed": {
+				"Summary": "<p>Controls how quickly the speech audio will be played, which controls its pitch.</p>\n",
+				"Description": "<p>Multiplier controlling how quickly the speech audio will be played, directly\ncontrolling its perceived pitch. Ranges from 0 to 20.</p>\n"
+			},
+			"Speed": {
+				"Summary": "<p>Controls the speed of the generated speech audio, which will be independent of its pitch.</p>\n",
+				"Description": "<p>Multiplier controlling the speed of the generated speech audio. Ranges from 0.5 to 2.0.</p>\n"
+			},
+			"Text": {
+				"Summary": "<p>The text to be converted into speech audio by <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.</p>\n",
+				"Description": "<p>The text to be converted into speech audio by <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.</p>\n"
+			},
+			"TimeLength": {
+				"Summary": "<p>Denotes the length of the generated speech audio.</p>\n",
+				"Description": "<p>Denotes the generated speech audio in seconds.</p>\n"
+			},
+			"TimePosition": {
+				"Summary": "<p>Tracks the current position of the playhead within the generated speech audio.</p>\n",
+				"Description": "<p>Tracks and controls the current position of the playhead within the\ngenerated speech audio, in seconds.</p>\n"
+			},
+			"Unload": {
+				"Summary": "<p>Unload the generated speech audio.</p>\n",
+				"Description": "<p>Frees resources by unloading the generated speech audio.</p>\n"
+			},
+			"VoiceId": {
+				"Summary": "<p>The voice style to be used by <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.</p>\n",
+				"Description": "<p>The voice style to be used by<a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.</p>\n"
+			},
+			"Volume": {
+				"Summary": "<p>Controls how loudly the generated speech audio will be played.</p>\n",
+				"Description": "<p>Volume level which is multiplied onto the output audio stream, controlling\nhow loudly the generated speech audio will be played. Ranges from 0 to 3.</p>\n"
+			},
+			"WiringChanged": {
+				"Summary": "<p>Fires when another instance is connected to or disconnected from the\n<a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> via a <a href=\"/ref/class/Wire.html\">Wire</a>.</p>\n",
+				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> and to some other wirable instance.</p>\n"
+			}
 		},
 		"AvatarCreationService": {
 			"AvatarModerationCompleted": {},
@@ -6594,7 +6660,7 @@
 			},
 			"PreloadAsync": {
 				"Summary": "<p>Yields until all of the assets associated with the given\n<a href=\"/ref/class/Instance.html\">Instances</a> have loaded.</p>\n",
-				"Description": "<p>Yields until all of the assets associated with the given\n<a href=\"/ref/class/Instance.html\">Instances</a> have loaded. This can be used to pause a script\nand not use content until it is certain that the content has been loaded\ninto the experience.</p>\n<p>When called, the engine identifies links to content for each item in the\nlist. For any of the <a href=\"/ref/class/Instance.html\">Instances</a> which have properties that\ndefine links to content, such as a <a href=\"/ref/class/Decal.html\">Decal</a> or a\n<a href=\"/ref/class/Sound.html\">Sound</a>, the engine attempts to load these assets from Roblox.\nFor each requested asset, the callback function runs, indicating the\nasset&#39;s final <a href=\"/ref/enum/AssetFetchStatus.html\">AssetFetchStatus</a>.</p>\n<p>This method can also take in a list of content ID strings, however these\nstrings must correspond to <strong>image</strong> assets. Attempting to load non-image\nassets through the use of their content ID strings will result in failure.</p>\n<p>If any of the assets fail to load, an error message appears in the output.\nThe method itself will not error and it will continue executing until it\nhas processed each requested instance or asset ID.</p>\n<h4>Limitations</h4>\n<p><a href=\"/ref/class/SurfaceAppearance.html\">SurfaceAppearance</a> and <a href=\"/ref/class/MaterialVariant.html\">MaterialVariant</a> are not supported by\n<a href=\"/ref/class/ContentProvider.html#member-PreloadAsync\">PreloadAsync()</a> because these\nobjects rely on processed texture pack assets rather than directly loading\nindividual textures. Calling it on a <a href=\"/ref/class/SurfaceAppearance.html\">SurfaceAppearance</a> instance\nwill not do anything, but the associated textures will still be streamed\nin during runtime.</p>\n",
+				"Description": "<p>Yields until all of the assets associated with the given\n<a href=\"/ref/class/Instance.html\">Instances</a> have loaded. This can be used to pause a script\nand not use content until it is certain that the content has been loaded\ninto the experience.</p>\n<p>When called, the engine identifies links to content for each item in the\nlist. For any of the <a href=\"/ref/class/Instance.html\">Instances</a> which have properties that\ndefine links to content, such as a <a href=\"/ref/class/Decal.html\">Decal</a> or a\n<a href=\"/ref/class/Sound.html\">Sound</a>, the engine attempts to load these assets from Roblox.\nFor each requested asset, the callback function runs, indicating the\nasset&#39;s final <a href=\"/ref/enum/AssetFetchStatus.html\">AssetFetchStatus</a>.</p>\n<p>If any of the assets fail to load, an error message appears in the output.\nThe method itself will not error and it will continue executing until it\nhas processed each requested instance.</p>\n<h4>Limitations</h4>\n<p><a href=\"/ref/class/SurfaceAppearance.html\">SurfaceAppearance</a> and <a href=\"/ref/class/MaterialVariant.html\">MaterialVariant</a> are not supported by\n<a href=\"/ref/class/ContentProvider.html#member-PreloadAsync\">PreloadAsync()</a> because these\nobjects rely on processed texture pack assets rather than directly loading\nindividual textures. Calling it on a <a href=\"/ref/class/SurfaceAppearance.html\">SurfaceAppearance</a> instance\nwill not do anything, but the associated textures will still be streamed\nin during runtime.</p>\n",
 				"CodeSamples": [
 					"ContentProvider-PreloadAsync1"
 				]
@@ -6978,9 +7044,10 @@
 					"detect-when-the-place-owner-joins-the-game"
 				]
 			},
+			"Environment": {},
 			"GameId": {
 				"Summary": "<p>Describes the ID of the experience that the place running on the server\nbelongs to.</p>\n",
-				"Description": "<p>This property describes the ID of the experience that the place running on\nthe server belongs to.</p>\n<p>This ID can be found in the top right corner of the\n<a href=\"https://create.roblox.com/docs/projects/assets/manager\">Asset Manager</a> in Roblox Studio.\nWhen using Roblox Studio, if the place has not been published to Roblox\nthen the GameId will correspond with the template being used.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a>, which describes the ID of the place running\non the server</li>\n<li><a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a>, which is a unique identifier for the server\ngame instance running</li>\n<li><a href=\"/ref/class/TeleportService.html\">TeleportService</a>, which is a service that can be used to\ntransport <a href=\"/ref/class/Player.html\">Players</a> between games</li>\n</ul>\n"
+				"Description": "<p>This property describes the ID of the experience that the place running on\nthe server belongs to.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a>, which describes the ID of the place running\non the server</li>\n<li><a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a>, which is a unique identifier for the server\ngame instance running</li>\n<li><a href=\"/ref/class/TeleportService.html\">TeleportService</a>, which is a service that can be used to\ntransport <a href=\"/ref/class/Player.html\">Players</a> between games</li>\n</ul>\n"
 			},
 			"GearGenreSetting": {
 				"Summary": "<p>Not functional. Historically described the gear permissions of the place\nas set on the Roblox website.</p>\n",
@@ -7067,7 +7134,7 @@
 			},
 			"PlaceId": {
 				"Summary": "<p>Describes the ID of the place running on the server.</p>\n",
-				"Description": "<p>This property describes the ID of the place running on the server.</p>\n<p>If the place has been published to Roblox, this ID can be found in\nStudio&#39;s <a href=\"https://create.roblox.com/docs/projects/assets/manager\">Asset Manager</a> by\nright-clicking the place inside of the <strong>Places</strong> folder and selecting\n<strong>Copy ID to Clipboard</strong>.</p>\n<p>If the place has not been published to Roblox, this ID will correspond\nwith the template being used.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a>, which describes the ID of the experience that\nthe current place belongs to</li>\n<li><a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a>, which is a unique identifier for the server\ngame instance running</li>\n<li><a href=\"/ref/class/TeleportService.html\">TeleportService</a>, which is a service that can be used to\ntransport <a href=\"/ref/class/Player.html\">Players</a> between places</li>\n</ul>\n"
+				"Description": "<p>This property describes the ID of the place running on the server.</p>\n<p>If the place has not been published to Roblox, this ID will correspond\nwith the template being used.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a>, which describes the ID of the experience that\nthe current place belongs to</li>\n<li><a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a>, which is a unique identifier for the server\ngame instance running</li>\n<li><a href=\"/ref/class/TeleportService.html\">TeleportService</a>, which is a service that can be used to\ntransport <a href=\"/ref/class/Player.html\">Players</a> between places</li>\n</ul>\n"
 			},
 			"PlaceVersion": {
 				"Summary": "<p>Describes the version of the place the server is running on.</p>\n",
@@ -8325,6 +8392,10 @@
 				"Description": "<p>Sets what face of the brick the object appears on.</p>\n"
 			}
 		},
+		"FacialAgeEstimationService": {
+			"InquiryAsync": {},
+			"IsAvailable": {}
+		},
 		"Feature": {
 			"FaceId": {
 				"Summary": "<p>Sets what side of the Parent the object is on.</p>\n",
@@ -8361,7 +8432,7 @@
 		"FileMesh": {
 			"MeshId": {
 				"Summary": "<p>The MeshId is the content ID of the mesh that is to be displayed.</p>\n",
-				"Description": "<p>The MeshId is the content ID of the mesh that is to be displayed.</p>\n<p>The content ID for a mesh is generated when a developer uploads a mesh to\nthe Roblox website.</p>\n<h4>How do I create a mesh?</h4>\n<p>Meshes can currently only uploaded using <a href=\"/ref/class/MeshPart.html\">MeshParts</a> or the\nasset manager. Once uploaded however, the content ID for the mesh can be\nused for the MeshId property. For more information, see\n<a href=\"https://create.roblox.com/docs/parts/meshes\">Meshes</a>.</p>\n",
+				"Description": "<p>The MeshId is the content ID of the mesh that is to be displayed.</p>\n<p>The content ID for a mesh is generated when a developer uploads a mesh to\nRoblox.</p>\n",
 				"CodeSamples": [
 					"Mesh-VertexColor"
 				]
@@ -8923,8 +8994,8 @@
 				"Description": "<p>This property determines whether the button automatically changes color\nwhen the user&#39;s <a href=\"/ref/class/Mouse.html\">Mouse</a> hovers over or clicks on it. If <code>true</code>, the\nbutton will automatically change color when the mouse hovers over or\nclicks on it. If <code>false</code>, the button will not change.</p>\n<p>If you would like to customize how a button changes when the user&#39;s mouse\nhovers over or clicks on it, consider using an <a href=\"/ref/class/ImageButton.html\">ImageButton</a> and\nchanging the element&#39;s <a href=\"/ref/class/ImageButton.html#member-HoverImage\">HoverImage</a> and\n<a href=\"/ref/class/ImageButton.html#member-PressedImage\">PressedImage</a>.</p>\n<p>Please note that this property will not have an effect on an\n<a href=\"/ref/class/ImageButton.html\">ImageButton</a> if its <a href=\"/ref/class/ImageButton.html#member-Image\">Image</a> property is set\nto an image. Additionally, this property will not affect an\n<a href=\"/ref/class/ImageButton.html\">ImageButton</a> on mouse hover when its\n<a href=\"/ref/class/ImageButton.html#member-HoverImage\">HoverImage</a> is not <code>nil</code>, nor on mouse click\nif its <a href=\"/ref/class/ImageButton.html#member-PressedImage\">PressedImage</a> is not <code>nil</code>.</p>\n"
 			},
 			"HoverHapticEffect": {
-				"Summary": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being hovered.</p>\n",
-				"Description": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being hovered.</p>\n"
+				"Summary": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a>\nis being hovered.</p>\n",
+				"Description": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a>\nis being hovered.</p>\n"
 			},
 			"Modal": {
 				"Summary": "<p>If <code>true</code> while the GUI element is visible, the mouse will not be locked\nunless the right mouse button is down.</p>\n",
@@ -8955,8 +9026,8 @@
 				"Description": "<p>This event fires when the user releases their right mouse button off of\nthe <a href=\"/ref/class/GuiButton.html\">GuiButton</a>.</p>\n<p>For an event requiring the user to press <strong>and</strong> release their right mouse\non a <a href=\"/ref/class/GuiButton.html\">GuiButton</a> in order for the event to fire, consider using\n<a href=\"/ref/class/GuiButton.html#member-MouseButton2Click\">MouseButton2Click</a>.</p>\n"
 			},
 			"PressHapticEffect": {
-				"Summary": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being pressed.</p>\n",
-				"Description": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a> is being pressed.</p>\n"
+				"Summary": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a>\nis being pressed.</p>\n",
+				"Description": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a>\nis being pressed.</p>\n"
 			},
 			"Selected": {
 				"Summary": "<p>A boolean property which indicates whether the object has been selected.</p>\n",
@@ -11832,7 +11903,7 @@
 			},
 			"ProcessReceipt": {
 				"Summary": "<p>A callback to process receipts of developer product purchases.</p>\n",
-				"Description": "<p><strong>IMPORTANT:</strong> We <strong>highly recommend</strong> that you properly implement the\n<code>ProcessReceipt</code> callback in order to sell your developer products. You\nshould use <code>ProcessReceipt</code> to grant users their purchased product over\nany other granting method. If your <code>ProcessReceipt</code> implementation isn&#39;t\ncorrect, you will <strong>not</strong> be able to grant users the products they have\npurchased on the Store tab of your experience details page.</p>\n<p>A callback to process receipts from\n<a href=\"https://create.roblox.com/docs/production/monetization/developer-products\">developer product</a>\npurchases. You can sell developer products inside an experience using\n<code>MarketplaceService</code> functions, or outside an experience on the Store tab\nof your experience details page.</p>\n<p>You should only set the <code>ProcessReceipt</code> callback one time in a single\nserver-side <a href=\"/ref/class/Script.html\">Script</a>. This callback must handle the receipts\nfor all developer products you have for sale.</p>\n<h4>Guarantees</h4>\n<p>The <code>ProcessReceipt</code> callback is called for all unresolved developer\nproduct purchases when:</p>\n<ul>\n<li>A user successfully completes the purchase of a developer product.</li>\n<li>A successful developer product purchase prompt appears to the user.</li>\n<li>A user joins the server.</li>\n</ul>\n<p>A purchase is considered <strong>successfully initiated</strong> when:</p>\n<ul>\n<li>The purchase is processed on Roblox&#39;s backend.</li>\n<li>The funds are placed in escrow.</li>\n</ul>\n<p>A purchase is considered <strong>resolved</strong> when:</p>\n<ul>\n<li>The <code>ProcessReceipt</code> callback returns a <a href=\"/ref/enum/ProductPurchaseDecision.html\">ProductPurchaseDecision</a>\nenum of <a href=\"/ref/enum/ProductPurchaseDecision.html\">PurchaseGranted</a>.</li>\n<li>The purchase is successfully recorded on Roblox&#39;s backend.</li>\n</ul>\n<h4>Unresolved developer product purchases</h4>\n<p>An <strong>unresolved developer product purchase</strong> takes place when a user&#39;s\npurchase of a developer product has not yet been acknowledged by the\nserver through the <code>ProcessReceipt</code> function.</p>\n<p>Unresolved developer product purchases are not removed or refunded after\nthe escrow period expires.</p>\n<h4>Retries and timeouts</h4>\n<p><code>ProcessReceipt</code> has no time-based retry mechanism. If a user makes a\npurchase that returns a <a href=\"/ref/enum/ProductPurchaseDecision.html\">ProductPurchaseDecision</a> enum of\n<a href=\"/ref/enum/ProductPurchaseDecision.html\">NotProcessedYet</a>, the\n<code>ProcessReceipt</code> callback is only called again on the same server if:</p>\n<ul>\n<li>The user successfully initiates another developer product purchase.</li>\n<li>The user re-joins any server under the same experience.</li>\n</ul>\n<p><code>ProcessReceipt</code> also has no timeout for yielded callbacks. A\n<code>ProcessReceipt</code> callback can yield for as long as the server is running,\nand the callback result is still accepted when the result returns.</p>\n<h4>Limitations</h4>\n<ul>\n<li>When there are multiple purchases pending for a user, <code>ProcessReceipt</code>\ncallbacks are called in a non-deterministic order.</li>\n<li>The user must be on the server for the <code>ProcessReceipt</code> callback to be\ninvoked.</li>\n<li>The user does not have to be on the server for the result of the\n<code>ProcessReceipt</code> callback to be recorded on the backend.</li>\n<li>The <code>ProcessReceipt</code> callback for a specific purchase might run on two\ndifferent servers at the same time if the user joins the second server\nbefore the callback returns on the first server.</li>\n<li>The <code>ProcessReceipt</code> callback might still fail to be recorded on the\nbackend, even if it returns a <a href=\"/ref/enum/ProductPurchaseDecision.html\">ProductPurchaseDecision</a> enum of\n<a href=\"/ref/enum/ProductPurchaseDecision.html\">PurchaseGranted</a>. When\nthis happens, the purchase remains unresolved.</li>\n</ul>\n",
+				"Description": "<p><code>ProcessReceipt</code> is a callback to process receipts from\n<a href=\"https://create.roblox.com/docs/production/monetization/developer-products\">developer product purchases</a>. You can sell developer products inside an experience using <code>MarketplaceService</code> functions, or outside an experience on the Store tab of your experience details page.</p>\n<p>You should only set the <code>ProcessReceipt</code> callback one time in a single\nserver-side <a href=\"/ref/class/Script.html\">Script</a>. This callback must handle the receipts\nfor all developer products you have for sale.</p>\n<p><strong>IMPORTANT:</strong> We <strong>highly recommend</strong> that you properly implement the\n<code>ProcessReceipt</code> callback in order to sell your developer products. You\nshould use <code>ProcessReceipt</code> to grant users their purchased product over\nany other granting method. If your <code>ProcessReceipt</code> implementation isn&#39;t\ncorrect, you will <strong>not</strong> be able to grant users the products they have\npurchased on the Store tab of your experience details page.</p>\n<h4>Guarantees</h4>\n<p>The <code>ProcessReceipt</code> callback is called for all unresolved developer\nproduct purchases when:</p>\n<ul>\n<li>A user successfully completes the purchase of a developer product.</li>\n<li>A successful developer product purchase prompt appears to the user.</li>\n<li>A user joins the server.</li>\n</ul>\n<p>A purchase is considered <strong>successfully initiated</strong> when:</p>\n<ul>\n<li>The purchase is processed on Roblox&#39;s backend.</li>\n<li>The funds are placed in escrow.</li>\n</ul>\n<p>A purchase is considered <strong>resolved</strong> when:</p>\n<ul>\n<li>The <code>ProcessReceipt</code> callback returns a <a href=\"/ref/enum/ProductPurchaseDecision.html\">ProductPurchaseDecision</a>\nenum of <a href=\"/ref/enum/ProductPurchaseDecision.html\">PurchaseGranted</a>.</li>\n<li>The purchase is successfully recorded on Roblox&#39;s backend.</li>\n</ul>\n<h4>Unresolved developer product purchases</h4>\n<p>An <strong>unresolved developer product purchase</strong> takes place when a user&#39;s\npurchase of a developer product has not yet been acknowledged by the\nserver through the <code>ProcessReceipt</code> function.</p>\n<p>Unresolved developer product purchases are not removed or refunded after\nthe escrow period expires.</p>\n<h4>Retries and timeouts</h4>\n<p><code>ProcessReceipt</code> has no time-based retry mechanism. If a user makes a\npurchase that returns a <a href=\"/ref/enum/ProductPurchaseDecision.html\">ProductPurchaseDecision</a> enum of\n<a href=\"/ref/enum/ProductPurchaseDecision.html\">NotProcessedYet</a>, the\n<code>ProcessReceipt</code> callback is only called again on the same server if:</p>\n<ul>\n<li>The user successfully initiates another developer product purchase.</li>\n<li>The user re-joins any server under the same experience.</li>\n</ul>\n<p><code>ProcessReceipt</code> also has no timeout for yielded callbacks. A\n<code>ProcessReceipt</code> callback can yield for as long as the server is running,\nand the callback result is still accepted when the result returns.</p>\n<h4>Limitations</h4>\n<ul>\n<li>If you don&#39;t implement a <code>ProcessReceipt</code> callback, your receipts will be auto-acknowledged. You can&#39;t get a receipt back after it has been acknowledged.</li>\n<li>When there are multiple purchases pending for a user, <code>ProcessReceipt</code>\ncallbacks are called in a non-deterministic order.</li>\n<li>The user must be on the server for the <code>ProcessReceipt</code> callback to be\ninvoked.</li>\n<li>The user does not have to be on the server for the result of the\n<code>ProcessReceipt</code> callback to be recorded on the backend.</li>\n<li>The <code>ProcessReceipt</code> callback for a specific purchase might run on two\ndifferent servers at the same time if the user joins the second server\nbefore the callback returns on the first server.</li>\n<li>The <code>ProcessReceipt</code> callback might still fail to be recorded on the\nbackend, even if it returns a <a href=\"/ref/enum/ProductPurchaseDecision.html\">ProductPurchaseDecision</a> enum of\n<a href=\"/ref/enum/ProductPurchaseDecision.html\">PurchaseGranted</a>. When\nthis happens, the purchase remains unresolved.</li>\n</ul>\n",
 				"CodeSamples": [
 					"ProcessReceipt-Example"
 				]
@@ -16137,6 +16208,7 @@
 				"Summary": "<p>Fires when a player closes an invite prompt.</p>\n",
 				"Description": "<p>This event fires when a player closes an invite prompt.</p>\n"
 			},
+			"GetPartyAsync": {},
 			"GetPlayersByPartyId": {},
 			"HideSelfView": {
 				"Summary": "<p>Hides the calling player&#39;s self view.</p>\n",
@@ -17005,6 +17077,7 @@
 			"Enable Type Hover": {},
 			"EnableCodeAssist": {},
 			"EnableIndentationRulers": {},
+			"EnableSelectionTooltips": {},
 			"Error Color": {
 				"Summary": "<p>Specifies the color of the wavy underline shown when malformed code is\ndetected in the script editor.</p>\n",
 				"Description": "<p>Specifies the color of the wavy underline shown when malformed code is\ndetected in the script editor.</p>\n"
@@ -17435,6 +17508,12 @@
 			"RawBytecode": {
 				"DeprecationMessage": "<p>This property should not be used for new work.</p>\n"
 			}
+		},
+		"SystemThemeService": {
+			"OnLuaThemeUpdated": {},
+			"getSystemThemeAsync": {},
+			"isSystemThemeAvailable": {},
+			"setTheme": {}
 		},
 		"TaskScheduler": {
 			"SchedulerDutyCycle": {
@@ -18481,11 +18560,11 @@
 			},
 			"OnBubbleAdded": {
 				"Summary": "<p>Called when a bubble chat is about to be displayed.</p>\n",
-				"Description": "<p>Called when a bubble chat is about to be displayed. This can only be\nimplemented on the client.</p>\n<p>Use this to customize individual bubble chat messages. If this callback\nreturns a <a href=\"/ref/class/BubbleChatMessageProperties.html\">BubbleChatMessageProperties</a>, those properties will be\napplied to the associated bubble, overriding\n<a href=\"/ref/class/BubbleChatConfiguration.html\">BubbleChatConfiguration</a> properties. If a <a href=\"/ref/class/UICorner.html\">UICorner</a>,\n<a href=\"/ref/class/UIGradient.html\">UIGradient</a>, or <a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> is parented under\n<a href=\"/ref/class/BubbleChatMessageProperties.html\">BubbleChatMessageProperties</a>, they will also override their\nrespective counterparts defined in <a href=\"/ref/class/BubbleChatConfiguration.html\">BubbleChatConfiguration</a>.</p>\n<p>If the chat message is sent by a player, <code>message.TextSource</code> will\ncorrespond to that player, and <code>adornee</code> will be <code>nil</code>.</p>\n<p>If the chat message is sent via <a href=\"/ref/class/TextChatService.html#member-DisplayBubble\">TextChatService:DisplayBubble</a>,\n<code>adornee</code> will be the <code>partOrCharacter</code> provided, and <code>message.TextSource</code>\nwill be <code>nil</code>.</p>\n"
+				"Description": "<p>Called when a bubble chat is about to be displayed. This can only be\nimplemented on the client.</p>\n<p>Use this to customize individual bubble chat messages. If this callback\nreturns a <a href=\"/ref/class/BubbleChatMessageProperties.html\">BubbleChatMessageProperties</a>, those properties will be\napplied to the associated bubble, overriding\n<a href=\"/ref/class/BubbleChatConfiguration.html\">BubbleChatConfiguration</a> properties. If a <a href=\"/ref/class/UICorner.html\">UICorner</a>,\n<a href=\"/ref/class/UIGradient.html\">UIGradient</a>, or <a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> is parented under\n<a href=\"/ref/class/BubbleChatMessageProperties.html\">BubbleChatMessageProperties</a>, they will also override their\nrespective counterparts defined in <a href=\"/ref/class/BubbleChatConfiguration.html\">BubbleChatConfiguration</a>.</p>\n<p>If the chat message is sent by a player, <code>message.TextSource</code> will\ncorrespond to that player, and <code>adornee</code> will be <code>nil</code>.</p>\n<p>If the chat message is sent via <a href=\"/ref/class/TextChatService.html#member-DisplayBubble\">TextChatService:DisplayBubble</a>,\n<code>adornee</code> will be the <code>partOrCharacter</code> provided, and <code>message.TextSource</code>\nwill be <code>nil</code>.</p>\n<p>When bound to the client sending a message, this callback is run twice:\nfirst when the message is initially sent and received locally, then again\nwhen the client receives the result of the filtered message from the\nserver.</p>\n"
 			},
 			"OnChatWindowAdded": {
 				"Summary": "<p>Called when a new message is about to be displayed in the chat window.\nThis can only be implemented on the client.</p>\n",
-				"Description": "<p>Called when a new message is about to be displayed in the chat window.\nThis can only be implemented on the client.</p>\n<p>Use this to customize individual messages that appear in the chat window.\nIf this callback returns a <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a>, those\nproperties will be applied to the associated message, overriding\n<a href=\"/ref/class/ChatWindowConfiguration.html\">ChatWindowConfiguration</a> properties. If a <a href=\"/ref/class/UIGradient.html\">UIGradient</a> is\nparented under <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a>, it will also override\nthe <a href=\"/ref/class/ChatWindowConfiguration.html#member-TextColor3\">TextColor3</a> property defined\nin <a href=\"/ref/class/ChatWindowConfiguration.html\">ChatWindowConfiguration</a>.</p>\n"
+				"Description": "<p>Called when a new message is about to be displayed in the chat window.\nThis can only be implemented on the client.</p>\n<p>Use this to customize individual messages that appear in the chat window.\nIf this callback returns a <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a>, those\nproperties will be applied to the associated message, overriding\n<a href=\"/ref/class/ChatWindowConfiguration.html\">ChatWindowConfiguration</a> properties. If a <a href=\"/ref/class/UIGradient.html\">UIGradient</a> is\nparented under <a href=\"/ref/class/ChatWindowMessageProperties.html\">ChatWindowMessageProperties</a>, it will also override\nthe <a href=\"/ref/class/ChatWindowConfiguration.html#member-TextColor3\">TextColor3</a> property defined\nin <a href=\"/ref/class/ChatWindowConfiguration.html\">ChatWindowConfiguration</a>.</p>\n<p>When bound to the client sending a message, this callback is run twice:\nfirst when the message is initially sent and received locally, then again\nwhen the client receives the result of the filtered message from the\nserver.</p>\n"
 			},
 			"OnIncomingMessage": {
 				"Summary": "<p>Called when <a href=\"/ref/class/TextChatService.html\">TextChatService</a> is receiving an incoming message.</p>\n",
@@ -20912,7 +20991,7 @@
 			"Description": "<p>The AnimatorRetargetingMode Enum describes the setting for Animation\nRetargeting. Retargeting adapts animations to various character rigs based on\ntheir proportions.</p>\n"
 		},
 		"AnnotationEditingMode": {},
-		"AnnotationRequestResult": {},
+		"AnnotationRequestStatus": {},
 		"AnnotationRequestType": {},
 		"AppLifecycleManagerState": {},
 		"AppShellActionType": {},
@@ -21234,6 +21313,7 @@
 			"Description": "<p>The ExplosionType Enum is used to set the <a href=\"/ref/class/Explosion.html#member-ExplosionType\">Explosion.ExplosionType</a>\nproperty.</p>\n"
 		},
 		"FACSDataLod": {},
+		"FacialAgeEstimationResultType": {},
 		"FacialAnimationStreamingState": {},
 		"FieldOfViewMode": {},
 		"FillDirection": {
@@ -21827,6 +21907,7 @@
 			"Summary": "<p>The direction that a user is swiping on their touch screen.</p>\n",
 			"Description": "<p>The SwipeDirection Enum represents the direction in which a user swipes on a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">UserInputService.TouchEnabled</a> device.</p>\n<p>The <a href=\"/ref/class/GuiObject.html#member-TouchSwipe\">GuiObject.TouchSwipe</a> and <a href=\"/ref/class/UserInputService.html#member-TouchSwipe\">UserInputService.TouchSwipe</a>\nevents pass this enum as an argument.</p>\n"
 		},
+		"SystemThemeValue": {},
 		"TableMajorAxis": {
 			"Summary": "<p>Used by <a href=\"/ref/class/UITableLayout.html#member-MajorAxis\">UITableLayout.MajorAxis</a> to decide whether direct siblings are\nrows or columns.</p>\n",
 			"Description": "<p>Used to indicate whether the direct siblings of a <a href=\"/ref/class/UITableLayout.html\">UITableLayout</a> are\nconsidered the rows or the columns. The children of the direct siblings are\nthe columns or rows, respectively.</p>\n"
@@ -22391,10 +22472,11 @@
 			"PlacingNew": {},
 			"WritingNew": {}
 		},
-		"AnnotationRequestResult": {
+		"AnnotationRequestStatus": {
 			"ErrorInternalFailure": {},
 			"ErrorModerated": {},
 			"ErrorNotFound": {},
+			"Loading": {},
 			"Success": {}
 		},
 		"AnnotationRequestType": {
@@ -24094,6 +24176,11 @@
 			"LOD1": {},
 			"LODCount": {}
 		},
+		"FacialAgeEstimationResultType": {
+			"Cancel": {},
+			"Complete": {},
+			"Error": {}
+		},
 		"FacialAnimationStreamingState": {
 			"Audio": {},
 			"None": {},
@@ -24644,10 +24731,10 @@
 		},
 		"HapticEffectType": {
 			"Custom": {
-				"Summary": "<p>Allows for application of a custom haptic waveform through the <a href=\"/ref/class/HapticEffect.html#member-SetWaveformKeys\">HapticEffect:SetWaveformKeys()</a> method.</p>\n"
+				"Summary": "<p>Allows for application of a custom haptic waveform through the\n<a href=\"/ref/class/HapticEffect.html#member-SetWaveformKeys\">HapticEffect:SetWaveformKeys()</a> method.</p>\n"
 			},
 			"GameplayCollision": {
-				"Summary": "<p>This effect is a large immediate rumble that dies down quickly, useful to signify a clear and purposeful impact between objects.</p>\n"
+				"Summary": "<p>This effect is a large immediate rumble that dies down quickly, useful to\nsignify a clear and purposeful impact between objects.</p>\n"
 			},
 			"GameplayExplosion": {
 				"Summary": "<p>Useful to signify a large-scale physics event that triggers impact across\na large portion of a given scene. This effect is high intensity in order\nto represent the magnitude of the impact and it lingers for a longer\nperiod of time than <code>GameplayCollision</code>.</p>\n"
@@ -27803,6 +27890,13 @@
 			"Up": {
 				"Summary": "<p>The user swiped up.</p>\n"
 			}
+		},
+		"SystemThemeValue": {
+			"dark": {},
+			"error": {},
+			"light": {},
+			"systemDark": {},
+			"systemLight": {}
 		},
 		"TableMajorAxis": {
 			"ColumnMajor": {
