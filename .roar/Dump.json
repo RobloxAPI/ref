@@ -8415,6 +8415,29 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"AnnotationsLoadingStatus": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "Loading",
+					"MemberType": "Property",
+					"Name": "AnnotationsLoadingStatus",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "AnnotationRequestStatus"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
 				"AnnotationsVisible": {
 					"CanLoad": false,
 					"CanSave": false,
@@ -8841,6 +8864,29 @@
 					"Security": "RobloxScriptSecurity",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
+				},
+				"ResolvedLoadingStatus": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "Loading",
+					"MemberType": "Property",
+					"Name": "ResolvedLoadingStatus",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "AnnotationRequestStatus"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
 				},
 				"Selected": {
 					"CanLoad": false,
@@ -36488,8 +36534,8 @@
 					"WriteSecurity": "None"
 				},
 				"ResolutionScale": {
-					"CanLoad": true,
-					"CanSave": true,
+					"CanLoad": false,
+					"CanSave": false,
 					"Category": "Data",
 					"Default": "1",
 					"MemberType": "Property",
@@ -36499,7 +36545,10 @@
 						"ThreadSafety": ""
 					},
 					"ReadSecurity": "RobloxScriptSecurity",
-					"Tags": [],
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "Primitive",
@@ -37393,6 +37442,60 @@
 							"Default": ""
 						}
 					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"StartVideoCaptureInternal": {
+					"MemberType": "Function",
+					"Name": "StartVideoCaptureInternal",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"StopCapture": {
+					"MemberType": "Function",
+					"Name": "StopCapture",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"StopVideoCaptureInternal": {
+					"MemberType": "Function",
+					"Name": "StopVideoCaptureInternal",
+					"Parameters": [],
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -43301,6 +43404,34 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"ClearTestingValue": {
+					"MemberType": "Function",
+					"Name": "ClearTestingValue",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "key",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"GetConfigAsync": {
 					"MemberType": "Function",
 					"Name": "GetConfigAsync",
@@ -43349,6 +43480,43 @@
 					"Tags": [
 						"Yields"
 					],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetTestingValue": {
+					"MemberType": "Function",
+					"Name": "SetTestingValue",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "key",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Variant"
+							},
+							"Name": "value",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				}
 			},
@@ -63428,6 +63596,34 @@
 			"Superclass": "Object",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"AddBone": {
+					"MemberType": "Function",
+					"Name": "AddBone",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "boneProperties",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int64"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"AddColor": {
 					"MemberType": "Function",
 					"Name": "AddColor",
@@ -63856,6 +64052,164 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"GetBoneByName": {
+					"MemberType": "Function",
+					"Name": "GetBoneByName",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "boneName",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int64"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetBoneCFrame": {
+					"MemberType": "Function",
+					"Name": "GetBoneCFrame",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "CFrame"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetBoneIsVirtual": {
+					"MemberType": "Function",
+					"Name": "GetBoneIsVirtual",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetBoneName": {
+					"MemberType": "Function",
+					"Name": "GetBoneName",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "string"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetBoneParent": {
+					"MemberType": "Function",
+					"Name": "GetBoneParent",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int64"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetBones": {
+					"MemberType": "Function",
+					"Name": "GetBones",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Array"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"GetCenter": {
 					"MemberType": "Function",
 					"Name": "GetCenter",
@@ -64230,6 +64584,98 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"GetFacsCorrectivePose": {
+					"MemberType": "Function",
+					"Name": "GetFacsCorrectivePose",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "actions",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetFacsCorrectivePoses": {
+					"MemberType": "Function",
+					"Name": "GetFacsCorrectivePoses",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Array"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetFacsPose": {
+					"MemberType": "Function",
+					"Name": "GetFacsPose",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "FacsActionUnit"
+							},
+							"Name": "action",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetFacsPoses": {
+					"MemberType": "Function",
+					"Name": "GetFacsPoses",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Array"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"GetNormal": {
 					"MemberType": "Function",
 					"Name": "GetNormal",
@@ -64422,6 +64868,62 @@
 					"Tags": [
 						"CustomLuaState"
 					],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetVertexBoneWeights": {
+					"MemberType": "Function",
+					"Name": "GetVertexBoneWeights",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "vertexId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Array"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetVertexBones": {
+					"MemberType": "Function",
+					"Name": "GetVertexBones",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "vertexId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Array"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
 				"GetVertexColor": {
@@ -65082,6 +65584,34 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"RemoveBone": {
+					"MemberType": "Function",
+					"Name": "RemoveBone",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"RemoveFace": {
 					"MemberType": "Function",
 					"Name": "RemoveFace",
@@ -65198,6 +65728,154 @@
 								"Name": "int64"
 							},
 							"Name": "normalId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetBoneCFrame": {
+					"MemberType": "Function",
+					"Name": "SetBoneCFrame",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "CFrame"
+							},
+							"Name": "cframe",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetBoneIsVirtual": {
+					"MemberType": "Function",
+					"Name": "SetBoneIsVirtual",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "virtual",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetBoneName": {
+					"MemberType": "Function",
+					"Name": "SetBoneName",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "name",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetBoneParent": {
+					"MemberType": "Function",
+					"Name": "SetBoneParent",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "parentBoneId",
 							"Optional": false,
 							"Default": ""
 						}
@@ -65446,6 +66124,144 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"SetFacsBonePose": {
+					"MemberType": "Function",
+					"Name": "SetFacsBonePose",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "FacsActionUnit"
+							},
+							"Name": "action",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "boneId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "CFrame"
+							},
+							"Name": "cframe",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetFacsCorrectivePose": {
+					"MemberType": "Function",
+					"Name": "SetFacsCorrectivePose",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "actions",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "boneIds",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "cframes",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetFacsPose": {
+					"MemberType": "Function",
+					"Name": "SetFacsPose",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "FacsActionUnit"
+							},
+							"Name": "action",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "boneIds",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "cframes",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"SetNormal": {
 					"MemberType": "Function",
 					"Name": "SetNormal",
@@ -65539,6 +66355,80 @@
 								"Name": "Vector2"
 							},
 							"Name": "uv",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetVertexBoneWeights": {
+					"MemberType": "Function",
+					"Name": "SetVertexBoneWeights",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "vertexId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "boneWeights",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetVertexBones": {
+					"MemberType": "Function",
+					"Name": "SetVertexBones",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "vertexId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "boneIDs",
 							"Optional": false,
 							"Default": ""
 						}
@@ -70500,6 +71390,125 @@
 					"Security": "RobloxSecurity",
 					"Tags": [
 						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service"
+			]
+		},
+		"FeedPages": {
+			"Name": "FeedPages",
+			"Superclass": "Pages",
+			"MemoryCategory": "Instances",
+			"Members": null,
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"NotReplicated"
+			]
+		},
+		"FeedService": {
+			"Name": "FeedService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"BatchRemoveFeedItemsAsync": {
+					"MemberType": "Function",
+					"Name": "BatchRemoveFeedItemsAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "feedItemIds",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetFeedItemsAsync": {
+					"MemberType": "Function",
+					"Name": "GetFeedItemsAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "getFeedRequest",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "FeedPages"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"RegisterFeedItemsAsync": {
+					"MemberType": "Function",
+					"Name": "RegisterFeedItemsAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "registerFeedItemsRequest",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Dictionary"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
 					],
 					"ThreadSafety": "Unsafe"
 				}
@@ -91822,6 +92831,26 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"HoverImageContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Image",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "HoverImageContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "None"
+				},
 				"Image": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -91982,6 +93011,26 @@
 					"ValueType": {
 						"Category": "DataType",
 						"Name": "ContentId"
+					},
+					"WriteSecurity": "None"
+				},
+				"PressedImageContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Image",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "PressedImageContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
 					},
 					"WriteSecurity": "None"
 				},
@@ -96078,14 +97127,14 @@
 						"Name": "",
 						"ThreadSafety": ""
 					},
-					"ReadSecurity": "RobloxScriptSecurity",
+					"ReadSecurity": "None",
 					"Tags": [],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "DataType",
 						"Name": "SecurityCapabilities"
 					},
-					"WriteSecurity": "RobloxScriptSecurity"
+					"WriteSecurity": "None"
 				},
 				"Changed": {
 					"MemberType": "Event",
@@ -97172,7 +98221,7 @@
 						"Name": "",
 						"ThreadSafety": ""
 					},
-					"ReadSecurity": "RobloxScriptSecurity",
+					"ReadSecurity": "None",
 					"Tags": [
 						"NotReplicated"
 					],
@@ -97181,7 +98230,7 @@
 						"Category": "Primitive",
 						"Name": "bool"
 					},
-					"WriteSecurity": "RobloxScriptSecurity"
+					"WriteSecurity": "None"
 				},
 				"SetAttribute": {
 					"MemberType": "Function",
@@ -99062,7 +100111,38 @@
 			"Name": "LanguageService",
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
-			"Members": null,
+			"Members": {
+				"GetCapabilitiesUsedInPackageAsync": {
+					"MemberType": "Function",
+					"Name": "GetCapabilitiesUsedInPackageAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Instances"
+							},
+							"Name": "instances",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Dictionary"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				}
+			},
 			"PreferredDescriptor": {
 				"Name": "",
 				"ThreadSafety": ""
@@ -128548,6 +129628,20 @@
 				"ThreadSafety": ""
 			},
 			"Tags": []
+		},
+		"PlaceAssetIdsService": {
+			"Name": "PlaceAssetIdsService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": null,
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service"
+			]
 		},
 		"PlaceStatsService": {
 			"Name": "PlaceStatsService",
@@ -165930,6 +167024,28 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"RagdollDeath": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Character",
+					"Default": "true",
+					"MemberType": "Property",
+					"Name": "RagdollDeath",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"NotBrowsable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "None"
+				},
 				"ScreenOrientation": {
 					"CanLoad": false,
 					"CanSave": false,
@@ -166200,7 +167316,7 @@
 							"Name": "int"
 						}
 					],
-					"Security": "RobloxScriptSecurity",
+					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
@@ -166218,7 +167334,7 @@
 							"Name": "Array"
 						}
 					],
-					"Security": "RobloxScriptSecurity",
+					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
@@ -166236,7 +167352,7 @@
 							"Name": "Array"
 						}
 					],
-					"Security": "RobloxScriptSecurity",
+					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
@@ -166744,7 +167860,7 @@
 							"Name": "null"
 						}
 					],
-					"Security": "RobloxScriptSecurity",
+					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
@@ -166818,7 +167934,7 @@
 							"Name": "null"
 						}
 					],
-					"Security": "RobloxScriptSecurity",
+					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
@@ -169055,6 +170171,66 @@
 					},
 					"WriteSecurity": "RobloxScriptSecurity"
 				},
+				"CameraOrbitSensitivity": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Camera",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "CameraOrbitSensitivity",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"CameraPanSensitivity": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Camera",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "CameraPanSensitivity",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"CameraShiftFactor": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Camera",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "CameraShiftFactor",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
 				"CameraTweenFocus": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -169072,6 +170248,26 @@
 					"ValueType": {
 						"Category": "Primitive",
 						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"CameraZoomSpeed": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Camera",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "CameraZoomSpeed",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
 					},
 					"WriteSecurity": "RobloxScriptSecurity"
 				},
@@ -172432,6 +173628,64 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"AutoSetupSerializedAvatarAsync": {
+					"MemberType": "Function",
+					"Name": "AutoSetupSerializedAvatarAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "serializedInstance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "publishInfo",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Function"
+							},
+							"Name": "progressCallback",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Function",
+								"Optional": true
+							},
+							"Name": "notificationCallback",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"CancelAutoSetupAvatarAsync": {
 					"MemberType": "Function",
 					"Name": "CancelAutoSetupAvatarAsync",
@@ -173233,7 +174487,50 @@
 			"Name": "StudioCameraService",
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
-			"Members": null,
+			"Members": {
+				"LockCameraSpeed": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "false",
+					"MemberType": "Property",
+					"Name": "LockCameraSpeed",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "None"
+				},
+				"ShowCameraSpeed": {
+					"MemberType": "Event",
+					"Name": "ShowCameraSpeed",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "float"
+							},
+							"Name": "speed",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
 			"PreferredDescriptor": {
 				"Name": "",
 				"ThreadSafety": ""
@@ -186938,8 +188235,8 @@
 					"ThreadSafety": "Unsafe"
 				},
 				"ShouldEmitReturnEvents": {
-					"CanLoad": true,
-					"CanSave": true,
+					"CanLoad": false,
+					"CanSave": false,
 					"Category": "Data",
 					"Default": "false",
 					"MemberType": "Property",
@@ -186949,7 +188246,10 @@
 						"ThreadSafety": ""
 					},
 					"ReadSecurity": "RobloxScriptSecurity",
-					"Tags": [],
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "Primitive",
@@ -186958,8 +188258,8 @@
 					"WriteSecurity": "RobloxScriptSecurity"
 				},
 				"ShouldEmitUpAndDownArrowEvents": {
-					"CanLoad": true,
-					"CanSave": true,
+					"CanLoad": false,
+					"CanSave": false,
 					"Category": "Data",
 					"Default": "false",
 					"MemberType": "Property",
@@ -186969,7 +188269,10 @@
 						"ThreadSafety": ""
 					},
 					"ReadSecurity": "RobloxScriptSecurity",
-					"Tags": [],
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "Primitive",
@@ -195208,6 +196511,61 @@
 								"Name": "CFrame"
 							},
 							"Name": "outerTransform",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "float"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"CalculateBodyPartMaxCageDistance": {
+					"MemberType": "Function",
+					"Name": "CalculateBodyPartMaxCageDistance",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "EditableMesh"
+							},
+							"Name": "outerCage",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "EditableMesh"
+							},
+							"Name": "renderMesh",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "CFrame"
+							},
+							"Name": "outerTransform",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Vector3"
+							},
+							"Name": "scale",
 							"Optional": false,
 							"Default": ""
 						}
@@ -216737,6 +218095,26 @@
 						"Name": "Vector3"
 					},
 					"WriteSecurity": "None"
+				},
+				"Thickness": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "1",
+					"MemberType": "Property",
+					"Name": "Thickness",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "None"
 				}
 			},
 			"PreferredDescriptor": {
@@ -224947,6 +226325,17 @@
 					"Name": "Lowpass48dB",
 					"Value": 5,
 					"Index": 5,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Lowpass6dB": {
+					"Name": "Lowpass6dB",
+					"Value": 11,
+					"Index": 11,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -234225,6 +235614,642 @@
 					"Name": "Video",
 					"Value": 2,
 					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"FacsActionUnit": {
+			"Name": "FacsActionUnit",
+			"Items": {
+				"ChinRaiser": {
+					"Name": "ChinRaiser",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"ChinRaiserUpperLip": {
+					"Name": "ChinRaiserUpperLip",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Corrugator": {
+					"Name": "Corrugator",
+					"Value": 28,
+					"Index": 28,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"EyesLookDown": {
+					"Name": "EyesLookDown",
+					"Value": 37,
+					"Index": 37,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"EyesLookLeft": {
+					"Name": "EyesLookLeft",
+					"Value": 38,
+					"Index": 38,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"EyesLookRight": {
+					"Name": "EyesLookRight",
+					"Value": 40,
+					"Index": 40,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"EyesLookUp": {
+					"Name": "EyesLookUp",
+					"Value": 39,
+					"Index": 39,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"FlatPucker": {
+					"Name": "FlatPucker",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Funneler": {
+					"Name": "Funneler",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"JawDrop": {
+					"Name": "JawDrop",
+					"Value": 25,
+					"Index": 25,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"JawLeft": {
+					"Name": "JawLeft",
+					"Value": 26,
+					"Index": 26,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"JawRight": {
+					"Name": "JawRight",
+					"Value": 27,
+					"Index": 27,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftBrowLowerer": {
+					"Name": "LeftBrowLowerer",
+					"Value": 29,
+					"Index": 29,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftCheekPuff": {
+					"Name": "LeftCheekPuff",
+					"Value": 11,
+					"Index": 11,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftCheekRaiser": {
+					"Name": "LeftCheekRaiser",
+					"Value": 41,
+					"Index": 41,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftDimpler": {
+					"Name": "LeftDimpler",
+					"Value": 12,
+					"Index": 12,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftEyeClosed": {
+					"Name": "LeftEyeClosed",
+					"Value": 43,
+					"Index": 43,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftEyeUpperLidRaiser": {
+					"Name": "LeftEyeUpperLidRaiser",
+					"Value": 42,
+					"Index": 42,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftInnerBrowRaiser": {
+					"Name": "LeftInnerBrowRaiser",
+					"Value": 32,
+					"Index": 32,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftLipCornerDown": {
+					"Name": "LeftLipCornerDown",
+					"Value": 13,
+					"Index": 13,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftLipCornerPuller": {
+					"Name": "LeftLipCornerPuller",
+					"Value": 15,
+					"Index": 15,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftLipStretcher": {
+					"Name": "LeftLipStretcher",
+					"Value": 16,
+					"Index": 16,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftLowerLipDepressor": {
+					"Name": "LeftLowerLipDepressor",
+					"Value": 14,
+					"Index": 14,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftNoseWrinkler": {
+					"Name": "LeftNoseWrinkler",
+					"Value": 31,
+					"Index": 31,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftOuterBrowRaiser": {
+					"Name": "LeftOuterBrowRaiser",
+					"Value": 30,
+					"Index": 30,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LeftUpperLipRaiser": {
+					"Name": "LeftUpperLipRaiser",
+					"Value": 17,
+					"Index": 17,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LipPresser": {
+					"Name": "LipPresser",
+					"Value": 5,
+					"Index": 5,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LipsTogether": {
+					"Name": "LipsTogether",
+					"Value": 6,
+					"Index": 6,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LowerLipSuck": {
+					"Name": "LowerLipSuck",
+					"Value": 4,
+					"Index": 4,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MouthLeft": {
+					"Name": "MouthLeft",
+					"Value": 7,
+					"Index": 7,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"MouthRight": {
+					"Name": "MouthRight",
+					"Value": 8,
+					"Index": 8,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Pucker": {
+					"Name": "Pucker",
+					"Value": 9,
+					"Index": 9,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightBrowLowerer": {
+					"Name": "RightBrowLowerer",
+					"Value": 33,
+					"Index": 33,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightCheekPuff": {
+					"Name": "RightCheekPuff",
+					"Value": 18,
+					"Index": 18,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightCheekRaiser": {
+					"Name": "RightCheekRaiser",
+					"Value": 44,
+					"Index": 44,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightDimpler": {
+					"Name": "RightDimpler",
+					"Value": 19,
+					"Index": 19,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightEyeClosed": {
+					"Name": "RightEyeClosed",
+					"Value": 46,
+					"Index": 46,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightEyeUpperLidRaiser": {
+					"Name": "RightEyeUpperLidRaiser",
+					"Value": 45,
+					"Index": 45,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightInnerBrowRaiser": {
+					"Name": "RightInnerBrowRaiser",
+					"Value": 35,
+					"Index": 35,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightLipCornerDown": {
+					"Name": "RightLipCornerDown",
+					"Value": 20,
+					"Index": 20,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightLipCornerPuller": {
+					"Name": "RightLipCornerPuller",
+					"Value": 22,
+					"Index": 22,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightLipStretcher": {
+					"Name": "RightLipStretcher",
+					"Value": 23,
+					"Index": 23,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightLowerLipDepressor": {
+					"Name": "RightLowerLipDepressor",
+					"Value": 21,
+					"Index": 21,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightNoseWrinkler": {
+					"Name": "RightNoseWrinkler",
+					"Value": 36,
+					"Index": 36,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightOuterBrowRaiser": {
+					"Name": "RightOuterBrowRaiser",
+					"Value": 34,
+					"Index": 34,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RightUpperLipRaiser": {
+					"Name": "RightUpperLipRaiser",
+					"Value": 24,
+					"Index": 24,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"TongueDown": {
+					"Name": "TongueDown",
+					"Value": 47,
+					"Index": 47,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"TongueOut": {
+					"Name": "TongueOut",
+					"Value": 48,
+					"Index": 48,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"TongueUp": {
+					"Name": "TongueUp",
+					"Value": 49,
+					"Index": 49,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"UpperLipSuck": {
+					"Name": "UpperLipSuck",
+					"Value": 10,
+					"Index": 10,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"FeedRankingScoreType": {
+			"Name": "FeedRankingScoreType",
+			"Items": {
+				"Content": {
+					"Name": "Content",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Final": {
+					"Name": "Final",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"GameJoin": {
+					"Name": "GameJoin",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Interaction": {
+					"Name": "Interaction",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Invalid": {
+					"Name": "Invalid",
+					"Value": 4,
+					"Index": 4,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Sharing": {
+					"Name": "Sharing",
+					"Value": 5,
+					"Index": 5,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -251986,6 +254011,17 @@
 					},
 					"Tags": []
 				},
+				"CapabilityControl": {
+					"Name": "CapabilityControl",
+					"Value": 22,
+					"Index": 22,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"Chat": {
 					"Name": "Chat",
 					"Value": 14,
@@ -253373,8 +255409,8 @@
 					},
 					"Tags": []
 				},
-				"Float": {
-					"Name": "Float",
+				"Color3": {
+					"Name": "Color3",
 					"Value": 2,
 					"Index": 2,
 					"LegacyNames": null,
@@ -253384,19 +255420,8 @@
 					},
 					"Tags": []
 				},
-				"INVALID": {
-					"Name": "INVALID",
-					"Value": 7,
-					"Index": 7,
-					"LegacyNames": null,
-					"PreferredDescriptor": {
-						"Name": "",
-						"ThreadSafety": ""
-					},
-					"Tags": []
-				},
-				"Instance": {
-					"Name": "Instance",
+				"Float": {
+					"Name": "Float",
 					"Value": 3,
 					"Index": 3,
 					"LegacyNames": null,
@@ -253406,8 +255431,19 @@
 					},
 					"Tags": []
 				},
-				"Random": {
-					"Name": "Random",
+				"INVALID": {
+					"Name": "INVALID",
+					"Value": 8,
+					"Index": 8,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Instance": {
+					"Name": "Instance",
 					"Value": 4,
 					"Index": 4,
 					"LegacyNames": null,
@@ -253417,8 +255453,8 @@
 					},
 					"Tags": []
 				},
-				"Vector2": {
-					"Name": "Vector2",
+				"Random": {
+					"Name": "Random",
 					"Value": 5,
 					"Index": 5,
 					"LegacyNames": null,
@@ -253428,10 +255464,21 @@
 					},
 					"Tags": []
 				},
-				"Vector3": {
-					"Name": "Vector3",
+				"Vector2": {
+					"Name": "Vector2",
 					"Value": 6,
 					"Index": 6,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Vector3": {
+					"Name": "Vector3",
+					"Value": 7,
+					"Index": 7,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
