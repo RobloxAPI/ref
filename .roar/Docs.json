@@ -4460,7 +4460,7 @@
 			},
 			"CastShadow": {
 				"Summary": "<p>Determines whether or not a part casts a shadow.</p>\n",
-				"Description": "<p>Determines whether or not a part casts a shadow.</p>\n<p>Note that this feature is <strong>not</strong> designed for performance enhancement. It\nshould only be disabled on parts where you want to hide the shadows the\npart casts. Disabling this property for a given part may cause visual\nartifacts on the shadows cast upon that part.</p>\n"
+				"Description": "<p>Determines whether or not a part casts a shadow. Disabling this property\nfor a given part can cause visual artifacts on the shadows cast upon that\npart.</p>\n<p>This property is not designed for performance enhancement, but in complex\nscenes, strategically disabling it on certain parts can improve\nperformance. Due to the possibility of visual artifacts, we recommend\nleaving it enabled on all parts in most situations.</p>\n"
 			},
 			"CenterOfMass": {
 				"Summary": "<p>Describes the world position in which a part&#39;s center of mass is located.</p>\n",
@@ -17748,7 +17748,8 @@
 			},
 			"Is30FpsThrottleEnabled": {
 				"Summary": "<p>Sets whether or not the physics engine should be throttled to 30 FPS while\nthe test is being ran.</p>\n",
-				"Description": "<p>Sets whether or not the physics engine should be throttled to 30 FPS while\nthe test is being ran.</p>\n"
+				"Description": "<p>Sets whether or not the physics engine should be throttled to 30 FPS while\nthe test is being ran.</p>\n",
+				"DeprecationMessage": "<p>This has been deprecated and directly renamed to <a href=\"/ref/class/TestService.html#member-ThrottlePhysicsToRealtime\">ThrottlePhysicsToRealtime</a> to better reflect its practical use.</p>\n"
 			},
 			"IsPhysicsEnvironmentalThrottled": {
 				"Summary": "<p>Sets whether or not the physics environment should be throttled while\nrunning this test.</p>\n",
@@ -17797,7 +17798,10 @@
 				"Summary": "<p>Measures how many test calls have been recorded in the test session.</p>\n",
 				"Description": "<p>Measures how many test calls have been recorded in the test session.</p>\n"
 			},
-			"ThrottlePhysicsToRealtime": {},
+			"ThrottlePhysicsToRealtime": {
+				"Summary": "<p>Sets whether the test should be throttled to simulate time according to real world time or as fast as possible.</p>\n",
+				"Description": "<p>Sets whether the test should be throttled to simulate time according to real world time or as fast as possible.</p>\n"
+			},
 			"Timeout": {
 				"Summary": "<p>The maximum amount of time that tests are allowed to run for.</p>\n",
 				"Description": "<p>The maximum amount of time that tests are allowed to run for.</p>\n"
