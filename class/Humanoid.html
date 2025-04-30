@@ -4286,7 +4286,8 @@ doesn't reach its goal. This is done so that NPCs won't get stuck waiting
 for <a href=/ref/class/Humanoid.html#member-MoveToFinished>Humanoid.MoveToFinished</a> to fire. If you don't want this to
 happen, you should repeatedly call MoveTo so that the timeout will keep
 resetting.</p><p><a href=/ref/class/Humanoid.html#member-MoveTo>MoveTo()</a> ends if any of the following conditions
-apply:</p><ul><li><p>The character arrives at its destination.</p></li><li><p>The character gets stuck and the eight-second timer expires.</p></li><li><p>The value of either <a href=/ref/class/Humanoid.html#member-WalkToPoint>Humanoid.WalkToPoint</a> or
+apply:</p><ul><li><p>The character arrives at its destination. There is a ~1 stud threshold
+to account for various humanoid speeds and framerates.</p></li><li><p>The character gets stuck and the eight-second timer expires.</p></li><li><p>The value of either <a href=/ref/class/Humanoid.html#member-WalkToPoint>Humanoid.WalkToPoint</a> or
 <a href=/ref/class/Humanoid.html#member-WalkToPart>Humanoid.WalkToPart</a> changes.</p></li><li><p>A script calls <a href=/ref/class/Humanoid.html#member-Move>Humanoid:Move()</a> with a new <code>moveDirection</code>
 parameter.</p></li><li><p>A script changes the <a href=/ref/class/BasePart.html#member-CFrame>CFrame</a> property of the
 <a href=/ref/class/Humanoid.html#member-RootPart>RootPart</a>.</p></li></ul></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>5</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-295 title="Changed on 2023-04-26T18:50:09-07:00

@@ -251,10 +251,12 @@ direction as the surface they're on, editable through the
 <a href=/ref/class/SurfaceGui.html#member-Face>Face</a> property.</p><img src=https://prod.docsiteassets.roblox.com/assets/ui/in-experience/SurfaceGui-Diagram.jpg width=800 alt="SurfaceGui on a 3D part in the place with an ImageLabel child to depict a screen console."><p>Note that interactive UI elements like <a href=/ref/class/ImageButton.html>ImageButtons</a> and
 <a href=/ref/class/TextButton.html>TextButtons</a> inside a <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> will only receive
 user input if they are parented to the <a href=/ref/class/PlayerGui.html>PlayerGui</a>, typically via
-placing the <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> inside <a href=/ref/class/StarterGui.html>StarterGui</a>. The
+placing the <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> inside <a href=/ref/class/StarterGui.html>StarterGui</a> (the
 <a href=/ref/class/SurfaceGui.html#member-Adornee>Adornee</a> property can be used to target a part in
 the 3D world while the <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> itself remains in the
-<a href=/ref/class/PlayerGui.html>PlayerGui</a>.</p><p>See <a href=https://create.roblox.com/docs/ui/in-experience-containers#surface-ui>In-Experience UI</a> for
+<a href=/ref/class/PlayerGui.html>PlayerGui</a>). Additionally, the part's
+<a href=/ref/class/BasePart.html#member-CanQuery>CanQuery</a> property must be <code>true</code> for the interactive
+UI element to receive input.</p><p>See <a href=https://create.roblox.com/docs/ui/in-experience-containers#surface-ui>In-Experience UI</a> for
 a guide on working with <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> containers.</p><h3>Caching Behavior</h3><p>To help improve performance, the appearance of a <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> is cached
 until one of the following occurs, after which its appearance will be
 recomputed on the next rendering frame.</p><ul><li>A descendant is added to or removed from the <a href=/ref/class/SurfaceGui.html>SurfaceGui</a>.</li><li>A property of a descendant of the <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> changes.</li><li>A property of the <a href=/ref/class/SurfaceGui.html>SurfaceGui</a> itself changes.</li></ul></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>60</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
