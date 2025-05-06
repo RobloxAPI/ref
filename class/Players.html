@@ -2326,29 +2326,12 @@ Change Parameters of <a class="entity-link deco" href=/ref/class/Players.html#me
 v0.202.0.61076
 version-6b36c8d491874b3f">202</a>
 Add <a class="entity-link deco" href=/ref/class/Players.html#member-GetNameFromUserIdAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetNameFromUserIdAsync</a></li></ul></details><div class=tags>Tags: [Yields]</div></section><section id=member-GetPlayerByUserId class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetPlayerByUserId<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Players#GetPlayerByUserId target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-userId><td class=col-name>userId</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/class/Player.html><span class=picture title=Class data-type=Class><span class=icon style="--light:url('/ref/icons/light/Player.png');--dark:url('/ref/icons/dark/Player.png')"></span></span>Player</a></td></tr></tbody></table><div class=docs><p>This function searches each <a href=/ref/class/Player.html>Player</a> in <a href=/ref/class/Players.html>Players</a> for one
-whose <a href=/ref/class/Player.html#member-UserId>Player.UserId</a> matches the given UserId. If such a player
-does not exist, it simply returns <code>nil</code>. It is equivalent to the following
-function:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre tabindex=0 class=_chroma><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span><span class=_lnt>7
-</span><span class=_lnt>8
-</span></pre></td><td class=_lntd><pre tabindex=0 class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>getPlayerByUserId</span><span class=_p>(</span><span class=_n>userId</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>for</span> <span class=_n>_</span><span class=_p>,</span> <span class=_n>player</span> <span class=_kr>in</span> <span class=_n>Players</span><span class=_p>:</span><span class=_n>GetPlayers</span><span class=_p>()</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>if</span> <span class=_n>player.UserId</span> <span class=_o>==</span> <span class=_n>userId</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>			<span class=_kr>return</span> <span class=_n>player</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div><p>This method is useful in finding the purchaser of a developer product
-using <a href=/ref/class/MarketplaceService.html#member-ProcessReceipt>MarketplaceService.ProcessReceipt</a>, which provides a table
-that includes the purchaser's UserId and not a reference to the Player
-object itself. Most games will require a reference to the player in order
-to grant products.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>5</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2023.html#version-c13b427715ee40dc-23 title="Changed on 2023-03-14T19:44:02-07:00
+whose <a href=/ref/class/Player.html#member-UserId>Player.UserId</a> matches the given <code>userId</code>. If such a player
+does not exist, it returns <code>nil</code>.</p><p>This method is useful in finding the purchaser of a developer product
+using <a href=/ref/class/MarketplaceService.html#member-ProcessReceipt>MarketplaceService.ProcessReceipt</a> which provides a table
+that includes the purchaser's <a href=/ref/class/Player.html#member-UserId>UserId</a> and not a
+reference to the <a href=/ref/class/Player.html>Player</a> object itself. Most experiences will
+require a reference to the player in order to grant products.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>5</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2023.html#version-c13b427715ee40dc-23 title="Changed on 2023-03-14T19:44:02-07:00
 v0.567.0.5670559
 version-c13b427715ee40dc">567</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Players.html#member-GetPlayerByUserId><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetPlayerByUserId</a>
