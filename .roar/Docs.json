@@ -225,7 +225,6 @@
 				"audio-wiring---text-to-speech"
 			]
 		},
-		"AuroraScriptObject": {},
 		"AvatarCreationService": {
 			"Summary": "<p>A service to support developer avatar creators.</p>\n",
 			"Description": "<p><code>AvatarCreationService</code> is a service that supports developer avatar creators,\nproviding methods that support the prompting of avatar creation from within\nexperiences.</p>\n"
@@ -564,7 +563,7 @@
 		"CreatorStoreService": {},
 		"CurveAnimation": {
 			"Summary": "<p>Stores animation data in the form of curves for each individual channel to\nanimate.</p>\n",
-			"Description": "<p>CurveAnimation is a subtype of <a href=\"/ref/class/AnimationClip.html\">AnimationClip</a> consumed by Roblox&#39;s\nanimation system. It stores animation data for each animated channel in a Rig\nas a separate, individual curve. For example, CurveAnimation stores the\nPosition channel for an articulated joint as <a href=\"/ref/class/Vector3Curve.html\">Vector3Curve</a>, and it\nmight store the Rotation channel as an <a href=\"/ref/class/EulerRotationCurve.html\">EulerRotationCurve</a> or a\n<a href=\"/ref/class/RotationCurve.html\">RotationCurve</a>.</p>\n<h3>CurveAnimation structure</h3>\n<p>CurveAnimation stores curves in a hierarchical manner, matching the hierarchy\nof the structure of <a href=\"/ref/class/Motor6D.html\">Motor6Ds</a> or <a href=\"/ref/class/Bone.html\">Bones</a> in the\nanimated model. Under each CurveAnimation instance lies a hierarchy of\n<a href=\"/ref/class/Folder.html\">Folder</a> instances representing animated joints in the model. Under each\nsuch folder instance, several possible instances may exist. An instance named\n&#39;Position&#39; of type <a href=\"/ref/class/Vector3Curve.html\">Vector3Curve</a> can drive the local translation of the\n<a href=\"/ref/class/Motor6D.html\">Motor6D</a> or <a href=\"/ref/class/Bone.html\">Bone</a> on the animated model. Similarly, an instance\nnamed &#39;Rotation&#39;, of type either <a href=\"/ref/class/EulerRotationCurve.html\">EulerRotationCurve</a> or\n<a href=\"/ref/class/RotationCurve.html\">RotationCurve</a> can drive the local rotation of the <a href=\"/ref/class/Motor6D.html\">Motor6D</a> or\n<a href=\"/ref/class/Bone.html\">Bone</a> on the animated model.</p>\n<h3>Partial matching of hierarchy</h3>\n<p>You can match partial hierarchies to a model when playing a CurveAnimation in\nRoblox&#39;s animation system. This means that not all joints need to be present\nin the hierarchy for the joints that are present to apply properly.\nFurthermore, you can match hierarchies in a &#39;relative&#39; manner. For example, a\nCurveAnimation&#39;s first <a href=\"/ref/class/Folder.html\">Folder</a> instance root can be <code>UpperTorso</code>, and\nthe animation system matches that to any existing sub-hierarchies in the\nmodel.</p>\n<h3>Animating miscellaneous channels</h3>\n<p>Curve Animations can also animate other numerical values in a model. For\nexample, you can animate FACS controls for facial animations by creating a\nfolder under the CurveAnimation instance named after an existing\n<a href=\"/ref/class/FaceControls.html\">FaceControls</a> instance in the model. Then, to animate individual facial\ncontrollers, you can store individual <a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> instances named after\nthe animated <a href=\"/ref/class/FaceControls.html\">FaceControls</a> property.</p>\n<h3>Using CurveAnimation when making animations</h3>\n<p>As for other AnimationClip types (such as <a href=\"/ref/class/KeyframeSequence.html\">KeyframeSequence</a>), you must\nupload CurveAnimations to Roblox first before playing them. To do that, right\nclick on the CurveAnimation and click &#39;Save to Roblox&#39;. Alternatively, use\n<a href=\"/ref/class/Plugin.html#member-SaveSelectedToRoblox\">Plugin:SaveSelectedToRoblox()</a> to bring up the animation upload window.</p>\n<p>If you want to preview an Animation before uploading it to the Roblox site,\nyou can generate a temporary id using\n<code>AnimationClipProviderProvider:RegisterAnimationClip</code>. This generates a hash\nid that you can use for localized animation testing.</p>\n<h3>Obtaining CurveAnimations</h3>\n<p>As for other <a href=\"/ref/class/AnimationClip.html\">AnimationClip</a> types (such as <a href=\"/ref/class/KeyframeSequence.html\">KeyframeSequence</a>),\nif you want to download the CurveAnimation corresponding to an existing\nuploaded Animation using Luau scripts, use\nAnimationClipProvider:AnimationClipAsync.</p>\n"
+			"Description": "<p><code>CurveAnimation</code> is a subtype of <a href=\"/ref/class/AnimationClip.html\">AnimationClip</a> consumed by Roblox&#39;s\nanimation system. It stores animation data for each animated channel in a rig\nas a separate, individual curve. For example, <code>CurveAnimation</code> stores the\nposition channel for an articulated joint as a <a href=\"/ref/class/Vector3Curve.html\">Vector3Curve</a>, and it\nmight store the rotation channel as a <a href=\"/ref/class/EulerRotationCurve.html\">EulerRotationCurve</a> or\n<a href=\"/ref/class/RotationCurve.html\">RotationCurve</a>.</p>\n<h3>Structure</h3>\n<p><code>CurveAnimation</code> stores curves in a hierarchical manner, matching the hierarchy\nof the structure of <a href=\"/ref/class/Motor6D.html\">Motor6Ds</a> or <a href=\"/ref/class/Bone.html\">Bones</a> in the\nanimated model. Under each <code>CurveAnimation</code> instance lies a hierarchy of\n<a href=\"/ref/class/Folder.html\">Folder</a> instances representing animated joints in the model. Under each\nsuch folder instance, several possible instances may exist. An instance named\n<code>Position</code> of type <a href=\"/ref/class/Vector3Curve.html\">Vector3Curve</a> can drive the local translation of the\n<a href=\"/ref/class/Motor6D.html\">Motor6D</a> or <a href=\"/ref/class/Bone.html\">Bone</a> on the animated model, while an instance\nnamed <code>Rotation</code> of type <a href=\"/ref/class/EulerRotationCurve.html\">EulerRotationCurve</a> or\n<a href=\"/ref/class/RotationCurve.html\">RotationCurve</a> can drive the local rotation of the <a href=\"/ref/class/Motor6D.html\">Motor6D</a> or\n<a href=\"/ref/class/Bone.html\">Bone</a> on the animated model.</p>\n<h3>Partial matching of hierarchy</h3>\n<p>You can match partial hierarchies to a model when playing a <code>CurveAnimation</code> in\nRoblox&#39;s animation system. This means that not all joints need to be present\nin the hierarchy for the existing joints to apply properly.\nFurthermore, you can match hierarchies in a &#34;relative&#34; manner. For example,\nthe first child <a href=\"/ref/class/Folder.html\">Folder</a> instance root can be <code>UpperTorso</code> and\nthe animation system matches that to any existing sub-hierarchies in the\nmodel.</p>\n<h3>Animating miscellaneous channels</h3>\n<p><code>CurveAnimation</code> can also animate other numerical values in a model. For\nexample, you can animate FACS controls for facial animations by creating a\n<a href=\"/ref/class/Folder.html\">Folder</a> under the <code>CurveAnimation</code> instance named after an existing\n<a href=\"/ref/class/FaceControls.html\">FaceControls</a> instance in the model. Then, to animate individual facial\ncontrollers, you can store individual <a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> instances named after\nthe animated <a href=\"/ref/class/FaceControls.html\">FaceControls</a> property.</p>\n<h3>Usage when making animations</h3>\n<p>As with other <a href=\"/ref/class/AnimationClip.html\">AnimationClip</a> types such as <a href=\"/ref/class/KeyframeSequence.html\">KeyframeSequence</a>,\nyou must first upload <code>CurveAnimation</code> instances to Roblox before playing them.\nIf you want to preview an animation before uploading it to Roblox,\nyou can generate a temporary ID using\n<a href=\"/ref/class/AnimationClipProvider.html#member-RegisterAnimationClip\">AnimationClipProvider:RegisterAnimationClip()</a>; this generates a hash\nID that you can use for localized animation testing.</p>\n<p>If you want to download the <code>CurveAnimation</code> corresponding to an existing\nuploaded animation using Luau scripts, use\n<a href=\"/ref/class/AnimationClipProvider.html#member-GetAnimationClipAsync\">AnimationClipProvider:GetAnimationClipAsync()</a>.</p>\n"
 		},
 		"CustomEvent": {
 			"DeprecationMessage": "<p><a href=\"/ref/class/CustomEvent.html\">CustomEvents</a> have been superseded by\n<a href=\"/ref/class/BindableEvent.html\">BindableEvents</a> and should not be used in new work.</p>\n"
@@ -722,11 +721,11 @@
 		},
 		"EditableImage": {
 			"Summary": "<p>Instance which allows for the runtime creation and manipulation of images.</p>\n",
-			"Description": "<p><a href=\"/ref/class/EditableImage.html\">EditableImage</a> allows for the runtime creation and manipulation of\nimages.</p>\n<p>To create a blank <a href=\"/ref/class/EditableImage.html\">EditableImage</a>, use\n<a href=\"/ref/class/AssetService.html#member-CreateEditableImage\">AssetService:CreateEditableImage()</a>. To create an <a href=\"/ref/class/EditableImage.html\">EditableImage</a>\nfrom an existing image, use <a href=\"/ref/class/AssetService.html#member-CreateEditableImageAsync\">AssetService:CreateEditableImageAsync()</a>.</p>\n<p><a href=\"/ref/class/EditableImage.html\">EditableImage</a> can be used in any <a href=\"/ref/type/Content.html\">Content</a> property which\ntakes an image, such as <a href=\"/ref/class/ImageLabel.html#member-ImageContent\">ImageLabel.ImageContent</a> or\n<a href=\"/ref/class/MeshPart.html#member-TextureContent\">MeshPart.TextureContent</a>. This is done by setting the content property\nto <a href=\"/ref/type/Content.html#member-fromObject\">Content.fromObject(editableImage)</a>.</p>\n<p>The <a href=\"/ref/class/EditableImage.html\">EditableImage</a> coordinate system is relative to the top left of the\nimage:</p>\n<ul>\n<li>Top-left: <code>(0, 0)</code></li>\n<li>Bottom-right: <code>(Size.X - 1, Size.Y - 1)</code></li>\n</ul>\n<p>When you use <a href=\"/ref/class/AssetService.html#member-PromptCreateAssetAsync\">AssetService:PromptCreateAssetAsync()</a> to publish an\nobject that has a <a href=\"/ref/type/Content.html\">Content</a> property which references an\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a>, the editable image is published as an image and the\nproperty is set to a new asset ID.</p>\n<h3>Update Limitations</h3>\n<p>Only a single <a href=\"/ref/class/EditableImage.html\">EditableImage</a> can be updated per frame on the display\nside. For example, if you update three <a href=\"/ref/class/EditableImage.html\">EditableImage</a> objects which are\ncurrently being displayed, it will take three frames for all of them to be\nupdated.</p>\n<h3>Enabling EditableImage for Published Experiences</h3>\n<p>For security purposes, using <a href=\"/ref/class/EditableImage.html\">EditableImage</a> fails by default for\npublished experiences. To enable the use of <a href=\"/ref/class/EditableImage.html\">EditableImage</a>, you must be\n13+ age verified and ID verified. After you are verified, open <strong>Studio</strong>.\nSelect <strong>File &gt; Game Settings &gt; Security</strong> and enable the <strong>Allow Mesh &amp; Image\nAPIs</strong> toggle. Remember to review the Terms of Use before enabling the toggle.</p>\n<h3>Permissions</h3>\n<p>To prevent misuse, <a href=\"/ref/class/AssetService.html#member-CreateEditableImageAsync\">AssetService:CreateEditableImageAsync()</a> only allows\nyou to load and edit image assets:</p>\n<ul>\n<li>That are owned by the creator of the experience (if the experience is owned\nby an individual).</li>\n<li>That are owned by a group (if the experience is owned by the group).</li>\n<li>That are owned by the logged in Studio user (if the place file has not yet\nbeen saved or published to Roblox).</li>\n</ul>\n<p>The APIs throw an error if they are used to load an asset that does not meet\nthe criteria above.</p>\n"
+			"Description": "<p><code>EditableImage</code> allows for the runtime creation and manipulation of images.</p>\n<p>To create a blank <code>EditableImage</code>, use\n<a href=\"/ref/class/AssetService.html#member-CreateEditableImage\">AssetService:CreateEditableImage()</a>. To create an <code>EditableImage</code> from\nan existing image, use <a href=\"/ref/class/AssetService.html#member-CreateEditableImageAsync\">AssetService:CreateEditableImageAsync()</a>.</p>\n<p><code>EditableImage</code> can be used in any <a href=\"/ref/type/Content.html\">Content</a> property which takes an\nimage, such as <a href=\"/ref/class/ImageLabel.html#member-ImageContent\">ImageLabel.ImageContent</a> or\n<a href=\"/ref/class/MeshPart.html#member-TextureContent\">MeshPart.TextureContent</a>. This is done by setting the content property\nto <a href=\"/ref/type/Content.html#member-fromObject\">Content.fromObject(editableImage)</a>.</p>\n<p>The <code>EditableImage</code> coordinate system is relative to the top left of the\nimage:</p>\n<ul>\n<li>Top-left: <code>(0, 0)</code></li>\n<li>Bottom-right: <code>(Size.X - 1, Size.Y - 1)</code></li>\n</ul>\n<p>When you use <a href=\"/ref/class/AssetService.html#member-PromptCreateAssetAsync\">AssetService:PromptCreateAssetAsync()</a> to publish an\nobject that has a <a href=\"/ref/type/Content.html\">Content</a> property which references an\n<code>EditableImage</code>, the editable image is published as an image and the property\nis set to a new asset ID.</p>\n<h3>Update Limitations</h3>\n<p>Only a single <code>EditableImage</code> can be updated per frame on the display side.\nFor example, if you update three <code>EditableImage</code> objects which are currently\nbeing displayed, it will take three frames for all of them to be updated.</p>\n<h3>Enabling EditableImage for Published Experiences</h3>\n<p>For security purposes, using <code>EditableImage</code> fails by default for published\nexperiences. To enable usage, you must be 13+ age verified and ID verified.\nAfter you are verified, open Studio&#39;s <a href=\"https://create.roblox.com/docs/studio/game-settings\">Game\nSettings</a>, select <strong>Security</strong>, and enable\nthe <strong>Allow Mesh / Image APIs</strong> toggle.</p>\n<h3>Permissions</h3>\n<p>To prevent misuse, <a href=\"/ref/class/AssetService.html#member-CreateEditableImageAsync\">AssetService:CreateEditableImageAsync()</a> only allows\nyou to load and edit image assets:</p>\n<ul>\n<li>That are owned by the creator of the experience (if the experience is owned\nby an individual).</li>\n<li>That are owned by a group (if the experience is owned by the group).</li>\n<li>That are owned by the logged in Studio user (if the place file has not yet\nbeen saved or published to Roblox).</li>\n</ul>\n<p>The APIs throw an error if they are used to load an asset that does not meet\nthe criteria above.</p>\n"
 		},
 		"EditableMesh": {
 			"Summary": "<p>Instance which allows for the runtime creation and manipulation of meshes.</p>\n",
-			"Description": "<p><code>EditableMesh</code> changes the applied visual mesh when linked to a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a>, allowing for querying and modification of the mesh both in\nStudio and in experience.</p>\n<p>An <code>EditableMesh</code> can be created from an existing <a href=\"/ref/type/Content.html\">Content</a> of a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> or a mesh ID using\n<a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a>, or a blank <code>EditableMesh</code> can\nbe created with <a href=\"/ref/class/AssetService.html#member-CreateEditableMesh\">AssetService:CreateEditableMesh()</a>. It can then be\ndisplayed, modified, and its collision model updated. Not all of the steps are\nnecessary; for example, you might want to create an <code>EditableMesh</code> just to\nraycast without ever displaying it.</p>\n<p>An <code>EditableMesh</code> is displayed when it&#39;s linked to a new <a href=\"/ref/class/MeshPart.html\">MeshPart</a>,\nthrough <a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a>. You can create more\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> instances that reference the same <code>EditableMesh</code>\n<a href=\"/ref/type/Content.html\">Content</a>, or link to an existing <a href=\"/ref/class/MeshPart.html\">MeshPart</a> through\n<a href=\"/ref/class/MeshPart.html#member-ApplyMesh\">MeshPart:ApplyMesh()</a>.</p>\n<p>To recalculate collision and fluid geometry after editing, you can again call\n<a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a> and <a href=\"/ref/class/MeshPart.html#member-ApplyMesh\">MeshPart:ApplyMesh()</a> to\nupdate an existing <a href=\"/ref/class/MeshPart.html\">MeshPart</a>. It&#39;s generally recommended to do this at\nthe end of a conceptual edit, not after individual calls to methods that\nmanipulate geometry. Visual changes to the mesh will always be immediately\nreflected by the engine, without the need to call\n<a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a>.</p>\n<h3>Enabling EditableMesh for Published Experiences</h3>\n<p>For security purposes, using <code>EditableMesh</code> fails by default for published\nexperiences. To enable usage, <code>EditableMesh</code>, you must be 13+ age verified and\nID verified. After you are verified, open Studio&#39;s\n<a href=\"https://create.roblox.com/docs/studio/game-settings\">Game Settings</a>, select <strong>Security</strong>, and\nenable the <strong>Allow Mesh &amp; Image APIs</strong> toggle. Remember to\nreview the\n<a href=\"https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use#creators-restrictions-on-use\">Terms of Use</a>\nbefore enabling the toggle.</p>\n<h3>Permissions</h3>\n<p>To prevent misuse, <a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a> will only\nallow you to load and edit mesh assets:</p>\n<ul>\n<li>That are owned by the creator of the experience (if the experience is owned\nby an individual).</li>\n<li>That are owned by a group (if the experience is owned by the group).</li>\n<li>That are owned by the logged in Studio user (if the place file has not yet\nbeen saved or published to Roblox).</li>\n</ul>\n<p>The APIs throw an error if they are used to load an asset that does not meet\nthe criteria above.</p>\n<h3>Fixed-Size Meshes</h3>\n<p>When creating an <code>EditableMesh</code> from an existing mesh asset (via\n<a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a>), the resulting editable mesh\nis fixed-size by default. Fixed-size meshes are more efficient in terms of\nmemory but you cannot change the number of vertices, faces, or attributes.\nOnly the values of vertex attributes and positions can be edited.</p>\n<h3>Stable Vertex/Face IDs</h3>\n<p>Many <code>EditableMesh</code> methods take <strong>vertex</strong>, <strong>normal</strong>, <strong>UV</strong>, <strong>color</strong> and\n<strong>face</strong> IDs. These are represented as integers in Luau but they require some\nspecial handling. The main difference is that IDs are stable and they remain\nthe same even if other parts of the mesh change. For example, if an\n<code>EditableMesh</code> has five vertices <code>{1, 2, 3, 4, 5}</code> and you remove vertex <code>4</code>,\nthe new vertices will be <code>{1, 2, 3, 5}</code>.</p>\n<p>Note that the IDs are not guaranteed to be in order and there may be holes in\nthe numbering, so when iterating through vertices or faces, you should iterate\nthrough the table returned by <a href=\"/ref/class/EditableMesh.html#member-GetVertices\">GetVertices()</a>\nor <a href=\"/ref/class/EditableMesh.html#member-GetFaces\">GetFaces()</a>.</p>\n<h3>Split Vertex Attributes</h3>\n<p>A <strong>vertex</strong> is a corner of a face, and topologically connects faces together.\nVertices can have several attributes: position, normal, UV coordinate, color,\nand transparency.</p>\n<p>Sometimes it&#39;s useful for all faces that touch a vertex to use the same\nattribute values, but sometimes you&#39;ll want different faces to use different\nattribute values on the same vertex. For example, on a smooth sphere, each\nvertex will only have a single normal. In contrast, at the corner of a cube,\nthe vertex will have 3 different normals (one for each adjacent face). You can\nalso have seams in the UV coordinates or sharp changes in the vertex colors.</p>\n<p>When creating faces, every vertex will by default have one of each attribute:\none normal, one UV coordinate, and one color/transparency. If you want to\ncreate a seam, you should create new attributes and set them on the face. For\nexample, this code will create a sharp cube:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span><span class=\"_lnt\">27\n</span><span class=\"_lnt\">28\n</span><span class=\"_lnt\">29\n</span><span class=\"_lnt\">30\n</span><span class=\"_lnt\">31\n</span><span class=\"_lnt\">32\n</span><span class=\"_lnt\">33\n</span><span class=\"_lnt\">34\n</span><span class=\"_lnt\">35\n</span><span class=\"_lnt\">36\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">AssetService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;AssetService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Given 4 vertex IDs, adds a new normal and 2 triangles, making a sharp quad</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">nid</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddNormal</span><span class=\"_p\">()</span>  <span class=\"_c1\">-- This creates a normal ID which is automatically computed</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid1</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid2</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Makes a cube with creased edges between the 6 sides</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">makeSharpCube</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">eMesh</span> <span class=\"_o\">=</span> <span class=\"_n\">AssetService</span><span class=\"_p\">:</span><span class=\"_n\">CreateEditableMesh</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v3</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v4</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v5</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v6</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v7</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v8</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Front</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Back</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Left</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Right</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Bottom</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Top</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">RemoveUnused</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">return</span> <span class=\"_n\">eMesh</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h3>Winding</h3>\n<p>Mesh faces have a front side and a back side. When drawing meshes, only the\nfront of the faces are drawn by default, although you can change this by\nsetting the mesh&#39; <a href=\"/ref/class/MeshPart.html#member-DoubleSided\">DoubleSided</a> property to <code>true</code>.</p>\n<p>The order of the vertices around the face determines whether you are looking\nat the front or the back. The front of the face is visible when the vertices\ngo counterclockwise around it.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Winding.png\" alt=\"Order of the vertices around the face\" width=\"550\"/>\n<h3>FACS Poses</h3>\n<p>Animatable heads use the Facial Action Coding System (FACS). See the\n<a href=\"https://create.roblox.com/docs/art/characters/facial-animation/facs-poses-reference\">FACS poses reference</a>\nfor helpful information when using\n<a href=\"/ref/class/EditableMesh.html#member-GetFacsPoses\">GetFacsPoses()</a> and similar methods.</p>\n<p>Each FACS pose is specified by an <a href=\"/ref/enum/FacsActionUnit.html\">FacsActionUnit</a> value. For the FACS\npose, virtual bones can each have a <a href=\"/ref/type/CFrame.html\">CFrame</a> that transforms the\nbones&#39; initial <a href=\"/ref/type/CFrame.html\">CFrame</a> in the bind pose of the mesh into the\n<a href=\"/ref/type/CFrame.html\">CFrame</a> for that FACS action unit&#39;s pose. All bone\n<a href=\"/ref/type/CFrame.html\">CFrames</a> are in the mesh&#39;s local space.</p>\n<p>These FACS poses are blended together during animation. Sometimes, the\nblending of the base poses produces poor results. In those cases, you can\noverride the blending of specific combinations of base poses with a\n<a href=\"https://create.roblox.com/docs/art/characters/facial-animation/create-basic-heads#combination-poses\">corrective pose</a>\nthat is more pleasing. A corrective pose is specified by 2 or 3\n<a href=\"/ref/enum/FacsActionUnit.html\">FacsActionUnit</a> values. Like a base FACS pose, for a corrective pose,\nvirtual bones can each have a <a href=\"/ref/type/CFrame.html\">CFrame</a> that transforms the bones&#39;\ninitial <a href=\"/ref/type/CFrame.html\">CFrame</a> in the bind pose of the mesh into the\n<a href=\"/ref/type/CFrame.html\">CFrame</a> for that FACS corrective.</p>\n<h3>Limitations</h3>\n<p><code>EditableMesh</code> currently has a limit of 60,000 vertices and 20,000 triangles.\nAttempting to add too many vertices or triangles will cause an error.</p>\n"
+			"Description": "<p><code>EditableMesh</code> changes the applied visual mesh when linked to a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a>, allowing for querying and modification of the mesh both in\nStudio and in experience.</p>\n<p>An <code>EditableMesh</code> can be created from an existing <a href=\"/ref/type/Content.html\">Content</a> of a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> or a mesh ID using\n<a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a>, or a blank <code>EditableMesh</code> can\nbe created with <a href=\"/ref/class/AssetService.html#member-CreateEditableMesh\">AssetService:CreateEditableMesh()</a>. It can then be\ndisplayed, modified, and its collision model updated. Not all of the steps are\nnecessary; for example, you might want to create an <code>EditableMesh</code> just to\nraycast without ever displaying it.</p>\n<p>An <code>EditableMesh</code> is displayed when it&#39;s linked to a new <a href=\"/ref/class/MeshPart.html\">MeshPart</a>,\nthrough <a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a>. You can create more\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> instances that reference the same <code>EditableMesh</code>\n<a href=\"/ref/type/Content.html\">Content</a>, or link to an existing <a href=\"/ref/class/MeshPart.html\">MeshPart</a> through\n<a href=\"/ref/class/MeshPart.html#member-ApplyMesh\">MeshPart:ApplyMesh()</a>.</p>\n<p>To recalculate collision and fluid geometry after editing, you can again call\n<a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a> and <a href=\"/ref/class/MeshPart.html#member-ApplyMesh\">MeshPart:ApplyMesh()</a> to\nupdate an existing <a href=\"/ref/class/MeshPart.html\">MeshPart</a>. It&#39;s generally recommended to do this at\nthe end of a conceptual edit, not after individual calls to methods that\nmanipulate geometry. Visual changes to the mesh will always be immediately\nreflected by the engine, without the need to call\n<a href=\"/ref/class/AssetService.html#member-CreateMeshPartAsync\">AssetService:CreateMeshPartAsync()</a>.</p>\n<h3>Enabling EditableMesh for Published Experiences</h3>\n<p>For security purposes, using <code>EditableMesh</code> fails by default for published\nexperiences. To enable usage, you must be 13+ age verified and ID verified.\nAfter you are verified, open Studio&#39;s\n<a href=\"https://create.roblox.com/docs/studio/game-settings\">Game Settings</a>, select <strong>Security</strong>, and\nenable the <strong>Allow Mesh / Image APIs</strong> toggle.</p>\n<h3>Permissions</h3>\n<p>To prevent misuse, <a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a> will only\nallow you to load and edit mesh assets:</p>\n<ul>\n<li>That are owned by the creator of the experience (if the experience is owned\nby an individual).</li>\n<li>That are owned by a group (if the experience is owned by the group).</li>\n<li>That are owned by the logged in Studio user (if the place file has not yet\nbeen saved or published to Roblox).</li>\n</ul>\n<p>The APIs throw an error if they are used to load an asset that does not meet\nthe criteria above.</p>\n<h3>Fixed-Size Meshes</h3>\n<p>When creating an <code>EditableMesh</code> from an existing mesh asset (via\n<a href=\"/ref/class/AssetService.html#member-CreateEditableMeshAsync\">AssetService:CreateEditableMeshAsync()</a>), the resulting editable mesh\nis fixed-size by default. Fixed-size meshes are more efficient in terms of\nmemory but you cannot change the number of vertices, faces, or attributes.\nOnly the values of vertex attributes and positions can be edited.</p>\n<h3>Stable Vertex/Face IDs</h3>\n<p>Many <code>EditableMesh</code> methods take <strong>vertex</strong>, <strong>normal</strong>, <strong>UV</strong>, <strong>color</strong> and\n<strong>face</strong> IDs. These are represented as integers in Luau but they require some\nspecial handling. The main difference is that IDs are stable and they remain\nthe same even if other parts of the mesh change. For example, if an\n<code>EditableMesh</code> has five vertices <code>{1, 2, 3, 4, 5}</code> and you remove vertex <code>4</code>,\nthe new vertices will be <code>{1, 2, 3, 5}</code>.</p>\n<p>Note that the IDs are not guaranteed to be in order and there may be holes in\nthe numbering, so when iterating through vertices or faces, you should iterate\nthrough the table returned by <a href=\"/ref/class/EditableMesh.html#member-GetVertices\">GetVertices()</a>\nor <a href=\"/ref/class/EditableMesh.html#member-GetFaces\">GetFaces()</a>.</p>\n<h3>Split Vertex Attributes</h3>\n<p>A <strong>vertex</strong> is a corner of a face, and topologically connects faces together.\nVertices can have several attributes: position, normal, UV coordinate, color,\nand transparency.</p>\n<p>Sometimes it&#39;s useful for all faces that touch a vertex to use the same\nattribute values, but sometimes you&#39;ll want different faces to use different\nattribute values on the same vertex. For example, on a smooth sphere, each\nvertex will only have a single normal. In contrast, at the corner of a cube,\nthe vertex will have 3 different normals (one for each adjacent face). You can\nalso have seams in the UV coordinates or sharp changes in the vertex colors.</p>\n<p>When creating faces, every vertex will by default have one of each attribute:\none normal, one UV coordinate, and one color/transparency. If you want to\ncreate a seam, you should create new attributes and set them on the face. For\nexample, this code will create a sharp cube:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span><span class=\"_lnt\">27\n</span><span class=\"_lnt\">28\n</span><span class=\"_lnt\">29\n</span><span class=\"_lnt\">30\n</span><span class=\"_lnt\">31\n</span><span class=\"_lnt\">32\n</span><span class=\"_lnt\">33\n</span><span class=\"_lnt\">34\n</span><span class=\"_lnt\">35\n</span><span class=\"_lnt\">36\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">AssetService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;AssetService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Given 4 vertex IDs, adds a new normal and 2 triangles, making a sharp quad</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">nid</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddNormal</span><span class=\"_p\">()</span>  <span class=\"_c1\">-- This creates a normal ID which is automatically computed</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid1</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid1</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">fid2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddTriangle</span><span class=\"_p\">(</span><span class=\"_n\">vid0</span><span class=\"_p\">,</span> <span class=\"_n\">vid2</span><span class=\"_p\">,</span> <span class=\"_n\">vid3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">SetFaceNormals</span><span class=\"_p\">(</span><span class=\"_n\">fid2</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">,</span> <span class=\"_n\">nid</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Makes a cube with creased edges between the 6 sides</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">makeSharpCube</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">eMesh</span> <span class=\"_o\">=</span> <span class=\"_n\">AssetService</span><span class=\"_p\">:</span><span class=\"_n\">CreateEditableMesh</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v1</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v2</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v3</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v4</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v5</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v6</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v7</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">v8</span> <span class=\"_o\">=</span> <span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">AddVertex</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Front</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Back</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Left</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Right</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v1</span><span class=\"_p\">,</span> <span class=\"_n\">v2</span><span class=\"_p\">,</span> <span class=\"_n\">v6</span><span class=\"_p\">,</span> <span class=\"_n\">v5</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Bottom</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">addSharpQuad</span><span class=\"_p\">(</span><span class=\"_n\">eMesh</span><span class=\"_p\">,</span> <span class=\"_n\">v3</span><span class=\"_p\">,</span> <span class=\"_n\">v7</span><span class=\"_p\">,</span> <span class=\"_n\">v8</span><span class=\"_p\">,</span> <span class=\"_n\">v4</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Top</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">eMesh</span><span class=\"_p\">:</span><span class=\"_n\">RemoveUnused</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">return</span> <span class=\"_n\">eMesh</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h3>Winding</h3>\n<p>Mesh faces have a front side and a back side. When drawing meshes, only the\nfront of the faces are drawn by default, although you can change this by\nsetting the mesh&#39; <a href=\"/ref/class/MeshPart.html#member-DoubleSided\">DoubleSided</a> property to <code>true</code>.</p>\n<p>The order of the vertices around the face determines whether you are looking\nat the front or the back. The front of the face is visible when the vertices\ngo counterclockwise around it.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Winding.png\" alt=\"Order of the vertices around the face\" width=\"550\"/>\n<h3>FACS Poses</h3>\n<p>Animatable heads use the Facial Action Coding System (FACS). See the\n<a href=\"https://create.roblox.com/docs/art/characters/facial-animation/facs-poses-reference\">FACS poses reference</a>\nfor helpful information when using\n<a href=\"/ref/class/EditableMesh.html#member-GetFacsPoses\">GetFacsPoses()</a> and similar methods.</p>\n<p>Each FACS pose is specified by an <a href=\"/ref/enum/FacsActionUnit.html\">FacsActionUnit</a> value. For the FACS\npose, virtual bones can each have a <a href=\"/ref/type/CFrame.html\">CFrame</a> that transforms the\nbones&#39; initial <a href=\"/ref/type/CFrame.html\">CFrame</a> in the bind pose of the mesh into the\n<a href=\"/ref/type/CFrame.html\">CFrame</a> for that FACS action unit&#39;s pose. All bone\n<a href=\"/ref/type/CFrame.html\">CFrames</a> are in the mesh&#39;s local space.</p>\n<p>These FACS poses are blended together during animation. Sometimes, the\nblending of the base poses produces poor results. In those cases, you can\noverride the blending of specific combinations of base poses with a\n<a href=\"https://create.roblox.com/docs/art/characters/facial-animation/create-basic-heads#combination-poses\">corrective pose</a>\nthat is more pleasing. A corrective pose is specified by 2 or 3\n<a href=\"/ref/enum/FacsActionUnit.html\">FacsActionUnit</a> values. Like a base FACS pose, for a corrective pose,\nvirtual bones can each have a <a href=\"/ref/type/CFrame.html\">CFrame</a> that transforms the bones&#39;\ninitial <a href=\"/ref/type/CFrame.html\">CFrame</a> in the bind pose of the mesh into the\n<a href=\"/ref/type/CFrame.html\">CFrame</a> for that FACS corrective.</p>\n<h3>Limitations</h3>\n<p><code>EditableMesh</code> currently has a limit of 60,000 vertices and 20,000 triangles.\nAttempting to add too many vertices or triangles will cause an error.</p>\n"
 		},
 		"EmotesPages": {},
 		"EqualizerSoundEffect": {
@@ -765,7 +764,6 @@
 			"Description": "<p>The base class for the legacy motor system.</p>\n"
 		},
 		"FeatureRestrictionManager": {},
-		"FeedPages": {},
 		"File": {
 			"Summary": "<p>An asset loaded from a file on disk.</p>\n",
 			"Description": "<p>An object that represents an asset loaded from a file on a local disk. Files\ngenerate a temporary asset ID in the form <code>rbxtemp://</code> which can be used in\nStudio without uploading the asset, but will be destroyed when the\n<a href=\"/ref/class/File.html\">File</a> is destroyed or when the Studio session ends. Temporary asset IDs\nare not shared across <a href=\"https://create.roblox.com/docs/projects/collaboration\">collaborative</a>\nsessions.</p>\n<p>The default <a href=\"/ref/class/Instance.html#member-Name\">Name</a> of a <a href=\"/ref/class/File.html\">File</a> instance will be the\nfilename on disk, excluding the path but including the extension.</p>\n"
@@ -856,7 +854,7 @@
 		},
 		"GameSettings": {
 			"Summary": "<p>A container for miscellaneous in-game options.</p>\n",
-			"Description": "<p>Various miscellaneous options for in-game. Can be accessed from Roblox\nStudio&#39;s settings menu under the <strong>Game</strong> tab.</p>\n"
+			"Description": "<p>Various miscellaneous in-game options.</p>\n"
 		},
 		"GamepadService": {
 			"Summary": "<p>The GamepadService is internally responsible for handling inputs from various\ncontrollers, such as Xbox One or PlayStation DualShock controllers.</p>\n",
@@ -1653,6 +1651,7 @@
 			"Summary": "<p>Acts as a <a href=\"/ref/class/Folder.html\">Folder</a> containing information about yielding functions for a\n<a href=\"/ref/class/ReflectionMetadataClass.html\">ReflectionMetadataClass</a>, and should be parented to it.\n<a href=\"/ref/class/ReflectionMetadataMember.html\">ReflectionMetadataMembers</a> that are parented\nto this object will be perceived as yielding functions under the class this is\nparented to.</p>\n",
 			"Description": "<p>Acts as a <a href=\"/ref/class/Folder.html\">Folder</a> containing information about yielding functions for a\n<a href=\"/ref/class/ReflectionMetadataClass.html\">ReflectionMetadataClass</a>, and should be parented to it.\n<a href=\"/ref/class/ReflectionMetadataMember.html\">ReflectionMetadataMembers</a> that are parented\nto this object will be perceived as yielding functions under the class this is\nparented to.</p>\n"
 		},
+		"ReflectionService": {},
 		"RemoteDebuggerServer": {},
 		"RemoteEvent": {
 			"Summary": "<p>An object which facilitates asynchronous, one-way communication across the\nclient-server boundary. Scripts firing a <a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a> do not yield.</p>\n",
@@ -4109,12 +4108,7 @@
 				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> and to some other wirable instance.</p>\n"
 			}
 		},
-		"AuroraScriptObject": {
-			"BehaviorWeak": {},
-			"BoundInstanceWeak": {}
-		},
 		"AvatarCreationService": {
-			"AutoSetupAvatarAsync": {},
 			"AvatarModerationCompleted": {},
 			"GenerateAvatar2DPreviewAsync": {},
 			"GetBatchTokenDetailsAsync": {
@@ -6754,8 +6748,8 @@
 		},
 		"DataModel": {
 			"AllowedGearTypeChanged": {
-				"Summary": "<p>Fires when SetGearSettings is called with a different value for\n<em>allowedGenres</em>.</p>\n",
-				"Description": "<p>This event fires when SetGearSettings is called with a different value for\n<em>allowedGenres</em>.</p>\n",
+				"Summary": "<p>Fires when SetGearSettings is called with a different value for\n<code>allowedGenres</code>.</p>\n",
+				"Description": "<p>This event fires when SetGearSettings is called with a different value for\n<code>allowedGenres</code>.</p>\n",
 				"DeprecationMessage": "<p>This item is deprecated . Do not use it for new work.</p>\n"
 			},
 			"BindToClose": {
@@ -6768,14 +6762,14 @@
 			},
 			"CreatorId": {
 				"Summary": "<p>Describes the ID of the user or group that owns the place.</p>\n",
-				"Description": "<p>This property describes the ID of the user or group that owns the place.\nIf the <a href=\"/ref/class/DataModel.html#member-CreatorType\">DataModel.CreatorType</a> property is <em>&#39;User&#39;</em> then CreatorId\nwill be the <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a> of the place&#39;s owner. If the\n<a href=\"/ref/class/DataModel.html#member-CreatorType\">DataModel.CreatorType</a> is <em>&#39;Group&#39;</em> then CreatorId will be the ID\nof the group that owns the place.</p>\n",
+				"Description": "<p>This property describes the ID of the user or group that owns the place.\nIf the <a href=\"/ref/class/DataModel.html#member-CreatorType\">DataModel.CreatorType</a> property is <code>User</code> then <code>CreatorId</code>\nwill be the <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a> of the place&#39;s owner. If the\n<a href=\"/ref/class/DataModel.html#member-CreatorType\">DataModel.CreatorType</a> is <code>Group</code> then <code>CreatorId</code> will be the ID\nof the group that owns the place.</p>\n",
 				"CodeSamples": [
 					"detect-when-the-place-owner-joins-the-game"
 				]
 			},
 			"CreatorType": {
 				"Summary": "<p>Describes the <a href=\"/ref/enum/CreatorType.html\">CreatorType</a> of the place, whether the place is owned\nby a user or a group.</p>\n",
-				"Description": "<p>This property describes the <a href=\"/ref/enum/CreatorType.html\">CreatorType</a> of the place, whether the\nplace is owned by a user or a group.</p>\n<p>If the <a href=\"/ref/enum/CreatorType.html\">CreatorType</a> is <em>&#39;User&#39;</em>, then the\n<a href=\"/ref/class/DataModel.html#member-CreatorId\">DataModel.CreatorId</a> property will describe the\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the account that owns the game. If the\nCreatorType is <em>&#39;Group&#39;</em>, then it will describe the group ID.</p>\n",
+				"Description": "<p>This property describes the <a href=\"/ref/enum/CreatorType.html\">CreatorType</a> of the place, whether the\nplace is owned by a user or a group. If <code>User</code>, then the\n<a href=\"/ref/class/DataModel.html#member-CreatorId\">DataModel.CreatorId</a> property will describe the\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the account that owns the game. If\n<code>Group</code>, then it will describe the group ID.</p>\n",
 				"CodeSamples": [
 					"detect-when-the-place-owner-joins-the-game"
 				]
@@ -6888,7 +6882,7 @@
 			},
 			"PrivateServerOwnerId": {
 				"Summary": "<p>Describes the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the <a href=\"/ref/class/Player.html\">Player</a> that owns\nthe private server if the server is private.</p>\n",
-				"Description": "<p>This property describes the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the\n<a href=\"/ref/class/Player.html\">Player</a> that owns the\n<a href=\"https://create.roblox.com/docs/production/monetization/private-servers\">private server</a> if\nthe server is private.</p>\n<p>If the server is a standard or reserved server then this property will be\nset to <em>0</em>.</p>\n<p>This property could be used to identify if a <a href=\"/ref/class/Player.html\">Player</a> is the owner\nof the private server, for example:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Players</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Players&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- is this a private server?</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">game.PrivateServerId</span> <span class=\"_o\">~=</span> <span class=\"_s2\">&#34;&#34;</span> <span class=\"_ow\">and</span> <span class=\"_n\">game.PrivateServerOwnerId</span> <span class=\"_o\">~=</span> <span class=\"_mi\">0</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_c1\">-- listen for new players being added</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">Players.PlayerAdded</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">player</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_c1\">-- check if the player is the server owner</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_kr\">if</span> <span class=\"_n\">player.UserId</span> <span class=\"_o\">==</span> <span class=\"_n\">game.PrivateServerOwnerId</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">            <span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;The private server owner has joined the game&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/DataModel.html#member-PrivateServerId\">DataModel.PrivateServerId</a>, a property describing the unique ID\nof private and <a href=\"/ref/class/TeleportService.html#member-ReserveServer\">reserved servers</a></li>\n</ul>\n",
+				"Description": "<p>This property describes the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the\n<a href=\"/ref/class/Player.html\">Player</a> that owns the\n<a href=\"https://create.roblox.com/docs/production/monetization/private-servers\">private server</a> if\nthe server is private.</p>\n<p>If the server is a standard or reserved server then this property will be\nset to <code>0</code>.</p>\n<p>This property could be used to identify if a <a href=\"/ref/class/Player.html\">Player</a> is the owner\nof the private server, for example:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Players</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Players&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- is this a private server?</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">game.PrivateServerId</span> <span class=\"_o\">~=</span> <span class=\"_s2\">&#34;&#34;</span> <span class=\"_ow\">and</span> <span class=\"_n\">game.PrivateServerOwnerId</span> <span class=\"_o\">~=</span> <span class=\"_mi\">0</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_c1\">-- listen for new players being added</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">Players.PlayerAdded</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">player</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_c1\">-- check if the player is the server owner</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_kr\">if</span> <span class=\"_n\">player.UserId</span> <span class=\"_o\">==</span> <span class=\"_n\">game.PrivateServerOwnerId</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">            <span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;The private server owner has joined the game&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/DataModel.html#member-PrivateServerId\">DataModel.PrivateServerId</a>, a property describing the unique ID\nof private and <a href=\"/ref/class/TeleportService.html#member-ReserveServer\">reserved servers</a></li>\n</ul>\n",
 				"CodeSamples": [
 					"detecting-private-servers"
 				]
@@ -6899,12 +6893,12 @@
 				"DeprecationMessage": "<p>This item is deprecated. Do not use it for new work.</p>\n"
 			},
 			"SetPlaceId": {
-				"Summary": "<p>Sets the <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the current game instance to the\ngiven <em>placeId</em>.</p>\n",
-				"Description": "<p>This function sets the <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the game instance to\nthe given <em>placeId</em>.</p>\n<p>Setting both <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> and <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> are\nrequired to access <a href=\"/ref/class/DataStoreService.html\">DataStoreService</a> when the place is unpublished,\nfor example a local <code>.rbxl</code> file. See below for an example. Note that\ngaining <a href=\"/ref/class/DataStoreService.html\">DataStoreService</a> access from Studio requires the <strong>Enable\nStudio Access to API Services</strong> setting from the <strong>Security</strong> panel in\n<a href=\"https://create.roblox.com/docs/studio/game-settings\">Game Settings</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">DataStoreService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;DataStoreService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- access DataStore &#39;Data&#39; by setting PlaceId to placeId and GameId to universeId.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">SetPlaceId</span><span class=\"_p\">(</span><span class=\"_n\">placeId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">SetUniverseId</span><span class=\"_p\">(</span><span class=\"_n\">universeId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">dataStore</span> <span class=\"_o\">=</span> <span class=\"_n\">DataStoreService</span><span class=\"_p\">:</span><span class=\"_n\">GetDataStore</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Data&#34;</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+				"Summary": "<p>Sets the <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the current game instance.</p>\n",
+				"Description": "<p>This function sets the <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the game instance to\nthe given <code>placeId</code>.</p>\n"
 			},
 			"SetUniverseId": {
-				"Summary": "<p>Sets the <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the current game instance to the\ngiven <em>universeId</em>.</p>\n",
-				"Description": "<p>This function sets the <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the current game\ninstance to the given <em>universeId</em>. This is useful when testing local\n.rbxl files that have not been published to Roblox.</p>\n<p>To access the <a href=\"/ref/class/DataStoreService.html\">DataStoreService</a> in an unpublished place, both\n<a href=\"/ref/class/DataModel.html#member-SetUniverseId\">DataModel:SetUniverseId()</a> and <a href=\"/ref/class/DataModel.html#member-SetPlaceId\">DataModel:SetPlaceId()</a> must\nbe set.</p>\n"
+				"Summary": "<p>Sets the <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the current game instance to the\ngiven <code>universeId</code>.</p>\n",
+				"Description": "<p>This function sets the <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the current game\ninstance to the given <code>universeId</code>. This is useful when testing local\n.rbxl files that have not been published to Roblox.</p>\n<p>To access the <a href=\"/ref/class/DataStoreService.html\">DataStoreService</a> in an unpublished place, both\n<a href=\"/ref/class/DataModel.html#member-SetUniverseId\">DataModel:SetUniverseId()</a> and <a href=\"/ref/class/DataModel.html#member-SetPlaceId\">DataModel:SetPlaceId()</a> must\nbe set.</p>\n"
 			},
 			"VIPServerId": {
 				"Summary": "<p>A string that could identify the current server as a private server.</p>\n",
@@ -7064,10 +7058,6 @@
 		},
 		"DataStorePages": {},
 		"DataStoreService": {
-			"AutomaticRetry": {
-				"Summary": "<p>Sets whether data store functions should automatically retry or not.\nDataStoreService does not respect this property because automatic retry\nhas been disabled due to technical reasons. Therefore, you must implement\nsystems for retrying operations yourself.</p>\n",
-				"Description": "<p>Sets whether data store functions should automatically retry or not.</p>\n<p>DataStoreService does not respect this property because automatic retry\nhas been disabled due to technical reasons. Therefore, you must implement\nsystems for retrying operations yourself. It is possible that automatic\nretry will be enabled again in the future.</p>\n"
-			},
 			"GetDataStore": {
 				"Summary": "<p>Creates a <a href=\"/ref/class/DataStore.html\">DataStore</a> instance with the provided name and scope.</p>\n",
 				"Description": "<p>This function creates a <a href=\"/ref/class/DataStore.html\">DataStore</a> instance with the provided name\nand scope. Subsequent calls to this method with the same name/scope will\nreturn the same object.</p>\n<p>Using the <code>scope</code> parameter will restrict operations to that scope by\nautomatically prepending the scope to keys in all operations done on the\ndata store. This function also accepts an optional\n<a href=\"/ref/class/DataStoreOptions.html\">DataStoreOptions</a> instance which includes options for enabling\n<a href=\"/ref/class/DataStoreOptions.html#member-AllScopes\">AllScopes</a>. See\n<a href=\"https://create.roblox.com/docs/cloud-services/data-stores/versioning-listing-and-caching#scopes\">Versioning, listing, and caching</a>\nfor details on scope.</p>\n"
@@ -7538,18 +7528,18 @@
 			},
 			"DrawCircle": {
 				"Summary": "<p>Draws a circle at the specified point.</p>\n",
-				"Description": "<p>Draws a circle at the specified point on the <a href=\"/ref/class/EditableImage.html\">EditableImage</a>. If the\ncircle is semi-transparent, it will be blended with the pixels behind it\nusing source over blending.</p>\n"
+				"Description": "<p>Draws a circle at the specified point on the <code>EditableImage</code>. If the\ncircle is semi-transparent, it will be blended with the pixels behind it\nusing source over blending.</p>\n"
 			},
 			"DrawImage": {
-				"Summary": "<p>Draws another <a href=\"/ref/class/EditableImage.html\">EditableImage</a> into this <a href=\"/ref/class/EditableImage.html\">EditableImage</a> at the\ngiven position.</p>\n",
-				"Description": "<p>Draws another <a href=\"/ref/class/EditableImage.html\">EditableImage</a> into this <a href=\"/ref/class/EditableImage.html\">EditableImage</a> at the\ngiven position. Positions outside the canvas bounds are allowed such that\nonly part of the new image is drawn.</p>\n"
+				"Summary": "<p>Draws another <code>EditableImage</code> into this <code>EditableImage</code> at the\ngiven position.</p>\n",
+				"Description": "<p>Draws another <code>EditableImage</code> into this <code>EditableImage</code> at the\ngiven position. Positions outside the canvas bounds are allowed such that\nonly part of the new image is drawn.</p>\n"
 			},
 			"DrawImageProjected": {
-				"Summary": "<p>Projects another <a href=\"/ref/class/EditableImage.html\">EditableImage</a> into an <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> and\nstores the result on this <a href=\"/ref/class/EditableImage.html\">EditableImage</a>.</p>\n",
-				"Description": "<p>Projects another <a href=\"/ref/class/EditableImage.html\">EditableImage</a> into an <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> and\nstores the result on this <a href=\"/ref/class/EditableImage.html\">EditableImage</a> by using the specified\nprojection and brush configuration.</p>\n"
+				"Summary": "<p>Projects another <code>EditableImage</code> into an <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> and\nstores the result on this <code>EditableImage</code>.</p>\n",
+				"Description": "<p>Projects another <code>EditableImage</code> into an <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> and\nstores the result on this <code>EditableImage</code> by using the specified\nprojection and brush configuration.</p>\n"
 			},
 			"DrawImageTransformed": {
-				"Summary": "<p>Draws an image into this <a href=\"/ref/class/EditableImage.html\">EditableImage</a> with transformations\nincluding scaling and rotation, placing it at the specified position.</p>\n",
+				"Summary": "<p>Draws an image into this <code>EditableImage</code> with transformations\nincluding scaling and rotation, placing it at the specified position.</p>\n",
 				"Description": "<p>This method lets you draw an <code>EditableImage</code> into this <code>EditableImage</code>\nwith transformations applied, such as scaling and rotation. The position\nparameter specifies where the pivot point of the source image will be\nplaced on this image after transformations. Positions outside the canvas\nbounds are allowed such that only part of the new image is drawn.</p>\n",
 				"CodeSamples": [
 					"EditableImage-DrawImageTransformed",
@@ -7558,36 +7548,32 @@
 			},
 			"DrawLine": {
 				"Summary": "<p>Draws a line between two provided points.</p>\n",
-				"Description": "<p>Draws an anti-aliased line on the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> one pixel thick\nbetween the two provided points.</p>\n"
+				"Description": "<p>Draws an anti-aliased line on the <code>EditableImage</code> one pixel thick\nbetween the two provided points.</p>\n"
 			},
 			"DrawRectangle": {
 				"Summary": "<p>Draws a rectangle of the given size at the given top-left position.</p>\n",
-				"Description": "<p>Draws a rectangle on the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> of the given size at the\ngiven top-left position.</p>\n"
+				"Description": "<p>Draws a rectangle on the <code>EditableImage</code> of the given size at the\ngiven top-left position.</p>\n"
 			},
 			"ReadPixelsBuffer": {
 				"Summary": "<p>Reads a rectangular region of pixels into a buffer.</p>\n",
-				"Description": "<p>Reads a rectangular region of pixels from an <a href=\"/ref/class/EditableImage.html\">EditableImage</a> and\nreturns it as a buffer. Each number in the buffer is a single byte, with\npixels stored in a sequence of four bytes (red, green, blue, and alpha).</p>\n<p>Note that this method uses alpha instead of transparency, unlike the\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a> drawing methods.</p>\n",
+				"Description": "<p>Reads a rectangular region of pixels from an <code>EditableImage</code> and\nreturns it as a buffer. Each number in the buffer is a single byte, with\npixels stored in a sequence of four bytes (red, green, blue, and alpha).</p>\n<p>Note that this method uses alpha instead of transparency, unlike the\n<code>EditableImage</code> drawing methods.</p>\n",
 				"CodeSamples": [
 					"EditableImage-ReadPixels1"
 				]
 			},
 			"Size": {
-				"Summary": "<p>Size of the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> in pixels.</p>\n",
-				"Description": "<p>Size of the <a href=\"/ref/class/EditableImage.html\">EditableImage</a> in pixels. The maximum size is\n1024×1024. An <a href=\"/ref/class/EditableImage.html\">EditableImage</a> cannot be resized; this property\nis read-only. In order to resize or crop an image, create a new\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a> and use\n<a href=\"/ref/class/EditableImage.html#member-DrawImageTransformed\">DrawImageTransformed()</a> to\ntransfer the contents; then call\n<a href=\"/ref/class/EditableImage.html#member-Destroy\">Destroy()</a>.</p>\n"
+				"Summary": "<p>Size of the <code>EditableImage</code> in pixels.</p>\n",
+				"Description": "<p>Size of the <code>EditableImage</code> in pixels. The maximum size is\n1024×1024. An <code>EditableImage</code> cannot be resized; this property is\nread-only. In order to resize or crop an image, create a new\n<code>EditableImage</code> and use\n<a href=\"/ref/class/EditableImage.html#member-DrawImageTransformed\">DrawImageTransformed()</a> to\ntransfer the contents; then call\n<a href=\"/ref/class/EditableImage.html#member-Destroy\">Destroy()</a>.</p>\n"
 			},
 			"WritePixelsBuffer": {
 				"Summary": "<p>Writes a rectangular region of pixels into the image.</p>\n",
-				"Description": "<p>Writes a rectangular region of pixels to an <a href=\"/ref/class/EditableImage.html\">EditableImage</a> from a\nbuffer. Each number in the buffer is a single byte, with pixels stored in\na sequence of four bytes (red, green, blue, and alpha).</p>\n<p>Note that this method uses alpha instead of transparency, unlike the\n<a href=\"/ref/class/EditableImage.html\">EditableImage</a> drawing methods.</p>\n",
+				"Description": "<p>Writes a rectangular region of pixels to an <code>EditableImage</code> from a\nbuffer. Each number in the buffer is a single byte, with pixels stored in\na sequence of four bytes (red, green, blue, and alpha).</p>\n<p>Note that this method uses alpha instead of transparency, unlike the\n<code>EditableImage</code> drawing methods.</p>\n",
 				"CodeSamples": [
 					"EditableImage-ReadPixelsWritePixels1"
 				]
 			}
 		},
 		"EditableMesh": {
-			"AddBone": {
-				"Summary": "<p>Adds a new bone and returns a stable bone ID.</p>\n",
-				"Description": "<p>Adds a new bone and returns a stable bone ID.</p>\n"
-			},
 			"AddColor": {
 				"Summary": "<p>Adds a new color to the geometry and returns a stable color ID.</p>\n",
 				"Description": "<p>Adds a new color to the geometry and returns a stable color ID.</p>\n"
@@ -7636,30 +7622,6 @@
 				"Summary": "<p>Returns a list of vertices adjacent to a given vertex.</p>\n",
 				"Description": "<p>Given a stable vertex ID, returns a list of adjacent vertices.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/GetAdjacentVertices.png\" alt=\"Adjacent vertices indicated around requested vertex\" width=\"120\"/>\n"
 			},
-			"GetBoneByName": {
-				"Summary": "<p>Finds the bone ID of the bone with the given name.</p>\n",
-				"Description": "<p>Finds the bone ID of the bone with the given name. Errors if no bone with\nthat name exists.</p>\n"
-			},
-			"GetBoneCFrame": {
-				"Summary": "<p>Returns the initial <a href=\"/ref/type/CFrame.html\">CFrame</a> of the bone in the bind pose of the\nmesh.</p>\n",
-				"Description": "<p>Returns the initial <a href=\"/ref/type/CFrame.html\">CFrame</a> of the bone in the bind pose of the\nmesh, in the mesh&#39;s local space.</p>\n"
-			},
-			"GetBoneIsVirtual": {
-				"Summary": "<p>Returns <code>true</code> if the bone is virtual.</p>\n",
-				"Description": "<p>Returns <code>true</code> if the bone is virtual. Virtual bones can only be bound to\na <a href=\"/ref/class/FaceControls.html\">FaceControls</a> instance.</p>\n"
-			},
-			"GetBoneName": {
-				"Summary": "<p>Returns the bone name.</p>\n",
-				"Description": "<p>Returns the bone name.</p>\n"
-			},
-			"GetBoneParent": {
-				"Summary": "<p>Returns the parent bone ID, if any.</p>\n",
-				"Description": "<p>Returns the parent bone ID, if any.</p>\n"
-			},
-			"GetBones": {
-				"Summary": "<p>Returns all bones of the mesh.</p>\n",
-				"Description": "<p>Returns all bones of the mesh as a list of stable bone IDs.</p>\n"
-			},
 			"GetCenter": {},
 			"GetColor": {
 				"Summary": "<p>Returns the color for the given color ID.</p>\n",
@@ -7697,25 +7659,6 @@
 				"Summary": "<p>Returns a list of faces that use a given attribute ID.</p>\n",
 				"Description": "<p>Returns a list of faces that use a given vertex ID, normal ID, UV ID, or\ncolor ID.</p>\n"
 			},
-			"GetFacesWithColor": {},
-			"GetFacesWithNormal": {},
-			"GetFacesWithUV": {},
-			"GetFacsCorrectivePose": {
-				"Summary": "<p>Returns bone IDs and bone <a href=\"/ref/type/CFrame.html\">CFrames</a> for all bones in a\nspecific FACS corrective pose.</p>\n",
-				"Description": "<p>Returns bone IDs and bone <a href=\"/ref/type/CFrame.html\">CFrames</a> for all bones in a\nspecific FACS corrective pose. Each bone <a href=\"/ref/type/CFrame.html\">CFrame</a> transforms the\nbone from the initial bone <a href=\"/ref/type/CFrame.html\">CFrame</a> in the bind pose of the mesh\nto the combined bone <a href=\"/ref/type/CFrame.html\">CFrame</a> for this pose. All\n<a href=\"/ref/type/CFrame.html\">CFrames</a> are in the mesh&#39;s local space.</p>\n"
-			},
-			"GetFacsCorrectivePoses": {
-				"Summary": "<p>Returns all FACS corrective poses that are in use.</p>\n",
-				"Description": "<p>Returns all FACS corrective poses that are in use. Each corrective pose is\nspecified by 2 or 3 <a href=\"/ref/enum/FacsActionUnit.html\">FacsActionUnit</a> values.</p>\n"
-			},
-			"GetFacsPose": {
-				"Summary": "<p>Returns bone IDs and bone <a href=\"/ref/type/CFrame.html\">CFrames</a> for all bones in a\nspecific FACS action unit.</p>\n",
-				"Description": "<p>Returns bone IDs and bone <a href=\"/ref/type/CFrame.html\">CFrames</a> for all bones in a\nspecific FACS action unit. Each bone <a href=\"/ref/type/CFrame.html\">CFrame</a> transforms the bone\nfrom the initial bone <a href=\"/ref/type/CFrame.html\">CFrame</a> in the bind pose of the mesh to\nthe combined bone <a href=\"/ref/type/CFrame.html\">CFrame</a> for this pose. All\n<a href=\"/ref/type/CFrame.html\">CFrames</a> are in the mesh&#39;s local space.</p>\n"
-			},
-			"GetFacsPoses": {
-				"Summary": "<p>Returns all FACS action units that have poses defined.</p>\n",
-				"Description": "<p>Returns all FACS action units that have poses defined.</p>\n"
-			},
 			"GetNormal": {
 				"Summary": "<p>Returns the normal vector for the given normal ID.</p>\n",
 				"Description": "<p>Returns the normal vector for the given normal ID.</p>\n"
@@ -7737,21 +7680,6 @@
 				"Summary": "<p>Returns all UVs of the mesh.</p>\n",
 				"Description": "<p>Returns all UVs of the mesh as a list of stable UV IDs.</p>\n"
 			},
-			"GetVertexBoneWeights": {
-				"Summary": "<p>Returns skinning blend weights for each bone that is associated with the\nvertex.</p>\n",
-				"Description": "<p>Returns skinning blend weights for each bone that is associated with the\nvertex.</p>\n"
-			},
-			"GetVertexBones": {
-				"Summary": "<p>Returns all bone IDs that are associated with the vertex for skinning.</p>\n",
-				"Description": "<p>Returns all bone IDs that are associated with the vertex for skinning.</p>\n"
-			},
-			"GetVertexColors": {},
-			"GetVertexFaceColor": {},
-			"GetVertexFaceNormal": {},
-			"GetVertexFaceUV": {},
-			"GetVertexFaces": {},
-			"GetVertexNormals": {},
-			"GetVertexUVs": {},
 			"GetVertices": {
 				"Summary": "<p>Returns all vertices as a list of stable vertex IDs.</p>\n",
 				"Description": "<p>Returns all vertices as a list of stable vertex IDs.</p>\n"
@@ -7760,9 +7688,6 @@
 				"Summary": "<p>Returns a list of vertices that use a given attribute ID.</p>\n",
 				"Description": "<p>Returns a list of vertices that use a given face ID, normal ID, UV ID, or\ncolor ID.</p>\n"
 			},
-			"GetVerticesWithColor": {},
-			"GetVerticesWithNormal": {},
-			"GetVerticesWithUV": {},
 			"IdDebugString": {
 				"Summary": "<p>Returns a string describing a stable ID, useful for debugging purposes.</p>\n",
 				"Description": "<p>Returns a string describing a stable ID, useful for debugging purposes,\nlike <code>f17</code> or <code>v12</code>, containing the type, ID number, and version.</p>\n"
@@ -7777,10 +7702,6 @@
 					"EditableMesh-RaycastLocal"
 				]
 			},
-			"RemoveBone": {
-				"Summary": "<p>Removes a bone using its stable bone ID.</p>\n",
-				"Description": "<p>Removes a bone using its stable bone ID.</p>\n"
-			},
 			"RemoveFace": {
 				"Summary": "<p>Removes a face using its stable face ID.</p>\n",
 				"Description": "<p>Removes a face using its stable face ID.</p>\n"
@@ -7792,22 +7713,6 @@
 			"ResetNormal": {
 				"Summary": "<p>Reset this normal ID to be automatically calculated.</p>\n",
 				"Description": "<p>Reset this normal ID to be automatically calculated based on the shape of\nthe mesh, instead of manually set.</p>\n"
-			},
-			"SetBoneCFrame": {
-				"Summary": "<p>Set the initial <a href=\"/ref/type/CFrame.html\">CFrame</a> for a bone in the mesh&#39;s bind pose.</p>\n",
-				"Description": "<p>Set the initial <a href=\"/ref/type/CFrame.html\">CFrame</a> for a bone in the mesh&#39;s bind pose, in\nthe mesh&#39;s local space.</p>\n"
-			},
-			"SetBoneIsVirtual": {
-				"Summary": "<p>Set whether a bone is virtual.</p>\n",
-				"Description": "<p>Set whether a bone is virtual. Virtual bones can only be bound to a\n<a href=\"/ref/class/FaceControls.html\">FaceControls</a> instance.</p>\n"
-			},
-			"SetBoneName": {
-				"Summary": "<p>Sets the name for a bone.</p>\n",
-				"Description": "<p>Sets the name for a bone. Bone names can be 100 characters long and must\nbe unique in the mesh.</p>\n"
-			},
-			"SetBoneParent": {
-				"Summary": "<p>Set a parent for a bone.</p>\n",
-				"Description": "<p>Set a parent for a bone.</p>\n"
 			},
 			"SetColor": {
 				"Summary": "<p>Sets the color for a color ID.</p>\n",
@@ -7833,18 +7738,6 @@
 				"Summary": "<p>Sets the face&#39;s vertices to new vertex IDs.</p>\n",
 				"Description": "<p>Sets the face&#39;s vertices to new vertex IDs.</p>\n"
 			},
-			"SetFacsBonePose": {
-				"Summary": "<p>Set <a href=\"/ref/type/CFrame.html\">CFrame</a> for an individual bone in a specific FACS action\nunit.</p>\n",
-				"Description": "<p>Set <a href=\"/ref/type/CFrame.html\">CFrame</a> for an individual bone in a specific FACS action\nunit.</p>\n"
-			},
-			"SetFacsCorrectivePose": {
-				"Summary": "<p>Set pose for all bones in a specific FACS corrective pose.</p>\n",
-				"Description": "<p>Set pose for all bones in a specific FACS corrective pose.</p>\n"
-			},
-			"SetFacsPose": {
-				"Summary": "<p>Set pose for all bones in a specific FACS action unit.</p>\n",
-				"Description": "<p>Set pose for all bones in a specific FACS action unit.</p>\n"
-			},
 			"SetNormal": {
 				"Summary": "<p>Set the normal for a normal ID.</p>\n",
 				"Description": "<p>Set the normal for a normal ID. This will change the normal value for\nevery face vertex which is using the normal ID.</p>\n"
@@ -7857,17 +7750,6 @@
 				"Summary": "<p>Sets UV coordinates for a UV ID.</p>\n",
 				"Description": "<p>Sets UV coordinates for a UV ID.</p>\n"
 			},
-			"SetVertexBoneWeights": {
-				"Summary": "<p>Sets skinning blend weights for each bone associated with the vertex.</p>\n",
-				"Description": "<p>Sets skinning blend weights for each bone associated with the vertex.</p>\n<p>Corresponds with the bone IDs used in\n<a href=\"/ref/class/EditableMesh.html#member-SetVertexBones\">SetVertexBones()</a>. In other words,\n<a href=\"/ref/class/EditableMesh.html#member-GetVertexBoneWeights\">GetVertexBoneWeights(vertexId)[i]</a>\nis the weight on this vertex for\n<a href=\"/ref/class/EditableMesh.html#member-GetVertexBones\">GetVertexBones(vertexId)[i]</a>.</p>\n<p>This method should be called after calling\n<a href=\"/ref/class/EditableMesh.html#member-SetVertexBones\">SetVertexBones()</a>.</p>\n"
-			},
-			"SetVertexBones": {
-				"Summary": "<p>Assign a list of bones with the vertex for skinning.</p>\n",
-				"Description": "<p>Assign a list of bones with the vertex for skinning.</p>\n<p>Corresponds with the skinning blend weights used in\n<a href=\"/ref/class/EditableMesh.html#member-SetVertexBoneWeights\">SetVertexBoneWeights()</a>. In\nother words,\n<a href=\"/ref/class/EditableMesh.html#member-GetVertexBoneWeights\">GetVertexBoneWeights(vertexId)[i]</a>\nis the weight on this vertex for\n<a href=\"/ref/class/EditableMesh.html#member-GetVertexBones\">GetVertexBones(vertexId)[i]</a>.</p>\n<p>This method should be called before calling\n<a href=\"/ref/class/EditableMesh.html#member-SetVertexBoneWeights\">SetVertexBoneWeights()</a>.</p>\n"
-			},
-			"SetVertexFaceColor": {},
-			"SetVertexFaceNormal": {},
-			"SetVertexFaceUV": {},
 			"SkinningEnabled": {},
 			"Triangulate": {
 				"Summary": "<p>Splits all faces on the mesh to be triangles.</p>\n",
@@ -8239,7 +8121,6 @@
 			}
 		},
 		"FeatureRestrictionManager": {},
-		"FeedPages": {},
 		"File": {
 			"GetBinaryContents": {
 				"Summary": "<p>Reads the contents of the <a href=\"/ref/class/File.html\">File</a> as a string.</p>\n",
@@ -9695,7 +9576,7 @@
 			},
 			"CollisionType": {
 				"Summary": "<p>Selects the <a href=\"/ref/enum/HumanoidCollisionType.html\">HumanoidCollisionType</a> for R15 and Rthro non-player\ncharacters.</p>\n",
-				"Description": "<p>This property selects the <a href=\"/ref/enum/HumanoidCollisionType.html\">HumanoidCollisionType</a> for R15 and Rthro\nnon-player characters.</p>\n<p>The collision geometry for the InnerBox type is calculated at run-time and\nwill not be applied in Studio when the simulation is not running.</p>\n<p>For player <a href=\"/ref/class/Player.html#member-Character\">Characters</a> the CollisionType property\nwill be decided by the Avatar Collision Option in Game Settings.</p>\n<p>This property is writable by <a href=\"/ref/class/Plugin.html\">Plugins</a> and can be read by all\nscripts.</p>\n<h4>Enums</h4>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Value</th>\n\t\t\t<th>Description</th>\n\t\t</tr>\n\t</thead>\n\t\t<tbody><tr>\n\t\t\t<td>\n\t\t\t\t<b>OuterBox</b>\n\t\t\t</td>\n\t\t\t<td>0</td>\n\t\t\t<td>Dynamically sized collision boxes based on mesh sizes</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Innerbox</b>\n\t\t\t</td>\n\t\t\t<td>1</td>\n\t\t\t<td>Fixed size collision boxes, similar to the classic avatar collision</td>\n\t\t</tr>\n</tbody></table>\n"
+				"Description": "<p>This property selects the <a href=\"/ref/enum/HumanoidCollisionType.html\">HumanoidCollisionType</a> for R15 and Rthro\nnon-player characters.</p>\n"
 			},
 			"CustomStatusAdded": {
 				"Summary": "<p>Fired when a status is added to the Humanoid.</p>\n",
@@ -13453,35 +13334,35 @@
 			},
 			"DevComputerCameraMode": {
 				"Summary": "<p>Determines player&#39;s camera movement mode when using a desktop version of\nRoblox.</p>\n",
-				"Description": "<p>The DevComputerCameraMode property determines the manner in which a player\nmoves their camera when using a device with a mouse and keyboard. See\n<a href=\"/ref/enum/DevComputerCameraMovementMode.html\">DevComputerCameraMovementMode</a> for a description of each camera\ncontrol mode available. This property cannot be set using a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a> (it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevComputerCameraMovementMode\">StarterPlayer.DevComputerCameraMovementMode</a>.</p>\n<p>The word &#34;Computer&#34; in this property name refers to\nnon-<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a>,\nnon-<a href=\"/ref/class/UserInputService.html#member-GamepadEnabled\">GamepadEnabled</a> devices.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the Roblox game settings. In general, it&#39;s a\ngood idea to allow players to choose their control mode to maximize\naccessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players using a touch enabled device. See\n<a href=\"/ref/class/Player.html#member-DevTouchCameraMode\">Player.DevTouchCameraMode</a> instead.</p>\n",
+				"Description": "<p>The DevComputerCameraMode property determines the manner in which a player\nmoves their camera when using a device with a mouse and keyboard. See\n<a href=\"/ref/enum/DevComputerCameraMovementMode.html\">DevComputerCameraMovementMode</a> for a description of each camera\ncontrol mode available. This property cannot be set using a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a> (it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevComputerCameraMovementMode\">StarterPlayer.DevComputerCameraMovementMode</a>.</p>\n<p>The word &#34;Computer&#34; in this property name refers to\nnon-<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a>,\nnon-<a href=\"/ref/class/UserInputService.html#member-GamepadEnabled\">GamepadEnabled</a> devices.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the experience&#39;s settings during play. In\ngeneral, it&#39;s a good idea to allow players to choose their control mode to\nmaximize accessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players using a touch enabled device. See\n<a href=\"/ref/class/Player.html#member-DevTouchCameraMode\">Player.DevTouchCameraMode</a> instead.</p>\n",
 				"CodeSamples": [
 					"setting-a-player-s-camera-movement-mode-desktop-"
 				]
 			},
 			"DevComputerMovementMode": {
 				"Summary": "<p>Determines player&#39;s character movement mode when using a desktop version\nof Roblox.</p>\n",
-				"Description": "<p>The DevComputerMovementMode property determines the manner in which a\nplayer moves their character when using a device with a mouse and\nkeyboard. See <a href=\"/ref/enum/DevComputerMovementMode.html\">DevComputerMovementMode</a> for a description of each\nmovement control mode available. This property cannot be set using a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a> (it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevComputerMovementMode\">StarterPlayer.DevComputerMovementMode</a>.</p>\n<p>The word &#34;Computer&#34; in this property name refers to\nnon-<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> devices.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the Roblox game settings. In general, it is a\ngood idea to allow players to choose their control mode to maximize\naccessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players using a touch-enabled device. See\n<a href=\"/ref/class/Player.html#member-DevTouchMovementMode\">Player.DevTouchMovementMode</a> instead.</p>\n",
+				"Description": "<p>The DevComputerMovementMode property determines the manner in which a\nplayer moves their character when using a device with a mouse and\nkeyboard. See <a href=\"/ref/enum/DevComputerMovementMode.html\">DevComputerMovementMode</a> for a description of each\nmovement control mode available. This property cannot be set using a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a> (it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevComputerMovementMode\">StarterPlayer.DevComputerMovementMode</a>.</p>\n<p>The word &#34;Computer&#34; in this property name refers to\nnon-<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> devices.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the experience&#39;s settings during play. In\ngeneral, it is a good idea to allow players to choose their control mode\nto maximize accessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players using a touch-enabled device. See\n<a href=\"/ref/class/Player.html#member-DevTouchMovementMode\">Player.DevTouchMovementMode</a> instead.</p>\n",
 				"CodeSamples": [
 					"setting-a-player-s-movement-mode-desktop-"
 				]
 			},
 			"DevEnableMouseLock": {
 				"Summary": "<p>Determines if the player can toggle mouse lock.</p>\n",
-				"Description": "<p>This property determines if a player is able to toggle <a href=\"/ref/class/Mouse.html\">Mouse</a> lock\nby pressing <strong>Shift</strong>. A player can disable the mouse lock switch in\nRoblox&#39;s game settings. By default, this property is set to the value of\n<a href=\"/ref/class/StarterPlayer.html#member-EnableMouseLockOption\">StarterPlayer.EnableMouseLockOption</a>. This can be set server-side\nduring run-time by using a <a href=\"/ref/class/Script.html\">Script</a>. It can not be set client-side.</p>\n<p>When mouse lock is enabled, the player&#39;s cursor is locked to the center of\nthe screen. Moving the mouse will orbit the camera around the player&#39;s\n<a href=\"/ref/class/Player.html#member-Character\">character</a>, and the character will face the same\ndirection as the <a href=\"/ref/class/Camera.html\">camera</a>. It also offsets the camera view\njust over the right shoulder of the player&#39;s character.</p>\n<p>Note that shift-lock related APIs are in the process of being deprecated,\nso it&#39;s recommended to use <a href=\"/ref/class/UserInputService.html#member-MouseBehavior\">UserInputService.MouseBehavior</a> instead\nto lock the mouse.</p>\n",
+				"Description": "<p>This property determines if a player is able to toggle <a href=\"/ref/class/Mouse.html\">Mouse</a> lock\nby pressing <kbd>Shift</kbd>. A player can disable the mouse lock switch in\nthe experience&#39;s settings during play. By default, this property is set to\nthe value of <a href=\"/ref/class/StarterPlayer.html#member-EnableMouseLockOption\">StarterPlayer.EnableMouseLockOption</a>. This can be set\nserver-side during run-time by using a <a href=\"/ref/class/Script.html\">Script</a>. It can not be set\nclient-side.</p>\n<p>When mouse lock is enabled, the player&#39;s cursor is locked to the center of\nthe screen. Moving the mouse will orbit the camera around the player&#39;s\n<a href=\"/ref/class/Player.html#member-Character\">character</a>, and the character will face the same\ndirection as the <a href=\"/ref/class/Camera.html\">camera</a>. It also offsets the camera view\njust over the right shoulder of the player&#39;s character.</p>\n<p>Note that shift-lock related APIs are in the process of being deprecated,\nso it&#39;s recommended to use <a href=\"/ref/class/UserInputService.html#member-MouseBehavior\">UserInputService.MouseBehavior</a> instead\nto lock the mouse.</p>\n",
 				"CodeSamples": [
 					"toggling-mouse-lock-ability"
 				]
 			},
 			"DevTouchCameraMode": {
 				"Summary": "<p>Determines player&#39;s camera movement mode when using a touch device.</p>\n",
-				"Description": "<p>The DevTouchCameraMode property determines the manner in which a player\nmoves their camera when using a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device. See\n<a href=\"/ref/enum/DevTouchCameraMovementMode.html\">DevTouchCameraMovementMode</a> for a description of each camera control\nmode available. This property cannot be set using a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>\n(it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevTouchCameraMovementMode\">StarterPlayer.DevTouchCameraMovementMode</a>.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the Roblox game settings. In general, it is a\ngood idea to allow players to choose their control mode to maximize\naccessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players who aren&#39;t using a touch-enabled\ndevice. See <a href=\"/ref/class/Player.html#member-DevComputerCameraMovementMode\">Player.DevComputerCameraMovementMode</a> instead.</p>\n",
+				"Description": "<p>The DevTouchCameraMode property determines the manner in which a player\nmoves their camera when using a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device. See\n<a href=\"/ref/enum/DevTouchCameraMovementMode.html\">DevTouchCameraMovementMode</a> for a description of each camera control\nmode available. This property cannot be set using a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>\n(it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevTouchCameraMovementMode\">StarterPlayer.DevTouchCameraMovementMode</a>.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the experience&#39;s settings during play. In\ngeneral, it is a good idea to allow players to choose their control mode\nto maximize accessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players who aren&#39;t using a touch-enabled\ndevice. See <a href=\"/ref/class/Player.html#member-DevComputerCameraMovementMode\">Player.DevComputerCameraMovementMode</a> instead.</p>\n",
 				"CodeSamples": [
 					"setting-a-player-s-camera-movement-mode"
 				]
 			},
 			"DevTouchMovementMode": {
 				"Summary": "<p>Determines player&#39;s character movement mode when using a touch device.</p>\n",
-				"Description": "<p>The DevTouchMovementMode property determines the manner in which a player\nmoves their character when using a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device. See\n<a href=\"/ref/enum/DevTouchMovementMode.html\">DevTouchMovementMode</a> for a description of each movement control\nmode available. This property cannot be set using a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>\n(it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevTouchMovementMode\">StarterPlayer.DevTouchMovementMode</a>.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the Roblox game settings. In general, it&#39;s a\ngood idea to allow players to choose their control mode to maximize\naccessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players who aren&#39;t using a touch-enabled\ndevice. See <a href=\"/ref/class/Player.html#member-DevComputerMovementMode\">Player.DevComputerMovementMode</a> instead.</p>\n",
+				"Description": "<p>The DevTouchMovementMode property determines the manner in which a player\nmoves their character when using a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device. See\n<a href=\"/ref/enum/DevTouchMovementMode.html\">DevTouchMovementMode</a> for a description of each movement control\nmode available. This property cannot be set using a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>\n(it must be set on the server using a <a href=\"/ref/class/Script.html\">Script</a>).</p>\n<p>The default value of this property is determined by\n<a href=\"/ref/class/StarterPlayer.html#member-DevTouchMovementMode\">StarterPlayer.DevTouchMovementMode</a>.</p>\n<p>When set to <strong>UserChoice</strong>, a player can choose between any control mode\n(except <strong>Scriptable</strong>) in the experience&#39;s settings during play. In\ngeneral, it&#39;s a good idea to allow players to choose their control mode to\nmaximize accessibility.</p>\n<p>It&#39;s possible to create a custom control scheme by setting this property\nto <strong>Scriptable</strong>.</p>\n<p>This property doesn&#39;t affect players who aren&#39;t using a touch-enabled\ndevice. See <a href=\"/ref/class/Player.html#member-DevComputerMovementMode\">Player.DevComputerMovementMode</a> instead.</p>\n",
 				"CodeSamples": [
 					"overriding-a-player-s-movement-mode"
 				]
@@ -13867,20 +13748,20 @@
 		"PlayerMouse": {},
 		"PlayerScripts": {
 			"ClearComputerCameraMovementModes": {
-				"Summary": "<p>Unregisters all ComputerCameraMovementMode enums from the game settings\nmenu.</p>\n",
-				"Description": "<p>Unregisters all ComputerCameraMovementMode enums from the game settings\nmenu.</p>\n"
+				"Summary": "<p>Unregisters all ComputerCameraMovementMode enums from the experience&#39;s\nsettings menu.</p>\n",
+				"Description": "<p>Unregisters all ComputerCameraMovementMode enums from the experience&#39;s\nsettings menu.</p>\n"
 			},
 			"ClearComputerMovementModes": {
-				"Summary": "<p>Unregisters all ComputerMovementMode enums from the game settings menu.</p>\n",
-				"Description": "<p>Unregisters all ComputerMovementMode enums from the game settings menu.</p>\n"
+				"Summary": "<p>Unregisters all ComputerMovementMode enums from the experience&#39;s\nsettings menu.</p>\n",
+				"Description": "<p>Unregisters all ComputerMovementMode enums from the experience&#39;s\nsettings menu.</p>\n"
 			},
 			"ClearTouchCameraMovementModes": {
-				"Summary": "<p>Unregisters all TouchCameraMovementMode enums from the game settings menu.</p>\n",
-				"Description": "<p>Unregisters all TouchCameraMovementMode enums from the game settings menu.</p>\n"
+				"Summary": "<p>Unregisters all TouchCameraMovementMode enums from the experience&#39;s\nsettings menu.</p>\n",
+				"Description": "<p>Unregisters all TouchCameraMovementMode enums from the experience&#39;s\nsettings menu.</p>\n"
 			},
 			"ClearTouchMovementModes": {
-				"Summary": "<p>Unregisters all TouchMovementMode enums from the game settings menu.</p>\n",
-				"Description": "<p>Unregisters all TouchMovementMode enums from the game settings menu.</p>\n"
+				"Summary": "<p>Unregisters all TouchMovementMode enums from the experience&#39;s\nsettings menu.</p>\n",
+				"Description": "<p>Unregisters all TouchMovementMode enums from the experience&#39;s\nsettings menu.</p>\n"
 			},
 			"RegisterComputerCameraMovementMode": {
 				"Summary": "<p>Registers that a computer camera movement mode is available to be selected\nfrom the game menu.</p>\n",
@@ -14819,6 +14700,11 @@
 		"ReflectionMetadataMember": {},
 		"ReflectionMetadataProperties": {},
 		"ReflectionMetadataYieldFunctions": {},
+		"ReflectionService": {
+			"GetClass": {},
+			"GetClasses": {},
+			"GetPropertiesOfClass": {}
+		},
 		"RemoteDebuggerServer": {},
 		"RemoteEvent": {
 			"FireAllClients": {
@@ -16599,7 +16485,7 @@
 			},
 			"DevComputerCameraMovementMode": {
 				"Summary": "<p>Lets developer overwrite the default camera mode for each player if the\nplayer is on a computer.</p>\n",
-				"Description": "<p>This property lets the developer overwrite the player&#39;s camera mode if the\nplayer is on a computer.</p>\n<p>This is the default property for players joining the game. It can be\nchanged for individual players by settings the\n<a href=\"/ref/class/Player.html#member-DevComputerCameraMode\">Player.DevComputerCameraMode</a>.</p>\n<p>If set to <a href=\"/ref/enum/DevComputerCameraMovementMode.html\">UserChoice</a> then the\nplayer&#39;s camera movement mode will be determined by whatever the player\nset in the game settings. Otherwise, the mode will be set based on this\nproperty.</p>\n<p>See <a href=\"/ref/enum/DevComputerCameraMovementMode.html\">DevComputerCameraMovementMode</a> for the different camera modes\navailable.</p>\n<p>This property has no affect on players not on a computer.</p>\n",
+				"Description": "<p>This property lets the developer overwrite the player&#39;s camera mode if the\nplayer is on a computer.</p>\n<p>This is the default property for players joining the game. It can be\nchanged for individual players by settings the\n<a href=\"/ref/class/Player.html#member-DevComputerCameraMode\">Player.DevComputerCameraMode</a>.</p>\n<p>If set to <a href=\"/ref/enum/DevComputerCameraMovementMode.html\">UserChoice</a> then the\nplayer&#39;s camera movement mode will be determined by whatever the player\nset in the experience&#39;s settings. Otherwise, the mode will be set based on\nthis property.</p>\n<p>See <a href=\"/ref/enum/DevComputerCameraMovementMode.html\">DevComputerCameraMovementMode</a> for the different camera modes\navailable.</p>\n<p>This property has no affect on players not on a computer.</p>\n",
 				"CodeSamples": [
 					"setting-a-player-s-camera-movement-mode-desktop-"
 				]
@@ -16613,7 +16499,7 @@
 			},
 			"DevTouchCameraMovementMode": {
 				"Summary": "<p>Lets developer overwrite the default camera movement mode for each player\nif the player is on a mobile device.</p>\n",
-				"Description": "<p>This property lets the developer overwrite the player&#39;s camera mode if the\nplayer is on a touch device.</p>\n<p>This is the default property for players joining the game. It can be\nchanged for individual players by settings the\n<a href=\"/ref/class/Player.html#member-DevTouchCameraMode\">Player.DevTouchCameraMode</a>.</p>\n<p>If set to <a href=\"/ref/enum/DevTouchCameraMovementMode.html\">UserChoice</a> then the player&#39;s\ncamera movement mode will be determined by whatever the player set in the\ngame settings. Otherwise, the mode will be set based on this property.</p>\n<p>See <a href=\"/ref/enum/DevTouchCameraMovementMode.html\">DevTouchCameraMovementMode</a> for the different camera modes\navailable.</p>\n<p>This property has no affect players not on a mobile device.</p>\n",
+				"Description": "<p>This property lets the developer overwrite the player&#39;s camera mode if the\nplayer is on a touch device.</p>\n<p>This is the default property for players joining the game. It can be\nchanged for individual players by settings the\n<a href=\"/ref/class/Player.html#member-DevTouchCameraMode\">Player.DevTouchCameraMode</a>.</p>\n<p>If set to <a href=\"/ref/enum/DevTouchCameraMovementMode.html\">UserChoice</a> then the player&#39;s\ncamera movement mode will be determined by whatever the player set in the\nexperience&#39;s settings. Otherwise, the mode will be set based on this\nproperty.</p>\n<p>See <a href=\"/ref/enum/DevTouchCameraMovementMode.html\">DevTouchCameraMovementMode</a> for the different camera modes\navailable.</p>\n<p>This property has no affect players not on a mobile device.</p>\n",
 				"CodeSamples": [
 					"setting-a-player-s-camera-movement-mode"
 				]
@@ -16662,7 +16548,7 @@
 			"RagdollDeath": {},
 			"UserEmotesEnabled": {
 				"Summary": "<p>Determines if user-owned emotes are loaded when loading avatars.</p>\n",
-				"Description": "<p>This property determines if user-owned emotes are loaded when loading\navatars. Setting this property to false disables loading. Developers can\nset the property in Studio directly or through the\n<a href=\"https://create.roblox.com/docs/studio/game-settings\">Game Settings menu</a>.</p>\n<p>When emote loading is disabled, the emotes UI will still work as long as\ndevelopers choose to use the emotes feature by adding emotes within their\ngame.</p>\n<p>See also <a href=\"https://create.roblox.com/docs/characters/emotes\">Avatar Emotes</a>, an article\ndetailing how to control, customize, and play avatar emotes.</p>\n"
+				"Description": "<p>This property determines if user-owned emotes are loaded when loading\navatars. Setting this property to <code>false</code> disables loading. Developers can\nset the property in Studio directly.</p>\n<p>When emote loading is disabled, the emotes UI will still work as long as\ndevelopers choose to use the emotes feature by adding emotes within their\ngame.</p>\n<p>See also <a href=\"https://create.roblox.com/docs/characters/emotes\">Avatar Emotes</a>, an article\ndetailing how to control, customize, and play avatar emotes.</p>\n"
 			}
 		},
 		"StarterPlayerScripts": {},
@@ -17181,6 +17067,7 @@
 			"StyleRulesChanged": {}
 		},
 		"StyleDerive": {
+			"Priority": {},
 			"StyleSheet": {}
 		},
 		"StyleLink": {
@@ -18365,8 +18252,8 @@
 				]
 			},
 			"ChatTranslationEnabled": {
-				"Summary": "<p>Determines if chat translation is enabled.</p>\n",
-				"Description": "<p>Determines if chat translation is enabled. If true, a system message will\nnotify player&#39;s when their first join that chat messages may be translated\ninto the player&#39;s preferred language.</p>\n"
+				"Summary": "<p>Determines whether a user has chat translation enabled.</p>\n",
+				"Description": "<p>Determines whether a user has chat translation enabled. If true, messages\nthe user receives will be translated into their preferred language. Use\n<a href=\"/ref/class/TextChatMessage.html#member-Translation\">TextChatMessage.Translation</a> to get the message\ntranslation.</p>\n"
 			},
 			"ChatVersion": {
 				"Summary": "<p>Determines whether to fully enable <a href=\"/ref/class/TextChatService.html\">TextChatService</a> or revert to\nthe legacy chat system.</p>\n",
@@ -19778,7 +19665,7 @@
 			},
 			"MouseDeltaSensitivity": {
 				"Summary": "<p>Scales the delta (change) output of the user&#39;s <a href=\"/ref/class/Mouse.html\">Mouse</a>.</p>\n",
-				"Description": "<p>This property determines the sensitivity of the user&#39;s <a href=\"/ref/class/Mouse.html\">Mouse</a>.</p>\n<p>The sensitivity determines the extent to which a movement of the physical\nmouse translates to a movement of the mouse in-game. This can be used to\nadjusted how sensitive events tracking mouse movement, like\n<a href=\"/ref/class/UserInputService.html#member-GetMouseDelta\">GetMouseDelta</a>, are to mouse\nmovement.</p>\n<p>This property does not affect the movement of the mouse icon. Nor does it\naffect the <em>Camera Sensitivity</em> setting found in the <em>Settings</em> tab of the\nclient&#39;s <em>Settings</em> menu, which also adjusts the sensitivity of events\ntracking mouse movement.</p>\n<p>This property has a maximum value of 10 and a minimum value of 0. A lower\nvalue corresponds to lower sensitivity, and a higher value to higher\nsensitivity.</p>\n<p>When sensitivity is 0, events that track the mouse&#39;s movement will still\nfire but all parameters and properties indicating the change in mouse\nposition will return <a href=\"/ref/type/Vector2.html\">Vector2.new()</a>, or\n<a href=\"/ref/type/Vector3.html\">Vector3.new()</a> in the case of <a href=\"/ref/class/InputObject.html#member-Delta\">InputObject.Delta</a>.\nFor example, <a href=\"/ref/class/UserInputService.html#member-GetMouseDelta\">GetMouseDelta</a> will\nalways return (0, 0).</p>\n",
+				"Description": "<p>This property determines the sensitivity of the user&#39;s <a href=\"/ref/class/Mouse.html\">Mouse</a>.</p>\n<p>The sensitivity determines the extent to which a movement of the physical\nmouse translates to a movement of the mouse in-game. This can be used to\nadjusted how sensitive events tracking mouse movement, like\n<a href=\"/ref/class/UserInputService.html#member-GetMouseDelta\">GetMouseDelta</a>, are to mouse\nmovement.</p>\n<p>This property does not affect the movement of the mouse icon. Nor does it\naffect the <strong>Camera Sensitivity</strong> setting found in the <strong>Settings</strong> tab of\nthe client&#39;s <strong>Settings</strong> menu, which also adjusts the sensitivity of\nevents tracking mouse movement.</p>\n<p>This property has a maximum value of 10 and a minimum value of 0. A lower\nvalue corresponds to lower sensitivity, and a higher value to higher\nsensitivity.</p>\n<p>When sensitivity is 0, events that track the mouse&#39;s movement will still\nfire but all parameters and properties indicating the change in mouse\nposition will return <a href=\"/ref/type/Vector2.html\">Vector2.new()</a>, or\n<a href=\"/ref/type/Vector3.html\">Vector3.new()</a> in the case of <a href=\"/ref/class/InputObject.html#member-Delta\">InputObject.Delta</a>.\nFor example, <a href=\"/ref/class/UserInputService.html#member-GetMouseDelta\">GetMouseDelta</a> will\nalways return (0, 0).</p>\n",
 				"CodeSamples": [
 					"UserInputService-MouseDeltaSensitivity"
 				]
@@ -20853,6 +20740,7 @@
 			"Summary": "<p>Used to determine whether voice chat is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n",
 			"Description": "<p>Used to determine whether voice chat is represented and controlled by\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> objects.</p>\n"
 		},
+		"AudioCaptureMode": {},
 		"AudioChannelLayout": {
 			"Summary": "<p>Describes the channel layout of an audio stream.</p>\n",
 			"Description": "<p>The <code>AudioChannelLayout</code> enum describes the channel layout of an audio stream.\nAudio streams contain one or more channels that are intended to be rendered\nsimultaneously with a particular arrangement of speakers. In general, more\nchannels impact performance but provide higher spatial quality.</p>\n"
@@ -20886,6 +20774,21 @@
 			"Summary": "<p>The result of prompt operations of <a href=\"/ref/class/AvatarEditorService.html\">AvatarEditorService</a>.</p>\n",
 			"Description": "<p>The result of prompt operations of <a href=\"/ref/class/AvatarEditorService.html\">AvatarEditorService</a>.</p>\n"
 		},
+		"AvatarSettingsAccessoryLimitMethod": {},
+		"AvatarSettingsAccessoryMode": {},
+		"AvatarSettingsAnimationClipsMode": {},
+		"AvatarSettingsAnimationPacksMode": {},
+		"AvatarSettingsAppearanceMode": {},
+		"AvatarSettingsBuildMode": {},
+		"AvatarSettingsClothingMode": {},
+		"AvatarSettingsCollisionMode": {},
+		"AvatarSettingsCustomAccessoryMode": {},
+		"AvatarSettingsCustomBodyType": {},
+		"AvatarSettingsCustomClothingMode": {},
+		"AvatarSettingsHitAndTouchDetectionMode": {},
+		"AvatarSettingsJumpMode": {},
+		"AvatarSettingsLegacyCollisionMode": {},
+		"AvatarSettingsScaleMode": {},
 		"AvatarThumbnailCustomizationType": {},
 		"AvatarUnificationMode": {},
 		"Axis": {
@@ -21045,8 +20948,8 @@
 			"DeprecationMessage": "<p>Tickets have been removed, so this Enum shouldn&#39;t need to be used.</p>\n"
 		},
 		"CustomCameraMode": {
-			"Summary": "<p>Changes the player&#39;s camera mode in Roblox&#39;s Game settings.</p>\n",
-			"Description": "<p>Changes the player&#39;s camera mode in Roblox&#39;s Game settings.</p>\n"
+			"Summary": "<p>Changes the player&#39;s camera mode.</p>\n",
+			"Description": "<p>Changes the player&#39;s camera mode.</p>\n"
 		},
 		"DataStoreRequestType": {
 			"Summary": "<p>Indicates the type of data store request being made.</p>\n",
@@ -21225,7 +21128,7 @@
 		},
 		"Genre": {
 			"Summary": "<p>Used to represent the type of game.</p>\n",
-			"Description": "<p>Used to represent the type of game. This can be changed in the &#34;Basic\nSettings&#34; tab when configuring a place on the website.</p>\n"
+			"Description": "<p>Used to represent the type of game.</p>\n"
 		},
 		"GraphicsMode": {
 			"Summary": "<p>Used to set the graphics API that Roblox uses to render the game.</p>\n",
@@ -21259,8 +21162,8 @@
 		"HttpError": {},
 		"HttpRequestType": {},
 		"HumanoidCollisionType": {
-			"Summary": "<p>The collision <a href=\"/ref/class/Humanoid.html\">Humanoid</a> uses. A large bounding box, or more fitted\ncollision geometry.</p>\n",
-			"Description": "<p>Enum to select the <a href=\"/ref/class/Humanoid.html#member-CollisionType\">Humanoid.CollisionType</a> for non-player\n<a href=\"/ref/class/Humanoid.html\">Humanoids</a>.</p>\n<p>For player <a href=\"/ref/class/Player.html#member-Character\">Characters</a> the CollisionType property will\nbe decided by the Avatar Collision Option in Game Settings.</p>\n"
+			"Summary": "<p>The collision <a href=\"/ref/class/Humanoid.html\">Humanoid</a> uses.</p>\n",
+			"Description": "<p>Enum to select the <a href=\"/ref/class/Humanoid.html#member-CollisionType\">Humanoid.CollisionType</a>.</p>\n"
 		},
 		"HumanoidDisplayDistanceType": {
 			"Summary": "<p>HumanoidDisplayDistanceType determines how\n<a href=\"/ref/class/Humanoid.html#member-HealthDisplayDistance\">Humanoid.HealthDisplayDistance</a>, and\n<a href=\"/ref/class/Humanoid.html#member-NameDisplayDistance\">Humanoid.NameDisplayDistance</a> are used in determining whether a\nplayers&#39;s name and health are visible to other players.</p>\n",
@@ -21926,6 +21829,7 @@
 			"Summary": "<p>Describes various types of haptic motor sizes and locations.</p>\n",
 			"Description": "<p>Describes various types of haptic motor sizes and locations. Most devices have\ntwo motors, one that&#39;s small and another that&#39;s large. For devices with a\nsingle motor, such as mobile devices, only the large motor is implemented.</p>\n"
 		},
+		"VideoCaptureResult": {},
 		"VideoDeviceCaptureQuality": {},
 		"VideoError": {},
 		"ViewMode": {},
@@ -22568,6 +22472,7 @@
 				"Summary": "<p>Voice chat can be customized or controlled via\n<a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInputs</a>.</p>\n"
 			}
 		},
+		"AudioCaptureMode": {},
 		"AudioChannelLayout": {
 			"Mono": {
 				"Summary": "<p>Monaural audio streams contain only one <strong>Center</strong> channel.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/engine-api/enums/AudioChannelLayout/Mono.jpg\" width=\"810\" alt=\"Diagram showing position of channels for Mono layout.\"/>\n"
@@ -22814,6 +22719,69 @@
 			"Success": {
 				"Summary": "<p>The prompted action was completed.</p>\n"
 			}
+		},
+		"AvatarSettingsAccessoryLimitMethod": {
+			"Remove": {},
+			"Scale": {}
+		},
+		"AvatarSettingsAccessoryMode": {
+			"CustomLimit": {},
+			"PlayerChoice": {}
+		},
+		"AvatarSettingsAnimationClipsMode": {
+			"CustomClips": {},
+			"PlayerChoice": {}
+		},
+		"AvatarSettingsAnimationPacksMode": {
+			"PlayerChoice": {},
+			"StandardR15": {},
+			"StandardR6": {}
+		},
+		"AvatarSettingsAppearanceMode": {
+			"CustomBody": {},
+			"CustomParts": {},
+			"PlayerChoice": {}
+		},
+		"AvatarSettingsBuildMode": {
+			"CustomBuild": {},
+			"PlayerChoice": {}
+		},
+		"AvatarSettingsClothingMode": {
+			"CustomLimit": {},
+			"PlayerChoice": {}
+		},
+		"AvatarSettingsCollisionMode": {
+			"Default": {},
+			"Legacy": {},
+			"SingleCollider": {}
+		},
+		"AvatarSettingsCustomAccessoryMode": {
+			"CustomAccessories": {},
+			"PlayerChoice": {}
+		},
+		"AvatarSettingsCustomBodyType": {
+			"AvatarReference": {},
+			"BundleId": {}
+		},
+		"AvatarSettingsCustomClothingMode": {
+			"CustomClothing": {},
+			"PlayerChoice": {}
+		},
+		"AvatarSettingsHitAndTouchDetectionMode": {
+			"UseCollider": {},
+			"UseParts": {}
+		},
+		"AvatarSettingsJumpMode": {
+			"JumpHeight": {},
+			"JumpPower": {}
+		},
+		"AvatarSettingsLegacyCollisionMode": {
+			"InnerBoxColliders": {},
+			"R6Colliders": {}
+		},
+		"AvatarSettingsScaleMode": {
+			"CustomScale": {},
+			"PlayerChoice": {}
 		},
 		"AvatarThumbnailCustomizationType": {
 			"Closeup": {},
@@ -24722,12 +24690,14 @@
 		"HttpError": {
 			"Aborted": {},
 			"ConnectFail": {},
+			"ConnectionClosed": {},
 			"DnsResolve": {},
 			"InvalidRedirect": {},
 			"InvalidUrl": {},
 			"NetFail": {},
 			"OK": {},
 			"OutOfMemory": {},
+			"ServerProtocolError": {},
 			"SslConnectFail": {},
 			"SslVerificationFail": {},
 			"TimedOut": {},
@@ -27558,10 +27528,10 @@
 			"FilterButtonDefault": {},
 			"FilterButtonHover": {},
 			"GameSettingsTableItem": {
-				"Summary": "<p>The color of items within tables in the game settings window.</p>\n"
+				"Summary": "<p>The color of items within tables in the settings window.</p>\n"
 			},
 			"GameSettingsTooltip": {
-				"Summary": "<p>The color of tooltips in the game settings window.</p>\n"
+				"Summary": "<p>The color of tooltips in the settings window.</p>\n"
 			},
 			"HeaderSection": {},
 			"InfoBarWarningBackground": {},
@@ -28569,6 +28539,13 @@
 			"Small": {
 				"Summary": "<p>Small motor.</p>\n"
 			}
+		},
+		"VideoCaptureResult": {
+			"CapturingAlready": {},
+			"NoDeviceSupport": {},
+			"NoSpaceOnDevice": {},
+			"OtherError": {},
+			"Success": {}
 		},
 		"VideoDeviceCaptureQuality": {
 			"Default": {},

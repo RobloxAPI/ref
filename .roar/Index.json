@@ -18665,6 +18665,45 @@
 			"Related": [
 				{
 					"Class": "AuroraService",
+					"Member": "HashRoundingPoint",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "IgnoreRotation",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "RollbackOffset",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "AuroraService",
 					"Member": "GetPredictedInstances",
 					"MemberType": "Function",
 					"Removed": false,
@@ -19980,19 +20019,6 @@
 				},
 				{
 					"Class": "AvatarBodyRules",
-					"Member": "CustomBodyAvatarReference",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Class",
-						"Name": "Instance"
-					}
-				},
-				{
-					"Class": "AvatarBodyRules",
 					"Member": "CustomBodyBundleId",
 					"MemberType": "Property",
 					"Removed": false,
@@ -20275,6 +20301,19 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "AvatarSettingsScaleMode"
+					}
+				},
+				{
+					"Class": "AvatarBodyRules",
+					"Member": "CustomBodyAvatarReference",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
 					}
 				}
 			]
@@ -24503,6 +24542,34 @@
 				"Instance",
 				"Object",
 				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "AvatarSettings",
+					"Member": "Loaded",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AvatarSettings",
+					"Member": "Publish",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				}
 			]
 		},
 		"Backpack": {
@@ -33163,7 +33230,8 @@
 			"Removed": false,
 			"HasRemoved": false,
 			"Subclasses": [
-				"ScreenshotCapture"
+				"ScreenshotCapture",
+				"VideoCapture"
 			],
 			"Superclasses": [
 				"Object",
@@ -33742,20 +33810,59 @@
 				},
 				{
 					"Class": "CaptureService",
-					"Member": "StartVideoCaptureInternal",
+					"Member": "StartVideoCaptureAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
 					"Index": 0,
 					"Type": {
-						"Category": "Primitive",
-						"Name": "null"
+						"Category": "Enum",
+						"Name": "VideoCaptureResult"
 					}
 				},
 				{
 					"Class": "CaptureService",
-					"Member": "StopCapture",
+					"Member": "StartVideoCaptureInternalAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "VideoCaptureResult"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StopVideoCapture",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -34050,6 +34157,32 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureInternal",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StopCapture",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
 					}
 				}
 			]
@@ -73128,6 +73261,552 @@
 				"<<<ROOT>>>"
 			]
 		},
+		"HandRigDescription": {
+			"Name": "HandRigDescription",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "IndexRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "IndexSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "MiddleRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "MiddleSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "PinkyRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "PinkySize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "RingRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "RingSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Side",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "HandRigDescriptionSide"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "ThumbRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "ThumbSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				}
+			]
+		},
 		"HandleAdornment": {
 			"Name": "HandleAdornment",
 			"Removed": false,
@@ -84718,6 +85397,7 @@
 				"GuiItem",
 				"GuiService",
 				"GuidRegistryService",
+				"HandRigDescription",
 				"HapticEffect",
 				"HapticService",
 				"HeapProfilerService",
@@ -85822,19 +86502,6 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
-					"Type": {
-						"Category": "Class",
-						"Name": "Instance"
-					}
-				},
-				{
-					"Class": "AvatarBodyRules",
-					"Member": "CustomBodyAvatarReference",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
 					"Type": {
 						"Category": "Class",
 						"Name": "Instance"
@@ -87044,6 +87711,201 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb1",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb2",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb3",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "Class",
 						"Name": "Instance"
@@ -90729,6 +91591,19 @@
 					}
 				},
 				{
+					"Class": "PublishService",
+					"Member": "PublishDescendantAssetsAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
 					"Class": "ScriptContext",
 					"Member": "AddCoreScriptLocal",
 					"MemberType": "Function",
@@ -92517,6 +93392,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "AvatarBodyRules",
+					"Member": "CustomBodyAvatarReference",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "Class",
 						"Name": "Instance"
@@ -105793,6 +106681,19 @@
 				},
 				{
 					"Class": "MaterialVariant",
+					"Member": "ColorMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "MaterialVariant",
 					"Member": "CustomPhysicalProperties",
 					"MemberType": "Property",
 					"Removed": false,
@@ -105832,6 +106733,19 @@
 				},
 				{
 					"Class": "MaterialVariant",
+					"Member": "MetalnessMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "MaterialVariant",
 					"Member": "NormalMap",
 					"MemberType": "Property",
 					"Removed": false,
@@ -105845,6 +106759,19 @@
 				},
 				{
 					"Class": "MaterialVariant",
+					"Member": "NormalMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "MaterialVariant",
 					"Member": "RoughnessMap",
 					"MemberType": "Property",
 					"Removed": false,
@@ -105854,6 +106781,19 @@
 					"Type": {
 						"Category": "DataType",
 						"Name": "ContentId"
+					}
+				},
+				{
+					"Class": "MaterialVariant",
+					"Member": "RoughnessMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
 					}
 				},
 				{
@@ -111522,6 +112462,21 @@
 				"Instance",
 				"Object",
 				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "NegateOperation",
+					"Member": "PreviousOperation",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "NegateOperationHiddenHistory"
+					}
+				}
 			]
 		},
 		"NetworkClient": {
@@ -133286,6 +134241,32 @@
 						"Category": "Primitive",
 						"Name": "bool"
 					}
+				},
+				{
+					"Class": "PublishService",
+					"Member": "PublishDescendantAssetsAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "PublishService",
+					"Member": "PublishDescendantAssetsAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
 				}
 			]
 		},
@@ -148739,6 +149720,32 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SoundService",
+					"Member": "SetSoundEnabled",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SoundService",
+					"Member": "SetSoundEnabled",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
 					}
 				},
 				{
@@ -172800,19 +173807,6 @@
 			"Related": [
 				{
 					"Class": "ThirdPartyUserService",
-					"Member": "GetUserPlatformId",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "string"
-					}
-				},
-				{
-					"Class": "ThirdPartyUserService",
 					"Member": "GetUserPlatformName",
 					"MemberType": "Function",
 					"Removed": false,
@@ -172865,19 +173859,6 @@
 				},
 				{
 					"Class": "ThirdPartyUserService",
-					"Member": "IsOver13",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "bool"
-					}
-				},
-				{
-					"Class": "ThirdPartyUserService",
 					"Member": "RegisterActiveUser",
 					"MemberType": "Function",
 					"Removed": false,
@@ -172900,19 +173881,6 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
-					}
-				},
-				{
-					"Class": "ThirdPartyUserService",
-					"Member": "ReturnToEngagement",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "null"
 					}
 				},
 				{
@@ -172952,6 +173920,45 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
+					}
+				},
+				{
+					"Class": "ThirdPartyUserService",
+					"Member": "GetUserPlatformId",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "ThirdPartyUserService",
+					"Member": "IsOver13",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "ThirdPartyUserService",
+					"Member": "ReturnToEngagement",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
 					}
 				}
 			]
@@ -186883,6 +187890,32 @@
 				}
 			]
 		},
+		"VideoCapture": {
+			"Name": "VideoCapture",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Capture",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "VideoCapture",
+					"Member": "TimeLength",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				}
+			]
+		},
 		"VideoCaptureService": {
 			"Name": "VideoCaptureService",
 			"Removed": false,
@@ -191122,6 +192155,97 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "PublishingHandshakeCompleted",
 					"MemberType": "Event",
 					"Removed": false,
@@ -191170,6 +192294,123 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Enum",
+						"Name": "MuteState"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "MuteState"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				},
 				{
@@ -191564,6 +192805,149 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 5,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "SubscriptionHandshakeCompleted",
 					"MemberType": "Event",
 					"Removed": false,
@@ -191651,6 +193035,175 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 5,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 6,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 5,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				},
 				{
@@ -205973,6 +207526,18 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"HashRoundingPoint": {
+				"Class": "AuroraService",
+				"Name": "HashRoundingPoint",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"IgnoreRotation": {
+				"Class": "AuroraService",
+				"Name": "IgnoreRotation",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"IsDesynced": {
 				"Class": "AuroraService",
 				"Name": "IsDesynced",
@@ -206074,6 +207639,12 @@
 				"Name": "RollbackEnabled",
 				"MemberType": "Property",
 				"Removed": true
+			},
+			"RollbackOffset": {
+				"Class": "AuroraService",
+				"Name": "RollbackOffset",
+				"MemberType": "Property",
+				"Removed": false
 			},
 			"SetIncomingReplicationLag": {
 				"Class": "AuroraService",
@@ -206664,13 +208235,13 @@
 				"Class": "AvatarBodyRules",
 				"Name": "CustomBodyAvatarReference",
 				"MemberType": "Property",
-				"Removed": false,
+				"Removed": true,
 				"Related": [
 					{
 						"Class": "AvatarBodyRules",
 						"Member": "CustomBodyAvatarReference",
 						"MemberType": "Property",
-						"Removed": false,
+						"Removed": true,
 						"Field": "ValueType",
 						"Kind": "Type",
 						"Index": -1,
@@ -209228,6 +210799,20 @@
 						}
 					}
 				]
+			}
+		},
+		"AvatarSettings": {
+			"Loaded": {
+				"Class": "AvatarSettings",
+				"Name": "Loaded",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Publish": {
+				"Class": "AvatarSettings",
+				"Name": "Publish",
+				"MemberType": "Function",
+				"Removed": false
 			}
 		},
 		"BackpackItem": {
@@ -213122,15 +214707,63 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"StartVideoCaptureAsync": {
+				"Class": "CaptureService",
+				"Name": "StartVideoCaptureAsync",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "CaptureService",
+						"Member": "StartVideoCaptureAsync",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Enum",
+							"Name": "VideoCaptureResult"
+						}
+					}
+				]
+			},
 			"StartVideoCaptureInternal": {
 				"Class": "CaptureService",
 				"Name": "StartVideoCaptureInternal",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
+			},
+			"StartVideoCaptureInternalAsync": {
+				"Class": "CaptureService",
+				"Name": "StartVideoCaptureInternalAsync",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "CaptureService",
+						"Member": "StartVideoCaptureInternalAsync",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Enum",
+							"Name": "VideoCaptureResult"
+						}
+					}
+				]
 			},
 			"StopCapture": {
 				"Class": "CaptureService",
 				"Name": "StopCapture",
+				"MemberType": "Function",
+				"Removed": true
+			},
+			"StopVideoCapture": {
+				"Class": "CaptureService",
+				"Name": "StopVideoCapture",
 				"MemberType": "Function",
 				"Removed": false
 			},
@@ -228433,6 +230066,494 @@
 				"Removed": true
 			}
 		},
+		"HandRigDescription": {
+			"Index1": {
+				"Class": "HandRigDescription",
+				"Name": "Index1",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Index1",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Index1TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Index1TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Index2": {
+				"Class": "HandRigDescription",
+				"Name": "Index2",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Index2",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Index2TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Index2TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Index3": {
+				"Class": "HandRigDescription",
+				"Name": "Index3",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Index3",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Index3TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Index3TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"IndexRange": {
+				"Class": "HandRigDescription",
+				"Name": "IndexRange",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"IndexSize": {
+				"Class": "HandRigDescription",
+				"Name": "IndexSize",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Middle1": {
+				"Class": "HandRigDescription",
+				"Name": "Middle1",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Middle1",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Middle1TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Middle1TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Middle2": {
+				"Class": "HandRigDescription",
+				"Name": "Middle2",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Middle2",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Middle2TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Middle2TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Middle3": {
+				"Class": "HandRigDescription",
+				"Name": "Middle3",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Middle3",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Middle3TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Middle3TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"MiddleRange": {
+				"Class": "HandRigDescription",
+				"Name": "MiddleRange",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"MiddleSize": {
+				"Class": "HandRigDescription",
+				"Name": "MiddleSize",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Pinky1": {
+				"Class": "HandRigDescription",
+				"Name": "Pinky1",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Pinky1",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Pinky1TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Pinky1TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Pinky2": {
+				"Class": "HandRigDescription",
+				"Name": "Pinky2",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Pinky2",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Pinky2TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Pinky2TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Pinky3": {
+				"Class": "HandRigDescription",
+				"Name": "Pinky3",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Pinky3",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Pinky3TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Pinky3TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"PinkyRange": {
+				"Class": "HandRigDescription",
+				"Name": "PinkyRange",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"PinkySize": {
+				"Class": "HandRigDescription",
+				"Name": "PinkySize",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Ring1": {
+				"Class": "HandRigDescription",
+				"Name": "Ring1",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Ring1",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Ring1TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Ring1TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Ring2": {
+				"Class": "HandRigDescription",
+				"Name": "Ring2",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Ring2",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Ring2TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Ring2TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Ring3": {
+				"Class": "HandRigDescription",
+				"Name": "Ring3",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Ring3",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Ring3TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Ring3TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"RingRange": {
+				"Class": "HandRigDescription",
+				"Name": "RingRange",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"RingSize": {
+				"Class": "HandRigDescription",
+				"Name": "RingSize",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Side": {
+				"Class": "HandRigDescription",
+				"Name": "Side",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Side",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "HandRigDescriptionSide"
+						}
+					}
+				]
+			},
+			"Thumb1": {
+				"Class": "HandRigDescription",
+				"Name": "Thumb1",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Thumb1",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Thumb1TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Thumb1TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Thumb2": {
+				"Class": "HandRigDescription",
+				"Name": "Thumb2",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Thumb2",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Thumb2TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Thumb2TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Thumb3": {
+				"Class": "HandRigDescription",
+				"Name": "Thumb3",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "HandRigDescription",
+						"Member": "Thumb3",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"Thumb3TposeAdjustment": {
+				"Class": "HandRigDescription",
+				"Name": "Thumb3TposeAdjustment",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"ThumbRange": {
+				"Class": "HandRigDescription",
+				"Name": "ThumbRange",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"ThumbSize": {
+				"Class": "HandRigDescription",
+				"Name": "ThumbSize",
+				"MemberType": "Property",
+				"Removed": false
+			}
+		},
 		"HandleAdornment": {
 			"AdornCullingMode": {
 				"Class": "HandleAdornment",
@@ -241102,6 +243223,12 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"ColorMapContent": {
+				"Class": "MaterialVariant",
+				"Name": "ColorMapContent",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"CustomPhysicalProperties": {
 				"Class": "MaterialVariant",
 				"Name": "CustomPhysicalProperties",
@@ -241135,15 +243262,33 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"MetalnessMapContent": {
+				"Class": "MaterialVariant",
+				"Name": "MetalnessMapContent",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"NormalMap": {
 				"Class": "MaterialVariant",
 				"Name": "NormalMap",
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"NormalMapContent": {
+				"Class": "MaterialVariant",
+				"Name": "NormalMapContent",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"RoughnessMap": {
 				"Class": "MaterialVariant",
 				"Name": "RoughnessMap",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"RoughnessMapContent": {
+				"Class": "MaterialVariant",
+				"Name": "RoughnessMapContent",
 				"MemberType": "Property",
 				"Removed": false
 			},
@@ -243034,6 +245179,29 @@
 				"Name": "Position",
 				"MemberType": "Property",
 				"Removed": true
+			}
+		},
+		"NegateOperation": {
+			"PreviousOperation": {
+				"Class": "NegateOperation",
+				"Name": "PreviousOperation",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "NegateOperation",
+						"Member": "PreviousOperation",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "NegateOperationHiddenHistory"
+						}
+					}
+				]
 			}
 		},
 		"NetworkClient": {
@@ -252832,6 +255000,27 @@
 						}
 					}
 				]
+			},
+			"PublishDescendantAssetsAsync": {
+				"Class": "PublishService",
+				"Name": "PublishDescendantAssetsAsync",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "PublishService",
+						"Member": "PublishDescendantAssetsAsync",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
 			}
 		},
 		"PyramidPart": {
@@ -259804,6 +261993,12 @@
 			"SetRecordingDevice": {
 				"Class": "SoundService",
 				"Name": "SetRecordingDevice",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"SetSoundEnabled": {
+				"Class": "SoundService",
+				"Name": "SetSoundEnabled",
 				"MemberType": "Function",
 				"Removed": false
 			},
@@ -270634,7 +272829,7 @@
 				"Class": "ThirdPartyUserService",
 				"Name": "GetUserPlatformId",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
 			},
 			"GetUserPlatformName": {
 				"Class": "ThirdPartyUserService",
@@ -270679,7 +272874,7 @@
 				"Class": "ThirdPartyUserService",
 				"Name": "IsOver13",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
 			},
 			"RegisterActiveUser": {
 				"Class": "ThirdPartyUserService",
@@ -270706,7 +272901,7 @@
 				"Class": "ThirdPartyUserService",
 				"Name": "ReturnToEngagement",
 				"MemberType": "Function",
-				"Removed": false
+				"Removed": true
 			},
 			"ShowAccountPicker": {
 				"Class": "ThirdPartyUserService",
@@ -277748,6 +279943,14 @@
 				"Removed": false
 			}
 		},
+		"VideoCapture": {
+			"TimeLength": {
+				"Class": "VideoCapture",
+				"Name": "TimeLength",
+				"MemberType": "Property",
+				"Removed": false
+			}
+		},
 		"VideoCaptureService": {
 			"Active": {
 				"Class": "VideoCaptureService",
@@ -279333,6 +281536,18 @@
 				"MemberType": "Event",
 				"Removed": false
 			},
+			"PublishingHandshakeAckedWithBothSdp": {
+				"Class": "VoiceChatService",
+				"Name": "PublishingHandshakeAckedWithBothSdp",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"PublishingHandshakeAckedWithCompressedSdp": {
+				"Class": "VoiceChatService",
+				"Name": "PublishingHandshakeAckedWithCompressedSdp",
+				"MemberType": "Event",
+				"Removed": false
+			},
 			"PublishingHandshakeCompleted": {
 				"Class": "VoiceChatService",
 				"Name": "PublishingHandshakeCompleted",
@@ -279348,6 +281563,48 @@
 					{
 						"Class": "VoiceChatService",
 						"Member": "PublishingHandshakeInitiated",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "MuteState"
+						}
+					}
+				]
+			},
+			"PublishingHandshakeInitiatedWithBothSdp": {
+				"Class": "VoiceChatService",
+				"Name": "PublishingHandshakeInitiatedWithBothSdp",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "VoiceChatService",
+						"Member": "PublishingHandshakeInitiatedWithBothSdp",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 2,
+						"Type": {
+							"Category": "Enum",
+							"Name": "MuteState"
+						}
+					}
+				]
+			},
+			"PublishingHandshakeInitiatedWithCompressedSdp": {
+				"Class": "VoiceChatService",
+				"Name": "PublishingHandshakeInitiatedWithCompressedSdp",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "VoiceChatService",
+						"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
 						"MemberType": "Event",
 						"Removed": false,
 						"Field": "Parameters",
@@ -279496,6 +281753,18 @@
 				"MemberType": "Event",
 				"Removed": false
 			},
+			"SubscriptionHandshakeAckedWithBothSdp": {
+				"Class": "VoiceChatService",
+				"Name": "SubscriptionHandshakeAckedWithBothSdp",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"SubscriptionHandshakeAckedWithCompressedSdp": {
+				"Class": "VoiceChatService",
+				"Name": "SubscriptionHandshakeAckedWithCompressedSdp",
+				"MemberType": "Event",
+				"Removed": false
+			},
 			"SubscriptionHandshakeCompleted": {
 				"Class": "VoiceChatService",
 				"Name": "SubscriptionHandshakeCompleted",
@@ -279505,6 +281774,18 @@
 			"SubscriptionHandshakeInitiated": {
 				"Class": "VoiceChatService",
 				"Name": "SubscriptionHandshakeInitiated",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"SubscriptionHandshakeInitiatedWithBothSdp": {
+				"Class": "VoiceChatService",
+				"Name": "SubscriptionHandshakeInitiatedWithBothSdp",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"SubscriptionHandshakeInitiatedWithCompressedSdp": {
+				"Class": "VoiceChatService",
+				"Name": "SubscriptionHandshakeInitiatedWithCompressedSdp",
 				"MemberType": "Event",
 				"Removed": false
 			},
@@ -291512,6 +293793,35 @@
 				}
 			]
 		},
+		"HandRigDescriptionSide": {
+			"Name": "HandRigDescriptionSide",
+			"Removed": false,
+			"ItemsByValue": [
+				"None",
+				"Left",
+				"Right"
+			],
+			"ItemsByIndex": [
+				"None",
+				"Left",
+				"Right"
+			],
+			"Related": [
+				{
+					"Class": "HandRigDescription",
+					"Member": "Side",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "HandRigDescriptionSide"
+					}
+				}
+			]
+		},
 		"HandlesStyle": {
 			"Name": "HandlesStyle",
 			"Removed": false,
@@ -296254,6 +298564,32 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Enum",
+						"Name": "MuteState"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "MuteState"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "SubscribeStateChange",
 					"MemberType": "Event",
 					"Removed": false,
@@ -296372,6 +298708,35 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "NavigationWaypointAction"
+					}
+				}
+			]
+		},
+		"NegateOperationHiddenHistory": {
+			"Name": "NegateOperationHiddenHistory",
+			"Removed": false,
+			"ItemsByValue": [
+				"None",
+				"NegatedUnion",
+				"NegatedIntersection"
+			],
+			"ItemsByIndex": [
+				"None",
+				"NegatedUnion",
+				"NegatedIntersection"
+			],
+			"Related": [
+				{
+					"Class": "NegateOperation",
+					"Member": "PreviousOperation",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "NegateOperationHiddenHistory"
 					}
 				}
 			]
@@ -305670,6 +308035,34 @@
 				"CapturingAlready",
 				"NoDeviceSupport",
 				"NoSpaceOnDevice"
+			],
+			"Related": [
+				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "VideoCaptureResult"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureInternalAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "VideoCaptureResult"
+					}
+				}
 			]
 		},
 		"VideoDeviceCaptureQuality": {
@@ -306240,7 +308633,8 @@
 				"HSRInner",
 				"HSRInnerReverse",
 				"LayerCageFittedToBase",
-				"LayerCageFittedToPrev"
+				"LayerCageFittedToPrev",
+				"PreWrapDeformerOuterCage"
 			],
 			"ItemsByIndex": [
 				"None",
@@ -306258,7 +308652,8 @@
 				"HSRInner",
 				"HSRInnerReverse",
 				"LayerCageFittedToBase",
-				"LayerCageFittedToPrev"
+				"LayerCageFittedToPrev",
+				"PreWrapDeformerOuterCage"
 			],
 			"Related": [
 				{
@@ -306289,7 +308684,8 @@
 				"TargetLayerCageCompressed",
 				"TargetLayerInterface",
 				"Rbf",
-				"OuterCageDetail"
+				"OuterCageDetail",
+				"PreWrapDeformerCage"
 			],
 			"ItemsByIndex": [
 				"None",
@@ -306301,7 +308697,8 @@
 				"TargetLayerCageCompressed",
 				"TargetLayerInterface",
 				"Rbf",
-				"OuterCageDetail"
+				"OuterCageDetail",
+				"PreWrapDeformerCage"
 			],
 			"Related": [
 				{
@@ -313431,6 +315828,23 @@
 				"Removed": false
 			}
 		},
+		"HandRigDescriptionSide": {
+			"Left": {
+				"Enum": "HandRigDescriptionSide",
+				"Name": "Left",
+				"Removed": false
+			},
+			"None": {
+				"Enum": "HandRigDescriptionSide",
+				"Name": "None",
+				"Removed": false
+			},
+			"Right": {
+				"Enum": "HandRigDescriptionSide",
+				"Name": "Right",
+				"Removed": false
+			}
+		},
 		"HandlesStyle": {
 			"Movement": {
 				"Enum": "HandlesStyle",
@@ -317079,6 +319493,23 @@
 				"Enum": "NavigationWaypointAction",
 				"Name": "Walk",
 				"Removed": true
+			}
+		},
+		"NegateOperationHiddenHistory": {
+			"NegatedIntersection": {
+				"Enum": "NegateOperationHiddenHistory",
+				"Name": "NegatedIntersection",
+				"Removed": false
+			},
+			"NegatedUnion": {
+				"Enum": "NegateOperationHiddenHistory",
+				"Name": "NegatedUnion",
+				"Removed": false
+			},
+			"None": {
+				"Enum": "NegateOperationHiddenHistory",
+				"Name": "None",
+				"Removed": false
 			}
 		},
 		"NetworkOwnership": {
@@ -323887,6 +326318,11 @@
 				"Name": "OuterCage",
 				"Removed": false
 			},
+			"PreWrapDeformerOuterCage": {
+				"Enum": "WrapLayerDebugMode",
+				"Name": "PreWrapDeformerOuterCage",
+				"Removed": false
+			},
 			"Rbf": {
 				"Enum": "WrapLayerDebugMode",
 				"Name": "Rbf",
@@ -323912,6 +326348,11 @@
 			"OuterCageDetail": {
 				"Enum": "WrapTargetDebugMode",
 				"Name": "OuterCageDetail",
+				"Removed": false
+			},
+			"PreWrapDeformerCage": {
+				"Enum": "WrapTargetDebugMode",
+				"Name": "PreWrapDeformerCage",
 				"Removed": false
 			},
 			"Rbf": {
@@ -330348,6 +332789,201 @@
 					}
 				},
 				{
+					"Class": "HandRigDescription",
+					"Member": "Index1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Index3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Middle3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Pinky3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Ring3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb1TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb2TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "Thumb3TposeAdjustment",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
 					"Class": "HandleAdornment",
 					"Member": "CFrame",
 					"MemberType": "Property",
@@ -334376,6 +337012,58 @@
 					}
 				},
 				{
+					"Class": "MaterialVariant",
+					"Member": "ColorMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "MaterialVariant",
+					"Member": "MetalnessMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "MaterialVariant",
+					"Member": "NormalMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
+					"Class": "MaterialVariant",
+					"Member": "RoughnessMapContent",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Content"
+					}
+				},
+				{
 					"Class": "MeshPart",
 					"Member": "MeshContent",
 					"MemberType": "Property",
@@ -337103,6 +339791,19 @@
 				{
 					"Class": "CaptureService",
 					"Member": "OnSavePromptFinished",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -341044,6 +343745,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 3,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Function"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "DataType",
 						"Name": "Function"
@@ -356531,6 +359245,71 @@
 					}
 				},
 				{
+					"Class": "HandRigDescription",
+					"Member": "IndexRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "MiddleRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "PinkyRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "RingRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "ThumbRange",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
 					"Class": "HandleAdornment",
 					"Member": "SizeRelativeOffset",
 					"MemberType": "Property",
@@ -361396,6 +364175,19 @@
 				},
 				{
 					"Class": "AuroraService",
+					"Member": "IgnoreRotation",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AuroraService",
 					"Member": "IsPredicted",
 					"MemberType": "Function",
 					"Removed": false,
@@ -362195,6 +364987,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "AvatarSettings",
+					"Member": "Loaded",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
@@ -370573,6 +373378,19 @@
 					}
 				},
 				{
+					"Class": "PublishService",
+					"Member": "PublishDescendantAssetsAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
 					"Class": "RTAnimationTracker",
 					"Member": "Active",
 					"MemberType": "Property",
@@ -372009,6 +374827,19 @@
 					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "SoundService",
+					"Member": "SetSoundEnabled",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
 					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
@@ -374930,19 +377761,6 @@
 				{
 					"Class": "ThirdPartyUserService",
 					"Member": "IsChatRestrictionSupported",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "bool"
-					}
-				},
-				{
-					"Class": "ThirdPartyUserService",
-					"Member": "IsOver13",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -377907,6 +380725,32 @@
 				{
 					"Class": "VoiceChatService",
 					"Member": "SubscriptionHandshakeInitiated",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -382200,6 +385044,19 @@
 					}
 				},
 				{
+					"Class": "ThirdPartyUserService",
+					"Member": "IsOver13",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
 					"Class": "TutorialService",
 					"Member": "HideOnlyNamedWidgets",
 					"MemberType": "Function",
@@ -383022,6 +385879,19 @@
 				{
 					"Class": "AudioTextToSpeech",
 					"Member": "TimePosition",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "AuroraService",
+					"Member": "HashRoundingPoint",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -383958,6 +386828,19 @@
 				{
 					"Class": "UserInputService",
 					"Member": "OnScreenKeyboardAnimationDuration",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "VideoCapture",
+					"Member": "TimeLength",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -389757,6 +392640,71 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "IndexSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "MiddleSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "PinkySize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "RingSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "HandRigDescription",
+					"Member": "ThumbSize",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "float"
@@ -397911,6 +400859,19 @@
 				},
 				{
 					"Class": "AuroraService",
+					"Member": "RollbackOffset",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "AuroraService",
 					"Member": "GetRemoteWorldStepId",
 					"MemberType": "Function",
 					"Removed": false,
@@ -404725,6 +407686,58 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "RelayCandidatesGathered",
 					"MemberType": "Event",
 					"Removed": false,
@@ -404765,6 +407778,58 @@
 				{
 					"Class": "VoiceChatService",
 					"Member": "RuppPeriodicToken",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 5,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 5,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 6,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -414913,6 +417978,32 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "SubscriptionHandshakeCompleted",
 					"MemberType": "Event",
 					"Removed": false,
@@ -414927,6 +418018,32 @@
 				{
 					"Class": "VoiceChatService",
 					"Member": "SubscriptionHandshakeInitiated",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 5,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -417636,6 +420753,19 @@
 					}
 				},
 				{
+					"Class": "AvatarSettings",
+					"Member": "Publish",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "BasePart",
 					"Member": "ApplyAngularImpulse",
 					"MemberType": "Function",
@@ -418196,20 +421326,7 @@
 				},
 				{
 					"Class": "CaptureService",
-					"Member": "StartVideoCaptureInternal",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "null"
-					}
-				},
-				{
-					"Class": "CaptureService",
-					"Member": "StopCapture",
+					"Member": "StopVideoCapture",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -426866,6 +429983,19 @@
 					}
 				},
 				{
+					"Class": "SoundService",
+					"Member": "SetSoundEnabled",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "Sparkles",
 					"Member": "FastForward",
 					"MemberType": "Function",
@@ -428428,19 +431558,6 @@
 				{
 					"Class": "TextureGenerationService",
 					"Member": "CancelGenerationRequest",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "null"
-					}
-				},
-				{
-					"Class": "ThirdPartyUserService",
-					"Member": "ReturnToEngagement",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -430311,6 +433428,32 @@
 					}
 				},
 				{
+					"Class": "CaptureService",
+					"Member": "StartVideoCaptureInternal",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "StopCapture",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "ChatbotUIService",
 					"Member": "DisplayCommand",
 					"MemberType": "Function",
@@ -431223,6 +434366,19 @@
 				{
 					"Class": "TextureGenerationService",
 					"Member": "CancelGenerationRequestAsync",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "ThirdPartyUserService",
+					"Member": "ReturnToEngagement",
 					"MemberType": "Function",
 					"Removed": true,
 					"Field": "ReturnType",
@@ -451407,19 +454563,6 @@
 				},
 				{
 					"Class": "ThirdPartyUserService",
-					"Member": "GetUserPlatformId",
-					"MemberType": "Function",
-					"Removed": false,
-					"Field": "ReturnType",
-					"Kind": "Type",
-					"Index": 0,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "string"
-					}
-				},
-				{
-					"Class": "ThirdPartyUserService",
 					"Member": "GetUserPlatformName",
 					"MemberType": "Function",
 					"Removed": false,
@@ -453552,6 +456695,71 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "PublishingHandshakeCompleted",
 					"MemberType": "Event",
 					"Removed": false,
@@ -453579,6 +456787,71 @@
 				{
 					"Class": "VoiceChatService",
 					"Member": "PublishingHandshakeInitiated",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "PublishingHandshakeInitiatedWithCompressedSdp",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -453851,6 +457124,97 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeAckedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "SubscriptionHandshakeCompleted",
 					"MemberType": "Event",
 					"Removed": false,
@@ -453891,6 +457255,97 @@
 				{
 					"Class": "VoiceChatService",
 					"Member": "SubscriptionHandshakeInitiated",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithBothSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 4,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
+					"Member": "SubscriptionHandshakeInitiatedWithCompressedSdp",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -458967,6 +462422,19 @@
 				{
 					"Class": "ThirdPartyUserService",
 					"Member": "GetUserDisplayName",
+					"MemberType": "Function",
+					"Removed": true,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "ThirdPartyUserService",
+					"Member": "GetUserPlatformId",
 					"MemberType": "Function",
 					"Removed": true,
 					"Field": "ReturnType",
