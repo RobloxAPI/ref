@@ -2097,6 +2097,30 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"RewardedVideoAdEnded": {
+					"MemberType": "Event",
+					"Name": "RewardedVideoAdEnded",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"RewardedVideoAdStarted": {
+					"MemberType": "Event",
+					"Name": "RewardedVideoAdStarted",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"ServeAdResponseSignal": {
 					"MemberType": "Event",
 					"Name": "ServeAdResponseSignal",
@@ -15229,7 +15253,9 @@
 				"Name": "",
 				"ThreadSafety": ""
 			},
-			"Tags": []
+			"Tags": [
+				"NotBrowsable"
+			]
 		},
 		"AudioChannelSplitter": {
 			"Name": "AudioChannelSplitter",
@@ -15374,7 +15400,9 @@
 				"Name": "",
 				"ThreadSafety": ""
 			},
-			"Tags": []
+			"Tags": [
+				"NotBrowsable"
+			]
 		},
 		"AudioChorus": {
 			"Name": "AudioChorus",
@@ -39336,7 +39364,17 @@
 				"CaptureBegan": {
 					"MemberType": "Event",
 					"Name": "CaptureBegan",
-					"Parameters": [],
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "CaptureType"
+							},
+							"Name": "captureType",
+							"Optional": false,
+							"Default": ""
+						}
+					],
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -39348,7 +39386,17 @@
 				"CaptureEnded": {
 					"MemberType": "Event",
 					"Name": "CaptureEnded",
-					"Parameters": [],
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "CaptureType"
+							},
+							"Name": "captureType",
+							"Optional": false,
+							"Default": ""
+						}
+					],
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -40416,6 +40464,50 @@
 						"ThreadSafety": ""
 					},
 					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"UserVideoCaptureFailed": {
+					"MemberType": "Event",
+					"Name": "UserVideoCaptureFailed",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "VideoCaptureResult"
+							},
+							"Name": "result",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"VideoCaptureInProgress": {
+					"MemberType": "Event",
+					"Name": "VideoCaptureInProgress",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "isInProgress",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				}
@@ -85503,6 +85595,62 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Animation",
 			"Members": {
+				"GetFingerControl": {
+					"MemberType": "Function",
+					"Name": "GetFingerControl",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "fingerIndex",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "Vector3"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetFingerTip": {
+					"MemberType": "Function",
+					"Name": "GetFingerTip",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "fingerIndex",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "Vector3"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"Index1": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -86143,6 +86291,80 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"SetFingerControl": {
+					"MemberType": "Function",
+					"Name": "SetFingerControl",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "fingerIndex",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Vector3"
+							},
+							"Name": "control",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetFingerTip": {
+					"MemberType": "Function",
+					"Name": "SetFingerTip",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "fingerIndex",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Vector3"
+							},
+							"Name": "point",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"Side": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -86328,7 +86550,9 @@
 				"Name": "",
 				"ThreadSafety": ""
 			},
-			"Tags": []
+			"Tags": [
+				"NotBrowsable"
+			]
 		},
 		"HandleAdornment": {
 			"Name": "HandleAdornment",
@@ -93588,6 +93812,34 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"GetJointFromName": {
+					"MemberType": "Function",
+					"Name": "GetJointFromName",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "name",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Safe"
+				},
 				"GetJointNames": {
 					"MemberType": "Function",
 					"Name": "GetJointNames",
@@ -93659,6 +93911,106 @@
 					"ValueType": {
 						"Category": "Class",
 						"Name": "Instance"
+					},
+					"WriteSecurity": "None"
+				},
+				"HeadBase": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Mapping",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "HeadBase",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Class",
+						"Name": "Instance"
+					},
+					"WriteSecurity": "None"
+				},
+				"HeadBaseRangeMax": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Range",
+					"Default": "0, 0, 0",
+					"MemberType": "Property",
+					"Name": "HeadBaseRangeMax",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					},
+					"WriteSecurity": "None"
+				},
+				"HeadBaseRangeMin": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Range",
+					"Default": "0, 0, 0",
+					"MemberType": "Property",
+					"Name": "HeadBaseRangeMin",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					},
+					"WriteSecurity": "None"
+				},
+				"HeadBaseSize": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Size",
+					"Default": "0",
+					"MemberType": "Property",
+					"Name": "HeadBaseSize",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "None"
+				},
+				"HeadBaseTposeAdjustment": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Tpose",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "HeadBaseTposeAdjustment",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "CFrame"
 					},
 					"WriteSecurity": "None"
 				},
@@ -99136,7 +99488,7 @@
 								"Category": "Group",
 								"Name": "Variant"
 							},
-							"Name": "value",
+							"Name": "state",
 							"Optional": false,
 							"Default": ""
 						}
@@ -117566,6 +117918,36 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"GetSizeAsync": {
+					"MemberType": "Function",
+					"Name": "GetSizeAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "excludeInvisible",
+							"Optional": true,
+							"Default": "false"
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"ReadAsync": {
 					"MemberType": "Function",
 					"Name": "ReadAsync",
@@ -117845,6 +118227,26 @@
 						{
 							"Category": "Group",
 							"Name": "Array"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetSizeAsync": {
+					"MemberType": "Function",
+					"Name": "GetSizeAsync",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int"
 						}
 					],
 					"Security": "None",
@@ -185646,6 +186048,63 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"TeamCreatePlaceUploadRequest": {
+					"MemberType": "Event",
+					"Name": "TeamCreatePlaceUploadRequest",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "metadata",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"TeamCreatePlaceUploadResponse": {
+					"MemberType": "Event",
+					"Name": "TeamCreatePlaceUploadResponse",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "success",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "metadata",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"TeamCreatePublishResult": {
 					"MemberType": "Event",
 					"Name": "TeamCreatePublishResult",
@@ -190379,6 +190838,26 @@
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
+				"ColorMapContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "ColorMapContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "PluginSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
 				"Face": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -190439,6 +190918,26 @@
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
+				"MetalnessMapContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "MetalnessMapContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "PluginSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
 				"NormalMap": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -190459,6 +190958,26 @@
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
+				"NormalMapContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "NormalMapContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "PluginSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
 				"RoughnessMap": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -190476,6 +190995,26 @@
 					"ValueType": {
 						"Category": "DataType",
 						"Name": "ContentId"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
+				"RoughnessMapContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "RoughnessMapContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "PluginSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
@@ -199631,6 +200170,29 @@
 					},
 					"WriteSecurity": "RobloxSecurity"
 				},
+				"ConvexDecompHolder": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "__api_dump_class_not_creatable__",
+					"MemberType": "Property",
+					"Name": "ConvexDecompHolder",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxSecurity",
+					"Tags": [
+						"Hidden",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "NetAssetRef"
+					},
+					"WriteSecurity": "RobloxSecurity"
+				},
 				"FluidFidelity": {
 					"CanLoad": true,
 					"CanSave": false,
@@ -201470,6 +202032,52 @@
 					"Tags": [
 						"Yields"
 					],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetBoundingBoxManipulationData": {
+					"MemberType": "Function",
+					"Name": "GetBoundingBoxManipulationData",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "partMeshObjects",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "partCFs",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "meshScales",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Map"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
 				"GetCagingRelevancyMetrics": {
@@ -226989,6 +227597,50 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"MaxSize": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "0, 0, 0",
+					"MemberType": "Property",
+					"Name": "MaxSize",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"Offset": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "0, 0, 0",
+					"MemberType": "Property",
+					"Name": "Offset",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
 				"Order": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -234082,6 +234734,38 @@
 					"Name": "Watch",
 					"Value": 2,
 					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"CaptureType": {
+			"Name": "CaptureType",
+			"Items": {
+				"Screenshot": {
+					"Name": "Screenshot",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Video": {
+					"Name": "Video",
+					"Value": 1,
+					"Index": 1,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -247737,28 +248421,24 @@
 				"MouseLeftButton": {
 					"Name": "MouseLeftButton",
 					"Value": 1018,
-					"Index": 254,
+					"Index": 158,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
 					},
-					"Tags": [
-						"Deprecated"
-					]
+					"Tags": []
 				},
 				"MouseMiddleButton": {
 					"Name": "MouseMiddleButton",
 					"Value": 1020,
-					"Index": 256,
+					"Index": 160,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
 					},
-					"Tags": [
-						"Deprecated"
-					]
+					"Tags": []
 				},
 				"MouseNoButton": {
 					"Name": "MouseNoButton",
@@ -247776,15 +248456,13 @@
 				"MouseRightButton": {
 					"Name": "MouseRightButton",
 					"Value": 1019,
-					"Index": 255,
+					"Index": 159,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
 					},
-					"Tags": [
-						"Deprecated"
-					]
+					"Tags": []
 				},
 				"MouseX": {
 					"Name": "MouseX",
@@ -248387,7 +249065,7 @@
 				"World0": {
 					"Name": "World0",
 					"Value": 160,
-					"Index": 158,
+					"Index": 161,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248400,7 +249078,7 @@
 				"World1": {
 					"Name": "World1",
 					"Value": 161,
-					"Index": 159,
+					"Index": 162,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248413,7 +249091,7 @@
 				"World10": {
 					"Name": "World10",
 					"Value": 170,
-					"Index": 168,
+					"Index": 171,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248426,7 +249104,7 @@
 				"World11": {
 					"Name": "World11",
 					"Value": 171,
-					"Index": 169,
+					"Index": 172,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248439,7 +249117,7 @@
 				"World12": {
 					"Name": "World12",
 					"Value": 172,
-					"Index": 170,
+					"Index": 173,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248452,7 +249130,7 @@
 				"World13": {
 					"Name": "World13",
 					"Value": 173,
-					"Index": 171,
+					"Index": 174,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248465,7 +249143,7 @@
 				"World14": {
 					"Name": "World14",
 					"Value": 174,
-					"Index": 172,
+					"Index": 175,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248478,7 +249156,7 @@
 				"World15": {
 					"Name": "World15",
 					"Value": 175,
-					"Index": 173,
+					"Index": 176,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248491,7 +249169,7 @@
 				"World16": {
 					"Name": "World16",
 					"Value": 176,
-					"Index": 174,
+					"Index": 177,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248504,7 +249182,7 @@
 				"World17": {
 					"Name": "World17",
 					"Value": 177,
-					"Index": 175,
+					"Index": 178,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248517,7 +249195,7 @@
 				"World18": {
 					"Name": "World18",
 					"Value": 178,
-					"Index": 176,
+					"Index": 179,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248530,7 +249208,7 @@
 				"World19": {
 					"Name": "World19",
 					"Value": 179,
-					"Index": 177,
+					"Index": 180,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248543,7 +249221,7 @@
 				"World2": {
 					"Name": "World2",
 					"Value": 162,
-					"Index": 160,
+					"Index": 163,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248556,7 +249234,7 @@
 				"World20": {
 					"Name": "World20",
 					"Value": 180,
-					"Index": 178,
+					"Index": 181,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248569,7 +249247,7 @@
 				"World21": {
 					"Name": "World21",
 					"Value": 181,
-					"Index": 179,
+					"Index": 182,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248582,7 +249260,7 @@
 				"World22": {
 					"Name": "World22",
 					"Value": 182,
-					"Index": 180,
+					"Index": 183,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248595,7 +249273,7 @@
 				"World23": {
 					"Name": "World23",
 					"Value": 183,
-					"Index": 181,
+					"Index": 184,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248608,7 +249286,7 @@
 				"World24": {
 					"Name": "World24",
 					"Value": 184,
-					"Index": 182,
+					"Index": 185,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248621,7 +249299,7 @@
 				"World25": {
 					"Name": "World25",
 					"Value": 185,
-					"Index": 183,
+					"Index": 186,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248634,7 +249312,7 @@
 				"World26": {
 					"Name": "World26",
 					"Value": 186,
-					"Index": 184,
+					"Index": 187,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248647,7 +249325,7 @@
 				"World27": {
 					"Name": "World27",
 					"Value": 187,
-					"Index": 185,
+					"Index": 188,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248660,7 +249338,7 @@
 				"World28": {
 					"Name": "World28",
 					"Value": 188,
-					"Index": 186,
+					"Index": 189,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248673,7 +249351,7 @@
 				"World29": {
 					"Name": "World29",
 					"Value": 189,
-					"Index": 187,
+					"Index": 190,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248686,7 +249364,7 @@
 				"World3": {
 					"Name": "World3",
 					"Value": 163,
-					"Index": 161,
+					"Index": 164,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248699,7 +249377,7 @@
 				"World30": {
 					"Name": "World30",
 					"Value": 190,
-					"Index": 188,
+					"Index": 191,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248712,7 +249390,7 @@
 				"World31": {
 					"Name": "World31",
 					"Value": 191,
-					"Index": 189,
+					"Index": 192,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248725,7 +249403,7 @@
 				"World32": {
 					"Name": "World32",
 					"Value": 192,
-					"Index": 190,
+					"Index": 193,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248738,7 +249416,7 @@
 				"World33": {
 					"Name": "World33",
 					"Value": 193,
-					"Index": 191,
+					"Index": 194,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248751,7 +249429,7 @@
 				"World34": {
 					"Name": "World34",
 					"Value": 194,
-					"Index": 192,
+					"Index": 195,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248764,7 +249442,7 @@
 				"World35": {
 					"Name": "World35",
 					"Value": 195,
-					"Index": 193,
+					"Index": 196,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248777,7 +249455,7 @@
 				"World36": {
 					"Name": "World36",
 					"Value": 196,
-					"Index": 194,
+					"Index": 197,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248790,7 +249468,7 @@
 				"World37": {
 					"Name": "World37",
 					"Value": 197,
-					"Index": 195,
+					"Index": 198,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248803,7 +249481,7 @@
 				"World38": {
 					"Name": "World38",
 					"Value": 198,
-					"Index": 196,
+					"Index": 199,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248816,7 +249494,7 @@
 				"World39": {
 					"Name": "World39",
 					"Value": 199,
-					"Index": 197,
+					"Index": 200,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248829,7 +249507,7 @@
 				"World4": {
 					"Name": "World4",
 					"Value": 164,
-					"Index": 162,
+					"Index": 165,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248842,7 +249520,7 @@
 				"World40": {
 					"Name": "World40",
 					"Value": 200,
-					"Index": 198,
+					"Index": 201,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248855,7 +249533,7 @@
 				"World41": {
 					"Name": "World41",
 					"Value": 201,
-					"Index": 199,
+					"Index": 202,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248868,7 +249546,7 @@
 				"World42": {
 					"Name": "World42",
 					"Value": 202,
-					"Index": 200,
+					"Index": 203,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248881,7 +249559,7 @@
 				"World43": {
 					"Name": "World43",
 					"Value": 203,
-					"Index": 201,
+					"Index": 204,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248894,7 +249572,7 @@
 				"World44": {
 					"Name": "World44",
 					"Value": 204,
-					"Index": 202,
+					"Index": 205,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248907,7 +249585,7 @@
 				"World45": {
 					"Name": "World45",
 					"Value": 205,
-					"Index": 203,
+					"Index": 206,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248920,7 +249598,7 @@
 				"World46": {
 					"Name": "World46",
 					"Value": 206,
-					"Index": 204,
+					"Index": 207,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248933,7 +249611,7 @@
 				"World47": {
 					"Name": "World47",
 					"Value": 207,
-					"Index": 205,
+					"Index": 208,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248946,7 +249624,7 @@
 				"World48": {
 					"Name": "World48",
 					"Value": 208,
-					"Index": 206,
+					"Index": 209,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248959,7 +249637,7 @@
 				"World49": {
 					"Name": "World49",
 					"Value": 209,
-					"Index": 207,
+					"Index": 210,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248972,7 +249650,7 @@
 				"World5": {
 					"Name": "World5",
 					"Value": 165,
-					"Index": 163,
+					"Index": 166,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248985,7 +249663,7 @@
 				"World50": {
 					"Name": "World50",
 					"Value": 210,
-					"Index": 208,
+					"Index": 211,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248998,7 +249676,7 @@
 				"World51": {
 					"Name": "World51",
 					"Value": 211,
-					"Index": 209,
+					"Index": 212,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249011,7 +249689,7 @@
 				"World52": {
 					"Name": "World52",
 					"Value": 212,
-					"Index": 210,
+					"Index": 213,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249024,7 +249702,7 @@
 				"World53": {
 					"Name": "World53",
 					"Value": 213,
-					"Index": 211,
+					"Index": 214,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249037,7 +249715,7 @@
 				"World54": {
 					"Name": "World54",
 					"Value": 214,
-					"Index": 212,
+					"Index": 215,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249050,7 +249728,7 @@
 				"World55": {
 					"Name": "World55",
 					"Value": 215,
-					"Index": 213,
+					"Index": 216,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249063,7 +249741,7 @@
 				"World56": {
 					"Name": "World56",
 					"Value": 216,
-					"Index": 214,
+					"Index": 217,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249076,7 +249754,7 @@
 				"World57": {
 					"Name": "World57",
 					"Value": 217,
-					"Index": 215,
+					"Index": 218,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249089,7 +249767,7 @@
 				"World58": {
 					"Name": "World58",
 					"Value": 218,
-					"Index": 216,
+					"Index": 219,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249102,7 +249780,7 @@
 				"World59": {
 					"Name": "World59",
 					"Value": 219,
-					"Index": 217,
+					"Index": 220,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249115,7 +249793,7 @@
 				"World6": {
 					"Name": "World6",
 					"Value": 166,
-					"Index": 164,
+					"Index": 167,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249128,7 +249806,7 @@
 				"World60": {
 					"Name": "World60",
 					"Value": 220,
-					"Index": 218,
+					"Index": 221,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249141,7 +249819,7 @@
 				"World61": {
 					"Name": "World61",
 					"Value": 221,
-					"Index": 219,
+					"Index": 222,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249154,7 +249832,7 @@
 				"World62": {
 					"Name": "World62",
 					"Value": 222,
-					"Index": 220,
+					"Index": 223,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249167,7 +249845,7 @@
 				"World63": {
 					"Name": "World63",
 					"Value": 223,
-					"Index": 221,
+					"Index": 224,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249180,7 +249858,7 @@
 				"World64": {
 					"Name": "World64",
 					"Value": 224,
-					"Index": 222,
+					"Index": 225,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249193,7 +249871,7 @@
 				"World65": {
 					"Name": "World65",
 					"Value": 225,
-					"Index": 223,
+					"Index": 226,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249206,7 +249884,7 @@
 				"World66": {
 					"Name": "World66",
 					"Value": 226,
-					"Index": 224,
+					"Index": 227,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249219,7 +249897,7 @@
 				"World67": {
 					"Name": "World67",
 					"Value": 227,
-					"Index": 225,
+					"Index": 228,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249232,7 +249910,7 @@
 				"World68": {
 					"Name": "World68",
 					"Value": 228,
-					"Index": 226,
+					"Index": 229,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249245,7 +249923,7 @@
 				"World69": {
 					"Name": "World69",
 					"Value": 229,
-					"Index": 227,
+					"Index": 230,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249258,7 +249936,7 @@
 				"World7": {
 					"Name": "World7",
 					"Value": 167,
-					"Index": 165,
+					"Index": 168,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249271,7 +249949,7 @@
 				"World70": {
 					"Name": "World70",
 					"Value": 230,
-					"Index": 228,
+					"Index": 231,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249284,7 +249962,7 @@
 				"World71": {
 					"Name": "World71",
 					"Value": 231,
-					"Index": 229,
+					"Index": 232,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249297,7 +249975,7 @@
 				"World72": {
 					"Name": "World72",
 					"Value": 232,
-					"Index": 230,
+					"Index": 233,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249310,7 +249988,7 @@
 				"World73": {
 					"Name": "World73",
 					"Value": 233,
-					"Index": 231,
+					"Index": 234,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249323,7 +250001,7 @@
 				"World74": {
 					"Name": "World74",
 					"Value": 234,
-					"Index": 232,
+					"Index": 235,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249336,7 +250014,7 @@
 				"World75": {
 					"Name": "World75",
 					"Value": 235,
-					"Index": 233,
+					"Index": 236,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249349,7 +250027,7 @@
 				"World76": {
 					"Name": "World76",
 					"Value": 236,
-					"Index": 234,
+					"Index": 237,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249362,7 +250040,7 @@
 				"World77": {
 					"Name": "World77",
 					"Value": 237,
-					"Index": 235,
+					"Index": 238,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249375,7 +250053,7 @@
 				"World78": {
 					"Name": "World78",
 					"Value": 238,
-					"Index": 236,
+					"Index": 239,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249388,7 +250066,7 @@
 				"World79": {
 					"Name": "World79",
 					"Value": 239,
-					"Index": 237,
+					"Index": 240,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249401,7 +250079,7 @@
 				"World8": {
 					"Name": "World8",
 					"Value": 168,
-					"Index": 166,
+					"Index": 169,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249414,7 +250092,7 @@
 				"World80": {
 					"Name": "World80",
 					"Value": 240,
-					"Index": 238,
+					"Index": 241,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249427,7 +250105,7 @@
 				"World81": {
 					"Name": "World81",
 					"Value": 241,
-					"Index": 239,
+					"Index": 242,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249440,7 +250118,7 @@
 				"World82": {
 					"Name": "World82",
 					"Value": 242,
-					"Index": 240,
+					"Index": 243,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249453,7 +250131,7 @@
 				"World83": {
 					"Name": "World83",
 					"Value": 243,
-					"Index": 241,
+					"Index": 244,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249466,7 +250144,7 @@
 				"World84": {
 					"Name": "World84",
 					"Value": 244,
-					"Index": 242,
+					"Index": 245,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249479,7 +250157,7 @@
 				"World85": {
 					"Name": "World85",
 					"Value": 245,
-					"Index": 243,
+					"Index": 246,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249492,7 +250170,7 @@
 				"World86": {
 					"Name": "World86",
 					"Value": 246,
-					"Index": 244,
+					"Index": 247,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249505,7 +250183,7 @@
 				"World87": {
 					"Name": "World87",
 					"Value": 247,
-					"Index": 245,
+					"Index": 248,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249518,7 +250196,7 @@
 				"World88": {
 					"Name": "World88",
 					"Value": 248,
-					"Index": 246,
+					"Index": 249,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249531,7 +250209,7 @@
 				"World89": {
 					"Name": "World89",
 					"Value": 249,
-					"Index": 247,
+					"Index": 250,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249544,7 +250222,7 @@
 				"World9": {
 					"Name": "World9",
 					"Value": 169,
-					"Index": 167,
+					"Index": 170,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249557,7 +250235,7 @@
 				"World90": {
 					"Name": "World90",
 					"Value": 250,
-					"Index": 248,
+					"Index": 251,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249570,7 +250248,7 @@
 				"World91": {
 					"Name": "World91",
 					"Value": 251,
-					"Index": 249,
+					"Index": 252,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249583,7 +250261,7 @@
 				"World92": {
 					"Name": "World92",
 					"Value": 252,
-					"Index": 250,
+					"Index": 253,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249596,7 +250274,7 @@
 				"World93": {
 					"Name": "World93",
 					"Value": 253,
-					"Index": 251,
+					"Index": 254,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249609,7 +250287,7 @@
 				"World94": {
 					"Name": "World94",
 					"Value": 254,
-					"Index": 252,
+					"Index": 255,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249622,7 +250300,7 @@
 				"World95": {
 					"Name": "World95",
 					"Value": 255,
-					"Index": 253,
+					"Index": 256,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",

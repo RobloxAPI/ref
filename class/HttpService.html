@@ -193,7 +193,8 @@ version-2220a78ed1774256">647</a></td><td class=col-icon><span class=picture tit
 <a href=/ref/class/HttpService.html#member-PostAsync>PostAsync</a>. This service allows games to be
 integrated with off-Roblox web services such as analytics, data storage,
 remote server configuration, error reporting, advanced calculations or
-real-time communication.</p><p><code>HttpService</code> also houses the <a href=/ref/class/HttpService.html#member-JSONEncode>JSONEncode</a> and
+real-time communication. Additionally, a few Roblox web APIs can also be
+accessed via <code>HttpService</code> (see below).</p><p><code>HttpService</code> also houses the <a href=/ref/class/HttpService.html#member-JSONEncode>JSONEncode</a> and
 <a href=/ref/class/HttpService.html#member-JSONDecode>JSONDecode</a> methods which are useful for
 communicating with services that use the <a href=https://json.org>JSON</a> format. In
 addition, the <a href=/ref/class/HttpService.html#member-GenerateGUID>GenerateGUID</a> method provides
@@ -210,11 +211,27 @@ through the <code>localhost</code> and <code>127.0.0.1</code> hosts. By running 
 with such plugins, you can extend the functionality of your plugin beyond the
 normal capabilities of Studio, such as interacting with your computer's file
 system. Beware that such software must be distributed separately from the
-plugin itself and can pose security hazards if you aren't careful.</p><h3>Additional considerations</h3><ul><li>There are port restrictions. You cannot use port <code>1194</code> or any port below
+plugin itself and can pose security hazards if you aren't careful.</p><h3>Calling Roblox domains</h3><p><code>HttpService</code> can currently only call a subset of the Open Cloud endpoints. We
+plan to extend this set over time so please use the Feedback button if you
+have specific endpoints you'd like to see:</p><h4>Groups</h4><ul><li><a href=https://create.roblox.com/docs/cloud/reference/Group#Cloud_GetGroup>GetGroup</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupJoinRequest#Cloud_ListGroupJoinRequests>ListGroupJoinRequests</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupJoinRequest#Cloud_AcceptGroupJoinRequest>AcceptGroupJoinRequest</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupJoinRequest#Cloud_DeclineGroupJoinRequest>DeclineGroupJoinRequest</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupMembership#Cloud_ListGroupMemberships>ListGroupMemberships</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupMembership#Cloud_UpdateGroupMembership>UpdateGroupMembership</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupRole#Cloud_ListGroupRoles>ListGroupRoles</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupRole#Cloud_GetGroupRole>GetGroupRole</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/GroupShout#Cloud_GetGroupShout>GetGroupShout</a></li></ul><h4>Data Stores</h4><p>Due to current restrictions on <code>HttpService</code>, only alphanumeric
+characters and the <code>-</code> character are allowed in URL path parameters to Roblox
+domains. This means Data Stores/entries with other special characters are
+currently inaccessible from <code>HttpService</code>.</p><ul><li><a href=https://create.roblox.com/docs/cloud/reference/DataStore#Cloud_ListDataStores>ListDataStores</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/DataStoreEntry#Cloud_ListDataStoreEntries__Using_Universes>ListDataStoreEntries</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/DataStoreEntry#Cloud_CreateDataStoreEntry__Using_Universes>CreateDataStoreEntry</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/DataStoreEntry#Cloud_GetDataStoreEntry__Using_Universes_DataStores>GetDataStoreEntry</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/DataStoreEntry#Cloud_DeleteDataStoreEntry__Using_Universes_DataStores>DeleteDataStoreEntry</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/DataStoreEntry#Cloud_UpdateDataStoreEntry__Using_Universes_DataStores>UpdateDataStoreEntry</a></li><li><a href=https://create.roblox.com/docs/cloud/reference/DataStoreEntry#Cloud_IncrementDataStoreEntry__Using_Universes_DataStores>IncrementDataStoreEntry</a></li></ul><h4>Inventory Items</h4><ul><li><a href=https://create.roblox.com/docs/cloud/reference/InventoryItem#Cloud_ListInventoryItems>ListInventoryItems</a></li></ul><h4>Creator Store</h4><ul><li><a href=https://create.roblox.com/docs/cloud/features/creator-store#toolbox-service>CreatorStoreAssetsSearch</a></li></ul><p>You can call these endpoints the same way that you'd call any other endpoint
+via <code>HttpService</code>. The only difference is that you must include an Open Cloud
+API key in the request:</p><ol><li><a href=https://create.roblox.com/docs/cloud/auth/api-keys#create-api-keys>Create an Open Cloud API key</a>.</li><li><a href=https://create.roblox.com/docs/cloud-services/secrets#add-secrets>Save the API key to your secrets store</a>.</li><li>Make the request (code example below).</li></ol><p>Limitations include the following:</p><ul><li>Only the <code>x-api-key</code> and <code>content-type</code> headers are allowed.</li><li>The <code>x-api-key</code> header must be a <a href=/ref/type/Secret.html>Secret</a>.</li><li>Only alphanumeric characters and the <code>-</code> character are allowed in URL path parameters.</li><li>Only the <code>https://</code> protocol is supported.</li></ul><h3>Rate Limiting</h3><p>For each Roblox game server, there is a limit of 500 HTTP requests per minute.
+Exceeding this can cause request-sending methods to stall entirely for around
+30 seconds. Your <a href=https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall>pcall()</a> may also fail with a message of
+"Number of requests exceeded limit."</p><ul><li><p>Open Cloud requests consume the same overall limit of 500 HTTP requests per
+minute enforced on all other requests.</p></li><li><p>Each Open Cloud endpoint has its own limit per API key owner (can be a user
+or a group) that is enforced no matter where the calls come from (<code>HttpService</code>,
+the web, etc.). The following headers are returned with every response and
+allow you to view the limits and your remaining quota:</p><ul><li><code>x-ratelimit-limit</code> - The total number of requests allowed to be made per
+API key owner (usually per minute).</li><li><code>x-ratelimit-remaining</code> - The number of requests the API key used is still
+allowed to make. If this number is 0 and you receive a HTTP 429 response
+status code, then you have reached the rate limit for this endpoint.</li><li><code>x-ratelimit-reset</code> - The number of seconds left before the rate limit
+resets (i.e before <code>x-ratelimit-remaining</code> resets to <code>x-ratelimit-limit</code>).</li></ul></li></ul><h3>Additional considerations</h3><ul><li>There are port restrictions. You cannot use port <code>1194</code> or any port below
 <code>1024</code>, except <code>80</code> and <code>443</code>. If you try to use a blocked port, you will
-receive either a <code>403 Forbidden</code> or <code>ERR_ACCESS_DENIED</code> error.</li><li>For each Roblox game server, there is a limit of 500 HTTP requests per
-minute. Exceeding this may cause request-sending methods to stall entirely
-for about 30 seconds.</li><li>Requests cannot be made to any Roblox website, such as <a href=http://www.roblox.com>www.roblox.com</a>.</li><li>Web requests can fail for many reasons, so it is important to "code
+receive either a <code>403 Forbidden</code> or <code>ERR_ACCESS_DENIED</code> error.</li><li>Web requests can fail for many reasons, so it is important to "code
 defensively" (use <a href=https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall>pcall()</a>) and have a plan for when
 requests fail.</li><li>Although the <code>http://</code> protocol is supported, you should use <code>https://</code>
 wherever possible.</li><li>Requests sent should provide a secure form of authentication, such as a
@@ -858,9 +875,7 @@ reason, it can cause scripts that use this method to stop functioning
 altogether. It is often a good idea to wrap calls to this method in
 <a href=https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall>pcall()</a> and gracefully handle failure cases if the
 required information isn't available.</p><h4>Limitations</h4><p>The current limitation for sending and receiving HTTP requests is 500
-requests per minute. Requests over this threshold will fail. Additionally,
-Roblox domains are excluded. This means that HTTP requests cannot be sent
-to any Roblox-owned site such as <a href=https://www.roblox.com>www.roblox.com</a>.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1058 title="Changed on 2021-01-15T15:56:17-08:00
+requests per minute. Requests over this threshold will fail.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1058 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/HttpService.html#member-RequestAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>RequestAsync</a>
