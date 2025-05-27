@@ -2288,6 +2288,16 @@
 							"Name": "reward",
 							"Optional": false,
 							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64",
+								"Optional": true
+							},
+							"Name": "placementId",
+							"Optional": false,
+							"Default": ""
 						}
 					],
 					"PreferredDescriptor": {
@@ -2422,6 +2432,15 @@
 								"Name": "string"
 							},
 							"Name": "rewardDetails",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "placementId",
 							"Optional": false,
 							"Default": ""
 						}
@@ -14036,7 +14055,18 @@
 				"SavePlaceAsync": {
 					"MemberType": "Function",
 					"Name": "SavePlaceAsync",
-					"Parameters": [],
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary",
+								"Optional": true
+							},
+							"Name": "requestParameters",
+							"Optional": false,
+							"Default": ""
+						}
+					],
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -15253,9 +15283,7 @@
 				"Name": "",
 				"ThreadSafety": ""
 			},
-			"Tags": [
-				"NotBrowsable"
-			]
+			"Tags": []
 		},
 		"AudioChannelSplitter": {
 			"Name": "AudioChannelSplitter",
@@ -15400,9 +15428,7 @@
 				"Name": "",
 				"ThreadSafety": ""
 			},
-			"Tags": [
-				"NotBrowsable"
-			]
+			"Tags": []
 		},
 		"AudioChorus": {
 			"Name": "AudioChorus",
@@ -24940,7 +24966,7 @@
 							"Name": "string"
 						}
 					],
-					"Security": "RobloxScriptSecurity",
+					"Security": "None",
 					"Tags": [
 						"Yields"
 					],
@@ -39585,6 +39611,34 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"DeleteVideoCapture": {
+					"MemberType": "Function",
+					"Name": "DeleteVideoCapture",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "VideoCapture"
+							},
+							"Name": "videoCapture",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"GetCaptureFilePathAsync": {
 					"MemberType": "Function",
 					"Name": "GetCaptureFilePathAsync",
@@ -39887,6 +39941,34 @@
 								"Name": "bool"
 							},
 							"Name": "accepted",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"OnVideoCaptureShared": {
+					"MemberType": "Function",
+					"Name": "OnVideoCaptureShared",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "VideoCapture"
+							},
+							"Name": "videoCapture",
 							"Optional": false,
 							"Default": ""
 						}
@@ -40277,6 +40359,34 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"SaveVideoCaptureToExternalStorage": {
+					"MemberType": "Function",
+					"Name": "SaveVideoCaptureToExternalStorage",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "VideoCapture"
+							},
+							"Name": "videoCapture",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"StartVideoCaptureAsync": {
 					"MemberType": "Function",
 					"Name": "StartVideoCaptureAsync",
@@ -40499,6 +40609,15 @@
 								"Name": "bool"
 							},
 							"Name": "isInProgress",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "captureTrigger",
 							"Optional": false,
 							"Default": ""
 						}
@@ -128690,6 +128809,31 @@
 					},
 					"WriteSecurity": "RobloxSecurity"
 				},
+				"ManifoldMesh_DEPRECATED": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "ManifoldMesh_DEPRECATED",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxSecurity",
+					"Tags": [
+						"Hidden",
+						"NotReplicated",
+						"NotScriptable",
+						"Deprecated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "SharedString"
+					},
+					"WriteSecurity": "RobloxSecurity"
+				},
 				"MeshData": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -136714,6 +136858,76 @@
 					},
 					"WriteSecurity": "RobloxScriptSecurity"
 				},
+				"PinStreamingForInstance": {
+					"MemberType": "Function",
+					"Name": "PinStreamingForInstance",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "depth",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"PinStreamingStart": {
+					"MemberType": "Event",
+					"Name": "PinStreamingStart",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "depth",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"PlatformName": {
 					"CanLoad": false,
 					"CanSave": false,
@@ -137158,6 +137372,39 @@
 					"Security": "None",
 					"Tags": [
 						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"RequestStreamingPin": {
+					"MemberType": "Event",
+					"Name": "RequestStreamingPin",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "depth",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
+					"Tags": [
+						"Hidden"
 					],
 					"ThreadSafety": "Unsafe"
 				},
@@ -137960,6 +138207,28 @@
 					},
 					"WriteSecurity": "RobloxSecurity"
 				},
+				"StreamingPinComplete": {
+					"MemberType": "Event",
+					"Name": "StreamingPinComplete",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"SuperSafeChatReplicate": {
 					"CanLoad": false,
 					"CanSave": false,
@@ -138148,6 +138417,76 @@
 						"Name": "bool"
 					},
 					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"UnpinStreaming": {
+					"MemberType": "Event",
+					"Name": "UnpinStreaming",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "depth",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"UnpinStreamingForInstance": {
+					"MemberType": "Function",
+					"Name": "UnpinStreamingForInstance",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "depth",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
 				},
 				"UpdatePlayerBlocked": {
 					"MemberType": "Function",
@@ -164616,6 +164955,39 @@
 				"NotCreatable"
 			]
 		},
+		"SlimContentProvider": {
+			"Name": "SlimContentProvider",
+			"Superclass": "CacheableContentProvider",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"GetContentMemoryData": {
+					"MemberType": "Function",
+					"Name": "GetContentMemoryData",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Dictionary"
+						}
+					],
+					"Security": "RobloxSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service"
+			]
+		},
 		"Smoke": {
 			"Name": "Smoke",
 			"Superclass": "Instance",
@@ -188330,6 +188702,45 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"ClearVoxelsAsync_beta": {
+					"MemberType": "Function",
+					"Name": "ClearVoxelsAsync_beta",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Region3"
+							},
+							"Name": "region",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "channelIds",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"CustomLuaState"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"Clone": {
 					"MemberType": "Function",
 					"Name": "Clone",
@@ -189168,6 +189579,54 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"IterateVoxelsAsync_beta": {
+					"MemberType": "Function",
+					"Name": "IterateVoxelsAsync_beta",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Region3"
+							},
+							"Name": "region",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "resolution",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "channelIds",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "TerrainIterateOperation"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"CustomLuaState"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"LastUsedModificationMethod": {
 					"CanLoad": false,
 					"CanSave": false,
@@ -189299,6 +189758,54 @@
 						"Name": "Region3int16"
 					},
 					"WriteSecurity": "None"
+				},
+				"ModifyVoxelsAsync_beta": {
+					"MemberType": "Function",
+					"Name": "ModifyVoxelsAsync_beta",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Region3"
+							},
+							"Name": "region",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "resolution",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "channelIds",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "TerrainModifyOperation"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"CustomLuaState"
+					],
+					"ThreadSafety": "Unsafe"
 				},
 				"Name": {
 					"CanLoad": false,
@@ -189500,6 +190007,54 @@
 						"CustomLuaState"
 					],
 					"ThreadSafety": "Safe"
+				},
+				"ReadVoxelsAsync_beta": {
+					"MemberType": "Function",
+					"Name": "ReadVoxelsAsync_beta",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Region3"
+							},
+							"Name": "region",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "resolution",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "channelIds",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "TerrainReadOperation"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"CustomLuaState"
+					],
+					"ThreadSafety": "Unsafe"
 				},
 				"Reflectance": {
 					"CanLoad": false,
@@ -190685,6 +191240,54 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"WriteVoxelsAsync_beta": {
+					"MemberType": "Function",
+					"Name": "WriteVoxelsAsync_beta",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Region3"
+							},
+							"Name": "region",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "resolution",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "channelIds",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "TerrainWriteOperation"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"CustomLuaState"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"breakJoints": {
 					"MemberType": "Function",
 					"Name": "breakJoints",
@@ -191068,6 +191671,173 @@
 			},
 			"Tags": []
 		},
+		"TerrainIterateOperation": {
+			"Name": "TerrainIterateOperation",
+			"Superclass": "Object",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"CommitBlock": {
+					"MemberType": "Function",
+					"Name": "CommitBlock",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "block",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "RBXScriptSignal"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"Ready": {
+					"MemberType": "Event",
+					"Name": "Ready",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "block",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"NotReplicated"
+			]
+		},
+		"TerrainModifyOperation": {
+			"Name": "TerrainModifyOperation",
+			"Superclass": "Object",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"CommitBlock": {
+					"MemberType": "Function",
+					"Name": "CommitBlock",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "block",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "RBXScriptSignal"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"Ready": {
+					"MemberType": "Event",
+					"Name": "Ready",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "block",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"NotReplicated"
+			]
+		},
+		"TerrainReadOperation": {
+			"Name": "TerrainReadOperation",
+			"Superclass": "Object",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"Ready": {
+					"MemberType": "Event",
+					"Name": "Ready",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "block",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"NotReplicated"
+			]
+		},
 		"TerrainRegion": {
 			"Name": "TerrainRegion",
 			"Superclass": "Instance",
@@ -191342,6 +192112,69 @@
 				"ThreadSafety": ""
 			},
 			"Tags": []
+		},
+		"TerrainWriteOperation": {
+			"Name": "TerrainWriteOperation",
+			"Superclass": "Object",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"CommitBlock": {
+					"MemberType": "Function",
+					"Name": "CommitBlock",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "block",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "RBXScriptSignal"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetBlock": {
+					"MemberType": "Function",
+					"Name": "GetBlock",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Dictionary"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"CustomLuaState"
+					],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"NotReplicated"
+			]
 		},
 		"TestService": {
 			"Name": "TestService",
@@ -195727,7 +196560,8 @@
 					],
 					"Security": "None",
 					"Tags": [
-						"Yields"
+						"Yields",
+						"Deprecated"
 					],
 					"ThreadSafety": "Unsafe"
 				},
@@ -211779,6 +212613,29 @@
 					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
+				},
+				"PreferredInput": {
+					"CanLoad": false,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "PreferredInput",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"ReadOnly",
+						"NotReplicated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "PreferredInput"
+					},
+					"WriteSecurity": "None"
 				},
 				"ProcessedEvent": {
 					"MemberType": "Event",
@@ -239964,6 +240821,17 @@
 					},
 					"Tags": []
 				},
+				"GraphicsSlimModels": {
+					"Name": "GraphicsSlimModels",
+					"Value": 25,
+					"Index": 23,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"GraphicsSolidModels": {
 					"Name": "GraphicsSolidModels",
 					"Value": 8,
@@ -256150,6 +257018,49 @@
 					"Name": "TwoAttachment",
 					"Value": 1,
 					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"PreferredInput": {
+			"Name": "PreferredInput",
+			"Items": {
+				"Gamepad": {
+					"Name": "Gamepad",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"KeyboardAndMouse": {
+					"Name": "KeyboardAndMouse",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Touch": {
+					"Name": "Touch",
+					"Value": 2,
+					"Index": 2,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",

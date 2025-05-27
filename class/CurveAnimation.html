@@ -174,30 +174,29 @@ animation system. It stores animation data for each animated channel in a rig
 as a separate, individual curve. For example, <code>CurveAnimation</code> stores the
 position channel for an articulated joint as a <a href=/ref/class/Vector3Curve.html>Vector3Curve</a>, and it
 might store the rotation channel as a <a href=/ref/class/EulerRotationCurve.html>EulerRotationCurve</a> or
-<a href=/ref/class/RotationCurve.html>RotationCurve</a>.</p><h3>Structure</h3><p><code>CurveAnimation</code> stores curves in a hierarchical manner, matching the hierarchy
-of the structure of <a href=/ref/class/Motor6D.html>Motor6Ds</a> or <a href=/ref/class/Bone.html>Bones</a> in the
-animated model. Under each <code>CurveAnimation</code> instance lies a hierarchy of
-<a href=/ref/class/Folder.html>Folder</a> instances representing animated joints in the model. Under each
-such folder instance, several possible instances may exist. An instance named
-<code>Position</code> of type <a href=/ref/class/Vector3Curve.html>Vector3Curve</a> can drive the local translation of the
-<a href=/ref/class/Motor6D.html>Motor6D</a> or <a href=/ref/class/Bone.html>Bone</a> on the animated model, while an instance
-named <code>Rotation</code> of type <a href=/ref/class/EulerRotationCurve.html>EulerRotationCurve</a> or
+<a href=/ref/class/RotationCurve.html>RotationCurve</a>.</p><h3>Structure</h3><p><code>CurveAnimation</code> stores curves in a hierarchical manner, matching the
+hierarchy of the structure of <a href=/ref/class/Motor6D.html>Motor6Ds</a> or <a href=/ref/class/Bone.html>Bones</a>
+in the animated model. Under each <code>CurveAnimation</code> instance lies a hierarchy
+of <a href=/ref/class/Folder.html>Folder</a> instances representing animated joints in the model. Under
+each such folder instance, several possible instances may exist. An instance
+named <code>Position</code> of type <a href=/ref/class/Vector3Curve.html>Vector3Curve</a> can drive the local translation
+of the <a href=/ref/class/Motor6D.html>Motor6D</a> or <a href=/ref/class/Bone.html>Bone</a> on the animated model, while an
+instance named <code>Rotation</code> of type <a href=/ref/class/EulerRotationCurve.html>EulerRotationCurve</a> or
 <a href=/ref/class/RotationCurve.html>RotationCurve</a> can drive the local rotation of the <a href=/ref/class/Motor6D.html>Motor6D</a> or
-<a href=/ref/class/Bone.html>Bone</a> on the animated model.</p><h3>Partial matching of hierarchy</h3><p>You can match partial hierarchies to a model when playing a <code>CurveAnimation</code> in
-Roblox's animation system. This means that not all joints need to be present
-in the hierarchy for the existing joints to apply properly.
+<a href=/ref/class/Bone.html>Bone</a> on the animated model.</p><h3>Partial matching of hierarchy</h3><p>You can match partial hierarchies to a model when playing a <code>CurveAnimation</code>
+in Roblox's animation system. This means that not all joints need to be
+present in the hierarchy for the existing joints to apply properly.
 Furthermore, you can match hierarchies in a "relative" manner. For example,
-the first child <a href=/ref/class/Folder.html>Folder</a> instance root can be <code>UpperTorso</code> and
-the animation system matches that to any existing sub-hierarchies in the
-model.</p><h3>Animating miscellaneous channels</h3><p><code>CurveAnimation</code> can also animate other numerical values in a model. For
+the first child <a href=/ref/class/Folder.html>Folder</a> instance root can be <code>UpperTorso</code> and the
+animation system matches that to any existing sub-hierarchies in the model.</p><h3>Animating miscellaneous channels</h3><p><code>CurveAnimation</code> can also animate other numerical values in a model. For
 example, you can animate FACS controls for facial animations by creating a
 <a href=/ref/class/Folder.html>Folder</a> under the <code>CurveAnimation</code> instance named after an existing
 <a href=/ref/class/FaceControls.html>FaceControls</a> instance in the model. Then, to animate individual facial
 controllers, you can store individual <a href=/ref/class/FloatCurve.html>FloatCurve</a> instances named after
 the animated <a href=/ref/class/FaceControls.html>FaceControls</a> property.</p><h3>Usage when making animations</h3><p>As with other <a href=/ref/class/AnimationClip.html>AnimationClip</a> types such as <a href=/ref/class/KeyframeSequence.html>KeyframeSequence</a>,
-you must first upload <code>CurveAnimation</code> instances to Roblox before playing them.
-If you want to preview an animation before uploading it to Roblox,
-you can generate a temporary ID using
+you must first upload <code>CurveAnimation</code> instances to Roblox before playing
+them. If you want to preview an animation before uploading it to Roblox, you
+can generate a temporary ID using
 <a href=/ref/class/AnimationClipProvider.html#member-RegisterAnimationClip>AnimationClipProvider:RegisterAnimationClip()</a>; this generates a hash
 ID that you can use for localized animation testing.</p><p>If you want to download the <code>CurveAnimation</code> corresponding to an existing
 uploaded animation using Luau scripts, use

@@ -780,10 +780,8 @@ with the arguments listed below. Valid input enum items include those
 within the following: <a href=/ref/enum/KeyCode.html>KeyCode</a>, <a href=/ref/enum/UserInputType.html>UserInputType</a> or
 <a href=/ref/enum/PlayerActions.html>PlayerActions</a> . Call this function when a player <strong>enters the
 context</strong> in which an action can be performed. When the player leaves the
-context, call <a href=/ref/class/ContextActionService.html#member-UnbindAction>UnbindAction</a>
-with the same <code>actionName</code>. You can manually call the action handling
-function of an action by using
-<a href=/ref/class/ContextActionService.html#member-CallFunction>CallFunction</a>.</p><p>The code sample below shows how a <a href=/ref/class/Sound.html>Sound</a> can be
+context, call <a href=/ref/class/ContextActionService.html#member-UnbindAction>UnbindAction()</a>
+with the same <code>actionName</code>.</p><p>The code sample below shows how a <a href=/ref/class/Sound.html>Sound</a> can be
 <a href=/ref/class/Sound.html#member-Play>played</a> while a key (<kbd>H</kbd>), game pad button,
 or touch screen button is pressed.</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre tabindex=0 class=_chroma><span class=_lnt> 1
 </span><span class=_lnt> 2
@@ -829,10 +827,13 @@ or touch screen button is pressed.</p><div class=_chroma><table class=_lntable><
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_c1>-- When the player gets out:</span>
 </span></span><span class=_line><span class=_cl><span class=_n>ContextActionService</span><span class=_p>:</span><span class=_n>UnbindAction</span><span class=_p>(</span><span class=_s2>&#34;HonkHorn&#34;</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div><h4>Action Handler Parameters</h4><p>The action handler functions are called with the following parameters:</p><table><tbody><tr><th>#</th><th>Type</th><th>Description</th></tr><tr><td>1</td><td><code>string</code></td><td>The same string that was originally passed to BindAction†</td></tr><tr><td>2</td><td><a href=/ref/enum/UserInputState.html>UserInputState</a></td><td>The state of the input (Begin, Change, End or Cancel)*</td></tr><tr><td>3</td><td><code>InputObject</code></td><td>An object that contains information about the input (varies based on UserInputType)</td></tr></tbody></table><p>† This allows one function to handle multiple actions at once, if
-necessary. *Cancel is sent if some input was in-progress and another
-action bound over the in-progress input, or if the in-progress bound
-action was <a href=/ref/class/ContextActionService.html#member-UnbindAction>unbound</a>.</p><h4>Action Bindings Stack</h4><p>Action bindings behave like a stack: if two actions are bound to the same
+</span></span></code></pre></td></tr></tbody></table></div><h4>Action Handler Parameters</h4><p>The action handler functions are called with the following parameters:</p><table><tbody><tr><th>#</th><th>Type</th><th>Description</th></tr><tr><td>1</td><td><code>string</code></td><td>The same string that was originally passed to <a href=/ref/class/ContextActionService.html#member-BindAction>BindAction()</a>.
+This allows one function to handle multiple actions at once, if necessary.</td></tr><tr><td>2</td><td><a href=/ref/enum/UserInputState.html>UserInputState</a></td><td>The state of the input. <a href=/ref/enum/UserInputState.html>Cancel</a> is sent
+if some input was in progress and another action bound over that in-progress
+input, or if the in-progress bound action was unbound through <a href=/ref/class/ContextActionService.html#member-UnbindAction>UnbindAction()</a>.</td></tr><tr><td>3</td><td><code>InputObject</code></td><td>An object that contains information about the input (varies based on
+<a href=/ref/enum/UserInputType.html>UserInputType</a>). The <a href=/ref/class/InputObject.html>InputObject</a> sometimes won't match the inputs the action
+was bound to: when the <a href=/ref/enum/UserInputState.html>Cancel</a> state is sent, this object will be
+<a href=/ref/enum/KeyCode.html>KeyCode.Unknown</a> and <a href=/ref/enum/UserInputType.html>UserInputType.None</a>.</td></tr></tbody></table><h4>Action Bindings Stack</h4><p>Action bindings behave like a stack: if two actions are bound to the same
 user input, the <strong>most recently bound</strong> action handler will be used. If an
 action handler returns <a href=/ref/enum/ContextActionResult.html>ContextActionResult.Pass</a>, the next most
 recently bound action handler will be called, and so on until a handler

@@ -1554,6 +1554,20 @@
 					"Member": "ShowRewardedVideoAdAsync",
 					"MemberType": "Function",
 					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64",
+						"Optional": true
+					}
+				},
+				{
+					"Class": "AdService",
+					"Member": "ShowRewardedVideoAdAsync",
+					"MemberType": "Function",
+					"Removed": false,
 					"Field": "ReturnType",
 					"Kind": "Type",
 					"Index": 0,
@@ -1885,6 +1899,19 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
+					}
+				},
+				{
+					"Class": "AdService",
+					"Member": "rewardedVideoAdPlayServerToClient",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
 					}
 				},
 				{
@@ -12052,6 +12079,20 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "null"
+					}
+				},
+				{
+					"Class": "AssetService",
+					"Member": "SavePlaceAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary",
+						"Optional": true
 					}
 				},
 				{
@@ -32185,6 +32226,7 @@
 			"Subclasses": [
 				"HSRDataContentProvider",
 				"MeshContentProvider",
+				"SlimContentProvider",
 				"SolidModelContentProvider",
 				"TextureContentProvider"
 			],
@@ -33368,6 +33410,32 @@
 				},
 				{
 					"Class": "CaptureService",
+					"Member": "DeleteVideoCapture",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "DeleteVideoCapture",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
 					"Member": "GetCaptureFilePathAsync",
 					"MemberType": "Function",
 					"Removed": false,
@@ -33615,6 +33683,32 @@
 				},
 				{
 					"Class": "CaptureService",
+					"Member": "OnVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "OnVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
 					"Member": "PromptSaveCapturesToGallery",
 					"MemberType": "Function",
 					"Removed": false,
@@ -33798,6 +33892,32 @@
 				{
 					"Class": "CaptureService",
 					"Member": "SaveScreenshotCapture",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "SaveVideoCaptureToExternalStorage",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "SaveVideoCaptureToExternalStorage",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -34157,6 +34277,19 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "VideoCaptureInProgress",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
 					}
 				},
 				{
@@ -91501,12 +91634,38 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "PinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "SaveInstance",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Class",
 						"Name": "Instance"
@@ -91546,6 +91705,58 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 2,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "PinStreamingStart",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "RequestStreamingPin",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "StreamingPinComplete",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreaming",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Class",
 						"Name": "Instance"
@@ -115226,7 +115437,11 @@
 				"ConfigSnapshot",
 				"EditableImage",
 				"EditableMesh",
-				"Instance"
+				"Instance",
+				"TerrainIterateOperation",
+				"TerrainModifyOperation",
+				"TerrainReadOperation",
+				"TerrainWriteOperation"
 			],
 			"Superclasses": [
 				"<<<ROOT>>>"
@@ -117126,7 +117341,7 @@
 				},
 				{
 					"Class": "PartOperation",
-					"Member": "ManifoldMesh",
+					"Member": "ManifoldMesh_DEPRECATED",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -117343,6 +117558,19 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "CollisionFidelity"
+					}
+				},
+				{
+					"Class": "PartOperation",
+					"Member": "ManifoldMesh",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "SharedString"
 					}
 				},
 				{
@@ -123760,6 +123988,45 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "PinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "PinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "PinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "RemoveCharacter",
 					"MemberType": "Function",
 					"Removed": false,
@@ -124333,6 +124600,45 @@
 				{
 					"Class": "Player",
 					"Member": "SetUnder13",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreamingForInstance",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -124943,6 +125249,32 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "PinStreamingStart",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "PinStreamingStart",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "PlayerCharacterLoaded",
 					"MemberType": "Event",
 					"Removed": false,
@@ -125030,6 +125362,32 @@
 					"Type": {
 						"Category": "DataType",
 						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "RequestStreamingPin",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "RequestStreamingPin",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				},
 				{
@@ -125186,6 +125544,45 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "StreamingPinComplete",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreaming",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Instance"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreaming",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
 					}
 				},
 				{
@@ -147490,6 +147887,33 @@
 				}
 			]
 		},
+		"SlimContentProvider": {
+			"Name": "SlimContentProvider",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"CacheableContentProvider",
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "SlimContentProvider",
+					"Member": "GetContentMemoryData",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				}
+			]
+		},
 		"Smoke": {
 			"Name": "Smoke",
 			"Removed": false,
@@ -166090,6 +166514,45 @@
 				},
 				{
 					"Class": "Terrain",
+					"Member": "ClearVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ClearVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ClearVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Terrain",
 					"Member": "ConvertToSmooth",
 					"MemberType": "Function",
 					"Removed": false,
@@ -166584,6 +167047,110 @@
 				},
 				{
 					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainIterateOperation"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainModifyOperation"
+					}
+				},
+				{
+					"Class": "Terrain",
 					"Member": "PasteRegion",
 					"MemberType": "Function",
 					"Removed": false,
@@ -166723,6 +167290,58 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Tuple"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainReadOperation"
 					}
 				},
 				{
@@ -167568,6 +168187,58 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "null"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainWriteOperation"
 					}
 				},
 				{
@@ -168430,6 +169101,172 @@
 				}
 			]
 		},
+		"TerrainIterateOperation": {
+			"Name": "TerrainIterateOperation",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainIterateOperation"
+					}
+				},
+				{
+					"Class": "TerrainIterateOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainIterateOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
+					"Class": "TerrainIterateOperation",
+					"Member": "Ready",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				}
+			]
+		},
+		"TerrainModifyOperation": {
+			"Name": "TerrainModifyOperation",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainModifyOperation"
+					}
+				},
+				{
+					"Class": "TerrainModifyOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainModifyOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
+					"Class": "TerrainModifyOperation",
+					"Member": "Ready",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				}
+			]
+		},
+		"TerrainReadOperation": {
+			"Name": "TerrainReadOperation",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainReadOperation"
+					}
+				},
+				{
+					"Class": "TerrainReadOperation",
+					"Member": "Ready",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				}
+			]
+		},
 		"TerrainRegion": {
 			"Name": "TerrainRegion",
 			"Removed": false,
@@ -168673,6 +169510,70 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
+					}
+				}
+			]
+		},
+		"TerrainWriteOperation": {
+			"Name": "TerrainWriteOperation",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "TerrainWriteOperation"
+					}
+				},
+				{
+					"Class": "TerrainWriteOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainWriteOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
+					"Class": "TerrainWriteOperation",
+					"Member": "GetBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
 					}
 				}
 			]
@@ -185106,6 +186007,19 @@
 				},
 				{
 					"Class": "UserInputService",
+					"Member": "PreferredInput",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "PreferredInput"
+					}
+				},
+				{
+					"Class": "UserInputService",
 					"Member": "RightBarSize",
 					"MemberType": "Property",
 					"Removed": false,
@@ -188395,6 +189309,45 @@
 				"<<<ROOT>>>"
 			],
 			"Related": [
+				{
+					"Class": "CaptureService",
+					"Member": "DeleteVideoCapture",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "OnVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "SaveVideoCaptureToExternalStorage",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
 				{
 					"Class": "VideoCapture",
 					"Member": "TimeLength",
@@ -215131,6 +216084,27 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"DeleteVideoCapture": {
+				"Class": "CaptureService",
+				"Name": "DeleteVideoCapture",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "CaptureService",
+						"Member": "DeleteVideoCapture",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "VideoCapture"
+						}
+					}
+				]
+			},
 			"GetCaptureFilePathAsync": {
 				"Class": "CaptureService",
 				"Name": "GetCaptureFilePathAsync",
@@ -215196,6 +216170,27 @@
 				"Name": "OnSharePromptFinished",
 				"MemberType": "Function",
 				"Removed": false
+			},
+			"OnVideoCaptureShared": {
+				"Class": "CaptureService",
+				"Name": "OnVideoCaptureShared",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "CaptureService",
+						"Member": "OnVideoCaptureShared",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "VideoCapture"
+						}
+					}
+				]
 			},
 			"OpenSaveCapturesPrompt": {
 				"Class": "CaptureService",
@@ -215268,6 +216263,27 @@
 				"Name": "SaveScreenshotCapture",
 				"MemberType": "Function",
 				"Removed": false
+			},
+			"SaveVideoCaptureToExternalStorage": {
+				"Class": "CaptureService",
+				"Name": "SaveVideoCaptureToExternalStorage",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "CaptureService",
+						"Member": "SaveVideoCaptureToExternalStorage",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "VideoCapture"
+						}
+					}
+				]
 			},
 			"StartVideoCaptureAsync": {
 				"Class": "CaptureService",
@@ -247771,6 +248787,12 @@
 				"Class": "PartOperation",
 				"Name": "ManifoldMesh",
 				"MemberType": "Property",
+				"Removed": true
+			},
+			"ManifoldMesh_DEPRECATED": {
+				"Class": "PartOperation",
+				"Name": "ManifoldMesh_DEPRECATED",
+				"MemberType": "Property",
 				"Removed": false
 			},
 			"MeshData": {
@@ -250744,6 +251766,48 @@
 				"MemberType": "Property",
 				"Removed": true
 			},
+			"PinStreamingForInstance": {
+				"Class": "Player",
+				"Name": "PinStreamingForInstance",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Player",
+						"Member": "PinStreamingForInstance",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"PinStreamingStart": {
+				"Class": "Player",
+				"Name": "PinStreamingStart",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Player",
+						"Member": "PinStreamingStart",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
 			"PlatformName": {
 				"Class": "Player",
 				"Name": "PlatformName",
@@ -250920,6 +251984,27 @@
 				"Name": "RequestStreamAroundAsync",
 				"MemberType": "Function",
 				"Removed": false
+			},
+			"RequestStreamingPin": {
+				"Class": "Player",
+				"Name": "RequestStreamingPin",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Player",
+						"Member": "RequestStreamingPin",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
 			},
 			"RespawnLocation": {
 				"Class": "Player",
@@ -251164,6 +252249,27 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"StreamingPinComplete": {
+				"Class": "Player",
+				"Name": "StreamingPinComplete",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Player",
+						"Member": "StreamingPinComplete",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
 			"SuperSafeChatReplicate": {
 				"Class": "Player",
 				"Name": "SuperSafeChatReplicate",
@@ -251256,6 +252362,48 @@
 				"Name": "UnfilteredChat",
 				"MemberType": "Property",
 				"Removed": false
+			},
+			"UnpinStreaming": {
+				"Class": "Player",
+				"Name": "UnpinStreaming",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Player",
+						"Member": "UnpinStreaming",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
+			},
+			"UnpinStreamingForInstance": {
+				"Class": "Player",
+				"Name": "UnpinStreamingForInstance",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Player",
+						"Member": "UnpinStreamingForInstance",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Instance"
+						}
+					}
+				]
 			},
 			"UpdatePlayerBlocked": {
 				"Class": "Player",
@@ -261357,6 +262505,14 @@
 				"Removed": false
 			}
 		},
+		"SlimContentProvider": {
+			"GetContentMemoryData": {
+				"Class": "SlimContentProvider",
+				"Name": "GetContentMemoryData",
+				"MemberType": "Function",
+				"Removed": false
+			}
+		},
 		"Smoke": {
 			"Color": {
 				"Class": "Smoke",
@@ -269767,6 +270923,12 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"ClearVoxelsAsync_beta": {
+				"Class": "Terrain",
+				"Name": "ClearVoxelsAsync_beta",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"Clone": {
 				"Class": "Terrain",
 				"Name": "Clone",
@@ -270058,6 +271220,27 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"IterateVoxelsAsync_beta": {
+				"Class": "Terrain",
+				"Name": "IterateVoxelsAsync_beta",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Terrain",
+						"Member": "IterateVoxelsAsync_beta",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "TerrainIterateOperation"
+						}
+					}
+				]
+			},
 			"LastUsedModificationMethod": {
 				"Class": "Terrain",
 				"Name": "LastUsedModificationMethod",
@@ -270124,6 +271307,27 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"ModifyVoxelsAsync_beta": {
+				"Class": "Terrain",
+				"Name": "ModifyVoxelsAsync_beta",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Terrain",
+						"Member": "ModifyVoxelsAsync_beta",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "TerrainModifyOperation"
+						}
+					}
+				]
+			},
 			"Name": {
 				"Class": "Terrain",
 				"Name": "Name",
@@ -270174,6 +271378,27 @@
 				"Name": "ReadVoxels",
 				"MemberType": "Function",
 				"Removed": false
+			},
+			"ReadVoxelsAsync_beta": {
+				"Class": "Terrain",
+				"Name": "ReadVoxelsAsync_beta",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Terrain",
+						"Member": "ReadVoxelsAsync_beta",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "TerrainReadOperation"
+						}
+					}
+				]
 			},
 			"Reflectance": {
 				"Class": "Terrain",
@@ -270627,6 +271852,27 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"WriteVoxelsAsync_beta": {
+				"Class": "Terrain",
+				"Name": "WriteVoxelsAsync_beta",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Terrain",
+						"Member": "WriteVoxelsAsync_beta",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "TerrainWriteOperation"
+						}
+					}
+				]
+			},
 			"breakJoints": {
 				"Class": "Terrain",
 				"Name": "breakJoints",
@@ -270792,6 +272038,42 @@
 				"Removed": false
 			}
 		},
+		"TerrainIterateOperation": {
+			"CommitBlock": {
+				"Class": "TerrainIterateOperation",
+				"Name": "CommitBlock",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"Ready": {
+				"Class": "TerrainIterateOperation",
+				"Name": "Ready",
+				"MemberType": "Event",
+				"Removed": false
+			}
+		},
+		"TerrainModifyOperation": {
+			"CommitBlock": {
+				"Class": "TerrainModifyOperation",
+				"Name": "CommitBlock",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"Ready": {
+				"Class": "TerrainModifyOperation",
+				"Name": "Ready",
+				"MemberType": "Event",
+				"Removed": false
+			}
+		},
+		"TerrainReadOperation": {
+			"Ready": {
+				"Class": "TerrainReadOperation",
+				"Name": "Ready",
+				"MemberType": "Event",
+				"Removed": false
+			}
+		},
 		"TerrainRegion": {
 			"ApplyTransform": {
 				"Class": "TerrainRegion",
@@ -270866,6 +272148,20 @@
 				"Class": "TerrainRegion",
 				"Name": "SmoothGrid",
 				"MemberType": "Property",
+				"Removed": false
+			}
+		},
+		"TerrainWriteOperation": {
+			"CommitBlock": {
+				"Class": "TerrainWriteOperation",
+				"Name": "CommitBlock",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetBlock": {
+				"Class": "TerrainWriteOperation",
+				"Name": "GetBlock",
+				"MemberType": "Function",
 				"Removed": false
 			}
 		},
@@ -279299,6 +280595,27 @@
 				"Name": "PointerAction",
 				"MemberType": "Event",
 				"Removed": false
+			},
+			"PreferredInput": {
+				"Class": "UserInputService",
+				"Name": "PreferredInput",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "UserInputService",
+						"Member": "PreferredInput",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "PreferredInput"
+						}
+					}
+				]
 			},
 			"ProcessedEvent": {
 				"Class": "UserInputService",
@@ -291955,7 +293272,8 @@
 				"Gui",
 				"Animation",
 				"Navigation",
-				"GeometryCSG"
+				"GeometryCSG",
+				"GraphicsSlimModels"
 			],
 			"ItemsByIndex": [
 				"Internal",
@@ -291980,7 +293298,8 @@
 				"Gui",
 				"Animation",
 				"Navigation",
-				"GeometryCSG"
+				"GeometryCSG",
+				"GraphicsSlimModels"
 			],
 			"Related": [
 				{
@@ -301210,6 +302529,35 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "PositionAlignmentMode"
+					}
+				}
+			]
+		},
+		"PreferredInput": {
+			"Name": "PreferredInput",
+			"Removed": false,
+			"ItemsByValue": [
+				"KeyboardAndMouse",
+				"Gamepad",
+				"Touch"
+			],
+			"ItemsByIndex": [
+				"KeyboardAndMouse",
+				"Gamepad",
+				"Touch"
+			],
+			"Related": [
+				{
+					"Class": "UserInputService",
+					"Member": "PreferredInput",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "PreferredInput"
 					}
 				}
 			]
@@ -314589,6 +315937,11 @@
 				"Name": "GraphicsParts",
 				"Removed": false
 			},
+			"GraphicsSlimModels": {
+				"Enum": "DeveloperMemoryTag",
+				"Name": "GraphicsSlimModels",
+				"Removed": false
+			},
 			"GraphicsSolidModels": {
 				"Enum": "DeveloperMemoryTag",
 				"Name": "GraphicsSolidModels",
@@ -321315,6 +322668,23 @@
 			"TwoAttachment": {
 				"Enum": "PositionAlignmentMode",
 				"Name": "TwoAttachment",
+				"Removed": false
+			}
+		},
+		"PreferredInput": {
+			"Gamepad": {
+				"Enum": "PreferredInput",
+				"Name": "Gamepad",
+				"Removed": false
+			},
+			"KeyboardAndMouse": {
+				"Enum": "PreferredInput",
+				"Name": "KeyboardAndMouse",
+				"Removed": false
+			},
+			"Touch": {
+				"Enum": "PreferredInput",
+				"Name": "Touch",
 				"Removed": false
 			}
 		},
@@ -330581,6 +331951,19 @@
 				},
 				{
 					"Class": "Terrain",
+					"Member": "ClearVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
 					"Member": "GetTerrainWireframe",
 					"MemberType": "Function",
 					"Removed": false,
@@ -330594,7 +331977,46 @@
 				},
 				{
 					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
 					"Member": "ReadVoxelChannels",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -330626,6 +332048,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 3,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
 					"Type": {
 						"Category": "Group",
 						"Name": "Array"
@@ -340384,6 +341819,20 @@
 					}
 				},
 				{
+					"Class": "AssetService",
+					"Member": "SavePlaceAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary",
+						"Optional": true
+					}
+				},
+				{
 					"Class": "AudioEmitter",
 					"Member": "GetAngleAttenuation",
 					"MemberType": "Function",
@@ -342911,6 +344360,19 @@
 					}
 				},
 				{
+					"Class": "SlimContentProvider",
+					"Member": "GetContentMemoryData",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
 					"Class": "SoundService",
 					"Member": "EndRecording",
 					"MemberType": "Function",
@@ -343258,6 +344720,97 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 2,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainIterateOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainIterateOperation",
+					"Member": "Ready",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainModifyOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainModifyOperation",
+					"Member": "Ready",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainReadOperation",
+					"Member": "Ready",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainWriteOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "TerrainWriteOperation",
+					"Member": "GetBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Group",
 						"Name": "Dictionary"
@@ -350051,6 +351604,45 @@
 					}
 				},
 				{
+					"Class": "TerrainIterateOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
+					"Class": "TerrainModifyOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
+					"Class": "TerrainWriteOperation",
+					"Member": "CommitBlock",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "RBXScriptSignal"
+					}
+				},
+				{
 					"Class": "Instance",
 					"Member": "GetPropertyChangedSignal",
 					"MemberType": "Function",
@@ -350652,7 +352244,46 @@
 				},
 				{
 					"Class": "Terrain",
+					"Member": "ClearVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
 					"Member": "FillRegion",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -350679,6 +352310,19 @@
 				{
 					"Class": "Terrain",
 					"Member": "ReadVoxels",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -350731,6 +352375,19 @@
 				{
 					"Class": "Terrain",
 					"Member": "WriteVoxels",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Region3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -351214,7 +352871,7 @@
 				},
 				{
 					"Class": "PartOperation",
-					"Member": "ManifoldMesh",
+					"Member": "ManifoldMesh_DEPRECATED",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -351332,6 +352989,19 @@
 				{
 					"Class": "PartOperation",
 					"Member": "CSGMesh2KernelMap",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "SharedString"
+					}
+				},
+				{
+					"Class": "PartOperation",
+					"Member": "ManifoldMesh",
 					"MemberType": "Property",
 					"Removed": true,
 					"Field": "ValueType",
@@ -405720,6 +407390,19 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "PinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "RemoveReplicationFocusPosition",
 					"MemberType": "Function",
 					"Removed": false,
@@ -405746,6 +407429,19 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "UnpinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "OverrideStreamRadii",
 					"MemberType": "Event",
 					"Removed": false,
@@ -405760,6 +407456,45 @@
 				{
 					"Class": "Player",
 					"Member": "OverrideStreamRadii",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "PinStreamingStart",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "RequestStreamingPin",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreaming",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -407826,6 +409561,45 @@
 				},
 				{
 					"Class": "Terrain",
+					"Member": "IterateVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ModifyVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ReadVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
 					"Member": "SetCell",
 					"MemberType": "Function",
 					"Removed": false,
@@ -407897,6 +409671,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "WriteVoxelsAsync_beta",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
@@ -412240,6 +414027,20 @@
 				},
 				{
 					"Class": "AdService",
+					"Member": "ShowRewardedVideoAdAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64",
+						"Optional": true
+					}
+				},
+				{
+					"Class": "AdService",
 					"Member": "PortalPrompt",
 					"MemberType": "Event",
 					"Removed": false,
@@ -412285,6 +414086,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 6,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "AdService",
+					"Member": "rewardedVideoAdPlayServerToClient",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int64"
@@ -422415,6 +424229,19 @@
 				},
 				{
 					"Class": "CaptureService",
+					"Member": "DeleteVideoCapture",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
 					"Member": "OnCaptureBegan",
 					"MemberType": "Function",
 					"Removed": false,
@@ -422480,6 +424307,19 @@
 				},
 				{
 					"Class": "CaptureService",
+					"Member": "OnVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
 					"Member": "PromptSaveCapturesToGallery",
 					"MemberType": "Function",
 					"Removed": false,
@@ -422520,6 +424360,19 @@
 				{
 					"Class": "CaptureService",
 					"Member": "SaveScreenshotCapture",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "SaveVideoCaptureToExternalStorage",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -428707,6 +430560,19 @@
 				},
 				{
 					"Class": "Player",
+					"Member": "PinStreamingForInstance",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Player",
 					"Member": "RemoveCharacter",
 					"MemberType": "Function",
 					"Removed": false,
@@ -428955,6 +430821,19 @@
 				{
 					"Class": "Player",
 					"Member": "SetUnder13",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Player",
+					"Member": "UnpinStreamingForInstance",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -432283,6 +434162,19 @@
 				{
 					"Class": "Terrain",
 					"Member": "Clear",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ClearVoxelsAsync_beta",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -438977,6 +440869,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "VideoCaptureInProgress",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
