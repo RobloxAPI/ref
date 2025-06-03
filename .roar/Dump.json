@@ -2446,6 +2446,39 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"rewardedVideoAdPlayServerToClientWithPlacement": {
+					"MemberType": "Event",
+					"Name": "rewardedVideoAdPlayServerToClientWithPlacement",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "rewardDetails",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "placementId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"rewardedVideoAdResultClientToServer": {
 					"MemberType": "Event",
 					"Name": "rewardedVideoAdResultClientToServer",
@@ -21367,6 +21400,29 @@
 						"Name": "int"
 					},
 					"WriteSecurity": "None"
+				},
+				"MaxFrequency": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "MaxFrequency",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"Hidden",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "int"
+					},
+					"WriteSecurity": "None"
 				}
 			},
 			"PreferredDescriptor": {
@@ -40077,6 +40133,34 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"PreVideoCaptureShared": {
+					"MemberType": "Function",
+					"Name": "PreVideoCaptureShared",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "VideoCapture"
+							},
+							"Name": "videoCapture",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "string"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"PromptSaveCapturesToGallery": {
 					"MemberType": "Function",
 					"Name": "PromptSaveCapturesToGallery",
@@ -40397,7 +40481,7 @@
 					"ReturnType": [
 						{
 							"Category": "Enum",
-							"Name": "VideoCaptureResult"
+							"Name": "VideoCaptureStartedResult"
 						}
 					],
 					"Security": "None",
@@ -40435,7 +40519,7 @@
 					"ReturnType": [
 						{
 							"Category": "Enum",
-							"Name": "VideoCaptureResult"
+							"Name": "VideoCaptureStartedResult"
 						}
 					],
 					"Security": "RobloxScriptSecurity",
@@ -40565,6 +40649,28 @@
 							"Type": {
 								"Category": "Enum",
 								"Name": "VideoCaptureResult"
+							},
+							"Name": "result",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"UserVideoCaptureStartFailed": {
+					"MemberType": "Event",
+					"Name": "UserVideoCaptureStartFailed",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "VideoCaptureStartedResult"
 							},
 							"Name": "result",
 							"Optional": false,
@@ -90218,6 +90324,28 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"ComputeR15BodyBoundingBox": {
+					"MemberType": "Function",
+					"Name": "ComputeR15BodyBoundingBox",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "DataType",
+							"Name": "CFrame"
+						},
+						{
+							"Category": "DataType",
+							"Name": "Vector3"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"CustomStatusAdded": {
 					"MemberType": "Event",
 					"Name": "CustomStatusAdded",
@@ -99558,6 +99686,78 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"BoolState": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "false",
+					"MemberType": "Property",
+					"Name": "BoolState",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"ReadOnly",
+						"NotReplicated",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"Direction1DState": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "0",
+					"MemberType": "Property",
+					"Name": "Direction1DState",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"ReadOnly",
+						"NotReplicated",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"Direction2DState": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "0, 0",
+					"MemberType": "Property",
+					"Name": "Direction2DState",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"ReadOnly",
+						"NotReplicated",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Vector2"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
 				"Enabled": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -110292,6 +110492,97 @@
 			"Tags": [
 				"NotCreatable",
 				"Service"
+			]
+		},
+		"MLService": {
+			"Name": "MLService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"CreateSessionAsync": {
+					"MemberType": "Function",
+					"Name": "CreateSessionAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "assetId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "MLSession"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service",
+				"NotReplicated"
+			]
+		},
+		"MLSession": {
+			"Name": "MLSession",
+			"Superclass": "Object",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"ForwardAsync": {
+					"MemberType": "Function",
+					"Name": "ForwardAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "data",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Dictionary"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"NotReplicated"
 			]
 		},
 		"ManualGlue": {
@@ -196498,6 +196789,29 @@
 						"Hidden"
 					],
 					"ThreadSafety": "Unsafe"
+				},
+				"isLegacyChatDisabled": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "false",
+					"MemberType": "Property",
+					"Name": "isLegacyChatDisabled",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
 				}
 			},
 			"PreferredDescriptor": {
@@ -269839,6 +270153,93 @@
 		},
 		"VideoCaptureResult": {
 			"Name": "VideoCaptureResult",
+			"Items": {
+				"CapturingAlready": {
+					"Name": "CapturingAlready",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"NoDeviceSupport": {
+					"Name": "NoDeviceSupport",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"NoSpaceOnDevice": {
+					"Name": "NoSpaceOnDevice",
+					"Value": 4,
+					"Index": 4,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"OtherError": {
+					"Name": "OtherError",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"ScreenSizeChanged": {
+					"Name": "ScreenSizeChanged",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Success": {
+					"Name": "Success",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"TimeLimitReached": {
+					"Name": "TimeLimitReached",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"VideoCaptureStartedResult": {
+			"Name": "VideoCaptureStartedResult",
 			"Items": {
 				"CapturingAlready": {
 					"Name": "CapturingAlready",

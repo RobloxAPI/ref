@@ -1903,6 +1903,32 @@
 				},
 				{
 					"Class": "AdService",
+					"Member": "rewardedVideoAdPlayServerToClientWithPlacement",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AdService",
+					"Member": "rewardedVideoAdPlayServerToClientWithPlacement",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "AdService",
 					"Member": "rewardedVideoAdResultClientToServer",
 					"MemberType": "Event",
 					"Removed": false,
@@ -18429,6 +18455,19 @@
 						"Category": "Primitive",
 						"Name": "int"
 					}
+				},
+				{
+					"Class": "AuroraScriptObject",
+					"Member": "MaxFrequency",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
 				}
 			]
 		},
@@ -33682,6 +33721,32 @@
 				},
 				{
 					"Class": "CaptureService",
+					"Member": "PreVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "PreVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CaptureService",
 					"Member": "PromptSaveCapturesToGallery",
 					"MemberType": "Function",
 					"Removed": false,
@@ -33937,7 +34002,7 @@
 					"Index": 0,
 					"Type": {
 						"Category": "Enum",
-						"Name": "VideoCaptureResult"
+						"Name": "VideoCaptureStartedResult"
 					}
 				},
 				{
@@ -33950,7 +34015,7 @@
 					"Index": 0,
 					"Type": {
 						"Category": "Enum",
-						"Name": "VideoCaptureResult"
+						"Name": "VideoCaptureStartedResult"
 					}
 				},
 				{
@@ -34237,6 +34302,19 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "VideoCaptureResult"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "UserVideoCaptureStartFailed",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "VideoCaptureStartedResult"
 					}
 				},
 				{
@@ -77533,6 +77611,32 @@
 				},
 				{
 					"Class": "Humanoid",
+					"Member": "ComputeR15BodyBoundingBox",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "Humanoid",
+					"Member": "ComputeR15BodyBoundingBox",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "Humanoid",
 					"Member": "EquipTool",
 					"MemberType": "Function",
 					"Removed": false,
@@ -83994,6 +84098,45 @@
 			"Related": [
 				{
 					"Class": "InputAction",
+					"Member": "BoolState",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "InputAction",
+					"Member": "Direction1DState",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
+					"Class": "InputAction",
+					"Member": "Direction2DState",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector2"
+					}
+				},
+				{
+					"Class": "InputAction",
 					"Member": "Enabled",
 					"MemberType": "Property",
 					"Removed": false,
@@ -85839,6 +85982,7 @@
 				"LuauScriptAnalyzerService",
 				"MDIInstance",
 				"MLModelDeliveryService",
+				"MLService",
 				"MarkerCurve",
 				"MarketplaceService",
 				"MatchmakingService",
@@ -101207,6 +101351,96 @@
 				"<<<ROOT>>>"
 			]
 		},
+		"MLService": {
+			"Name": "MLService",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "MLService",
+					"Member": "CreateSessionAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "MLService",
+					"Member": "CreateSessionAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "MLSession"
+					}
+				}
+			]
+		},
+		"MLSession": {
+			"Name": "MLSession",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "MLService",
+					"Member": "CreateSessionAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "MLSession"
+					}
+				},
+				{
+					"Class": "MLSession",
+					"Member": "ForwardAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "MLSession",
+					"Member": "ForwardAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				}
+			]
+		},
 		"ManualGlue": {
 			"Name": "ManualGlue",
 			"Removed": false,
@@ -115411,6 +115645,7 @@
 				"EditableImage",
 				"EditableMesh",
 				"Instance",
+				"MLSession",
 				"TerrainIterateOperation",
 				"TerrainModifyOperation",
 				"TerrainReadOperation",
@@ -166175,19 +166410,6 @@
 				},
 				{
 					"Class": "Terrain",
-					"Member": "ShorelinesUpgraded",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "bool"
-					}
-				},
-				{
-					"Class": "Terrain",
 					"Member": "SmoothGrid",
 					"MemberType": "Property",
 					"Removed": false,
@@ -168407,6 +168629,19 @@
 					"Type": {
 						"Category": "DataType",
 						"Name": "Vector3"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ShorelinesUpgraded",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
 					}
 				},
 				{
@@ -172475,6 +172710,19 @@
 				{
 					"Class": "TextChatService",
 					"Member": "HasSeenDeprecationDialog",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "TextChatService",
+					"Member": "isLegacyChatDisabled",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -189310,6 +189558,19 @@
 				},
 				{
 					"Class": "CaptureService",
+					"Member": "PreVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "VideoCapture"
+					}
+				},
+				{
+					"Class": "CaptureService",
 					"Member": "SaveVideoCaptureToExternalStorage",
 					"MemberType": "Function",
 					"Removed": false,
@@ -201584,6 +201845,12 @@
 				"MemberType": "Event",
 				"Removed": false
 			},
+			"rewardedVideoAdPlayServerToClientWithPlacement": {
+				"Class": "AdService",
+				"Name": "rewardedVideoAdPlayServerToClientWithPlacement",
+				"MemberType": "Event",
+				"Removed": false
+			},
 			"rewardedVideoAdResultClientToServer": {
 				"Class": "AdService",
 				"Name": "rewardedVideoAdResultClientToServer",
@@ -208799,6 +209066,12 @@
 			"FrameId": {
 				"Class": "AuroraScriptObject",
 				"Name": "FrameId",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"MaxFrequency": {
+				"Class": "AuroraScriptObject",
+				"Name": "MaxFrequency",
 				"MemberType": "Property",
 				"Removed": false
 			}
@@ -216183,6 +216456,27 @@
 				"MemberType": "Function",
 				"Removed": true
 			},
+			"PreVideoCaptureShared": {
+				"Class": "CaptureService",
+				"Name": "PreVideoCaptureShared",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "CaptureService",
+						"Member": "PreVideoCaptureShared",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "VideoCapture"
+						}
+					}
+				]
+			},
 			"PromptSaveCapturesToGallery": {
 				"Class": "CaptureService",
 				"Name": "PromptSaveCapturesToGallery",
@@ -216274,7 +216568,7 @@
 						"Index": 0,
 						"Type": {
 							"Category": "Enum",
-							"Name": "VideoCaptureResult"
+							"Name": "VideoCaptureStartedResult"
 						}
 					}
 				]
@@ -216301,7 +216595,7 @@
 						"Index": 0,
 						"Type": {
 							"Category": "Enum",
-							"Name": "VideoCaptureResult"
+							"Name": "VideoCaptureStartedResult"
 						}
 					}
 				]
@@ -216353,6 +216647,27 @@
 						"Type": {
 							"Category": "Enum",
 							"Name": "VideoCaptureResult"
+						}
+					}
+				]
+			},
+			"UserVideoCaptureStartFailed": {
+				"Class": "CaptureService",
+				"Name": "UserVideoCaptureStartFailed",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "CaptureService",
+						"Member": "UserVideoCaptureStartFailed",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Enum",
+							"Name": "VideoCaptureStartedResult"
 						}
 					}
 				]
@@ -233797,6 +234112,12 @@
 					}
 				]
 			},
+			"ComputeR15BodyBoundingBox": {
+				"Class": "Humanoid",
+				"Name": "ComputeR15BodyBoundingBox",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"CustomStatusAdded": {
 				"Class": "Humanoid",
 				"Name": "CustomStatusAdded",
@@ -237612,6 +237933,24 @@
 			}
 		},
 		"InputAction": {
+			"BoolState": {
+				"Class": "InputAction",
+				"Name": "BoolState",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Direction1DState": {
+				"Class": "InputAction",
+				"Name": "Direction1DState",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"Direction2DState": {
+				"Class": "InputAction",
+				"Name": "Direction2DState",
+				"MemberType": "Property",
+				"Removed": false
+			},
 			"Enabled": {
 				"Class": "InputAction",
 				"Name": "Enabled",
@@ -241658,6 +241997,37 @@
 				"Name": "FocusedDataModelSessionId",
 				"MemberType": "Property",
 				"Removed": true
+			}
+		},
+		"MLService": {
+			"CreateSessionAsync": {
+				"Class": "MLService",
+				"Name": "CreateSessionAsync",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "MLService",
+						"Member": "CreateSessionAsync",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "ReturnType",
+						"Kind": "Type",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "MLSession"
+						}
+					}
+				]
+			}
+		},
+		"MLSession": {
+			"ForwardAsync": {
+				"Class": "MLSession",
+				"Name": "ForwardAsync",
+				"MemberType": "Function",
+				"Removed": false
 			}
 		},
 		"MarkerCurve": {
@@ -271721,7 +272091,7 @@
 				"Class": "Terrain",
 				"Name": "ShorelinesUpgraded",
 				"MemberType": "Property",
-				"Removed": false
+				"Removed": true
 			},
 			"ShowTerrainRegion": {
 				"Class": "Terrain",
@@ -273999,6 +274369,12 @@
 				"Class": "TextChatService",
 				"Name": "UpdateChatTimeout",
 				"MemberType": "Event",
+				"Removed": false
+			},
+			"isLegacyChatDisabled": {
+				"Class": "TextChatService",
+				"Name": "isLegacyChatDisabled",
+				"MemberType": "Property",
 				"Removed": false
 			}
 		},
@@ -310138,6 +310514,43 @@
 				"Success",
 				"OtherError",
 				"CapturingAlready",
+				"ScreenSizeChanged",
+				"NoDeviceSupport",
+				"TimeLimitReached",
+				"NoSpaceOnDevice"
+			],
+			"ItemsByIndex": [
+				"Success",
+				"OtherError",
+				"CapturingAlready",
+				"ScreenSizeChanged",
+				"NoDeviceSupport",
+				"TimeLimitReached",
+				"NoSpaceOnDevice"
+			],
+			"Related": [
+				{
+					"Class": "CaptureService",
+					"Member": "UserVideoCaptureFailed",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "VideoCaptureResult"
+					}
+				}
+			]
+		},
+		"VideoCaptureStartedResult": {
+			"Name": "VideoCaptureStartedResult",
+			"Removed": false,
+			"ItemsByValue": [
+				"Success",
+				"OtherError",
+				"CapturingAlready",
 				"NoDeviceSupport",
 				"NoSpaceOnDevice"
 			],
@@ -310159,7 +310572,7 @@
 					"Index": 0,
 					"Type": {
 						"Category": "Enum",
-						"Name": "VideoCaptureResult"
+						"Name": "VideoCaptureStartedResult"
 					}
 				},
 				{
@@ -310172,12 +310585,12 @@
 					"Index": 0,
 					"Type": {
 						"Category": "Enum",
-						"Name": "VideoCaptureResult"
+						"Name": "VideoCaptureStartedResult"
 					}
 				},
 				{
 					"Class": "CaptureService",
-					"Member": "UserVideoCaptureFailed",
+					"Member": "UserVideoCaptureStartFailed",
 					"MemberType": "Event",
 					"Removed": false,
 					"Field": "Parameters",
@@ -310185,7 +310598,7 @@
 					"Index": 0,
 					"Type": {
 						"Category": "Enum",
-						"Name": "VideoCaptureResult"
+						"Name": "VideoCaptureStartedResult"
 					}
 				}
 			]
@@ -327986,25 +328399,62 @@
 			"CapturingAlready": {
 				"Enum": "VideoCaptureResult",
 				"Name": "CapturingAlready",
-				"Removed": false
+				"Removed": true
 			},
 			"NoDeviceSupport": {
 				"Enum": "VideoCaptureResult",
 				"Name": "NoDeviceSupport",
-				"Removed": false
+				"Removed": true
 			},
 			"NoSpaceOnDevice": {
 				"Enum": "VideoCaptureResult",
 				"Name": "NoSpaceOnDevice",
-				"Removed": false
+				"Removed": true
 			},
 			"OtherError": {
 				"Enum": "VideoCaptureResult",
 				"Name": "OtherError",
 				"Removed": false
 			},
+			"ScreenSizeChanged": {
+				"Enum": "VideoCaptureResult",
+				"Name": "ScreenSizeChanged",
+				"Removed": false
+			},
 			"Success": {
 				"Enum": "VideoCaptureResult",
+				"Name": "Success",
+				"Removed": false
+			},
+			"TimeLimitReached": {
+				"Enum": "VideoCaptureResult",
+				"Name": "TimeLimitReached",
+				"Removed": false
+			}
+		},
+		"VideoCaptureStartedResult": {
+			"CapturingAlready": {
+				"Enum": "VideoCaptureStartedResult",
+				"Name": "CapturingAlready",
+				"Removed": false
+			},
+			"NoDeviceSupport": {
+				"Enum": "VideoCaptureStartedResult",
+				"Name": "NoDeviceSupport",
+				"Removed": false
+			},
+			"NoSpaceOnDevice": {
+				"Enum": "VideoCaptureStartedResult",
+				"Name": "NoSpaceOnDevice",
+				"Removed": false
+			},
+			"OtherError": {
+				"Enum": "VideoCaptureStartedResult",
+				"Name": "OtherError",
+				"Removed": false
+			},
+			"Success": {
+				"Enum": "VideoCaptureStartedResult",
 				"Name": "Success",
 				"Removed": false
 			}
@@ -335254,6 +335704,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "CFrame"
+					}
+				},
+				{
+					"Class": "Humanoid",
+					"Member": "ComputeR15BodyBoundingBox",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "DataType",
 						"Name": "CFrame"
@@ -343284,6 +343747,32 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "MLSession",
+					"Member": "ForwardAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "MLSession",
+					"Member": "ForwardAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
 					"Index": 0,
 					"Type": {
 						"Category": "Group",
@@ -358489,6 +358978,19 @@
 					}
 				},
 				{
+					"Class": "InputAction",
+					"Member": "Direction2DState",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector2"
+					}
+				},
+				{
 					"Class": "InputBinding",
 					"Member": "Vector2Scale",
 					"MemberType": "Property",
@@ -362065,6 +362567,19 @@
 						"Category": "DataType",
 						"Name": "Vector3",
 						"Optional": true
+					}
+				},
+				{
+					"Class": "Humanoid",
+					"Member": "ComputeR15BodyBoundingBox",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Vector3"
 					}
 				},
 				{
@@ -372184,6 +372699,19 @@
 				},
 				{
 					"Class": "InputAction",
+					"Member": "BoolState",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "InputAction",
 					"Member": "Enabled",
 					"MemberType": "Property",
 					"Removed": false,
@@ -379698,19 +380226,6 @@
 				},
 				{
 					"Class": "Terrain",
-					"Member": "ShorelinesUpgraded",
-					"MemberType": "Property",
-					"Removed": false,
-					"Field": "ValueType",
-					"Kind": "Type",
-					"Index": -1,
-					"Type": {
-						"Category": "Primitive",
-						"Name": "bool"
-					}
-				},
-				{
-					"Class": "Terrain",
 					"Member": "SmoothVoxelsUpgraded",
 					"MemberType": "Property",
 					"Removed": false,
@@ -380323,6 +380838,19 @@
 				{
 					"Class": "TextChatService",
 					"Member": "HasSeenDeprecationDialog",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "TextChatService",
+					"Member": "isLegacyChatDisabled",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -387660,6 +388188,19 @@
 				{
 					"Class": "Terrain",
 					"Member": "Locked",
+					"MemberType": "Property",
+					"Removed": true,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Class": "Terrain",
+					"Member": "ShorelinesUpgraded",
 					"MemberType": "Property",
 					"Removed": true,
 					"Field": "ValueType",
@@ -396430,6 +396971,19 @@
 					}
 				},
 				{
+					"Class": "InputAction",
+					"Member": "Direction1DState",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "float"
+					}
+				},
+				{
 					"Class": "InputBinding",
 					"Member": "PressedThreshold",
 					"MemberType": "Property",
@@ -403591,6 +404145,19 @@
 				{
 					"Class": "AuroraScriptObject",
 					"Member": "FrameId",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "AuroraScriptObject",
+					"Member": "MaxFrequency",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -414045,6 +414612,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 6,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "AdService",
+					"Member": "rewardedVideoAdPlayServerToClientWithPlacement",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int64"
@@ -437923,6 +438503,19 @@
 				},
 				{
 					"Class": "AdService",
+					"Member": "rewardedVideoAdPlayServerToClientWithPlacement",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AdService",
 					"Member": "rewardedVideoAdResultClientToServer",
 					"MemberType": "Event",
 					"Removed": false,
@@ -440697,6 +441290,19 @@
 					"Removed": false,
 					"Field": "Parameters",
 					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "CaptureService",
+					"Member": "PreVideoCaptureShared",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
 					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
@@ -447753,6 +448359,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "MLService",
+					"Member": "CreateSessionAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
