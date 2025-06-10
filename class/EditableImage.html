@@ -83,7 +83,7 @@ object that has a <a href=/ref/type/Content.html>Content</a> property which refe
 <code>EditableImage</code>, the editable image is published as an image and the property
 is set to a new asset ID.</p><h3>Update Limitations</h3><p>Only a single <code>EditableImage</code> can be updated per frame on the display side.
 For example, if you update three <code>EditableImage</code> objects which are currently
-being displayed, it will take three frames for all of them to be updated.</p><h3>Enabling EditableImage for Published Experiences</h3><p>For security purposes, using <code>EditableImage</code> fails by default for published
+being displayed, it will take three frames for all of them to be updated.</p><h3>Enabling for Published Experiences</h3><p>For security purposes, using <code>EditableImage</code> fails by default for published
 experiences. To enable usage, you must be 13+ age verified and ID verified.
 After you are verified, open Studio's
 <a href=https://create.roblox.com/docs/studio/game-settings>Game Settings</a>, select <strong>Security</strong>, and
@@ -91,7 +91,12 @@ enable the <strong>Allow Mesh / Image APIs</strong> toggle.</p><h3>Permissions<
 you to load and edit image assets:</p><ul><li>That are owned by the creator of the experience (if the experience is owned
 by an individual).</li><li>That are owned by a group (if the experience is owned by the group).</li><li>That are owned by the logged in Studio user (if the place file has not yet
 been saved or published to Roblox).</li></ul><p>The APIs throw an error if they are used to load an asset that does not meet
-the criteria above.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>51</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+the criteria above.</p><h3>Memory Limits</h3><p>Editable assets are currently expensive for memory usage. To minimize its
+impact on client performance, <code>EditableImage</code> has strict client-side memory
+budgets, although the server, Studio, and plugins operate with unlimited
+memory. Linking one <a href=/ref/class/EditableImage.html>EditableImage</a> to multiple image-related
+<a href=/ref/type/Content.html>Content</a> data types (multi-referencing) can help with memory
+optimization.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>51</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2025.html#version-163b500c1e564deb-19 title="Changed on 2025-04-01T10:21:35-07:00
 v0.667.0.6670665
 version-163b500c1e564deb">667</a>

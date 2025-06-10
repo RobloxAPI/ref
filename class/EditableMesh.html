@@ -238,14 +238,20 @@ version-9b68669a3b644e31">648</a></td><td class=col-icon><span class=picture tit
 v0.648.0.6480781
 version-9b68669a3b644e31">648</a></td><td class=col-icon><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span></td><td class=col-member><span class="member-text deco deprecated removed"><span class=name><a class=entity-link href=/ref/class/EditableMesh.html#member-SetVertexNormal>SetVertexNormal</a></span><span class="parameters open">(</span><span class="parameters parameter">vertexId: <a class="entity-link deco" href=/ref/type/int64.html>int64</a><span class="parameters sep">, </span></span><span class="parameters parameter">vnormal: <a class="entity-link deco" href=/ref/type/Vector3.html>Vector3</a></span><span class="parameters close">)</span><span class=bind>: </span><span class="returns return"><a class="entity-link deco" href=/ref/type/null.html>null</a></span></span></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p><code>EditableMesh</code> changes the applied visual mesh when linked to a
 <a href=/ref/class/MeshPart.html>MeshPart</a>, allowing for querying and modification of the mesh both in
-Studio and in experience.</p><h3>Enabling in Published Experiences</h3><p>For security purposes, using <code>EditableMesh</code> fails by default for published
+Studio and in experience.</p><h3>Enabling for Published Experiences</h3><p>For security purposes, using <code>EditableMesh</code> fails by default for published
 experiences. To enable usage, you must be 13+ age verified and ID verified.
 After you are verified, open Studio's
 <a href=https://create.roblox.com/docs/studio/game-settings>Game Settings</a>, select <strong>Security</strong>, and
 enable the <strong>Allow Mesh / Image APIs</strong> toggle.</p><h3>Permissions</h3><p>To prevent misuse, <a href=/ref/class/AssetService.html#member-CreateEditableMeshAsync>AssetService:CreateEditableMeshAsync()</a> will only
 allow you to load and edit mesh assets:</p><ul><li>That are owned by the creator of the experience (if the experience is owned
 by an individual).</li><li>That are owned by a group (if the experience is owned by the group).</li><li>That are owned by the logged in Studio user (if the place file has not yet
-been saved or published to Roblox).</li></ul><h3>Creation and Display</h3><p>An <code>EditableMesh</code> can be created from an existing <a href=/ref/type/Content.html>Content</a> of a
+been saved or published to Roblox).</li></ul><h3>Memory Limits</h3><p>Editable assets are currently expensive for memory usage. To minimize its
+impact on client performance, <code>EditableMesh</code> has strict client-side memory
+budgets, although the server, Studio, and plugins operate with unlimited
+memory. Using <a href=/ref/class/EditableMesh.html#member-FixedSize>FixedSize</a> may help you stay
+within the memory budget and, in some scenarios, linking one <code>EditableMesh</code> to
+multiple <a href=/ref/class/MeshPart.html>MeshParts</a> (multi-referencing) can help with memory
+optimization.</p><h3>Creation and Display</h3><p>An <code>EditableMesh</code> can be created from an existing <a href=/ref/type/Content.html>Content</a> of a
 <a href=/ref/class/MeshPart.html>MeshPart</a> or a mesh ID using
 <a href=/ref/class/AssetService.html#member-CreateEditableMeshAsync>AssetService:CreateEditableMeshAsync()</a>, or a blank <code>EditableMesh</code> can
 be created with <a href=/ref/class/AssetService.html#member-CreateEditableMesh>AssetService:CreateEditableMesh()</a>. It can then be
