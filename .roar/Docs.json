@@ -180,6 +180,7 @@
 			"Summary": "<p>Imparts a whooshing or sweeping sound on audio streams.</p>\n",
 			"Description": "<p><a href=\"/ref/class/AudioFlanger.html\">AudioFlanger</a> imparts a whooshing or sweeping sound on audio streams by\noverlaying a delayed copy of the input stream and modulating the pitch of the\ncopy. It provides one <strong>Input</strong> pin and one <strong>Output</strong> pin which can be\nconnected to/from by <a href=\"/ref/class/Wire.html\">Wires</a>.</p>\n"
 		},
+		"AudioGate": {},
 		"AudioLimiter": {
 			"Summary": "<p>Limits how loud audio streams are allowed to be.</p>\n",
 			"Description": "<p><code>AudioLimiter</code> limits how loud audio streams are allowed to be. Whenever its\ninput stream exceeds a specified maximum level, the stream&#39;s volume is reduced\nfor a moment. <code>AudioLimiter</code> provides a single <strong>Input</strong> pin, and a single\n<strong>Output</strong> pin that can be connected to/from by <a href=\"/ref/class/Wires.html\">Wires</a>.</p>\n"
@@ -227,7 +228,7 @@
 		"AudioSpeechToText": {},
 		"AudioTextToSpeech": {
 			"Summary": "<p>Plays text as speech audio.</p>\n",
-			"Description": "<p><a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> is used to play text as speech audio. It provides a\nsingle <strong>Output</strong> pin which can be connected to other pins via\n<a href=\"/ref/class/Wire.html\">Wires</a>.</p>\n<p>Roblox uses the following formula to throttle requests for this API based on the number of players in your experience:\n<code>max requests per second per experience = 1 + (0.05 * per_thousand_concurrent_users)</code></p>\n<p>For a more in-depth look, see\n<a href=\"https://create.roblox.com/docs/audio/objects#text-to-speech\">Text-to-speech</a>.</p>\n",
+			"Description": "<p><a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> is used to play text as speech audio. It provides a\nsingle <strong>Output</strong> pin which can be connected to other pins via\n<a href=\"/ref/class/Wire.html\">Wires</a>.</p>\n<p>Roblox uses the following formula to throttle requests for this API based on\nthe number of players in your experience:\n<code>max requests per second per experience = 1 + (0.05 * per_thousand_concurrent_users)</code></p>\n<p>For a more in-depth look, see\n<a href=\"https://create.roblox.com/docs/audio/objects#text-to-speech\">Text-to-speech</a>.</p>\n",
 			"CodeSamples": [
 				"audio-wiring---text-to-speech"
 			]
@@ -499,7 +500,6 @@
 			"Summary": "<p>Modifies how color values calculated by the renderer should be converted to\nthe screen&#39;s color range.</p>\n",
 			"Description": "<p>The <strong>ColorGradingEffect</strong> effect modifies how color values calculated by the\nrenderer should be converted to the screen&#39;s color range, impacting the mood\nand appearance of your place.</p>\n<p><strong>ColorGradingEffect</strong> is expected to be parented to <a href=\"/ref/class/Lighting.html\">Lighting</a> and will\nbe ignored if parented elsewhere. Multiple instances cannot be combined and\nonly the most recently parented instance to <a href=\"/ref/class/Lighting.html\">Lighting</a> will be applied.</p>\n<p>For more details on this effect and others, see\n<a href=\"https://create.roblox.com/docs/environment/post-processing-effects\">Post-Processing Effects</a>.</p>\n"
 		},
-		"CommandService": {},
 		"CommerceService": {
 			"Summary": "<p>Supports real-world purchases that you can bundle with digital benefits.</p>\n",
 			"Description": "<p><a href=\"/ref/class/CommerceService.html\">CommerceService</a> is a service that supports real-world purchases that\nyou can bundle with virtual items. For information on eligibility and\nimplementation, see\n<a href=\"https://create.roblox.com/docs/production/monetization/commerce-products\">Commerce products</a>.</p>\n"
@@ -745,7 +745,7 @@
 		},
 		"ExperienceInviteOptions": {
 			"Summary": "<p>Used to customize a player invite prompt.</p>\n",
-			"Description": "<p>Used to customize a\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">player invite prompt</a>, such\nas to customize the prompt message, target a specific friend, or include\nlaunch data in the invite.</p>\n"
+			"Description": "<p>Used to customize a\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">player invite prompt</a>, such\nas to customize the prompt message, target a specific connection, or include\nlaunch data in the invite.</p>\n"
 		},
 		"ExperienceNotificationService": {
 			"Summary": "<p>Service containing methods to validate users and prompt them to enable\nexperience notifications.</p>\n",
@@ -842,15 +842,15 @@
 			"Description": "<p><a href=\"/ref/class/Frame.html\">Frame</a> is a <a href=\"/ref/class/GuiObject.html\">GuiObject</a> that acts as a container for other\n<a href=\"/ref/class/GuiObject.html\">GuiObjects</a>. You can use it for UI that either displays on a\nuser&#39;s <a href=\"https://create.roblox.com/docs/ui/on-screen-containers\">screen</a> or on a\n<a href=\"https://create.roblox.com/docs/ui/in-experience-containers\">surface</a> within the experience.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/ui-objects/Frame-Example.jpg\" width=\"840\"/>\n<p><a href=\"/ref/class/Frame.html\">Frames</a> are ideal containers for responsive layouts such as\n<a href=\"https://create.roblox.com/docs/ui/list-flex-layouts\">list and flex layouts</a>, allowing you to\nchange the size of the frame and dynamically adjust how layout items fit\nwithin it. <a href=\"/ref/class/Frame.html\">Frames</a> are also core <a href=\"/ref/class/GuiObject.html\">GuiObjects</a>, so\nyou can customize properties such as\n<a href=\"/ref/class/GuiObject.html#member-BackgroundColor3\">BackgroundColor3</a>,\n<a href=\"/ref/class/GuiObject.html#member-Transparency\">Transparency</a>, apply a\n<a href=\"https://create.roblox.com/docs/ui/appearance-modifiers#gradient\">background gradient</a> or\n<a href=\"https://create.roblox.com/docs/ui/appearance-modifiers#stroke\">border</a>, and more.</p>\n"
 		},
 		"FriendPages": {
-			"Summary": "<p>A special version of <a href=\"/ref/class/Pages.html\">Pages</a> that contains information about a player&#39;s\nfriends.</p>\n",
-			"Description": "<p>FriendPages is a special version of <a href=\"/ref/class/Pages.html\">Pages</a> returned by\n<a href=\"/ref/class/Players.html#member-GetFriendsAsync\">Players:GetFriendsAsync()</a>. The items contained within include\ninformation about a player&#39;s friends and have the following structure:</p>\n<table>\n<tbody><tr>\n<th>Name</th>\n<th>Type</th>\n<th>Description</th>\n</tr>\n<tr>\n<td><code>DisplayName</code></td>\n<td>string</td>\n<td>The current display name of the friend.</td>\n</tr>\n<tr>\n<td><code>Id</code></td>\n<td>int64</td>\n<td>The user ID of the friend.</td>\n</tr>\n<tr>\n<td><code>Username</code></td>\n<td>string</td>\n<td>The username of the friend.</td>\n</tr>\n</tbody></table>\n<p>See the code samples for how to iterate over a player&#39;s friends.</p>\n",
+			"Summary": "<p>A special version of <a href=\"/ref/class/Pages.html\">Pages</a> that contains information about a player&#39;s\nconnections.</p>\n",
+			"Description": "<p>FriendPages is a special version of <a href=\"/ref/class/Pages.html\">Pages</a> returned by\n<a href=\"/ref/class/Players.html#member-GetFriendsAsync\">Players:GetFriendsAsync()</a>. The items contained within include\ninformation about a player&#39;s connections and have the following structure:</p>\n<table>\n<tbody><tr>\n<th>Name</th>\n<th>Type</th>\n<th>Description</th>\n</tr>\n<tr>\n<td><code>DisplayName</code></td>\n<td>string</td>\n<td>The current display name of the connection.</td>\n</tr>\n<tr>\n<td><code>Id</code></td>\n<td>int64</td>\n<td>The user ID of the connection.</td>\n</tr>\n<tr>\n<td><code>Username</code></td>\n<td>string</td>\n<td>The username of the connection.</td>\n</tr>\n</tbody></table>\n<p>See the code samples for how to iterate over a player&#39;s connections.</p>\n",
 			"CodeSamples": [
 				"print-roblox-friends"
 			]
 		},
 		"FriendService": {
-			"Summary": "<p>An internal service which is used to send, cancel, accept and decline friend\nrequests in-game.</p>\n",
-			"Description": "<p>A service which is used to send, cancel, accept and decline friend requests\nin-game. It is primarily used by the PlayerListScript to send friend requests\nwith the leaderboard.</p>\n"
+			"Summary": "<p>An internal service which is used to send, cancel, accept and decline connection\nrequests in-game.</p>\n",
+			"Description": "<p>A service which is used to send, cancel, accept and decline connection requests\nin-game. It is primarily used by the PlayerListScript to send connection requests\nwith the leaderboard.</p>\n"
 		},
 		"FunctionalTest": {
 			"DeprecationMessage": "<p>FunctionalTest has been deprecated, developers are advised to use\n<a href=\"/ref/class/TestService.html\">TestService</a> instead.</p>\n"
@@ -1504,7 +1504,7 @@
 		},
 		"Players": {
 			"Summary": "<p>A service that contains presently connected <a href=\"/ref/class/Player.html\">Player</a> objects.</p>\n",
-			"Description": "<p>The <a href=\"/ref/class/Players.html\">Players</a> service contains <a href=\"/ref/class/Player.html\">Player</a> objects for presently\nconnected clients to a Roblox server. It also contains information about a\nplace&#39;s configuration. It can fetch information about players not connected to\nthe server, such as character appearances, friends, and avatar thumbnail.</p>\n"
+			"Description": "<p>The <a href=\"/ref/class/Players.html\">Players</a> service contains <a href=\"/ref/class/Player.html\">Player</a> objects for presently\nconnected clients to a Roblox server. It also contains information about a\nplace&#39;s configuration. It can fetch information about players not connected to\nthe server, such as character appearances, connections, and avatar thumbnail.</p>\n"
 		},
 		"Plugin": {
 			"Description": "<p><strong>Plugin</strong> is the main object responsible for creating basic Studio widgets,\nplugin toolbars, plugin buttons, and more. It is a custom add-on to Studio\nwhich adds new behavior and features that are not normally included. The\n<strong>Plugin</strong> object can be accessed through the <a href=\"https://create.roblox.com/docs/reference/engine/globals/RobloxGlobals#plugin\">plugin</a>\nglobal reference in a <a href=\"/ref/class/Script.html\">Script</a> that is executed as a plugin.</p>\n",
@@ -1893,7 +1893,7 @@
 		},
 		"SocialService": {
 			"Summary": "<p>Facilitates social functions that impact relationships made on the Roblox\nplatform.</p>\n",
-			"Description": "<p><strong>SocialService</strong> facilitates social functions that impact relationships made\non the Roblox platform. Its primary usage is to show\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">invite prompts</a> and the\nphone book to players, allowing them to send invitation requests to their\nfriends through <a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a>\nand <a href=\"/ref/class/SocialService.html#member-PromptPhoneBook\">PromptPhoneBook()</a> respectively.\nYou may leverage signals when such requests are made.</p>\n"
+			"Description": "<p><strong>SocialService</strong> facilitates social functions that impact relationships made\non the Roblox platform. Its primary usage is to show\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">invite prompts</a> and the\nphone book to players, allowing them to send invitation requests to their\nconnections through <a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a>\nand <a href=\"/ref/class/SocialService.html#member-PromptPhoneBook\">PromptPhoneBook()</a> respectively.\nYou may leverage signals when such requests are made.</p>\n"
 		},
 		"SolidModelContentProvider": {
 			"Summary": "<p>An internal service which serves no functionality to developers.</p>\n",
@@ -2347,7 +2347,7 @@
 		},
 		"UnreliableRemoteEvent": {
 			"Summary": "<p>An object which facilitates asynchronous, unordered and unreliable, one-way\ncommunication across the client-server boundary. Scripts firing a\n<a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> do not yield.</p>\n",
-			"Description": "<p>The <strong>UnreliableRemoteEvent</strong> object is a variant of the <a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a>\nobject. It facilitates asynchronous, unordered and unreliable, one-way\ncommunication across the <a href=\"https://create.roblox.com/docs/projects/client-server\">client-server</a>\nboundary without yielding for a response. This communication can be directed\nfrom one client to the server, from the server to a specific client, or from\nthe server to all clients.</p>\n<p>In order for both the server and clients to access a\n<a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> instance, it must be in a place where both sides\ncan see it, such as <a href=\"/ref/class/ReplicatedStorage.html\">ReplicatedStorage</a>, although in some cases it&#39;s\nappropriate to store it in <a href=\"/ref/class/Workspace.html\">Workspace</a> or inside a <a href=\"/ref/class/Tool.html\">Tool</a>.</p>\n<p><a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> is best used for ephemeral events including\neffects that are only relevant for a short time, or for replicating\ncontinuously changing data. These events are not resent if they are lost and\nthey do not wait for previously fired events to arrive before being processed,\npotentially resulting in reduced latency and network traffic. When requiring\nordering and reliability, use a <a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a> instead.</p>\n<h3>Parameter Limitations</h3>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter when a <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> is\nfired, as well as Luau types such as numbers, strings, and booleans, although\nyou should carefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>There is a 900 byte limit to the payload of an <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.\nLarger payloads are dropped. Like all events, the\n<a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> methods encode and compress certain object\ntypes, such as buffers, which shrinks the payload size and can make it\ndifficult to verify whether you are under the limit prior to firing the event.\nIf you frequently reach this limit, consider whether a standard\n<a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a> is the better fit for your use case.</p>\n"
+			"Description": "<p>The <strong>UnreliableRemoteEvent</strong> object is a variant of the <a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a>\nobject. It facilitates asynchronous, unordered and unreliable, one-way\ncommunication across the <a href=\"https://create.roblox.com/docs/projects/client-server\">client-server</a>\nboundary without yielding for a response. This communication can be directed\nfrom one client to the server, from the server to a specific client, or from\nthe server to all clients.</p>\n<p>In order for both the server and clients to access a\n<a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> instance, it must be in a place where both sides\ncan see it, such as <a href=\"/ref/class/ReplicatedStorage.html\">ReplicatedStorage</a>, although in some cases it&#39;s\nappropriate to store it in <a href=\"/ref/class/Workspace.html\">Workspace</a> or inside a <a href=\"/ref/class/Tool.html\">Tool</a>.</p>\n<p><a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> is best used for ephemeral events including\neffects that are only relevant for a short time, or for replicating\ncontinuously changing data. These events are not resent if they are lost and\nthey do not wait for previously fired events to arrive before being processed,\npotentially resulting in reduced latency and network traffic. When requiring\nordering and reliability, use a <a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a> instead.</p>\n<h3>Parameter Limitations</h3>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter when a <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> is\nfired, as well as Luau types such as numbers, strings, and booleans, although\nyou should carefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>There is a 1000 byte limit to the payload of an <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.\nLarger payloads are dropped. Like all events, the\n<a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> methods encode and compress certain object\ntypes, such as buffers, which shrinks the payload size and can make it\ndifficult to verify whether you are under the limit prior to firing the event.\nIf you frequently reach this limit, consider whether a standard\n<a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a> is the better fit for your use case.</p>\n"
 		},
 		"UserGameSettings": {
 			"Summary": "<p>The UserGameSettings is a singleton class found inside of the\n<a href=\"/ref/class/UserSettings.html\">UserSettings</a> singleton. It holds various persistent settings relating\nto how the user wants to control their camera, and their character.</p>\n",
@@ -2603,12 +2603,14 @@
 		"AdService": {
 			"CreateAdRewardFromDevProductId": {},
 			"GetAdAvailabilityNowAsync": {},
+			"RegisterAdOpportunityAsync": {},
 			"ShowRewardedVideoAdAsync": {},
 			"ShowVideoAd": {
 				"Summary": "<p>Show mobile video advertisements.</p>\n",
 				"Description": "<p>Show mobile video advertisements.</p>\n",
 				"DeprecationMessage": "<p><a href=\"/ref/class/AdService.html\">AdService</a> has been decommissioned and is no longer operational.\n<a href=\"https://create.roblox.com/docs/production/monetization/immersive-ads\">Immersive Ads</a> should\nbe used as a replacement for <a href=\"/ref/class/AdService.html\">AdService</a>.</p>\n"
 			},
+			"UnregisterAdOpportunity": {},
 			"VideoAdClosed": {
 				"Summary": "<p>Fires when an <a href=\"/ref/class/AdService.html\">AdService</a> video closes.</p>\n",
 				"Description": "<p>Fires when an <a href=\"/ref/class/AdService.html\">AdService</a> video closes.</p>\n",
@@ -3784,6 +3786,16 @@
 				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/AudioFlanger.html\">AudioFlanger</a> and to some other wirable instance.</p>\n"
 			}
 		},
+		"AudioGate": {
+			"Attack": {},
+			"Bypass": {},
+			"GetConnectedWires": {},
+			"GetInputPins": {},
+			"GetOutputPins": {},
+			"Release": {},
+			"Threshold": {},
+			"WiringChanged": {}
+		},
 		"AudioLimiter": {
 			"Bypass": {
 				"Summary": "<p>Whether audio streams are passed-through unaffected by this effect.</p>\n",
@@ -4101,7 +4113,7 @@
 		"AudioTextToSpeech": {
 			"Ended": {
 				"Summary": "<p>Fires when the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object has completed playback and\npaused.</p>\n",
-				"Description": "<p>Fires after the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object has completed playback\nand paused. Note this event will <strong>not</strong> fire for audio with\n<a href=\"/ref/class/AudioTextToSpeech.html#member-Looped\">Looped</a> set to <code>true</code> since it continues\nplaying upon reaching its end. This event will also <strong>not</strong> fire when the\naudio is paused before playback has completed; for this, use\n<a href=\"/ref/class/AudioTextToSpeech.html#member-GetPropertyChangedSignal\">AudioTextToSpeech:GetPropertyChangedSignal()</a> on the\n<a href=\"/ref/class/AudioTextToSpeech.html#member-IsPlaying\">IsPlaying</a> property.</p>\n<p>This event may be used to destroy an <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object\nwhen it has completed playback.</p>\n"
+				"Description": "<p>Fires after the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object has completed playback\nand paused. Note this event will <strong>not</strong> fire for audio with\n<a href=\"/ref/class/AudioTextToSpeech.html#member-Looped\">Looped</a> set to <code>true</code> since it continues\nplaying upon reaching its end. This event will also <strong>not</strong> fire when the\naudio is paused before playback has completed; for this, use\n<a href=\"/ref/class/AudioTextToSpeech.html#member-GetPropertyChangedSignal\">AudioTextToSpeech:GetPropertyChangedSignal()</a> on the\n<a href=\"/ref/class/AudioTextToSpeech.html#member-IsPlaying\">IsPlaying</a> property.</p>\n<p>This event may be used to destroy an <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object when\nit has completed playback.</p>\n"
 			},
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
@@ -4150,7 +4162,7 @@
 			},
 			"Text": {
 				"Summary": "<p>The text to be converted into speech audio by <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.</p>\n",
-				"Description": "<p>The text to be converted into speech audio by <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>. The text has a\nmaximum length of 300 characters.</p>\n"
+				"Description": "<p>The text to be converted into speech audio by <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.\nThe text has a maximum length of 300 characters.</p>\n"
 			},
 			"TimeLength": {
 				"Summary": "<p>Denotes the length of the generated speech audio.</p>\n",
@@ -4166,7 +4178,7 @@
 			},
 			"VoiceId": {
 				"Summary": "<p>The voice style to be used by <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.</p>\n",
-				"Description": "<p>The voice style to be used by<a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>.\nA list of available voices and their corresponding VoiceIds\ncan be found in the <a href=\"https://create.roblox.com/docs/audio/objects#text-to-speech\">text-to-speech guide</a>.</p>\n"
+				"Description": "<p>The voice style to be used by<a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a>. A list of\navailable voices and their corresponding VoiceIds can be found in the\n<a href=\"https://create.roblox.com/docs/audio/objects#text-to-speech\">text-to-speech guide</a>.</p>\n"
 			},
 			"Volume": {
 				"Summary": "<p>Controls how loudly the generated speech audio will be played.</p>\n",
@@ -4178,6 +4190,7 @@
 			}
 		},
 		"AvatarCreationService": {
+			"AutoSetupAvatarAsync": {},
 			"AvatarModerationCompleted": {
 				"Summary": "<p>Fires when an in-experience-created avatar&#39;s moderation status has been\nupdated from pending.</p>\n",
 				"Description": "<p>Fires when an in-experience-created avatar&#39;s moderation status has been\nupdated from pending. This event provides a streamlined way to know when\nan avatar created through\n<a href=\"/ref/class/AvatarCreationService.html#member-PromptCreateAvatarAsync\">PromptCreateAvatarAsync()</a>\nhas completed the moderation process and is ready for use in-experience.</p>\n<p>Note that this event only fires for avatars created within the current\nexperience and will trigger when the <a href=\"/ref/enum/ModerationStatus.html\">ModerationStatus</a> changes from\n<a href=\"/ref/enum/ModerationStatus.html\">NotReviewed</a> to any other status. The\nevent fires on the client only.\n<a href=\"/ref/class/AvatarEditorService.html#member-GetOutfitDetails\">GetOutfitDetails</a> can be used\non the server to verify the current moderation status if needed.</p>\n"
@@ -4190,6 +4203,7 @@
 				"Summary": "<p>Gets data regarding rules that assets must abide by to pass UGC\nvalidation.</p>\n",
 				"Description": "<p>Gets data regarding rules that assets must abide by to pass UGC\nvalidation. Validation is an essential step before creating avatars and\nthere are various checks that occur, including mesh triangle limits,\ntexture sizes, body part size limits, attachment positions, and more.</p>\n<p>The returned dictionary of validation rules takes the following form:</p>\n<pre><code>{\n\t[&#34;MeshRules&#34;] = {\n\t\t[&#34;BodyPartMaxTriangles&#34;] = {\n\t\t\tEnum.AssetType.DynamicHead: number,\n\t\t\tEnum.AssetType.LeftArm: number,\n\t\t\tEnum.AssetType.RightArm: number,\n\t\t\tEnum.AssetType.Torso: number,\n\t\t\tEnum.AssetType.LeftLeg: number,\n\t\t\tEnum.AssetType.RightLeg: number,\n\t\t},\n\t\t\t[&#34;AccessoryMaxTriangles&#34;]: number,\n\t\t\t[&#34;MeshVertColor&#34;]: Color3,\n\t\t\t[&#34;CageMeshMaxDistanceFromRenderMesh&#34;]: number,\n\t},\n\t[&#34;TextureRules&#34;] = {\n\t\t[&#34;MaxTextureSize&#34;]: number,\n\t},\n\t[&#34;BodyPartRules&#34;] = {\n\t\t[Enum.AssetType.DynamicHead] = {\n\t\t\t[&#34;Bounds&#34;] = {\n\t\t\t\t[&#34;Classic&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t},\n\t\t\t\t[&#34;ProportionsSlender&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t\t[&#34;ProportionsNormal&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t},\n\t\t\t[&#34;SubParts&#34;] = {\n\t\t\t\t[&#34;Head&#34;] = {\n\t\t\t\t\t[&#34;NeckRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;FaceFrontAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;HatAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;HairAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;FaceCenterAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t},\n\t\t[Enum.AssetType.LeftArm] = {\n\t\t\t[&#34;Bounds&#34;] = {\n\t\t\t\t[&#34;Classic&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t\t[&#34;ProportionsSlender&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t\t[&#34;ProportionsNormal&#34;] = {\n\t\t\t\t\t[&#34;MinSize&#34;]: Vector3,\n\t\t\t\t\t[&#34;MaxSize&#34;]: Vector3,\n\t\t\t\t},\n\t\t\t},\n\t\t\t[&#34;SubParts&#34;] = {\n\t\t\t\t[&#34;LeftHand&#34;] = {\n\t\t\t\t\t[&#34;LeftWristRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;LeftGripAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t[&#34;LeftUpperArm&#34;] = {\n\t\t\t\t\t[&#34;LeftShoulderRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;LeftShoulderAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t\t[&#34;LeftElbowRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t[&#34;LeftLowerArm&#34;] = {\n\t\t\t\t\t[&#34;LeftElbowRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t\t[&#34;LeftWristRigAttachment&#34;] = {\n\t\t\t\t\t\t[&#34;LowerBound&#34;]: Vector3,\n\t\t\t\t\t\t[&#34;UpperBound&#34;]: Vector3,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t},\n\t\t...\n\t},\n\t[&#34;AccessoryRules&#34;] = {\n\t\t[Enum.AssetType.HairAccessory] = {\n\t\t\t[&#34;Attachments&#34;] = {\n\t\t\t\t{\n\t\t\t\t\t[&#34;Size&#34;]: Vector3,\n\t\t\t\t\t[&#34;Offset&#34;]: Vector3,\n\t\t\t\t\t[&#34;Name&#34;]: string,\n\t\t\t\t},\n\t\t\t},\n\t\t\t[&#34;RigidAllowed&#34;]: boolean,\n\t\t},\n\t\t...\n\t}\n}\n</code></pre>\n"
 			},
+			"LoadGeneratedAvatarAsync": {},
 			"PrepareAvatarForPreviewAsync": {
 				"Summary": "<p>Prepares in-experience avatar for preview.</p>\n",
 				"Description": "<p>Triggers HSR generation and attachment point updating for in-experience\navatar previews. This allows for previewing of avatars created in\nexperience with layered clothing and accessories in the same way they will\nappear when published through\n<a href=\"/ref/class/AvatarCreationService.html#member-PromptCreateAvatarAsync\">PromptCreateAvatarAsync()</a>.</p>\n<p>When developers use <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> and <a href=\"/ref/class/WrapDeformer.html\">WrapDeformer</a> to\nmodify avatars before publishing, the original HSR data may not accurately\naccount for the new deformations. This method generates updated HSR data\nand corrects attachment points based on the <a href=\"/ref/class/WrapDeformer.html\">WrapDeformer</a>\nmodifications, ensuring consistent preview and published avatar\nappearance.</p>\n"
@@ -6335,7 +6349,6 @@
 				"Description": "<p>Specifies which <a href=\"/ref/enum/TonemapperPreset.html\">TonemapperPreset</a> to use.\n<a href=\"/ref/enum/TonemapperPreset.html\">TonemapperPreset.Retro</a> is meant to imitate the look of the pre‑2019\nRoblox lighting system.</p>\n"
 			}
 		},
-		"CommandService": {},
 		"CommerceService": {
 			"GetCommerceProductInfoAsync": {
 				"Summary": "<p>Retrieves information about the commerce products you are selling in\nexperience.</p>\n",
@@ -7979,19 +7992,19 @@
 		"ExperienceInviteOptions": {
 			"InviteMessageId": {
 				"Summary": "<p>Asset ID that maps to a <strong>Notification</strong> asset type.</p>\n",
-				"Description": "<p>Asset ID that maps to a <strong>Notification</strong> asset type. This asset is used to\nstore/localize a custom string for the invite notification that friends\nreceive. See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts#setting-notification-options\">Setting Notification Options</a>\nfor details.</p>\n"
+				"Description": "<p>Asset ID that maps to a <strong>Notification</strong> asset type. This asset is used to\nstore/localize a custom string for the invite notification that connections\nreceive. See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts#setting-notification-options\">Setting Notification Options</a>\nfor details.</p>\n"
 			},
 			"InviteUser": {
-				"Summary": "<p>Roblox <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the specific friend to invite.</p>\n",
-				"Description": "<p>Roblox <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the specific friend to invite; if\nnot provided, the player will be prompted to pick from a list of friends.</p>\n"
+				"Summary": "<p>Roblox <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the specific connection to invite.</p>\n",
+				"Description": "<p>Roblox <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the specific connection to invite; if\nnot provided, the player will be prompted to pick from a list of connections.</p>\n"
 			},
 			"LaunchData": {
-				"Summary": "<p>Used to set a parameter in <a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> when a friend\njoins from the invite notification.</p>\n",
-				"Description": "<p>Used to set a parameter in <a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> when a friend\njoins from the invite notification; maximum of 200 characters. See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts#include-launch-data\">Include launch data</a>\nfor a usage example.</p>\n"
+				"Summary": "<p>Used to set a parameter in <a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> when a connection\njoins from the invite notification.</p>\n",
+				"Description": "<p>Used to set a parameter in <a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> when a connection\njoins from the invite notification; maximum of 200 characters. See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts#include-launch-data\">Include launch data</a>\nfor a usage example.</p>\n"
 			},
 			"PromptMessage": {
 				"Summary": "<p>Custom text shown on the invite prompt for the sending player.</p>\n",
-				"Description": "<p>Custom text shown on the invite prompt for the sending player, for example\n&#34;Ask your friends to join the adventure!&#34; for a multi-friend invite\nprompt, or &#34;Invite this friend to join the adventure!&#34; for a specific\nfriend invite prompt.</p>\n"
+				"Description": "<p>Custom text shown on the invite prompt for the sending player, for example\n&#34;Ask your connections to join the adventure!&#34; for a multi-connection invite\nprompt, or &#34;Invite this connection to join the adventure!&#34; for a specific\nconnection invite prompt.</p>\n"
 			}
 		},
 		"ExperienceNotificationService": {
@@ -9364,7 +9377,7 @@
 				"Summary": "<p>Used to enable and disable touch controls and touch control display UI.\nDefaults to true.</p>\n",
 				"Description": "<p>Used to enable and disable touch controls and touch control display UI.\nDefaults to true.</p>\n"
 			},
-			"ViewportSizeInMM": {}
+			"ViewportDisplaySize": {}
 		},
 		"GuidRegistryService": {},
 		"HSRDataContentProvider": {},
@@ -11510,6 +11523,7 @@
 				"Summary": "<p>The exposure compensation value.</p>\n",
 				"Description": "<p>This property determines the exposure compensation amount which applies a\nbias to the exposure level of the scene prior to the tonemap step.\nDefaults to <code>0</code> (no exposure compensation) and has a range from <code>-5</code> to\n<code>5</code>. A value of <code>1</code> indicates twice as much exposure and <code>-1</code> means half\nas much exposure.</p>\n"
 			},
+			"ExtendLightRangeTo120": {},
 			"FogColor": {
 				"Summary": "<p>A <a href=\"/ref/type/Color3.html\">Color3</a> value giving the hue of <code>Lighting</code> fog.</p>\n",
 				"Description": "<p>A <a href=\"/ref/type/Color3.html\">Color3</a> value giving the hue of <code>Lighting</code> fog. Note that fog\nproperties are hidden when <code>Lighting</code> contains an <a href=\"/ref/class/Atmosphere.html\">Atmosphere</a>\nobject.</p>\n"
@@ -13678,8 +13692,8 @@
 				"Description": "<p>This property indicates if the player is currently in a pause state in a\nplace with <a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">StreamingEnabled</a> activated.\nIt is set on the client but replicated to the server.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a> and\n<a href=\"/ref/enum/StreamingIntegrityMode.html\">StreamingIntegrityMode</a> for more details on when gameplay is\npaused.</li>\n</ul>\n"
 			},
 			"GetFriendsOnline": {
-				"Summary": "<p>Returns a dictionary of online friends.</p>\n",
-				"Description": "<p>This function returns a dictionary array of online friends, using a 30\nsecond cache. In the returned array, some fields are only present for\ncertain location types; for example, <code>PlaceId</code> won&#39;t be present when\n<code>LocationType</code> is <code>0</code> (mobile website).</p>\n<table>\n    <thead>\n        <tr>\n            <th>Name</th>\n            <th>Type</th>\n            <th>Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td><code>VisitorId</code></td>\n            <td>number</td>\n            <td>The <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the friend.</td>\n        </tr>\n        <tr>\n            <td><code>UserName</code></td>\n            <td>string</td>\n            <td>The username of the friend.</td>\n        </tr>\n        <tr>\n            <td><code>DisplayName</code></td>\n            <td>string</td>\n            <td>The <a href=\"/ref/class/Player.html#member-DisplayName\">DisplayName</a> of the friend.</td>\n        </tr>\n        <tr>\n            <td><code>LastOnline</code></td>\n            <td>string</td>\n            <td>When the friend was last online.</td>\n        </tr>\n        <tr>\n            <td><code>IsOnline</code></td>\n            <td>boolean</td>\n            <td>If the friend is currently online.</td>\n        </tr>\n        <tr>\n            <td><code>LastLocation</code></td>\n            <td>string</td>\n            <td>The name of the friend&#39;s current location.</td>\n        </tr>\n        <tr>\n            <td><code>PlaceId</code></td>\n            <td>number</td>\n            <td>The place ID of the friend&#39;s last location.</td>\n        </tr>\n        <tr>\n            <td><code>GameId</code></td>\n            <td>string</td>\n            <td>The <a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a> of the friend&#39;s last location.</td>\n        </tr>\n        <tr>\n            <td><code>LocationType</code></td>\n            <td>number</td>\n            <td>The location type of the friend&#39;s last location.</td>\n        </tr>\n    </tbody>\n</table>\n",
+				"Summary": "<p>Returns a dictionary of online connections.</p>\n",
+				"Description": "<p>This function returns a dictionary array of online connections, using a 30\nsecond cache. In the returned array, some fields are only present for\ncertain location types; for example, <code>PlaceId</code> won&#39;t be present when\n<code>LocationType</code> is <code>0</code> (mobile website).</p>\n<table>\n    <thead>\n        <tr>\n            <th>Name</th>\n            <th>Type</th>\n            <th>Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td><code>VisitorId</code></td>\n            <td>number</td>\n            <td>The <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the connection.</td>\n        </tr>\n        <tr>\n            <td><code>UserName</code></td>\n            <td>string</td>\n            <td>The username of the connection.</td>\n        </tr>\n        <tr>\n            <td><code>DisplayName</code></td>\n            <td>string</td>\n            <td>The <a href=\"/ref/class/Player.html#member-DisplayName\">DisplayName</a> of the connection.</td>\n        </tr>\n        <tr>\n            <td><code>LastOnline</code></td>\n            <td>string</td>\n            <td>When the connection was last online.</td>\n        </tr>\n        <tr>\n            <td><code>IsOnline</code></td>\n            <td>boolean</td>\n            <td>If the connection is currently online.</td>\n        </tr>\n        <tr>\n            <td><code>LastLocation</code></td>\n            <td>string</td>\n            <td>The name of the connection&#39;s current location.</td>\n        </tr>\n        <tr>\n            <td><code>PlaceId</code></td>\n            <td>number</td>\n            <td>The place ID of the connection&#39;s last location.</td>\n        </tr>\n        <tr>\n            <td><code>GameId</code></td>\n            <td>string</td>\n            <td>The <a href=\"/ref/class/DataModel.html#member-JobId\">DataModel.JobId</a> of the connection&#39;s last location.</td>\n        </tr>\n        <tr>\n            <td><code>LocationType</code></td>\n            <td>number</td>\n            <td>The location type of the connection&#39;s last location.</td>\n        </tr>\n    </tbody>\n</table>\n",
 				"CodeSamples": [
 					"how-to-get-a-list-of-online-friends"
 				]
@@ -13737,13 +13751,13 @@
 				"Description": "<p>This event fires approximately two minutes after the engine classifies the\nplayer as idle. Time is the number of seconds that have elapsed since that\npoint. The event continues to fire every 30 seconds for as long as the\nplayer remains idle.</p>\n<p>This event only fires in client scripts, not server scripts; use a\n<a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a> to notify the server of idle players.</p>\n<p>Roblox automatically disconnects players that have been idle for at least\n20 minutes, so this event is useful for warning players that they will be\ndisconnected soon, disconnecting players prior to those 20 minutes, or\nother away from keyboard (AFK) features.</p>\n<p>To track how often automatic disconnects occur, try correlating this event\nwith occurrences of <a href=\"/ref/class/Players.html#member-PlayerRemoving\">Players.PlayerRemoving</a>.</p>\n"
 			},
 			"IsBestFriendsWith": {
-				"Summary": "<p>Returns whether a player is friends with the specified user.</p>\n",
-				"Description": "<p>This function was once used to return whether a player is best friends\nwith the specified user, but the best friend feature has since been\nremoved.</p>\n",
+				"Summary": "<p>Returns whether a player is connections with the specified user.</p>\n",
+				"Description": "<p>This function was once used to return whether a player is best connections\nwith the specified user, but the best connection feature has since been\nremoved.</p>\n",
 				"DeprecationMessage": "<p>This function is obsolete because the Best Friends feature was removed.\nUse <a href=\"/ref/class/Player.html#member-IsFriendsWith\">Player:IsFriendsWith()</a> instead.</p>\n"
 			},
 			"IsFriendsWith": {
-				"Summary": "<p>Checks whether a player is a friend of the user with the given\n<a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a>.</p>\n",
-				"Description": "<p>This method sends a request to Roblox asking whether a player is a friend\nof another user, given the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of that user. This\nmethod caches results so multiple calls on the same player with the same\n<code>userId</code> may not yield the most up-to-date result.</p>\n",
+				"Summary": "<p>Checks whether a player is a connection of the user with the given\n<a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a>.</p>\n",
+				"Description": "<p>This method sends a request to Roblox asking whether a player is a connection\nof another user, given the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of that user. This\nmethod caches results so multiple calls on the same player with the same\n<code>userId</code> may not yield the most up-to-date result.</p>\n",
 				"CodeSamples": [
 					"Player-IsFriendsWith1"
 				]
@@ -14113,8 +14127,8 @@
 				]
 			},
 			"GetFriendsAsync": {
-				"Summary": "<p>Returns a <a href=\"/ref/class/FriendPages.html\">FriendPages</a> object which contains information for all of\nthe given player&#39;s friends.</p>\n",
-				"Description": "<p>The GetFriends <a href=\"/ref/class/Players.html\">Players</a> function returns a <a href=\"/ref/class/FriendPages.html\">FriendPages</a>\nobject which contains information for all of the given user&#39;s friends. The\nitems within the <a href=\"/ref/class/FriendPages.html\">FriendPages</a> object are tables with the following\nfields:</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Description</th>\n\t\t</tr>\n\t</thead>\n\t<tbody><tr>\n\t\t<td>Id</td>\n\t\t<td>int64</td>\n\t\t<td>The friend&#39;s UserId</td>\n\t</tr>\n\t<tr>\n\t\t<td>Username</td>\n\t\t<td>string</td>\n\t\t<td>The friend&#39;s username</td>\n\t</tr>\n    <tr>\n      <td>DisplayName</td>\n      <td>string</td>\n      <td>The <a href=\"/ref/class/Player.html#member-DisplayName\">display name</a> of the friend.</td>\n    </tr>\n</tbody></table>\n<p>See the code samples for an easy way to iterate over all a player&#39;s\nfriends.</p>\n",
+				"Summary": "<p>Returns a <a href=\"/ref/class/FriendPages.html\">FriendPages</a> object which contains information for all of\nthe given player&#39;s connections.</p>\n",
+				"Description": "<p>The GetFriends <a href=\"/ref/class/Players.html\">Players</a> function returns a <a href=\"/ref/class/FriendPages.html\">FriendPages</a>\nobject which contains information for all of the given user&#39;s connections. The\nitems within the <a href=\"/ref/class/FriendPages.html\">FriendPages</a> object are tables with the following\nfields:</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Description</th>\n\t\t</tr>\n\t</thead>\n\t<tbody><tr>\n\t\t<td>Id</td>\n\t\t<td>int64</td>\n\t\t<td>The connection&#39;s UserId</td>\n\t</tr>\n\t<tr>\n\t\t<td>Username</td>\n\t\t<td>string</td>\n\t\t<td>The connection&#39;s username</td>\n\t</tr>\n    <tr>\n      <td>DisplayName</td>\n      <td>string</td>\n      <td>The <a href=\"/ref/class/Player.html#member-DisplayName\">display name</a> of the connection.</td>\n    </tr>\n</tbody></table>\n<p>See the code samples for an easy way to iterate over all a player&#39;s\nconnections.</p>\n",
 				"CodeSamples": [
 					"print-roblox-friends"
 				]
@@ -15615,7 +15629,7 @@
 			},
 			"RegisterAutocompleteCallback": {
 				"Summary": "<p>Registers an autocomplete callback <code>callbackFunction</code> named <code>name</code> with\npriority <code>priority</code>.</p>\n",
-				"Description": "<p>Registers an autocomplete callback <code>callbackFunction</code> named <code>name</code> with\npriority <code>priority</code>.</p>\n<p>When the Script Editor invokes autocomplete, all registered autocomplete\ncallbacks call in order of ascending priority with the autocomplete\nrequest and response. Multiple callbacks may share a priority, but then\ntheir calling order is unpredictable. Each callback is intended to return\na response table with the same format as the response input table.\nCallbacks shouldn&#39;t yield. The first callback invoked receives the\ninternal autocomplete&#39;s response as its response table, and subsequent\ncallbacks receive the previous callback&#39;s output as their response table.\nCallbacks may either modify the passed table or return a new table of the\nsame format.</p>\n<p>The <code>callbackFunction</code> must have the following type:\n<code>(Request: table, Response: table) -&gt; table</code></p>\n<p>The Request table has the following format:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">type</span> <span class=\"_n\">Request</span> <span class=\"_o\">=</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_n\">position</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">line</span><span class=\"_p\">:</span> <span class=\"_n\">number</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">character</span><span class=\"_p\">:</span> <span class=\"_n\">number</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_p\">},</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_n\">textDocument</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">document</span><span class=\"_p\">:</span> <span class=\"_n\">ScriptDocument</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">script</span><span class=\"_p\">:</span> <span class=\"_n\">LuaSourceContainer</span><span class=\"_err\">?</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_p\">}</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<ul>\n<li><code>position</code> is the one-indexed cursor position where you are\nautocompleting.</li>\n<li><code>textDocument.document</code> is the open <a href=\"/ref/class/ScriptDocument.html\">ScriptDocument</a> you are\ncompleting in, if it exists.</li>\n<li><code>textDocument.script</code> is the <a href=\"/ref/class/LuaSourceContainer.html\">LuaSourceContainer</a> you are\ncompleting in, if it exists.</li>\n</ul>\n<p>If both <code>textDocument.document</code> and <code>textDocument.script</code> are present,\nthen they correspond to each other:\n<code>req.textDocument.document:GetScript() == req.textDocument.script</code></p>\n<p>The Response table has the following format:</p>\n<pre><code>type Response = {\n  items: {\n    {\n      label: string, -- The label\n      kind: Enum.CompletionItemKind?,\n      tags: {Enum.CompletionItemTag}?,\n      detail: string?,\n      documentation: {\n        value: string,\n      }?,\n      overloads: number?,\n      learnMoreLink: string?,\n      codeSample: string?,\n      preselect: boolean?,\n      textEdit: {\n        newText: string,\n        insert: { start: { line: number, character: number }, [&#34;end&#34;]: { line: number, character: number } },\n        replace: { start: { line: number, character: number }, [&#34;end&#34;]: { line: number, character: number } },\n      }?\n    }\n  }\n}\n</code></pre>\n<ul>\n<li><code>Response.items</code> is an array of the completion items. The order of this\narray is insignificant, and it resorts in the editor as the user types.</li>\n<li><code>Response.items[n].label</code> is the label of the item which display in the\nautocomplete menu.</li>\n<li><code>Response.items[n].kind</code> specifies what type of autocomplete item this\nis. Primarily this controls the icon given to the item in the editor.\nNot all kinds have a unique icon. If not specified, the editor uses the\n&#34;Text&#34; icon. Unsupported kinds default to displaying the &#34;Property&#34;\nicon.</li>\n<li><code>Response.items[n].tags</code> specifies an array of tags describing this\ncompletion item. See the <a href=\"/ref/enum/CompletionItemTag.html\">CompletionItemTag</a> for details on their\nfunction.</li>\n<li><code>Response.items[n].details</code> specifies a string describing details about\nthe completion item. For default items, this is a string representation\nof their type. Note that, in order for the documentation widget to\ndisplay, <code>documentation</code> must be present, but <code>documentation.value</code> may\nbe empty.</li>\n<li><code>Response.items[n].documentation</code> specifies the main body of the\ndocumentation in its <code>value</code> field. <code>documentation</code> is present, even if\nvalue is empty, so the documentation window displays if either details\nor overloads are specified.</li>\n<li><code>Response.items[n].overloads</code> specifies the number of overloads of a\nfunction autocompletion.</li>\n<li><code>Response.items[n].learnMoreLink</code> links to a relevant page on the\ncreator docs. This URL must be a <code>https</code> request to create.roblox.com;\nno other URLs display in the editor.</li>\n<li><code>Response.items[n].codeSample</code> specifies a sample use of the completion\nitem. <code>documentation</code> must be non-empty to display this field.</li>\n<li><code>Response.items[n].preselect</code> If true, the editor sorts this completion\nitem ahead of all others and selects it for the user by default. No\neffect if false or missing.</li>\n<li><code>Response.items[n].textEdit</code> If present, accepting the completion\napplies this text edit - inserting or replacing the span between the\npositions start and end with newText.</li>\n</ul>\n<p>If a callback returns a malformed result or encounters an error, the\neditor discards the modified Response table and uses the built-in\nautocomplete result list.</p>\n",
+				"Description": "<p>Registers an autocomplete callback <code>callbackFunction</code> named <code>name</code> with\npriority <code>priority</code>.</p>\n<p>When the Script Editor invokes autocomplete, all registered autocomplete\ncallbacks call in order of ascending priority with the autocomplete\nrequest and response. Multiple callbacks may share a priority, but then\ntheir calling order is unpredictable. Each callback is intended to return\na response table with the same format as the response input table.\nCallbacks shouldn&#39;t yield. The first callback invoked receives the\ninternal autocomplete&#39;s response as its response table, and subsequent\ncallbacks receive the previous callback&#39;s output as their response table.\nCallbacks may either modify the passed table or return a new table of the\nsame format.</p>\n<p>The <code>callbackFunction</code> must have the following type:\n<code>(Request: table, Response: table) -&gt; table</code></p>\n<p>The Request table has the following format:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">type</span> <span class=\"_n\">Request</span> <span class=\"_o\">=</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_n\">position</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">line</span><span class=\"_p\">:</span> <span class=\"_n\">number</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">character</span><span class=\"_p\">:</span> <span class=\"_n\">number</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_p\">},</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_n\">textDocument</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">document</span><span class=\"_p\">:</span> <span class=\"_n\">ScriptDocument</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">script</span><span class=\"_p\">:</span> <span class=\"_n\">LuaSourceContainer</span><span class=\"_err\">?</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">  <span class=\"_p\">}</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<ul>\n<li><code>position</code> is the one-indexed cursor position where you are\nautocompleting.</li>\n<li><code>textDocument.document</code> is the open <a href=\"/ref/class/ScriptDocument.html\">ScriptDocument</a> you are\ncompleting in, if it exists.</li>\n<li><code>textDocument.script</code> is the <a href=\"/ref/class/LuaSourceContainer.html\">LuaSourceContainer</a> you are\ncompleting in, if it exists.</li>\n</ul>\n<p>If both <code>textDocument.document</code> and <code>textDocument.script</code> are present,\nthen they correspond to each other:\n<code>req.textDocument.document:GetScript() == req.textDocument.script</code></p>\n<p>The Response table has the following format:</p>\n<pre><code>type Response = {\n  items: {\n    {\n      label: string, -- The label\n      kind: Enum.CompletionItemKind?,\n      tags: {Enum.CompletionItemTag}?,\n      detail: string?,\n      documentation: {\n        value: string,\n      }?,\n      overloads: number?,\n      learnMoreLink: string?,\n      codeSample: string?,\n      preselect: boolean?,\n      textEdit: {\n        newText: string,\n        insert: { start: { line: number, character: number }, [&#34;end&#34;]: { line: number, character: number } },\n        replace: { start: { line: number, character: number }, [&#34;end&#34;]: { line: number, character: number } },\n      }?\n    }\n  }\n}\n</code></pre>\n<ul>\n<li><code>Response.items</code> is an array of the completion items. The order of this\narray is insignificant, and it resorts in the editor as the user types.</li>\n<li><code>Response.items[n].label</code> is the label of the item which display in the\nautocomplete menu.</li>\n<li><code>Response.items[n].kind</code> specifies what type of autocomplete item this\nis. Primarily this controls the icon given to the item in the editor.\nNot all kinds have a unique icon. If not specified, the editor uses the\n&#34;Text&#34; icon. Unsupported kinds default to displaying the &#34;Property&#34;\nicon. See <a href=\"/ref/enum/CompletionItemKind.html\">CompletionItemKind</a> for possible values.</li>\n<li><code>Response.items[n].tags</code> specifies an array of tags describing this\ncompletion item. See the <a href=\"/ref/enum/CompletionItemTag.html\">CompletionItemTag</a> for details on their\nfunction.</li>\n<li><code>Response.items[n].details</code> specifies a string describing details about\nthe completion item. For default items, this is a string representation\nof their type. Note that, in order for the documentation widget to\ndisplay, <code>documentation</code> must be present, but <code>documentation.value</code> may\nbe empty.</li>\n<li><code>Response.items[n].documentation</code> specifies the main body of the\ndocumentation in its <code>value</code> field. <code>documentation</code> is present, even if\nvalue is empty, so the documentation window displays if either details\nor overloads are specified.</li>\n<li><code>Response.items[n].overloads</code> specifies the number of overloads of a\nfunction autocompletion.</li>\n<li><code>Response.items[n].learnMoreLink</code> links to a relevant page on the\ncreator docs. This URL must be a <code>https</code> request to create.roblox.com;\nno other URLs display in the editor.</li>\n<li><code>Response.items[n].codeSample</code> specifies a sample use of the completion\nitem. <code>documentation</code> must be non-empty to display this field.</li>\n<li><code>Response.items[n].preselect</code> If true, the editor sorts this completion\nitem ahead of all others and selects it for the user by default. No\neffect if false or missing.</li>\n<li><code>Response.items[n].textEdit</code> If present, accepting the completion\napplies this text edit - inserting or replacing the span between the\npositions start and end with newText.</li>\n</ul>\n<p>If a callback returns a malformed result or encounters an error, the\neditor discards the modified Response table and uses the built-in\nautocomplete result list.</p>\n",
 				"CodeSamples": [
 					"ScriptEditorService-RegisterAutocompleteCallback"
 				]
@@ -16183,7 +16197,7 @@
 			},
 			"CanSendCallInviteAsync": {
 				"Summary": "<p>Indicates whether the given <a href=\"/ref/class/Player.html\">Player</a> can invite other players to a\ncall.</p>\n",
-				"Description": "<p>Returns <code>true</code> if the given <a href=\"/ref/class/Player.html\">Player</a> can send a call invite to a\nfriend. You should always use the result of this method before calling\n<a href=\"/ref/class/SocialService.html#member-PromptPhoneBook\">PromptPhoneBook()</a> since the\nability to open the phone book may vary depending on the player.</p>\n<p>See <a href=\"https://create.roblox.com/docs/resources/roblox-connect\">Roblox Connect</a> for a sample\nimplementation of this method.</p>\n",
+				"Description": "<p>Returns <code>true</code> if the given <a href=\"/ref/class/Player.html\">Player</a> can send a call invite to a\nconnection. You should always use the result of this method before calling\n<a href=\"/ref/class/SocialService.html#member-PromptPhoneBook\">PromptPhoneBook()</a> since the\nability to open the phone book may vary depending on the player.</p>\n<p>See <a href=\"https://create.roblox.com/docs/resources/roblox-connect\">Roblox Connect</a> for a sample\nimplementation of this method.</p>\n",
 				"CodeSamples": [
 					"SocialService-PromptPhoneBook"
 				]
@@ -16238,11 +16252,12 @@
 			},
 			"PromptGameInvite": {
 				"Summary": "<p>Prompts the given <a href=\"/ref/class/Player.html\">Player</a> with the invite screen.</p>\n",
-				"Description": "<p><a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a> displays an\ninvite prompt to the local player through which they may invite their\nfriends to the current experience. Before calling this method, you should\nuse\n<a href=\"/ref/class/SocialService.html#member-CanSendGameInviteAsync\">CanSendGameInviteAsync()</a> to\ndetermine whether the player can send an invite, as this ability may vary\ndepending on the platform or player.</p>\n<p>See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">Player Invite Prompts</a>\nfor more details on implementing invite prompts, customizing prompts and\nnotifications, and using launch data.</p>\n",
+				"Description": "<p><a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a> displays an\ninvite prompt to the local player through which they may invite their\nconnections to the current experience. Before calling this method, you should\nuse\n<a href=\"/ref/class/SocialService.html#member-CanSendGameInviteAsync\">CanSendGameInviteAsync()</a> to\ndetermine whether the player can send an invite, as this ability may vary\ndepending on the platform or player.</p>\n<p>See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">Player Invite Prompts</a>\nfor more details on implementing invite prompts, customizing prompts and\nnotifications, and using launch data.</p>\n",
 				"CodeSamples": [
 					"sending-a-game-invite"
 				]
 			},
+			"PromptLinkSharing": {},
 			"PromptPhoneBook": {
 				"Summary": "<p>Prompts the given <a href=\"/ref/class/Player.html\">Player</a> with the phone book.</p>\n",
 				"Description": "<p>Prompts the given <a href=\"/ref/class/Player.html\">Player</a> with the phone book. If the player\nchooses to call someone, the\n<a href=\"/ref/class/SocialService.html#member-CallInviteStateChanged\">CallInviteStateChanged</a> event\nfires. You should use\n<a href=\"/ref/class/SocialService.html#member-CanSendCallInviteAsync\">CanSendCallInviteAsync()</a>\nprior to calling <a href=\"/ref/class/SocialService.html#member-PromptPhoneBook\">PromptPhoneBook()</a>\nsince the ability to see the phone book may vary depending on the player.</p>\n<p>If a player is not eligible to open the phone book, an error dialog is\nshown.</p>\n<p>See <a href=\"https://create.roblox.com/docs/resources/roblox-connect\">Roblox Connect</a> for a sample\nimplementation of this method.</p>\n",
@@ -16257,6 +16272,7 @@
 					"SocialService-PromptRsvpToEventAsync"
 				]
 			},
+			"ShareSheetClosed": {},
 			"ShowSelfView": {
 				"Summary": "<p>Shows the calling player&#39;s self view.</p>\n",
 				"Description": "<p>Shows the calling player&#39;s self view. If this method is called while the\nself view is already visible, it does nothing.</p>\n"
@@ -16689,7 +16705,7 @@
 		"StarterGui": {
 			"GetCore": {
 				"Summary": "<p>Returns a variable that has been specified by a Roblox core script.</p>\n",
-				"Description": "<p>This method returns data set or made available by Roblox&#39;s core scripts.\nThe first and only parameter is a string that selects the information to\nbe fetched. The following sections describe the strings and the data they\nreturn by this function.</p>\n<p>Calling this method may yield. Many of these also register an equivalent\n<a href=\"/ref/class/StarterGui.html#member-SetCore\">SetCore()</a> function (these are marked with an\nasterisk).</p>\n<h4>PointsNotificationsActive *</h4>\n<p>Returns <code>true</code> if player point notifications are enabled.</p>\n<h4>BadgesNotificationsActive *</h4>\n<p>Returns <code>true</code> if badge notifications are enabled.</p>\n<h4>AvatarContextMenuEnabled *</h4>\n<p>Returns <code>true</code> if the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> is enabled.</p>\n<h4>ChatActive *</h4>\n<p>Returns whether the chat is active or not. This is indicated by the\nselection state of the top bar&#39;s chat icon.</p>\n<h4>ChatWindowSize *</h4>\n<p>Returns the size of the chat window as a <a href=\"/ref/type/UDim2.html\">UDim2</a>.</p>\n<h4>ChatWindowPosition *</h4>\n<p>Returns the size of the chat window as a <a href=\"/ref/type/UDim2.html\">UDim2</a>.</p>\n<h4>ChatBarDisabled *</h4>\n<p>Returns <code>true</code> if the chat bar is disabled.</p>\n<h4>GetBlockedUserIds</h4>\n<p>Returns a list of <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a> associated with users that\nhave been blocked by the local player.</p>\n<h4>PlayerBlockedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is blocked\nby the local player.</p>\n<h4>PlayerUnblockedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is\nunblocked by the local player.</p>\n<h4>PlayerMutedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is muted\nby the local player.</p>\n<h4>PlayerUnmutedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is unmuted\nby the local player.</p>\n<h4>PlayerFriendedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is\nfriended by the local player.</p>\n<h4>PlayerUnfriendedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is\nunfriended by the local player.</p>\n<h4>DevConsoleVisible *</h4>\n<p>Returns <code>true</code> if the\n<a href=\"https://create.roblox.com/docs/studio/developer-console\">Developer Console</a> is visible.</p>\n<h4>VRRotationIntensity</h4>\n<p>Returns a string describing the camera rotation sensitivity in VR: <code>Low</code>,\n<code>High</code> and <code>Smooth</code>. This will not be available unless\n<a href=\"/ref/class/VRService.html#member-VREnabled\">VRService.VREnabled</a> is <code>true</code>.</p>\n"
+				"Description": "<p>This method returns data set or made available by Roblox&#39;s core scripts.\nThe first and only parameter is a string that selects the information to\nbe fetched. The following sections describe the strings and the data they\nreturn by this function.</p>\n<p>Calling this method may yield. Many of these also register an equivalent\n<a href=\"/ref/class/StarterGui.html#member-SetCore\">SetCore()</a> function (these are marked with an\nasterisk).</p>\n<h4>PointsNotificationsActive *</h4>\n<p>Returns <code>true</code> if player point notifications are enabled.</p>\n<h4>BadgesNotificationsActive *</h4>\n<p>Returns <code>true</code> if badge notifications are enabled.</p>\n<h4>AvatarContextMenuEnabled *</h4>\n<p>Returns <code>true</code> if the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> is enabled.</p>\n<h4>ChatActive *</h4>\n<p>Returns whether the chat is active or not. This is indicated by the\nselection state of the top bar&#39;s chat icon.</p>\n<h4>ChatWindowSize *</h4>\n<p>Returns the size of the chat window as a <a href=\"/ref/type/UDim2.html\">UDim2</a>.</p>\n<h4>ChatWindowPosition *</h4>\n<p>Returns the size of the chat window as a <a href=\"/ref/type/UDim2.html\">UDim2</a>.</p>\n<h4>ChatBarDisabled *</h4>\n<p>Returns <code>true</code> if the chat bar is disabled.</p>\n<h4>GetBlockedUserIds</h4>\n<p>Returns a list of <a href=\"/ref/class/Player.html#member-UserId\">UserIds</a> associated with users that\nhave been blocked by the local player.</p>\n<h4>PlayerBlockedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is blocked\nby the local player.</p>\n<h4>PlayerUnblockedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is\nunblocked by the local player.</p>\n<h4>PlayerMutedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is muted\nby the local player.</p>\n<h4>PlayerUnmutedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is unmuted\nby the local player.</p>\n<h4>PlayerFriendedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is\nconnected by the local player.</p>\n<h4>PlayerUnfriendedEvent</h4>\n<p>Returns a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> that is fired whenever a player is\nunconnected by the local player.</p>\n<h4>DevConsoleVisible *</h4>\n<p>Returns <code>true</code> if the\n<a href=\"https://create.roblox.com/docs/studio/developer-console\">Developer Console</a> is visible.</p>\n<h4>VRRotationIntensity</h4>\n<p>Returns a string describing the camera rotation sensitivity in VR: <code>Low</code>,\n<code>High</code> and <code>Smooth</code>. This will not be available unless\n<a href=\"/ref/class/VRService.html#member-VREnabled\">VRService.VREnabled</a> is <code>true</code>.</p>\n"
 			},
 			"GetCoreGuiEnabled": {
 				"Summary": "<p>Returns whether the given <a href=\"/ref/enum/CoreGuiType.html\">CoreGuiType</a>is enabled, or if it has been\ndisabled using <a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">StarterGui:SetCoreGuiEnabled()</a>.</p>\n",
@@ -16714,7 +16730,7 @@
 			},
 			"SetCore": {
 				"Summary": "<p>Allows you to perform certain interactions with Roblox&#39;s core scripts.</p>\n",
-				"Description": "<p>This method (not to be confused with\n<a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">SetCoreGuiEnabled()</a>) exposes a\nvariety of functionality defined by Roblox&#39;s core scripts, such as sending\nnotifications, toggling notifications for badges/points, defining a\ncallback for the reset button, or toggling the topbar.</p>\n<p>The first parameter is a string that selects the functionality with which\nthe call will interact. It may be necessary to call this method multiple\ntimes using <a href=\"https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall\">pcall()</a> in case the respective core script\nhas not yet loaded (or if it has been disabled entirely).</p>\n<p>The following table describes the strings that may be accepted as the\nfirst parameter. The parameters that should follow are dependent on the\nfunctionality that will be used and are described in sub-tables.</p>\n<h4>ChatActive</h4>\n<p>Controls whether the chat is active.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\t\n    </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>active</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the chat should be made active.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>PointsNotificationsActive</h4>\n<p>Controls whether notifications for earned player points will appear.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>active</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether notifications for earned player points will appear.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>BadgesNotificationsActive</h4>\n<p>Controls whether notifications for earned badges will appear.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n      </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>active</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether notifications for earned badges\nwill appear.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>ResetButtonCallback</h4>\n<p>Determines the behavior, if any, of the reset button given a boolean or a\n<a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> to be fired when a player requests to reset.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n\t\t</thead>\n    <tbody>\n\t<tr>\n    <td><code>enabled</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the reset button retains its default behavior.</td>\n  </tr>\n\t<tr>\n    <td colspan=\"4\"><b>OR</b></td>\n  </tr>\n\t<tr>\n    <td><code>callback</code></td>\n    <td><a href=\"/ref/class/BindableEvent.html\">BindableEvent</a></td>\n    <td>(required)</td>\n    <td>A <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> to be fired when the player confirms they want to reset.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>ChatMakeSystemMessage</h4>\n<p>Display a formatted message in the chat. Using this method requires the\nexperience&#39;s <a href=\"/ref/class/TextChatService.html#member-ChatVersion\">TextChatService.ChatVersion</a> to be set to\n<a href=\"/ref/enum/ChatVersion.html\">LegacyChatService</a>, although legacy chat is\n<strong>deprecated</strong> and usage is discouraged. For experiences using the current\n<a href=\"/ref/class/TextChatService.html\">TextChatService</a>, refer to\n<a href=\"/ref/class/TextChannel.html#member-DisplaySystemMessage\">TextChannel:DisplaySystemMessage()</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n      </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>configTable</code></td>\n    <td>dictionary</td>\n    <td>(required)</td>\n    <td>A dictionary of information describing the message (see below).</td>\n  </tr>\n  </tbody>\n</table>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>Text</code></td>\n    <td>string</td>\n    <td>(required)</td>\n    <td>The message to display.</td>\n  </tr>\n\t<tr>\n    <td><code>Color</code></td>\n    <td><a href=\"/ref/type/Color3.html\">Color3</a></td>\n    <td><a href=\"/ref/type/Color3.html#member-fromRGB\">Color3.fromRGB(255, 255, 243)</a></td>\n    <td>Text color of the message.</td>\n  </tr>\n\t<tr>\n    <td><code>Font</code></td>\n    <td><a href=\"/ref/enum/Font.html\">Font</a></td>\n    <td><code>SourceSansBold</code></td>\n    <td>Font of the message.</td>\n  </tr>\n\t<tr>\n    <td><code>TextSize</code></td>\n    <td>integer</td>\n    <td><code>18</code></td>\n    <td>Text size of the message.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>SendNotification</h4>\n<p>Causes a non-intrusive notification to appear at the bottom right of the\nscreen. The notification may have up to two buttons.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n  <tbody>\n\t<tr>\n    <td><code>configTable</code></td>\n    <td>dictionary</td>\n    <td>(required)</td>\n    <td>A dictionary of information describing the notification (see below).</td>\n  </tr>\n  </tbody>\n</table>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>Title</code></td>\n    <td>string</td>\n    <td>(required)</td>\n    <td>The title of the notification.</td>\n  </tr>\n\t<tr>\n    <td><code>Text</code></td>\n    <td>string</td>\n    <td>(required)</td>\n    <td>The main text of the notification.</td>\n  </tr>\n\t<tr>\n    <td><code>Icon</code></td>\n    <td>string</td>\n    <td></td>\n    <td>The image to display with the notification.</td>\n  </tr>\n\t<tr>\n    <td><code>Duration</code></td>\n    <td>number</td>\n    <td><code>5</code></td>\n    <td>Duration (in seconds) the notification should stay visible.</td>\n  </tr>\n\t<tr>\n    <td><code>Callback</code></td>\n    <td><a href=\"/ref/class/BindableFunction.html\">BindableFunction</a></td>\n    <td></td>\n    <td>A <a href=\"/ref/class/BindableFunction.html\">BindableFunction</a> that should be invoked with the text of the button pressed by the player.</td>\n  </tr>\n\t<tr>\n    <td><code>Button1</code></td>\n    <td>string</td>\n    <td></td>\n    <td>The text to display on the first button.</td>\n  </tr>\n\t<tr>\n    <td><code>Button2</code></td>\n    <td>string</td>\n    <td></td>\n    <td>The text to display on the second button.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>TopbarEnabled</h4>\n<p>Determines whether the topbar is displayed. Disabling the topbar will also\ndisable all <a href=\"/ref/class/CoreGui.html\">CoreGuis</a> such as the chat, inventory, and\nplayer list (for example, those set with\n<a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">SetCoreGuiEnabled</a>).</p>\n<p>When disabled, the region the topbar once occupied will still capture\nmouse events; however, buttons placed there will not respond to clicks.\nThe origin of GUI space will still be offset 36 pixels from the top of the\nscreen.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>enabled</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the topbar should be visible.</td>\n  </tr>\n</tbody>\n</table>\n<h4>DevConsoleVisible</h4>\n<p>Determines whether the\n<a href=\"https://create.roblox.com/docs/studio/developer-console\">Developer Console</a> is visible.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>visibility</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the console is visible.</td>\n  </tr>\n</tbody>\n</table>\n<h4>PromptSendFriendRequest</h4>\n<p>Prompts the current player to send a friend request to the given\n<a href=\"/ref/class/Player.html\">Player</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player to which the friend request should be sent.</td>\n  </tr>\n</tbody>\n</table>\n<h4>PromptUnfriend</h4>\n<p>Prompts the current player to remove a given <a href=\"/ref/class/Player.html\">Player</a> from their\nfriends list.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player who should be unfriended.</td>\n  </tr>\n</tbody>\n</table>\n<h4>PromptBlockPlayer</h4>\n<p>Prompts the current player to block the given <a href=\"/ref/class/Player.html\">Player</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player who should be blocked.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>PromptUnblockPlayer</h4>\n<p>Prompts the current player to unblock the given <a href=\"/ref/class/Player.html\">Player</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n </thead>\n <tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player who should be unblocked.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>AvatarContextMenuEnabled</h4>\n<p>Determines whether the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> is enabled.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>enabled</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the context menu is enabled.</td>\n  </tr>\n</tbody>\n</table>\n<h4>AvatarContextMenuTarget</h4>\n<p>Forcibly opens the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player on whom the context menu will be opened.</td>\n  </tr>\n</tbody>\n</table>\n<h4>AddAvatarContextMenuOption</h4>\n<p>Adds an option to the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>option</code></td>\n    <td><a href=\"/ref/enum/AvatarContextMenuOption.html\">AvatarContextMenuOption</a></td>\n    <td>(required)</td>\n    <td>Option to add.</td>\n  </tr>\n\t<tr>\n    <td colspan=\"4\"><b>OR</b></td>\n  </tr>\n\t<tr>\n    <td><code>option</code></td>\n    <td>table</td>\n    <td>(required)</td>\n    <td>A two-element table, where the first is the name of the custom action, and the second is a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> which will be fired with a player was selected when the option was activated.</td>\n  </tr>\n</tbody>\n</table>\n<h4>RemoveAvatarContextMenuOption</h4>\n<p>Removes an option to the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a>. The\n<code>option</code> argument must be the same as what was used with\n<code>&#34;AddAvatarContextMenuOption&#34;</code> (see above).</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>option</code></td>\n    <td>Variant</td>\n    <td>(required)</td>\n    <td>The same value provided to <b>AddAvatarContextMenuOption</b>.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>AvatarContextMenuTheme</h4>\n<p>Configures the customizable\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> which is an\nopt-in feature that allows easy player-to-player social interaction via\ncustom actions, such as initiating trades, battles, and more. For more\ninfo on how to customize its theme, see the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> article.</p>\n<h4>CoreGuiChatConnections</h4>\n<p>Sets up a bindable gateway connection between the <a href=\"/ref/class/CoreGui.html\">CoreGui</a> topbar&#39;s\nchat button and the legacy chat system. The second parameter must be a\ntable of <a href=\"/ref/class/BindableEvent.html\">BindableEvents</a> and\n<a href=\"/ref/class/BindableFunction.html\">BindableFunctions</a>.</p>\n",
+				"Description": "<p>This method (not to be confused with\n<a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">SetCoreGuiEnabled()</a>) exposes a\nvariety of functionality defined by Roblox&#39;s core scripts, such as sending\nnotifications, toggling notifications for badges/points, defining a\ncallback for the reset button, or toggling the topbar.</p>\n<p>The first parameter is a string that selects the functionality with which\nthe call will interact. It may be necessary to call this method multiple\ntimes using <a href=\"https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall\">pcall()</a> in case the respective core script\nhas not yet loaded (or if it has been disabled entirely).</p>\n<p>The following table describes the strings that may be accepted as the\nfirst parameter. The parameters that should follow are dependent on the\nfunctionality that will be used and are described in sub-tables.</p>\n<h4>ChatActive</h4>\n<p>Controls whether the chat is active.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\t\n    </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>active</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the chat should be made active.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>PointsNotificationsActive</h4>\n<p>Controls whether notifications for earned player points will appear.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>active</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether notifications for earned player points will appear.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>BadgesNotificationsActive</h4>\n<p>Controls whether notifications for earned badges will appear.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n      </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>active</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether notifications for earned badges\nwill appear.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>ResetButtonCallback</h4>\n<p>Determines the behavior, if any, of the reset button given a boolean or a\n<a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> to be fired when a player requests to reset.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n\t\t</thead>\n    <tbody>\n\t<tr>\n    <td><code>enabled</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the reset button retains its default behavior.</td>\n  </tr>\n\t<tr>\n    <td colspan=\"4\"><b>OR</b></td>\n  </tr>\n\t<tr>\n    <td><code>callback</code></td>\n    <td><a href=\"/ref/class/BindableEvent.html\">BindableEvent</a></td>\n    <td>(required)</td>\n    <td>A <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> to be fired when the player confirms they want to reset.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>ChatMakeSystemMessage</h4>\n<p>Display a formatted message in the chat. Using this method requires the\nexperience&#39;s <a href=\"/ref/class/TextChatService.html#member-ChatVersion\">TextChatService.ChatVersion</a> to be set to\n<a href=\"/ref/enum/ChatVersion.html\">LegacyChatService</a>, although legacy chat is\n<strong>deprecated</strong> and usage is discouraged. For experiences using the current\n<a href=\"/ref/class/TextChatService.html\">TextChatService</a>, refer to\n<a href=\"/ref/class/TextChannel.html#member-DisplaySystemMessage\">TextChannel:DisplaySystemMessage()</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n      </tr>\n\t</thead>\n  <tbody>\n\t<tr>\n    <td><code>configTable</code></td>\n    <td>dictionary</td>\n    <td>(required)</td>\n    <td>A dictionary of information describing the message (see below).</td>\n  </tr>\n  </tbody>\n</table>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>Text</code></td>\n    <td>string</td>\n    <td>(required)</td>\n    <td>The message to display.</td>\n  </tr>\n\t<tr>\n    <td><code>Color</code></td>\n    <td><a href=\"/ref/type/Color3.html\">Color3</a></td>\n    <td><a href=\"/ref/type/Color3.html#member-fromRGB\">Color3.fromRGB(255, 255, 243)</a></td>\n    <td>Text color of the message.</td>\n  </tr>\n\t<tr>\n    <td><code>Font</code></td>\n    <td><a href=\"/ref/enum/Font.html\">Font</a></td>\n    <td><code>SourceSansBold</code></td>\n    <td>Font of the message.</td>\n  </tr>\n\t<tr>\n    <td><code>TextSize</code></td>\n    <td>integer</td>\n    <td><code>18</code></td>\n    <td>Text size of the message.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>SendNotification</h4>\n<p>Causes a non-intrusive notification to appear at the bottom right of the\nscreen. The notification may have up to two buttons.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n  <tbody>\n\t<tr>\n    <td><code>configTable</code></td>\n    <td>dictionary</td>\n    <td>(required)</td>\n    <td>A dictionary of information describing the notification (see below).</td>\n  </tr>\n  </tbody>\n</table>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>Title</code></td>\n    <td>string</td>\n    <td>(required)</td>\n    <td>The title of the notification.</td>\n  </tr>\n\t<tr>\n    <td><code>Text</code></td>\n    <td>string</td>\n    <td>(required)</td>\n    <td>The main text of the notification.</td>\n  </tr>\n\t<tr>\n    <td><code>Icon</code></td>\n    <td>string</td>\n    <td></td>\n    <td>The image to display with the notification.</td>\n  </tr>\n\t<tr>\n    <td><code>Duration</code></td>\n    <td>number</td>\n    <td><code>5</code></td>\n    <td>Duration (in seconds) the notification should stay visible.</td>\n  </tr>\n\t<tr>\n    <td><code>Callback</code></td>\n    <td><a href=\"/ref/class/BindableFunction.html\">BindableFunction</a></td>\n    <td></td>\n    <td>A <a href=\"/ref/class/BindableFunction.html\">BindableFunction</a> that should be invoked with the text of the button pressed by the player.</td>\n  </tr>\n\t<tr>\n    <td><code>Button1</code></td>\n    <td>string</td>\n    <td></td>\n    <td>The text to display on the first button.</td>\n  </tr>\n\t<tr>\n    <td><code>Button2</code></td>\n    <td>string</td>\n    <td></td>\n    <td>The text to display on the second button.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>TopbarEnabled</h4>\n<p>Determines whether the topbar is displayed. Disabling the topbar will also\ndisable all <a href=\"/ref/class/CoreGui.html\">CoreGuis</a> such as the chat, inventory, and\nplayer list (for example, those set with\n<a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">SetCoreGuiEnabled</a>).</p>\n<p>When disabled, the region the topbar once occupied will still capture\nmouse events; however, buttons placed there will not respond to clicks.\nThe origin of GUI space will still be offset 36 pixels from the top of the\nscreen.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>enabled</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the topbar should be visible.</td>\n  </tr>\n</tbody>\n</table>\n<h4>DevConsoleVisible</h4>\n<p>Determines whether the\n<a href=\"https://create.roblox.com/docs/studio/developer-console\">Developer Console</a> is visible.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>visibility</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the console is visible.</td>\n  </tr>\n</tbody>\n</table>\n<h4>PromptSendFriendRequest</h4>\n<p>Prompts the current player to send a connection request to the given\n<a href=\"/ref/class/Player.html\">Player</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player to which the connection request should be sent.</td>\n  </tr>\n</tbody>\n</table>\n<h4>PromptUnfriend</h4>\n<p>Prompts the current player to remove a given <a href=\"/ref/class/Player.html\">Player</a> from their\nconnections list.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player who should be unconnected.</td>\n  </tr>\n</tbody>\n</table>\n<h4>PromptBlockPlayer</h4>\n<p>Prompts the current player to block the given <a href=\"/ref/class/Player.html\">Player</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player who should be blocked.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>PromptUnblockPlayer</h4>\n<p>Prompts the current player to unblock the given <a href=\"/ref/class/Player.html\">Player</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n </thead>\n <tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player who should be unblocked.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>AvatarContextMenuEnabled</h4>\n<p>Determines whether the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> is enabled.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>enabled</code></td>\n    <td>boolean</td>\n    <td>(required)</td>\n    <td>Determines whether the context menu is enabled.</td>\n  </tr>\n</tbody>\n</table>\n<h4>AvatarContextMenuTarget</h4>\n<p>Forcibly opens the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>player</code></td>\n    <td><a href=\"/ref/class/Player.html\">Player</a></td>\n    <td>(required)</td>\n    <td>The player on whom the context menu will be opened.</td>\n  </tr>\n</tbody>\n</table>\n<h4>AddAvatarContextMenuOption</h4>\n<p>Adds an option to the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a>.</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>option</code></td>\n    <td><a href=\"/ref/enum/AvatarContextMenuOption.html\">AvatarContextMenuOption</a></td>\n    <td>(required)</td>\n    <td>Option to add.</td>\n  </tr>\n\t<tr>\n    <td colspan=\"4\"><b>OR</b></td>\n  </tr>\n\t<tr>\n    <td><code>option</code></td>\n    <td>table</td>\n    <td>(required)</td>\n    <td>A two-element table, where the first is the name of the custom action, and the second is a <a href=\"/ref/class/BindableEvent.html\">BindableEvent</a> which will be fired with a player was selected when the option was activated.</td>\n  </tr>\n</tbody>\n</table>\n<h4>RemoveAvatarContextMenuOption</h4>\n<p>Removes an option to the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a>. The\n<code>option</code> argument must be the same as what was used with\n<code>&#34;AddAvatarContextMenuOption&#34;</code> (see above).</p>\n<table size=\"small\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Default</th>\n\t\t\t<th>Description</th>\n    </tr>\n</thead>\n<tbody>\n\t<tr>\n    <td><code>option</code></td>\n    <td>Variant</td>\n    <td>(required)</td>\n    <td>The same value provided to <b>AddAvatarContextMenuOption</b>.</td>\n  </tr>\n  </tbody>\n</table>\n<h4>AvatarContextMenuTheme</h4>\n<p>Configures the customizable\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> which is an\nopt-in feature that allows easy player-to-player social interaction via\ncustom actions, such as initiating trades, battles, and more. For more\ninfo on how to customize its theme, see the\n<a href=\"https://create.roblox.com/docs/players/avatar-context-menu\">Avatar Context Menu</a> article.</p>\n<h4>CoreGuiChatConnections</h4>\n<p>Sets up a bindable gateway connection between the <a href=\"/ref/class/CoreGui.html\">CoreGui</a> topbar&#39;s\nchat button and the legacy chat system. The second parameter must be a\ntable of <a href=\"/ref/class/BindableEvent.html\">BindableEvents</a> and\n<a href=\"/ref/class/BindableFunction.html\">BindableFunctions</a>.</p>\n",
 				"CodeSamples": [
 					"StarterGui-SetCore1"
 				]
@@ -18558,7 +18574,7 @@
 			},
 			"Metadata": {
 				"Summary": "<p>A general purpose field for storing miscellaneous data about the\n<a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a>.</p>\n",
-				"Description": "<p>A general purpose field for storing miscellaneous data about the\n<code>TextChatMessage</code>. The second argument of <a href=\"/ref/class/TextChannel.html#member-SendAsync\">TextChannel:SendAsync()</a>\nand <a href=\"/ref/class/TextChannel.html#member-DisplaySystemMessage\">TextChannel:DisplaySystemMessage()</a> is used to populate this\nfield.</p>\n<p>Use this field to apply additional formatting for special messages within\n<a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> and\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a> callbacks.</p>\n<pre><code>local TextChatService = game:GetService(&#34;TextChatService&#34;)\n\nlocal generalChannel: TextChannel = TextChatService:WaitForChild(&#34;TextChannels&#34;).RBXGeneral\n\ngeneralChannel:DisplaySystemMessage(&#34;This is an error!&#34;, &#34;Game.Error.Generic&#34;)\ngeneralChannel:DisplaySystemMessage(&#34;Could not find save data!&#34;, &#34;Game.Error.SaveDataNotFound&#34;)\n\ngeneralChannel:DisplaySystemMessage(&#34;You won the game!&#34;, &#34;Game.Info.Win&#34;)\ngeneralChannel:DisplaySystemMessage(&#34;You lost the game!&#34;, &#34;Game.Info.Lose&#34;)\n\ngeneralChannel.OnIncomingMessage = function(message: TextChatMessage)\n\tif string.find(message.Metadata, &#34;Error&#34;) then\n\t\tlocal overrideProperties = Instance.new(&#34;TextChatMessageProperties&#34;)\n\t\toverrideProperties.TextColor = Color3.fromRGB(255, 0, 0)\n\t\treturn overrideProperties\n\telseif string.find(message.Metadata, &#34;Info&#34;) then\n\t\tlocal overrideProperties = Instance.new(&#34;TextChatMessageProperties&#34;)\n\t\toverrideProperties.TextColor = Color3.fromRGB(0, 255, 150)\n\t\treturn overrideProperties\n\tend\n\n\treturn nil\nend\n</code></pre>\n<p>As follows is a reference of the default system messages emitted by the\nchat system:</p>\n<table size=\"small\">\n<thead>\n  <tr>\n    <th>Metadata</th>\n    <th>Description</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td><code>Roblox.ChatTranslation.ChatWindow.SystemMessage</code></td>\n    <td>Indicates that the system may translate chat messages for the player.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Notification.Friend.Joined</code></td>\n    <td>Displayed when one of the player&#39;s friends join the experience.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.Floodchecked</code></td>\n    <td>Displayed when the player&#39;s sent message was rate limited by the server.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.TextFilterFailed</code></td>\n    <td>Displayed when the player&#39;s sent message could not be displayed due to a text filtering issue.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.InvalidPrivacySettings</code></td>\n    <td>Displayed when the player&#39;s privacy settings prevent them from sending a message.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.MessageTooLong</code></td>\n    <td>Displayed when the player sends a message with content that is too long.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.Unknown</code></td>\n    <td>Displays when the system fails to send the player&#39;s message for an unknown reason.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Help.Info</code></td>\n    <td>Displays the response from the <code>RBXHelpCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Version.Info</code></td>\n    <td>Displays the response from the <code>RBXVersionCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Team.Success.NowInTeam</code></td>\n    <td>Displayed when the player&#39;s team changes.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Team.Error.CannotTeamChatIfNotInTeam</code></td>\n    <td>Displayed when the player triggers the <code>RBXTeamCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a> without being on a <a href=\"/ref/class/Team.html\">Team</a>.</td>\n  </tr>\n      <tr>\n    <td><code>Roblox.Whisper.Info.Success</code></td>\n    <td>Displayed when the player successfully starts a whisper conversation.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Welcome.Sent</code></td>\n    <td>Displayed when entering a whisper <a href=\"/ref/class/TextChannel.html\">TextChannel</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.CannotWhisperToSelf</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.TargetDoesNotExist</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.TooManyMatches</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.Unknown</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.DoesNotExist</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.UserEmotesNotEnabled</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.TemporarilyUnavailable</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.NotSupported</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.SwitchToR15</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.AnimationPlaying</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Error.PlayerNotFound</code></td>\n    <td>An error response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Error.MultipleMatches</code></td>\n    <td>An error response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Error.CannotMuteSelf</code></td>\n    <td>An error response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Info.Success</code></td>\n    <td>An success response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Error.PlayerNotFound</code></td>\n    <td>An error response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Error.MultipleMatches</code></td>\n    <td>An error response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Error.CannotMuteSelf</code></td>\n    <td>An error response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Info.Success</code></td>\n    <td>An success response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n</tbody>\n</table>\n"
+				"Description": "<p>A general purpose field for storing miscellaneous data about the\n<code>TextChatMessage</code>. The second argument of <a href=\"/ref/class/TextChannel.html#member-SendAsync\">TextChannel:SendAsync()</a>\nand <a href=\"/ref/class/TextChannel.html#member-DisplaySystemMessage\">TextChannel:DisplaySystemMessage()</a> is used to populate this\nfield.</p>\n<p>Use this field to apply additional formatting for special messages within\n<a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> and\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a> callbacks.</p>\n<pre><code>local TextChatService = game:GetService(&#34;TextChatService&#34;)\n\nlocal generalChannel: TextChannel = TextChatService:WaitForChild(&#34;TextChannels&#34;).RBXGeneral\n\ngeneralChannel:DisplaySystemMessage(&#34;This is an error!&#34;, &#34;Game.Error.Generic&#34;)\ngeneralChannel:DisplaySystemMessage(&#34;Could not find save data!&#34;, &#34;Game.Error.SaveDataNotFound&#34;)\n\ngeneralChannel:DisplaySystemMessage(&#34;You won the game!&#34;, &#34;Game.Info.Win&#34;)\ngeneralChannel:DisplaySystemMessage(&#34;You lost the game!&#34;, &#34;Game.Info.Lose&#34;)\n\ngeneralChannel.OnIncomingMessage = function(message: TextChatMessage)\n\tif string.find(message.Metadata, &#34;Error&#34;) then\n\t\tlocal overrideProperties = Instance.new(&#34;TextChatMessageProperties&#34;)\n\t\toverrideProperties.TextColor = Color3.fromRGB(255, 0, 0)\n\t\treturn overrideProperties\n\telseif string.find(message.Metadata, &#34;Info&#34;) then\n\t\tlocal overrideProperties = Instance.new(&#34;TextChatMessageProperties&#34;)\n\t\toverrideProperties.TextColor = Color3.fromRGB(0, 255, 150)\n\t\treturn overrideProperties\n\tend\n\n\treturn nil\nend\n</code></pre>\n<p>As follows is a reference of the default system messages emitted by the\nchat system:</p>\n<table size=\"small\">\n<thead>\n  <tr>\n    <th>Metadata</th>\n    <th>Description</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td><code>Roblox.ChatTranslation.ChatWindow.SystemMessage</code></td>\n    <td>Indicates that the system may translate chat messages for the player.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Notification.Friend.Joined</code></td>\n    <td>Displayed when one of the player&#39;s connections join the experience.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.Floodchecked</code></td>\n    <td>Displayed when the player&#39;s sent message was rate limited by the server.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.TextFilterFailed</code></td>\n    <td>Displayed when the player&#39;s sent message could not be displayed due to a text filtering issue.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.InvalidPrivacySettings</code></td>\n    <td>Displayed when the player&#39;s privacy settings prevent them from sending a message.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.MessageTooLong</code></td>\n    <td>Displayed when the player sends a message with content that is too long.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.MessageStatus.Warning.Unknown</code></td>\n    <td>Displays when the system fails to send the player&#39;s message for an unknown reason.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Help.Info</code></td>\n    <td>Displays the response from the <code>RBXHelpCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Version.Info</code></td>\n    <td>Displays the response from the <code>RBXVersionCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Team.Success.NowInTeam</code></td>\n    <td>Displayed when the player&#39;s team changes.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Team.Error.CannotTeamChatIfNotInTeam</code></td>\n    <td>Displayed when the player triggers the <code>RBXTeamCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a> without being on a <a href=\"/ref/class/Team.html\">Team</a>.</td>\n  </tr>\n      <tr>\n    <td><code>Roblox.Whisper.Info.Success</code></td>\n    <td>Displayed when the player successfully starts a whisper conversation.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Welcome.Sent</code></td>\n    <td>Displayed when entering a whisper <a href=\"/ref/class/TextChannel.html\">TextChannel</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.CannotWhisperToSelf</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.TargetDoesNotExist</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.TooManyMatches</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Whisper.Error.Unknown</code></td>\n    <td>An error response from the <code>RBXWhisperCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.DoesNotExist</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.UserEmotesNotEnabled</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.TemporarilyUnavailable</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.NotSupported</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.SwitchToR15</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Emote.Error.AnimationPlaying</code></td>\n    <td>An error response from the <code>RBXEmoteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Error.PlayerNotFound</code></td>\n    <td>An error response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Error.MultipleMatches</code></td>\n    <td>An error response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Error.CannotMuteSelf</code></td>\n    <td>An error response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Mute.Info.Success</code></td>\n    <td>An success response from the <code>RBXMuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Error.PlayerNotFound</code></td>\n    <td>An error response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Error.MultipleMatches</code></td>\n    <td>An error response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Error.CannotMuteSelf</code></td>\n    <td>An error response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n  <tr>\n    <td><code>Roblox.Unmute.Info.Success</code></td>\n    <td>An success response from the <code>RBXUnmuteCommand</code> <a href=\"/ref/class/TextChatCommand.html\">TextChatCommand</a>.</td>\n  </tr>\n</tbody>\n</table>\n"
 			},
 			"PrefixText": {
 				"Summary": "<p>A prefix to add to a user&#39;s message.</p>\n",
@@ -18630,7 +18646,7 @@
 			"ChatVersion": {
 				"Summary": "<p>Determines whether to fully enable <a href=\"/ref/class/TextChatService.html\">TextChatService</a> or revert to\nthe legacy chat system.</p>\n",
 				"Description": "<p>Determines whether to fully enable <a href=\"/ref/class/TextChatService.html\">TextChatService</a> or revert to\nthe legacy chat system. Setting this property to\n<a href=\"/ref/enum/ChatVersion.html\">ChatVersion.LegacyChatService</a> effectively disables\n<a href=\"/ref/class/TextChatService.html\">TextChatService</a>.</p>\n",
-				"DeprecationMessage": "<p>This property has been deprecated in newly created Studio experiences. <code>TextChatService</code> is the only allowed chat system and is automatically enabled.</p>\n"
+				"DeprecationMessage": "<p>This property has been deprecated in newly created Studio experiences.\n<code>TextChatService</code> is the only allowed chat system and is automatically\nenabled.</p>\n"
 			},
 			"CreateDefaultCommands": {
 				"Summary": "<p>Determines whether <a href=\"/ref/class/TextChatService.html\">TextChatService</a> should create default\n<a href=\"/ref/class/TextChatCommand.html\">TextChatCommands</a>.</p>\n",
@@ -19660,16 +19676,16 @@
 		},
 		"UnreliableRemoteEvent": {
 			"FireAllClients": {
-				"Summary": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor each client connected to the same <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>. Has a\n900 byte limit to the payload of the event, otherwise event is dropped.</p>\n",
-				"Description": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor each client connected to the same <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.\nUnlike <a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireClient\">FireClient()</a>, this event\ndoes not take a target <a href=\"/ref/class/Player.html\">Player</a> as the first argument, since it\nfires to multiple clients. Since this method is used to communicate from\nthe server to clients, it will only work when used in a <a href=\"/ref/class/Script.html\">Script</a>.</p>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter to\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireAllClients\">FireAllClients()</a>, as well\nas Luau types such as numbers, strings, and booleans, although you should\ncarefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>Events with payloads larger than 900 bytes will be dropped. When this\nhappens in Studio, a log message in the\n<a href=\"https://create.roblox.com/docs/studio/output\">Output</a> window will indicate by how many bytes\nthe event has gone over.</p>\n"
+				"Summary": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor each client connected to the same <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>. Has a\n1000 byte limit to the payload of the event. Otherwise, the event is\ndropped.</p>\n",
+				"Description": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor each client connected to the same <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.\nUnlike <a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireClient\">FireClient()</a>, this event\ndoes not take a target <a href=\"/ref/class/Player.html\">Player</a> as the first argument, since it\nfires to multiple clients. Since this method is used to communicate from\nthe server to clients, it will only work when used in a <a href=\"/ref/class/Script.html\">Script</a>.</p>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter to\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireAllClients\">FireAllClients()</a>, as well\nas Luau types such as numbers, strings, and booleans, although you should\ncarefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>Events with payloads larger than 1000 bytes will be dropped. When this\nhappens in Studio, a log message in the\n<a href=\"https://create.roblox.com/docs/studio/output\">Output</a> window will indicate by how many bytes\nthe event has gone over.</p>\n"
 			},
 			"FireClient": {
-				"Summary": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor a specific client connected to the same <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.\nHas a 900 byte limit to the payload of the event, otherwise event is\ndropped.</p>\n",
-				"Description": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor one connected client specified by the required <a href=\"/ref/class/Player.html\">Player</a>\nargument. Since this method is used to communicate from the server to a\nclient, it will only work when used in a <a href=\"/ref/class/Script.html\">Script</a>.</p>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter to\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireClient\">FireClient()</a>, as well as Luau\ntypes such as numbers, strings, and booleans, although you should\ncarefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>Events with payloads larger than 900 bytes will be dropped. When this\nhappens in Studio, a log message in the\n<a href=\"https://create.roblox.com/docs/studio/output\">Output</a> window will indicate by how many bytes\nthe event has gone over.</p>\n<p>See also <a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireAllClients\">FireAllClients()</a>\nwhich works similarly but fires the event for each client connected to the\nsame <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.</p>\n"
+				"Summary": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor a specific client connected to the same <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.\nHas a 1000 byte limit to the payload of the event. Otherwise, the event is\ndropped.</p>\n",
+				"Description": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnClientEvent\">OnClientEvent</a> event\nfor one connected client specified by the required <a href=\"/ref/class/Player.html\">Player</a>\nargument. Since this method is used to communicate from the server to a\nclient, it will only work when used in a <a href=\"/ref/class/Script.html\">Script</a>.</p>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter to\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireClient\">FireClient()</a>, as well as Luau\ntypes such as numbers, strings, and booleans, although you should\ncarefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>Events with payloads larger than 1000 bytes will be dropped. When this\nhappens in Studio, a log message in the\n<a href=\"https://create.roblox.com/docs/studio/output\">Output</a> window will indicate by how many bytes\nthe event has gone over.</p>\n<p>See also <a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireAllClients\">FireAllClients()</a>\nwhich works similarly but fires the event for each client connected to the\nsame <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>.</p>\n"
 			},
 			"FireServer": {
-				"Summary": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnServerEvent\">OnServerEvent</a> event\non the server from one client connected to the same\n<a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>. Has a 900 byte limit to the payload of the\nevent, otherwise event is dropped.</p>\n",
-				"Description": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnServerEvent\">OnServerEvent</a> event\non the server from one client. Connected events receive the <a href=\"/ref/class/Player.html\">Player</a>\nargument of the firing client. Since this method is used to communicate\nfrom a client to the server, it will only work when used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>.</p>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter to\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireServer\">FireServer()</a>, as well as Luau\ntypes such as numbers, strings, and booleans, although you should\ncarefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>Events with payloads larger than 900 bytes will be dropped. When this\nhappens in Studio, a log message in the\n<a href=\"https://create.roblox.com/docs/studio/output\">Output</a> window will indicate by how many bytes\nthe event has gone over.</p>\n"
+				"Summary": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnServerEvent\">OnServerEvent</a> event\non the server from one client connected to the same\n<a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a>. Has a 1000 byte limit to the payload of the\nevent, otherwise event is dropped.</p>\n",
+				"Description": "<p>Fires the <a href=\"/ref/class/UnreliableRemoteEvent.html#member-OnServerEvent\">OnServerEvent</a> event\non the server from one client. Connected events receive the <a href=\"/ref/class/Player.html\">Player</a>\nargument of the firing client. Since this method is used to communicate\nfrom a client to the server, it will only work when used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>.</p>\n<p>Any type of Roblox object such as an <a href=\"/ref/type/Enum.html\">Enum</a>, <a href=\"/ref/class/Instance.html\">Instance</a>, or\nothers can be passed as a parameter to\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireServer\">FireServer()</a>, as well as Luau\ntypes such as numbers, strings, and booleans, although you should\ncarefully explore the\n<a href=\"https://create.roblox.com/docs/scripting/events/remote#argument-limitations\">limitations</a>.</p>\n<p>Events with payloads larger than 1000 bytes will be dropped. When this\nhappens in Studio, a log message in the\n<a href=\"https://create.roblox.com/docs/studio/output\">Output</a> window will indicate by how many bytes\nthe event has gone over.</p>\n"
 			},
 			"OnClientEvent": {
 				"Summary": "<p>Fires from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> when either\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireClient\">FireClient()</a> or\n<a href=\"/ref/class/UnreliableRemoteEvent.html#member-FireAllClients\">FireAllClients()</a> is called\non the same <a href=\"/ref/class/UnreliableRemoteEvent.html\">UnreliableRemoteEvent</a> instance from a <a href=\"/ref/class/Script.html\">Script</a>,\nalthough this firing is not guaranteed even if one of the above methods\nare called. This can occur due to packet loss or to maintain optimal\nengine performance.</p>\n",
@@ -20441,6 +20457,7 @@
 					"creating-and-playing-a-video"
 				]
 			},
+			"VideoContent": {},
 			"Volume": {
 				"Summary": "<p>Indicates how loud the <a href=\"/ref/class/VideoFrame.html#member-Video\">VideoFrame.Video</a> is currently playing back.</p>\n",
 				"Description": "<p>This property determines how loud the <a href=\"/ref/class/VideoFrame.html#member-Video\">VideoFrame.Video</a> plays back.\nIt can be set to a number between 0 and 100.</p>\n"
@@ -21295,6 +21312,7 @@
 			"Summary": "<p>Sets the <a href=\"/ref/class/Dialog.html#member-Tone\">Dialog.Tone</a> of a <a href=\"/ref/class/Dialog.html\">Dialog</a> object, which influences how\nthe dialog appears.</p>\n",
 			"Description": "<p>Sets the <a href=\"/ref/class/Dialog.html#member-Tone\">Dialog.Tone</a> of a <a href=\"/ref/class/Dialog.html\">Dialog</a> object, which influences how\nthe dialog appears.</p>\n"
 		},
+		"DisplaySize": {},
 		"DominantAxis": {
 			"Summary": "<p>Used by <a href=\"/ref/class/UIAspectRatioConstraint.html#member-DominantAxis\">UIAspectRatioConstraint.DominantAxis</a> for resizing the object\nto maintain the aspect ratio.</p>\n",
 			"Description": "<p>Used by <a href=\"/ref/class/UIAspectRatioConstraint.html#member-DominantAxis\">UIAspectRatioConstraint.DominantAxis</a> to specify which axis is\nused when setting the new size of the GUI element.</p>\n"
@@ -21383,10 +21401,10 @@
 		},
 		"FramerateManagerMode": {},
 		"FriendRequestEvent": {
-			"Description": "<p>Describes the event when a player sends or responds to a friend request. This\nis used by the in-game friend request system.</p>\n"
+			"Description": "<p>Describes the event when a player sends or responds to a connection request. This is used by the in-game connection request system.</p>\n"
 		},
 		"FriendStatus": {
-			"Description": "<p>Determines the friendship status between two players. This is used by the\nin-game friend request system.</p>\n"
+			"Description": "<p>Determines the connection status between two players. This is used by the\nin-game connection request system.</p>\n"
 		},
 		"FunctionalTestResult": {
 			"Summary": "<p>Status of a single functional test run.</p>\n",
@@ -21752,6 +21770,7 @@
 		},
 		"PromptCreateAssetResult": {},
 		"PromptCreateAvatarResult": {},
+		"PromptLinkSharingResult": {},
 		"PromptPublishAssetResult": {},
 		"PropertyStatus": {},
 		"ProximityPromptExclusivity": {},
@@ -23428,7 +23447,7 @@
 				"Summary": "<p>A player can chat with all users in a game.</p>\n"
 			},
 			"Friends": {
-				"Summary": "<p>A player can only chat with users in a game that are on their friends\nlist.</p>\n"
+				"Summary": "<p>A player can only chat with users in a game that are on their connections\nlist.</p>\n"
 			},
 			"NoOne": {
 				"Summary": "<p>A player cannot chat with any other users in a game.</p>\n"
@@ -24135,6 +24154,11 @@
 				"Summary": "<p>Causes the dialog to have a blue bar on its left-hand side.</p>\n"
 			}
 		},
+		"DisplaySize": {
+			"Large": {},
+			"Medium": {},
+			"Small": {}
+		},
 		"DominantAxis": {
 			"Height": {
 				"Summary": "<p>The Y axis.</p>\n"
@@ -24713,33 +24737,33 @@
 		},
 		"FriendRequestEvent": {
 			"Accept": {
-				"Summary": "<p>A player accepts a friend request.</p>\n"
+				"Summary": "<p>A player accepts a connection request.</p>\n"
 			},
 			"Deny": {
-				"Summary": "<p>A player denies a friend request.</p>\n"
+				"Summary": "<p>A player denies a connection request.</p>\n"
 			},
 			"Issue": {
-				"Summary": "<p>A player invokes (sends) a friend request.</p>\n"
+				"Summary": "<p>A player invokes (sends) a connection request.</p>\n"
 			},
 			"Revoke": {
-				"Summary": "<p>A player revokes (cancels) a previously invoked (sent) friend request.</p>\n"
+				"Summary": "<p>A player revokes (cancels) a previously invoked (sent) connection request.</p>\n"
 			}
 		},
 		"FriendStatus": {
 			"Friend": {
-				"Summary": "<p>Two players are friends.</p>\n"
+				"Summary": "<p>Two players are connections.</p>\n"
 			},
 			"FriendRequestReceived": {
-				"Summary": "<p>At least one of two players has received a friend request sent by the\nother player.</p>\n"
+				"Summary": "<p>At least one of two players has received a connection request sent by the\nother player.</p>\n"
 			},
 			"FriendRequestSent": {
-				"Summary": "<p>At least one of two players has sent a friend request to the other player.</p>\n"
+				"Summary": "<p>At least one of two players has sent a connection request to the other player.</p>\n"
 			},
 			"NotFriend": {
-				"Summary": "<p>Two players are not friends.</p>\n"
+				"Summary": "<p>Two players are not connections.</p>\n"
 			},
 			"Unknown": {
-				"Summary": "<p>The friendship status of two players is unknown.</p>\n"
+				"Summary": "<p>The connection status of two players is unknown.</p>\n"
 			}
 		},
 		"FunctionalTestResult": {
@@ -26435,7 +26459,7 @@
 				"Summary": "<p>The mouse moves freely around the user&#39;s screen.</p>\n"
 			},
 			"LockCenter": {
-				"Summary": "<p>The mouse is locked and cannot move from the center of the user&#39;s\nscreen.</p>\n"
+				"Summary": "<p>The mouse is locked and cannot move from the center of the user&#39;s screen.</p>\n"
 			},
 			"LockCurrentPosition": {
 				"Summary": "<p>The mouse is locked and cannot move from its current position on the\nuser&#39;s screen at the time of locking.</p>\n"
@@ -26993,6 +27017,11 @@
 			"UGCValidationFailed": {},
 			"UnknownFailure": {},
 			"UploadFailed": {}
+		},
+		"PromptLinkSharingResult": {
+			"InvalidLaunchData": {},
+			"PlayerLeft": {},
+			"Success": {}
 		},
 		"PromptPublishAssetResult": {
 			"NoUserInput": {},
@@ -29236,55 +29265,55 @@
 				},
 				{
 					"Name": "random",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns a random <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns a random <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "White",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;White&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;White&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "Gray",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;Medium stone grey&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;Medium stone grey&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "DarkGray",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;Dark stone grey&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;Dark stone grey&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "Black",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;Black&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;Black&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "Red",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;Bright Red&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;Bright Red&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "Yellow",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;Bright Yellow&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;Bright Yellow&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "Green",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;Dark Green&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;Dark Green&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				},
 				{
 					"Name": "Blue",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns the &#34;Bright Blue&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n",
 					"Description": "<p>Returns the &#34;Bright Blue&#34; <a href=\"/ref/type/BrickColor.html\">BrickColor</a>.</p>\n"
 				}
@@ -29342,7 +29371,7 @@
 			"Constructors": [
 				{
 					"Name": "new",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns a blank identity <a href=\"/ref/type/CFrame.html\">CFrame</a>.</p>\n",
 					"Description": "<p>Creates a blank identity <a href=\"/ref/type/CFrame.html\">CFrame</a>.</p>\n"
 				},
@@ -29557,13 +29586,13 @@
 							"Name": "from",
 							"Type": "Vector3",
 							"Default": null,
-							"Summary": "Vector representing the \"from\" direction.\n"
+							"Summary": "Vector representing the \"from\" direction."
 						},
 						{
 							"Name": "to",
 							"Type": "Vector3",
 							"Default": null,
-							"Summary": "Vector representing the \"to\" direction.\n"
+							"Summary": "Vector representing the \"to\" direction."
 						}
 					],
 					"Summary": "<p>Returns a <a href=\"/ref/type/CFrame.html\">CFrame</a> representing the orientation needed to rotate\nfrom the first <a href=\"/ref/type/Vector3.html\">Vector3</a> to the second, with the position set to zero.</p>\n",
@@ -29810,7 +29839,7 @@
 			"Methods": [
 				{
 					"Name": "Inverse",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "CFrame"
@@ -29843,7 +29872,7 @@
 				},
 				{
 					"Name": "Orthonormalize",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "CFrame"
@@ -29956,7 +29985,7 @@
 				},
 				{
 					"Name": "GetComponents",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Tuple"
@@ -29990,7 +30019,7 @@
 				},
 				{
 					"Name": "ToEulerAnglesXYZ",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "number"
@@ -30007,7 +30036,7 @@
 				},
 				{
 					"Name": "ToEulerAnglesYXZ",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "number"
@@ -30024,7 +30053,7 @@
 				},
 				{
 					"Name": "ToOrientation",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "number"
@@ -30041,7 +30070,7 @@
 				},
 				{
 					"Name": "ToAxisAngle",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector3"
@@ -30055,7 +30084,7 @@
 				},
 				{
 					"Name": "components",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Tuple"
@@ -30333,9 +30362,6 @@
 							"Type": "number"
 						}
 					],
-					"Tags": [
-						"Deprecated"
-					],
 					"Summary": "<p>Returns the hue, saturation, and value of a <a href=\"/ref/type/Color3.html\">Color3</a>.</p>\n",
 					"Description": "<p>Returns the hue, saturation, and value of a <a href=\"/ref/type/Color3.html\">Color3</a>. This\nfunction is the inverse operation of the <a href=\"/ref/type/Color3.html#member-fromHSV\">Color3.fromHSV()</a>\nconstructor.</p>\n",
 					"DeprecationMessage": "<p>This function is functionally equivalent to <a href=\"/ref/type/Color3.html#member-ToHSV\">Color3:ToHSV()</a>.</p>\n"
@@ -30386,7 +30412,7 @@
 				},
 				{
 					"Name": "ToHSV",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "number"
@@ -30403,7 +30429,7 @@
 				},
 				{
 					"Name": "ToHex",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "string"
@@ -30524,7 +30550,7 @@
 							"Name": "uri",
 							"Type": "string",
 							"Default": null,
-							"Summary": "The [asset URI](../../../projects/assets/index.md#asset-uris) string.\n"
+							"Summary": "The [asset URI](../../../projects/assets/index.md#asset-uris) string."
 						}
 					],
 					"Summary": "<p>Returns a new <code>Content</code> with an <a href=\"https://create.roblox.com/docs/projects/assets#asset-uris\">asset URI</a> <code>string</code> value referencing content external to the place.</p>\n",
@@ -30537,7 +30563,7 @@
 							"Name": "object",
 							"Type": "Object",
 							"Default": null,
-							"Summary": "The `Class.Object` to reference.\n"
+							"Summary": "The `Class.Object` to reference."
 						}
 					],
 					"Summary": "<p>Returns a new <code>Content</code> with a strong reference to an <a href=\"/ref/class/Object.html\">Object</a>.</p>\n",
@@ -30577,7 +30603,7 @@
 			"Constructors": [
 				{
 					"Name": "now",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns a <a href=\"/ref/type/DateTime.html\">DateTime</a> representing the current moment in time.</p>\n",
 					"Description": "<p>Returns a new <a href=\"/ref/type/DateTime.html\">DateTime</a> representing the current moment in\ntime, using the device&#39;s local clock. Most operating systems automatically\nsync their local time against online time servers, so this should be\nwithin a few hundred milliseconds. However, users can easily disable\nsync behavior and set the system time to anything they want; for\nsynchronized time between client and server, use\n<a href=\"/ref/class/Workspace.html#member-GetServerTimeNow\">Workspace:GetServerTimeNow()</a> instead.</p>\n<p>When you need to precisely measure the time elapsed between two points in\ntime, like when testing performance, use <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#clock\">os.clock()</a> instead.</p>\n"
 				},
@@ -30719,7 +30745,7 @@
 			"Methods": [
 				{
 					"Name": "ToUniversalTime",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Dictionary"
@@ -30730,7 +30756,7 @@
 				},
 				{
 					"Name": "ToLocalTime",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Dictionary"
@@ -30741,7 +30767,7 @@
 				},
 				{
 					"Name": "ToIsoDate",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "string"
@@ -30888,7 +30914,7 @@
 			"Methods": [
 				{
 					"Name": "GetEnumItems",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Array"
@@ -30899,7 +30925,7 @@
 				},
 				{
 					"Name": "FromName",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Enum | nil"
@@ -30910,7 +30936,7 @@
 				},
 				{
 					"Name": "FromValue",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Enum | nil"
@@ -30951,7 +30977,7 @@
 			"Methods": [
 				{
 					"Name": "GetEnums",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Array"
@@ -31029,13 +31055,13 @@
 							"Name": "time",
 							"Type": "number",
 							"Default": null,
-							"Summary": "Time at which to create the new `Datatype.FloatCurveKey`.\n"
+							"Summary": "Time at which to create the new `Datatype.FloatCurveKey`."
 						},
 						{
 							"Name": "value",
 							"Type": "number",
 							"Default": null,
-							"Summary": "Value of the new `Datatype.FloatCurveKey`.\n"
+							"Summary": "Value of the new `Datatype.FloatCurveKey`."
 						},
 						{
 							"Name": "Interpolation",
@@ -31223,13 +31249,13 @@
 							"Name": "className",
 							"Type": "string",
 							"Default": null,
-							"Summary": "Class name of the new instance to create.\n"
+							"Summary": "Class name of the new instance to create."
 						},
 						{
 							"Name": "parent",
 							"Type": "Instance?",
 							"Default": null,
-							"Summary": "Optional object to parent the new instance to. Not recommended for performance reasons (see description above).\n"
+							"Summary": "Optional object to parent the new instance to. Not recommended for performance reasons (see description above)."
 						}
 					],
 					"Summary": "<p>Returns an <a href=\"/ref/class/Instance.html\">Instance</a> of the specified class.</p>\n",
@@ -31242,7 +31268,7 @@
 							"Name": "existingInstance",
 							"Type": "Instance",
 							"Default": null,
-							"Summary": "The existing `Class.Instance` to copy property values from.\n"
+							"Summary": "The existing `Class.Instance` to copy property values from."
 						}
 					],
 					"Summary": "<p>Returns an <a href=\"/ref/class/Instance.html\">Instance</a> which is a copy of an existing\n<a href=\"/ref/class/Instance.html\">Instance</a>.</p>\n",
@@ -31425,7 +31451,7 @@
 			"Constructors": [
 				{
 					"Name": "new",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns a blank <a href=\"/ref/type/OverlapParams.html\">OverlapParams</a> object.</p>\n",
 					"Description": "<p>Returns a blank <a href=\"/ref/type/OverlapParams.html\">OverlapParams</a> object. Unlike other data type\nconstructors, this constructor does not have any parameters, so you should\nset its properties appropriately.</p>\n"
 				}
@@ -31495,7 +31521,7 @@
 			"Constructors": [
 				{
 					"Name": "new",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns an empty <a href=\"/ref/type/Path2DControlPoint.html\">Path2DControlPoint</a>.</p>\n",
 					"Description": "<p>Returns an empty <a href=\"/ref/type/Path2DControlPoint.html\">Path2DControlPoint</a>.</p>\n"
 				},
@@ -31506,7 +31532,7 @@
 							"Name": "Position",
 							"Type": "UDim2",
 							"Default": null,
-							"Summary": "The `Datatype.UDim2` position of the control point.\n"
+							"Summary": "The `Datatype.UDim2` position of the control point."
 						}
 					],
 					"Summary": "<p>Returns a <a href=\"/ref/type/Path2DControlPoint.html\">Path2DControlPoint</a> with only the position set.</p>\n",
@@ -31519,19 +31545,19 @@
 							"Name": "Position",
 							"Type": "UDim2",
 							"Default": null,
-							"Summary": "The `Datatype.UDim2` position of the control point.\n"
+							"Summary": "The `Datatype.UDim2` position of the control point."
 						},
 						{
 							"Name": "Left Tangent",
 							"Type": "UDim2",
 							"Default": null,
-							"Summary": "The `Datatype.UDim2` left tangent of the control point.\n"
+							"Summary": "The `Datatype.UDim2` left tangent of the control point."
 						},
 						{
 							"Name": "Right Tangent",
 							"Type": "UDim2",
 							"Default": null,
-							"Summary": "The `Datatype.UDim2` right tangent of the control point.\n"
+							"Summary": "The `Datatype.UDim2` right tangent of the control point."
 						}
 					],
 					"Summary": "<p>Returns a <a href=\"/ref/type/Path2DControlPoint.html\">Path2DControlPoint</a> with the position, left\ntangent, and right tangent set.</p>\n",
@@ -31734,7 +31760,7 @@
 			"Methods": [
 				{
 					"Name": "Disconnect",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "()"
@@ -31802,7 +31828,7 @@
 				},
 				{
 					"Name": "Wait",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Variant"
@@ -31858,7 +31884,7 @@
 				},
 				{
 					"Name": "NextNumber",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "number"
@@ -31908,7 +31934,7 @@
 				},
 				{
 					"Name": "NextUnitVector",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector3",
@@ -31920,7 +31946,7 @@
 				},
 				{
 					"Name": "Clone",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Random"
@@ -32016,7 +32042,7 @@
 			"Constructors": [
 				{
 					"Name": "new",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns a blank <a href=\"/ref/type/RaycastParams.html\">RaycastParams</a>.</p>\n",
 					"Description": "<p>Returns a blank <a href=\"/ref/type/RaycastParams.html\">RaycastParams</a> object. Unlike other data type\nconstructors, this constructor does not have any parameters, so you should\nset its properties appropriately.</p>\n"
 				}
@@ -32122,7 +32148,7 @@
 			"Constructors": [
 				{
 					"Name": "new",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns a new <strong>Rect</strong> with zero <a href=\"/ref/type/Vector2.html\">Vector2</a> positions.</p>\n",
 					"Description": "<p>Constructs a new <strong>Rect</strong> with two zero <a href=\"/ref/type/Vector2.html\">Vector2</a> positions.</p>\n"
 				},
@@ -32302,13 +32328,13 @@
 							"Name": "time",
 							"Type": "number",
 							"Default": null,
-							"Summary": "Time at which to create the new `Datatype.RotationCurveKey`.\n"
+							"Summary": "Time at which to create the new `Datatype.RotationCurveKey`."
 						},
 						{
 							"Name": "cframe",
 							"Type": "CFrame",
 							"Default": null,
-							"Summary": "`Datatype.CFrame` of the new `Datatype.RotationCurveKey`.\n"
+							"Summary": "`Datatype.CFrame` of the new `Datatype.RotationCurveKey`."
 						},
 						{
 							"Name": "Interpolation",
@@ -32410,7 +32436,7 @@
 							"Name": "t",
 							"Type": "table",
 							"Default": null,
-							"Summary": "The Luau table whose elements are to be stored in the new\n`Datatype.SharedTable`.\n"
+							"Summary": "The Luau table whose elements are to be stored in the new\n`Datatype.SharedTable`."
 						}
 					],
 					"Summary": "<p>Returns a new <a href=\"/ref/type/SharedTable.html\">SharedTable</a> containing elements equivalent to\nthose in the provided Luau table.</p>\n",
@@ -32608,37 +32634,37 @@
 							"Name": "time",
 							"Type": "number",
 							"Default": 1,
-							"Summary": "Duration for the tween, in seconds.\n"
+							"Summary": "Duration for the tween, in seconds."
 						},
 						{
 							"Name": "easingStyle",
 							"Type": "EasingStyle",
 							"Default": "Enum.EasingStyle.Quad",
-							"Summary": "Easing style for the tween.\n"
+							"Summary": "Easing style for the tween."
 						},
 						{
 							"Name": "easingDirection",
 							"Type": "EasingDirection",
 							"Default": "Enum.EasingDirection.Out",
-							"Summary": "The direction in which the tween executes.\n"
+							"Summary": "The direction in which the tween executes."
 						},
 						{
 							"Name": "repeatCount",
 							"Type": "number",
 							"Default": 0,
-							"Summary": "Number of times the tween should repeat. `-1` repeats indefinitely.\n"
+							"Summary": "Number of times the tween should repeat. `-1` repeats indefinitely."
 						},
 						{
 							"Name": "reverses",
 							"Type": "bool",
 							"Default": false,
-							"Summary": "Whether the tween should reverse to the starting values once it\nreaches its targets.\n"
+							"Summary": "Whether the tween should reverse to the starting values once it\nreaches its targets."
 						},
 						{
 							"Name": "delayTime",
 							"Type": "number",
 							"Default": 0,
-							"Summary": "Time of delay until the tween begins, in seconds.\n"
+							"Summary": "Time of delay until the tween begins, in seconds."
 						}
 					],
 					"Summary": "<p>Creates a new <a href=\"/ref/type/TweenInfo.html\">TweenInfo</a> from the provided parameters.</p>\n",
@@ -32745,7 +32771,7 @@
 			"Constructors": [
 				{
 					"Name": "new",
-					"Parameters": null,
+					"Parameters": [],
 					"Summary": "<p>Returns a new <a href=\"/ref/type/UDim2.html\">UDim2</a> with the coordinates of two zero <a href=\"/ref/type/UDim.html\">UDim</a>\ncomponents representing each axis.</p>\n",
 					"Description": "<p>Returns a new <a href=\"/ref/type/UDim2.html\">UDim2</a> with the coordinates of two zero <a href=\"/ref/type/UDim.html\">UDim</a>\ncomponents representing each axis.</p>\n"
 				},
@@ -32756,25 +32782,25 @@
 							"Name": "xScale",
 							"Type": "number",
 							"Default": 0,
-							"Summary": "The **X** dimension scale.\n"
+							"Summary": "The **X** dimension scale."
 						},
 						{
 							"Name": "xOffset",
 							"Type": "number",
 							"Default": 0,
-							"Summary": "The **X** dimension offset.\n"
+							"Summary": "The **X** dimension offset."
 						},
 						{
 							"Name": "yScale",
 							"Type": "number",
 							"Default": 0,
-							"Summary": "The **Y** dimension scale.\n"
+							"Summary": "The **Y** dimension scale."
 						},
 						{
 							"Name": "yOffset",
 							"Type": "number",
 							"Default": 0,
-							"Summary": "The **Y** dimension offset.\n"
+							"Summary": "The **Y** dimension offset."
 						}
 					],
 					"Summary": "<p>Returns a new <a href=\"/ref/type/UDim2.html\">UDim2</a> given the coordinates of the two <a href=\"/ref/type/UDim.html\">UDim</a>\ncomponents representing each axis.</p>\n",
@@ -33019,7 +33045,7 @@
 				},
 				{
 					"Name": "Abs",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector2"
@@ -33030,7 +33056,7 @@
 				},
 				{
 					"Name": "Ceil",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector2"
@@ -33041,7 +33067,7 @@
 				},
 				{
 					"Name": "Floor",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector2"
@@ -33052,7 +33078,7 @@
 				},
 				{
 					"Name": "Sign",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector2"
@@ -33465,7 +33491,7 @@
 			"Methods": [
 				{
 					"Name": "Abs",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector3"
@@ -33476,7 +33502,7 @@
 				},
 				{
 					"Name": "Ceil",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector3"
@@ -33487,7 +33513,7 @@
 				},
 				{
 					"Name": "Floor",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector3"
@@ -33498,7 +33524,7 @@
 				},
 				{
 					"Name": "Sign",
-					"Parameters": null,
+					"Parameters": [],
 					"Returns": [
 						{
 							"Type": "Vector3"

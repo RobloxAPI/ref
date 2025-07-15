@@ -296,7 +296,8 @@
 				29152
 			],
 			"AudioGate": [
-				32908
+				32908,
+				32981
 			],
 			"AudioLimiter": [
 				29893
@@ -7230,6 +7231,9 @@
 				"IsPredicted": [
 					31593
 				],
+				"LockStepIdOffset": [
+					32982
+				],
 				"Misprediction": [
 					32247
 				],
@@ -8931,6 +8935,12 @@
 				]
 			},
 			"AvatarSettings": {
+				"Discard": [
+					32983
+				],
+				"DiscardRequested": [
+					32984
+				],
 				"Loaded": [
 					32464,
 					32816,
@@ -8939,6 +8949,9 @@
 				],
 				"Publish": [
 					32465
+				],
+				"RefreshPluginState": [
+					32985
 				]
 			},
 			"BackpackItem": {
@@ -9741,6 +9754,9 @@
 					4870,
 					11817,
 					24688
+				],
+				"SetPredictionMode": [
+					32986
 				],
 				"Size": [
 					82,
@@ -11359,6 +11375,9 @@
 				],
 				"GetCaptureUploadDataAsync": [
 					29474
+				],
+				"GetDeviceInfo": [
+					32987
 				],
 				"IsCapturingVideo": [
 					32380
@@ -27494,7 +27513,9 @@
 					31992
 				],
 				"SolidMeshHolder": [
-					31993
+					31993,
+					32988,
+					32989
 				],
 				"SubstituteGeometry": [
 					25961
@@ -38656,7 +38677,9 @@
 					17304,
 					19650,
 					19651,
-					23274
+					23274,
+					32990,
+					32991
 				],
 				"Color": [
 					28772
@@ -43216,6 +43239,9 @@
 					23595,
 					30919
 				],
+				"ReadAloud": [
+					32992
+				],
 				"ReducedMotion": [
 					25974,
 					30920
@@ -47588,6 +47614,9 @@
 			],
 			"PositionAlignmentMode": [
 				18346
+			],
+			"PredictionMode": [
+				32993
 			],
 			"PreferredInput": [
 				32733
@@ -58257,6 +58286,17 @@
 				],
 				"TwoAttachment": [
 					18348
+				]
+			},
+			"PredictionMode": {
+				"Auto": [
+					32994
+				],
+				"Forced": [
+					32995
+				],
+				"None": [
+					32996
 				]
 			},
 			"PreferredInput": {
@@ -87115,6 +87155,17 @@
 				},
 				{
 					"Change": 32973,
+					"Prev": false,
+					"Field": "ReturnType",
+					"Type": "Type",
+					"Index": 0,
+					"Value": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Change": 32987,
 					"Prev": false,
 					"Field": "ReturnType",
 					"Type": "Type",
@@ -148230,6 +148281,28 @@
 						"Category": "Primitive",
 						"Name": "bool"
 					}
+				},
+				{
+					"Change": 32982,
+					"Prev": false,
+					"Field": "ValueType",
+					"Type": "Type",
+					"Index": -1,
+					"Value": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
+				},
+				{
+					"Change": 32992,
+					"Prev": false,
+					"Field": "ValueType",
+					"Type": "Type",
+					"Index": -1,
+					"Value": {
+						"Category": "Primitive",
+						"Name": "bool"
+					}
 				}
 			],
 			"buffer": [
@@ -208529,6 +208602,28 @@
 				},
 				{
 					"Change": 32957,
+					"Prev": false,
+					"Field": "ReturnType",
+					"Type": "Type",
+					"Index": 0,
+					"Value": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Change": 32983,
+					"Prev": false,
+					"Field": "ReturnType",
+					"Type": "Type",
+					"Index": 0,
+					"Value": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Change": 32986,
 					"Prev": false,
 					"Field": "ReturnType",
 					"Type": "Type",
@@ -1059915,6 +1060010,356 @@
 			"Prev": {
 				"Category": "Behavior"
 			}
+		},
+		{
+			"Update": 1485,
+			"Index": 0,
+			"Action": {
+				"Type": 0,
+				"Element": "Class",
+				"Primary": "AudioGate",
+				"Fields": {
+					"Tags": []
+				}
+			},
+			"Prev": {
+				"Tags": [
+					"NotBrowsable"
+				]
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 1,
+			"Action": {
+				"Type": 1,
+				"Element": "Property",
+				"Primary": "AuroraService",
+				"Secondary": "LockStepIdOffset",
+				"Fields": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "__api_dump_class_not_creatable__",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "None"
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 2,
+			"Action": {
+				"Type": 1,
+				"Element": "Function",
+				"Primary": "AvatarSettings",
+				"Secondary": "Discard",
+				"Fields": {
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 3,
+			"Action": {
+				"Type": 1,
+				"Element": "Event",
+				"Primary": "AvatarSettings",
+				"Secondary": "DiscardRequested",
+				"Fields": {
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 4,
+			"Action": {
+				"Type": 1,
+				"Element": "Event",
+				"Primary": "AvatarSettings",
+				"Secondary": "RefreshPluginState",
+				"Fields": {
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 5,
+			"Action": {
+				"Type": 1,
+				"Element": "Function",
+				"Primary": "BasePart",
+				"Secondary": "SetPredictionMode",
+				"Fields": {
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "PredictionMode"
+							},
+							"Name": "mode",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Deprecated"
+					],
+					"ThreadSafety": "Unsafe"
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 6,
+			"Action": {
+				"Type": 1,
+				"Element": "Function",
+				"Primary": "CaptureService",
+				"Secondary": "GetDeviceInfo",
+				"Fields": {
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Dictionary"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 7,
+			"Action": {
+				"Type": 0,
+				"Element": "Property",
+				"Primary": "PartOperation",
+				"Secondary": "SolidMeshHolder",
+				"Fields": {
+					"CanSave": true
+				}
+			},
+			"Prev": {
+				"CanSave": false
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 8,
+			"Action": {
+				"Type": 0,
+				"Element": "Property",
+				"Primary": "PartOperation",
+				"Secondary": "SolidMeshHolder",
+				"Fields": {
+					"CanLoad": true
+				}
+			},
+			"Prev": {
+				"CanLoad": false
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 9,
+			"Action": {
+				"Type": 0,
+				"Element": "Property",
+				"Primary": "SurfaceAppearance",
+				"Secondary": "AlphaMode",
+				"Fields": {
+					"ReadSecurity": "None"
+				}
+			},
+			"Prev": {
+				"ReadSecurity": "PluginSecurity"
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 10,
+			"Action": {
+				"Type": 0,
+				"Element": "Property",
+				"Primary": "SurfaceAppearance",
+				"Secondary": "AlphaMode",
+				"Fields": {
+					"WriteSecurity": "None"
+				}
+			},
+			"Prev": {
+				"WriteSecurity": "PluginSecurity"
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 11,
+			"Action": {
+				"Type": 1,
+				"Element": "Property",
+				"Primary": "UserGameSettings",
+				"Secondary": "ReadAloud",
+				"Fields": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "__api_dump_skipped_class__",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden",
+						"NotReplicated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 12,
+			"Action": {
+				"Type": 1,
+				"Element": "Enum",
+				"Primary": "PredictionMode",
+				"Fields": {
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 13,
+			"Action": {
+				"Type": 1,
+				"Element": "EnumItem",
+				"Primary": "PredictionMode",
+				"Secondary": "Auto",
+				"Fields": {
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": [],
+					"Value": 0
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 14,
+			"Action": {
+				"Type": 1,
+				"Element": "EnumItem",
+				"Primary": "PredictionMode",
+				"Secondary": "Forced",
+				"Fields": {
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": [
+						"Deprecated"
+					],
+					"Value": 2
+				}
+			}
+		},
+		{
+			"Update": 1485,
+			"Index": 15,
+			"Action": {
+				"Type": 1,
+				"Element": "EnumItem",
+				"Primary": "PredictionMode",
+				"Secondary": "None",
+				"Fields": {
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": [],
+					"Value": 1
+				}
+			}
 		}
 	],
 	"Update": [
@@ -1077737,6 +1078182,18 @@
 			},
 			"ChangesStart": 32981,
 			"ChangesCount": 0
+		},
+		{
+			"Date": "2025-07-15T11:21:06-07:00",
+			"GUID": "version-cc8f13de4c4e43de",
+			"Version": {
+				"Gen": 0,
+				"Version": 682,
+				"Patch": 0,
+				"Commit": 6820537
+			},
+			"ChangesStart": 32981,
+			"ChangesCount": 16
 		}
 	]
 }
