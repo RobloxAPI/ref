@@ -20,8 +20,7 @@
 		"AdPortal": {},
 		"AdService": {
 			"Summary": "<p>A class that allows the display of mobile video ads.</p>\n",
-			"Description": "<p>This <a href=\"/ref/class/AdService.html\">AdService</a> was a service for displaying mobile video ads as a form\nof monetization. It has been superseded by\n<a href=\"https://create.roblox.com/docs/production/monetization/immersive-ads\">Immersive Ads</a> which\nshould be used instead to serve ad units to visitors of your experience.</p>\n",
-			"DeprecationMessage": "<p>This service has been decommissioned and is no longer operational.</p>\n"
+			"Description": "<p>A service for displaying mobile video ads as a form of monetization. Use it to\nimplement rewarded video ads in your experience.</p>\n"
 		},
 		"AdvancedDragger": {
 			"Summary": "<p>An unfinished advanced variant of the <a href=\"/ref/class/Dragger.html\">Dragger</a> class.</p>\n",
@@ -419,8 +418,8 @@
 		},
 		"Capture": {},
 		"CaptureService": {
-			"Summary": "<p>A service which provides control over screenshot capture features.</p>\n",
-			"Description": "<p><strong>CaptureService</strong> is a client-side service that allows developers to control\nhow the screenshot capture feature integrates with their experiences. It can\nbe used to include preset moments where a screenshot is automatically taken\nfor a user, and that user can then save, share, or delete the screenshot.</p>\n"
+			"Summary": "<p>A service which provides control over screenshot and video capture features.</p>\n",
+			"Description": "<p><code>CaptureService</code> is a client-side service that allows developers to control\nhow the screenshot and video capture feature integrates with their\nexperiences. It can be used to include preset moments where a capture is\nautomatically taken for a user, and that user can then save, share, or delete\nthe capture.</p>\n"
 		},
 		"CatalogPages": {},
 		"ChangeHistoryService": {
@@ -849,8 +848,8 @@
 			]
 		},
 		"FriendService": {
-			"Summary": "<p>An internal service which is used to send, cancel, accept and decline connection\nrequests in-game.</p>\n",
-			"Description": "<p>A service which is used to send, cancel, accept and decline connection requests\nin-game. It is primarily used by the PlayerListScript to send connection requests\nwith the leaderboard.</p>\n"
+			"Summary": "<p>An internal service which is used to send, cancel, accept and decline\nconnection requests in-game.</p>\n",
+			"Description": "<p>A service which is used to send, cancel, accept and decline connection\nrequests in-game. It is primarily used by the PlayerListScript to send\nconnection requests with the leaderboard.</p>\n"
 		},
 		"FunctionalTest": {
 			"DeprecationMessage": "<p>FunctionalTest has been deprecated, developers are advised to use\n<a href=\"/ref/class/TestService.html\">TestService</a> instead.</p>\n"
@@ -868,11 +867,14 @@
 			"Description": "<p>The GamepadService is internally responsible for handling inputs from various\ncontrollers, such as Xbox One or PlayStation DualShock controllers. It also\nhandles APIs used with the gamepad virtual cursor. You can enable the gamepad\ncursor for your experience by setting <a href=\"/ref/enum/VirtualCursorMode.html\">VirtualCursorMode</a> under\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a> to <code>Enabled</code>.</p>\n"
 		},
 		"GenerationService": {
-			"Summary": "<p><code>GenerationService</code> is a service that allows developers to generate 3D objects\nfrom text prompts utilizing Roblox&#39;s\n<a href=\"https://corp.roblox.com/newsroom/2025/03/introducing-roblox-cube\">Cube 3D foundation model</a>.</p>\n",
-			"Description": "<p><code>GenerationService</code> is a service that allows developers to generate 3D objects\nfrom text prompts utilizing Roblox&#39;s\n<a href=\"https://corp.roblox.com/newsroom/2025/03/introducing-roblox-cube\">Cube 3D foundation model</a>.</p>\n<p>Mesh generation is a two step process:</p>\n<ol>\n<li><a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerateMeshAsync()</a> starts\nthe mesh generation process using a text prompt and other required\nparameters. It returns a unique identifier (generation ID) that can be used\nto retrieve the future result.</li>\n<li><a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nloads the generated mesh into the experience. The mesh is returned as a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> containing an <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a>.</li>\n</ol>\n<p>Currently, GenerationService only supports the following usage:</p>\n<ul>\n<li><a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerateMeshAsync()</a> must be\ncalled from server scripts.</li>\n<li><a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nmust be called from client scripts.</li>\n</ul>\n<p>As a result, when a mesh generation request originates from a client, the\nclient must send a signal to the server to initiate generation. Once the\nserver determines that generation is complete, it should notify the\nappropriate client to call\n<a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nand retrieve the mesh. Note that since the generated mesh is loaded with\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> content and only on the client, it is not replicated to\nany other clients.</p>\n<p>The following code illustrates this design pattern. See\n<a href=\"https://www.roblox.com/games/86571743597273/Mesh-Generation-Template\">this demo experience</a>\nfor a more detailed example. Click the <strong>⋯</strong> button and <strong>Edit in\nStudio</strong>.</p>\n",
+			"Summary": "<p>Service that allows developers to generate 3D objects from text prompts.</p>\n",
+			"Description": "<p><code>GenerationService</code> allows developers to generate 3D objects from text\nprompts. Mesh generation is a two step process:</p>\n<ol>\n<li><a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerateMeshAsync()</a> starts\nthe mesh generation process using a text prompt and other required\nparameters. It returns a unique identifier (generation ID) that can be used\nto retrieve the future result.</li>\n<li><a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nloads the generated mesh into the experience. The mesh is returned as a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> or <a href=\"/ref/class/Model.html\">Model</a>.</li>\n</ol>\n<p>Currently, <code>GenerationService</code> only supports the following usage:</p>\n<ul>\n<li><a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerateMeshAsync()</a> must be\ncalled from server scripts.</li>\n<li><a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nmust be called from client scripts.</li>\n</ul>\n<p>As a result, when a mesh generation request originates from a client, the\nclient must send a signal to the server to initiate generation. Once the\nserver determines that generation is complete, it should notify the\nappropriate client to call\n<a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nand retrieve the mesh. Note that since the generated mesh is loaded with\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> content and only on the client, it is not replicated to\nany other clients.</p>\n<p>The following code samples illustrate this design pattern. See\n<a href=\"https://www.roblox.com/games/86571743597273/Mesh-Generation-Template\">this demo experience</a>\nfor a more detailed example (click the <strong>⋯</strong> button and <strong>Edit in\nStudio</strong>).</p>\n",
 			"CodeSamples": [
 				"GenerationService-ServerSideMeshGeneration",
-				"GenerationService-ClientSideMeshGeneration"
+				"GenerationService-ClientSideMeshGeneration",
+				"GenerationService-ServerSideMeshGeneration-WithSuggestedSize",
+				"GenerationService-ClientSideMeshGeneration-WithSuggestedSize",
+				"GenerationService-StarterPlayerScripts-WithSuggestedSize"
 			]
 		},
 		"GenericChallengeService": {},
@@ -1893,7 +1895,7 @@
 		},
 		"SocialService": {
 			"Summary": "<p>Facilitates social functions that impact relationships made on the Roblox\nplatform.</p>\n",
-			"Description": "<p><strong>SocialService</strong> facilitates social functions that impact relationships made\non the Roblox platform. Its primary usage is to show\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">invite prompts</a> and the\nphone book to players, allowing them to send invitation requests to their\nconnections through <a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a>\nand <a href=\"/ref/class/SocialService.html#member-PromptPhoneBook\">PromptPhoneBook()</a> respectively.\nYou may leverage signals when such requests are made.</p>\n"
+			"Description": "<p><strong>SocialService</strong> facilitates social functions that impact relationships made\non the Roblox platform. Its primary usage is to show\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">invite prompts</a> and the\nphone book to players, allowing them to send invitation requests to their\nconnections through\n<a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a> and\n<a href=\"/ref/class/SocialService.html#member-PromptPhoneBook\">PromptPhoneBook()</a> respectively. You\nmay leverage signals when such requests are made.</p>\n"
 		},
 		"SolidModelContentProvider": {
 			"Summary": "<p>An internal service which serves no functionality to developers.</p>\n",
@@ -2601,20 +2603,35 @@
 			"Status": {}
 		},
 		"AdService": {
-			"CreateAdRewardFromDevProductId": {},
-			"GetAdAvailabilityNowAsync": {},
+			"CreateAdRewardFromDevProductId": {
+				"Summary": "<p>Creates a reward to give users who watch an entire video ad.</p>\n",
+				"Description": "<p>Creates a reward to give users who watch an entire video ad.</p>\n"
+			},
+			"GetAdAvailabilityNowAsync": {
+				"Summary": "<p>Checks if a video ad is available to be played to the current user inside\nthe experience.</p>\n",
+				"Description": "<p>Checks if a video ad is available to be played to the current user inside\nthe experience.</p>\n",
+				"CodeSamples": [
+					"AdService-GetAdAvailabilityNowAsync"
+				]
+			},
 			"RegisterAdOpportunityAsync": {},
-			"ShowRewardedVideoAdAsync": {},
+			"ShowRewardedVideoAdAsync": {
+				"Summary": "<p>Plays the video ad to the current user inside the experience.</p>\n",
+				"Description": "<p>Plays the video ad to the current user inside the experience.</p>\n",
+				"CodeSamples": [
+					"AdService-ShowRewardedVideoAdAsync"
+				]
+			},
 			"ShowVideoAd": {
 				"Summary": "<p>Show mobile video advertisements.</p>\n",
 				"Description": "<p>Show mobile video advertisements.</p>\n",
-				"DeprecationMessage": "<p><a href=\"/ref/class/AdService.html\">AdService</a> has been decommissioned and is no longer operational.\n<a href=\"https://create.roblox.com/docs/production/monetization/immersive-ads\">Immersive Ads</a> should\nbe used as a replacement for <a href=\"/ref/class/AdService.html\">AdService</a>.</p>\n"
+				"DeprecationMessage": "<p><a href=\"/ref/class/AdService.html#member-ShowVideoAd\">ShowVideoAd</a> has been decommissioned and is\nno longer operational.</p>\n"
 			},
 			"UnregisterAdOpportunity": {},
 			"VideoAdClosed": {
 				"Summary": "<p>Fires when an <a href=\"/ref/class/AdService.html\">AdService</a> video closes.</p>\n",
 				"Description": "<p>Fires when an <a href=\"/ref/class/AdService.html\">AdService</a> video closes.</p>\n",
-				"DeprecationMessage": "<p><a href=\"/ref/class/AdService.html\">AdService</a> has been decommissioned and is no longer operational.\n<a href=\"https://create.roblox.com/docs/production/monetization/immersive-ads\">Immersive Ads</a> should\nbe used as a replacement for <a href=\"/ref/class/AdService.html\">AdService</a>.</p>\n"
+				"DeprecationMessage": "<p><a href=\"/ref/class/AdService.html#member-VideoAdClosed\">VideoAdClosed</a> has been decommissioned and\nis no longer operational.</p>\n"
 			}
 		},
 		"AdvancedDragger": {},
@@ -3919,7 +3936,10 @@
 			},
 			"GetInputPins": {},
 			"GetOutputPins": {},
-			"GetWaveformAsync": {},
+			"GetWaveformAsync": {
+				"Summary": "<p>Returns a list of samples across a time range for the given audio.</p>\n",
+				"Description": "<p>Returns a list of samples across a time range for the given audio. Each call can return up to 8192\nsamples.</p>\n"
+			},
 			"IsMutedForCapture": {},
 			"IsPlaying": {
 				"Summary": "<p>Denotes whether this <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> is currently playing.</p>\n",
@@ -4119,7 +4139,10 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> has one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetWaveformAsync": {},
+			"GetWaveformAsync": {
+				"Summary": "<p>Returns a list of samples across a time range for the given audio.</p>\n",
+				"Description": "<p>Returns a list of samples across a time range for the given audio. Each call can return up to 8192\nsamples.</p>\n"
+			},
 			"IsLoaded": {
 				"Summary": "<p>Denotes whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object is loaded, buffered,\nand ready to play.</p>\n",
 				"Description": "<p>Denotes whether the <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> object is loaded, buffered,\nand ready to play. Although uncommon, <a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> objects\nmay have their assets unloaded at runtime if there is extreme memory\npressure, in which case <a href=\"/ref/class/AudioTextToSpeech.html#member-IsLoaded\">IsLoaded</a> will\nbecome false.</p>\n"
@@ -5751,11 +5774,11 @@
 		"CaptureService": {
 			"CaptureBegan": {
 				"Summary": "<p>Fires immediately before a capture begins.</p>\n",
-				"Description": "<p>This event fires right before a new screenshot capture is taken. It can be\nused to customize the capture experience, for example by hiding certain\nGUI elements.</p>\n"
+				"Description": "<p>This event fires right before a new capture is taken. It can be used to\ncustomize the capture experience, for example by hiding certain GUI\nelements.</p>\n"
 			},
 			"CaptureEnded": {
 				"Summary": "<p>Fires after a capture finishes.</p>\n",
-				"Description": "<p>This event fires after a new screenshot capture completes. It can be used\nto restore any changes made when the\n<a href=\"/ref/class/CaptureService.html#member-CaptureBegan\">CaptureBegan</a> event fired.</p>\n"
+				"Description": "<p>This event fires after a new capture completes. It can be used to restore\nany changes made when the <a href=\"/ref/class/CaptureService.html#member-CaptureBegan\">CaptureBegan</a>\nevent fired.</p>\n"
 			},
 			"CaptureSaved": {
 				"DeprecationMessage": "<p>This event has been superseded by the\n<a href=\"/ref/class/CaptureService.html#member-UserCaptureSaved\">UserCaptureSaved</a> event.</p>\n"
@@ -5764,16 +5787,23 @@
 				"Summary": "<p>Takes a screenshot and provides a temporary <code>contentId</code> to identify it.</p>\n",
 				"Description": "<p>This method captures a screenshot for the user but does not immediately\nsave it to their <strong>Captures</strong> gallery within the experience&#39;s main menu.\nInstead, a temporary <code>contentId</code> is created to identify the new capture.</p>\n<p>The <code>onCaptureReady</code> callback can be used to prompt the user to save or\nshare the screenshot:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">CaptureService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CaptureService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Reference to an ImageLabel parent of the script containing this code</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">imageLabel</span> <span class=\"_o\">=</span> <span class=\"_n\">script.Parent</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">onCaptureReady</span><span class=\"_p\">(</span><span class=\"_n\">contentId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">imageLabel.Image</span> <span class=\"_o\">=</span> <span class=\"_n\">contentId</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">CaptureScreenshot</span><span class=\"_p\">(</span><span class=\"_n\">onCaptureReady</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
+			"GetDeviceInfo": {},
 			"PromptSaveCapturesToGallery": {
 				"Summary": "<p>Prompts the user to save specified captures to their gallery.</p>\n",
-				"Description": "<p>This method prompts the user to save the screenshots identified by the\nprovided <code>contentIds</code> to their <strong>Captures</strong> gallery within the\nexperience&#39;s main menu.</p>\n"
+				"Description": "<p>This method prompts the user to save the captures identified by the\nprovided <code>contentIds</code> to their <strong>Captures</strong> gallery within the\nexperience&#39;s main menu.</p>\n"
 			},
 			"PromptShareCapture": {
-				"Summary": "<p>Prompts the user to share a specified screenshot capture.</p>\n",
-				"Description": "<p>This method prompts the user to share the screenshot identified by the\nprovided <code>contentId</code> using the native share sheet on their device.</p>\n<p>The capture image is shared along with an invite link to the experience\nwhen supported. Not all devices support including both a screenshot and\ninvite link.</p>\n<p>The <code>launchData</code> will be available in the <code>launchData</code> field for users who\njoin through the invite link.</p>\n<p>To avoid an error when calling this method, first call\n<a href=\"/ref/class/PolicyService.html#member-GetPolicyInfoForPlayerAsync\">PolicyService:GetPolicyInfoForPlayerAsync()</a> and check that\n<code>IsContentSharingAllowed</code> is true in the returned dictionary.</p>\n"
+				"Summary": "<p>Prompts the user to share a specified capture.</p>\n",
+				"Description": "<p>This method prompts the user to share the capture identified by the\nprovided <code>contentId</code> using the native share sheet on their device.</p>\n<p>The capture is shared along with an invite link to the experience when\nsupported. Not all devices support including both a screenshot or video\nand an invite link.</p>\n<p>The <code>launchData</code> will be available in the <code>launchData</code> field for users who\njoin through the invite link.</p>\n<p>To avoid an error when calling this method, first call\n<a href=\"/ref/class/PolicyService.html#member-GetPolicyInfoForPlayerAsync\">PolicyService:GetPolicyInfoForPlayerAsync()</a> and check that\n<code>IsContentSharingAllowed</code> is true in the returned dictionary.</p>\n"
 			},
-			"StartVideoCaptureAsync": {},
-			"StopVideoCapture": {},
+			"StartVideoCaptureAsync": {
+				"Summary": "<p>Initiates a video capture recording.</p>\n",
+				"Description": "<p>This method initiates a video capture recording. The recording will\ncontinue until the\n<a href=\"/ref/class/CaptureService.html#member-StopVideoCapture\">StopVideoCapture()</a> method is\ncalled, or when 30 seconds have passed, whichever comes first. During the\nvideo recording, all user voices are muted.</p>\n<p>The <code>onCaptureReady</code> callback can be used to prompt the user to save or\nshare the video capture.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">CaptureService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CaptureService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">parent</span> <span class=\"_o\">=</span> <span class=\"_n\">script.Parent</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">onCaptureReady</span> <span class=\"_o\">=</span> <span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">result</span><span class=\"_p\">,</span> <span class=\"_n\">videoCapture</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">result</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureResult</span><span class=\"_p\">.</span><span class=\"_n\">Success</span> <span class=\"_ow\">and</span> <span class=\"_n\">result</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureResult</span><span class=\"_p\">.</span><span class=\"_n\">TimeLimitReached</span> <span class=\"_ow\">or</span> <span class=\"_ow\">not</span> <span class=\"_n\">videoCapture</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Video recording failed to complete for reason:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">result</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- Prompt the user to save the video capture to their gallery</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">PromptSaveCapturesToGallery</span><span class=\"_p\">({</span> <span class=\"_n\">videoCapture</span> <span class=\"_p\">},</span> <span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Capture saved&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">parent.Activated</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">videoRecordingAllowedResult</span><span class=\"_p\">:</span> <span class=\"_n\">Enum.VideoCaptureStartedResult</span> <span class=\"_o\">=</span> <span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">StartVideoCaptureAsync</span><span class=\"_p\">(</span><span class=\"_n\">onCaptureReady</span><span class=\"_p\">,</span> <span class=\"_p\">{})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">videoRecordingAllowedResult</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureStartedResult</span><span class=\"_p\">.</span><span class=\"_n\">Success</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Video recording failed to start for reason:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">videoRecordingAllowedResult</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			},
+			"StopVideoCapture": {
+				"Summary": "<p>Ends a video capture initiated by\n<a href=\"/ref/class/CaptureService.html#member-StartVideoCaptureAsync\">StartVideoCaptureAsync()</a>.</p>\n",
+				"Description": "<p>This method ends a video capture that was started by the\n<a href=\"/ref/class/CaptureService.html#member-StartVideoCaptureAsync\">StartVideoCaptureAsync()</a>\nmethod.</p>\n"
+			},
 			"TakeCapture": {},
 			"UserCaptureSaved": {
 				"Summary": "<p>Fires when the user saves a capture.</p>\n",
@@ -7992,11 +8022,11 @@
 		"ExperienceInviteOptions": {
 			"InviteMessageId": {
 				"Summary": "<p>Asset ID that maps to a <strong>Notification</strong> asset type.</p>\n",
-				"Description": "<p>Asset ID that maps to a <strong>Notification</strong> asset type. This asset is used to\nstore/localize a custom string for the invite notification that connections\nreceive. See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts#setting-notification-options\">Setting Notification Options</a>\nfor details.</p>\n"
+				"Description": "<p>Asset ID that maps to a <strong>Notification</strong> asset type. This asset is used to\nstore/localize a custom string for the invite notification that\nconnections receive. See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts#setting-notification-options\">Setting Notification Options</a>\nfor details.</p>\n"
 			},
 			"InviteUser": {
 				"Summary": "<p>Roblox <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the specific connection to invite.</p>\n",
-				"Description": "<p>Roblox <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the specific connection to invite; if\nnot provided, the player will be prompted to pick from a list of connections.</p>\n"
+				"Description": "<p>Roblox <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the specific connection to invite;\nif not provided, the player will be prompted to pick from a list of\nconnections.</p>\n"
 			},
 			"LaunchData": {
 				"Summary": "<p>Used to set a parameter in <a href=\"/ref/class/Player.html#member-GetJoinData\">Player:GetJoinData()</a> when a connection\njoins from the invite notification.</p>\n",
@@ -8004,7 +8034,7 @@
 			},
 			"PromptMessage": {
 				"Summary": "<p>Custom text shown on the invite prompt for the sending player.</p>\n",
-				"Description": "<p>Custom text shown on the invite prompt for the sending player, for example\n&#34;Ask your connections to join the adventure!&#34; for a multi-connection invite\nprompt, or &#34;Invite this connection to join the adventure!&#34; for a specific\nconnection invite prompt.</p>\n"
+				"Description": "<p>Custom text shown on the invite prompt for the sending player, for example\n&#34;Ask your connections to join the adventure!&#34; for a multi-connection\ninvite prompt, or &#34;Invite this connection to join the adventure!&#34; for a\nspecific connection invite prompt.</p>\n"
 			}
 		},
 		"ExperienceNotificationService": {
@@ -8614,20 +8644,12 @@
 		},
 		"GenerationService": {
 			"GenerateMeshAsync": {
-				"Summary": "<p>Starts the generation of a new 3D mesh from a text prompt and returns\nunique IDs used to track and retrieve the result. After the generation is\ncomplete, use\n<a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nto load and display the generated mesh.</p>\n",
-				"Description": "<p>Starts the generation of a new 3D mesh from a text prompt and returns\nunique IDs used to track and retrieve the result. You can optionally\nreceive intermediate results, such as the untextured mesh, by providing an\n<code>intermediateResultCallback</code> function. After the generation is complete,\nuse\n<a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nto load and display the generated mesh.</p>\n<p><strong>Rate limits</strong></p>\n<p>There is a rate limit of 5 generations per minute per experience. If you\nexceed this limit, further generation requests are blocked until the next\nminute.</p>\n<p><strong>Error codes</strong></p>\n<table>\n<thead>\n<tr>\n<th>Error</th>\n<th>Description</th>\n<th>Recommended developer action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Rate limit exceeded</td>\n<td>The maximum number of mesh generations has been exceeded for the minute.</td>\n<td>Wait until the rate limit resets.</td>\n</tr>\n<tr>\n<td>Moderation failure</td>\n<td>The mesh generation was flagged for moderation.</td>\n<td>Review and modify the prompt to ensure it adheres to Roblox&#39;s moderation guidelines.</td>\n</tr>\n<tr>\n<td>Internal server error</td>\n<td>An unexpected issue occurred on the server.</td>\n<td>Retry the request later or check server status for issues.</td>\n</tr>\n<tr>\n<td>Character limit exceeded</td>\n<td>The input prompt length for this generation request exceeded the limit.</td>\n<td>Reduce the number of characters in the <code>Prompt</code> string of the <code>input</code> dictionary.</td>\n</tr>\n</tbody>\n</table>\n",
-				"CodeSamples": [
-					"GenerationService-GenerateMeshAsync-BasicUsage",
-					"GenerationService-GenerateMeshAsync-WithIntermediateResultsCallback",
-					"GenerationService-GenerateMeshAsync-ServerSideGenerationWithErrorHandling"
-				]
+				"Summary": "<p>Starts the generation of a new 3D mesh from a text prompt and returns\nunique IDs used to track and retrieve the result.</p>\n",
+				"Description": "<p>Starts the generation of a new 3D mesh from a text prompt and returns\nunique IDs used to track and retrieve the result. You can optionally\nreceive intermediate results, such as the untextured mesh, by providing an\n<code>intermediateResultCallback</code> function. After the generation is complete,\nuse\n<a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nto load and display the generated mesh.</p>\n<p><strong>Error Codes</strong></p>\n<table>\n<thead>\n<tr>\n<th>Error</th>\n<th>Description</th>\n<th>Recommended developer action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Rate limit exceeded</td>\n<td>The maximum number of mesh generations has been exceeded for the minute.</td>\n<td>Wait until the rate limit resets.</td>\n</tr>\n<tr>\n<td>Moderation failed</td>\n<td>The mesh generation was flagged for moderation.</td>\n<td>Review and modify the prompt to ensure it adheres to Roblox&#39;s moderation guidelines.</td>\n</tr>\n<tr>\n<td>Internal server error</td>\n<td>An unexpected issue occurred on the server.</td>\n<td>Retry the request later or check server status for issues.</td>\n</tr>\n<tr>\n<td>Character limit exceeded</td>\n<td>The input prompt length for this generation request exceeded the limit.</td>\n<td>Reduce the number of characters in the <code>Prompt</code> string of the <code>input</code> dictionary.</td>\n</tr>\n<tr>\n<td>Service overloaded</td>\n<td>The service is overloaded.</td>\n<td>Retry the request later.</td>\n</tr>\n<tr>\n<td>Size dimensions must be greater than 0</td>\n<td>Invalid size provided.</td>\n<td>Change the size to above <code>0</code>.</td>\n</tr>\n</tbody>\n</table>\n"
 			},
 			"LoadGeneratedMeshAsync": {
-				"Summary": "<p>Retrieves and loads a mesh generated by\n<a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerationService:GenerateMeshAsync()</a> using the provided\n<code>generationId</code>. The mesh is returned as a <a href=\"/ref/class/MeshPart.html\">MeshPart</a> with\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> content.</p>\n",
-				"Description": "<p>Retrieves and loads a mesh generated by\n<a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerationService:GenerateMeshAsync()</a> using the provided\ngenerationId. The mesh is returned as a <a href=\"/ref/class/MeshPart.html\">MeshPart</a> with\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> content. Because editable meshes are not replicated,\nthe loaded mesh is not replicated to any other clients and can only be\nloaded once per <code>generationId</code>.</p>\n",
-				"CodeSamples": [
-					"GenerationService-LoadGeneratedMeshAsync-LoadAGeneratedMesh"
-				]
+				"Summary": "<p>Retrieves and loads a mesh generated by\n<a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerationService:GenerateMeshAsync()</a> using the provided\n<code>generationId</code>.</p>\n",
+				"Description": "<p>Retrieves and loads a mesh generated by\n<a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerateMeshAsync()</a> using\nthe provided <code>generationId</code>. The mesh can be returned as a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> or <a href=\"/ref/class/Model.html\">Model</a>. Because editable meshes are not\nreplicated, the loaded mesh is not replicated to any other clients and can\nonly be loaded once per <code>generationId</code>.</p>\n"
 			}
 		},
 		"GenericChallengeService": {},
@@ -13757,7 +13779,7 @@
 			},
 			"IsFriendsWith": {
 				"Summary": "<p>Checks whether a player is a connection of the user with the given\n<a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a>.</p>\n",
-				"Description": "<p>This method sends a request to Roblox asking whether a player is a connection\nof another user, given the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of that user. This\nmethod caches results so multiple calls on the same player with the same\n<code>userId</code> may not yield the most up-to-date result.</p>\n",
+				"Description": "<p>This method sends a request to Roblox asking whether a player is a\nconnection of another user, given the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of that\nuser. This method caches results so multiple calls on the same player with\nthe same <code>userId</code> may not yield the most up-to-date result.</p>\n",
 				"CodeSamples": [
 					"Player-IsFriendsWith1"
 				]
@@ -14128,7 +14150,7 @@
 			},
 			"GetFriendsAsync": {
 				"Summary": "<p>Returns a <a href=\"/ref/class/FriendPages.html\">FriendPages</a> object which contains information for all of\nthe given player&#39;s connections.</p>\n",
-				"Description": "<p>The GetFriends <a href=\"/ref/class/Players.html\">Players</a> function returns a <a href=\"/ref/class/FriendPages.html\">FriendPages</a>\nobject which contains information for all of the given user&#39;s connections. The\nitems within the <a href=\"/ref/class/FriendPages.html\">FriendPages</a> object are tables with the following\nfields:</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Description</th>\n\t\t</tr>\n\t</thead>\n\t<tbody><tr>\n\t\t<td>Id</td>\n\t\t<td>int64</td>\n\t\t<td>The connection&#39;s UserId</td>\n\t</tr>\n\t<tr>\n\t\t<td>Username</td>\n\t\t<td>string</td>\n\t\t<td>The connection&#39;s username</td>\n\t</tr>\n    <tr>\n      <td>DisplayName</td>\n      <td>string</td>\n      <td>The <a href=\"/ref/class/Player.html#member-DisplayName\">display name</a> of the connection.</td>\n    </tr>\n</tbody></table>\n<p>See the code samples for an easy way to iterate over all a player&#39;s\nconnections.</p>\n",
+				"Description": "<p>The GetFriends <a href=\"/ref/class/Players.html\">Players</a> function returns a <a href=\"/ref/class/FriendPages.html\">FriendPages</a>\nobject which contains information for all of the given user&#39;s connections.\nThe items within the <a href=\"/ref/class/FriendPages.html\">FriendPages</a> object are tables with the\nfollowing fields:</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Type</th>\n\t\t\t<th>Description</th>\n\t\t</tr>\n\t</thead>\n\t<tbody><tr>\n\t\t<td>Id</td>\n\t\t<td>int64</td>\n\t\t<td>The connection&#39;s UserId</td>\n\t</tr>\n\t<tr>\n\t\t<td>Username</td>\n\t\t<td>string</td>\n\t\t<td>The connection&#39;s username</td>\n\t</tr>\n    <tr>\n      <td>DisplayName</td>\n      <td>string</td>\n      <td>The <a href=\"/ref/class/Player.html#member-DisplayName\">display name</a> of the connection.</td>\n    </tr>\n</tbody></table>\n<p>See the code samples for an easy way to iterate over all a player&#39;s\nconnections.</p>\n",
 				"CodeSamples": [
 					"print-roblox-friends"
 				]
@@ -16252,7 +16274,7 @@
 			},
 			"PromptGameInvite": {
 				"Summary": "<p>Prompts the given <a href=\"/ref/class/Player.html\">Player</a> with the invite screen.</p>\n",
-				"Description": "<p><a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a> displays an\ninvite prompt to the local player through which they may invite their\nconnections to the current experience. Before calling this method, you should\nuse\n<a href=\"/ref/class/SocialService.html#member-CanSendGameInviteAsync\">CanSendGameInviteAsync()</a> to\ndetermine whether the player can send an invite, as this ability may vary\ndepending on the platform or player.</p>\n<p>See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">Player Invite Prompts</a>\nfor more details on implementing invite prompts, customizing prompts and\nnotifications, and using launch data.</p>\n",
+				"Description": "<p><a href=\"/ref/class/SocialService.html#member-PromptGameInvite\">PromptGameInvite()</a> displays an\ninvite prompt to the local player through which they may invite their\nconnections to the current experience. Before calling this method, you\nshould use\n<a href=\"/ref/class/SocialService.html#member-CanSendGameInviteAsync\">CanSendGameInviteAsync()</a> to\ndetermine whether the player can send an invite, as this ability may vary\ndepending on the platform or player.</p>\n<p>See\n<a href=\"https://create.roblox.com/docs/production/promotion/invite-prompts\">Player Invite Prompts</a>\nfor more details on implementing invite prompts, customizing prompts and\nnotifications, and using launch data.</p>\n",
 				"CodeSamples": [
 					"sending-a-game-invite"
 				]
@@ -21401,7 +21423,7 @@
 		},
 		"FramerateManagerMode": {},
 		"FriendRequestEvent": {
-			"Description": "<p>Describes the event when a player sends or responds to a connection request. This is used by the in-game connection request system.</p>\n"
+			"Description": "<p>Describes the event when a player sends or responds to a connection request.\nThis is used by the in-game connection request system.</p>\n"
 		},
 		"FriendStatus": {
 			"Description": "<p>Determines the connection status between two players. This is used by the\nin-game connection request system.</p>\n"
@@ -21749,6 +21771,7 @@
 			"Summary": "<p>The PositionAlignmentMode Enum is used to select the number of\n<a href=\"/ref/class/Attachment.html\">Attachments</a> used in an alignment.</p>\n",
 			"Description": "<p>The PositionAlignmentMode Enum is used to select the number of\n<a href=\"/ref/class/Attachment.html\">Attachments</a> used in an alignment.</p>\n"
 		},
+		"PredictionMode": {},
 		"PreferredInput": {
 			"Summary": "<p>This enum is used with <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a> to indicate the\nprimary input type a player is likely using.</p>\n",
 			"Description": "<p>This enum is used with <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a> to indicate the\nprimary input type a player is likely using.</p>\n"
@@ -22288,13 +22311,27 @@
 			}
 		},
 		"AdAvailabilityResult": {
-			"DeviceIneligible": {},
-			"ExperienceIneligible": {},
-			"InternalError": {},
-			"IsAvailable": {},
-			"NoFill": {},
-			"PlayerIneligible": {},
-			"PublisherIneligible": {}
+			"DeviceIneligible": {
+				"Summary": "<p>The device is ineligible to receive ads.</p>\n"
+			},
+			"ExperienceIneligible": {
+				"Summary": "<p>The experience is ineligible to receive ads. Check if its eligibility has\nbeen revoked.</p>\n"
+			},
+			"InternalError": {
+				"Summary": "<p>An unspecified internal error occurred. Try fetching the ad again.</p>\n"
+			},
+			"IsAvailable": {
+				"Summary": "<p>An ad is available to show the user.</p>\n"
+			},
+			"NoFill": {
+				"Summary": "<p>There are no ads available to fill your ad request. You might have hit the\nad frequency limit.</p>\n"
+			},
+			"PlayerIneligible": {
+				"Summary": "<p>The user is ineligible to receive ads during this session. The user might\nbe under 13 or located in a blocked region.</p>\n"
+			},
+			"PublisherIneligible": {
+				"Summary": "<p>The publisher is ineligible to receive ads because they have not met the\npublisher eligibility requirements.</p>\n"
+			}
 		},
 		"AdEventType": {
 			"RewardedAdGrant": {
@@ -22317,7 +22354,9 @@
 			}
 		},
 		"AdFormat": {
-			"RewardedVideo": {}
+			"RewardedVideo": {
+				"Summary": "<p>The format of the rewarded video ad.</p>\n"
+			}
 		},
 		"AdShape": {
 			"HorizontalRectangle": {
@@ -24757,7 +24796,7 @@
 				"Summary": "<p>At least one of two players has received a connection request sent by the\nother player.</p>\n"
 			},
 			"FriendRequestSent": {
-				"Summary": "<p>At least one of two players has sent a connection request to the other player.</p>\n"
+				"Summary": "<p>At least one of two players has sent a connection request to the other\nplayer.</p>\n"
 			},
 			"NotFriend": {
 				"Summary": "<p>Two players are not connections.</p>\n"
@@ -26926,6 +26965,11 @@
 				"Summary": "<p>Use two attachments.</p>\n"
 			}
 		},
+		"PredictionMode": {
+			"Auto": {},
+			"Forced": {},
+			"None": {}
+		},
 		"PreferredInput": {
 			"Gamepad": {
 				"Summary": "<p>The player has connected or most recently interacted with a gamepad.</p>\n"
@@ -27626,12 +27670,22 @@
 			"Warning": {}
 		},
 		"ShowAdResult": {
-			"AdAlreadyShowing": {},
-			"AdNotReady": {},
+			"AdAlreadyShowing": {
+				"Summary": "<p>You are trying to show a full-screen ad while another full-screen ad is\nalready playing.</p>\n"
+			},
+			"AdNotReady": {
+				"Summary": "<p>You are trying to show a full-screen ad before the ad has fully loaded.\nYou might have failed to properly fetch the ad, or the ad might have\nexpired.</p>\n"
+			},
 			"InsufficientMemory": {},
-			"InternalError": {},
-			"ShowCompleted": {},
-			"ShowInterrupted": {}
+			"InternalError": {
+				"Summary": "<p>An unspecified internal error occurred. Try showing the ad again.</p>\n"
+			},
+			"ShowCompleted": {
+				"Summary": "<p>The ad was successfully shown to completion.</p>\n"
+			},
+			"ShowInterrupted": {
+				"Summary": "<p>The ad view of the user has been interrupted. The user might have closed\nthe ad view or left the experience, and should not receive a reward.</p>\n"
+			}
 		},
 		"SignalBehavior": {
 			"AncestryDeferred": {
