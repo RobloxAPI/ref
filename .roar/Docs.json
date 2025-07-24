@@ -11621,7 +11621,10 @@
 				"Summary": "<p>This event fires when a <code>Lighting</code> property is changed or a <a href=\"/ref/class/Sky.html\">Sky</a> is\nadded or removed from <code>Lighting</code>.</p>\n",
 				"Description": "<p>This event fires when a <code>Lighting</code> property is changed or a <a href=\"/ref/class/Sky.html\">Sky</a> is\nadded or removed from <code>Lighting</code>, with some exceptions:</p>\n<ul>\n<li>Changing <a href=\"/ref/class/Lighting.html#member-GlobalShadows\">GlobalShadows</a> will not fire this\nevent.</li>\n<li>Changing fog properties <a href=\"/ref/class/Lighting.html#member-FogColor\">FogColor</a>,\n<a href=\"/ref/class/Lighting.html#member-FogStart\">FogStart</a>, or <a href=\"/ref/class/Lighting.html#member-FogEnd\">FogEnd</a>\nwill not fire this event.</li>\n</ul>\n<p>In cases where this behavior is not desired, the <a href=\"/ref/class/Object.html#member-Changed\">Object.Changed</a>\nevent or <a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a> method can be used.</p>\n"
 			},
-			"LightingStyle": {},
+			"LightingStyle": {
+				"Summary": "<p>The artistic intent behind lighting in the experience.</p>\n",
+				"Description": "<p><code>LightingStyle</code> indicates the artistic intent behind lighting in the experience, as an <a href=\"/ref/enum/LightingStyle.html\">LightingStyle</a> option.</p>\n"
+			},
 			"OutdoorAmbient": {
 				"Summary": "<p>The lighting hue applied to outdoor areas.</p>\n",
 				"Description": "<p><code>OutdoorAmbient</code> is the lighting hue applied to outdoor areas.</p>\n<p><code>OutdoorAmbient</code> defaults to <code>[127, 127, 127]</code>. As long as the red, green,\nand blue channels of <a href=\"/ref/class/Lighting.html#member-Ambient\">Ambient</a> do not exceed the\ncorresponding channels in <code>OutdoorAmbient</code>, the hue of the lighting in\noutdoor areas will be determined by this property.</p>\n<p>The effective <code>OutdoorAmbient</code> value is clamped to be greater than or\nequal to <a href=\"/ref/class/Lighting.html#member-Ambient\">Ambient</a> in all channels, meaning that if\na channel of <a href=\"/ref/class/Lighting.html#member-Ambient\">Ambient</a> exceeds its corresponding\n<code>OutdoorAmbient</code> channel, the hue of <a href=\"/ref/class/Lighting.html#member-Ambient\">Ambient</a> will\nbegin to apply to outdoor areas.</p>\n<p>Note that when <a href=\"/ref/class/Lighting.html#member-GlobalShadows\">GlobalShadows</a> is disabled,\nthere is no distinction between areas occluded from the sky and\nnon‑occluded areas. In this case, <code>OutdoorAmbient</code> will be ignored and the\nhue from the <a href=\"/ref/class/Lighting.html#member-Ambient\">Ambient</a> property will be applied\neverywhere.</p>\n"
@@ -11631,7 +11634,10 @@
 				"Description": "<p>This property determines whether outlines are enabled or disabled in a\nplace.</p>\n<p>Outlines can be disabled on a global basis, using this <code>Lighting</code>\nproperty, or alternatively on a surface-by-surface basis for\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> using <a href=\"/ref/enum/SurfaceType.html\">SurfaceType</a>.</p>\n<p>Although this property can be set by scripts, it recommended this property\nis set in Roblox Studio prior to publishing the place.</p>\n",
 				"DeprecationMessage": "<p>This item is no longer supported as the outlines feature was removed from\nthe Roblox platform.</p>\n"
 			},
-			"PrioritizeLightingQuality": {},
+			"PrioritizeLightingQuality": {
+				"Summary": "<p>Indicates whether you prefer lighting/shading quality or view distance to scale down first.</p>\n",
+				"Description": "<p>This property indicates whether you prefer lighting/shading quality or view distance to scale down first. As the rendering quality level reduces, a setting of <code>true</code> prioritizes features such as advanced shadows and high‑quality shaders at closer distances, while a setting of <code>false</code> prioritizes view distance.</p>\n"
+			},
 			"SetMinutesAfterMidnight": {
 				"Summary": "<p>Sets <a href=\"/ref/class/Lighting.html#member-TimeOfDay\">TimeOfDay</a> and\n<a href=\"/ref/class/Lighting.html#member-ClockTime\">ClockTime</a> to the given number of minutes after\nmidnight.</p>\n",
 				"Description": "<p>Sets <a href=\"/ref/class/Lighting.html#member-TimeOfDay\">TimeOfDay</a> and\n<a href=\"/ref/class/Lighting.html#member-ClockTime\">ClockTime</a> to the given number of minutes after\nmidnight.</p>\n<p>This method allows a numerical value to be used, for example in a\nday/night cycle <a href=\"/ref/class/Script.html\">Script</a>, without the need to convert to a string in\nthe format required by <a href=\"/ref/class/Lighting.html#member-TimeOfDay\">TimeOfDay</a>. It also\nallows values greater than 24 hours to be given that correspond to times\nin the next day.</p>\n<p>The following code sample includes a simple day/night cycle script. The\nspeed of time and the initial time can be changed using the <code>TIME_SPEED</code>\nand <code>START_TIME</code> parameters.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span></pre></td>\n<td class=\"_lntd\">\n<pre tabindex=\"0\" class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Lighting</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Lighting&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">TIME_SPEED</span> <span class=\"_o\">=</span> <span class=\"_mi\">60</span>  <span class=\"_c1\">-- 1 min = 1 hour</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">START_TIME</span> <span class=\"_o\">=</span> <span class=\"_mi\">9</span>  <span class=\"_c1\">-- 9 AM</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">minutesAfterMidnight</span> <span class=\"_o\">=</span> <span class=\"_n\">START_TIME</span> <span class=\"_o\">*</span> <span class=\"_mi\">60</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">waitTime</span> <span class=\"_o\">=</span> <span class=\"_mi\">60</span> <span class=\"_o\">/</span> <span class=\"_n\">TIME_SPEED</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">while</span> <span class=\"_kc\">true</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">minutesAfterMidnight</span> <span class=\"_o\">=</span> <span class=\"_n\">minutesAfterMidnight</span> <span class=\"_o\">+</span> <span class=\"_mi\">1</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Lighting</span><span class=\"_p\">:</span><span class=\"_n\">SetMinutesAfterMidnight</span><span class=\"_p\">(</span><span class=\"_n\">minutesAfterMidnight</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">task.wait</span><span class=\"_p\">(</span><span class=\"_n\">waitTime</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
@@ -11646,8 +11652,9 @@
 				"Description": "<p>Controls how blurry the shadows are with a default of <code>0.2</code>. This property\nonly works when <a href=\"/ref/class/Lighting.html#member-Technology\">Technology</a> mode is\n<a href=\"/ref/enum/Technology.html\">ShadowMap</a> or <a href=\"/ref/enum/Technology.html\">Future</a> and the device is\ncapable of rendering shadow maps.</p>\n"
 			},
 			"Technology": {
-				"Summary": "<p>Determines the lighting system for rendering the 3D world. Non-scriptable.\n.</p>\n",
-				"Description": "<p>Determines the lighting system for rendering the 3D world. This property\nis non‑scriptable and only modifiable in Studio. See <a href=\"/ref/enum/Technology.html\">Technology</a> for\navailable options and\n<a href=\"https://create.roblox.com/docs/environment/lighting#technology\">Lighting Technology</a> for\ndetailed descriptions and visual effects of each option.</p>\n"
+				"Summary": "<p>Determines the lighting system for rendering the 3D world. Non-scriptable.</p>\n",
+				"Description": "<p>Determines the lighting system for rendering the 3D world. This property\nis non‑scriptable and only modifiable in Studio.</p>\n",
+				"DeprecationMessage": "<p>This property has been superseded by <a href=\"/ref/class/Lighting.html#member-LightingStyle\">LightingStyle</a> which determines the artistic intent behind lighting, and <a href=\"/ref/class/Lighting.html#member-PrioritizeLightingQuality\">PrioritizeLightingQuality</a> which indicates whether you prefer lighting/shading quality or view distance to scale down first.</p>\n"
 			},
 			"TimeOfDay": {
 				"Summary": "<p>A 24-hour string representation of the current time of day used by\n<code>Lighting</code>.</p>\n",
@@ -21653,7 +21660,10 @@
 			"Description": "<p>The LeftRight Enum is used to set where the object is on the side of its\nparent.</p>\n"
 		},
 		"LexemeType": {},
-		"LightingStyle": {},
+		"LightingStyle": {
+			"Summary": "<p>Enum used by <a href=\"/ref/class/Lighting.html#member-LightingStyle\">Lighting.LightingStyle</a> to indicate the artistic intent behind lighting in the experience.</p>\n",
+			"Description": "<p>This enum indicates the artistic intent behind lighting in the experience. It is used by the <a href=\"/ref/class/Lighting.html#member-LightingStyle\">Lighting.LightingStyle</a> property.</p>\n"
+		},
 		"Limb": {
 			"Summary": "<p>Describes which limb a particular Instance belongs to (assuming the Instance\nis part of a Humanoid).</p>\n",
 			"Description": "<p>Describes which limb a particular Instance belongs to (assuming the Instance\nis part of a Humanoid). Passing an Instance to the Humanoid:GetLimb() function\nwill return the Limb for the Instance.</p>\n"
@@ -26084,8 +26094,12 @@
 			"TildeEqual": {}
 		},
 		"LightingStyle": {
-			"Realistic": {},
-			"Soft": {}
+			"Realistic": {
+				"Summary": "<p>The most advanced and realistic lighting and shadows Roblox can deliver.</p>\n"
+			},
+			"Soft": {
+				"Summary": "<p>A flat, retro-Roblox look with softer lights and shadows.</p>\n"
+			}
 		},
 		"Limb": {
 			"Head": {
