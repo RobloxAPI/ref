@@ -361,7 +361,7 @@ be defined so that developer product transactions do not fail.</p><p><a href=/re
 (<a href=/ref/class/MarketplaceService.html#member-GetProductInfo>GetProductInfo</a> and
 <a href=/ref/class/MarketplaceService.html#member-GetDeveloperProductsAsync>GetDeveloperProductsAsync</a>),
 <a href=https://create.roblox.com/docs/production/monetization/game-passes>passes</a>
-(<a href=/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync>UserOwnsGamePassAsync</a>),
+(<a href=/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync>UserOwnsGamePassAsync()</a>),
 and other assets
 (<a href=/ref/class/MarketplaceService.html#member-PlayerOwnsAsset>PlayerOwnsAsset</a>,
 <a href=/ref/class/MarketplaceService.html#member-PlayerOwnsBundle>PlayerOwnsBundle</a>).</p><p>Understanding <a href=/ref/class/MarketplaceService.html>MarketplaceService</a> is the first step towards learning to
@@ -1834,7 +1834,7 @@ should wrap calls to this method in <code>pcall()</code>.</p><ul><li>This method
 <a href=https://create.roblox.com/docs/production/monetization/game-passes>passes</a> since they use
 a separate ID system. Legacy passes that still depend on an asset ID
 should use
-<a href=/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync>UserOwnsGamePassAsync</a>
+<a href=/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync>UserOwnsGamePassAsync()</a>
 instead of this method.</li><li>This method cannot be used to check for
 <a href=https://create.roblox.com/docs/production/monetization/developer-products>developer products</a>
 since they can be purchased multiple times but not owned themselves.
@@ -2811,7 +2811,7 @@ returned faster.</p><p>This function always returns true when the user first ent
 after purchasing the pass.</p><p>If the user has purchased the pass inside an experience through
 <a href=/ref/class/MarketplaceService.html#member-PromptGamePassPurchase>PromptGamePassPurchase</a>,
 the
-<a href=/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync>UserOwnsGamePassAsync</a>
+<a href=/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync>UserOwnsGamePassAsync()</a>
 function might return false because of caching behavior. Alternatively,
 the function might return true even after the user has deleted the pass
 from their inventory.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1480 title="Changed on 2021-01-15T15:56:17-08:00
