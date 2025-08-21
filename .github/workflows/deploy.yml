@@ -185,6 +185,7 @@ jobs:
         steps.check-manifest.outputs.refresh == 'true'
       run: |
         cd "ref"
+        touch .nojekyll
         git config user.email 'github-actions@github.com'
         git config user.name 'github-actions'
         git add -A
@@ -258,6 +259,7 @@ jobs:
         steps.check-cache-roar.outputs.cache-hit != 'true'
       run: |
         cd "ref"
+        touch .nojekyll
         git config user.email 'github-actions@github.com'
         git config user.name 'github-actions'
         git add -A
