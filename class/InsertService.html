@@ -1259,10 +1259,7 @@ function in <code>pcall</code> to catch these kinds of errors.</p><div class=_ch
 </span></span><span class=_line><span class=_cl><span class=_kr>else</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Model failed to load!&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div><h4>Security Check</h4><p>An asset loaded by this function must be <strong>created or owned</strong> by either
-the game creator or Roblox. Additionally, benign asset types such as
-t-shirts, shirts, pants and avatar accessories are loadable from any game
-as they are public.</p><p>See also:</p><ul><li><a href=/ref/class/AssetService.html#member-GetBundleDetailsAsync>AssetService:GetBundleDetailsAsync()</a>, to find out which assets
+</span></span></code></pre></td></tr></tbody></table></div><h4>Security Check</h4><p>An asset loaded by this function must meet one of the following:</p><ul><li>The asset must be <strong>created or owned</strong> by the game creator.</li><li>The asset must be <strong>shared</strong> by the asset owner.</li><li>The asset must be owned by Roblox.</li></ul><p>See also:</p><ul><li><a href=/ref/class/AssetService.html#member-GetBundleDetailsAsync>AssetService:GetBundleDetailsAsync()</a>, to find out which assets
 are associated with a bundle.</li><li>For plugins, see <a href=/ref/class/DataModel.html#member-GetObjects>DataModel:GetObjects()</a></li></ul></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1246 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>

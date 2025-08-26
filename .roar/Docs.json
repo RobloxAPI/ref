@@ -948,8 +948,8 @@
 			"Description": "<p><a href=\"/ref/class/GuiObject.html\">GuiObject</a> is an abstract class (much like <a href=\"/ref/class/BasePart.html\">BasePart</a>) for a 2D\nuser interface object. It defines all the properties relating to the display\nof a graphical user interface (GUI) object such as <a href=\"/ref/class/GuiObject.html#member-Size\">Size</a>\nand <a href=\"/ref/class/GuiObject.html#member-Position\">Position</a>. It also has some useful read‑only\nproperties like <a href=\"/ref/class/GuiObject.html#member-AbsolutePosition\">AbsolutePosition</a>,\n<a href=\"/ref/class/GuiObject.html#member-AbsoluteSize\">AbsoluteSize</a>, and\n<a href=\"/ref/class/GuiObject.html#member-AbsoluteRotation\">AbsoluteRotation</a>.</p>\n<p>To manipulate the layout of GUI objects in special ways, you can use a layout\nstructure such as <a href=\"https://create.roblox.com/docs/ui/list-flex-layouts\">list/flex</a> or\n<a href=\"https://create.roblox.com/docs/ui/grid-table-layouts\">grid</a>, and you can style them beyond their\ncore properties through\n<a href=\"https://create.roblox.com/docs/ui/appearance-modifiers\">appearance modifiers</a>.</p>\n<p>Although it&#39;s possible to detect mouse button events on any GUI object using\n<a href=\"/ref/class/GuiObject.html#member-InputBegan\">InputBegan</a> and\n<a href=\"/ref/class/GuiObject.html#member-InputEnded\">InputEnded</a>, only <a href=\"/ref/class/ImageButton.html\">ImageButton</a> and\n<a href=\"/ref/class/TextButton.html\">TextButton</a> have convenient dedicated events such as\n<a href=\"/ref/class/TextButton.html#member-Activated\">Activated</a> to detect click/press.</p>\n"
 		},
 		"GuiService": {
-			"Summary": "<p>Allows developers to control what <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is currently being\nselected by the gamepad navigator, as well as check if Roblox&#39;s main menu is\ncurrently open.</p>\n",
-			"Description": "<p><strong>GuiService</strong> allows developers to control what <a href=\"/ref/class/GuiObject.html\">GuiObject</a> is\ncurrently being selected by the gamepad navigator, as well as check if\nRoblox&#39;s main menu is currently open.</p>\n"
+			"Summary": "<p>Offers numerous properties and methods for working with <a href=\"/ref/class/GuiObject.html\">GuiObjects</a>, player preferences, and other UI‑related tasks.</p>\n",
+			"Description": "<p><code>GuiService</code> offers numerous properties and methods for working with\n<a href=\"/ref/class/GuiObject.html\">GuiObjects</a>, player preferences, and other UI‑related tasks.</p>\n"
 		},
 		"GuidRegistryService": {
 			"Summary": "<p>An internal service, whose functionality is not accessible to developers.</p>\n",
@@ -7828,6 +7828,18 @@
 				"Summary": "<p>Returns a list of faces that use a given attribute ID.</p>\n",
 				"Description": "<p>Returns a list of faces that use a given vertex ID, normal ID, UV ID, or\ncolor ID.</p>\n"
 			},
+			"GetFacesWithColor": {
+				"Summary": "<p>Returns an array of face IDs that use the given color ID.</p>\n",
+				"Description": "<p>Returns an array of face IDs that use the given color ID. Use together\nwith <a href=\"/ref/class/EditableMesh.html#member-GetVerticesWithColor\">GetVerticesWithColor()</a> to\nobtain all face/vertex pairs.</p>\n"
+			},
+			"GetFacesWithNormal": {
+				"Summary": "<p>Returns an array of face IDs that use the given normal ID.</p>\n",
+				"Description": "<p>Returns an array of face IDs that use the given normal ID. Use together\nwith <a href=\"/ref/class/EditableMesh.html#member-GetVerticesWithNormal\">GetVerticesWithNormal()</a>\nto obtain all face/vertex pairs.</p>\n"
+			},
+			"GetFacesWithUV": {
+				"Summary": "<p>Returns an array of face IDs that use the given UV ID.</p>\n",
+				"Description": "<p>Returns an array of face IDs that use the given UV ID. Use together with\n<a href=\"/ref/class/EditableMesh.html#member-GetVerticesWithUV\">GetVerticesWithUV()</a> to obtain all\nface/vertex pairs.</p>\n"
+			},
 			"GetFacsCorrectivePose": {
 				"Summary": "<p>Returns bone IDs and bone <a href=\"/ref/type/CFrame.html\">CFrames</a> for all bones in a\nspecific FACS corrective pose.</p>\n",
 				"Description": "<p>Returns bone IDs and bone <a href=\"/ref/type/CFrame.html\">CFrames</a> for all bones in a\nspecific FACS corrective pose. Each bone <a href=\"/ref/type/CFrame.html\">CFrame</a> transforms the\nbone from the initial bone <a href=\"/ref/type/CFrame.html\">CFrame</a> in the bind pose of the mesh\nto the combined bone <a href=\"/ref/type/CFrame.html\">CFrame</a> for this pose. All\n<a href=\"/ref/type/CFrame.html\">CFrames</a> are in the mesh&#39;s local space.</p>\n"
@@ -7873,6 +7885,34 @@
 				"Summary": "<p>Returns all bone IDs that are associated with the vertex for skinning.</p>\n",
 				"Description": "<p>Returns all bone IDs that are associated with the vertex for skinning.</p>\n"
 			},
+			"GetVertexColors": {
+				"Summary": "<p>Returns the color IDs of the faces attached to the given vertex.</p>\n",
+				"Description": "<p>Returns the color IDs of the faces attached to the given vertex.</p>\n"
+			},
+			"GetVertexFaceColor": {
+				"Summary": "<p>Returns the color ID of a vertex/face pair.</p>\n",
+				"Description": "<p>Returns the color ID of a vertex/face pair.</p>\n"
+			},
+			"GetVertexFaceNormal": {
+				"Summary": "<p>Returns the normal ID of a vertex/face pair.</p>\n",
+				"Description": "<p>Returns the normal ID of a vertex/face pair.</p>\n"
+			},
+			"GetVertexFaceUV": {
+				"Summary": "<p>Returns the UV ID of a vertex/face pair.</p>\n",
+				"Description": "<p>Returns the UV ID of a vertex/face pair.</p>\n"
+			},
+			"GetVertexFaces": {
+				"Summary": "<p>Returns the face IDs of the faces attached to the given vertex.</p>\n",
+				"Description": "<p>Returns the face IDs of the faces attached to the given vertex.</p>\n"
+			},
+			"GetVertexNormals": {
+				"Summary": "<p>Returns the normal IDs of the faces attached to the given vertex.</p>\n",
+				"Description": "<p>Returns the normal IDs of the faces attached to the given vertex.</p>\n"
+			},
+			"GetVertexUVs": {
+				"Summary": "<p>Returns the UV IDs of the faces attached to the given vertex.</p>\n",
+				"Description": "<p>Returns the UV IDs of the faces attached to the given vertex.</p>\n"
+			},
 			"GetVertices": {
 				"Summary": "<p>Returns all vertices as a list of stable vertex IDs.</p>\n",
 				"Description": "<p>Returns all vertices as a list of stable vertex IDs.</p>\n"
@@ -7880,6 +7920,18 @@
 			"GetVerticesWithAttribute": {
 				"Summary": "<p>Returns a list of vertices that use a given attribute ID.</p>\n",
 				"Description": "<p>Returns a list of vertices that use a given face ID, normal ID, UV ID, or\ncolor ID.</p>\n"
+			},
+			"GetVerticesWithColor": {
+				"Summary": "<p>Returns an array of face IDs that use the given color ID.</p>\n",
+				"Description": "<p>Returns an array of face IDs that use the given color ID. Use together\nwith <a href=\"/ref/class/EditableMesh.html#member-GetVerticesWithColor\">GetVerticesWithColor()</a> to\nobtain all face/vertex pairs.</p>\n"
+			},
+			"GetVerticesWithNormal": {
+				"Summary": "<p>Returns an array of vertex IDs that use the given normal ID.</p>\n",
+				"Description": "<p>Returns an array of vertex IDs that use the given normal ID. Use together\nwith <a href=\"/ref/class/EditableMesh.html#member-GetFacesWithNormal\">GetFacesWithNormal()</a> to\nobtain all face/vertex pairs.</p>\n"
+			},
+			"GetVerticesWithUV": {
+				"Summary": "<p>Returns an array of vertex IDs that use the given UV ID.</p>\n",
+				"Description": "<p>Returns an array of vertex IDs that use the given UV ID. Use together with\n<a href=\"/ref/class/EditableMesh.html#member-GetFacesWithUV\">GetFacesWithUV()</a> to obtain all\nface/vertex pairs.</p>\n"
 			},
 			"IdDebugString": {
 				"Summary": "<p>Returns a string describing a stable ID, useful for debugging purposes.</p>\n",
@@ -7982,6 +8034,18 @@
 			"SetVertexBones": {
 				"Summary": "<p>Assign a list of bones with the vertex for skinning.</p>\n",
 				"Description": "<p>Assign a list of bones with the vertex for skinning.</p>\n<p>Corresponds with the skinning blend weights used in\n<a href=\"/ref/class/EditableMesh.html#member-SetVertexBoneWeights\">SetVertexBoneWeights()</a>. In\nother words,\n<a href=\"/ref/class/EditableMesh.html#member-GetVertexBoneWeights\">GetVertexBoneWeights(vertexId)[i]</a>\nis the weight on this vertex for\n<a href=\"/ref/class/EditableMesh.html#member-GetVertexBones\">GetVertexBones(vertexId)[i]</a>.</p>\n<p>This method should be called before calling\n<a href=\"/ref/class/EditableMesh.html#member-SetVertexBoneWeights\">SetVertexBoneWeights()</a>.</p>\n"
+			},
+			"SetVertexFaceColor": {
+				"Summary": "<p>Sets the color ID of a vertex/face pair.</p>\n",
+				"Description": "<p>Sets the color ID of a vertex/face pair.</p>\n"
+			},
+			"SetVertexFaceNormal": {
+				"Summary": "<p>Sets the normal ID of a vertex/face pair.</p>\n",
+				"Description": "<p>Sets the normal ID of a vertex/face pair.</p>\n"
+			},
+			"SetVertexFaceUV": {
+				"Summary": "<p>Sets the UV ID of a vertex/face pair.</p>\n",
+				"Description": "<p>Sets the UV ID of a vertex/face pair.</p>\n"
 			},
 			"SkinningEnabled": {},
 			"Triangulate": {
@@ -9273,59 +9337,53 @@
 		},
 		"GuiService": {
 			"AddSelectionParent": {
-				"Summary": "<p>Creates a gui selection group where gamepad gui navigation will only\nconsider selectable gui objects that are within the group (children of\nselectionParent).</p>\n",
-				"Description": "<p>Creates a gui selection group where gamepad gui navigation will only\nconsider selectable gui objects that are within the group (children of\nselectionParent). A use case is you have a menu pop open, but there are\nother selectable objects on the screen (maybe from previous menus), but\nyou want to the user to only be able to select gui objects in the new\nmenu.</p>\n"
+				"Summary": "<p>Creates a selection group where gamepad GUI navigation will only\nconsider selectable objects that are within the group.</p>\n",
+				"Description": "<p>Creates a selection group where gamepad GUI navigation will only consider\nselectable objects that are within the group (children of <code>selectionParent</code>). An\nexample is when you have a menu pop open and there are other selectable objects\non the screen, possibly from previous menus, but you want the user to only be\nable to select GUI objects in the new menu.</p>\n"
 			},
 			"AddSelectionTuple": {
 				"Summary": "<p><strong>AddSelectionTuple</strong> works similarly to\n<a href=\"/ref/class/GuiService.html#member-AddSelectionParent\">GuiService:AddSelectionParent()</a>, but you can give it a tuple of\n<a href=\"/ref/class/GuiObject.html\">GuiObject</a> that you want to be contained in the group.</p>\n<p>Beware that the second argument is <em>not</em> a table, but rather the first of\nseveral <a href=\"/ref/class/GuiObject.html\">GuiObject</a> in the tuple. To pass the contents of a table,\nuse <code>unpack</code>/<code>table.unpack</code>:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">frame</span> <span class=\"_o\">=</span> <span class=\"_n\">script.Parent</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Passing various GuiObject individually</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">GuiService</span><span class=\"_p\">:</span><span class=\"_n\">AddSelectionTuple</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;InventoryButtons&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">frame.Sort</span><span class=\"_p\">,</span> <span class=\"_n\">frame.Trash</span><span class=\"_p\">,</span> <span class=\"_n\">frame.Drop</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Unpacking a table of GuiObject (unpack/table.unpack are equivalent)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">inventoryButtons</span> <span class=\"_o\">=</span> <span class=\"_p\">{</span> <span class=\"_n\">frame.Sort</span><span class=\"_p\">,</span> <span class=\"_n\">frame.Trash</span><span class=\"_p\">,</span> <span class=\"_n\">frame.Drop</span> <span class=\"_p\">}</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">GuiService</span><span class=\"_p\">:</span><span class=\"_n\">AddSelectionTuple</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;InventoryButtons&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">unpack</span><span class=\"_p\">(</span><span class=\"_n\">inventoryButtons</span><span class=\"_p\">))</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n",
 				"Description": "<p>Functions similarly to <a href=\"/ref/class/GuiService.html#member-AddSelectionParent\">GuiService:AddSelectionParent()</a>, but you\ncan give it a tuple of <a href=\"/ref/class/GuiObject.html\">GuiObject</a> that you want to be contained in\nthe group.</p>\n"
 			},
 			"AutoSelectGuiEnabled": {
-				"Summary": "<p>If activated, the <code>Select</code> button on a Gamepad or <kbd>Backslash</kbd>\nwill automatically set a GUI as the selected object.</p>\n",
-				"Description": "<p>If activated, the <code>Select</code> button on a Gamepad or <kbd>Backslash</kbd>\nwill automatically set a GUI as the selected object. Turning this off will\nmean that Gui navigation will still work if\n<a href=\"/ref/class/GuiService.html#member-GuiNavigationEnabled\">GuiService.GuiNavigationEnabled</a> is enabled but you will have to\nset <a href=\"/ref/class/GuiService.html#member-SelectedObject\">GuiService.SelectedObject</a> manually to start Gui navigation.</p>\n"
+				"Summary": "<p>If activated, the <kbd>Select</kbd> button on a gamepad or <kbd>Backslash</kbd> will automatically set a GUI as the selected object.</p>\n",
+				"Description": "<p>If activated, the <kbd>Select</kbd> button on a gamepad or <kbd>Backslash</kbd>\nwill automatically set a GUI as the selected object. Disabling this means that\nGUI navigation will still work if\n<a href=\"/ref/class/GuiService.html#member-GuiNavigationEnabled\">GuiNavigationEnabled</a> is enabled, but you\nwill have to set <a href=\"/ref/class/GuiService.html#member-SelectedObject\">SelectedObject</a> manually to\nstart navigation.</p>\n"
 			},
 			"CloseInspectMenu": {
-				"Summary": "<p>Closes the Inspect Menu, if open.</p>\n",
-				"Description": "<p>This function closes the Inspect Menu, if open, when run from a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a>, an\narticle providing a more detailed explanation of the Inspect and Buy\nfeature and how it works</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromHumanoidDescription\">GuiService:InspectPlayerFromHumanoidDescription()</a>, allows a\ndeveloper to bring up the Inspect menu showing the assets listed in this\n<a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object. This is especially useful when what\nis being worn on a player&#39;s avatar on the Roblox platform is not\nnecessarily the same as their in-game appearance</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromUserId\">GuiService:InspectPlayerFromUserId()</a>, allows the Inspect Menu to\nappear showing the user that has the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.\nThis is especially useful when you want to inspect players who aren&#39;t in\nthe current game</li>\n</ul>\n"
+				"Summary": "<p>Closes the avatar inspection menu, if open.</p>\n",
+				"Description": "<p>This method closes the <a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect\nMenu</a>, if open, when run from a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>.</p>\n<h4>See Also</h4>\n<ul>\n<li>\n<p><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromHumanoidDescription\">InspectPlayerFromHumanoidDescription()</a>\nwhich allows the avatar inspection menu to appear showing the assets\nlisted in a <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object.</p>\n</li>\n<li>\n<p><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromUserId\">InspectPlayerFromUserId()</a> which\nallows the avatar inspection menu to appear showing the user that has the\ngiven <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.</p>\n</li>\n</ul>\n"
 			},
 			"CoreGuiNavigationEnabled": {
-				"Summary": "<p>Toggles whether or not objects in the <a href=\"/ref/class/CoreGui.html\">CoreGui</a> can be navigated\nusing a Gamepad.</p>\n",
-				"Description": "<p>Toggles whether or not objects in the <a href=\"/ref/class/CoreGui.html\">CoreGui</a> can be navigated\nusing a Gamepad.</p>\n"
+				"Summary": "<p>Toggles whether or not objects in the <a href=\"/ref/class/CoreGui.html\">CoreGui</a> can be navigated\nusing a gamepad.</p>\n",
+				"Description": "<p>Toggles whether or not objects in the <a href=\"/ref/class/CoreGui.html\">CoreGui</a> can be navigated\nusing a gamepad.</p>\n"
 			},
 			"DismissNotification": {},
 			"GetEmotesMenuOpen": {
-				"Summary": "<p>Checks if the player Emotes menu is open.</p>\n",
-				"Description": "<p>Returns a boolean indicating whether or not the player Emotes menu is\nopen.</p>\n<p>Developers can open or close the Emotes menu by calling the\n<a href=\"/ref/class/GuiService.html#member-SetEmotesMenuOpen\">GuiService:SetEmotesMenuOpen()</a> function.</p>\n"
+				"Summary": "<p>Checks if the player emotes menu is open.</p>\n",
+				"Description": "<p>Returns a boolean indicating whether or not the player emotes menu is open. You\ncan open or close the emotes menu by calling the\n<a href=\"/ref/class/GuiService.html#member-SetEmotesMenuOpen\">SetEmotesMenuOpen()</a> method.</p>\n"
 			},
 			"GetGameplayPausedNotificationEnabled": {
-				"Summary": "<p>Returns whether or not the <a href=\"/ref/class/Player.html#member-GameplayPaused\">gameplay paused</a>\nnotification has been disabled by the developer.</p>\n",
-				"Description": "<p>This function returns whether or not the\n<a href=\"/ref/class/Player.html#member-GameplayPaused\">gameplay paused</a> notification has been\ndisabled by the developer.</p>\n<p>Developers can enable or disable the notification by calling the\n<a href=\"/ref/class/GuiService.html#member-SetGameplayPausedNotificationEnabled\">GuiService:SetGameplayPausedNotificationEnabled()</a> function.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a> and\n<a href=\"/ref/enum/StreamingIntegrityMode.html\">StreamingIntegrityMode</a> for more details on when gameplay is\npaused.</li>\n</ul>\n"
+				"Summary": "<p>Returns whether or not the <a href=\"/ref/class/Player.html#member-GameplayPaused\">Player.GameplayPaused</a>\nnotification has been disabled.</p>\n",
+				"Description": "<p>This method returns whether or not the <a href=\"/ref/class/Player.html#member-GameplayPaused\">Player.GameplayPaused</a>\nnotification has been disabled through\n<a href=\"/ref/class/GuiService.html#member-SetGameplayPausedNotificationEnabled\">SetGameplayPausedNotificationEnabled()</a>.</p>\n<p>See also <a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a> and\n<a href=\"/ref/enum/StreamingIntegrityMode.html\">StreamingIntegrityMode</a> for more details on when gameplay is paused.</p>\n"
 			},
 			"GetGuiInset": {
-				"Summary": "<p>Returns two <a href=\"/ref/type/Vector2.html\">Vector2</a> values representing the inset of user GUIs\nin pixels, from the top left corner of the screen and the bottom right\ncorner of the screen respectively.</p>\n",
-				"Description": "<p>Returns two <a href=\"/ref/type/Vector2.html\">Vector2</a> values representing the inset of user GUIs\nin pixels, from the top left corner of the screen and the bottom right\ncorner of the screen respectively.</p>\n<p>The inset values supplied by this function only take effect on\n<a href=\"/ref/class/ScreenGui.html\">ScreenGuis</a> that have their\n<a href=\"/ref/class/ScreenGui.html#member-IgnoreGuiInset\">IgnoreGuiInset</a> property set to false.</p>\n"
+				"Summary": "<p>Returns two <a href=\"/ref/type/Vector2.html\">Vector2</a> values representing the inset of user GUIs\nin pixels, from the top‑left corner of the screen and the bottom‑right\ncorner of the screen respectively.</p>\n",
+				"Description": "<p>Returns two <a href=\"/ref/type/Vector2.html\">Vector2</a> values representing the inset of user GUIs in\npixels, from the top‑left corner of the screen and the bottom‑right corner of\nthe screen respectively.</p>\n<p>The inset values supplied by this method only take effect on\n<a href=\"/ref/class/ScreenGui.html\">ScreenGuis</a> that have their\n<a href=\"/ref/class/ScreenGui.html#member-IgnoreGuiInset\">IgnoreGuiInset</a> property set to <code>false</code>.</p>\n"
 			},
 			"GetInspectMenuEnabled": {
-				"Summary": "<p>Returns whether the Inspect and Buy menu functionality is enabled.</p>\n",
-				"Description": "<p>This function returns whether the Inspect and Buy menu functionality is\ncurrently enabled. The feature is enabled by default and can be set using\nthe <a href=\"/ref/class/GuiService.html#member-SetInspectMenuEnabled\">GuiService:SetInspectMenuEnabled()</a> function.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a>, an\narticle providing a more detailed explanation of the Inspect and Buy\nfeature and how it works</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromHumanoidDescription\">GuiService:InspectPlayerFromHumanoidDescription()</a>, allows a\ndeveloper to bring up the Inspect menu showing the assets listed in this\n<a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object. This is especially useful when what\nis being worn on a player&#39;s avatar on the Roblox platform is not\nnecessarily the same as their in-game appearance</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromUserId\">GuiService:InspectPlayerFromUserId()</a>, allows the Inspect Menu to\nappear showing the user that has the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.\nThis is especially useful when you want to inspect players who aren&#39;t in\nthe current game</li>\n</ul>\n"
+				"Summary": "<p>Returns whether the avatar inspection menu is enabled.</p>\n",
+				"Description": "<p>This method returns whether the <a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect\nMenu</a> is currently enabled. The feature\nis enabled by default and can be disabled using the\n<a href=\"/ref/class/GuiService.html#member-SetInspectMenuEnabled\">SetInspectMenuEnabled()</a> method.</p>\n"
 			},
 			"GuiNavigationEnabled": {
 				"Summary": "<p>Used to enable and disable the default controller GUI navigation.</p>\n",
 				"Description": "<p>Used to enable and disable the default controller GUI navigation.</p>\n"
 			},
 			"InspectPlayerFromHumanoidDescription": {
-				"Summary": "<p>Allows a developer to bring up the Inspect menu showing the assets listed\nin this <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object.</p>\n",
-				"Description": "<p>This function allows a developer to bring up the Inspect menu showing the\nassets listed in this <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object.</p>\n<p>This allows further customization with what is shown in the Inspect Menu\nwhen players inspect other players in your game. If your game modifies\nwhat the players are wearing, you can instead give the Inspect Menu a\nHumanoidDescription object that represents what a player is wearing and\nthose items will be shown. You should pass a name as well to represent the\nname of the player that will be inspected.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a>, an\narticle providing a more detailed explanation of the Inspect and Buy\nfeature and how it works</li>\n<li><a href=\"/ref/class/GuiService.html#member-SetInspectMenuEnabled\">GuiService:SetInspectMenuEnabled()</a>, allows developers to enable\nor disable default Inspect and Buy functionality</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromUserId\">GuiService:InspectPlayerFromUserId()</a>, allows the Inspect Menu to\nappear showing the user that has the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.\nThis is especially useful when you want to inspect players who aren&#39;t in\nthe current game.</li>\n</ul>\n",
-				"CodeSamples": [
-					"opening-an-inspect-menu-with-a-humanoiddescription"
-				]
+				"Summary": "<p>Allows the avatar inspection menu to appear showing the assets listed in a <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object.</p>\n",
+				"Description": "<p>This method allows the <a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect\nMenu</a> to appear showing the assets\nlisted in a <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object. This allows further\ncustomization with what is shown in the inspection menu when players inspect\nother players in your experience.</p>\n<p>See also <a href=\"/ref/class/GuiService.html#member-InspectPlayerFromUserId\">InspectPlayerFromUserId()</a>\nwhich allows the avatar inspection menu to appear showing the user that has the\ngiven <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.</p>\n"
 			},
 			"InspectPlayerFromUserId": {
-				"Summary": "<p>Allows the Inspect Menu to appear showing the user that has the given\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.</p>\n",
-				"Description": "<p>This function allows the Inspect Menu to appear showing the user that has\nthe given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>. This is especially useful when you\nwant to inspect players who aren&#39;t in the current game.</p>\n<p>This shows the same information as the &#34;Currently Wearing&#34; tab on the\nspecified user&#39;s profile.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a>, an\narticle providing a more detailed explanation of the Inspect and Buy\nfeature and how it works</li>\n<li><a href=\"/ref/class/GuiService.html#member-SetInspectMenuEnabled\">GuiService:SetInspectMenuEnabled()</a>, allows developers to enable\nor disable default Inspect and Buy functionality. This is especially\nuseful when what is being worn on a player&#39;s avatar on the Roblox\nplatform is not necessarily the same as their in-game appearance</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromHumanoidDescription\">GuiService:InspectPlayerFromHumanoidDescription()</a>, allows a\ndeveloper to bring up the Inspect menu showing the assets listed in this\n<a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object</li>\n</ul>\n",
-				"CodeSamples": [
-					"opening-the-inspect-menu-for-a-userid"
-				]
+				"Summary": "<p>Allows the avatar inspection menu to appear showing the user that has the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.</p>\n",
+				"Description": "<p>This method allows the <a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect\nMenu</a> to appear showing the user that\nhas the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>. This is especially useful when you\nwant to inspect players who aren&#39;t in the current experience.</p>\n<p>See also\n<a href=\"/ref/class/GuiService.html#member-InspectPlayerFromHumanoidDescription\">InspectPlayerFromHumanoidDescription()</a>\nwhich allows you to bring up the avatar inspection menu showing the assets\nlisted in a <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object.</p>\n"
 			},
 			"IsModalDialog": {
 				"Summary": "<p>Indicates whether a modal dialog is visible.</p>\n",
@@ -9333,8 +9391,8 @@
 				"DeprecationMessage": "<p>This item is deprecated. Do not use it for new work.</p>\n"
 			},
 			"IsTenFootInterface": {
-				"Summary": "<p>Returns true if the client is using the ten foot interface, which is a\nspecial version of Roblox&#39;s UI, exclusive to consoles. This is the only\nguaranteed way to verify if the user is on a console or not.</p>\n",
-				"Description": "<p>Returns true if the client is using the ten foot interface, which is a\nspecial version of Roblox&#39;s UI, exclusive to consoles. This is the only\nguaranteed way to verify if the user is on a console or not.</p>\n"
+				"Summary": "<p>Returns <code>true</code> if the client is using the ten foot interface, a\nspecial version of Roblox&#39;s UI exclusive to consoles.</p>\n",
+				"Description": "<p>Returns <code>true</code> if the client is using the ten foot interface, a\nspecial version of Roblox&#39;s UI exclusive to consoles. This is the only\nguaranteed way to verify if the user is on a console or not.</p>\n"
 			},
 			"IsWindows": {
 				"Summary": "<p>Indicates whether the user is playing on a computer running Windows.</p>\n",
@@ -9342,77 +9400,74 @@
 				"DeprecationMessage": "<p>This item is deprecated. Do not use it for new work.</p>\n"
 			},
 			"MenuClosed": {
-				"Summary": "<p>Fires when the user <strong>closes</strong> the Roblox coregui escape menu.</p>\n",
-				"Description": "<p>Fires when the user <strong>closes</strong> the Roblox coregui escape menu.</p>\n"
+				"Summary": "<p>Fires when the user <strong>closes</strong> the Roblox <a href=\"/ref/class/CoreGui.html\">CoreGui</a> escape menu.</p>\n",
+				"Description": "<p>Fires when the user <strong>closes</strong> the Roblox <a href=\"/ref/class/CoreGui.html\">CoreGui</a> escape menu.</p>\n"
 			},
 			"MenuIsOpen": {
-				"Summary": "<p>Returns true if any menu of CoreGui is open.</p>\n",
-				"Description": "<p>Returns true if any menu of <a href=\"/ref/class/CoreGui.html\">CoreGui</a> is open.</p>\n"
+				"Summary": "<p>Returns <code>true</code> if any menu of <a href=\"/ref/class/CoreGui.html\">CoreGui</a> is open.</p>\n",
+				"Description": "<p>Returns <code>true</code> if any menu of <a href=\"/ref/class/CoreGui.html\">CoreGui</a> is open.</p>\n"
 			},
 			"MenuOpened": {
-				"Summary": "<p>Fires when the user <strong>opens</strong> the Roblox coregui escape menu.</p>\n",
-				"Description": "<p>Fires when the user <strong>opens</strong> the Roblox coregui escape menu.</p>\n"
+				"Summary": "<p>Fires when the user <strong>opens</strong> the Roblox <a href=\"/ref/class/CoreGui.html\">CoreGui</a> escape menu.</p>\n",
+				"Description": "<p>Fires when the user <strong>opens</strong> the Roblox <a href=\"/ref/class/CoreGui.html\">CoreGui</a> escape menu.</p>\n"
 			},
-			"PreferredTextSize": {},
+			"PreferredTextSize": {
+				"Summary": "<p>Gets the player&#39;s preferred text size as an <a href=\"/ref/enum/PreferredTextSize.html\">PreferredTextSize</a> value.</p>\n",
+				"Description": "<p>Gets the player&#39;s preferred text size as an <a href=\"/ref/enum/PreferredTextSize.html\">PreferredTextSize</a> value of\n<a href=\"/ref/enum/PreferredTextSize.html\">Medium</a> (default),\n<a href=\"/ref/enum/PreferredTextSize.html\">Large</a>, <a href=\"/ref/enum/PreferredTextSize.html\">Larger</a>, or\n<a href=\"/ref/enum/PreferredTextSize.html\">Largest</a>. This property maps to the\n<strong>Text Size</strong> setting available to players from the Roblox and in‑game\n<strong>Settings</strong> menus, and it can be combined with\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object.GetPropertyChangedSignal()</a> to detect text size setting changes\nfor purposes of adjusting UI.</p>\n<p>When working with UI elements, note the following behaviors:</p>\n<ul>\n<li>\n<p>Text that is constrained to a minimum and/or maximum size through a <a href=\"/ref/class/UITextSizeConstraint.html\">UITextSizeConstraint</a> will <strong>not</strong> shrink below or expand above the set <a href=\"/ref/class/UITextSizeConstraint.html#member-MinTextSize\">MinTextSize</a>/<a href=\"/ref/class/UITextSizeConstraint.html#member-MaxTextSize\">MaxTextSize</a>, regardless of the player&#39;s text size setting.</p>\n</li>\n<li>\n<p>When <a href=\"/ref/class/TextLabel.html#member-TextScaled\">TextScaled</a> is enabled for a <a href=\"/ref/class/TextLabel.html#member-TextScaled\">TextLabel</a> or <a href=\"/ref/class/TextButton.html#member-TextScaled\">TextButton</a>, the element&#39;s text will <strong>not</strong> be scaled by the <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">PreferredTextSize</a> value.</p>\n</li>\n<li>\n<p>UI elements with <a href=\"/ref/class/GuiObject.html#member-AutomaticSize\">AutomaticSize</a> enabled will shrink/grow as <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">PreferredTextSize</a> decreases/increases (element bounds will resize to fit the resized text).</p>\n</li>\n<li>\n<p>When <a href=\"/ref/class/TextLabel.html#member-TextWrapped\">TextWrapped</a> is enabled for a <a href=\"/ref/class/TextLabel.html#member-TextWrapped\">TextLabel</a> or <a href=\"/ref/class/TextButton.html#member-TextWrapped\">TextButton</a>, the element&#39;s text will wrap to additional lines as <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">PreferredTextSize</a> increases, within limits of the element&#39;s absolute size.</p>\n</li>\n<li>\n<p>The results returned by <a href=\"/ref/class/TextService.html#member-GetTextSize\">TextService:GetTextSize()</a> and <a href=\"/ref/class/TextService.html#member-GetTextBoundsAsync\">TextService:GetTextBoundsAsync()</a> honor changes related to <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">PreferredTextSize</a>.</p>\n</li>\n</ul>\n",
+				"CodeSamples": [
+					"GuiService-PreferredTextSize"
+				]
+			},
 			"PreferredTransparency": {
-				"Summary": "<p>Gets the user&#39;s preferred transparency as a number between 0 and 1, which\nindicates how opaque they want the backgrounds of certain UI elements to\nbe. The recommended usage is as a multiplier of an element&#39;s\nBackgroundTransparency. Defaults to 1.</p>\n",
-				"Description": "<p>Gets the user&#39;s preferred transparency as a number between 0 and 1, which\nindicates how much more opaque they want the background of UI elements to\nbe. Defaults to 1.</p>\n<p>This return value reflects a setting which can be set from the user&#39;s side\nin either the app settings or within the in-experience settings menu via\n<strong>Background Transparency</strong>. The default value is 1, indicating that the\nuser prefers the default background transparency. The lowest value is 0,\nindicating that the user prefers backgrounds to be completely opaque,\nimproving readability and contrast for affected UI. Multiplying an\nelement&#39;s <a href=\"/ref/class/GuiObject.html#member-BackgroundTransparency\">GuiObject.BackgroundTransparency</a> with the value returned\nfrom <a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a> is the\nrecommended way to use this setting; backgrounds will become more opaque\nas <a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a>\napproaches 0. This should be used with\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a> so that it automatically updates\nwhen the user changes their preferred transparency.</p>\n",
+				"Summary": "<p>Gets the player&#39;s preferred transparency as a number between <code>0</code> and <code>1</code>.</p>\n",
+				"Description": "<p>Gets the player&#39;s preferred transparency as a number between <code>0</code> and <code>1</code>. This\nproperty maps to the <strong>Background Transparency</strong> setting available to\nplayers from the Roblox and in‑experience <strong>Settings</strong> menus, and it can be\ncombined with <a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object.GetPropertyChangedSignal()</a> to detect transparency\nsetting changes for purposes of adjusting UI.</p>\n<p>A value of <code>1</code> (default) indicates the player prefers the default background\ntransparency, while a value of <code>0</code> indicates the player prefers fully opaque\n(non‑transparent) background transparency for improved readability and contrast.\nMultiplying a UI element&#39;s\n<a href=\"/ref/class/GuiObject.html#member-BackgroundTransparency\">BackgroundTransparency</a> with\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a> is the\nrecommended approach, such that backgrounds become more opaque as\n<a href=\"/ref/class/GuiService.html#member-PreferredTransparency\">PreferredTransparency</a> approaches <code>0</code>.</p>\n",
 				"CodeSamples": [
 					"GuiService-PreferredTransparency"
 				]
 			},
 			"ReducedMotionEnabled": {
-				"Summary": "<p>Returns <code>true</code> if the user has enabled reduced motion. Defaults to\n<code>false</code>.</p>\n",
-				"Description": "<p>Returns <code>true</code> if the user has enabled reduced motion. Defaults to\n<code>false</code>.</p>\n<p>This return value reflects a setting which can be set from the user&#39;s side\nin either the app settings or within the in-experience settings menu via\n<strong>Reduce Motion</strong>. A value of <code>true</code> indicates that the user wants motion\neffects and animations to be reduced or completely removed.</p>\n",
-				"CodeSamples": [
-					"GuiService-ReducedMotionEnabled"
-				]
+				"Summary": "<p>Returns <code>true</code> if the player has enabled reduced motion.</p>\n",
+				"Description": "<p>Returns <code>true</code> if the player has enabled reduced motion, indicating that they\nwant motion effects and animations to be reduced or completely removed. This\nproperty maps to the <strong>Reduce Motion</strong> toggle available from the Roblox and\nin‑experience <strong>Settings</strong> menus. See <a href=\"https://create.roblox.com/docs/production/publishing/accessibility#reduced-motion\">accessibility\nguidelines</a> for\nusage recommendations.</p>\n"
 			},
 			"RemoveSelectionGroup": {
-				"Summary": "<p>Removes a group that was created with\n<a href=\"/ref/class/GuiService.html#member-AddSelectionParent\">GuiService:AddSelectionParent()</a> or\n<a href=\"/ref/class/GuiService.html#member-AddSelectionTuple\">GuiService:AddSelectionTuple()</a>.</p>\n",
-				"Description": "<p>Removes a group that was created with\n<a href=\"/ref/class/GuiService.html#member-AddSelectionParent\">GuiService:AddSelectionParent()</a> or\n<a href=\"/ref/class/GuiService.html#member-AddSelectionTuple\">GuiService:AddSelectionTuple()</a>.</p>\n"
+				"Summary": "<p>Removes a group that was created with <a href=\"/ref/class/GuiService.html#member-AddSelectionParent\">AddSelectionParent()</a> or <a href=\"/ref/class/GuiService.html#member-AddSelectionTuple\">AddSelectionTuple()</a>.</p>\n",
+				"Description": "<p>Removes a group that was created with <a href=\"/ref/class/GuiService.html#member-AddSelectionParent\">AddSelectionParent()</a> or <a href=\"/ref/class/GuiService.html#member-AddSelectionTuple\">AddSelectionTuple()</a>.</p>\n"
 			},
 			"Select": {
-				"Summary": "<p>Set GuiService.SelectedObject to a child of provided instance\nselectionParent that is PlayerGui or its descendants.</p>\n",
-				"Description": "<p>When Select is called on an instance selectionParent that is PlayerGui or\na descendant of PlayerGui, the engine searches all available selectable,\nvisible and on-screen GuiObjects that are descendants of selectionParent\nand sets the <a href=\"/ref/class/GuiService.html#member-SelectedObject\">GuiService.SelectedObject</a> to the GuiObject with the\nsmallest <a href=\"/ref/class/GuiService.html#member-SelectionOrder\">GuiService.SelectionOrder</a>.</p>\n",
-				"CodeSamples": [
-					"GuiService-PreferredTransparency"
-				]
+				"Summary": "<p>Sets <a href=\"/ref/class/GuiService.html#member-SelectedObject\">GuiService.SelectedObject</a> to a child of a provided instance that is the <a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> or its descendants.</p>\n",
+				"Description": "<p>When called on an instance <code>selectionParent</code> that is the <a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> or a\ndescendant of it, the engine searches all available selectable, visible and\non-screen <a href=\"/ref/class/GuiObject.html\">GuiObjects</a> that are descendants of <code>selectionParent</code>\nand sets the <a href=\"/ref/class/GuiService.html#member-SelectedObject\">SelectedObject</a> to the\n<a href=\"/ref/class/GuiObject.html\">GuiObject</a> with the smallest <a href=\"/ref/class/GuiService.html#member-SelectionOrder\">SelectionOrder</a>.</p>\n"
 			},
 			"SelectedObject": {
-				"Summary": "<p>Sets the GuiObject currently being focused on by the GUI Navigator (used\nfor Gamepads).</p>\n",
-				"Description": "<p>Sets the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> currently being focused on by the GUI Navigator\n(used for Gamepads). This may reset to <code>nil</code> if the object is off-screen.</p>\n<p>This property is changed by the <a href=\"/ref/class/GuiObject.html#member-SelectionGained\">GuiObject.SelectionGained</a> and\n<a href=\"/ref/class/GuiObject.html#member-SelectionLost\">GuiObject.SelectionLost</a> events.</p>\n<p>If you would like to determine when this property changes without tracking\nthe SelectionGained and SelectionLost events for all GUI elements, you can\nuse the <a href=\"/ref/class/Object.html#member-Changed\">Changed</a> event.</p>\n",
-				"CodeSamples": [
-					"printing-when-gamepad-selection-changes"
-				]
+				"Summary": "<p>Sets the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> currently being focused on by the GUI navigator.</p>\n",
+				"Description": "<p>Sets the <a href=\"/ref/class/GuiObject.html\">GuiObject</a> currently being focused on by the GUI navigator. This\nmay reset to <code>nil</code> if the object is off screen.</p>\n<p>This property is changed by the\n<a href=\"/ref/class/GuiObject.html#member-SelectionGained\">SelectionGained</a> and\n<a href=\"/ref/class/GuiObject.html#member-SelectionLost\">SelectionLost</a> events. If you would like to\ndetermine when this property changes without tracking these events for all GUI\nelements, you can use the <a href=\"/ref/class/Object.html#member-Changed\">Changed</a> event.</p>\n"
 			},
 			"SendNotification": {},
 			"SetEmotesMenuOpen": {
-				"Summary": "<p>Opens or closes the player Emotes menu.</p>\n",
-				"Description": "<p>Opens or closes the player Emotes menu.</p>\n"
+				"Summary": "<p>Opens or closes the player emotes menu.</p>\n",
+				"Description": "<p>Opens or closes the player emotes menu.</p>\n"
 			},
 			"SetGameplayPausedNotificationEnabled": {
-				"Summary": "<p>Allows developers to disable the built-in notification when a players\ngameplay is paused.</p>\n",
-				"Description": "<p>This method allows developers to disable the built-in notification when a\nplayers gameplay is paused. They can then add in their own UI if they wish\nto customize it.</p>\n<p>Developers can query whether the notification is enabled by calling the\n<a href=\"/ref/class/GuiService.html#member-GetGameplayPausedNotificationEnabled\">GuiService:GetGameplayPausedNotificationEnabled()</a> function.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a> and\n<a href=\"/ref/enum/StreamingIntegrityMode.html\">StreamingIntegrityMode</a> for more details on when gameplay is\npaused.</li>\n</ul>\n"
+				"Summary": "<p>Lets you disable the built-in notification when a player&#39;s gameplay is paused.</p>\n",
+				"Description": "<p>This method lets you disable the built-in notification when a player&#39;s gameplay\nis paused. You can then add in your own UI and customize it.</p>\n<p>You can query whether the notification is enabled by calling the\n<a href=\"/ref/class/GuiService.html#member-GetGameplayPausedNotificationEnabled\">GetGameplayPausedNotificationEnabled()</a>\nmethod.</p>\n<p>See also <a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a> and\n<a href=\"/ref/enum/StreamingIntegrityMode.html\">StreamingIntegrityMode</a> for more details on when gameplay is paused.</p>\n"
 			},
 			"SetInspectMenuEnabled": {
-				"Summary": "<p>Allows developers to enable or disable default Inspect and Buy\nfunctionality.</p>\n",
-				"Description": "<p>This function allows developers to enable or disable default Inspect and\nBuy functionality. This is useful when you want to disable the feature in\nyour game, entirely or during certain parts of your game (such as a\ncutscene). The feature is enabled by default.</p>\n<p>The code sample below demonstrates how to disable the Inspect Menu for\nyour game:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">GuiService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;GuiService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">GuiService</span><span class=\"_p\">:</span><span class=\"_n\">SetInspectMenuEnabled</span><span class=\"_p\">(</span><span class=\"_kc\">false</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a>, an\narticle providing a more detailed explanation of the Inspect and Buy\nfeature and how it works</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromHumanoidDescription\">GuiService:InspectPlayerFromHumanoidDescription()</a>, allows a\ndeveloper to bring up the Inspect menu showing the assets listed in this\n<a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a> object. This is especially useful when what\nis being worn on a player&#39;s avatar on the Roblox platform is not\nnecessarily the same as their in-game appearance</li>\n<li><a href=\"/ref/class/GuiService.html#member-InspectPlayerFromUserId\">GuiService:InspectPlayerFromUserId()</a>, allows the Inspect Menu to\nappear showing the user that has the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>.\nThis is especially useful when you want to inspect players who aren&#39;t in\nthe current game</li>\n</ul>\n"
+				"Summary": "<p>Allows you to enable or disable the avatar inspection menu.</p>\n",
+				"Description": "<p>This method allows you to enable or disable the <a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a>. The feature is enabled by default.</p>\n"
 			},
 			"TopbarInset": {
 				"Summary": "<p>Used to determine the absolute size and position of unobstructed area\nwithin top bar space.</p>\n",
-				"Description": "<p>Returns a <a href=\"/ref/type/Rect.html\">Rect</a> object representing the unoccupied area between\nthe Roblox left-most controls and the edge of the device safe area.</p>\n<p>The value is dynamic and can be expected to change based on the visibility\nof UI controls such as changing the local player&#39;s\n<a href=\"/ref/class/Humanoid.html#member-Health\">Health</a> property, usage of\n<a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">StarterGui:SetCoreGuiEnabled()</a>, changing the size and position of\nRoblox UI Controls, and/or others. For this reason, it&#39;s recommend that\nyou detect and react to changes of this property with\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a>.</p>\n",
+				"Description": "<p>Returns a <a href=\"/ref/type/Rect.html\">Rect</a> object representing the unoccupied area between the\nRoblox left-most controls and the edge of the device safe area.</p>\n<p>The value is dynamic and can be expected to change based on the visibility of UI\ncontrols such as changing the local player&#39;s <a href=\"/ref/class/Humanoid.html#member-Health\">Health</a>\nproperty, usage of <a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">StarterGui:SetCoreGuiEnabled()</a>, changing the size and\nposition of Roblox UI Controls, and/or others. For this reason, it&#39;s recommend\nthat you detect and react to changes of this property with\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">Object:GetPropertyChangedSignal()</a>.</p>\n",
 				"CodeSamples": [
 					"GuiService-TopbarInset"
 				]
 			},
 			"TouchControlsEnabled": {
-				"Summary": "<p>Used to enable and disable touch controls and touch control display UI.\nDefaults to true.</p>\n",
-				"Description": "<p>Used to enable and disable touch controls and touch control display UI.\nDefaults to true.</p>\n"
+				"Summary": "<p>Used to enable and disable touch controls and touch control display UI.\nDefaults to <code>true</code>.</p>\n",
+				"Description": "<p>Used to enable and disable touch controls and touch control display UI. Defaults\nto <code>true</code>.</p>\n"
 			},
 			"ViewportDisplaySize": {
 				"Summary": "<p>Read-only property which represents the physical rendering size of the\nviewport.</p>\n",
-				"Description": "<p>Read-only property which represents the physical rendering size of the\nviewport. You can listen for changes to this property through the\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">GetPropertyChangedSignal()</a>\nmethod to adapt UI to various display sizes.</p>\n",
+				"Description": "<p>Read-only property which represents the physical rendering size of the viewport.\nYou can listen for changes to this property through the\n<a href=\"/ref/class/Object.html#member-GetPropertyChangedSignal\">GetPropertyChangedSignal()</a> method to\nadapt UI to various display sizes.</p>\n",
 				"CodeSamples": [
 					"GuiService-ViewportDisplaySize"
 				]
@@ -10974,7 +11029,7 @@
 			},
 			"LoadAsset": {
 				"Summary": "<p>Returns a <a href=\"/ref/class/Model.html\">Model</a> containing the asset.</p>\n",
-				"Description": "<p>The LoadAsset function fetches an asset given its ID and returns a\n<a href=\"/ref/class/Model.html\">Model</a> containing the asset. For example, to load this public\n<a href=\"https://www.roblox.com/library/257489726/Doge\">Doge</a> <a href=\"/ref/class/Model.html\">Model</a>, which\nhas the asset ID <strong><em>257489726</em></strong>, you can use:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">InsertService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;InsertService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">assetId</span> <span class=\"_o\">=</span> <span class=\"_mi\">257489726</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">model</span> <span class=\"_o\">=</span> <span class=\"_n\">InsertService</span><span class=\"_p\">:</span><span class=\"_n\">LoadAsset</span><span class=\"_p\">(</span><span class=\"_n\">assetId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">model.Parent</span> <span class=\"_o\">=</span> <span class=\"_n\">Workspace</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Calls to this function may fail if a server providing a model is having\nproblems. As such, it&#39;s generally a good idea to wrap calls to this\nfunction in <code>pcall</code> to catch these kinds of errors.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">InsertService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;InsertService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">assetId</span> <span class=\"_o\">=</span> <span class=\"_mi\">257489726</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">success</span><span class=\"_p\">,</span> <span class=\"_n\">model</span> <span class=\"_o\">=</span> <span class=\"_n\">pcall</span><span class=\"_p\">(</span><span class=\"_n\">InsertService.LoadAsset</span><span class=\"_p\">,</span> <span class=\"_n\">InsertService</span><span class=\"_p\">,</span> <span class=\"_n\">assetId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">success</span> <span class=\"_ow\">and</span> <span class=\"_n\">model</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model loaded successfully&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">model.Parent</span> <span class=\"_o\">=</span> <span class=\"_n\">Workspace</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model failed to load!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Security Check</h4>\n<p>An asset loaded by this function must be <strong>created or owned</strong> by either\nthe game creator or Roblox. Additionally, benign asset types such as\nt-shirts, shirts, pants and avatar accessories are loadable from any game\nas they are public.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/AssetService.html#member-GetBundleDetailsAsync\">AssetService:GetBundleDetailsAsync()</a>, to find out which assets\nare associated with a bundle.</li>\n<li>For plugins, see <a href=\"/ref/class/DataModel.html#member-GetObjects\">DataModel:GetObjects()</a></li>\n</ul>\n",
+				"Description": "<p>The LoadAsset function fetches an asset given its ID and returns a\n<a href=\"/ref/class/Model.html\">Model</a> containing the asset. For example, to load this public\n<a href=\"https://www.roblox.com/library/257489726/Doge\">Doge</a> <a href=\"/ref/class/Model.html\">Model</a>, which\nhas the asset ID <strong><em>257489726</em></strong>, you can use:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">InsertService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;InsertService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">assetId</span> <span class=\"_o\">=</span> <span class=\"_mi\">257489726</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">model</span> <span class=\"_o\">=</span> <span class=\"_n\">InsertService</span><span class=\"_p\">:</span><span class=\"_n\">LoadAsset</span><span class=\"_p\">(</span><span class=\"_n\">assetId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">model.Parent</span> <span class=\"_o\">=</span> <span class=\"_n\">Workspace</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Calls to this function may fail if a server providing a model is having\nproblems. As such, it&#39;s generally a good idea to wrap calls to this\nfunction in <code>pcall</code> to catch these kinds of errors.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">InsertService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;InsertService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">assetId</span> <span class=\"_o\">=</span> <span class=\"_mi\">257489726</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">success</span><span class=\"_p\">,</span> <span class=\"_n\">model</span> <span class=\"_o\">=</span> <span class=\"_n\">pcall</span><span class=\"_p\">(</span><span class=\"_n\">InsertService.LoadAsset</span><span class=\"_p\">,</span> <span class=\"_n\">InsertService</span><span class=\"_p\">,</span> <span class=\"_n\">assetId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">success</span> <span class=\"_ow\">and</span> <span class=\"_n\">model</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model loaded successfully&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">model.Parent</span> <span class=\"_o\">=</span> <span class=\"_n\">Workspace</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model failed to load!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Security Check</h4>\n<p>An asset loaded by this function must meet one of the following:</p>\n<ul>\n<li>The asset must be <strong>created or owned</strong> by the game creator.</li>\n<li>The asset must be <strong>shared</strong> by the asset owner.</li>\n<li>The asset must be owned by Roblox.</li>\n</ul>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/AssetService.html#member-GetBundleDetailsAsync\">AssetService:GetBundleDetailsAsync()</a>, to find out which assets\nare associated with a bundle.</li>\n<li>For plugins, see <a href=\"/ref/class/DataModel.html#member-GetObjects\">DataModel:GetObjects()</a></li>\n</ul>\n",
 				"CodeSamples": [
 					"InsertService-LoadAsset1"
 				]
@@ -16958,14 +17013,17 @@
 			},
 			"GetHarmonyQualityLevel": {},
 			"GetMemoryCategoryNames": {},
-			"GetMemoryUsageMbAllCategories": {},
+			"GetMemoryUsageMbAllCategories": {
+				"Summary": "<p>Returns the number of megabytes that are being consumed by all available\ncategories, or an empty array if <code>MemoryTrackingEnabled</code> is false.</p>\n",
+				"Description": "<p>Returns the number of megabytes that are being consumed by all available\ncategories. If <code>MemoryTrackingEnabled</code> is false, calling\nGetMemoryUsageMbAllCategories will return an empty array and emit a\nwarning to the console.</p>\n"
+			},
 			"GetMemoryUsageMbForTag": {
-				"Summary": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n",
-				"Description": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category.</p>\n"
+				"Summary": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category, or 0 if <code>MemoryTrackingEnabled</code> is\nfalse.</p>\n",
+				"Description": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category. If <code>MemoryTrackingEnabled</code> is false,\ncalling GetMemoryUsageMbForTag will return 0 and emit a warning to the\nconsole.</p>\n"
 			},
 			"GetTotalMemoryUsageMb": {
-				"Summary": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes.</p>\n",
-				"Description": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes.</p>\n"
+				"Summary": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes, or 0 if <code>MemoryTrackingEnabled</code> is false.</p>\n",
+				"Description": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes. If <code>MemoryTrackingEnabled</code> is false, calling\nGetTotalMemoryUsageMb will return 0 and emit a warning to the console.</p>\n"
 			},
 			"HeartbeatTime": {
 				"Summary": "<p>A measurement of the total amount of time it takes for the server to\nupdate its Task Scheduler jobs in seconds.</p>\n",
@@ -16978,6 +17036,10 @@
 			"InstanceCount": {
 				"Summary": "<p>A measurement of how many <a href=\"/ref/class/Instance.html\">Instance</a> are currently in memory.</p>\n",
 				"Description": "<p>InstanceCount is a read-only measurement of how many <a href=\"/ref/class/Instance.html\">Instance</a> are\ncurrently in memory. This includes the <a href=\"/ref/class/DataModel.html\">DataModel</a>, its descendants,\nas well as any object created with <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a> which is\nstill present in memory.</p>\n"
+			},
+			"MemoryTrackingEnabled": {
+				"Summary": "<p>An indication of whether memory tracking is enabled. This is guaranteed to\nbe unchanged until the next time the Client is started.</p>\n",
+				"Description": "<p>If MemoryTrackingEnabled returns false, any API that returns\ncategory-based memory usage e.g. <code>GetMemoryUsageMbForTag</code> or\n<code>GetTotalMemoryUsageMb</code> will return 0 and emit a warning. Therefore, usage\nof category-based memory usage API should be conditional on\nMemoryTrackingEnabled returning true. The value of MemoryTrackingEnabled\nwill not change from one experience to the next. It will only potentially\nchange after restarting the Roblox client application.</p>\n"
 			},
 			"MovingPrimitivesCount": {
 				"Summary": "<p>A measurement of how many physically simulated components are currently\nmoving in the game world.</p>\n",
@@ -20095,7 +20157,7 @@
 			},
 			"MouseIconEnabled": {
 				"Summary": "<p>Determines whether the mouse icon is visible.</p>\n",
-				"Description": "<p>This property determines whether the mouse icon is visible.</p>\n"
+				"Description": "<p>This property determines whether the mouse icon is visible. To detect when\nthis property changes, you must listen to when the\n<a href=\"/ref/class/UserInputService.html#member-MouseEnabled\">MouseEnabled</a> property changes.</p>\n"
 			},
 			"OnScreenKeyboardPosition": {
 				"Summary": "<p>Determines the position of the on-screen keyboard.</p>\n",
@@ -21845,7 +21907,10 @@
 			"Summary": "<p>This enum is used with <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a> to indicate the\nprimary input type a player is likely using.</p>\n",
 			"Description": "<p>This enum is used with <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a> to indicate the\nprimary input type a player is likely using.</p>\n"
 		},
-		"PreferredTextSize": {},
+		"PreferredTextSize": {
+			"Summary": "<p>This enum is used with <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">GuiService.PreferredTextSize</a> to indicate the player&#39;s preferred text size.</p>\n",
+			"Description": "<p>This enum is used with <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">GuiService.PreferredTextSize</a> to indicate the\nplayer&#39;s preferred text size.</p>\n"
+		},
 		"PrimalPhysicsSolver": {},
 		"PrimitiveType": {},
 		"PrivilegeType": {
@@ -27055,10 +27120,18 @@
 			}
 		},
 		"PreferredTextSize": {
-			"Large": {},
-			"Larger": {},
-			"Largest": {},
-			"Medium": {}
+			"Large": {
+				"Summary": "<p>The player prefers text size slightly increased beyond default.</p>\n"
+			},
+			"Larger": {
+				"Summary": "<p>The player prefers text size moderately increased beyond default.</p>\n"
+			},
+			"Largest": {
+				"Summary": "<p>The player prefers text size considerably increased beyond default.</p>\n"
+			},
+			"Medium": {
+				"Summary": "<p>The player prefers default text size.</p>\n"
+			}
 		},
 		"PrimalPhysicsSolver": {
 			"Default": {},
