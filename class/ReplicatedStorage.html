@@ -163,10 +163,12 @@ version-2220a78ed1774256">647</a></td><td class=col-icon><span class=picture tit
 available to both the server and connected clients. It is ideal for
 <a href=/ref/class/ModuleScript.html>ModuleScript</a>, <a href=/ref/class/RemoteFunction.html>RemoteFunction</a>, <a href=/ref/class/RemoteEvent.html>RemoteEvent</a>, and other
 objects that are useful to both server-side <a href=/ref/class/Script.html>Scripts</a> and
-client-side <a href=/ref/class/LocalScript.html>LocalScripts</a>.</p><p>Objects parented to this service are fully replicated to clients and normal
+client-side <a href=/ref/class/LocalScript.html>LocalScripts</a>.</p><p>Objects parented to this service are fully replicated to clients, and normal
 replication rules apply. Any changes that are made on the client persist but
-won't be replicated to the server, and client changes may be overwritten if
-the server does something that overwrites those changes.</p><p><a href=/ref/class/LocalScript.html>LocalScripts</a> do not run when parented to this service,
+aren't replicated to the server. Client changes may be overwritten if the
+server does something that overwrites those changes.</p><p>Certain changes on the client, such as moving an object from the
+<a href=/ref/class/Workspace.html>Workspace</a> to <a href=/ref/class/ReplicatedStorage.html>ReplicatedStorage</a>, can lead to desynchronization
+issues (for example, physics updates not being replicated to the object).</p><p><a href=/ref/class/LocalScript.html>LocalScripts</a> do not run when parented to this service,
 even if they are <a href=/ref/class/BaseScript.html#member-Enabled>Enabled</a>;
 <a href=/ref/class/LocalScript.html>LocalScripts</a> have various other locations where they
 eventually run on a <a href=/ref/class/Player.html>Player</a> client such as
