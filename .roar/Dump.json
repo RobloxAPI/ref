@@ -2454,6 +2454,36 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"ShowRewardedVideoAdAtClientAsync": {
+					"MemberType": "Function",
+					"Name": "ShowRewardedVideoAdAtClientAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "universeId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Enum",
+							"Name": "ShowAdResult"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"ShowStaticEudsaDisclosure": {
 					"MemberType": "Event",
 					"Name": "ShowStaticEudsaDisclosure",
@@ -2484,6 +2514,70 @@
 					"Tags": [
 						"Deprecated"
 					],
+					"ThreadSafety": "Unsafe"
+				},
+				"SubmitAdNotification": {
+					"MemberType": "Function",
+					"Name": "SubmitAdNotification",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "universeId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "isShowAdSuccessful",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "earnedReward",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "rewardProductName",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "rewardProductImageAssetId",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
 				"UnregisterAdOpportunity": {
@@ -27154,6 +27248,37 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"AvatarAssetModerationCompleted": {
+					"MemberType": "Event",
+					"Name": "AvatarAssetModerationCompleted",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "assetId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "ModerationStatus"
+							},
+							"Name": "moderationStatus",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"AvatarModerationCompleted": {
 					"MemberType": "Event",
 					"Name": "AvatarModerationCompleted",
@@ -27756,6 +27881,63 @@
 						{
 							"Category": "Primitive",
 							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"PromptCreateAvatarAssetAsync": {
+					"MemberType": "Function",
+					"Name": "PromptCreateAvatarAssetAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "tokenId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Player"
+							},
+							"Name": "player",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "assetInstance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "AvatarAssetType"
+							},
+							"Name": "assetType",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
 						}
 					],
 					"Security": "None",
@@ -82389,6 +82571,34 @@
 					],
 					"ThreadSafety": "Unsafe"
 				},
+				"TranscodeMesh": {
+					"MemberType": "Function",
+					"Name": "TranscodeMesh",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"UnionAsync": {
 					"MemberType": "Function",
 					"Name": "UnionAsync",
@@ -91198,6 +91408,18 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"Ended": {
+					"MemberType": "Event",
+					"Name": "Ended",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"Looped": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -93529,6 +93751,36 @@
 					],
 					"ThreadSafety": "Safe"
 				},
+				"JSONDecodeAsync": {
+					"MemberType": "Function",
+					"Name": "JSONDecodeAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "input",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Variant"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
 				"JSONEncode": {
 					"MemberType": "Function",
 					"Name": "JSONEncode",
@@ -93558,6 +93810,36 @@
 						"CustomLuaState"
 					],
 					"ThreadSafety": "Safe"
+				},
+				"JSONEncodeAsync": {
+					"MemberType": "Function",
+					"Name": "JSONEncodeAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Variant"
+							},
+							"Name": "obj",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "string"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
 				},
 				"PostAsync": {
 					"MemberType": "Function",
@@ -122002,6 +122284,66 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"EmissiveMaskContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "EmissiveMaskContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "PluginSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
+				"EmissiveStrength": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "1",
+					"MemberType": "Property",
+					"Name": "EmissiveStrength",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "None"
+				},
+				"EmissiveTint": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "1, 1, 1",
+					"MemberType": "Property",
+					"Name": "EmissiveTint",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Color3"
+					},
+					"WriteSecurity": "None"
+				},
 				"MaterialPattern": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -134694,6 +135036,46 @@
 					"ValueType": {
 						"Category": "Enum",
 						"Name": "ParticleFlipbookMode"
+					},
+					"WriteSecurity": "None"
+				},
+				"FlipbookSizeX": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Flipbook",
+					"Default": "1",
+					"MemberType": "Property",
+					"Name": "FlipbookSizeX",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "int"
+					},
+					"WriteSecurity": "None"
+				},
+				"FlipbookSizeY": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Flipbook",
+					"Default": "1",
+					"MemberType": "Property",
+					"Name": "FlipbookSizeY",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "int"
 					},
 					"WriteSecurity": "None"
 				},
@@ -191925,6 +192307,66 @@
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
+				"EmissiveMaskContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "EmissiveMaskContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
+				"EmissiveStrength": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "1",
+					"MemberType": "Property",
+					"Name": "EmissiveStrength",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "None"
+				},
+				"EmissiveTint": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "1, 1, 1",
+					"MemberType": "Property",
+					"Name": "EmissiveTint",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Color3"
+					},
+					"WriteSecurity": "None"
+				},
 				"MetalnessMap": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -198727,6 +199169,66 @@
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
+				"EmissiveMaskContent": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "__api_dump_no_string_value__",
+					"MemberType": "Property",
+					"Name": "EmissiveMaskContent",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "PluginSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Content"
+					},
+					"WriteSecurity": "PluginSecurity"
+				},
+				"EmissiveStrength": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "1",
+					"MemberType": "Property",
+					"Name": "EmissiveStrength",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "float"
+					},
+					"WriteSecurity": "None"
+				},
+				"EmissiveTint": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Appearance",
+					"Default": "1, 1, 1",
+					"MemberType": "Property",
+					"Name": "EmissiveTint",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Color3"
+					},
+					"WriteSecurity": "None"
+				},
 				"Face": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -203963,6 +204465,52 @@
 					"MemberType": "Function",
 					"Name": "SendExpChatWindowScroll",
 					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SendExpChatWindowStatusChange": {
+					"MemberType": "Function",
+					"Name": "SendExpChatWindowStatusChange",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "timeClosed",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "timeOpen",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "timeIdle",
+							"Optional": false,
+							"Default": ""
+						}
+					],
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -232031,7 +232579,17 @@
 				"leaveVoice": {
 					"MemberType": "Function",
 					"Name": "leaveVoice",
-					"Parameters": [],
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "VoiceClientLeaveReasons"
+							},
+							"Name": "leaveReason",
+							"Optional": true,
+							"Default": "LuaInitiated"
+						}
+					],
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -241070,7 +241628,7 @@
 				"DressSkirtAccessory": {
 					"Name": "DressSkirtAccessory",
 					"Value": 72,
-					"Index": 53,
+					"Index": 51,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241081,7 +241639,7 @@
 				"DynamicHead": {
 					"Name": "DynamicHead",
 					"Value": 79,
-					"Index": 58,
+					"Index": 56,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241092,7 +241650,7 @@
 				"EarAccessory": {
 					"Name": "EarAccessory",
 					"Value": 57,
-					"Index": 41,
+					"Index": 57,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241103,7 +241661,7 @@
 				"EmoteAnimation": {
 					"Name": "EmoteAnimation",
 					"Value": 61,
-					"Index": 43,
+					"Index": 41,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241114,7 +241672,7 @@
 				"EyeAccessory": {
 					"Name": "EyeAccessory",
 					"Value": 58,
-					"Index": 42,
+					"Index": 58,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241125,7 +241683,7 @@
 				"EyebrowAccessory": {
 					"Name": "EyebrowAccessory",
 					"Value": 76,
-					"Index": 55,
+					"Index": 53,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241136,7 +241694,7 @@
 				"EyelashAccessory": {
 					"Name": "EyelashAccessory",
 					"Value": 77,
-					"Index": 56,
+					"Index": 54,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241180,7 +241738,7 @@
 				"FontFamily": {
 					"Name": "FontFamily",
 					"Value": 73,
-					"Index": 54,
+					"Index": 52,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241279,7 +241837,7 @@
 				"JacketAccessory": {
 					"Name": "JacketAccessory",
 					"Value": 67,
-					"Index": 48,
+					"Index": 46,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241323,7 +241881,7 @@
 				"LeftShoeAccessory": {
 					"Name": "LeftShoeAccessory",
 					"Value": 70,
-					"Index": 51,
+					"Index": 49,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241378,7 +241936,7 @@
 				"MoodAnimation": {
 					"Name": "MoodAnimation",
 					"Value": 78,
-					"Index": 57,
+					"Index": 55,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241422,7 +241980,7 @@
 				"PantsAccessory": {
 					"Name": "PantsAccessory",
 					"Value": 66,
-					"Index": 47,
+					"Index": 45,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241488,7 +242046,7 @@
 				"RightShoeAccessory": {
 					"Name": "RightShoeAccessory",
 					"Value": 71,
-					"Index": 52,
+					"Index": 50,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241521,7 +242079,7 @@
 				"ShirtAccessory": {
 					"Name": "ShirtAccessory",
 					"Value": 65,
-					"Index": 46,
+					"Index": 44,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241532,7 +242090,7 @@
 				"ShortsAccessory": {
 					"Name": "ShortsAccessory",
 					"Value": 69,
-					"Index": 50,
+					"Index": 48,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241554,7 +242112,7 @@
 				"SweaterAccessory": {
 					"Name": "SweaterAccessory",
 					"Value": 68,
-					"Index": 49,
+					"Index": 47,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -241589,7 +242147,7 @@
 				"TShirtAccessory": {
 					"Name": "TShirtAccessory",
 					"Value": 64,
-					"Index": 45,
+					"Index": 43,
 					"LegacyNames": [
 						"TeeShirtAccessory"
 					],
@@ -241635,7 +242193,7 @@
 				"Video": {
 					"Name": "Video",
 					"Value": 62,
-					"Index": 44,
+					"Index": 42,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -265184,6 +265742,17 @@
 		"ParticleFlipbookLayout": {
 			"Name": "ParticleFlipbookLayout",
 			"Items": {
+				"Custom": {
+					"Name": "Custom",
+					"Value": 4,
+					"Index": 4,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"EightByEight": {
 					"Name": "EightByEight",
 					"Value": 3,
@@ -266857,6 +267426,17 @@
 					},
 					"Tags": []
 				},
+				"Automatic": {
+					"Name": "Automatic",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"Forced": {
 					"Name": "Forced",
 					"Value": 2,
@@ -267444,6 +268024,17 @@
 		"PromptCreateAssetResult": {
 			"Name": "PromptCreateAssetResult",
 			"Items": {
+				"ModeratedName": {
+					"Name": "ModeratedName",
+					"Value": 8,
+					"Index": 7,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"NoUserInput": {
 					"Name": "NoUserInput",
 					"Value": 5,
@@ -267466,6 +268057,17 @@
 					},
 					"Tags": []
 				},
+				"PurchaseFailure": {
+					"Name": "PurchaseFailure",
+					"Value": 9,
+					"Index": 8,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"Success": {
 					"Name": "Success",
 					"Value": 1,
@@ -267481,6 +268083,28 @@
 					"Name": "Timeout",
 					"Value": 3,
 					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"TokenInvalid": {
+					"Name": "TokenInvalid",
+					"Value": 10,
+					"Index": 9,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"UGCValidationFailed": {
+					"Name": "UGCValidationFailed",
+					"Value": 7,
+					"Index": 6,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -280868,6 +281492,115 @@
 					"Name": "Leaving",
 					"Value": 4,
 					"Index": 4,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"VoiceClientLeaveReasons": {
+			"Name": "VoiceClientLeaveReasons",
+			"Items": {
+				"ClientNetworkDisconnected": {
+					"Name": "ClientNetworkDisconnected",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"ClientShutdown": {
+					"Name": "ClientShutdown",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"ImguiDebugLeave": {
+					"Name": "ImguiDebugLeave",
+					"Value": 7,
+					"Index": 7,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"LuaInitiated": {
+					"Name": "LuaInitiated",
+					"Value": 8,
+					"Index": 8,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"PlayerLeft": {
+					"Name": "PlayerLeft",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"PublishFailed": {
+					"Name": "PublishFailed",
+					"Value": 4,
+					"Index": 4,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RejoinReceived": {
+					"Name": "RejoinReceived",
+					"Value": 5,
+					"Index": 5,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Unknown": {
+					"Name": "Unknown",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"VoiceReboot": {
+					"Name": "VoiceReboot",
+					"Value": 6,
+					"Index": 6,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",

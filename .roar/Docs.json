@@ -224,7 +224,13 @@
 			"Summary": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n",
 			"Description": "<p>Instance to be passed to <a href=\"/ref/class/AssetService.html#member-SearchAudio\">AssetService:SearchAudio()</a> to search for\naudio assets.</p>\n"
 		},
-		"AudioSpeechToText": {},
+		"AudioSpeechToText": {
+			"Summary": "<p>Converts spoken audio into text.</p>\n",
+			"Description": "<p><strong>This API is in beta and is not publicly available yet.</strong></p>\n<p><a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> is used to convert speech audio into text. This class provides a\nsingle <strong>Input</strong> pin that can be connected to other pins via\n<a href=\"/ref/class/Wire.html\">Wires</a>.</p>\n",
+			"CodeSamples": [
+				"audio-wiring---speech-to-text"
+			]
+		},
 		"AudioTextToSpeech": {
 			"Summary": "<p>Plays text as speech audio.</p>\n",
 			"Description": "<p><a href=\"/ref/class/AudioTextToSpeech.html\">AudioTextToSpeech</a> is used to play text as speech audio. It provides a\nsingle <strong>Output</strong> pin which can be connected to other pins via\n<a href=\"/ref/class/Wire.html\">Wires</a>.</p>\n<p>Roblox uses the following formula to throttle requests for this API based on\nthe number of players in your experience:\n<code>max requests per second per experience = 1 + (0.05 * per_thousand_concurrent_users)</code></p>\n<p>For a more in-depth look, see\n<a href=\"https://create.roblox.com/docs/audio/objects#text-to-speech\">Text-to-speech</a>.</p>\n",
@@ -4144,11 +4150,26 @@
 			}
 		},
 		"AudioSpeechToText": {
-			"Enabled": {},
-			"GetConnectedWires": {},
-			"Text": {},
-			"VoiceDetected": {},
-			"WiringChanged": {}
+			"Enable": {
+				"Summary": "<p>Controls whether the <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> object is enabled for processing input audio into text.</p>\n",
+				"Description": "<p>Controls whether the <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> object is enabled for processing input audio into text.</p>\n"
+			},
+			"GetConnectedWires": {
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> has one &#34;Input&#34; pin.</p>\n"
+			},
+			"Text": {
+				"Summary": "<p>The text resulting from the conversion of speech audio.</p>\n",
+				"Description": "<p>The text resulting from the conversion of speech audio.\nText accumulates until it hits a limit of 280 characters, and then old text is dropped to make room for new text.</p>\n"
+			},
+			"VoiceDetected": {
+				"Summary": "<p>Denotes whether the <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> object is detecting speech in the incoming audio signal.</p>\n",
+				"Description": "<p>Denotes whether the <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> object is detecting speech in the incoming audio signal. <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> will record the speech audio until it ceases or until a maximum amount has been recorded, then it will convert the recorded audio into text.</p>\n"
+			},
+			"WiringChanged": {
+				"Summary": "<p>Fires when another instance is connected to or disconnected from the\n<a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> via a <a href=\"/ref/class/Wire.html\">Wire</a>.</p>\n",
+				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> and to some other wirable instance.</p>\n"
+			}
 		},
 		"AudioTextToSpeech": {
 			"Ended": {
@@ -13272,15 +13293,23 @@
 			},
 			"FlipbookIncompatible": {
 				"Summary": "<p>The error message to display if the\n<a href=\"/ref/class/ParticleEmitter.html#member-Texture\">Texture</a> is incompatible for a flipbook.</p>\n",
-				"Description": "<p>The error message to display if the\n<a href=\"/ref/class/ParticleEmitter.html#member-Texture\">Texture</a> is incompatible for a flipbook.\nThe flipbook texture must be of pixel dimensions 8×8, 16×16,\n32×32, 64×64, 128×128, 256×256, 512×512, or\n1024×1024.</p>\n"
+				"Description": "<p>The error message to display if the\n<a href=\"/ref/class/ParticleEmitter.html#member-Texture\">Texture</a> is incompatible for a flipbook.\nThe flipbook texture size must be an exact multiple of the flipbook layout size.</p>\n"
 			},
 			"FlipbookLayout": {
-				"Summary": "<p>Determines the layout of the flipbook texture. Must be None, Grid2x2,\nGrid4x4, or Grid8x8.</p>\n",
-				"Description": "<p>The <strong>FlipbookLayout</strong> property determines the layout of the texture. It\ncan be any value of the <a href=\"/ref/enum/ParticleFlipbookLayout.html\">ParticleFlipbookLayout</a> enum:</p>\n<ul>\n<li><strong>None</strong> – Disable flipbook features and use the texture as a\nsingle static texture over the particle&#39;s lifetime.</li>\n<li><strong>Grid2x2</strong> – 2×2 frames for a 4-frame animation.</li>\n<li><strong>Grid4x4</strong> – 4×4 frames for a 16-frame animation.</li>\n<li><strong>Grid8x8</strong> – 8×8 frames for a 64-frame animation.</li>\n</ul>\n"
+				"Summary": "<p>Determines the layout of the flipbook texture. Must be None, Grid2x2,\nGrid4x4, Grid8x8 or Custom.</p>\n",
+				"Description": "<p>The <strong>FlipbookLayout</strong> property determines the layout of the texture. It\ncan be any value of the <a href=\"/ref/enum/ParticleFlipbookLayout.html\">ParticleFlipbookLayout</a> enum:</p>\n<ul>\n<li><strong>None</strong> – Disable flipbook features and use the texture as a\nsingle static texture over the particle&#39;s lifetime.</li>\n<li><strong>Grid2x2</strong> – 2×2 frames for a 4-frame animation.</li>\n<li><strong>Grid4x4</strong> – 4×4 frames for a 16-frame animation.</li>\n<li><strong>Grid8x8</strong> – 8×8 frames for a 64-frame animation.</li>\n<li><strong>Custom</strong> – A custom grid size defined by <a href=\"/ref/class/ParticleEmitter.html#member-FlipbookSizeX\">FlipbookSizeX</a> and <a href=\"/ref/class/ParticleEmitter.html#member-FlipbookSizeY\">FlipbookSizeY</a>.</li>\n</ul>\n"
 			},
 			"FlipbookMode": {
 				"Summary": "<p>Determines the type of the flipbook animation. Must be Loop, OneShot,\nPingPong, or Random.</p>\n",
 				"Description": "<p>The <strong>FlipbookMode</strong> property determines the type of the flipbook\nanimation. It can be any value of the <a href=\"/ref/enum/ParticleFlipbookMode.html\">ParticleFlipbookMode</a> enum:</p>\n<ul>\n<li><strong>Loop</strong> – Continuously play through all frames, starting back at\nthe first frame after playing the last.</li>\n<li><strong>OneShot</strong> – Play through the animation only once across the\nparticle&#39;s lifetime. With this setting, the\n<a href=\"/ref/class/ParticleEmitter.html#member-FlipbookFramerate\">FlipbookFramerate</a> property\ndoesn&#39;t apply; instead, the framerate is determined by the particle&#39;s\n<a href=\"/ref/class/ParticleEmitter.html#member-Lifetime\">Lifetime</a> divided evenly by the number\nof frames in the animation. <strong>OneShot</strong> animations are useful for clear\nnon-repeating animations, such as an explosion that creates a puff of\nsmoke and then fades out.</li>\n<li><strong>PingPong</strong> – Play from the first to the last frame, then in\nreverse from the last to the first, repeating throughout the\n<a href=\"/ref/class/ParticleEmitter.html#member-Lifetime\">Lifetime</a> of the particle.</li>\n<li><strong>Random</strong> – Play the frames in a random order,\nblending/crossfading from one frame to the next. This can be useful for\norganic particle textures at low framerates, such as stars slowly\ntwinkling between subtly different shapes.</li>\n</ul>\n"
+			},
+			"FlipbookSizeX": {
+				"Summary": "<p>Defines the number of horizontal frames in a custom flipbook layout.</p>\n",
+				"Description": "<p>The <strong>FlipbookSizeX</strong> property defines the number of horizontal frames (columns) in a custom flipbook layout. This property only applies when <a href=\"/ref/class/ParticleEmitter.html#member-FlipbookLayout\">FlipbookLayout</a> is set to <a href=\"/ref/enum/ParticleFlipbookLayout.html\">Custom</a>.</p>\n"
+			},
+			"FlipbookSizeY": {
+				"Summary": "<p>Defines the number of vertical frames in a custom flipbook layout.</p>\n",
+				"Description": "<p>The <strong>FlipbookSizeY</strong> property defines the number of vertical frames (rows) in a custom flipbook layout. This property only applies when <a href=\"/ref/class/ParticleEmitter.html#member-FlipbookLayout\">FlipbookLayout</a> is set to <a href=\"/ref/enum/ParticleFlipbookLayout.html\">Custom</a>.</p>\n"
 			},
 			"FlipbookStartRandom": {
 				"Summary": "<p>Determines whether the animation starts at a random frame chosen per\nparticle instead of always starting at frame zero.</p>\n",
@@ -13305,7 +13334,7 @@
 			},
 			"Orientation": {
 				"Summary": "<p>Specifies how to orient particles.</p>\n",
-				"Description": "<p>The <strong>Orientation</strong> property determines which orientation mode to use for\nan emitter&#39;s particle geometry.</p>\n<table>\n<thead>\n<tr>\n  <td>Orientation</td>\n  <td>Particle Behavior</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n  <td><b>FacingCamera</b></td>\n  <td>Standard camera-facing billboard quad; default behavior.</td>\n</tr>\n<tr>\n  <td><b>FacingCameraWorldUp</b></td>\n  <td>Facing the camera, but rotating only on the vertical upward world <b>Y</b> axis.</td>\n</tr>\n<tr>\n  <td><b>VelocityParallel</b></td>\n  <td>Aligned parallel to their direction of movement.</td>\n</tr>\n<tr>\n  <td><b>VelocityPerpendicular</b></td>\n  <td>Aligned perpendicular to their direction movement.</td>\n</tr>\n</tbody>\n</table>\n"
+				"Description": "<p>The <strong>Orientation</strong> property determines which orientation mode to use for\nan emitter&#39;s particle geometry.</p>\n<table>\n<thead>\n<tr>\n  <td>Orientation</td>\n  <td>Particle Behavior</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n  <td><b>FacingCamera</b></td>\n  <td>Standard camera-facing billboard quad; default behavior.</td>\n</tr>\n<tr>\n  <td><b>FacingCameraWorldUp</b></td>\n  <td>Facing the camera, but rotating only on the vertical upward world <b>Y</b> axis.</td>\n</tr>\n<tr>\n  <td><b>VelocityParallel</b></td>\n  <td>Aligned parallel to their direction of movement.</td>\n</tr>\n<tr>\n  <td><b>VelocityPerpendicular</b></td>\n  <td>Aligned perpendicular to their direction movement.</td>\n</tr>\n</tbody>\n</table>"
 			},
 			"Rate": {
 				"Summary": "<p>Determines the number of particles emitted per second.</p>\n",
@@ -20957,7 +20986,7 @@
 			},
 			"GetServerTimeNow": {
 				"Summary": "<p>Returns the server&#39;s Unix time in seconds.</p>\n",
-				"Description": "<p><a href=\"/ref/class/Workspace.html#member-GetServerTimeNow\">GetServerTimeNow()</a> returns the\nclient&#39;s best approximation of the current time on the server. This is\nuseful for creating synchronized experiences as every client will get\nabout the same results regardless of their timezone or local clock.</p>\n<p>This returns a Unix timestamp, similar to <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a>, that can\nbe used with <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.date()</a> or with\n<a href=\"/ref/type/DateTime.html#member-fromUnixTimestamp\">DateTime.fromUnixTimestamp()</a>.</p>\n<p>The timestamp returned by this function is smoothed so that:</p>\n<ul>\n<li>It is monotonic; its value will never decrease.</li>\n<li>It moves at the same rate as the local clock to within 0.6%.</li>\n</ul>\n<p><a href=\"/ref/class/Workspace.html#member-GetServerTimeNow\">GetServerTimeNow()</a> is expensive to\ncall compared to <a href=\"/ref/type/DateTime.html#member-now\">DateTime.now()</a>, and is less precise than\n<a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.clock()</a>, so it should be used to make sure an event starts\nat the right real world time or to adjust things periodically to keep a\nseries of events in sync.</p>\n<p>This function relies on the server, so calling it from a client that isn&#39;t\nconnected will throw an error. Also note that this function is not\nsuitable for things like timed rewards as it is not secure compared to\ntracking such timers on the server.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-DistributedGameTime\">DistributedGameTime</a>, a game-time\nclock</li>\n<li><a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a></li>\n<li><a href=\"/ref/type/DateTime.html\">DateTime</a></li>\n</ul>\n"
+				"Description": "<p>This method returns the client&#39;s best approximation of the current time on\nthe server. It is useful for creating synchronized experiences, as every\nclient will get roughly the same results regardless of their timezone or\nlocal clock.</p>\n<p>This method returns a Unix timestamp, similar to <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a>,\nthat you can use with <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.date()</a> or\n<a href=\"/ref/type/DateTime.html#member-fromUnixTimestamp\">DateTime.fromUnixTimestamp()</a>. The timestamp is smoothed so\nthat:</p>\n<ul>\n<li>It is monotonic; its value will never decrease.</li>\n<li>It moves at the same rate as the local clock to within 0.6%.</li>\n</ul>\n<p>This method is useful for making sure an event starts at the right\nreal-world time and for periodic adjustments to keep a series of events in\nsync. For benchmarking or other use cases that require higher precision,\nconsider <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.clock()</a>.</p>\n<p>This method relies on the server, so calling it from a client that isn&#39;t\nconnected will throw an error. Also note that this method is not suitable\nfor things like timed rewards, as it is not secure compared to tracking\nsuch timers on the server.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-DistributedGameTime\">DistributedGameTime</a>, a game-time\nclock</li>\n<li><a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a></li>\n<li><a href=\"/ref/type/DateTime.html\">DateTime</a></li>\n</ul>\n"
 			},
 			"GlobalWind": {
 				"Summary": "<p>Specifies the global wind vector for animated terrain grass, dynamic\nclouds, and particles.</p>\n",
@@ -26998,6 +27027,9 @@
 			"Volume": {}
 		},
 		"ParticleFlipbookLayout": {
+			"Custom": {
+				"Summary": "<p>A custom grid size defined by <a href=\"/ref/class/ParticleEmitter.html#member-FlipbookSizeX\">FlipbookSizeX</a> and <a href=\"/ref/class/ParticleEmitter.html#member-FlipbookSizeY\">FlipbookSizeY</a>.</p>\n"
+			},
 			"Grid2x2": {
 				"Summary": "<p>2×2 frames for a 4-frame animation.</p>\n"
 			},
