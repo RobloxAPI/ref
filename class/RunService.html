@@ -1182,7 +1182,8 @@ version-87de5333d4254860">47</a>
 Add <a class="entity-link deco sec-PluginSecurity" href=/ref/class/RunService.html#member-Pause><span class=picture title="Protected Function (PluginSecurity)" data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction_hu_41c5da8728d567c9.png');--dark:url('/ref/icons/dark/ACFunction_hu_d35fd7a522c271d1.png')"></span></span>Pause</a></li></ul></details></section><section id=member-PostSimulation class=set><header><h3><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span>PostSimulation<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/RunService#PostSimulation target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-deltaTimeSim><td class=col-name>deltaTimeSim</td><td class=col-type><a class="entity-link deco" href=/ref/type/double.html>double</a></td></tr></tbody></table><div class=docs><p>The <code>PostSimulation</code> event fires every frame, after the physics simulation
 has completed. The <code>deltaTimeSim</code> argument indicates the time that the
 current frame has stepped the physics simulation, not accounting for
-physics throttling.</p><p>This event is useful for making final adjustments to the outcome of the
+physics throttling. This may deviate from the actual time between frames
+in Studio edit mode or when framerate is very low.</p><p>This event is useful for making final adjustments to the outcome of the
 simulation. Following this phase, the engine triggers the
 <a href=/ref/class/RunService.html#member-Heartbeat>Heartbeat</a> event.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event data-field=Parameters><a class="history-tag changed" href=/ref/updates/2022.html#version-d9be6bba61054c5c-10 title="Changed on 2022-10-11T18:25:47-07:00
 v0.548.0.5480523
@@ -1235,7 +1236,8 @@ Add <a class="entity-link deco" href=/ref/class/RunService.html#member-PreRender
 <a href=/ref/class/RunService.html#member-Stepped>Stepped</a>) fires every frame, prior to the
 physics simulation. The <code>deltaTimeSim</code> argument indicates the time that
 the current frame will step the physics simulation, not accounting for
-physics throttling.</p><p>This event is useful for adjusting properties like velocity or forces just
+physics throttling. This may deviate from the actual time between frames
+in Studio edit mode or when framerate is very low.</p><p>This event is useful for adjusting properties like velocity or forces just
 before they're applied as part of the simulation. The simulation then
 runs, potentially multiple times, as the physics solver runs at a higher
 frequency than other engine systems. Once this is complete, the
