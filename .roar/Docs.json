@@ -2434,7 +2434,10 @@
 		},
 		"VideoCapture": {},
 		"VideoCaptureService": {},
-		"VideoDisplay": {},
+		"VideoDisplay": {
+			"Summary": "<p>A GUI object that displays video content from a connected <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a>.</p>\n",
+			"Description": "<p>A <a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a> is a GUI object that displays video content from a\n<a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> connected via a <a href=\"/ref/class/Wire.html\">Wire</a>. It functions similarly to a\n<a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> but is designed for video playback.</p>\n"
+		},
 		"VideoFrame": {
 			"Summary": "<p>A GUI object that renders a rectangle, like a <a href=\"/ref/class/Frame.html\">Frame</a> does, with a\nmoving video image.</p>\n",
 			"Description": "<p>A VideoFrame renders a rectangle, like a <a href=\"/ref/class/Frame.html\">Frame</a> does, with a moving\nvideo image. The video must be from a file uploaded to the Roblox website.</p>\n<p>The video is scaled to fit the entirety of the rectangle, but looks best when\ndisplayed at its native resolution.</p>\n<h3>2D and 3D Sound</h3>\n<p>A VideoFrame placed underneath <a href=\"/ref/class/SurfaceGui.html\">SurfaceGui</a> on a <a href=\"/ref/class/BasePart.html\">BasePart</a> will\nemit its sound from that part&#39;s <a href=\"/ref/class/BasePart.html#member-Position\">BasePart.Position</a>.</p>\n<p>A VideoFrame exhibits the Doppler effect, meaning its frequency and pitch\nvaries with the relative motion of whatever part it is attached to.</p>\n<p>The volume of the VideoFrame will be determined by the distance between the\nclient&#39;s sound listener (by default the <a href=\"/ref/class/Camera.html\">Camera</a> position) and the\nposition of the VideoFrame&#39;s part.</p>\n<p>A VideoFrame is considered <strong>&#34;global&#34;</strong> if it is not placed underneath\nSurfaceGui on a BasePart. In this case, the sound will play at the same volume\nthroughout the entire place.</p>\n",
@@ -2442,7 +2445,14 @@
 				"creating-and-playing-a-video"
 			]
 		},
-		"VideoPlayer": {},
+		"VideoPlayer": {
+			"Summary": "<p>Used to play video assets.</p>\n",
+			"Description": "<p>An instance for playing video assets. It can be connected to a\n<a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a> via a <a href=\"/ref/class/Wire.html\">Wire</a> to show the video and can be connected\nto audio instances via a <a href=\"/ref/class/Wire.html\">Wire</a> to play the audio track.</p>\n",
+			"CodeSamples": [
+				"video-player-server",
+				"video-player-client"
+			]
+		},
 		"VideoService": {
 			"Summary": "<p>An internal service that offers no functionality to developers.</p>\n"
 		},
@@ -12127,7 +12137,13 @@
 					"MarketplaceService-GetUserSubscriptionStatusAsync1"
 				]
 			},
-			"GetUsersPriceLevelsAsync": {},
+			"GetUsersPriceLevelsAsync": {
+				"Summary": "<p>Returns the regionalized price level of a user.</p>\n",
+				"Description": "<p>Returns the regionalized price level of a user, representing the recommended price for an item in their regional market. For example, a price level of 100 means that the suggested price for that user (based on their region and purchasing power) is 100 Robux.</p>\n",
+				"CodeSamples": [
+					"MarketplaceService-GetUsersPriceLevelAsync"
+				]
+			},
 			"PlayerOwnsAsset": {
 				"Summary": "<p>Returns whether the given user has the given asset.</p>\n",
 				"Description": "<p>Returns whether the inventory of a specific user contains an asset, based\non the asset ID. This method throws an error if the query fails, so you\nshould wrap calls to this method in <code>pcall()</code>.</p>\n<ul>\n<li>This method should <strong>not</strong> be used for\n<a href=\"https://create.roblox.com/docs/production/monetization/game-passes\">passes</a> since they use\na separate ID system. Legacy passes that still depend on an asset ID\nshould use\n<a href=\"/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync\">UserOwnsGamePassAsync()</a>\ninstead of this method.</li>\n<li>This method cannot be used to check for\n<a href=\"https://create.roblox.com/docs/production/monetization/developer-products\">developer products</a>\nsince they can be purchased multiple times but not owned themselves.\nInstead, use a <a href=\"https://create.roblox.com/docs/cloud-services/data-stores\">data store</a> to save\nwhen a user buys a developer product.</li>\n</ul>\n",
@@ -20707,17 +20723,41 @@
 		},
 		"VideoCaptureService": {},
 		"VideoDisplay": {
-			"GetConnectedWires": {},
+			"GetConnectedWires": {
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a> has one &#34;Input&#34; pin.</p>\n"
+			},
 			"GetInputPins": {},
 			"GetOutputPins": {},
-			"ResampleMode": {},
-			"ScaleType": {},
+			"ResampleMode": {
+				"Summary": "<p>Selects the texture resampling mode for the <a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a>.</p>\n",
+				"Description": "<p>Determines how the video looks when it is scaled. By default, the video\nsmooths out texturing when displayed on the screen larger or smaller than\nits size in texture memory. When set to\n<a href=\"/ref/enum/ResamplerMode.html\">Enum.ResamplerMode.Pixelated</a>, the video\npreserves the sharp edges of pixels.</p>\n"
+			},
+			"ScaleType": {
+				"Summary": "<p>Determines how a video will scale if displayed in a UI element whose\naspect ratio differs from the source video.</p>\n",
+				"Description": "<p>Determines how a video texture is rendered when the UI element&#39;s aspect\nratio differs from the source video&#39;s aspect ratio.</p>\n<p>By default, this property is <a href=\"/ref/enum/ScaleType.html\">ScaleType.Stretch</a> which will simply\nstretch/compact the video texture dimensions so it fits the UI element&#39;s\nspace exactly.</p>\n"
+			},
 			"TileSize": {},
-			"VideoColor3": {},
-			"VideoRectOffset": {},
-			"VideoRectSize": {},
-			"VideoTransparency": {},
-			"WiringChanged": {}
+			"VideoColor3": {
+				"Summary": "<p>Determines how a rendered video will be colorized.</p>\n",
+				"Description": "<p>Determines how a video is colorized. When set to white, no colorization\noccurs. This property is useful for reusing video assets.</p>\n"
+			},
+			"VideoRectOffset": {
+				"Summary": "<p>The offset in pixels of the sub-area of a video to be displayed.</p>\n",
+				"Description": "<p>Allows the partial display of a video in conjunction with\n<a href=\"/ref/class/VideoDisplay.html#member-VideoRectSize\">VideoRectSize</a>. This property determines\nthe pixel offset (from the top-left) of the video area to be displayed.</p>\n"
+			},
+			"VideoRectSize": {
+				"Summary": "<p>Determines the size in pixels of the sub-area of a video to be displayed.</p>\n",
+				"Description": "<p>Allows the partial display of a video in conjunction with\n<a href=\"/ref/class/VideoDisplay.html#member-VideoRectOffset\">VideoRectOffset</a>. This property\ndetermines the pixel size of the video area to be displayed. If either\ndimension is set to <code>0</code>, the entire video is displayed instead.</p>\n"
+			},
+			"VideoTransparency": {
+				"Summary": "<p>Determines the transparency of the rendered video.</p>\n",
+				"Description": "<p>Determines the alpha of a UI element&#39;s rendered video texture. A value of\n<code>0</code> is completely opaque, and a value of <code>1</code> is completely transparent\n(invisible).</p>\n"
+			},
+			"WiringChanged": {
+				"Summary": "<p>Fires when another instance is connected to or disconnected from the\n<a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a> via a <a href=\"/ref/class/Wire.html\">Wire</a>.</p>\n",
+				"Description": "<p>Fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected, and that\n<a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a> and to some other wirable instance.</p>\n"
+			}
 		},
 		"VideoFrame": {
 			"DidLoop": {
@@ -20788,27 +20828,85 @@
 			}
 		},
 		"VideoPlayer": {
-			"AutoLoadInStudio": {},
-			"AutoPlayInStudio": {},
-			"DidEnd": {},
-			"DidLoop": {},
-			"GetConnectedWires": {},
+			"AutoLoadInStudio": {
+				"Summary": "<p>Loads the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> while in Studio\nEdit mode.</p>\n",
+				"Description": "<p>By default, <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> does not load\nwhile in Studio Edit mode and shows no output when wired to\n<a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a> to reduce studio memory usage. Toggle this option to\nload <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> while in Studio Edit\nmode.</p>\n"
+			},
+			"AutoPlayInStudio": {
+				"Summary": "<p>Plays the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> while in Studio\nEdit mode.</p>\n",
+				"Description": "<p>Plays the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> while in Studio\nEdit mode. <a href=\"/ref/class/VideoPlayer.html#member-AutoLoadInStudio\">AutoLoadInStudio</a> must be\non for this option to show.</p>\n"
+			},
+			"DidEnd": {
+				"Summary": "<p>Fires when the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> has completed\nplayback and stopped.</p>\n",
+				"Description": "<p>Fires after the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> has completed playback and stopped.\nNote this event does <strong>not</strong> fire for videos with\n<a href=\"/ref/class/VideoPlayer.html#member-Looped\">Looped</a> set to <code>true</code> since it continues playing\nupon reaching its end. This event also does <strong>not</strong> fire when the video is\nstopped before playback has completed; for this, use\n<a href=\"/ref/class/VideoPlayer.html#member-GetPropertyChangedSignal\">VideoPlayer:GetPropertyChangedSignal()</a> on the\n<a href=\"/ref/class/VideoPlayer.html#member-IsPlaying\">IsPlaying</a> property.</p>\n"
+			},
+			"DidLoop": {
+				"Summary": "<p>Fires when the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> loops.</p>\n",
+				"Description": "<p>Event that fires after the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> loops. This happens when\nthe video reaches the end of its content. This event does <strong>not</strong> fire if\nthe video is looped manually by changing its\n<a href=\"/ref/class/VideoPlayer.html#member-TimePosition\">TimePosition</a>.</p>\n"
+			},
+			"GetConnectedWires": {
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> has one &#34;Output&#34; pin.</p>\n"
+			},
 			"GetInputPins": {},
 			"GetOutputPins": {},
-			"IsLoaded": {},
-			"IsPlaying": {},
-			"LoadAsync": {},
-			"Looping": {},
-			"Pause": {},
-			"Play": {},
+			"IsLoaded": {
+				"Summary": "<p>Indicates when the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> has\nloaded and is ready to play.</p>\n",
+				"Description": "<p>This property is true when the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> has loaded and is ready to\nplay.</p>\n"
+			},
+			"IsPlaying": {
+				"Summary": "<p>Denotes whether this <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> is currently playing.</p>\n",
+				"Description": "<p>Denotes whether this <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> is currently playing. This\nproperty is read-only, but replicates. To play and pause a\n<a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> at runtime, use the <a href=\"/ref/class/VideoPlayer.html#member-Play\">Play()</a>\nand <a href=\"/ref/class/VideoPlayer.html#member-Pause\">Pause()</a> methods.</p>\n"
+			},
+			"LoadAsync": {
+				"Summary": "<p>Loads the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> before it is\nplayed.</p>\n",
+				"Description": "<p><a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> is typically only loaded\nwhen <a href=\"/ref/class/VideoPlayer.html#member-Play\">Play()</a> is called, causing some buffering\ndelay. This function can preload\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> so that it can be\nimmediately played when <a href=\"/ref/class/VideoPlayer.html#member-Play\">Play()</a> is called.\nLoading videos can consume a significant amount of device memory.</p>\n"
+			},
+			"Looping": {
+				"Summary": "<p>Controls whether this <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> loops.</p>\n",
+				"Description": "<p>Controls whether this <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> loops after reaching the end of\nits <a href=\"/ref/class/VideoPlayer.html#member-TimeLength\">TimeLength</a>.</p>\n"
+			},
+			"Pause": {
+				"Summary": "<p>Pauses the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> wherever its\n<a href=\"/ref/class/VideoPlayer.html#member-TimePosition\">TimePosition</a> is.</p>\n",
+				"Description": "<p>Pauses the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> wherever its\n<a href=\"/ref/class/VideoPlayer.html#member-TimePosition\">TimePosition</a> is. Replicates from server\nto client.</p>\n"
+			},
+			"Play": {
+				"Summary": "<p>Plays the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> from wherever its\n<a href=\"/ref/class/VideoPlayer.html#member-TimePosition\">TimePosition</a> is.</p>\n",
+				"Description": "<p>Plays the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> from wherever its\n<a href=\"/ref/class/VideoPlayer.html#member-TimePosition\">TimePosition</a> is. Replicates from server\nto client. To save resources and improve performance, call the\n<a href=\"/ref/class/VideoPlayer.html#member-Unload\">Unload()</a> method to unload the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> when the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a>\nis not visible or in use.</p>\n"
+			},
 			"PlayFailed": {},
-			"PlaybackSpeed": {},
-			"Resolution": {},
-			"TimeLength": {},
-			"TimePosition": {},
-			"Unload": {},
-			"Volume": {},
-			"WiringChanged": {}
+			"PlaybackSpeed": {
+				"Summary": "<p>Controls the speed at which the video is played.</p>\n",
+				"Description": "<p>Multiplier that controls how quickly the video plays, directly controlling\nthe perceived pitch of the audio track. Ranges from 0 to 1.</p>\n"
+			},
+			"Resolution": {
+				"Summary": "<p>Gets the original source resolution of the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> file.</p>\n",
+				"Description": "<p>This property gets the original source resolution of the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> file.</p>\n"
+			},
+			"TimeLength": {
+				"Summary": "<p>Indicates the length of the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a>\nin seconds.</p>\n",
+				"Description": "<p>This property indicates the length of the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> in seconds. If the video is\nnot loaded, this value is 0.</p>\n"
+			},
+			"TimePosition": {
+				"Summary": "<p>Indicates the progress in seconds of the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a>.</p>\n",
+				"Description": "<p>This property indicates the progress in seconds of the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a>. It can be changed to move\nthe playback position of the video both before and during playback.</p>\n"
+			},
+			"Unload": {
+				"Summary": "<p>Unloads the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoPlayer.VideoContent</a> to save resources.</p>\n",
+				"Description": "<p>Unloads the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> to save\nresources. After calling this method, the\n<a href=\"/ref/class/VideoPlayer.html#member-IsLoaded\">IsLoaded</a> property is false, and the\n<a href=\"/ref/class/VideoPlayer.html#member-TimePosition\">TimePosition</a> resets to 0. To play the\nvideo again, the <a href=\"/ref/class/VideoPlayer.html#member-LoadAsync\">LoadAsync()</a> or\n<a href=\"/ref/class/VideoPlayer.html#member-Play\">Play()</a> method must be called to reload the\nvideo.</p>\n"
+			},
+			"VideoContent": {
+				"Summary": "<p>The asset to be loaded into the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a>.</p>\n",
+				"Description": "<p>The content ID of the video file a <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> object is\nassociated with. To save resources and improve performance, call the\n<a href=\"/ref/class/VideoPlayer.html#member-Unload\">Unload()</a> method to unload the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> when the <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a>\nis not visible or in use.</p>\n"
+			},
+			"Volume": {
+				"Summary": "<p>Controls how loudly the audio track will be played.</p>\n",
+				"Description": "<p>Volume level, which is multiplied onto the output audio stream,\ncontrolling how loudly the audio track plays. Ranges from 0 to 3.</p>\n"
+			},
+			"WiringChanged": {
+				"Summary": "<p>Fires when another instance is connected to or disconnected from the\n<a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> via a <a href=\"/ref/class/Wire.html\">Wire</a>.</p>\n",
+				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> and to some other wirable instance.</p>\n"
+			}
 		},
 		"VideoService": {},
 		"ViewportFrame": {
