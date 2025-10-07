@@ -22645,9 +22645,7 @@
 				"Name": "",
 				"ThreadSafety": ""
 			},
-			"Tags": [
-				"NotBrowsable"
-			]
+			"Tags": []
 		},
 		"AuroraScript": {
 			"Name": "AuroraScript",
@@ -44610,6 +44608,99 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"SendCreateInstanceFromStudio": {
+					"MemberType": "Event",
+					"Name": "SendCreateInstanceFromStudio",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "parentInstance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SendDeleteInstanceFromStudio": {
+					"MemberType": "Event",
+					"Name": "SendDeleteInstanceFromStudio",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "bool"
+							},
+							"Name": "setParentToNull",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SendReparentInstanceFromStudio": {
+					"MemberType": "Event",
+					"Name": "SendReparentInstanceFromStudio",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "parentInstance",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"SendTerrainChangeFromStudio": {
 					"MemberType": "Event",
 					"Name": "SendTerrainChangeFromStudio",
@@ -94083,6 +94174,43 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"CreateWebStreamClientInternal": {
+					"MemberType": "Function",
+					"Name": "CreateWebStreamClientInternal",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "WebStreamClientType"
+							},
+							"Name": "streamClientType",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "requestOptions",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "WebStreamClient"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"GenerateGUID": {
 					"MemberType": "Function",
 					"Name": "GenerateGUID",
@@ -108417,6 +108545,49 @@
 			},
 			"Tags": [
 				"NotCreatable"
+			]
+		},
+		"InstanceExtensionsService": {
+			"Name": "InstanceExtensionsService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"CountChildren": {
+					"MemberType": "Function",
+					"Name": "CountChildren",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Class",
+								"Name": "Instance"
+							},
+							"Name": "instance",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "int"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service"
 			]
 		},
 		"InstancePacketCache": {
@@ -148610,6 +148781,15 @@
 							"Name": "player",
 							"Optional": false,
 							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Enum",
+								"Name": "PlayerExitReason"
+							},
+							"Name": "reason",
+							"Optional": false,
+							"Default": ""
 						}
 					],
 					"PreferredDescriptor": {
@@ -163405,6 +163585,37 @@
 					"Tags": [],
 					"ThreadSafety": "Safe"
 				},
+				"Misprediction": {
+					"MemberType": "Event",
+					"Name": "Misprediction",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int"
+							},
+							"Name": "remoteWorldStepId",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Array"
+							},
+							"Name": "mispredictedInstances",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"Pause": {
 					"MemberType": "Function",
 					"Name": "Pause",
@@ -163510,6 +163721,29 @@
 					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
+				},
+				"PredictionState": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Server Authority",
+					"Default": "__api_dump_class_not_creatable__",
+					"MemberType": "Property",
+					"Name": "PredictionState",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"ReadOnly",
+						"NotReplicated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "PredictionState"
+					},
+					"WriteSecurity": "None"
 				},
 				"RenderStepped": {
 					"MemberType": "Event",
@@ -163789,6 +164023,24 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"getThrottleFramerateEnabled": {
+					"MemberType": "Function",
+					"Name": "getThrottleFramerateEnabled",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"setThrottleFramerateEnabled": {
 					"MemberType": "Function",
 					"Name": "setThrottleFramerateEnabled",
@@ -163865,6 +164117,105 @@
 			},
 			"Tags": [
 				"NotCreatable"
+			]
+		},
+		"RuntimeContentService": {
+			"Name": "RuntimeContentService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"RuntimeContentFail": {
+					"MemberType": "Event",
+					"Name": "RuntimeContentFail",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "id",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"RuntimeContentQuery": {
+					"MemberType": "Event",
+					"Name": "RuntimeContentQuery",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "id",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "content",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"RuntimeContentShare": {
+					"MemberType": "Event",
+					"Name": "RuntimeContentShare",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "id",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "content",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service"
 			]
 		},
 		"RuntimeScriptService": {
@@ -189004,6 +189355,24 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"SaveOrPublishPlaceToRobloxIsCanceled": {
+					"MemberType": "Function",
+					"Name": "SaveOrPublishPlaceToRobloxIsCanceled",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"SetTeamCreateOnPublishInfo": {
 					"MemberType": "Function",
 					"Name": "SetTeamCreateOnPublishInfo",
@@ -205282,6 +205651,15 @@
 							"Name": "textChatMessage",
 							"Optional": false,
 							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "messageRenderedSurface",
+							"Optional": true,
+							"Default": "unknown"
 						}
 					],
 					"PreferredDescriptor": {
@@ -248800,10 +249178,21 @@
 		"ConnectionError": {
 			"Name": "ConnectionError",
 			"Items": {
+				"AlreadyConnected": {
+					"Name": "AlreadyConnected",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"AndroidAnticheatKick": {
 					"Name": "AndroidAnticheatKick",
 					"Value": 304,
-					"Index": 48,
+					"Index": 57,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248814,7 +249203,7 @@
 				"AndroidEmulatorKick": {
 					"Name": "AndroidEmulatorKick",
 					"Value": 305,
-					"Index": 49,
+					"Index": 58,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248825,7 +249214,29 @@
 				"AndroidRootedKick": {
 					"Name": "AndroidRootedKick",
 					"Value": 306,
-					"Index": 50,
+					"Index": 59,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"ConnectErrors": {
+					"Name": "ConnectErrors",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"ConnectionBanned": {
+					"Name": "ConnectionBanned",
+					"Value": 5,
+					"Index": 5,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248836,7 +249247,7 @@
 				"DisconnectBadhash": {
 					"Name": "DisconnectBadhash",
 					"Value": 257,
-					"Index": 3,
+					"Index": 12,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248847,7 +249258,7 @@
 				"DisconnectBlockedIP": {
 					"Name": "DisconnectBlockedIP",
 					"Value": 282,
-					"Index": 28,
+					"Index": 37,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248858,7 +249269,7 @@
 				"DisconnectBySecurityPolicy": {
 					"Name": "DisconnectBySecurityPolicy",
 					"Value": 281,
-					"Index": 27,
+					"Index": 36,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248869,7 +249280,7 @@
 				"DisconnectClientFailure": {
 					"Name": "DisconnectClientFailure",
 					"Value": 284,
-					"Index": 29,
+					"Index": 38,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248880,7 +249291,7 @@
 				"DisconnectClientRequest": {
 					"Name": "DisconnectClientRequest",
 					"Value": 285,
-					"Index": 30,
+					"Index": 39,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248891,7 +249302,7 @@
 				"DisconnectCloudEditKick": {
 					"Name": "DisconnectCloudEditKick",
 					"Value": 270,
-					"Index": 16,
+					"Index": 25,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248902,7 +249313,7 @@
 				"DisconnectCollaboratorPermissionRevoked": {
 					"Name": "DisconnectCollaboratorPermissionRevoked",
 					"Value": 294,
-					"Index": 38,
+					"Index": 47,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248913,7 +249324,7 @@
 				"DisconnectCollaboratorUnderage": {
 					"Name": "DisconnectCollaboratorUnderage",
 					"Value": 295,
-					"Index": 39,
+					"Index": 48,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248924,7 +249335,7 @@
 				"DisconnectConnectionLost": {
 					"Name": "DisconnectConnectionLost",
 					"Value": 277,
-					"Index": 23,
+					"Index": 32,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248935,7 +249346,7 @@
 				"DisconnectDevMaintenance": {
 					"Name": "DisconnectDevMaintenance",
 					"Value": 274,
-					"Index": 20,
+					"Index": 29,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248946,7 +249357,7 @@
 				"DisconnectDuplicatePlayer": {
 					"Name": "DisconnectDuplicatePlayer",
 					"Value": 264,
-					"Index": 10,
+					"Index": 19,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248957,7 +249368,7 @@
 				"DisconnectDuplicateTicket": {
 					"Name": "DisconnectDuplicateTicket",
 					"Value": 265,
-					"Index": 11,
+					"Index": 20,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248968,7 +249379,7 @@
 				"DisconnectErrors": {
 					"Name": "DisconnectErrors",
 					"Value": 256,
-					"Index": 2,
+					"Index": 11,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248979,7 +249390,7 @@
 				"DisconnectEvicted": {
 					"Name": "DisconnectEvicted",
 					"Value": 273,
-					"Index": 19,
+					"Index": 28,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -248990,7 +249401,7 @@
 				"DisconnectHashTimeout": {
 					"Name": "DisconnectHashTimeout",
 					"Value": 269,
-					"Index": 15,
+					"Index": 24,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249001,7 +249412,7 @@
 				"DisconnectIdle": {
 					"Name": "DisconnectIdle",
 					"Value": 278,
-					"Index": 24,
+					"Index": 33,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249012,7 +249423,7 @@
 				"DisconnectIllegalTeleport": {
 					"Name": "DisconnectIllegalTeleport",
 					"Value": 263,
-					"Index": 9,
+					"Index": 18,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249023,7 +249434,7 @@
 				"DisconnectLuaKick": {
 					"Name": "DisconnectLuaKick",
 					"Value": 267,
-					"Index": 13,
+					"Index": 22,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249034,7 +249445,7 @@
 				"DisconnectModeratedGame": {
 					"Name": "DisconnectModeratedGame",
 					"Value": 287,
-					"Index": 32,
+					"Index": 41,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249045,7 +249456,7 @@
 				"DisconnectNewSecurityKeyMismatch": {
 					"Name": "DisconnectNewSecurityKeyMismatch",
 					"Value": 272,
-					"Index": 18,
+					"Index": 27,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249056,7 +249467,7 @@
 				"DisconnectOnRemoteSysStats": {
 					"Name": "DisconnectOnRemoteSysStats",
 					"Value": 268,
-					"Index": 14,
+					"Index": 23,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249100,7 +249511,7 @@
 				"DisconnectOutOfMemoryKeepPlayingLeave": {
 					"Name": "DisconnectOutOfMemoryKeepPlayingLeave",
 					"Value": 292,
-					"Index": 36,
+					"Index": 45,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249111,7 +249522,7 @@
 				"DisconnectPlayerless": {
 					"Name": "DisconnectPlayerless",
 					"Value": 271,
-					"Index": 17,
+					"Index": 26,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249122,7 +249533,7 @@
 				"DisconnectPrivateServerKickout": {
 					"Name": "DisconnectPrivateServerKickout",
 					"Value": 286,
-					"Index": 31,
+					"Index": 40,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249133,7 +249544,7 @@
 				"DisconnectProtocolMismatch": {
 					"Name": "DisconnectProtocolMismatch",
 					"Value": 259,
-					"Index": 5,
+					"Index": 14,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249144,7 +249555,7 @@
 				"DisconnectRaknetErrors": {
 					"Name": "DisconnectRaknetErrors",
 					"Value": 279,
-					"Index": 25,
+					"Index": 34,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249155,7 +249566,7 @@
 				"DisconnectReceivePacketError": {
 					"Name": "DisconnectReceivePacketError",
 					"Value": 260,
-					"Index": 6,
+					"Index": 15,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249166,7 +249577,7 @@
 				"DisconnectReceivePacketStreamError": {
 					"Name": "DisconnectReceivePacketStreamError",
 					"Value": 261,
-					"Index": 7,
+					"Index": 16,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249177,7 +249588,7 @@
 				"DisconnectRejoin": {
 					"Name": "DisconnectRejoin",
 					"Value": 276,
-					"Index": 22,
+					"Index": 31,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249188,7 +249599,7 @@
 				"DisconnectRobloxMaintenance": {
 					"Name": "DisconnectRobloxMaintenance",
 					"Value": 275,
-					"Index": 21,
+					"Index": 30,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249199,7 +249610,7 @@
 				"DisconnectRomarkEndOfTest": {
 					"Name": "DisconnectRomarkEndOfTest",
 					"Value": 293,
-					"Index": 37,
+					"Index": 46,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249210,7 +249621,7 @@
 				"DisconnectSecurityKeyMismatch": {
 					"Name": "DisconnectSecurityKeyMismatch",
 					"Value": 258,
-					"Index": 4,
+					"Index": 13,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249221,7 +249632,7 @@
 				"DisconnectSendPacketError": {
 					"Name": "DisconnectSendPacketError",
 					"Value": 262,
-					"Index": 8,
+					"Index": 17,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249232,7 +249643,7 @@
 				"DisconnectTimeout": {
 					"Name": "DisconnectTimeout",
 					"Value": 266,
-					"Index": 12,
+					"Index": 21,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249243,7 +249654,51 @@
 				"DisconnectWrongVersion": {
 					"Name": "DisconnectWrongVersion",
 					"Value": 280,
-					"Index": 26,
+					"Index": 35,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"DisconnectionNotification": {
+					"Name": "DisconnectionNotification",
+					"Value": 308,
+					"Index": 61,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"IPRecentlyConnected": {
+					"Name": "IPRecentlyConnected",
+					"Value": 8,
+					"Index": 8,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"IncompatibleProtocolVersion": {
+					"Name": "IncompatibleProtocolVersion",
+					"Value": 7,
+					"Index": 7,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"InvalidPassword": {
+					"Name": "InvalidPassword",
+					"Value": 6,
+					"Index": 6,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249254,7 +249709,7 @@
 				"NetworkInternal": {
 					"Name": "NetworkInternal",
 					"Value": 296,
-					"Index": 40,
+					"Index": 49,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249265,7 +249720,7 @@
 				"NetworkMisbehavior": {
 					"Name": "NetworkMisbehavior",
 					"Value": 299,
-					"Index": 43,
+					"Index": 52,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249276,7 +249731,7 @@
 				"NetworkSecurity": {
 					"Name": "NetworkSecurity",
 					"Value": 300,
-					"Index": 44,
+					"Index": 53,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249287,7 +249742,7 @@
 				"NetworkSend": {
 					"Name": "NetworkSend",
 					"Value": 297,
-					"Index": 41,
+					"Index": 50,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249298,7 +249753,18 @@
 				"NetworkTimeout": {
 					"Name": "NetworkTimeout",
 					"Value": 298,
-					"Index": 42,
+					"Index": 51,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"NoFreeIncomingConnections": {
+					"Name": "NoFreeIncomingConnections",
+					"Value": 4,
+					"Index": 4,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249317,10 +249783,21 @@
 					},
 					"Tags": []
 				},
+				"OurSystemRequiresSecurity": {
+					"Name": "OurSystemRequiresSecurity",
+					"Value": 9,
+					"Index": 9,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"PhantomFreeze": {
 					"Name": "PhantomFreeze",
 					"Value": 303,
-					"Index": 47,
+					"Index": 56,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249342,7 +249819,7 @@
 				"PlacelaunchCreatorBan": {
 					"Name": "PlacelaunchCreatorBan",
 					"Value": 600,
-					"Index": 66,
+					"Index": 76,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249353,7 +249830,7 @@
 				"PlacelaunchCustomMessage": {
 					"Name": "PlacelaunchCustomMessage",
 					"Value": 610,
-					"Index": 67,
+					"Index": 77,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249364,7 +249841,7 @@
 				"PlacelaunchDisabled": {
 					"Name": "PlacelaunchDisabled",
 					"Value": 515,
-					"Index": 53,
+					"Index": 63,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249375,7 +249852,7 @@
 				"PlacelaunchError": {
 					"Name": "PlacelaunchError",
 					"Value": 516,
-					"Index": 54,
+					"Index": 64,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249386,7 +249863,7 @@
 				"PlacelaunchErrors": {
 					"Name": "PlacelaunchErrors",
 					"Value": 512,
-					"Index": 52,
+					"Index": 62,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249397,7 +249874,7 @@
 				"PlacelaunchFlooded": {
 					"Name": "PlacelaunchFlooded",
 					"Value": 525,
-					"Index": 60,
+					"Index": 70,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249408,7 +249885,7 @@
 				"PlacelaunchGameEnded": {
 					"Name": "PlacelaunchGameEnded",
 					"Value": 517,
-					"Index": 55,
+					"Index": 65,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249419,7 +249896,7 @@
 				"PlacelaunchGameFull": {
 					"Name": "PlacelaunchGameFull",
 					"Value": 518,
-					"Index": 56,
+					"Index": 66,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249430,7 +249907,7 @@
 				"PlacelaunchHashException": {
 					"Name": "PlacelaunchHashException",
 					"Value": 527,
-					"Index": 62,
+					"Index": 72,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249441,7 +249918,7 @@
 				"PlacelaunchHashExpired": {
 					"Name": "PlacelaunchHashExpired",
 					"Value": 526,
-					"Index": 61,
+					"Index": 71,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249452,7 +249929,7 @@
 				"PlacelaunchHttpError": {
 					"Name": "PlacelaunchHttpError",
 					"Value": 529,
-					"Index": 64,
+					"Index": 74,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249463,7 +249940,7 @@
 				"PlacelaunchOtherError": {
 					"Name": "PlacelaunchOtherError",
 					"Value": 611,
-					"Index": 68,
+					"Index": 78,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249474,7 +249951,7 @@
 				"PlacelaunchPartyCannotFit": {
 					"Name": "PlacelaunchPartyCannotFit",
 					"Value": 528,
-					"Index": 63,
+					"Index": 73,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249485,7 +249962,7 @@
 				"PlacelaunchRestricted": {
 					"Name": "PlacelaunchRestricted",
 					"Value": 523,
-					"Index": 58,
+					"Index": 68,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249496,7 +249973,7 @@
 				"PlacelaunchUnauthorized": {
 					"Name": "PlacelaunchUnauthorized",
 					"Value": 524,
-					"Index": 59,
+					"Index": 69,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249507,7 +249984,7 @@
 				"PlacelaunchUserLeft": {
 					"Name": "PlacelaunchUserLeft",
 					"Value": 522,
-					"Index": 57,
+					"Index": 67,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249518,7 +249995,7 @@
 				"PlacelaunchUserPrivacyUnauthorized": {
 					"Name": "PlacelaunchUserPrivacyUnauthorized",
 					"Value": 533,
-					"Index": 65,
+					"Index": 75,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249529,7 +250006,7 @@
 				"PlayerRemoved": {
 					"Name": "PlayerRemoved",
 					"Value": 291,
-					"Index": 35,
+					"Index": 44,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249540,7 +250017,7 @@
 				"ReplacementReady": {
 					"Name": "ReplacementReady",
 					"Value": 301,
-					"Index": 45,
+					"Index": 54,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249551,7 +250028,7 @@
 				"ReplicatorTimeout": {
 					"Name": "ReplicatorTimeout",
 					"Value": 290,
-					"Index": 34,
+					"Index": 43,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249562,7 +250039,18 @@
 				"ScreentimeLockoutKick": {
 					"Name": "ScreentimeLockoutKick",
 					"Value": 307,
-					"Index": 51,
+					"Index": 60,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"SecurityKeyMismatch": {
+					"Name": "SecurityKeyMismatch",
+					"Value": 10,
+					"Index": 10,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249573,7 +250061,7 @@
 				"ServerEmpty": {
 					"Name": "ServerEmpty",
 					"Value": 302,
-					"Index": 46,
+					"Index": 55,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249584,7 +250072,7 @@
 				"ServerShutdown": {
 					"Name": "ServerShutdown",
 					"Value": 288,
-					"Index": 33,
+					"Index": 42,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249595,7 +250083,7 @@
 				"TeleportErrors": {
 					"Name": "TeleportErrors",
 					"Value": 768,
-					"Index": 69,
+					"Index": 79,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249606,7 +250094,7 @@
 				"TeleportFailure": {
 					"Name": "TeleportFailure",
 					"Value": 769,
-					"Index": 70,
+					"Index": 80,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249617,7 +250105,7 @@
 				"TeleportFlooded": {
 					"Name": "TeleportFlooded",
 					"Value": 774,
-					"Index": 75,
+					"Index": 85,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249628,7 +250116,7 @@
 				"TeleportGameEnded": {
 					"Name": "TeleportGameEnded",
 					"Value": 771,
-					"Index": 72,
+					"Index": 82,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249639,7 +250127,7 @@
 				"TeleportGameFull": {
 					"Name": "TeleportGameFull",
 					"Value": 772,
-					"Index": 73,
+					"Index": 83,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249650,7 +250138,7 @@
 				"TeleportGameNotFound": {
 					"Name": "TeleportGameNotFound",
 					"Value": 770,
-					"Index": 71,
+					"Index": 81,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249661,7 +250149,7 @@
 				"TeleportIsTeleporting": {
 					"Name": "TeleportIsTeleporting",
 					"Value": 775,
-					"Index": 76,
+					"Index": 86,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249672,7 +250160,7 @@
 				"TeleportUnauthorized": {
 					"Name": "TeleportUnauthorized",
 					"Value": 773,
-					"Index": 74,
+					"Index": 84,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -249748,6 +250236,17 @@
 					"Name": "Object",
 					"Value": 2,
 					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Opaque": {
+					"Name": "Opaque",
+					"Value": 3,
+					"Index": 3,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -268393,6 +268892,49 @@
 			},
 			"Tags": []
 		},
+		"PlayerExitReason": {
+			"Name": "PlayerExitReason",
+			"Items": {
+				"CreatorKick": {
+					"Name": "CreatorKick",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"PlatformKick": {
+					"Name": "PlatformKick",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Unknown": {
+					"Name": "Unknown",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
 		"PortalType": {
 			"Name": "PortalType",
 			"Items": {
@@ -268638,6 +269180,60 @@
 				},
 				"On": {
 					"Name": "On",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"PredictionState": {
+			"Name": "PredictionState",
+			"Items": {
+				"Idle": {
+					"Name": "Idle",
+					"Value": 0,
+					"Index": 0,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Resimulating": {
+					"Name": "Resimulating",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"RollingBack": {
+					"Name": "RollingBack",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Simulating": {
+					"Name": "Simulating",
 					"Value": 1,
 					"Index": 1,
 					"LegacyNames": null,
