@@ -804,24 +804,24 @@ clipboard if share sheet functionality is not available to the player.</p><div c
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>SocialService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;SocialService&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>success</span><span class=_p>,</span> <span class=_n>result</span>  <span class=_o>=</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>  <span class=_kd>local</span> <span class=_n>data</span> <span class=_o>=</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>promoCode</span> <span class=_o>=</span> <span class=_s2>&#34;j7du67&#34;</span>
-</span></span><span class=_line><span class=_cl>  <span class=_p>}</span>
+</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>data</span> <span class=_o>=</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>    	<span class=_n>promoCode</span> <span class=_o>=</span> <span class=_s2>&#34;j7du67&#34;</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>}</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>  <span class=_kd>local</span> <span class=_n>launchData</span> <span class=_o>=</span> <span class=_n>HttpService</span><span class=_p>:</span><span class=_n>JSONEncode</span><span class=_p>(</span><span class=_n>data</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>launchData</span> <span class=_o>=</span> <span class=_n>HttpService</span><span class=_p>:</span><span class=_n>JSONEncode</span><span class=_p>(</span><span class=_n>data</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>  <span class=_kd>local</span> <span class=_n>LinkSharingOptions</span> <span class=_o>=</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>ExpirationSeconds</span> <span class=_o>=</span> <span class=_mi>20000</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>PreviewTitle</span> <span class=_o>=</span> <span class=_s2>&#34;Awesome Game&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>PreviewDescription</span> <span class=_o>=</span> <span class=_s2>&#34;Lets play together&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>LaunchData</span> <span class=_o>=</span> <span class=_n>launchData</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_p>}</span>
+</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>LinkSharingOptions</span> <span class=_o>=</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>ExpirationSeconds</span> <span class=_o>=</span> <span class=_mi>20000</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>PreviewTitle</span> <span class=_o>=</span> <span class=_s2>&#34;Awesome Game&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>PreviewDescription</span> <span class=_o>=</span> <span class=_s2>&#34;Lets play together&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>LaunchData</span> <span class=_o>=</span> <span class=_n>launchData</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>}</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>  <span class=_kr>return</span> <span class=_n>SocialService</span><span class=_p>:</span><span class=_n>PromptLinkSharing</span><span class=_p>(</span><span class=_n>player</span><span class=_p>,</span> <span class=_n>LinkSharingOptions</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span> <span class=_n>SocialService</span><span class=_p>:</span><span class=_n>PromptLinkSharing</span><span class=_p>(</span><span class=_n>player</span><span class=_p>,</span> <span class=_n>LinkSharingOptions</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>success</span> <span class=_ow>or</span> <span class=_n>result</span> <span class=_o>~=</span> <span class=_n>Enum.PromptLinkSharingResult</span><span class=_p>.</span><span class=_n>Success</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>  <span class=_n>warn</span><span class=_p>(</span><span class=_s2>&#34;PromptLinkSharing failed:&#34;</span><span class=_p>,</span> <span class=_n>tostring</span><span class=_p>(</span><span class=_n>result</span><span class=_p>))</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>warn</span><span class=_p>(</span><span class=_s2>&#34;PromptLinkSharing failed:&#34;</span><span class=_p>,</span> <span class=_n>tostring</span><span class=_p>(</span><span class=_n>result</span><span class=_p>))</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span>
 </span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-cc27b8b032184fd9-32 title="Added on 2025-07-01T10:53:13-07:00
 v0.680.0.6800701
