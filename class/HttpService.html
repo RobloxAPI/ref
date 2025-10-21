@@ -215,12 +215,12 @@ addition, the <a href=/ref/class/HttpService.html#member-GenerateGUID>GenerateGU
 random 128‑bit labels which can be treated as probabilistically unique in a
 variety of scenarios.</p><p>Within Studio, use
 <a href=/ref/class/HttpService.html#member-CreateWebStreamClient>CreateWebStreamClient()</a> to process
-data in real-time from HTTP servers that support streaming protocols such as
-<a href=https://en.wikipedia.org/wiki/Server-sent_events>SSE</a> or
-<a href=https://en.wikipedia.org/wiki/Chunked_transfer_encoding>chunked transfer encoding</a>.
-You can connect callback functions to stream events, allowing you to process
-data immediately as it arrives instead of waiting for the entire response to
-complete.</p><p>Only send HTTP requests to trusted third-party platforms to avoid introducing
+data in real-time from servers that support streaming protocols such as
+<a href=https://en.wikipedia.org/wiki/Server-sent_events>SSE</a>,
+<a href=https://en.wikipedia.org/wiki/Chunked_transfer_encoding>chunked transfer encoding</a>,
+and <a href=https://en.wikipedia.org/wiki/WebSocket>WebSockets</a>. You can connect
+callback functions to stream events, allowing you to process data immediately
+as it arrives instead of waiting for the entire response to complete.</p><p>Only send HTTP requests to trusted third-party platforms to avoid introducing
 unnecessary security risks to your experience.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>59</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-89ce51d2707749ab-4 title="Added on 2025-10-07T10:49:25-07:00
 v0.694.0.6940982
@@ -553,11 +553,10 @@ servers utilizing various streaming technologies, such as
 After the connection is established, the client fires signals that you can
 connect callback functions to with <a href=/ref/type/RBXScriptConnection.html>RBXScriptConnection</a>. Use
 these callbacks to process messages as soon as they arrive, as well as
-respond to open, close, and error events.</p><p>There is a limit of six total <a href=/ref/enum/WebStreamClientType.html>WebStreamClientType.SSE</a> or
-<a href=/ref/enum/WebStreamClientType.html>WebStreamClientType.RawStream</a> clients allowed at one time. Close
-streams that you no longer need with <a href=/ref/class/WebStreamClient.html#member-Close>WebStreamClient:Close()</a>. When
-the stream is no longer needed, you should disconnect any associated
-<a href=/ref/type/RBXScriptConnection.html>RBXScriptConnection</a> to avoid memory leaks.</p><p>This method is available in Studio only. If you use it inside scripts,
+respond to open, close, and error events.</p><p>There is a limit of six total clients allowed at one time. Close streams
+that you no longer need with <a href=/ref/class/WebStreamClient.html#member-Close>WebStreamClient:Close()</a>. When the
+stream is no longer needed, you should disconnect any associated
+<a href=/ref/type/RBXScriptConnection.html>RBXScriptConnections</a> to avoid memory leaks.</p><p>This method is available in Studio only. If you use it inside scripts,
 make sure to remove any references before publishing the experience. We
 encourage you to create plugins with this feature for reusability and ease
 of use.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-fa681ec445d7437c-20 title="Added on 2025-08-12T10:11:07-07:00
@@ -610,8 +609,8 @@ Add <a class="entity-link deco" href=/ref/class/HttpService.html#member-Generate
 HTTP request parameters as method parameters instead of a single
 dictionary and returns only the body of the HTTP response. Generally, this
 method is useful only as a shorthand and
-<a href=/ref/class/HttpService.html#member-RequestAsync>RequestAsync()</a> should to be used in
-most cases.</p><p>When <code>true</code>, the <code>nocache</code> parameter prevents this method from caching
+<a href=/ref/class/HttpService.html#member-RequestAsync>RequestAsync()</a> should be used in most
+cases.</p><p>When <code>true</code>, the <code>nocache</code> parameter prevents this method from caching
 results from previous calls with the same <code>url</code>.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>7</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2024.html#version-e2728ac197f84660-18 title="Changed on 2024-04-23T14:35:55-07:00
 v0.622.0.6220470
 version-e2728ac197f84660">622</a>
@@ -824,8 +823,8 @@ Add <a class="entity-link deco sec-RobloxScriptSecurity" href=/ref/class/HttpSer
 HTTP request parameters as method parameters instead of a single
 dictionary and returns only the body of the HTTP response. Generally, this
 method is useful only as a shorthand and
-<a href=/ref/class/HttpService.html#member-RequestAsync>RequestAsync()</a> should to be used in
-most cases.</p><p>When <code>true</code>, the <code>compress</code> parameter controls whether large request
+<a href=/ref/class/HttpService.html#member-RequestAsync>RequestAsync()</a> should be used in most
+cases.</p><p>When <code>true</code>, the <code>compress</code> parameter controls whether large request
 bodies will be compressed using <strong>gzip</strong>.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>7</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2024.html#version-e2728ac197f84660-19 title="Changed on 2024-04-23T14:35:55-07:00
 v0.622.0.6220470
 version-e2728ac197f84660">622</a>

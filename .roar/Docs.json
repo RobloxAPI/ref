@@ -1029,7 +1029,7 @@
 		},
 		"HttpService": {
 			"Summary": "<p>Allows sending HTTP requests and provides various web-related and JSON\nmethods.</p>\n",
-			"Description": "<p><code>HttpService</code> allows HTTP requests to be sent from game servers using\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync</a>,\n<a href=\"/ref/class/HttpService.html#member-GetAsync\">GetAsync</a> and\n<a href=\"/ref/class/HttpService.html#member-PostAsync\">PostAsync</a>. This service allows games to be\nintegrated with third-party web services such as analytics, data storage,\nremote server configuration, error reporting, advanced calculations, or\nreal-time communication. Additionally, it can call a subset of the Open Cloud\nAPIs.</p>\n<p>For more information about these use cases, see\n<a href=\"https://create.roblox.com/docs/cloud-services/http-service\">In-experience HTTP requests</a>.</p>\n<p><code>HttpService</code> also houses the <a href=\"/ref/class/HttpService.html#member-JSONEncode\">JSONEncode</a> and\n<a href=\"/ref/class/HttpService.html#member-JSONDecode\">JSONDecode</a> methods, which are useful for\ncommunicating with services that use the <a href=\"https://json.org\">JSON</a> format. In\naddition, the <a href=\"/ref/class/HttpService.html#member-GenerateGUID\">GenerateGUID</a> method provides\nrandom 128‑bit labels which can be treated as probabilistically unique in a\nvariety of scenarios.</p>\n<p>Within Studio, use\n<a href=\"/ref/class/HttpService.html#member-CreateWebStreamClient\">CreateWebStreamClient()</a> to process\ndata in real-time from HTTP servers that support streaming protocols such as\n<a href=\"https://en.wikipedia.org/wiki/Server-sent_events\">SSE</a> or\n<a href=\"https://en.wikipedia.org/wiki/Chunked_transfer_encoding\">chunked transfer encoding</a>.\nYou can connect callback functions to stream events, allowing you to process\ndata immediately as it arrives instead of waiting for the entire response to\ncomplete.</p>\n<p>Only send HTTP requests to trusted third-party platforms to avoid introducing\nunnecessary security risks to your experience.</p>\n",
+			"Description": "<p><code>HttpService</code> allows HTTP requests to be sent from game servers using\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync</a>,\n<a href=\"/ref/class/HttpService.html#member-GetAsync\">GetAsync</a> and\n<a href=\"/ref/class/HttpService.html#member-PostAsync\">PostAsync</a>. This service allows games to be\nintegrated with third-party web services such as analytics, data storage,\nremote server configuration, error reporting, advanced calculations, or\nreal-time communication. Additionally, it can call a subset of the Open Cloud\nAPIs.</p>\n<p>For more information about these use cases, see\n<a href=\"https://create.roblox.com/docs/cloud-services/http-service\">In-experience HTTP requests</a>.</p>\n<p><code>HttpService</code> also houses the <a href=\"/ref/class/HttpService.html#member-JSONEncode\">JSONEncode</a> and\n<a href=\"/ref/class/HttpService.html#member-JSONDecode\">JSONDecode</a> methods, which are useful for\ncommunicating with services that use the <a href=\"https://json.org\">JSON</a> format. In\naddition, the <a href=\"/ref/class/HttpService.html#member-GenerateGUID\">GenerateGUID</a> method provides\nrandom 128‑bit labels which can be treated as probabilistically unique in a\nvariety of scenarios.</p>\n<p>Within Studio, use\n<a href=\"/ref/class/HttpService.html#member-CreateWebStreamClient\">CreateWebStreamClient()</a> to process\ndata in real-time from servers that support streaming protocols such as\n<a href=\"https://en.wikipedia.org/wiki/Server-sent_events\">SSE</a>,\n<a href=\"https://en.wikipedia.org/wiki/Chunked_transfer_encoding\">chunked transfer encoding</a>,\nand <a href=\"https://en.wikipedia.org/wiki/WebSocket\">WebSockets</a>. You can connect\ncallback functions to stream events, allowing you to process data immediately\nas it arrives instead of waiting for the entire response to complete.</p>\n<p>Only send HTTP requests to trusted third-party platforms to avoid introducing\nunnecessary security risks to your experience.</p>\n",
 			"CodeSamples": [
 				"Astronauts-in-Space",
 				"International-Space-Station",
@@ -1377,7 +1377,7 @@
 		},
 		"ObjectValue": {
 			"Summary": "<p>A container object for a reference to another instance.</p>\n",
-			"Description": "<p>A ObjectValue is an object whose purpose is to store a single reference to\nanother object. If this object is duplicated within Studio and the value\nrefers to an object also being copied, then the new ObjectValue will point to\nthe copied object instead of the original. Otherwise, the same value is kept.\nCopying and pasting this object will clear the value field.</p>\n<p>The value of this can be set within Studio like other reference-type fields\n(such as <a href=\"/ref/class/Model.html#member-PrimaryPart\">Model.PrimaryPart</a>): click the field within the Properties\nwindow, then click the object you wish to set it to within the game view or\nExplorer window. You can clear the field (set it to <code>nil</code>) by clicking the X\nthat appears when you click the field.</p>\n<p>Like all &#34;-Value&#34; objects, this single value is stored in the Value property.\nThe Changed event for this (and other objects like it) will fire with the new\nvalue being stored in the object, instead of a string representing the\nproperty being changed.</p>\n",
+			"Description": "<p>A ObjectValue is an object whose purpose is to store a single reference to\nanother object. If this object is duplicated within Studio and the value\nrefers to an object also being copied, then the new ObjectValue will point to\nthe copied object instead of the original. Otherwise, the same value is kept.\nCopying and pasting this object will clear the value field.</p>\n<p>The value of this can be set within Studio like other reference-type fields\n(such as <a href=\"/ref/class/Model.html#member-PrimaryPart\">Model.PrimaryPart</a>): click the field within the Properties\nwindow, then click the object you wish to set it to within the game view or\nExplorer window. You can clear the field (set it to <code>nil</code>) by clicking the X\nthat appears when you click the field.</p>\n<p>Like all &#34;-Value&#34; objects, this single value is stored in the Value property.\nThe Changed event for this (and other objects like it) will fire with the new\nvalue being stored in the object, instead of a string representing the\nproperty being changed.</p>\n<p>If <a href=\"https://create.roblox.com/docs/workspace/streaming\">streaming</a> is enabled, the <code>Value</code>\nproperty is nil until the referenced object streams in, at which point the\n<code>Changed</code> event fires.</p>\n",
 			"CodeSamples": [
 				"ObjectValue-Example"
 			]
@@ -2404,6 +2404,10 @@
 		"ValueBase": {
 			"Summary": "<p>Base class of all &#39;Value Instance&#39; objects.</p>\n",
 			"Description": "<p>Base class of all &#39;Value Instance&#39; objects.</p>\n"
+		},
+		"ValueCurve": {
+			"Summary": "<p>A sorted list of time-value pairs that define a curve. Used to animate a any\ntype of value.</p>\n",
+			"Description": "<p>An instance representing a 1D value curve encoded via a sorted list of\n<a href=\"/ref/type/ValueCurveKey.html\">ValueCurveKeys</a>. The shape of the interpolation curve\nbetween two keys is determined by the <a href=\"/ref/type/ValueCurveKey.html#member-Interpolation\">ValueCurveKey.Interpolation</a>\ntype.</p>\n<p>Not all value types (for example, strings and other non-numerical types) may\nperform <a href=\"/ref/enum/KeyInterpolationMode.html\">Linear</a> or\n<a href=\"/ref/enum/KeyInterpolationMode.html\">Cubic</a> interpolation. These types will revert\nto <a href=\"/ref/enum/KeyInterpolationMode.html\">Constant</a> interpolation if necessary.</p>\n"
 		},
 		"Vector3Curve": {
 			"Summary": "<p>Represents a 3D vector curve, grouping three <a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> instances.</p>\n",
@@ -9901,7 +9905,7 @@
 		"HttpService": {
 			"CreateWebStreamClient": {
 				"Summary": "<p>Creates a client that opens a persistent connection to stream data.</p>\n",
-				"Description": "<p>This method creates a client that establishes a long-lived connection to\nservers utilizing various streaming technologies, such as\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events\">Server-Sent Events (SSE)</a>.\nAfter the connection is established, the client fires signals that you can\nconnect callback functions to with <a href=\"/ref/type/RBXScriptConnection.html\">RBXScriptConnection</a>. Use\nthese callbacks to process messages as soon as they arrive, as well as\nrespond to open, close, and error events.</p>\n<p>There is a limit of six total <a href=\"/ref/enum/WebStreamClientType.html\">WebStreamClientType.SSE</a> or\n<a href=\"/ref/enum/WebStreamClientType.html\">WebStreamClientType.RawStream</a> clients allowed at one time. Close\nstreams that you no longer need with <a href=\"/ref/class/WebStreamClient.html#member-Close\">WebStreamClient:Close()</a>. When\nthe stream is no longer needed, you should disconnect any associated\n<a href=\"/ref/type/RBXScriptConnection.html\">RBXScriptConnection</a> to avoid memory leaks.</p>\n<p>This method is available in Studio only. If you use it inside scripts,\nmake sure to remove any references before publishing the experience. We\nencourage you to create plugins with this feature for reusability and ease\nof use.</p>\n",
+				"Description": "<p>This method creates a client that establishes a long-lived connection to\nservers utilizing various streaming technologies, such as\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events\">Server-Sent Events (SSE)</a>.\nAfter the connection is established, the client fires signals that you can\nconnect callback functions to with <a href=\"/ref/type/RBXScriptConnection.html\">RBXScriptConnection</a>. Use\nthese callbacks to process messages as soon as they arrive, as well as\nrespond to open, close, and error events.</p>\n<p>There is a limit of six total clients allowed at one time. Close streams\nthat you no longer need with <a href=\"/ref/class/WebStreamClient.html#member-Close\">WebStreamClient:Close()</a>. When the\nstream is no longer needed, you should disconnect any associated\n<a href=\"/ref/type/RBXScriptConnection.html\">RBXScriptConnections</a> to avoid memory leaks.</p>\n<p>This method is available in Studio only. If you use it inside scripts,\nmake sure to remove any references before publishing the experience. We\nencourage you to create plugins with this feature for reusability and ease\nof use.</p>\n",
 				"CodeSamples": [
 					"HttpService-CreateSSEWebStreamClient",
 					"HttpService-CreateRawStreamWebStreamClient"
@@ -9916,7 +9920,7 @@
 			},
 			"GetAsync": {
 				"Summary": "<p>Sends an HTTP <code>GET</code> request.</p>\n",
-				"Description": "<p>This method sends an HTTP <code>GET</code> request. It functions similarly to\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> except that it accepts\nHTTP request parameters as method parameters instead of a single\ndictionary and returns only the body of the HTTP response. Generally, this\nmethod is useful only as a shorthand and\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> should to be used in\nmost cases.</p>\n<p>When <code>true</code>, the <code>nocache</code> parameter prevents this method from caching\nresults from previous calls with the same <code>url</code>.</p>\n",
+				"Description": "<p>This method sends an HTTP <code>GET</code> request. It functions similarly to\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> except that it accepts\nHTTP request parameters as method parameters instead of a single\ndictionary and returns only the body of the HTTP response. Generally, this\nmethod is useful only as a shorthand and\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> should be used in most\ncases.</p>\n<p>When <code>true</code>, the <code>nocache</code> parameter prevents this method from caching\nresults from previous calls with the same <code>url</code>.</p>\n",
 				"CodeSamples": [
 					"Astronauts-in-Space",
 					"International-Space-Station"
@@ -9946,7 +9950,7 @@
 			},
 			"PostAsync": {
 				"Summary": "<p>Sends an HTTP <code>POST</code> request.</p>\n",
-				"Description": "<p>This method sends an HTTP <code>POST</code> request. It functions similarly to\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> except that it accepts\nHTTP request parameters as method parameters instead of a single\ndictionary and returns only the body of the HTTP response. Generally, this\nmethod is useful only as a shorthand and\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> should to be used in\nmost cases.</p>\n<p>When <code>true</code>, the <code>compress</code> parameter controls whether large request\nbodies will be compressed using <strong>gzip</strong>.</p>\n",
+				"Description": "<p>This method sends an HTTP <code>POST</code> request. It functions similarly to\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> except that it accepts\nHTTP request parameters as method parameters instead of a single\ndictionary and returns only the body of the HTTP response. Generally, this\nmethod is useful only as a shorthand and\n<a href=\"/ref/class/HttpService.html#member-RequestAsync\">RequestAsync()</a> should be used in most\ncases.</p>\n<p>When <code>true</code>, the <code>compress</code> parameter controls whether large request\nbodies will be compressed using <strong>gzip</strong>.</p>\n",
 				"CodeSamples": [
 					"HttpService-Pastebin"
 				]
@@ -11377,8 +11381,8 @@
 				]
 			},
 			"IsPropertyModified": {
-				"Summary": "<p>Returns <code>true</code> if the value stored in the specified property is equal to\nthe code-instantiated default.</p>\n",
-				"Description": "<p>Returns <code>true</code> if the value stored in the specified property is equal to\nthe code‑instantiated default. For example, if outputting the\n<a href=\"/ref/class/TextLabel.html#member-TextSize\">TextSize</a> property of a <a href=\"/ref/class/TextLabel.html\">TextLabel</a>\nindicates <code>8</code>, then calling <code>IsPropertyModified(&#34;TextSize&#34;)</code> on the label\nwill return <code>false</code> because <code>8</code> is the default value for\n<a href=\"/ref/class/TextLabel.html#member-TextSize\">TextLabel.TextSize</a> when the label is created via\n<code>Instance.new(&#34;TextLabel&#34;)</code> rather than inserted through the Studio\ninsertion workflows.</p>\n<p>Note that if this method returns <code>true</code>, styling will <strong>not</strong> affect the\nproperty because explicitly modifying a property takes precedence over\nstyling it.</p>\n"
+				"Summary": "<p>Returns <code>true</code> if the value stored in the specified property is not equal\nto the code-instantiated default.</p>\n",
+				"Description": "<p>This method indicates whether a specific property has been modified from\nthe code‑instantiated default. If called on an instance newly created via\ncode (<a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a>), this method will return <code>false</code>. If\ncalled on an object newly created by Studio workflows such as\n<a href=\"https://create.roblox.com/docs/studio/explorer\">Explorer</a> window insertion, the result may\ndiffer.</p>\n<p>For example, querying the\n<a href=\"/ref/class/TextLabel.html#member-BackgroundColor3\">BackgroundColor3</a> property of a\n<a href=\"/ref/class/TextLabel.html\">TextLabel</a> inserted via the <a href=\"https://create.roblox.com/docs/studio/explorer\">Explorer</a>\nwill return <code>true</code>, but querying the same property of a <a href=\"/ref/class/TextLabel.html\">TextLabel</a>\ncreated through <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a> will return <code>false</code>, assuming no\nother changes were made to its\n<a href=\"/ref/class/TextLabel.html#member-BackgroundColor3\">BackgroundColor3</a>.</p>\n<p>Note that if this method returns <code>true</code>, styling will <strong>not</strong> affect the\nproperty because explicitly modifying a property takes precedence over\nstyling it. To reset a property to its code‑instantiated default and allow\nstyling on it, use\n<a href=\"/ref/class/Instance.html#member-ResetPropertyToDefault\">ResetPropertyToDefault()</a>.</p>\n"
 			},
 			"Name": {
 				"Summary": "<p>A non-unique identifier of the <a href=\"/ref/class/Instance.html\">Instance</a>.</p>\n",
@@ -12716,7 +12720,7 @@
 			},
 			"LevelOfDetail": {
 				"Summary": "<p>Sets the level of detail on the model for experiences with instance\nstreaming enabled.</p>\n",
-				"Description": "<p>Sets the level of detail on the model for experiences with instance\n<a href=\"https://create.roblox.com/docs/workspace/streaming\">streaming</a> enabled.</p>\n<p>When set to <a href=\"/ref/enum/ModelLevelOfDetail.html\">StreamingMesh</a>, a lower resolution\n&#34;imposter&#34; mesh (colored, coarse mesh that wraps around all child parts of\nthe model) renders outside the streaming radius.</p>\n<p>When set to <a href=\"/ref/enum/ModelLevelOfDetail.html\">Disabled</a> or\n<a href=\"/ref/enum/ModelLevelOfDetail.html\">Automatic</a>, lower resolution meshes will not be\ndisplayed.</p>\n"
+				"Description": "<p>Sets the level of detail on the model for experiences with instance\n<a href=\"https://create.roblox.com/docs/workspace/streaming\">streaming</a> enabled.</p>\n<p>When set to <a href=\"/ref/enum/ModelLevelOfDetail.html\">StreamingMesh</a>, a lower resolution\n&#34;imposter&#34; mesh (colored, coarse mesh that wraps around all child parts of\nthe model) renders outside the streaming radius.</p>\n<p>When set to <a href=\"/ref/enum/ModelLevelOfDetail.html\">SLIM</a>, a Scalable Lightweight\nInteractive Model, or SLIM, model (a composite of all child parts of the\nmodel) renders at progressively lower resolutions at distances based on\nthe streaming radius. This greatly improves visual quality over\n<code>StreamingMesh</code>.</p>\n<p>When set to <a href=\"/ref/enum/ModelLevelOfDetail.html\">Disabled</a> or\n<a href=\"/ref/enum/ModelLevelOfDetail.html\">Automatic</a>, lower resolution meshes will not be\ndisplayed.</p>\n"
 			},
 			"MakeJoints": {
 				"Summary": "<p>Goes through all <a href=\"/ref/class/BasePart.html\">BaseParts</a> in the <a href=\"/ref/class/Model.html\">Model</a>. If any\npart&#39;s side has a SurfaceType that can make a joint it will create a joint\nwith any adjacent parts.</p>\n",
@@ -13988,7 +13992,7 @@
 			},
 			"GetJoinData": {
 				"Summary": "<p>Returns a dictionary containing information describing how the player\njoins the experience.</p>\n",
-				"Description": "<p>Returns a dictionary containing information describing how the player\njoins the experience. The dictionary contains any of the following fields:</p>\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Value Type</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th><code>SourceGameId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the experience the <code>Player</code> teleported from. Only present if the player teleports to the current experience and if a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>SourcePlaceId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the place the <code>Player</code> teleported from. Only present if the player teleports to the current place and a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>ReferredByPlayerId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the player who invited the current player to the experience. Use this data to identify the referrer and trigger reward logic.</td>\n    </tr>\n    <tr>\n      <th><code>Members</code></th>\n      <td>array</td>\n      <td>An array containing the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> numbers of the users teleported alongside the player. Only present if the player teleported as part of a group.</td>\n    </tr>\n    <tr>\n      <th><code>TeleportData</code></th>\n      <td>variant</td>\n      <td>Reflects the <code>teleportData</code> specified in the original teleport. Useful for sharing information between servers the player teleports to. Only present if <code>teleportData</code> was specified and a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>LaunchData</code></th>\n      <td>string</td>\n      <td>A plain or JSON encoded string that contains launch data specified in a <a href=\"https://create.roblox.com/docs/production/promotion/deeplinks\">deep link</a> URL or\n      <a href=\"/ref/class/ExperienceInviteOptions.html#member-LaunchData\">ExperienceInviteOptions.LaunchData</a>.</td>\n    </tr>\n    <tr>\n      <th><code>GameJoinContext</code></th>\n      <td>dictionary</td>\n      <td>\n        A dictionary that includes relevant information based on the context of the join. It contains the following keys:<br/><br/>\n        <ul>\n          <li><code>JoinSource</code>: <a href=\"/ref/enum/JoinSource.html\">JoinSource</a></li>\n          <li><code>ItemType</code>: optional <a href=\"/ref/enum/AvatarItemType.html\">AvatarItemType</a></li>\n          <li><code>AssetId</code>: optional <code>string</code></li>\n          <li><code>OutfitId</code>: optional <code>string</code></li>\n          <li><code>AssetType</code>: optional <a href=\"/ref/enum/AssetType.html\">AssetType</a></li>\n        </ul>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<p>If a server initiates the player&#39;s teleport, the dictionary that this\nmethod returns includes the player&#39;s teleport data. The\n<a href=\"/ref/class/Player.html#member-GetJoinData\">GetJoinData()</a> method can only be used to\nfetch teleport data on the server. To fetch the data on the client, use\n<a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>.</p>\n<p>Unlike <a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>,\n<a href=\"/ref/class/Player.html#member-GetJoinData\">GetJoinData()</a> only provides teleport data\nthat meets the following security criteria:</p>\n<ul>\n<li>It&#39;s guaranteed to have been sent by a Roblox server in the past 48\nhours.</li>\n<li>It&#39;s guaranteed to have been sent with this <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>The <code>SourcePlaceId</code> and <code>SourceGameId</code> are guaranteed to be the place\nand universe the data was sent from. This means you can verify the\nteleport data came from an approved place.</li>\n</ul>\n<p>As this data is transmitted by the client, it can still potentially be\nabused by an exploiter. Sensitive data such as player currency should be\ntransmitted via a secure solution like\n<a href=\"https://create.roblox.com/docs/cloud-services/memory-stores\">Memory Stores</a>.</p>\n",
+				"Description": "<p>Returns a dictionary containing information describing how the player\njoins the experience. The dictionary contains any of the following fields:</p>\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Value Type</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th><code>SourceGameId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the experience the <code>Player</code> teleported from. Only present if the player teleports to the current experience and if a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>SourcePlaceId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the place the <code>Player</code> teleported from. Only present if the player teleports to the current place and a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>ReferredByPlayerId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the player who invited the current player to the experience. Use this data to identify the referrer and trigger reward logic.</td>\n    </tr>\n    <tr>\n      <th><code>Members</code></th>\n      <td>array</td>\n      <td>An array containing the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> numbers of the users teleported alongside the player. Only present if the player teleported as part of a group.</td>\n    </tr>\n    <tr>\n      <th><code>TeleportData</code></th>\n      <td>variant</td>\n      <td>Reflects the <code>teleportData</code> specified in the original teleport. Useful for sharing information between servers the player teleports to. Only present if <code>teleportData</code> was specified and a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>LaunchData</code></th>\n      <td>string</td>\n      <td>A plain or JSON encoded string that contains launch data specified in a <a href=\"https://create.roblox.com/docs/production/promotion/share-links\">share link</a> or\n      <a href=\"/ref/class/ExperienceInviteOptions.html#member-LaunchData\">ExperienceInviteOptions.LaunchData</a>.</td>\n    </tr>\n    <tr>\n      <th><code>GameJoinContext</code></th>\n      <td>dictionary</td>\n      <td>\n        A dictionary that includes relevant information based on the context of the join. It contains the following keys:<br/><br/>\n        <ul>\n          <li><code>JoinSource</code>: <a href=\"/ref/enum/JoinSource.html\">JoinSource</a></li>\n          <li><code>ItemType</code>: optional <a href=\"/ref/enum/AvatarItemType.html\">AvatarItemType</a></li>\n          <li><code>AssetId</code>: optional <code>string</code></li>\n          <li><code>OutfitId</code>: optional <code>string</code></li>\n          <li><code>AssetType</code>: optional <a href=\"/ref/enum/AssetType.html\">AssetType</a></li>\n        </ul>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<p>If a server initiates the player&#39;s teleport, the dictionary that this\nmethod returns includes the player&#39;s teleport data. The\n<a href=\"/ref/class/Player.html#member-GetJoinData\">GetJoinData()</a> method can only be used to\nfetch teleport data on the server. To fetch the data on the client, use\n<a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>.</p>\n<p>Unlike <a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>,\n<a href=\"/ref/class/Player.html#member-GetJoinData\">GetJoinData()</a> only provides teleport data\nthat meets the following security criteria:</p>\n<ul>\n<li>It&#39;s guaranteed to have been sent by a Roblox server in the past 48\nhours.</li>\n<li>It&#39;s guaranteed to have been sent with this <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>The <code>SourcePlaceId</code> and <code>SourceGameId</code> are guaranteed to be the place\nand universe the data was sent from. This means you can verify the\nteleport data came from an approved place.</li>\n</ul>\n<p>As this data is transmitted by the client, it can still potentially be\nabused by an exploiter. Sensitive data such as player currency should be\ntransmitted via a secure solution like\n<a href=\"https://create.roblox.com/docs/cloud-services/memory-stores\">Memory Stores</a>.</p>\n",
 				"CodeSamples": [
 					"Player-GetJoinData-Tracking-Traffic-Sources",
 					"Player-GetJoinData-Referral-Url-Generator",
@@ -17184,37 +17188,37 @@
 			},
 			"FrameTime": {
 				"Summary": "<p>A measurement of how long it takes for the engine to process all tasks\nrequired to render a frame.</p>\n",
-				"Description": "<p>This property is only available in client scripts and is a measurement of\nhow long it took to render the most-recent frame in seconds. Divide 1 by\nthis value to calculate an FPS value for the frame time. High frame times\nare indicative of performance problems on the device. Consider using the\n<a href=\"https://create.roblox.com/docs/studio/microprofiler\">MicroProfiler</a> to troubleshoot.</p>\n"
+				"Description": "<p>This property is only available in client scripts and is a measurement of\nhow long it took to render the most-recent frame in seconds. Divide <code>1</code> by\nthis value to calculate an FPS value for the frame time. High frame times\nare indicative of performance problems on the device. Consider using the\n<a href=\"https://create.roblox.com/docs/studio/microprofiler\">MicroProfiler</a> to troubleshoot.</p>\n"
 			},
 			"GetHarmonyQualityLevel": {},
 			"GetMemoryCategoryNames": {},
 			"GetMemoryUsageMbAllCategories": {
-				"Summary": "<p>Returns the number of megabytes that are being consumed by all available\ncategories, or an empty array if <code>MemoryTrackingEnabled</code> is false.</p>\n",
-				"Description": "<p>Returns the number of megabytes that are being consumed by all available\ncategories. If <code>MemoryTrackingEnabled</code> is false, calling\nGetMemoryUsageMbAllCategories will return an empty array and emit a\nwarning to the console.</p>\n"
+				"Summary": "<p>Returns the number of megabytes that are being consumed by all available\ncategories, or an empty array if\n<a href=\"/ref/class/Stats.html#member-MemoryTrackingEnabled\">MemoryTrackingEnabled</a> is <code>false</code>.</p>\n",
+				"Description": "<p>Returns the number of megabytes that are being consumed by all available\ncategories. If <a href=\"/ref/class/Stats.html#member-MemoryTrackingEnabled\">MemoryTrackingEnabled</a>\nis <code>false</code>, calling <code>GetMemoryUsageMbAllCategories()</code> will return an empty\narray and emit a warning to the console.</p>\n"
 			},
 			"GetMemoryUsageMbForTag": {
-				"Summary": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category, or 0 if <code>MemoryTrackingEnabled</code> is\nfalse.</p>\n",
-				"Description": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category. If <code>MemoryTrackingEnabled</code> is false,\ncalling GetMemoryUsageMbForTag will return 0 and emit a warning to the\nconsole.</p>\n"
+				"Summary": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category, or <code>0</code> if\n<a href=\"/ref/class/Stats.html#member-MemoryTrackingEnabled\">MemoryTrackingEnabled</a> is <code>false</code>.</p>\n",
+				"Description": "<p>Returns the number of megabytes that are being consumed in the specified\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTag</a> category. If\n<a href=\"/ref/class/Stats.html#member-MemoryTrackingEnabled\">MemoryTrackingEnabled</a> is <code>false</code>,\ncalling <code>GetMemoryUsageMbForTag()</code> will return <code>0</code> and emit a warning to\nthe console.</p>\n"
 			},
 			"GetTotalMemoryUsageMb": {
-				"Summary": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes, or 0 if <code>MemoryTrackingEnabled</code> is false.</p>\n",
-				"Description": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes. If <code>MemoryTrackingEnabled</code> is false, calling\nGetTotalMemoryUsageMb will return 0 and emit a warning to the console.</p>\n<p>This method gets memory usage from the operating system, which may exclude\nmemory that has been paged out to disk. As such, the return value tends to\ndiffer significantly from the sum of usage for all\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTags</a>. The return value should be\nvery similar to memory usage for Roblox in the Windows Task Manager or\nmacOS Activity Monitor.</p>\n"
+				"Summary": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes.</p>\n",
+				"Description": "<p>Returns the total amount of memory being consumed by the current game\nsession, in megabytes.</p>\n<p>This method gets memory usage from the operating system, which may exclude\nmemory that has been paged out to disk. As such, the return value tends to\ndiffer significantly from the sum of usage for all\n<a href=\"/ref/enum/DeveloperMemoryTag.html\">DeveloperMemoryTags</a>. The return value should be\nvery similar to memory usage for Roblox in the Windows Task Manager or\nmacOS Activity Monitor.</p>\n"
 			},
 			"HeartbeatTime": {
-				"Summary": "<p>A measurement of the total amount of time it takes for the server to\nupdate its Task Scheduler jobs in seconds.</p>\n",
-				"Description": "<p>This property is a measurement of the total amount of time it takes for\nthe server to update its Task Scheduler jobs in seconds. If this value is\nhigh, examine\n<a href=\"https://create.roblox.com/docs/performance-optimization/identifying#server-compute\">server compute</a>.</p>\n"
+				"Summary": "<p>A measurement of the total amount of time it takes for the server to\nupdate its task scheduler jobs in seconds.</p>\n",
+				"Description": "<p>This property is a measurement of the total amount of time it takes for\nthe server to update its task scheduler jobs in seconds. If this value is\nhigh, examine\n<a href=\"https://create.roblox.com/docs/performance-optimization/identifying#server-compute\">server compute</a>.</p>\n"
 			},
 			"HeartbeatTimeMs": {
-				"Summary": "<p>A measurement of the total amount of time it takes long it takes for\nRoblox to update all of its Task Scheduler jobs, in milliseconds.</p>\n",
-				"Description": "<p>The HeartbeatTimeMs property is a measurement of the total amount of time\nit takes long it takes for Roblox to update all of its Task Scheduler\njobs, in milliseconds. If this value is high, then it means one of the\ntasks are hogging up a lot of resources.</p>\n"
+				"Summary": "<p>A measurement of the total amount of time it takes long it takes for\nRoblox to update all of its task scheduler jobs, in milliseconds.</p>\n",
+				"Description": "<p>The <code>HeartbeatTimeMs</code> property is a measurement of the total amount of\ntime it takes long it takes for Roblox to update all of its task scheduler\njobs, in milliseconds. If this value is high, then it means one of the\ntasks are hogging up a lot of resources.</p>\n"
 			},
 			"InstanceCount": {
 				"Summary": "<p>A measurement of how many <a href=\"/ref/class/Instance.html\">Instance</a> are currently in memory.</p>\n",
-				"Description": "<p>InstanceCount is a read-only measurement of how many <a href=\"/ref/class/Instance.html\">Instance</a> are\ncurrently in memory. This includes the <a href=\"/ref/class/DataModel.html\">DataModel</a>, its descendants,\nas well as any object created with <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a> which is\nstill present in memory.</p>\n"
+				"Description": "<p><code>InstanceCount</code> is a read-only measurement of how many <a href=\"/ref/class/Instance.html\">Instance</a>\nare currently in memory. This includes the <a href=\"/ref/class/DataModel.html\">DataModel</a>, its\ndescendants, as well as any object created with <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a>\nwhich is still present in memory.</p>\n"
 			},
 			"MemoryTrackingEnabled": {
 				"Summary": "<p>An indication of whether memory tracking is enabled. This is guaranteed to\nbe unchanged until the next time the Client is started.</p>\n",
-				"Description": "<p>If MemoryTrackingEnabled returns false, any API that returns\ncategory-based memory usage e.g. <code>GetMemoryUsageMbForTag</code> or\n<code>GetTotalMemoryUsageMb</code> will return 0 and emit a warning. Therefore, usage\nof category-based memory usage API should be conditional on\nMemoryTrackingEnabled returning true. The value of MemoryTrackingEnabled\nwill not change from one experience to the next. It will only potentially\nchange after restarting the Roblox client application.</p>\n"
+				"Description": "<p>If <code>MemoryTrackingEnabled</code> returns <code>false</code>, any API that returns\ncategory-based memory usage such as <a href=\"/ref/class/Stats.html#member-GetMemoryUsageMbForTag\">Stats:GetMemoryUsageMbForTag()</a>\nor <a href=\"/ref/class/Stats.html#member-GetMemoryUsageMbAllCategories\">Stats:GetMemoryUsageMbAllCategories()</a> will return <code>0</code> and emit\na warning. Therefore, usage of category-based memory usage API should be\nconditional on <code>MemoryTrackingEnabled</code> returning <code>true</code>. The value of\n<code>MemoryTrackingEnabled</code> will not change from one experience to the next;\nit will only potentially change after restarting the Roblox client\napplication.</p>\n"
 			},
 			"MovingPrimitivesCount": {
 				"Summary": "<p>A measurement of how many physically simulated components are currently\nmoving in the game world.</p>\n",
@@ -17226,7 +17230,7 @@
 			},
 			"PhysicsSendKbps": {
 				"Summary": "<p>In a networked game, this describes roughly how many kilobytes of physics\ndata are being sent by the current instance, per second.</p>\n",
-				"Description": "<p>PhysicsSendKbps describes roughly how many kilobytes of physics data are\nbeing sent by the current instance, per second.If from the server&#39;s\nperspective, this represents the total amount of physics data being sent\nto the clients connected to the server.If from a client&#39;s perspective,\nthis represents the total amount of physics data being sent to the server.</p>\n"
+				"Description": "<p><code>PhysicsSendKbps</code> describes roughly how many kilobytes of physics data are\nbeing sent by the current instance, per second. If from the server&#39;s\nperspective, this represents the total amount of physics data being sent\nto the clients connected to the server. If from a client&#39;s perspective,\nthis represents the total amount of physics data being sent to the server.</p>\n"
 			},
 			"PhysicsStepTime": {
 				"Summary": "<p>A measurement of how long it takes for the physics engine to update its\ncurrent state.</p>\n",
@@ -20634,6 +20638,48 @@
 		},
 		"VRStatusService": {},
 		"ValueBase": {},
+		"ValueCurve": {
+			"GetKeyAtIndex": {
+				"Summary": "<p>Returns a copy of a key at a given index.</p>\n",
+				"Description": "<p>Returns a copy of a key at a given index.</p>\n"
+			},
+			"GetKeyIndicesAtTime": {
+				"Summary": "<p>Returns the index of the last and first key of a period of time.</p>\n",
+				"Description": "<p>The first item in the returned array is the index of the last key with\ntime less than or equal to <code>time</code> (or the lesser of either <code>1</code> or the\ncurve length if no key was found). The second item in the returned array\nis the index of the first key with time greater than or equal to <code>time</code>\n(or the curve length if no key was found satisfying the inequality).</p>\n"
+			},
+			"GetKeys": {
+				"Summary": "<p>Returns a copy of all the keys in the ValueCurve as a Luau array of\n<a href=\"/ref/type/ValueCurveKey.html\">ValueCurveKeys</a>.</p>\n",
+				"Description": "<p>Returns a copy of all the keys in the <a href=\"/ref/class/ValueCurve.html\">ValueCurve</a> as a Luau array\nof <a href=\"/ref/type/ValueCurveKey.html\">ValueCurveKeys</a>.</p>\n"
+			},
+			"GetValueAtTime": {
+				"Summary": "<p>Samples the value curve at a given time passed as argument.</p>\n",
+				"Description": "<p>Samples the value curve at a given time passed as argument.</p>\n"
+			},
+			"InsertKey": {
+				"Summary": "<p>Adds the key passed as an argument to this curve. If a key at the same\ntime is found, it will be replaced.</p>\n",
+				"Description": "<p>Adds the key passed as an argument to this curve. If a key at the same\ntime is found, it will be replaced. In the returned array, the first value\nis <code>true</code> if a key was added or <code>false</code> if a previous key was replaced;\nthe second value is the index at which the marker was added.</p>\n<p>If there are not yet any keys, then the key may be added. If keys exist,\nthe type of the value must match those of existing keys; otherwise a\nmessage is printed and <code>{false, -1}</code> is returned.</p>\n"
+			},
+			"InsertKeyValue": {
+				"Summary": "<p>Creates a key for the given value and inserts it at the given time. If a\nkey at the same time is found, it will be replaced.</p>\n",
+				"Description": "<p>Creates a <a href=\"/ref/type/ValueCurveKey.html\">ValueCurveKey</a> from the given arguments and inserts it\nin this curve. If a key at the same time is found, it will be replaced. In\nthe returned array, the first value is <code>true</code> if a key was added or\n<code>false</code> if a previous key was replaced; the second value is the index at\nwhich the marker was added.</p>\n<p>If there are not yet any keys, then the key may be added. If keys exist,\nthe type of the value must match those of existing keys; otherwise a\nmessage is printed and <code>{false, -1}</code> is returned.</p>\n"
+			},
+			"Length": {
+				"Summary": "<p>Number of keys in the value curve.</p>\n",
+				"Description": "<p>Number of keys in the value curve.</p>\n"
+			},
+			"RemoveKeyAtIndex": {
+				"Summary": "<p>Removes a given number of keys starting from a given index.</p>\n",
+				"Description": "<p>Removes a given number (<code>count</code>) of keys starting from the <code>startingIndex</code>\nindex and returns the number of keys that were removed.</p>\n"
+			},
+			"SetKeys": {
+				"Summary": "<p>Resets this curve&#39;s keys using the <a href=\"/ref/type/ValueCurveKey.html\">ValueCurveKey</a> array passed\nas an argument.</p>\n",
+				"Description": "<p>Resets this curve&#39;s keys using the <a href=\"/ref/type/ValueCurveKey.html\">ValueCurveKey</a> array passed\nas an argument. Keys in the <code>keys</code> array are sorted in ascending time\norder before insertion, and keys at duplicated times are removed in a\nstable manner.</p>\n<p>Returns the number of keys actually inserted. Keys previously stored in\nthis curve are removed before the keys passed as arguments are added.</p>\n<p>The keys must all contain values of the same type. And that type must\nmatch any existing keys. Otherwise a message is printed, the keys are not\nadded, and <code>0</code> is returned.</p>\n"
+			},
+			"ValueType": {
+				"Summary": "<p>Read-only value indicating the type held in this curve.</p>\n",
+				"Description": "<p>Read-only value indicating the type held in this curve, or the string\n<code>&#34;Nil&#34;</code> if there are no keys.</p>\n"
+			}
+		},
 		"Vector3Curve": {
 			"GetValueAtTime": {
 				"Summary": "<p>Returns the three <a href=\"/ref/class/FloatCurve.html\">FloatCurves</a> (X, Y, Z) at the passed\ntime argument.</p>\n",
@@ -21732,6 +21778,10 @@
 			"Description": "<p>Determines the tags for completion items in\n<a href=\"/ref/class/ScriptEditorService.html#member-RegisterAutocompleteCallback\">ScriptEditorService:RegisterAutocompleteCallback()</a>.</p>\n"
 		},
 		"CompletionTriggerKind": {},
+		"CompressionAlgorithm": {
+			"Summary": "<p>A compression algorithm to use in <a href=\"/ref/class/EncodingService.html\">EncodingService</a> methods.</p>\n",
+			"Description": "<p>A compression algorithm to use in <a href=\"/ref/class/EncodingService.html\">EncodingService</a> methods.</p>\n"
+		},
 		"ComputerCameraMovementMode": {
 			"Summary": "<p>The camera movement mode currently in-use by the client.</p>\n",
 			"Description": "<p>The camera movement mode currently in-use by the client.</p>\n"
@@ -21975,6 +22025,10 @@
 		"HapticEffectType": {
 			"Summary": "<p>Enum used alongside <a href=\"/ref/class/HapticEffect.html#member-Type\">HapticEffect.Type</a>.</p>\n",
 			"Description": "<p>Enum used alongside <a href=\"/ref/class/HapticEffect.html#member-Type\">HapticEffect.Type</a>.</p>\n"
+		},
+		"HashAlgorithm": {
+			"Summary": "<p>A Cryptographic hash function to use in <a href=\"/ref/class/EncodingService.html\">EncodingService</a> methods.</p>\n",
+			"Description": "<p>A\n<a href=\"https://en.wikipedia.org/wiki/Cryptographic_hash_function\">Cryptographic hash function</a>\nto use in <a href=\"/ref/class/EncodingService.html\">EncodingService</a> methods.</p>\n"
 		},
 		"HighlightDepthMode": {
 			"Summary": "<p>Controls how the <a href=\"/ref/class/Highlight.html\">Highlight</a> effect displays with respect to other\nobjects in the world.</p>\n",
@@ -22281,7 +22335,7 @@
 		"PlayerDataLoadFailureBehavior": {},
 		"PlayerExitReason": {
 			"Summary": "<p>An enum that specifies the reason for <strong>Players.PlayerRemoving</strong> signal.</p>\n",
-			"Description": "<p>Second argument in <strong>Players.PlayerRemoving</strong>. Helps identify on whether a\nkick was caused by the Roblox platform, of the Creator.</p>\n"
+			"Description": "<p>Second argument in <a href=\"/ref/class/Players.html#member-PlayerRemoving\">Players.PlayerRemoving</a>. Helps identify whether a\nkick was caused by the Roblox platform or the Creator.</p>\n"
 		},
 		"PoseEasingDirection": {
 			"Summary": "<p>Used exclusively by Pose.EasingDirection to specify direction of the\nEasingStyle curve.</p>\n",
@@ -24191,6 +24245,11 @@
 			"TriggerCharacter": {},
 			"TriggerForIncompleteCompletions": {}
 		},
+		"CompressionAlgorithm": {
+			"Zstd": {
+				"Summary": "<p>Used to perform compression using\n<a href=\"https://en.wikipedia.org/wiki/Zstd\">Zstandard</a> compression, also known as\nzstd.</p>\n"
+			}
+		},
 		"ComputerCameraMovementMode": {
 			"CameraToggle": {
 				"Summary": "<p>The camera toggles between locked and free rotation with the right mouse\nbutton.</p>\n"
@@ -25540,6 +25599,23 @@
 				"Summary": "<p>Useful for when there is an inbound message that should draw the player&#39;s\nattention away from their current gameplay and prompt them that the\nnotification requires immediate attention or action.</p>\n"
 			}
 		},
+		"HashAlgorithm": {
+			"Blake2b": {
+				"Summary": "<p>Used to compute a 256-bit (32-byte) hash digest using the\n<a href=\"https://en.wikipedia.org/wiki/BLAKE2\">BLAKE2b</a> algorithm.</p>\n"
+			},
+			"Blake3": {
+				"Summary": "<p>Used to compute a 256-bit (32-byte) hash digest using the\n<a href=\"https://en.wikipedia.org/wiki/BLAKE3\">BLAKE3</a> algorithm.</p>\n"
+			},
+			"Md5": {
+				"Summary": "<p>Used to compute a 128-bit (16-byte) hash digest using the\n<a href=\"https://en.wikipedia.org/wiki/MD5\">MD5</a> algorithm.</p>\n"
+			},
+			"Sha1": {
+				"Summary": "<p>Used to compute a 160-bit (20-byte) hash digest using the\n<a href=\"https://en.wikipedia.org/wiki/SHA-1\">SHA-1</a> algorithm.</p>\n"
+			},
+			"Sha256": {
+				"Summary": "<p>Used to compute a 256-bit (32-byte) hash digest using the\n<a href=\"https://en.wikipedia.org/wiki/SHA-2\">SHA256</a> algorithm.</p>\n"
+			}
+		},
 		"HighlightDepthMode": {
 			"AlwaysOnTop": {
 				"Summary": "<p>Allows the <a href=\"/ref/class/Highlight.html\">Highlight</a> to display regardless if there are objects\nbetween the camera and the highlighted object. This means the viewer is\nalways able to see the highlight regardless of what is between the\nhighlighted object and the camera.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/DepthMode-AlwaysOnTop.jpg\"/>\n"
@@ -26777,7 +26853,7 @@
 				"Summary": "<p>Applies to <a href=\"/ref/class/BasePart.html\">BasePart</a> and <a href=\"/ref/class/Terrain.html\">Terrain</a>.</p>\n"
 			},
 			"CorrodedMetal": {
-				"Summary": "<p>Applies to <a href=\"/ref/class/BasePart.html\">BasePart</a> and <a href=\"/ref/class/Terrain.html\">Terrain</a>.</p>\n"
+				"Summary": "<p>Applies to <a href=\"/ref/class/BasePart.html\">BasePart</a> only.</p>\n"
 			},
 			"CrackedLava": {
 				"Summary": "<p>Applies to <a href=\"/ref/class/BasePart.html\">BasePart</a> and <a href=\"/ref/class/Terrain.html\">Terrain</a>.</p>\n"
@@ -27002,6 +27078,9 @@
 			},
 			"Disabled": {
 				"Summary": "<p>A lower resolution mesh will not be displayed.</p>\n"
+			},
+			"SLIM": {
+				"Summary": "<p>A Scalable Lightweight Interactive Model, or SLIM, model (a composite of\nall child parts of the model) renders at progressively lower resolutions\nat distances based on the streaming radius. Greatly improves visual\nquality over <code>StreamingMesh</code>.</p>\n"
 			},
 			"StreamingMesh": {
 				"Summary": "<p>A lower resolution &#34;imposter&#34; mesh (colored, coarse mesh that wraps around\nall child parts of the model) renders outside the streaming radius.</p>\n"
@@ -29673,10 +29752,13 @@
 		},
 		"WebStreamClientType": {
 			"RawStream": {
-				"Summary": "<p>The client can connect to any server that provides streaming data transfer\n(e.g.\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding\">chunked encoding</a>).\nIt provides no guarantees about the stream format.</p>\n"
+				"Summary": "<p>General purpose HTTP streaming client. It can connect to any server that\nprovides streaming data transfer (e.g.\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding\">chunked encoding</a>).\nIt provides no guarantees about the stream format.</p>\n"
 			},
 			"SSE": {
 				"Summary": "<p>Traditional Server-Sent Events (SSE) client. Requires <code>text/event-stream</code>\nto be returned in the <code>Content-Type</code> header. Messages in the stream will\nfollow the\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format\">event stream format</a>.</p>\n"
+			},
+			"WebSocket": {
+				"Summary": "<p><a href=\"https://en.wikipedia.org/wiki/WebSocket\">WebSocket</a> client that provides\na bidirectional communication channel over a TCP connection.</p>\n"
 			}
 		},
 		"WeldConstraintPreserve": {
@@ -34063,32 +34145,32 @@
 				{
 					"Name": "zero",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of zero.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of zero.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zero</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of <code>0</code>.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of <code>0</code>.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zero</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "one",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on every axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on every axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.one</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 1, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on every axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on every axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.one</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 1, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "xAxis",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the X axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the X axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.xAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>X</strong> axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>X</strong> axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.xAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "yAxis",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Y axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Y axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.yAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 1, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>Y</strong> axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>Y</strong> axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.yAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 1, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "zAxis",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Z axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Z axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 0, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>Z</strong> axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>Z</strong> axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a> object.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 0, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				}
 			],
 			"Constructors": [
@@ -34111,8 +34193,8 @@
 							"Default": 0
 						}
 					],
-					"Summary": "<p>Returns a new <a href=\"/ref/type/Vector3.html\">Vector3</a> from the given x, y, and z components.</p>\n",
-					"Description": "<p>Returns a new <a href=\"/ref/type/Vector3.html\">Vector3</a> using the given x, y, and z components.</p>\n"
+					"Summary": "<p>Returns a new <a href=\"/ref/type/Vector3.html\">Vector3</a> from the given <code>x</code>, <code>y</code>, and <code>z</code> components.</p>\n",
+					"Description": "<p>Returns a new <a href=\"/ref/type/Vector3.html\">Vector3</a> using the given <code>x</code>, <code>y</code>, and <code>z</code> components.</p>\n"
 				},
 				{
 					"Name": "FromNormalId",
@@ -34143,62 +34225,62 @@
 				{
 					"Name": "zero",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of zero.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of zero.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zero</span><span class=\"_p\">)</span> <span class=\"_c1\">--&gt; 0, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of <code>0</code>.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a magnitude of <code>0</code>.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zero</span><span class=\"_p\">)</span> <span class=\"_c1\">--&gt; 0, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "one",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on every axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on every axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.one</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 1, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on every axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on every axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.one</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 1, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "xAxis",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the X axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the X axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.xAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>X</strong> axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>X</strong> axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.xAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "yAxis",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Y axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Y axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.yAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 1, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1 </code>on the <strong>Y</strong> axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>Y</strong> axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.yAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 1, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "zAxis",
 					"Type": "Vector3",
-					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Z axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of 1 on the Z axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 0, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+					"Summary": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>Z</strong> axis.</p>\n",
+					"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> with a value of <code>1</code> on the <strong>Z</strong> axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector3.html\">Vector3</a> global as opposed to an individual <a href=\"/ref/type/Vector3.html\">Vector3</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector3.zAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 0, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 				},
 				{
 					"Name": "X",
 					"Type": "number",
-					"Summary": "<p>The x-coordinate of the Vector3.</p>\n",
-					"Description": "<p>The x-coordinate of the Vector3.</p>\n"
+					"Summary": "<p>The <strong>X</strong> coordinate of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n",
+					"Description": "<p>The <strong>X</strong> coordinate of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n"
 				},
 				{
 					"Name": "Y",
 					"Type": "number",
-					"Summary": "<p>The y-coordinate of the Vector3.</p>\n",
-					"Description": "<p>The y-coordinate of the Vector3.</p>\n"
+					"Summary": "<p>The <strong>Y</strong> coordinate of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n",
+					"Description": "<p>The <strong>Y</strong> coordinate of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n"
 				},
 				{
 					"Name": "Z",
 					"Type": "number",
-					"Summary": "<p>The z-coordinate of the Vector3.</p>\n",
-					"Description": "<p>The z-coordinate of the Vector3.</p>\n"
+					"Summary": "<p>The <strong>Z</strong> coordinate of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n",
+					"Description": "<p>The <strong>Z</strong> coordinate of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n"
 				},
 				{
 					"Name": "Magnitude",
 					"Type": "number",
-					"Summary": "<p>The length of the Vector3.</p>\n",
-					"Description": "<p>The length of the Vector3.</p>\n"
+					"Summary": "<p>The length of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n",
+					"Description": "<p>The length of the <a href=\"/ref/type/Vector3.html\">Vector3</a>.</p>\n"
 				},
 				{
 					"Name": "Unit",
 					"Type": "Vector3",
-					"Summary": "<p>A normalized copy of the <a href=\"/ref/type/Vector3.html\">Vector3</a> - one that has the same\ndirection as the original but a magnitude of 1.</p>\n",
-					"Description": "<p>A normalized copy of the <a href=\"/ref/type/Vector3.html\">Vector3</a> - one that has the same\ndirection as the original but a magnitude of 1.</p>\n"
+					"Summary": "<p>A normalized copy of the <a href=\"/ref/type/Vector3.html\">Vector3</a> - one that has the same\ndirection as the original but a magnitude of <code>1</code>.</p>\n",
+					"Description": "<p>A normalized copy of the <a href=\"/ref/type/Vector3.html\">Vector3</a> - one that has the same\ndirection as the original but a magnitude of <code>1</code>.</p>\n"
 				}
 			],
 			"Methods": [
@@ -34344,7 +34426,7 @@
 						}
 					],
 					"Summary": "<p>Returns a <a href=\"/ref/type/Vector3.html\">Vector3</a> linearly interpolated between this\n<a href=\"/ref/type/Vector3.html\">Vector3</a> and the given goal by the given alpha.</p>\n",
-					"Description": "<p>Returns a <a href=\"/ref/type/Vector3.html\">Vector3</a> linearly interpolated between this\n<a href=\"/ref/type/Vector3.html\">Vector3</a> and the given <code>goal</code> <a href=\"/ref/type/Vector3.html\">Vector3</a> by the fraction\n<code>alpha</code>.</p>\n<p>Note: the <code>alpha</code> value is <strong>not</strong> limited to the range [0, 1].</p>\n"
+					"Description": "<p>Returns a <a href=\"/ref/type/Vector3.html\">Vector3</a> linearly interpolated between this\n<a href=\"/ref/type/Vector3.html\">Vector3</a> and the given <code>goal</code> <a href=\"/ref/type/Vector3.html\">Vector3</a> by the fraction\n<code>alpha</code>. Note that <code>alpha</code> is <strong>not</strong> limited to the range <code>[0, 1]</code>.</p>\n"
 				},
 				{
 					"Name": "Max",
