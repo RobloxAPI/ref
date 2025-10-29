@@ -27,8 +27,6 @@
 		"PlayerReplicated",
 		"ReadOnly",
 		"Service",
-		"Settings",
-		"UserSettings",
 		"WriteOnly",
 		"Yields",
 		"backend"
@@ -4771,6 +4769,7 @@
 			"Removed": false,
 			"HasRemoved": false,
 			"Subclasses": [
+				"AnimationGraphDefinition",
 				"CurveAnimation",
 				"KeyframeSequence"
 			],
@@ -4999,6 +4998,45 @@
 					"Type": {
 						"Category": "Class",
 						"Name": "AnimationClip"
+					}
+				},
+				{
+					"Class": "AnimationClipProvider",
+					"Member": "GetAnimationNodeDefinition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnimationNodeType"
+					}
+				},
+				{
+					"Class": "AnimationClipProvider",
+					"Member": "GetAnimationNodeDefinition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AnimationClipProvider",
+					"Member": "GetAnimationNodeTypes",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
 					}
 				},
 				{
@@ -5511,6 +5549,18 @@
 				}
 			]
 		},
+		"AnimationGraphDefinition": {
+			"Name": "AnimationGraphDefinition",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"AnimationClip",
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			]
+		},
 		"AnimationImportData": {
 			"Name": "AnimationImportData",
 			"Removed": false,
@@ -5521,6 +5571,159 @@
 				"Instance",
 				"Object",
 				"<<<ROOT>>>"
+			]
+		},
+		"AnimationNode": {
+			"Name": "AnimationNode",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Object",
+				"<<<ROOT>>>"
+			]
+		},
+		"AnimationNodeDefinition": {
+			"Name": "AnimationNodeDefinition",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "InputPinData",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "BinaryString"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "NodeType",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnimationNodeType"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "AddInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "AddInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetConnectedWires",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetConnectedWires",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Instances"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetInputPins",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetOutputPins",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "RemoveInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "RemoveInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				}
 			]
 		},
 		"AnimationRigData": {
@@ -6394,6 +6597,45 @@
 				},
 				{
 					"Class": "AnimationTrack",
+					"Member": "GetParameter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "GetParameter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "GetParameterDefaults",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
 					"Member": "GetTargetInstance",
 					"MemberType": "Function",
 					"Removed": false,
@@ -6499,6 +6741,45 @@
 				{
 					"Class": "AnimationTrack",
 					"Member": "Play",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "SetParameter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "SetParameter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "SetParameter",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -9948,6 +10229,32 @@
 				},
 				{
 					"Class": "AssetImportService",
+					"Member": "GetFilesInDirAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "GetFilesInDirAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AssetImportService",
 					"Member": "GetPreset",
 					"MemberType": "Function",
 					"Removed": false,
@@ -10126,6 +10433,84 @@
 					"Type": {
 						"Category": "Class",
 						"Name": "AssetImportSession"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromContentAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromContentAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromContentAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromPathAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromPathAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromPathAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
 					}
 				},
 				{
@@ -39087,6 +39472,32 @@
 				},
 				{
 					"Class": "Chat",
+					"Member": "PlayerChatAvailabilityStatusChanged",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Class",
+						"Name": "Player"
+					}
+				},
+				{
+					"Class": "Chat",
+					"Member": "ReconcileCommunicationAccessCompleted",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "Chat",
 					"Member": "ServerToClientUnderOver13FilteredResponseSignal",
 					"MemberType": "Event",
 					"Removed": false,
@@ -64140,6 +64551,280 @@
 				"Instance",
 				"Object",
 				"<<<ROOT>>>"
+			]
+		},
+		"EncodingService": {
+			"Name": "EncodingService",
+			"Removed": false,
+			"HasRemoved": false,
+			"Subclasses": [],
+			"Superclasses": [
+				"Instance",
+				"Object",
+				"<<<ROOT>>>"
+			],
+			"Related": [
+				{
+					"Class": "EncodingService",
+					"Member": "Base64Decode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "Base64Decode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "Base64Encode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "Base64Encode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "CompressionAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeBufferHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeBufferHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "HashAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeBufferHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeStringHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeStringHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "HashAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeStringHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "DecompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "DecompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "CompressionAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "DecompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "GetDecompressedBufferSize",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "GetDecompressedBufferSize",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "CompressionAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "GetDecompressedBufferSize",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int",
+						"Optional": true
+					}
+				}
 			]
 		},
 		"EngineAPICloudProcessingService": {
@@ -90677,6 +91362,7 @@
 				"AnimationController",
 				"AnimationFromVideoCreatorService",
 				"AnimationFromVideoCreatorStudioService",
+				"AnimationNodeDefinition",
 				"AnimationRigData",
 				"AnimationStreamTrack",
 				"AnimationTrack",
@@ -90838,6 +91524,7 @@
 				"DynamicTextureAlpha",
 				"DynamicTextureLayerAlpha",
 				"EditableService",
+				"EncodingService",
 				"EngineAPICloudProcessingService",
 				"EulerRotationCurve",
 				"EventIngestService",
@@ -95285,6 +95972,32 @@
 					"Type": {
 						"Category": "Primitive",
 						"Name": "bool"
+					}
+				},
+				{
+					"Class": "Instance",
+					"Member": "QueryDescendants",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "Instance",
+					"Member": "QueryDescendants",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Instances"
 					}
 				},
 				{
@@ -117493,6 +118206,45 @@
 						"Category": "Primitive",
 						"Name": "string"
 					}
+				},
+				{
+					"Class": "MicroProfilerService",
+					"Member": "DumpToFileAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "MicroProfilerService",
+					"Member": "DumpToFileAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "MicroProfilerService",
+					"Member": "DumpToFileAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
 				}
 			]
 		},
@@ -121752,6 +122504,7 @@
 			"Removed": false,
 			"HasRemoved": true,
 			"Subclasses": [
+				"AnimationNode",
 				"Capture",
 				"ConfigSnapshot",
 				"EditableImage",
@@ -128758,6 +129511,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Class",
+						"Name": "Player"
+					}
+				},
+				{
+					"Class": "Chat",
+					"Member": "PlayerChatAvailabilityStatusChanged",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Class",
 						"Name": "Player"
@@ -148232,6 +148998,19 @@
 				},
 				{
 					"Class": "RunService",
+					"Member": "GetTotalScriptPlusExecutionTime",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "RunService",
 					"Member": "IsClient",
 					"MemberType": "Function",
 					"Removed": false,
@@ -148723,6 +149502,32 @@
 				},
 				{
 					"Class": "RuntimeContentService",
+					"Member": "RuntimeContentLRCleanup",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "RuntimeContentService",
+					"Member": "RuntimeContentLRCleanup",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "RuntimeContentService",
 					"Member": "RuntimeContentQuery",
 					"MemberType": "Event",
 					"Removed": false,
@@ -148742,6 +149547,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "RuntimeContentService",
+					"Member": "RuntimeContentQuery",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
@@ -156364,6 +157182,33 @@
 				},
 				{
 					"Class": "SocialService",
+					"Member": "GetExperienceEventAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "GetExperienceEventAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary",
+						"Optional": true
+					}
+				},
+				{
+					"Class": "SocialService",
 					"Member": "GetPartyAsync",
 					"MemberType": "Function",
 					"Removed": false,
@@ -156412,6 +157257,19 @@
 					"Type": {
 						"Category": "DataType",
 						"Name": "Instances"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "GetUpcomingExperienceEventsAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
 					}
 				},
 				{
@@ -164013,6 +164871,19 @@
 					"Type": {
 						"Category": "DataType",
 						"Name": "QDir"
+					}
+				},
+				{
+					"Class": "Studio",
+					"Member": "DefaultScriptSyncFileType",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "DefaultScriptSyncFileType"
 					}
 				},
 				{
@@ -174476,6 +175347,19 @@
 				{
 					"Class": "TeleportService",
 					"Member": "TeleportedPlacesBackHistory",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "TeleportService",
+					"Member": "TeleportedUniversesBackHistory",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -204763,6 +205647,19 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "SsrcFeedIdMappingUpdate",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "SubscribeStateChange",
 					"MemberType": "Event",
 					"Removed": false,
@@ -213670,6 +214567,33 @@
 					}
 				]
 			},
+			"GetAnimationNodeDefinition": {
+				"Class": "AnimationClipProvider",
+				"Name": "GetAnimationNodeDefinition",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "AnimationClipProvider",
+						"Member": "GetAnimationNodeDefinition",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Enum",
+							"Name": "AnimationNodeType"
+						}
+					}
+				]
+			},
+			"GetAnimationNodeTypes": {
+				"Class": "AnimationClipProvider",
+				"Name": "GetAnimationNodeTypes",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"GetAnimations": {
 				"Class": "AnimationClipProvider",
 				"Name": "GetAnimations",
@@ -213931,6 +214855,65 @@
 			"IsAgeRestricted": {
 				"Class": "AnimationFromVideoCreatorStudioService",
 				"Name": "IsAgeRestricted",
+				"MemberType": "Function",
+				"Removed": false
+			}
+		},
+		"AnimationNodeDefinition": {
+			"AddInputPin": {
+				"Class": "AnimationNodeDefinition",
+				"Name": "AddInputPin",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetConnectedWires": {
+				"Class": "AnimationNodeDefinition",
+				"Name": "GetConnectedWires",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetInputPins": {
+				"Class": "AnimationNodeDefinition",
+				"Name": "GetInputPins",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetOutputPins": {
+				"Class": "AnimationNodeDefinition",
+				"Name": "GetOutputPins",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"InputPinData": {
+				"Class": "AnimationNodeDefinition",
+				"Name": "InputPinData",
+				"MemberType": "Property",
+				"Removed": false
+			},
+			"NodeType": {
+				"Class": "AnimationNodeDefinition",
+				"Name": "NodeType",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "AnimationNodeDefinition",
+						"Member": "NodeType",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "AnimationNodeType"
+						}
+					}
+				]
+			},
+			"RemoveInputPin": {
+				"Class": "AnimationNodeDefinition",
+				"Name": "RemoveInputPin",
 				"MemberType": "Function",
 				"Removed": false
 			}
@@ -214276,6 +215259,18 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"GetParameter": {
+				"Class": "AnimationTrack",
+				"Name": "GetParameter",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetParameterDefaults": {
+				"Class": "AnimationTrack",
+				"Name": "GetParameterDefaults",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"GetTargetInstance": {
 				"Class": "AnimationTrack",
 				"Name": "GetTargetInstance",
@@ -214359,6 +215354,12 @@
 						}
 					}
 				]
+			},
+			"SetParameter": {
+				"Class": "AnimationTrack",
+				"Name": "SetParameter",
+				"MemberType": "Function",
+				"Removed": false
 			},
 			"SetTargetInstance": {
 				"Class": "AnimationTrack",
@@ -216000,6 +217001,12 @@
 				"MemberType": "Function",
 				"Removed": true
 			},
+			"GetFilesInDirAsync": {
+				"Class": "AssetImportService",
+				"Name": "GetFilesInDirAsync",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"GetInstanceMap": {
 				"Class": "AssetImportService",
 				"Name": "GetInstanceMap",
@@ -216185,6 +217192,18 @@
 				"Name": "Upload",
 				"MemberType": "Function",
 				"Removed": true
+			},
+			"UploadAssetFromContentAsync": {
+				"Class": "AssetImportService",
+				"Name": "UploadAssetFromContentAsync",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"UploadAssetFromPathAsync": {
+				"Class": "AssetImportService",
+				"Name": "UploadAssetFromPathAsync",
+				"MemberType": "Function",
+				"Removed": false
 			},
 			"UploadCurrentMesh": {
 				"Class": "AssetImportService",
@@ -229649,6 +230668,27 @@
 				"MemberType": "Property",
 				"Removed": false
 			},
+			"PlayerChatAvailabilityStatusChanged": {
+				"Class": "Chat",
+				"Name": "PlayerChatAvailabilityStatusChanged",
+				"MemberType": "Event",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Chat",
+						"Member": "PlayerChatAvailabilityStatusChanged",
+						"MemberType": "Event",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 0,
+						"Type": {
+							"Category": "Class",
+							"Name": "Player"
+						}
+					}
+				]
+			},
 			"ReconcileCommunicationAccess": {
 				"Class": "Chat",
 				"Name": "ReconcileCommunicationAccess",
@@ -239172,6 +240212,125 @@
 						"Type": {
 							"Category": "Enum",
 							"Name": "EditableStatus"
+						}
+					}
+				]
+			}
+		},
+		"EncodingService": {
+			"Base64Decode": {
+				"Class": "EncodingService",
+				"Name": "Base64Decode",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"Base64Encode": {
+				"Class": "EncodingService",
+				"Name": "Base64Encode",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"CompressBuffer": {
+				"Class": "EncodingService",
+				"Name": "CompressBuffer",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "EncodingService",
+						"Member": "CompressBuffer",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "CompressionAlgorithm"
+						}
+					}
+				]
+			},
+			"ComputeBufferHash": {
+				"Class": "EncodingService",
+				"Name": "ComputeBufferHash",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "EncodingService",
+						"Member": "ComputeBufferHash",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "HashAlgorithm"
+						}
+					}
+				]
+			},
+			"ComputeStringHash": {
+				"Class": "EncodingService",
+				"Name": "ComputeStringHash",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "EncodingService",
+						"Member": "ComputeStringHash",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "HashAlgorithm"
+						}
+					}
+				]
+			},
+			"DecompressBuffer": {
+				"Class": "EncodingService",
+				"Name": "DecompressBuffer",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "EncodingService",
+						"Member": "DecompressBuffer",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "CompressionAlgorithm"
+						}
+					}
+				]
+			},
+			"GetDecompressedBufferSize": {
+				"Class": "EncodingService",
+				"Name": "GetDecompressedBufferSize",
+				"MemberType": "Function",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "EncodingService",
+						"Member": "GetDecompressedBufferSize",
+						"MemberType": "Function",
+						"Removed": false,
+						"Field": "Parameters",
+						"Kind": "Parameter",
+						"Index": 1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "CompressionAlgorithm"
 						}
 					}
 				]
@@ -252580,6 +253739,12 @@
 					}
 				]
 			},
+			"QueryDescendants": {
+				"Class": "Instance",
+				"Name": "QueryDescendants",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"Remove": {
 				"Class": "Instance",
 				"Name": "Remove",
@@ -259969,6 +261134,12 @@
 				"Class": "MicroProfilerService",
 				"Name": "ContextLabel",
 				"MemberType": "Property",
+				"Removed": false
+			},
+			"DumpToFileAsync": {
+				"Class": "MicroProfilerService",
+				"Name": "DumpToFileAsync",
+				"MemberType": "Function",
 				"Removed": false
 			}
 		},
@@ -273631,6 +274802,12 @@
 				"MemberType": "Function",
 				"Removed": false
 			},
+			"GetTotalScriptPlusExecutionTime": {
+				"Class": "RunService",
+				"Name": "GetTotalScriptPlusExecutionTime",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"Heartbeat": {
 				"Class": "RunService",
 				"Name": "Heartbeat",
@@ -273834,6 +275011,12 @@
 			"RuntimeContentFail": {
 				"Class": "RuntimeContentService",
 				"Name": "RuntimeContentFail",
+				"MemberType": "Event",
+				"Removed": false
+			},
+			"RuntimeContentLRCleanup": {
+				"Class": "RuntimeContentService",
+				"Name": "RuntimeContentLRCleanup",
 				"MemberType": "Event",
 				"Removed": false
 			},
@@ -277347,6 +278530,12 @@
 					}
 				]
 			},
+			"GetExperienceEventAsync": {
+				"Class": "SocialService",
+				"Name": "GetExperienceEventAsync",
+				"MemberType": "Function",
+				"Removed": false
+			},
 			"GetPartyAsync": {
 				"Class": "SocialService",
 				"Name": "GetPartyAsync",
@@ -277356,6 +278545,12 @@
 			"GetPlayersByPartyId": {
 				"Class": "SocialService",
 				"Name": "GetPlayersByPartyId",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"GetUpcomingExperienceEventsAsync": {
+				"Class": "SocialService",
+				"Name": "GetUpcomingExperienceEventsAsync",
 				"MemberType": "Function",
 				"Removed": false
 			},
@@ -281161,6 +282356,27 @@
 				"Name": "DefaultScriptFileDir",
 				"MemberType": "Property",
 				"Removed": true
+			},
+			"DefaultScriptSyncFileType": {
+				"Class": "Studio",
+				"Name": "DefaultScriptSyncFileType",
+				"MemberType": "Property",
+				"Removed": false,
+				"Related": [
+					{
+						"Class": "Studio",
+						"Member": "DefaultScriptSyncFileType",
+						"MemberType": "Property",
+						"Removed": false,
+						"Field": "ValueType",
+						"Kind": "Type",
+						"Index": -1,
+						"Type": {
+							"Category": "Enum",
+							"Name": "DefaultScriptSyncFileType"
+						}
+					}
+				]
 			},
 			"DeprecatedObjectsShown": {
 				"Class": "Studio",
@@ -285814,6 +287030,12 @@
 			"TeleportedPlacesBackHistory": {
 				"Class": "TeleportService",
 				"Name": "TeleportedPlacesBackHistory",
+				"MemberType": "Function",
+				"Removed": false
+			},
+			"TeleportedUniversesBackHistory": {
+				"Class": "TeleportService",
+				"Name": "TeleportedUniversesBackHistory",
 				"MemberType": "Function",
 				"Removed": false
 			},
@@ -303585,6 +304807,70 @@
 				}
 			]
 		},
+		"AnimationNodeType": {
+			"Name": "AnimationNodeType",
+			"Removed": false,
+			"ItemsByValue": [
+				"InvalidNode",
+				"AddNode",
+				"BlendNode",
+				"Blend1DNode",
+				"Blend2DNode",
+				"ClipNode",
+				"GraphOutput",
+				"MaskNode",
+				"PrioritySelectNode",
+				"RandomSequenceNode",
+				"SelectNode",
+				"SequenceNode",
+				"SpeedNode",
+				"SubtractNode"
+			],
+			"ItemsByIndex": [
+				"InvalidNode",
+				"AddNode",
+				"BlendNode",
+				"Blend1DNode",
+				"Blend2DNode",
+				"ClipNode",
+				"GraphOutput",
+				"MaskNode",
+				"PrioritySelectNode",
+				"RandomSequenceNode",
+				"SelectNode",
+				"SequenceNode",
+				"SpeedNode",
+				"SubtractNode"
+			],
+			"Related": [
+				{
+					"Class": "AnimationClipProvider",
+					"Member": "GetAnimationNodeDefinition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnimationNodeType"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "NodeType",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "AnimationNodeType"
+					}
+				}
+			]
+		},
 		"AnimationPriority": {
 			"Name": "AnimationPriority",
 			"Removed": false,
@@ -308158,6 +309444,57 @@
 				"TriggerForIncompleteCompletions"
 			]
 		},
+		"CompressionAlgorithm": {
+			"Name": "CompressionAlgorithm",
+			"Removed": false,
+			"ItemsByValue": [
+				"Zstd"
+			],
+			"ItemsByIndex": [
+				"Zstd"
+			],
+			"Related": [
+				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "CompressionAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "DecompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "CompressionAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "GetDecompressedBufferSize",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "CompressionAlgorithm"
+					}
+				}
+			]
+		},
 		"ComputerCameraMovementMode": {
 			"Name": "ComputerCameraMovementMode",
 			"Removed": false,
@@ -309353,6 +310690,33 @@
 				}
 			]
 		},
+		"DefaultScriptSyncFileType": {
+			"Name": "DefaultScriptSyncFileType",
+			"Removed": false,
+			"ItemsByValue": [
+				"Lua",
+				"Luau"
+			],
+			"ItemsByIndex": [
+				"Lua",
+				"Luau"
+			],
+			"Related": [
+				{
+					"Class": "Studio",
+					"Member": "DefaultScriptSyncFileType",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "DefaultScriptSyncFileType"
+					}
+				}
+			]
+		},
 		"DevCameraOcclusionMode": {
 			"Name": "DevCameraOcclusionMode",
 			"Removed": false,
@@ -310480,6 +311844,24 @@
 			"ItemsByIndex": [
 				"DefaultScope",
 				"CreatorAssetsCreate"
+			]
+		},
+		"ExperienceEventStatus": {
+			"Name": "ExperienceEventStatus",
+			"Removed": false,
+			"ItemsByValue": [
+				"Active",
+				"Cancelled",
+				"Moderated",
+				"Unpublished",
+				"Unknown"
+			],
+			"ItemsByIndex": [
+				"Active",
+				"Cancelled",
+				"Moderated",
+				"Unpublished",
+				"Unknown"
 			]
 		},
 		"ExperienceStateRecordingLoadMode": {
@@ -312548,6 +313930,52 @@
 					"Type": {
 						"Category": "Enum",
 						"Name": "HapticEffectType"
+					}
+				}
+			]
+		},
+		"HashAlgorithm": {
+			"Name": "HashAlgorithm",
+			"Removed": false,
+			"ItemsByValue": [
+				"Blake2b",
+				"Blake3",
+				"Md5",
+				"Sha1",
+				"Sha256"
+			],
+			"ItemsByIndex": [
+				"Blake2b",
+				"Blake3",
+				"Md5",
+				"Sha1",
+				"Sha256"
+			],
+			"Related": [
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeBufferHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "HashAlgorithm"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeStringHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Enum",
+						"Name": "HashAlgorithm"
 					}
 				}
 			]
@@ -317073,14 +318501,14 @@
 			"ItemsByValue": [
 				"Automatic",
 				"StreamingMesh",
-				"SLIM",
-				"Disabled"
+				"Disabled",
+				"SLIM"
 			],
 			"ItemsByIndex": [
 				"Automatic",
 				"StreamingMesh",
-				"SLIM",
-				"Disabled"
+				"Disabled",
+				"SLIM"
 			],
 			"Related": [
 				{
@@ -322089,7 +323517,17 @@
 				"RemoteEvent",
 				"LegacySound",
 				"Players",
-				"CapabilityControl"
+				"CapabilityControl",
+				"Plugin",
+				"LocalUser",
+				"WritePlayer",
+				"RobloxScript",
+				"RobloxEngine",
+				"Unassigned",
+				"InternalTest",
+				"PluginOrOpenCloud",
+				"Assistant",
+				"RemoteCommand"
 			],
 			"ItemsByIndex": [
 				"RunClientScript",
@@ -322114,7 +323552,17 @@
 				"RemoteEvent",
 				"LegacySound",
 				"Players",
-				"CapabilityControl"
+				"CapabilityControl",
+				"Plugin",
+				"LocalUser",
+				"WritePlayer",
+				"RobloxScript",
+				"RobloxEngine",
+				"Unassigned",
+				"InternalTest",
+				"PluginOrOpenCloud",
+				"Assistant",
+				"RemoteCommand"
 			]
 		},
 		"SelectionBehavior": {
@@ -326362,14 +327810,16 @@
 				"NeedPermission",
 				"CaptureModerated",
 				"CaptureNotInGallery",
-				"IneligibleCapture"
+				"IneligibleCapture",
+				"UploadQuotaReached"
 			],
 			"ItemsByIndex": [
 				"Success",
 				"NeedPermission",
 				"CaptureModerated",
 				"CaptureNotInGallery",
-				"IneligibleCapture"
+				"IneligibleCapture",
+				"UploadQuotaReached"
 			]
 		},
 		"UploadSetting": {
@@ -329302,6 +330752,78 @@
 				"Enum": "AnimationCompositorMode",
 				"Name": "Enabled",
 				"Removed": true
+			}
+		},
+		"AnimationNodeType": {
+			"AddNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "AddNode",
+				"Removed": false
+			},
+			"Blend1DNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "Blend1DNode",
+				"Removed": false
+			},
+			"Blend2DNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "Blend2DNode",
+				"Removed": false
+			},
+			"BlendNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "BlendNode",
+				"Removed": false
+			},
+			"ClipNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "ClipNode",
+				"Removed": false
+			},
+			"GraphOutput": {
+				"Enum": "AnimationNodeType",
+				"Name": "GraphOutput",
+				"Removed": false
+			},
+			"InvalidNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "InvalidNode",
+				"Removed": false
+			},
+			"MaskNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "MaskNode",
+				"Removed": false
+			},
+			"PrioritySelectNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "PrioritySelectNode",
+				"Removed": false
+			},
+			"RandomSequenceNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "RandomSequenceNode",
+				"Removed": false
+			},
+			"SelectNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "SelectNode",
+				"Removed": false
+			},
+			"SequenceNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "SequenceNode",
+				"Removed": false
+			},
+			"SpeedNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "SpeedNode",
+				"Removed": false
+			},
+			"SubtractNode": {
+				"Enum": "AnimationNodeType",
+				"Name": "SubtractNode",
+				"Removed": false
 			}
 		},
 		"AnimationPriority": {
@@ -332263,6 +333785,13 @@
 				"Removed": false
 			}
 		},
+		"CompressionAlgorithm": {
+			"Zstd": {
+				"Enum": "CompressionAlgorithm",
+				"Name": "Zstd",
+				"Removed": false
+			}
+		},
 		"ComputerCameraMovementMode": {
 			"CameraToggle": {
 				"Enum": "ComputerCameraMovementMode",
@@ -333556,6 +335085,18 @@
 				"Removed": true
 			}
 		},
+		"DefaultScriptSyncFileType": {
+			"Lua": {
+				"Enum": "DefaultScriptSyncFileType",
+				"Name": "Lua",
+				"Removed": false
+			},
+			"Luau": {
+				"Enum": "DefaultScriptSyncFileType",
+				"Name": "Luau",
+				"Removed": false
+			}
+		},
 		"DevCameraOcclusionMode": {
 			"Invisicam": {
 				"Enum": "DevCameraOcclusionMode",
@@ -334298,6 +335839,33 @@
 			"DefaultScope": {
 				"Enum": "ExperienceAuthScope",
 				"Name": "DefaultScope",
+				"Removed": false
+			}
+		},
+		"ExperienceEventStatus": {
+			"Active": {
+				"Enum": "ExperienceEventStatus",
+				"Name": "Active",
+				"Removed": false
+			},
+			"Cancelled": {
+				"Enum": "ExperienceEventStatus",
+				"Name": "Cancelled",
+				"Removed": false
+			},
+			"Moderated": {
+				"Enum": "ExperienceEventStatus",
+				"Name": "Moderated",
+				"Removed": false
+			},
+			"Unknown": {
+				"Enum": "ExperienceEventStatus",
+				"Name": "Unknown",
+				"Removed": false
+			},
+			"Unpublished": {
+				"Enum": "ExperienceEventStatus",
+				"Name": "Unpublished",
 				"Removed": false
 			}
 		},
@@ -335915,6 +337483,33 @@
 			"UINotification": {
 				"Enum": "HapticEffectType",
 				"Name": "UINotification",
+				"Removed": false
+			}
+		},
+		"HashAlgorithm": {
+			"Blake2b": {
+				"Enum": "HashAlgorithm",
+				"Name": "Blake2b",
+				"Removed": false
+			},
+			"Blake3": {
+				"Enum": "HashAlgorithm",
+				"Name": "Blake3",
+				"Removed": false
+			},
+			"Md5": {
+				"Enum": "HashAlgorithm",
+				"Name": "Md5",
+				"Removed": false
+			},
+			"Sha1": {
+				"Enum": "HashAlgorithm",
+				"Name": "Sha1",
+				"Removed": false
+			},
+			"Sha256": {
+				"Enum": "HashAlgorithm",
+				"Name": "Sha256",
 				"Removed": false
 			}
 		},
@@ -342626,6 +344221,11 @@
 				"Name": "AssetRequire",
 				"Removed": false
 			},
+			"Assistant": {
+				"Enum": "SecurityCapability",
+				"Name": "Assistant",
+				"Removed": false
+			},
 			"Audio": {
 				"Enum": "SecurityCapability",
 				"Name": "Audio",
@@ -342676,6 +344276,11 @@
 				"Name": "Input",
 				"Removed": false
 			},
+			"InternalTest": {
+				"Enum": "SecurityCapability",
+				"Name": "InternalTest",
+				"Removed": false
+			},
 			"LegacySound": {
 				"Enum": "SecurityCapability",
 				"Name": "LegacySound",
@@ -342684,6 +344289,11 @@
 			"LoadString": {
 				"Enum": "SecurityCapability",
 				"Name": "LoadString",
+				"Removed": false
+			},
+			"LocalUser": {
+				"Enum": "SecurityCapability",
+				"Name": "LocalUser",
 				"Removed": false
 			},
 			"Network": {
@@ -342701,9 +344311,34 @@
 				"Name": "Players",
 				"Removed": false
 			},
+			"Plugin": {
+				"Enum": "SecurityCapability",
+				"Name": "Plugin",
+				"Removed": false
+			},
+			"PluginOrOpenCloud": {
+				"Enum": "SecurityCapability",
+				"Name": "PluginOrOpenCloud",
+				"Removed": false
+			},
+			"RemoteCommand": {
+				"Enum": "SecurityCapability",
+				"Name": "RemoteCommand",
+				"Removed": false
+			},
 			"RemoteEvent": {
 				"Enum": "SecurityCapability",
 				"Name": "RemoteEvent",
+				"Removed": false
+			},
+			"RobloxEngine": {
+				"Enum": "SecurityCapability",
+				"Name": "RobloxEngine",
+				"Removed": false
+			},
+			"RobloxScript": {
+				"Enum": "SecurityCapability",
+				"Name": "RobloxScript",
 				"Removed": false
 			},
 			"RunClientScript": {
@@ -342724,6 +344359,16 @@
 			"UI": {
 				"Enum": "SecurityCapability",
 				"Name": "UI",
+				"Removed": false
+			},
+			"Unassigned": {
+				"Enum": "SecurityCapability",
+				"Name": "Unassigned",
+				"Removed": false
+			},
+			"WritePlayer": {
+				"Enum": "SecurityCapability",
+				"Name": "WritePlayer",
 				"Removed": false
 			}
 		},
@@ -346087,6 +347732,11 @@
 				"Enum": "UploadCaptureResult",
 				"Name": "Success",
 				"Removed": false
+			},
+			"UploadQuotaReached": {
+				"Enum": "UploadCaptureResult",
+				"Name": "UploadQuotaReached",
+				"Removed": false
 			}
 		},
 		"UploadSetting": {
@@ -347289,8 +348939,47 @@
 					}
 				},
 				{
+					"Class": "AnimationClipProvider",
+					"Member": "GetAnimationNodeTypes",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
 					"Class": "AnimationController",
 					"Member": "GetPlayingAnimationTracks",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetInputPins",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetOutputPins",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -347408,6 +349097,19 @@
 				{
 					"Class": "Animator",
 					"Member": "GetPlayingAnimationTracksCoreScript",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "GetFilesInDirAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -350644,6 +352346,19 @@
 				},
 				{
 					"Class": "SocialService",
+					"Member": "GetUpcomingExperienceEventsAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "SocialService",
 					"Member": "InvokeGameInvitePromptClosed",
 					"MemberType": "Function",
 					"Removed": false,
@@ -350840,6 +352555,19 @@
 				{
 					"Class": "TeleportService",
 					"Member": "TeleportedPlacesBackHistory",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Array"
+					}
+				},
+				{
+					"Class": "TeleportService",
+					"Member": "TeleportedUniversesBackHistory",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -352388,6 +354116,19 @@
 				{
 					"Class": "AnimationClip",
 					"Member": "GuidBinaryString",
+					"MemberType": "Property",
+					"Removed": false,
+					"Field": "ValueType",
+					"Kind": "Type",
+					"Index": -1,
+					"Type": {
+						"Category": "DataType",
+						"Name": "BinaryString"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "InputPinData",
 					"MemberType": "Property",
 					"Removed": false,
 					"Field": "ValueType",
@@ -361107,7 +362848,33 @@
 				},
 				{
 					"Class": "AnimationClipProvider",
+					"Member": "GetAnimationNodeDefinition",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AnimationClipProvider",
 					"Member": "GetMemStats",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "GetParameterDefaults",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -361173,6 +362940,32 @@
 				{
 					"Class": "AssetImportService",
 					"Member": "SavePreset",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromContentAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromPathAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -364221,6 +366014,20 @@
 					"Type": {
 						"Category": "Group",
 						"Name": "Dictionary"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "GetExperienceEventAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Dictionary",
+						"Optional": true
 					}
 				},
 				{
@@ -367780,6 +369587,19 @@
 			"Removed": false,
 			"Related": [
 				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetConnectedWires",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Instances"
+					}
+				},
+				{
 					"Class": "AnnotationsService",
 					"Member": "GetAnnotationThreads",
 					"MemberType": "Function",
@@ -368705,6 +370525,19 @@
 				{
 					"Class": "Instance",
 					"Member": "GetChildren",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "Instances"
+					}
+				},
+				{
+					"Class": "Instance",
+					"Member": "QueryDescendants",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -373675,6 +375508,32 @@
 					}
 				},
 				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromContentAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromPathAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Tuple"
+					}
+				},
+				{
 					"Class": "AssetService",
 					"Member": "CreateAssetAsync",
 					"MemberType": "Function",
@@ -377039,6 +378898,32 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 5,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "GetParameter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Group",
+						"Name": "Variant"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "SetParameter",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Group",
 						"Name": "Variant"
@@ -410730,6 +412615,149 @@
 					}
 				},
 				{
+					"Class": "EncodingService",
+					"Member": "Base64Decode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "Base64Decode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "Base64Encode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "Base64Encode",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeBufferHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeBufferHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "DecompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "DecompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "GetDecompressedBufferSize",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "DataType",
+						"Name": "buffer"
+					}
+				},
+				{
 					"Class": "HeapProfilerService",
 					"Member": "OnNewData",
 					"MemberType": "Event",
@@ -411563,6 +413591,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "double"
+					}
+				},
+				{
+					"Class": "RunService",
+					"Member": "GetTotalScriptPlusExecutionTime",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "double"
@@ -427825,6 +429866,33 @@
 					}
 				},
 				{
+					"Class": "EncodingService",
+					"Member": "CompressBuffer",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "GetDecompressedBufferSize",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int",
+						"Optional": true
+					}
+				},
+				{
 					"Class": "ExplorerFilter",
 					"Member": "GetSearchResults",
 					"MemberType": "Function",
@@ -429535,6 +431603,32 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "MicroProfilerService",
+					"Member": "DumpToFileAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int"
+					}
+				},
+				{
+					"Class": "MicroProfilerService",
+					"Member": "DumpToFileAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "int"
@@ -444829,6 +446923,19 @@
 				},
 				{
 					"Class": "VoiceChatService",
+					"Member": "SsrcFeedIdMappingUpdate",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "int64"
+					}
+				},
+				{
+					"Class": "VoiceChatService",
 					"Member": "SubscriptionFeedStarted",
 					"MemberType": "Event",
 					"Removed": false,
@@ -446356,6 +448463,32 @@
 					}
 				},
 				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "AddInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "RemoveInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
 					"Class": "AnimationStreamTrack",
 					"Member": "AdjustWeight",
 					"MemberType": "Function",
@@ -446436,6 +448569,19 @@
 				{
 					"Class": "AnimationTrack",
 					"Member": "Play",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "null"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "SetParameter",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "ReturnType",
@@ -463367,8 +465513,60 @@
 					}
 				},
 				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "AddInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "GetConnectedWires",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationNodeDefinition",
+					"Member": "RemoveInputPin",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
 					"Class": "AnimationTrack",
 					"Member": "GetMarkerReachedSignal",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "GetParameter",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -463395,6 +465593,19 @@
 				{
 					"Class": "AnimationTrack",
 					"Member": "GetTimeOfKeyframe",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AnimationTrack",
+					"Member": "SetParameter",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -463706,6 +465917,19 @@
 				},
 				{
 					"Class": "AssetImportService",
+					"Member": "GetFilesInDirAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AssetImportService",
 					"Member": "GetPreset",
 					"MemberType": "Function",
 					"Removed": false,
@@ -463785,6 +466009,32 @@
 				{
 					"Class": "AssetImportService",
 					"Member": "StartSessionWithPathAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromContentAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "AssetImportService",
+					"Member": "UploadAssetFromPathAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -466344,6 +468594,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 3,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "Chat",
+					"Member": "ReconcileCommunicationAccessCompleted",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
@@ -468989,6 +471252,32 @@
 					}
 				},
 				{
+					"Class": "EncodingService",
+					"Member": "ComputeStringHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "EncodingService",
+					"Member": "ComputeStringHash",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
 					"Class": "EventIngestService",
 					"Member": "SendEventDeferred",
 					"MemberType": "Function",
@@ -471579,6 +473868,19 @@
 				{
 					"Class": "Instance",
 					"Member": "IsPropertyModified",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "Instance",
+					"Member": "QueryDescendants",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
@@ -475123,6 +477425,19 @@
 					"Field": "ValueType",
 					"Kind": "Type",
 					"Index": -1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "MicroProfilerService",
+					"Member": "DumpToFileAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "ReturnType",
+					"Kind": "Type",
+					"Index": 0,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
@@ -479253,6 +481568,32 @@
 				},
 				{
 					"Class": "RuntimeContentService",
+					"Member": "RuntimeContentLRCleanup",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "RuntimeContentService",
+					"Member": "RuntimeContentLRCleanup",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "RuntimeContentService",
 					"Member": "RuntimeContentQuery",
 					"MemberType": "Event",
 					"Removed": false,
@@ -479272,6 +481613,19 @@
 					"Field": "Parameters",
 					"Kind": "Parameter",
 					"Index": 1,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "RuntimeContentService",
+					"Member": "RuntimeContentQuery",
+					"MemberType": "Event",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 2,
 					"Type": {
 						"Category": "Primitive",
 						"Name": "string"
@@ -480347,6 +482701,19 @@
 				{
 					"Class": "SocialService",
 					"Member": "GetEventRsvpStatusAsync",
+					"MemberType": "Function",
+					"Removed": false,
+					"Field": "Parameters",
+					"Kind": "Parameter",
+					"Index": 0,
+					"Type": {
+						"Category": "Primitive",
+						"Name": "string"
+					}
+				},
+				{
+					"Class": "SocialService",
+					"Member": "GetExperienceEventAsync",
 					"MemberType": "Function",
 					"Removed": false,
 					"Field": "Parameters",
