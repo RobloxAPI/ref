@@ -5342,15 +5342,16 @@ Change ReturnType of <a class="entity-link deco" href=/ref/class/Player.html#mem
 v0.481.0.423686
 version-a9bf28344668488d">481</a>
 Add <a class="entity-link deco" href=/ref/class/Player.html#member-GetNetworkPing><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetNetworkPing</a></li></ul></details></section><section id=member-GetRankInGroup class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetRankInGroup<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Player#GetRankInGroup target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-groupId><td class=col-name>groupId</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/int.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>int</a></td></tr></tbody></table><div class=docs><p>This method returns the player's rank in the group as an integer between
-<code>0</code> and <code>255</code>, where <code>0</code> is a non-member and <code>255</code> is the group's owner.</p><p>Using this in a <a href=/ref/class/Script.html>Script</a>, as opposed to a <a href=/ref/class/LocalScript.html>LocalScript</a>, will
-not get you the most up-to-date information. If a player leaves a group
-while they are in the experience, <code>GetRankInGroup()</code> will still think
-they're in that group until they leave. However, this does not happen when
-used with a <a href=/ref/class/LocalScript.html>LocalScript</a> because the method caches results, so
-multiple calls of <code>GetRankInGroup()</code> on the same player with the same
-group ID will yield the same result as when the method was first called
-with the given group ID. The caching behavior is on a per-peer basis: a
-server does not share the same cache as a client.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1771 title="Changed on 2021-01-15T15:56:17-08:00
+<code>0</code> and <code>255</code>, where <code>0</code> is a non-member and <code>255</code> is the group's owner.</p><p>This call may not yield the most up-to-date information. If a player
+leaves a group while they are in the experience, <code>GetRankInGroup()</code> will
+still think they're in that group until they leave. However, this does not
+happen when used with a <a href=/ref/class/LocalScript.html>LocalScript</a> because the method caches
+results, so multiple calls of <code>GetRankInGroup()</code> on the same player with
+the same group ID will yield the same result as when the method was first
+called with the given group ID. The caching behavior is on a per-peer
+basis: a server does not share the same cache as a client.</p><p>When a player joins a group in-experience due to a call to
+<a href=/ref/class/GroupService.html#member-PromptJoinAsync>GroupService:PromptJoinAsync()</a>, any cached value for that player
+will be cleared on the client where the prompt was shown.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1771 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Player.html#member-GetRankInGroup><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetRankInGroup</a>
@@ -5368,15 +5369,16 @@ Change Parameters of <a class="entity-link deco" href=/ref/class/Player.html#mem
 v0.69.0.646
 version-c1e3ff7c94e44086">69</a>
 Add <a class="entity-link deco" href=/ref/class/Player.html#member-GetRankInGroup><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetRankInGroup</a></li></ul></details><div class=tags>Tags: [Yields]</div></section><section id=member-GetRoleInGroup class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetRoleInGroup<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Player#GetRoleInGroup target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-groupId><td class=col-name>groupId</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/string.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>string</a></td></tr></tbody></table><div class=docs><p>This method returns the player's role in the group as a string, or <code>Guest</code>
-if the player isn't part of the group.</p><p>Using this in a <a href=/ref/class/Script.html>Script</a>, as opposed to a <a href=/ref/class/LocalScript.html>LocalScript</a>, will
-not get you the most up-to-date information. If a player leaves a group
-while they are in the experience, <code>GetRoleInGroup()</code> will still think
-they're in that group until they leave. However, this does not happen when
-used with a <a href=/ref/class/LocalScript.html>LocalScript</a> because the method caches results, so
-multiple calls of <code>GetRoleInGroup()</code> on the same player with the same
-group ID will yield the same result as when the method was first called
-with the given group ID. The caching behavior is on a per-peer basis: a
-server does not share the same cache as a client.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1772 title="Changed on 2021-01-15T15:56:17-08:00
+if the player isn't part of the group.</p><p>This call may not yield the most up-to-date information. If a player
+leaves a group while they are in the experience, <code>GetRoleInGroup()</code> will
+still think they're in that group until they leave. However, this does not
+happen when used with a <a href=/ref/class/LocalScript.html>LocalScript</a> because the method caches
+results, so multiple calls of <code>GetRoleInGroup()</code> on the same player with
+the same group ID will yield the same result as when the method was first
+called with the given group ID. The caching behavior is on a per-peer
+basis: a server does not share the same cache as a client.</p><p>When a player joins a group in-experience due to a call to
+<a href=/ref/class/GroupService.html#member-PromptJoinAsync>GroupService:PromptJoinAsync()</a>, any cached value for that player
+will be cleared on the client where the prompt was shown.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1772 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Player.html#member-GetRoleInGroup><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetRoleInGroup</a>
@@ -5575,15 +5577,16 @@ Change Parameters of <a class="entity-link deco" href=/ref/class/Player.html#mem
 v0.47.0.380
 version-87de5333d4254860">47</a>
 Add <a class="entity-link deco" href=/ref/class/Player.html#member-IsFriendsWith><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>IsFriendsWith</a></li></ul></details><div class=tags>Tags: [Yields]</div></section><section id=member-IsInGroup class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>IsInGroup<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Player#IsInGroup target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-groupId><td class=col-name>groupId</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/bool.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>bool</a></td></tr></tbody></table><div class=docs><p>This method sends a request to Roblox asking whether a player is a member
-of a group, given the ID of that group.</p><p>Using this in a <a href=/ref/class/Script.html>Script</a>, as opposed to a <a href=/ref/class/LocalScript.html>LocalScript</a>, will
-not get you the most up-to-date information. If a player leaves a group
-while they are in the experience, <code>IsInGroup()</code> will still think they're
-in that group until they leave. However, this does not happen when used
-with a <a href=/ref/class/LocalScript.html>LocalScript</a> because the method caches results, so multiple
-calls of <code>IsInGroup()</code> on the same player with the same group ID will
-yield the same result as when the method was first called with the given
-group ID. The caching behavior is on a per-peer basis: a server does not
-share the same cache as a client.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1777 title="Changed on 2021-01-15T15:56:17-08:00
+of a group, given the ID of that group.</p><p>This call may not yield the most up-to-date information. If a player
+leaves a group while they are in the experience, <code>IsInGroup()</code> will still
+think they're in that group until they leave. However, this does not
+happen when used with a <a href=/ref/class/LocalScript.html>LocalScript</a> because the method caches
+results, so multiple calls of <code>IsInGroup()</code> on the same player with the
+same group ID will yield the same result as when the method was first
+called with the given group ID. The caching behavior is on a per-peer
+basis: a server does not share the same cache as a client.</p><p>When a player joins a group in-experience due to a call to
+<a href=/ref/class/GroupService.html#member-PromptJoinAsync>GroupService:PromptJoinAsync()</a>, any cached value for that player
+will be cleared on the client where the prompt was shown.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1777 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Player.html#member-IsInGroup><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>IsInGroup</a>
