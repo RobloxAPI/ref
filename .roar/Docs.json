@@ -459,8 +459,8 @@
 		},
 		"Chat": {
 			"Summary": "<p>Houses the Luau code responsible for running the legacy chat system.</p>\n",
-			"Description": "<p>The <strong>Chat</strong> service houses the Luau code responsible for running the\n<a href=\"https://create.roblox.com/docs/chat/legacy/legacy-chat-system\">legacy chat system</a>. Similar to\n<a href=\"/ref/class/StarterPlayerScripts.html\">StarterPlayerScripts</a>, default objects like <a href=\"/ref/class/Script.html\">Scripts</a> and\n<a href=\"/ref/class/ModuleScript.html\">ModuleScripts</a> are inserted into the service.</p>\n",
-			"DeprecationMessage": "<p>This class is deprecated. Use <a href=\"/ref/class/TextChatService.html\">TextChatService</a> instead.</p>\n"
+			"Description": "<p>The <strong>Chat</strong> service houses the Luau code responsible for running the\n<a href=\"https://create.roblox.com/docs/chat/in-experience-text-chat#migrate-from-legacy-chat\">legacy chat system</a>. Similar to\n<a href=\"/ref/class/StarterPlayerScripts.html\">StarterPlayerScripts</a>, default objects like <a href=\"/ref/class/Script.html\">Scripts</a> and\n<a href=\"/ref/class/ModuleScript.html\">ModuleScripts</a> are inserted into the service.</p>\n",
+			"DeprecationMessage": "<p>This class is deprecated. Use <a href=\"/ref/class/TextService.html\">TextService</a> or <a href=\"/ref/class/TextChatService.html\">TextChatService</a> instead.</p>\n"
 		},
 		"ChatInputBarConfiguration": {
 			"Summary": "<p>Configures properties of the default chat input bar.</p>\n",
@@ -1769,7 +1769,7 @@
 		},
 		"RunService": {
 			"Summary": "<p>Service responsible for all runtime activity and progression of time.</p>\n",
-			"Description": "<p><code>RunService</code> contains methods and events for time management as well as for\nmanaging the context in which an experience or script is running. Methods like\n<a href=\"/ref/class/RunService.html#member-IsClient\">IsClient()</a>,\n<a href=\"/ref/class/RunService.html#member-IsServer\">IsServer()</a>, and\n<a href=\"/ref/class/RunService.html#member-IsStudio\">IsStudio()</a> can help you determine under what\ncontext code is running. These methods are useful for\n<a href=\"/ref/class/ModuleScript.html\">ModuleScripts</a> that may be required by both client and\nserver scripts. Furthermore, <a href=\"/ref/class/RunService.html#member-IsStudio\">IsStudio()</a> can be\nused to add special behaviors for in‑Studio testing.</p>\n<p><code>RunService</code> also houses events that allow your code to adhere to Roblox&#39;s\nframe‑by‑frame loop, such as <a href=\"/ref/class/RunService.html#member-PreRender\">PreRender</a>,\n<a href=\"/ref/class/RunService.html#member-PreAnimation\">PreAnimation</a>,\n<a href=\"/ref/class/RunService.html#member-PreSimulation\">PreSimulation</a>,\n<a href=\"/ref/class/RunService.html#member-PostSimulation\">PostSimulation</a>, and\n<a href=\"/ref/class/RunService.html#member-Heartbeat\">Heartbeat</a>. Selecting the proper event to use for\nany case is important, so you should read\n<a href=\"https://create.roblox.com/docs/performance-optimization/microprofiler/task-scheduler\">Task Scheduler</a>\nto make an informed decision.</p>\n<h3>Context Test Results</h3>\n<table size=\"small\">\n  <thead>\n    <tr>\n      <th>Environment</th>\n      <th><a href=\"/ref/class/RunService.html#member-IsStudio\">IsStudio</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsClient\">IsClient</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsServer\">IsServer</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsEdit\">IsEdit</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsRunning\">IsRunning</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsRunMode\">IsRunMode</a></th>\n    </tr>\n  </thead>\n<tbody>\n    <tr>\n      <td>Live Player</td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <td>Live Server</td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <td>Edit Mode</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Collaborative Edit</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Run Mode</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n    </tr>\n    <tr>\n      <td>Play Mode (Client)</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Play Mode (Server)</td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n    </tr>\n    <tr>\n      <td>Team Test (Player)</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Team Test (Server)</td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n    </tr>\n  </tbody>\n</table>\n"
+			"Description": "<p><code>RunService</code> contains methods and events for time management as well as for\nmanaging the context in which an experience or script is running. Methods like\n<a href=\"/ref/class/RunService.html#member-IsClient\">IsClient()</a>,\n<a href=\"/ref/class/RunService.html#member-IsServer\">IsServer()</a>, and\n<a href=\"/ref/class/RunService.html#member-IsStudio\">IsStudio()</a> can help you determine under what\ncontext code is running. These methods are useful for\n<a href=\"/ref/class/ModuleScript.html\">ModuleScripts</a> that may be required by both client and\nserver scripts. Furthermore, <a href=\"/ref/class/RunService.html#member-IsStudio\">IsStudio()</a> can be\nused to add special behaviors for in‑Studio testing.</p>\n<p><code>RunService</code> also houses events that allow your code to adhere to the engine&#39;s\nframe‑by‑frame loop, such as <a href=\"/ref/class/RunService.html#member-PreRender\">PreRender</a>,\n<a href=\"/ref/class/RunService.html#member-PreAnimation\">PreAnimation</a>,\n<a href=\"/ref/class/RunService.html#member-PreSimulation\">PreSimulation</a>,\n<a href=\"/ref/class/RunService.html#member-PostSimulation\">PostSimulation</a>, and\n<a href=\"/ref/class/RunService.html#member-Heartbeat\">Heartbeat</a>. Selecting the proper event to use for\nany case is important, so you should read\n<a href=\"https://create.roblox.com/docs/performance-optimization/microprofiler/task-scheduler\">Task Scheduler</a>\nto make an informed decision.</p>\n<h3>Context Test Results</h3>\n<table size=\"small\">\n  <thead>\n    <tr>\n      <th>Environment</th>\n      <th><a href=\"/ref/class/RunService.html#member-IsStudio\">IsStudio</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsClient\">IsClient</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsServer\">IsServer</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsEdit\">IsEdit</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsRunning\">IsRunning</a></th>\n      <th><a href=\"/ref/class/RunService.html#member-IsRunMode\">IsRunMode</a></th>\n    </tr>\n  </thead>\n<tbody>\n    <tr>\n      <td>Live Player</td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <td>Live Server</td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <td>Edit Mode</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Collaborative Edit</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Run Mode</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n    </tr>\n    <tr>\n      <td>Play Mode (Client)</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Play Mode (Server)</td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n    </tr>\n    <tr>\n      <td>Team Test (Player)</td>\n      <td><code>true</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n    </tr>\n    <tr>\n      <td>Team Test (Server)</td>\n      <td><code>false</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n      <td><code>true</code></td>\n      <td><code>false</code></td>\n    </tr>\n  </tbody>\n</table>\n"
 		},
 		"RunningAverageItemDouble": {
 			"Summary": "<p>Measures the runtime average of a <strong>double</strong> value.</p>\n",
@@ -2190,8 +2190,8 @@
 			"Description": "<p>The parental class of all text chat configuration settings, including\n<a href=\"/ref/class/BubbleChatConfiguration.html\">BubbleChatConfiguration</a>, <a href=\"/ref/class/ChatInputBarConfiguration.html\">ChatInputBarConfiguration</a>, and\n<a href=\"/ref/class/ChatWindowConfiguration.html\">ChatWindowConfiguration</a>.</p>\n"
 		},
 		"TextChatMessage": {
-			"Summary": "<p>Immutable data object representing a text chat message.</p>\n",
-			"Description": "<p>Immutable data object representing a text chat message.</p>\n<p>To learn more about using TextChatMessages, see\n<a href=\"https://create.roblox.com/docs/chat/in-experience-text-chat\">In-Experience Text Chat</a>.</p>\n"
+			"Summary": "<p>A data object representing a text chat message.</p>\n",
+			"Description": "<p>A data object representing a text chat message.</p>\n<p>To learn more about using TextChatMessages, see\n<a href=\"https://create.roblox.com/docs/chat/in-experience-text-chat\">In-Experience Text Chat</a>.</p>\n"
 		},
 		"TextChatMessageProperties": {
 			"Summary": "<p>Overrides <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> properties when returned by callbacks\ndefined in <a href=\"/ref/class/TextChatService.html#member-OnIncomingMessage\">TextChatService.OnIncomingMessage</a> or\n<a href=\"/ref/class/TextChannel.html#member-OnIncomingMessage\">TextChannel.OnIncomingMessage</a>.</p>\n",
@@ -3090,6 +3090,8 @@
 					"listening-to-keyframemarkers"
 				]
 			},
+			"GetParameter": {},
+			"GetParameterDefaults": {},
 			"GetTargetInstance": {},
 			"GetTargetNames": {},
 			"GetTimeOfKeyframe": {
@@ -3138,6 +3140,7 @@
 				"Summary": "<p>Sets the priority of an <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a>. Depending on what this is\nset to, playing multiple animations at once will look to this property to\nfigure out which <a href=\"/ref/class/Keyframe.html\">Keyframe</a> <a href=\"/ref/class/Pose.html\">Poses</a> should be played over\none another.</p>\n",
 				"Description": "<p>This property sets the priority of an <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a>. Depending on\nwhat this is set to, playing multiple animations at once will look to this\nproperty to figure out which <a href=\"/ref/class/Keyframe.html\">Keyframe</a> poses should be played over\none another. It uses <a href=\"/ref/enum/AnimationPriority.html\">AnimationPriority</a> which has 7 priority levels:</p>\n<ol>\n<li><a href=\"/ref/enum/AnimationPriority.html\">Action4</a> (highest priority)</li>\n<li><a href=\"/ref/enum/AnimationPriority.html\">Action3</a></li>\n<li><a href=\"/ref/enum/AnimationPriority.html\">Action2</a></li>\n<li><a href=\"/ref/enum/AnimationPriority.html\">Action</a></li>\n<li><a href=\"/ref/enum/AnimationPriority.html\">Movement</a></li>\n<li><a href=\"/ref/enum/AnimationPriority.html\">Idle</a></li>\n<li><a href=\"/ref/enum/AnimationPriority.html\">Core</a> (lowest priority)</li>\n</ol>\n<p>Properly set animation priorities, either through the\n<a href=\"https://create.roblox.com/docs/animation/editor\">Animation Editor</a> or through this property,\nallow multiple animations to be played without them clashing. Where two\nplaying animations direct the target to move the same limb in different\nways, the <a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a> with the highest priority will show. If\nboth animations have the same priority, the weights of the tracks will be\nused to combine the animations.</p>\n"
 			},
+			"SetParameter": {},
 			"SetTargetInstance": {},
 			"Speed": {
 				"Summary": "<p>Read-only property that gives the current playback speed of the\n<a href=\"/ref/class/AnimationTrack.html\">AnimationTrack</a>.</p>\n",
@@ -3734,6 +3737,7 @@
 			}
 		},
 		"AudioEmitter": {
+			"AcousticSimulationEnabled": {},
 			"AngleAttenuation": {
 				"Summary": "<p>Represents how the perceived volume of the emitted sound changes based on\nthe angle between a <a href=\"/ref/class/AudioListener.html\">AudioListener</a> and the\n<a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a> associated with the\n<a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>.</p>\n",
 				"Description": "<p>Represents a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>.</p>\n<p>This property is internal and can&#39;t be accessed by scripts; it exists to\nsupport replication. See\n<a href=\"/ref/class/AudioEmitter.html#member-SetAngleAttenuation\">SetAngleAttenuation()</a> for usage\ndetails.</p>\n"
@@ -3768,6 +3772,7 @@
 				"Description": "<p>Returns an array of <a href=\"/ref/class/AudioListener.html\">AudioListeners</a> that share an\n<a href=\"/ref/class/AudioEmitter.html#member-AudioInteractionGroup\">AudioInteractionGroup</a> with the\nemitter.</p>\n"
 			},
 			"GetOutputPins": {},
+			"PositionOverride": {},
 			"SetAngleAttenuation": {
 				"Summary": "<p>Sets the angle attenuation curve that the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> should use,\nor uses a constant curve of volume <code>1</code> if none is provided.</p>\n",
 				"Description": "<p>Sets a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>.</p>\n<p>The curve is represented by a table mapping angle keys to volume values.\nKeys are expected to be unique numbers between <code>0</code> and <code>180</code> (inclusive),\nwhile values are expected to be numbers between <code>0</code> and <code>1</code> (inclusive).\nTables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at an angle <code>a</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\nangle values are directly above and below <code>a</code>. If there is either no point\nbelow <code>a</code> or no point above <code>a</code>, the volume level of the other point is\nchosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward at their respective volume levels.</p>\n<p>This volume will be multiplied with the volumes from all other attenuation\ncurves (including the ones on the receiving <a href=\"/ref/class/AudioListener.html\">AudioListener</a>) to\nobtain the final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> defaults to using\nan angle attenuation curve with the constant volume value of <code>1</code>.</p>\n"
@@ -3942,6 +3947,7 @@
 			}
 		},
 		"AudioListener": {
+			"AcousticSimulationEnabled": {},
 			"AngleAttenuation": {
 				"Summary": "<p>Represents how the perceived volume of the emitted sound changes based on\nthe angle between a <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> and the\n<a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a> associated with the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a>.</p>\n",
 				"Description": "<p>Represents a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioListener.html\">AudioListener</a>.</p>\n<p>This property is internal and can&#39;t be accessed by scripts; it exists to\nsupport replication. See\n<a href=\"/ref/class/AudioListener.html#member-SetAngleAttenuation\">SetAngleAttenuation()</a> for\nusage details.</p>\n"
@@ -3976,6 +3982,7 @@
 				"Description": "<p>Returns an array of <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a> that share an\n<a href=\"/ref/class/AudioListener.html#member-AudioInteractionGroup\">AudioInteractionGroup</a> with the\nlistener.</p>\n"
 			},
 			"GetOutputPins": {},
+			"PositionOverride": {},
 			"SetAngleAttenuation": {
 				"Summary": "<p>Sets the angle attenuation curve that the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> should\nuse, or uses a constant curve of volume <code>1</code> if none is provided.</p>\n",
 				"Description": "<p>Sets a volume-over-angle curve that affects how loudly a\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> will hear the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, based on the\nangle between them and the <a href=\"/ref/type/CFrame.html#member-LookVector\">LookVector</a>\nassociated with the <a href=\"/ref/class/AudioListener.html\">AudioListener</a>.</p>\n<p>The curve is represented by a table mapping angle keys to volume values.\nKeys are expected to be unique numbers between <code>0</code> and <code>180</code> (inclusive),\nwhile values are expected to be numbers between <code>0</code> and <code>1</code> (inclusive).\nTables containing up to 400 key-value pairs are supported.</p>\n<p>The volume of a <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> from the perspective of the\n<a href=\"/ref/class/AudioListener.html\">AudioListener</a> at an angle <code>a</code> is determined by linearly\ninterpolating between the volume levels for the points on the curve whose\nangle values are directly above and below <code>a</code>. If there is either no point\nbelow <code>a</code> or no point above <code>a</code>, the volume level of the other point is\nchosen. Essentially, the curve is a sequence of points connected by\nstraight lines, and beyond its left and right endpoints the curve extends\noutward at their respective volume levels.</p>\n<p>This volume will be multiplied with the volumes from all other attenuation\ncurves (including the ones on the sending <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>) to obtain\nthe final audibility.</p>\n<p>If the table is empty or <code>nil</code>, the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> defaults to using\nan angle attenuation curve with the constant volume value of <code>1</code>.</p>\n",
@@ -4028,10 +4035,12 @@
 				"Description": "<p>The asset to be loaded into the <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a>. If\n<a href=\"/ref/class/AudioPlayer.html#member-AutoLoad\">AutoLoad</a> is <code>true</code>, the asset loads\nimmediately once this property is assigned. When loading is complete,\n<a href=\"/ref/class/AudioPlayer.html#member-IsReady\">IsReady</a> becomes <code>true</code>.</p>\n",
 				"DeprecationMessage": "<p>This property is deprecated; use <a href=\"/ref/class/AudioPlayer.html#member-Asset\">Asset</a> instead.</p>\n"
 			},
+			"AudioContent": {},
 			"AutoLoad": {
 				"Summary": "<p>Controls whether <a href=\"/ref/class/AudioPlayer.html#member-Asset\">Asset</a> loads automatically once\nassigned.</p>\n",
 				"Description": "<p>Controls whether <a href=\"/ref/class/AudioPlayer.html#member-Asset\">Asset</a> loads automatically once\nassigned. If <code>false</code>, the asset will load upon the first attempt to play.</p>\n"
 			},
+			"AutoPlay": {},
 			"Ended": {
 				"Summary": "<p>Fires when the <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> has completed playback and stopped.</p>\n",
 				"Description": "<p>Fires after the <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> has completed playback and stopped.\nNote this event will <strong>not</strong> fire for audio with\n<a href=\"/ref/class/AudioPlayer.html#member-Looped\">Looped</a> set to <code>true</code> since it continues playing\nupon reaching its end. This event will also <strong>not</strong> fire when the audio is\nstopped before playback has completed; for this, use\n<a href=\"/ref/class/AudioPlayer.html#member-GetPropertyChangedSignal\">AudioPlayer:GetPropertyChangedSignal()</a> on the\n<a href=\"/ref/class/AudioPlayer.html#member-IsPlaying\">IsPlaying</a> property.</p>\n<p>This event is often used to destroy an <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> when it has\ncompleted playback.</p>\n"
@@ -4328,6 +4337,7 @@
 			}
 		},
 		"AudioTremolo": {
+			"Bypass": {},
 			"Depth": {
 				"Summary": "<p>Controls how much the volume will raise and lower.</p>\n",
 				"Description": "<p>Controls how much the volume will raise and lower, ranging between <code>0</code> and\n<code>1</code> with a default of <code>1</code>. If set to <code>0</code>, the volume will not oscillate at\nall.</p>\n"
@@ -4340,6 +4350,9 @@
 				"Summary": "<p>Sets how often the effect will oscillate the volume.</p>\n",
 				"Description": "<p>Sets how often the effect will oscillate the volume, measured in Hz, in\nthe range of <code>0.1</code> to <code>20</code>. Default is <code>5</code>.</p>\n"
 			},
+			"GetConnectedWires": {},
+			"GetInputPins": {},
+			"GetOutputPins": {},
 			"Shape": {
 				"Summary": "<p>Controls the shape of the low frequency oscillations.</p>\n",
 				"Description": "<p>Morphs the LFO (low frequency oscillation) shape in a range of <code>0</code> to <code>1</code>\nwhere <code>0</code> is triangle and <code>1</code> is sine. Default is <code>0</code>.</p>\n"
@@ -4351,7 +4364,8 @@
 			"Square": {
 				"Summary": "<p>Flatness of the low frequency oscillations shape.</p>\n",
 				"Description": "<p>Determines the squareness of the oscillations in the range of <code>0</code> to <code>1</code>.\nThe original shape is retained when <code>0</code> and the shape flattens more as the\nvalue increases. Default is <code>0</code>.</p>\n"
-			}
+			},
+			"WiringChanged": {}
 		},
 		"AvatarCreationService": {
 			"AutoSetupAvatarAsync": {
@@ -5558,6 +5572,7 @@
 				"Summary": "<p>The <a href=\"/ref/type/Color3.html\">Color3</a> for this body part.</p>\n",
 				"Description": "<p>The <a href=\"/ref/type/Color3.html\">Color3</a> for this body part.</p>\n"
 			},
+			"HeadShape": {},
 			"Instance": {
 				"Summary": "<p>A reference to the <a href=\"/ref/class/Instance.html\">Instance</a> that should be applied when applying\nthis <a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a>.</p>\n",
 				"Description": "<p>A reference to the <a href=\"/ref/class/Instance.html\">Instance</a> that should be applied when applying\nthis <a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a>. This property can be used instead of\n<a href=\"/ref/class/BodyPartDescription.html#member-AssetId\">AssetId</a> to apply accessories without\nuploading them to the platform. This can reference either a body part with\nR15, <strong>R15ArtistIntent</strong> and <strong>R6</strong> folders, or only reference a single\nsubfolder.</p>\n"
@@ -5675,6 +5690,7 @@
 			}
 		},
 		"BoxHandleAdornment": {
+			"Shading": {},
 			"Size": {
 				"Summary": "<p>The size of the adornment.</p>\n",
 				"Description": "<p>The size of the adornment.</p>\n"
@@ -5996,11 +6012,11 @@
 			},
 			"PromptSaveCapturesToGallery": {
 				"Summary": "<p>Prompts the user to save specified captures to their gallery.</p>\n",
-				"Description": "<p>This method prompts the user to save the captures identified by the\nprovided <code>contentIds</code> to their <strong>Captures</strong> gallery within the\nexperience&#39;s main menu.</p>\n"
+				"Description": "<p>This method prompts the user to save the captures identified by the\nprovided <code>contentIds</code> or <a href=\"/ref/class/Capture.html\">Capture</a> objects to their <strong>Captures</strong>\ngallery within the experience&#39;s main menu.</p>\n"
 			},
 			"PromptShareCapture": {
 				"Summary": "<p>Prompts the user to share a specified capture.</p>\n",
-				"Description": "<p>This method prompts the user to share the capture identified by the\nprovided <code>contentId</code> using the native share sheet on their device.</p>\n<p>The capture is shared along with an invite link to the experience when\nsupported. Not all devices support including both a screenshot or video\nand an invite link.</p>\n<p>The <code>launchData</code> will be available in the <code>launchData</code> field for users who\njoin through the invite link.</p>\n<p>For users or devices who are not eligible to use share sheets, this method\nprompts them to download the capture instead.</p>\n"
+				"Description": "<p>This method prompts the user to share the capture identified by the\nprovided <code>contentId</code> or <a href=\"/ref/class/Capture.html\">Capture</a> object using the native share\nsheet on their device.</p>\n<p>The capture is shared along with an invite link to the experience when\nsupported. Not all devices support including both a screenshot or video\nand an invite link.</p>\n<p>The <code>launchData</code> will be available in the <code>launchData</code> field for users who\njoin through the invite link.</p>\n<p>For users or devices who are not eligible to use share sheets, this method\nprompts them to download the capture instead.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">CaptureService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CaptureService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">onShareAccepted</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Capture share was accepted!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">onShareDenied</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Capture share was denied!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">onCaptureReady</span> <span class=\"_o\">=</span> <span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">result</span><span class=\"_p\">,</span> <span class=\"_n\">videoCapture</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">videoCapture</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kd\">local</span> <span class=\"_n\">captureContent</span> <span class=\"_o\">=</span> <span class=\"_n\">Content.fromObject</span><span class=\"_p\">(</span><span class=\"_n\">videoCapture</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">PromptShareCapture</span><span class=\"_p\">(</span><span class=\"_n\">captureContent</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;launchData&#34;</span> <span class=\"_p\">,</span> <span class=\"_n\">onShareAccepted</span><span class=\"_p\">,</span> <span class=\"_n\">onShareDenied</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">StartVideoCaptureAsync</span><span class=\"_p\">(</span><span class=\"_n\">onCaptureReady</span><span class=\"_p\">,</span> <span class=\"_p\">{})</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"ReadCapturesFromGalleryAsync": {
 				"Description": "<p>This client-side function returns a paginated list of captures from the\nuser&#39;s gallery as a <a href=\"/ref/class/CapturesPages.html\">CapturesPages</a> object sorted\nreverse-chronologically, which can be used to iterate through the\ncaptures. The results can be filtered by capture type with the\n<code>captureTypeFilters</code> parameter. If this parameter isn&#39;t provided, the\nfunction returns all captures.</p>\n<p>Currently, this method will only return captures taken in the experience\nwhere it is called. Additionally, captures taken with\n<a href=\"/ref/class/CaptureService.html#member-CaptureScreenshot\">CaptureScreenshot()</a> and\nsubsequently saved with\n<a href=\"/ref/class/CaptureService.html#member-PromptSaveCapturesToGallery\">PromptSaveCapturesToGallery()</a>\nwill not be returned by this method.</p>\n",
@@ -6010,7 +6026,7 @@
 			},
 			"StartVideoCaptureAsync": {
 				"Summary": "<p>Initiates a video capture recording.</p>\n",
-				"Description": "<p>This method initiates a video capture recording. The recording will\ncontinue until the\n<a href=\"/ref/class/CaptureService.html#member-StopVideoCapture\">StopVideoCapture()</a> method is\ncalled, or when 30 seconds have passed, whichever comes first. During the\nvideo recording, all user voices are muted.</p>\n<p>The <code>onCaptureReady</code> callback can be used to prompt the user to save or\nshare the video capture.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">CaptureService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CaptureService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">parent</span> <span class=\"_o\">=</span> <span class=\"_n\">script.Parent</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">onCaptureReady</span> <span class=\"_o\">=</span> <span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">result</span><span class=\"_p\">,</span> <span class=\"_n\">videoCapture</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">result</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureResult</span><span class=\"_p\">.</span><span class=\"_n\">Success</span> <span class=\"_ow\">and</span> <span class=\"_n\">result</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureResult</span><span class=\"_p\">.</span><span class=\"_n\">TimeLimitReached</span> <span class=\"_ow\">or</span> <span class=\"_ow\">not</span> <span class=\"_n\">videoCapture</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Video recording failed to complete for reason:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">result</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- Prompt the user to save the video capture to their gallery</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">PromptSaveCapturesToGallery</span><span class=\"_p\">({</span> <span class=\"_n\">videoCapture</span> <span class=\"_p\">},</span> <span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Capture saved&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">parent.Activated</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">videoRecordingAllowedResult</span><span class=\"_p\">:</span> <span class=\"_n\">Enum.VideoCaptureStartedResult</span> <span class=\"_o\">=</span> <span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">StartVideoCaptureAsync</span><span class=\"_p\">(</span><span class=\"_n\">onCaptureReady</span><span class=\"_p\">,</span> <span class=\"_p\">{})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">videoRecordingAllowedResult</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureStartedResult</span><span class=\"_p\">.</span><span class=\"_n\">Success</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Video recording failed to start for reason:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">videoRecordingAllowedResult</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+				"Description": "<p>This method initiates a video capture recording. The recording will\ncontinue until the\n<a href=\"/ref/class/CaptureService.html#member-StopVideoCapture\">StopVideoCapture()</a> method is\ncalled, or when 30 seconds have passed, whichever comes first. During the\nvideo recording, all user voices are muted.</p>\n<p>The <code>onCaptureReady</code> callback can be used to prompt the user to save or\nshare the video capture.</p>\n<p>The <code>captureParams</code> parameter is currently non-operational.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">CaptureService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CaptureService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">parent</span> <span class=\"_o\">=</span> <span class=\"_n\">script.Parent</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">onCaptureReady</span> <span class=\"_o\">=</span> <span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">result</span><span class=\"_p\">,</span> <span class=\"_n\">videoCapture</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">result</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureResult</span><span class=\"_p\">.</span><span class=\"_n\">Success</span> <span class=\"_ow\">and</span> <span class=\"_n\">result</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureResult</span><span class=\"_p\">.</span><span class=\"_n\">TimeLimitReached</span> <span class=\"_ow\">or</span> <span class=\"_ow\">not</span> <span class=\"_n\">videoCapture</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Video recording failed to complete for reason:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">result</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- Prompt the user to save the video capture to their gallery</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">PromptSaveCapturesToGallery</span><span class=\"_p\">({</span> <span class=\"_n\">videoCapture</span> <span class=\"_p\">},</span> <span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Capture saved&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">parent.Activated</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">videoRecordingAllowedResult</span><span class=\"_p\">:</span> <span class=\"_n\">Enum.VideoCaptureStartedResult</span> <span class=\"_o\">=</span> <span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">StartVideoCaptureAsync</span><span class=\"_p\">(</span><span class=\"_n\">onCaptureReady</span><span class=\"_p\">,</span> <span class=\"_p\">{})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">videoRecordingAllowedResult</span> <span class=\"_o\">~=</span> <span class=\"_n\">Enum.VideoCaptureStartedResult</span><span class=\"_p\">.</span><span class=\"_n\">Success</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Video recording failed to start for reason:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">videoRecordingAllowedResult</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"StopVideoCapture": {
 				"Summary": "<p>Ends a video capture initiated by\n<a href=\"/ref/class/CaptureService.html#member-StartVideoCaptureAsync\">StartVideoCaptureAsync()</a>.</p>\n",
@@ -6653,10 +6669,12 @@
 				"Summary": "<p>The height of the cone adornment.</p>\n",
 				"Description": "<p>The height of the cone adornment.</p>\n"
 			},
+			"Hollow": {},
 			"Radius": {
 				"Summary": "<p>The radius of the cone adornment.</p>\n",
 				"Description": "<p>The radius of the cone adornment.</p>\n"
-			}
+			},
+			"Shading": {}
 		},
 		"ConfigService": {
 			"ClearTestingValue": {},
@@ -7027,7 +7045,8 @@
 			"Radius": {
 				"Summary": "<p>The radius of the cylinder adornment.</p>\n",
 				"Description": "<p>The radius of the cylinder adornment.</p>\n"
-			}
+			},
+			"Shading": {}
 		},
 		"CylinderMesh": {},
 		"CylindricalConstraint": {
@@ -8936,7 +8955,9 @@
 				]
 			}
 		},
-		"GameSettings": {},
+		"GameSettings": {
+			"VideoCaptureEnabled": {}
+		},
 		"GamepadService": {
 			"DisableGamepadCursor": {
 				"Summary": "<p>Disables the gamepad cursor, if currently enabled.</p>\n",
@@ -8965,6 +8986,7 @@
 				"Summary": "<p>Starts the generation of a new 3D mesh from a text prompt and returns\nunique IDs used to track and retrieve the result.</p>\n",
 				"Description": "<p>Starts the generation of a new 3D mesh from a text prompt and returns\nunique IDs used to track and retrieve the result. You can optionally\nreceive intermediate results, such as the untextured mesh, by providing an\n<code>intermediateResultCallback</code> function. After the generation is complete,\nuse\n<a href=\"/ref/class/GenerationService.html#member-LoadGeneratedMeshAsync\">LoadGeneratedMeshAsync()</a>\nto load and display the generated mesh.</p>\n<p><strong>Error Codes</strong></p>\n<table>\n<thead>\n<tr>\n<th>Error</th>\n<th>Description</th>\n<th>Recommended developer action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Rate limit exceeded</td>\n<td>The maximum number of mesh generations has been exceeded for the minute.</td>\n<td>Wait until the rate limit resets.</td>\n</tr>\n<tr>\n<td>Moderation failed</td>\n<td>The mesh generation was flagged for moderation.</td>\n<td>Review and modify the prompt to ensure it adheres to Roblox&#39;s moderation guidelines.</td>\n</tr>\n<tr>\n<td>Internal server error</td>\n<td>An unexpected issue occurred on the server.</td>\n<td>Retry the request later or check server status for issues.</td>\n</tr>\n<tr>\n<td>Character limit exceeded</td>\n<td>The input prompt length for this generation request exceeded the limit.</td>\n<td>Reduce the number of characters in the <code>Prompt</code> string of the <code>input</code> dictionary.</td>\n</tr>\n<tr>\n<td>Service overloaded</td>\n<td>The service is overloaded.</td>\n<td>Retry the request later.</td>\n</tr>\n<tr>\n<td>Size dimensions must all be greater than 0</td>\n<td>Invalid size provided.</td>\n<td>Change the size to above <code>0</code>.</td>\n</tr>\n</tbody>\n</table>\n"
 			},
+			"GenerateModelAsync": {},
 			"LoadGeneratedMeshAsync": {
 				"Summary": "<p>Retrieves and loads a mesh generated by\n<a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerationService:GenerateMeshAsync()</a> using the provided\n<code>generationId</code>.</p>\n",
 				"Description": "<p>Retrieves and loads a mesh generated by\n<a href=\"/ref/class/GenerationService.html#member-GenerateMeshAsync\">GenerateMeshAsync()</a> using\nthe provided <code>generationId</code>. The mesh can be returned as a\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a> or <a href=\"/ref/class/Model.html\">Model</a>. Because editable meshes are not\nreplicated, the loaded mesh is not replicated to any other clients and can\nonly be loaded once per <code>generationId</code>.</p>\n"
@@ -9266,6 +9288,7 @@
 				"Summary": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a>\nis being pressed.</p>\n",
 				"Description": "<p>A <a href=\"/ref/class/HapticEffect.html\">HapticEffect</a> instance that will play when the <a href=\"/ref/class/GuiButton.html\">GuiButton</a>\nis being pressed.</p>\n"
 			},
+			"SecondaryActivated": {},
 			"Selected": {
 				"Summary": "<p>A boolean property which indicates whether the object has been selected.</p>\n",
 				"Description": "<p>A boolean property which indicates whether the object has been selected.</p>\n"
@@ -10816,6 +10839,7 @@
 			"NeckRangeMin": {},
 			"NeckSize": {},
 			"NeckTposeAdjustment": {},
+			"OriginOffset": {},
 			"Pelvis": {},
 			"PelvisRangeMax": {},
 			"PelvisRangeMin": {},
@@ -11080,6 +11104,7 @@
 			"BuildDebouncePeriod": {},
 			"HighCompression": {},
 			"SerializePatch": {},
+			"UseFileLevelCompressionInsteadOfChunk": {},
 			"ZstdCompression": {}
 		},
 		"InputAction": {
@@ -12386,6 +12411,8 @@
 				"Summary": "<p>Fires when a purchase prompt for a subscription is closed.</p>\n",
 				"Description": "<p>This event fires when a purchase prompt for an affiliate gear sale or\nother asset closes. For example, when a user receives the purchase prompt\nand clicks <strong>Cancel</strong>, or when they receive a success or error message and\nclick <strong>OK</strong>.</p>\n<h4>See also</h4>\n<ul>\n<li><a href=\"/ref/class/MarketplaceService.html#member-PromptSubscriptionPurchase\">PromptSubscriptionPurchase</a>\nto prompt a user to purchase a subscription.</li>\n<li><a href=\"/ref/class/Players.html#member-UserSubscriptionStatusChanged\">UserSubscriptionStatusChanged</a>,\nwhich fires when the server recognizes that a user&#39;s membership has\nchanged.</li>\n</ul>\n"
 			},
+			"RankProductsAsync": {},
+			"RecommendTopProductsAsync": {},
 			"UserOwnsGamePassAsync": {
 				"Summary": "<p>Returns true if the player with the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>\nowns the pass with the given <code>gamePassId</code>.</p>\n",
 				"Description": "<p>Returns true if the user with the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> owns\nthe <a href=\"https://create.roblox.com/docs/production/monetization/game-passes\">pass</a> with the given\n<code>gamePassId</code> (not to be confused with an asset ID).</p>\n<h4>Caching Behavior</h4>\n<p>The results of this function are remembered so that repeated calls are\nreturned faster.</p>\n<p>This function always returns true when the user first enters a server\nafter purchasing the pass.</p>\n<p>If the user has purchased the pass inside an experience through\n<a href=\"/ref/class/MarketplaceService.html#member-PromptGamePassPurchase\">PromptGamePassPurchase</a>,\nthe\n<a href=\"/ref/class/MarketplaceService.html#member-UserOwnsGamePassAsync\">UserOwnsGamePassAsync()</a>\nfunction might return false because of caching behavior. Alternatively,\nthe function might return true even after the user has deleted the pass\nfrom their inventory.</p>\n"
@@ -12787,7 +12814,9 @@
 				]
 			}
 		},
-		"MicroProfilerService": {},
+		"MicroProfilerService": {
+			"ContextLabel": {}
+		},
 		"Model": {
 			"AddPersistentPlayer": {
 				"Summary": "<p>Sets this model to be persistent for the specified player.\n<a href=\"/ref/class/Model.html#member-ModelStreamingMode\">ModelStreamingMode</a> must be set to\n<a href=\"/ref/enum/ModelStreamingMode.html\">PersistentPerPlayer</a> for behavior to be changed\nas a result of addition.</p>\n",
@@ -12928,6 +12957,9 @@
 			}
 		},
 		"ModerationService": {
+			"BindReviewableContentEventProcessor": {},
+			"CreateReviewableContentAsync": {},
+			"CreateReviewableContentKey": {},
 			"InternalCreateReviewableContentAsync": {},
 			"InternalProcessReviewableContentEvent": {},
 			"InternalRequestReviewableContentReviewAsync": {}
@@ -15202,6 +15234,8 @@
 				"Summary": "<p>The duration, in seconds, that the player must hold the button/key down to\ntrigger the prompt.</p>\n",
 				"Description": "<p>This property indicates the duration, in seconds, that the player must\nhold the button/key down to trigger the prompt.</p>\n"
 			},
+			"IndicatorHidden": {},
+			"IndicatorShown": {},
 			"InputHoldBegin": {
 				"Summary": "<p>Fires a signal indicating that the user began pressing the prompt GUI\nbutton.</p>\n",
 				"Description": "<p>This function triggers a signal indicating that the user began pressing\nthe <a href=\"/ref/class/ProximityPrompt.html\">ProximityPrompt</a> prompt button. It should be used by developers\nwho wish to customize the prompt and trigger it from a prompt GUI button\npress.</p>\n"
@@ -15218,6 +15252,7 @@
 				"Summary": "<p>The maximum distance a Player&#39;s <a href=\"/ref/class/Player.html#member-Character\">character</a> can be\nfrom the <a href=\"/ref/class/ProximityPrompt.html\">ProximityPrompt</a> for the prompt to appear.</p>\n",
 				"Description": "<p>This property determines the maximum distance a Player&#39;s\n<a href=\"/ref/class/Player.html#member-Character\">character</a> can be from the <a href=\"/ref/class/ProximityPrompt.html\">ProximityPrompt</a>\nfor the prompt to appear.</p>\n"
 			},
+			"MaxIndicatorDistance": {},
 			"ObjectText": {
 				"Summary": "<p>An optional property that determines the object name text shown to the\nuser.</p>\n",
 				"Description": "<p>This optional property determines the optional object name text shown to\nthe user.</p>\n"
@@ -15231,7 +15266,7 @@
 				"Description": "<p>This event triggers when the player ends holding down the button on a\nprompt with a non-zero <a href=\"/ref/class/ProximityPrompt.html#member-HoldDuration\">ProximityPrompt.HoldDuration</a>. One possible\nusage includes to animate a hold progress bar.</p>\n"
 			},
 			"PromptHidden": {
-				"Summary": "<p>Triggers when the prompt becomes hidden.</p>\n",
+				"Summary": "<p>Triggers when the <a href=\"/ref/class/ProximityPrompt.html\">prompt</a> becomes hidden.</p>\n",
 				"Description": "<p>This event triggers when the <a href=\"/ref/class/ProximityPrompt.html\">prompt</a> becomes\nhidden. This event is triggered client-side for <code>LocalScripts</code>.</p>\n"
 			},
 			"PromptShown": {
@@ -15268,6 +15303,9 @@
 				"Summary": "<p>Whether <a href=\"/ref/class/ProximityPrompt.html\">ProximityPrompts</a> are enabled, and\ntherefore shown, in-experience.</p>\n",
 				"Description": "<p>This property determines whether <a href=\"/ref/class/ProximityPrompt.html\">ProximityPrompts</a>\nare enabled, and therefore shown, in-experience. When false, no prompts\nwill be shown.</p>\n<p>For example, in a round-based system, you can disable prompts at certain\npoints in the experience to disable proximity-based interactions:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span><span class=\"_lnt\">9\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">ProximityPromptService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;ProximityPromptService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">ReplicatedStorage</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;ReplicatedStorage&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">enablePrompts</span> <span class=\"_o\">=</span> <span class=\"_n\">ReplicatedStorage</span><span class=\"_p\">:</span><span class=\"_n\">FindFirstChild</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;EnablePrompts&#34;</span><span class=\"_p\">)</span> <span class=\"_c1\">-- BindableEvent</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Connect to the BindableEvent and fire from another script controlling experience logic</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">enablePrompts.OnServerEvent</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">enabled</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ProximityPromptService.Enabled</span> <span class=\"_o\">=</span> <span class=\"_n\">enabled</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
+			"IndicatorHidden": {},
+			"IndicatorShown": {},
+			"MaxIndicatorsVisible": {},
 			"MaxPromptsVisible": {
 				"Summary": "<p>Maximum number of <a href=\"/ref/class/ProximityPrompt.html\">ProximityPrompts</a> that will be\nshown to the player.</p>\n",
 				"Description": "<p>This property indicates the maximum number of\n<a href=\"/ref/class/ProximityPrompt.html\">ProximityPrompts</a> that will be shown to the player.</p>\n"
@@ -15448,7 +15486,7 @@
 			},
 			"GetPropertiesOfClass": {
 				"Summary": "<p>Returns a list of properties for a given class with filters applied.</p>\n",
-				"Description": "<p>Given a class name in the Roblox API, returns a list of\n<code>ReflectedProperty</code> dictionaries for all properties of that class that\nmatch the provided filter criteria. If no such class name exists, returns\n<code>nil</code>.</p>\n<p>If you pass in a <code>ReflectionMemberFilter</code> dictionary, you can adjust the\nset of eligible properties and adjust the output behavior:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The security context to use. Can be more expansive than the current script&#39;s security.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Security</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: SecurityCapabilities.fromCurrent()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether to exclude inherited properties from superclasses.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ExcludeInherited</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether to exclude Studio display information about the properties.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ExcludeDisplay</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>If the class name is valid and that class has properties, you&#39;ll get a\nlist of <code>ReflectedProperty</code> dictionaries as output, each with the\nfollowing structure:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span><span class=\"_lnt\">27\n</span><span class=\"_lnt\">28\n</span><span class=\"_lnt\">29\n</span><span class=\"_lnt\">30\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The name of the property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Name</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether the property is serialized (able to be saved to disk or sent over the network).</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Serialized</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The type of the property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Type</span><span class=\"_p\">:</span> <span class=\"_n\">ReflectionType</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The content type of the property, if applicable.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ContentType</span><span class=\"_p\">:</span> <span class=\"_n\">Enum.AssetType</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Studio display information.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Display</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The category under which the property is listed in Studio.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Category</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- A message indicating that the property is deprecated, if applicable.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">DepreciationMessage</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The order in which the property appears in Studio.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">LayoutOrder</span><span class=\"_p\">:</span> <span class=\"_n\">number</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">}</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The security permissions required to access this property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Permits</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to read this property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Read</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to read this property while thread-safe.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">ReadParallel</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to write to this property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Write</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to write to this property while thread-safe.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">WriteParallel</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">},</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+				"Description": "<p>Given a class name in the Roblox API, returns a list of\n<code>ReflectedProperty</code> dictionaries for all properties of that class that\nmatch the provided filter criteria. If no such class name exists, returns\n<code>nil</code>.</p>\n<p>If you pass in a <code>ReflectionMemberFilter</code> dictionary, you can adjust the\nset of eligible properties and adjust the output behavior:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The security context to use. Can be more expansive than the current script&#39;s security.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Security</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: SecurityCapabilities.fromCurrent()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether to exclude inherited properties from superclasses.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ExcludeInherited</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether to exclude Studio display information about the properties.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ExcludeDisplay</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>If the class name is valid and that class has properties, you&#39;ll get a\nlist of <code>ReflectedProperty</code> dictionaries as output, each with the\nfollowing structure:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span><span class=\"_lnt\">27\n</span><span class=\"_lnt\">28\n</span><span class=\"_lnt\">29\n</span><span class=\"_lnt\">30\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The name of the property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Name</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether the property is serialized (able to be saved to disk or sent over the network).</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Serialized</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The type of the property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Type</span><span class=\"_p\">:</span> <span class=\"_n\">ReflectionType</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The content type of the property, if applicable.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ContentType</span><span class=\"_p\">:</span> <span class=\"_n\">Enum.AssetType</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Studio display information.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Display</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The category under which the property is listed in Studio.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Category</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- A message indicating that the property is deprecated, if applicable.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">DeprecationMessage</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The order in which the property appears in Studio.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">LayoutOrder</span><span class=\"_p\">:</span> <span class=\"_n\">number</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">}</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The security permissions required to access this property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Permits</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to read this property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Read</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to read this property while thread-safe.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">ReadParallel</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to write to this property.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Write</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to write to this property while thread-safe.</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">WriteParallel</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">},</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			}
 		},
 		"RemoteDebuggerServer": {},
@@ -15770,14 +15808,26 @@
 		"RunService": {
 			"BindToRenderStep": {
 				"Summary": "<p>Given a string name of a function and a priority, this method binds the\nfunction to <a href=\"/ref/class/RunService.html#member-PreRender\">RunService.PreRender</a>.</p>\n",
-				"Description": "<p>The <code>BindToRenderStep()</code> function binds a custom function to be called at\na specific time during the render step. There are three main arguments:\n<code>name</code>, <code>priority</code>, and what <code>function</code> to call.</p>\n<p>As it is linked to the client&#39;s rendering process, <code>BindToRenderStep()</code>\ncan only be called on the client.</p>\n<h4>Name</h4>\n<p>The <code>name</code> parameter is a label for the binding and can be used with\n<a href=\"/ref/class/RunService.html#member-UnbindFromRenderStep\">RunService:UnbindFromRenderStep()</a> if the binding is no longer\nneeded.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">RunService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;RunService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">functionToBind</span><span class=\"_p\">()</span> <span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Bind the function above to the binding named &#34;tempBinding&#34;</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">BindToRenderStep</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;tempBinding&#34;</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_n\">functionToBind</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Unbind the function bound to &#34;tempBinding&#34;</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">UnbindFromRenderStep</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;tempBinding&#34;</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Priority</h4>\n<p>The <code>priority</code> of the binding is an integer; it determines when during the\nrender step to call the custom function. The lower this number, the sooner\nthe custom function will be called. If two bindings have the same\npriority, the Roblox Engine will randomly pick one to run first. The\ndefault Roblox control scripts run with these specific priorities:</p>\n<ul>\n<li>Player Input: <code>100</code></li>\n<li>Camera Controls: <code>200</code> For convenience; the <a href=\"/ref/enum/RenderPriority.html\">RenderPriority</a> enum\ncan be used to determine the integer value to set a binding. For\nexample, to make a binding right before the default camera update,\nsimply subtract <code>1</code> from the camera priority level.</li>\n</ul>\n<p>When using <a href=\"/ref/enum/RenderPriority.html\">RenderPriority</a>, remember to use <code>.Value</code> at the end of\nthe desired enum. <a href=\"/ref/class/RunService.html#member-BindToRenderStep\">RunService:BindToRenderStep()</a> will not work if\njust the enum is used on its own.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">RunService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;RunService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">beforeCamera</span><span class=\"_p\">(</span><span class=\"_n\">delta</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Code in here will run before the default Roblox camera script</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">BindToRenderStep</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Before camera&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">Enum.RenderPriority</span><span class=\"_p\">.</span><span class=\"_n\">Camera.Value</span> <span class=\"_o\">-</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_n\">beforeCamera</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Custom Function and Delta Time</h4>\n<p>The last argument (<code>function</code>) is the custom function to call. This\nfunction will be passed one parameter called <code>deltaTime</code> which shows how\nmuch time passed between the beginning of the previous render step and the\nbeginning of the current render step.</p>\n<p>All rendering updates will wait until the code in the render step\nfinishes. Make sure that any code called by <code>BindToRenderStep()</code> runs\nquickly and efficiently; if code takes too long, the experience visuals\nwill be choppy.</p>\n",
+				"Description": "<p>The <code>BindToRenderStep()</code> function binds a custom function to be called at\na specific time during the render step. There are three main arguments:\n<code>name</code>, <code>priority</code>, and what <code>function</code> to call.</p>\n<p>As it is linked to the client&#39;s rendering process, <code>BindToRenderStep()</code>\ncan only be called on the client.</p>\n<h4>Name</h4>\n<p>The <code>name</code> parameter is a label for the binding and can be used with\n<a href=\"/ref/class/RunService.html#member-UnbindFromRenderStep\">RunService:UnbindFromRenderStep()</a> if the binding is no longer\nneeded.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">RunService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;RunService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">functionToBind</span><span class=\"_p\">()</span> <span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Bind the function above to the binding named &#34;tempBinding&#34;</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">BindToRenderStep</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;tempBinding&#34;</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_n\">functionToBind</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Unbind the function bound to &#34;tempBinding&#34;</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">UnbindFromRenderStep</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;tempBinding&#34;</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Priority</h4>\n<p>The <code>priority</code> of the binding is an integer; it determines when during the\nrender step to call the custom function. The lower this number, the sooner\nthe custom function will be called. If two bindings have the same\npriority, the engine will randomly pick one to run first. The default\ncontrol scripts run with these specific priorities:</p>\n<ul>\n<li>Player Input: <code>100</code></li>\n<li>Camera Controls: <code>200</code> For convenience; the <a href=\"/ref/enum/RenderPriority.html\">RenderPriority</a> enum\ncan be used to determine the integer value to set a binding. For\nexample, to make a binding right before the default camera update,\nsimply subtract <code>1</code> from the camera priority level.</li>\n</ul>\n<p>When using <a href=\"/ref/enum/RenderPriority.html\">RenderPriority</a>, remember to use <code>.Value</code> at the end of\nthe desired enum. <a href=\"/ref/class/RunService.html#member-BindToRenderStep\">RunService:BindToRenderStep()</a> will not work if\njust the enum is used on its own.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">RunService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;RunService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">beforeCamera</span><span class=\"_p\">(</span><span class=\"_n\">delta</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Code in here will run before the default camera script</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">BindToRenderStep</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Before camera&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">Enum.RenderPriority</span><span class=\"_p\">.</span><span class=\"_n\">Camera.Value</span> <span class=\"_o\">-</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_n\">beforeCamera</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Custom Function and Delta Time</h4>\n<p>The last argument (<code>function</code>) is the custom function to call. This\nfunction will be passed one parameter called <code>deltaTime</code> which shows how\nmuch time passed between the beginning of the previous render step and the\nbeginning of the current render step.</p>\n<p>All rendering updates will wait until the code in the render step\nfinishes. Make sure that any code called by <code>BindToRenderStep()</code> runs\nquickly and efficiently; if code takes too long, the experience visuals\nwill be choppy.</p>\n",
 				"CodeSamples": [
 					"RunService-BindToRenderStep",
 					"runservice-custom-function",
 					"runservice-unbindfromrenderstep"
 				]
 			},
+			"BindToSimulation": {
+				"Summary": "<p>Binds a custom function to be called at a fixed frequency which is\nindependent of the frame rate.</p>\n",
+				"Description": "<p><code>BindToSimulation()</code> binds a custom function to be called at a fixed\nfrequency which is independent of the frame rate. In the server authority\nmodel, bound functions will also get called when the client needs to\nresimulate. This method is only available when\n<a href=\"/ref/class/Workspace.html#member-UseFixedSimulation\">Workspace.UseFixedSimulation</a> is enabled.</p>\n<p>Note that since the bound function is meant for physics controllers and\nprediction, an error will trigger if you read or write from unsynchronized\nproperties or call an unsynchronized method. This error is meant to help\nguide you in writing a pure, synchronized simulation.</p>\n<p>To synchronize inaccessible properties, you should store the relevant data\nin <a href=\"https://create.roblox.com/docs/studio/properties#instance-attributes\">attributes</a> and\nupdate the relevant property in\n<a href=\"/ref/class/RunService.html#member-PostSimulation\">PostSimulation</a> or\n<a href=\"/ref/class/RunService.html#member-RenderStepped\">RenderStepped</a> by reading from attributes.\nThis will leverage attribute synchronization to keep the property fully\nsynchronized through the rollback mechanism.</p>\n",
+				"CodeSamples": [
+					"RunService-BindToSimulation"
+				]
+			},
 			"ClientGitHash": {},
+			"FrameNumber": {},
+			"GetPredictionStatus": {
+				"Summary": "<p>Checks the <a href=\"/ref/enum/PredictionStatus.html\">PredictionStatus</a> of a specific context instance, useful\nfor debugging scripts affecting multiple instances where some might be\npredicted and others might not.</p>\n",
+				"Description": "<p>Clients can use this method to check the <a href=\"/ref/enum/PredictionStatus.html\">PredictionStatus</a> of a\nspecific context instance, useful for debugging scripts affecting multiple\ninstances (vehicle controllers, custom physics, etc.) where some might be\npredicted and others might not. This method is also useful for debugging\nand observing the effects of <a href=\"/ref/enum/PredictionMode.html\">PredictionMode.Automatic</a> prediction\nmode.</p>\n"
+			},
 			"Heartbeat": {
 				"Summary": "<p>Fires every frame, after the physics simulation has completed.</p>\n",
 				"Description": "<p>The <code>Heartbeat</code> event fires every frame, after the physics simulation has\ncompleted. The <code>deltaTime</code> argument indicates the time that has elapsed\nsince the previous frame.</p>\n<p>This event is when most scripts run. It occurs at the end of each frame\nand it&#39;s also when any waiting scripts are executed, such as those\nscheduled with the <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#\">task</a> library. <code>Heartbeat</code> is commonly used\nfor periodic tasks, such as updating core game systems like health\nregeneration.</p>\n<p>Following this step, the engine sends property updates and events to the\nserver or clients which are later received as part of the\n<a href=\"https://create.roblox.com/docs/projects/client-server#replication\">replication</a> receive\nstep.</p>\n"
@@ -15840,6 +15890,10 @@
 				"Description": "<p>This method runs the experience&#39;s simulation (physics and scripts). When\nthe simulation is running, <a href=\"/ref/class/RunService.html#member-IsRunning\">IsRunning()</a> will\nreturn <code>true</code>. However, <a href=\"/ref/class/RunService.html#member-IsRunMode\">IsRunMode()</a> will\nonly return <code>true</code> if the simulation was started using the <strong>Run</strong> button\nin Studio.</p>\n"
 			},
 			"RunState": {},
+			"SetPredictionMode": {
+				"Summary": "<p>Sets the prediction mode for an <a href=\"/ref/class/Instance.html\">Instance</a> to an\n<a href=\"/ref/enum/PredictionMode.html\">PredictionMode</a> value.</p>\n",
+				"Description": "<p>Sets the prediction mode for an <a href=\"/ref/class/Instance.html\">Instance</a> (<code>context</code>) to an\n<a href=\"/ref/enum/PredictionMode.html\">PredictionMode</a> value. Mismatches between the physics properties or\nattributes for predicted instances will cause a rollback and resimulation\non the client. Can only be called on the client.</p>\n"
+			},
 			"Stepped": {
 				"Summary": "<p>Fires every frame, prior to the physics simulation.</p>\n",
 				"Description": "<p>Fires every frame, prior to the physics simulation.</p>\n<h4>Migration Note</h4>\n<p>This event has been superseded by\n<a href=\"/ref/class/RunService.html#member-PreSimulation\">PreSimulation</a> which should be used for\nnew work.</p>\n"
@@ -16774,6 +16828,7 @@
 		},
 		"SolidModelContentProvider": {},
 		"Sound": {
+			"AudioContent": {},
 			"ChannelCount": {},
 			"DidLoop": {
 				"Summary": "<p>Fires whenever the <a href=\"/ref/class/Sound.html\">Sound</a> loops.</p>\n",
@@ -17012,6 +17067,7 @@
 			}
 		},
 		"SoundService": {
+			"AcousticSimulationEnabled": {},
 			"AmbientReverb": {
 				"Summary": "<p>The ambient sound environment preset used by <a href=\"/ref/class/SoundService.html\">SoundService</a>.</p>\n",
 				"Description": "<p>Each <a href=\"/ref/enum/ReverbType.html\">ReverbType</a> option for this property corresponds to a preset\navailable in the FMOD sound engine. For example, when\n<a href=\"/ref/class/SoundService.html#member-AmbientReverb\">AmbientReverb</a> is set to\n<a href=\"/ref/enum/ReverbType.html\">ReverbType.Hangar</a>, sound will reverberate differently to simulate\nbeing in a large enclosed space.</p>\n<p>Changing <a href=\"/ref/class/SoundService.html#member-AmbientReverb\">AmbientReverb</a> affects the\nfollowing properties used by Roblox&#39;s sound engine.</p>\n<ul>\n<li>Reverberation decay time.</li>\n<li>Initial reflection delay time.</li>\n<li>Late reverberation delay time relative to initial reflection.</li>\n<li>Reference high frequency.</li>\n<li>High-frequency to mid-frequency decay time ratio.</li>\n<li>Value that controls the echo density in the late reverberation decay.</li>\n<li>Value that controls the modal density in the late reverberation decay.</li>\n<li>Reference low frequency.</li>\n<li>Relative room effect level at low frequencies.</li>\n<li>Relative room effect level at high frequencies.</li>\n<li>Early reflections level relative to room effect.</li>\n<li>Room effect level at mid frequencies.</li>\n</ul>\n"
@@ -17130,7 +17186,8 @@
 			"Radius": {
 				"Summary": "<p>The radius of the sphere adornment.</p>\n",
 				"Description": "<p>The radius of the sphere adornment.</p>\n"
-			}
+			},
+			"Shading": {}
 		},
 		"SpotLight": {
 			"Angle": {
@@ -17252,7 +17309,10 @@
 					"Auto-Jump-Toggle"
 				]
 			},
-			"AvatarJointUpgrade": {},
+			"AvatarJointUpgrade": {
+				"Summary": "<p>Controls whether avatars spawn with AnimationConstraint joints for\nphysical simulation.</p>\n",
+				"Description": "<p>This property controls the rollout state of new AnimationConstraint joints\nin avatars. When Disabled, avatars spawn with legacy\n<a href=\"/ref/class/Motor6D.html\">Motor6Ds</a> connecting their limbs. When Enabled, avatars\nspawn with <a href=\"/ref/class/AnimationConstraint.html\">AnimationConstraints</a> and\n<a href=\"/ref/class/BallSocketConstraint.html\">BallSocketConstraints</a> connecting their limbs.\nThis makes it easier to write scripts that enable physical simulation,\nlike arm strength and ragdoll falling down.</p>\n<p>For more info see the\n<a href=\"https://devforum.roblox.com/t/studio-beta-avatar-joint-upgrade-enabling-physically-simulated-characters/3266099\">devforum announcement</a>.</p>\n"
+			},
 			"CameraMaxZoomDistance": {
 				"Summary": "<p>The maximum distance the player&#39;s default camera is allowed to zoom out in\nstuds.</p>\n",
 				"Description": "<p>This property sets the maximum distance in studs the camera can be from\nthe character with the default cameras.</p>\n<p>This property sets the default value of\n<a href=\"/ref/class/Player.html#member-CameraMaxZoomDistance\">Player.CameraMaxZoomDistance</a> for each player who joins the game.\nIf this value is set to a lower value than\n<a href=\"/ref/class/StarterPlayer.html#member-CameraMinZoomDistance\">StarterPlayer.CameraMinZoomDistance</a> it will be increased to\nCameraMinZoomDistance.</p>\n",
@@ -17273,6 +17333,10 @@
 				"CodeSamples": [
 					"playing-in-first-person"
 				]
+			},
+			"CharacterBreakJointsOnDeath": {
+				"Summary": "<p>Determines the starting value of <a href=\"/ref/class/Humanoid.html#member-BreakJointsOnDeath\">Humanoid.BreakJointsOnDeath</a> for\n<a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</p>\n",
+				"Description": "<p>This property determines the starting value of\n<a href=\"/ref/class/Humanoid.html#member-BreakJointsOnDeath\">Humanoid.BreakJointsOnDeath</a> for a player&#39;s\n<a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</p>\n<p>Note, <a href=\"/ref/class/StarterPlayer.html#member-AvatarJointUpgrade\">StarterPlayer.AvatarJointUpgrade</a> must be enabled for\nCharacterBreakJointsOnDeath to take effect.</p>\n"
 			},
 			"CharacterJumpHeight": {
 				"Summary": "<p>Determines the starting value of <a href=\"/ref/class/Humanoid.html#member-JumpHeight\">Humanoid.JumpHeight</a> for\n<a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>.</p>\n",
@@ -17295,6 +17359,10 @@
 				"Description": "<p>This property determines the starting value of <a href=\"/ref/class/Humanoid.html#member-WalkSpeed\">Humanoid.WalkSpeed</a>\nfor a player&#39;s <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a>. This property defaults to 16.</p>\n<p>Since this property is only relevant for characters being spawned in the\nfuture, changing it will not change any existing player characters.\nChanges to this property will only take effect when a player respawns.</p>\n"
 			},
 			"ClassicDeath": {},
+			"CreateDefaultPlayerModule": {
+				"Summary": "<p>Controls how the default player module and related scripts are handled.</p>\n",
+				"Description": "<p>This property is only visible when\n<a href=\"/ref/class/Workspace.html#member-PlayerScriptsUseInputActionSystem\">Workspace.PlayerScriptsUseInputActionSystem</a> is enabled. When set\nto <code>true</code> (default), the <code>PlayerModule</code> injection point occurs at\n<a href=\"/ref/class/StarterPlayer.html\">StarterPlayer</a>. When set to <code>false</code>, the default camera and control\nscripts will not be added to the place.</p>\n"
+			},
 			"DevCameraOcclusionMode": {
 				"Summary": "<p>Sets how the default camera handles objects between the camera and the\nplayer.</p>\n",
 				"Description": "<p>Defines how the default camera scripts handle objects between the camera\nand the camera subject. Applies to all players as they join the experience\nand can&#39;t be changed for individual players.</p>\n<p>The default value is <a href=\"/ref/enum/DevCameraOcclusionMode.html\">Zoom</a> (0). See\n<a href=\"/ref/enum/DevCameraOcclusionMode.html\">DevCameraOcclusionMode</a> for a list of available modes.</p>\n"
@@ -17525,6 +17593,7 @@
 			"Auto-Recovery Enabled": {},
 			"Auto-Recovery Interval (Minutes)": {},
 			"AutoResumeSyncOnPlaceOpen": {},
+			"AutoUpdateEnabled": {},
 			"AutocompleteAcceptanceBehavior": {},
 			"Automatically trigger AI Code Completion": {},
 			"Background Color": {
@@ -17575,6 +17644,8 @@
 			"Current Line Highlight Color": {},
 			"Debugger Current Line Color": {},
 			"Debugger Error Line Color": {},
+			"DefaultInstancesDir": {},
+			"DefaultScriptSyncFileType": {},
 			"DeprecatedObjectsShown": {
 				"Summary": "<p>If set to true, deprecated objects will be shown in the Advanced Objects\nwindow, as well as the Object Browser.</p>\n",
 				"Description": "<p>If set to true, deprecated objects will be shown in the Advanced Objects\nwindow, as well as the Object Browser.</p>\n"
@@ -17607,8 +17678,10 @@
 			"Enable Temporary Tabs In Explorer": {},
 			"Enable Type Hover": {},
 			"EnableCodeAssist": {},
+			"EnableFindOnType": {},
 			"EnableIndentationRulers": {},
 			"EnableSelectionTooltips": {},
+			"EnableStudioStreaming": {},
 			"Error Color": {
 				"Summary": "<p>Specifies the color of the wavy underline shown when malformed code is\ndetected in the script editor.</p>\n",
 				"Description": "<p>Specifies the color of the wavy underline shown when malformed code is\ndetected in the script editor.</p>\n"
@@ -17659,6 +17732,7 @@
 				"Description": "<p>Sets the thickness of the <a href=\"/ref/class/Model.html#member-PrimaryPart\">Model.PrimaryPart</a> selection adornee.\nThis value is constrained between 0 and 0.05.</p>\n"
 			},
 			"LoadAllBuiltinPluginsInRunModes": {},
+			"LoadInternalPlugins": {},
 			"LoadUserPluginsInRunModes": {},
 			"LocalAssetsFolder": {},
 			"LuaDebuggerEnabled": {
@@ -17672,6 +17746,7 @@
 				"Summary": "<p>Sets the highlight color of double-clicked variables in the script editor.</p>\n",
 				"Description": "<p>Sets the highlight color of double-clicked variables in the script editor.</p>\n"
 			},
+			"MaxFindReplaceAllResults": {},
 			"Maximum Output Lines": {
 				"Summary": "<p>The maximum number of lines that can be displayed in the output.</p>\n",
 				"Description": "<p>The maximum number of lines that can be displayed in the output.</p>\n"
@@ -20286,6 +20361,7 @@
 		},
 		"UserGameSettings": {
 			"AllTutorialsDisabled": {},
+			"BadgeVisible": {},
 			"CameraMode": {},
 			"ChatVisible": {},
 			"ComputerCameraMovementMode": {
@@ -20344,6 +20420,9 @@
 			},
 			"OnboardingsCompleted": {},
 			"PartyVoiceVolume": {},
+			"PeoplePageLayout": {},
+			"PlayerListVisible": {},
+			"PlayerNamesEnabled": {},
 			"RCCProfilerRecordFrameRate": {},
 			"RCCProfilerRecordTimeFrame": {},
 			"RotationType": {
@@ -20682,6 +20761,7 @@
 				"Summary": "<p>Fires when a user rotates two fingers on the screen of a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device.</p>\n",
 				"Description": "<p>This event fires when a user rotates two fingers on the screen of a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device.</p>\n<p>Note that this event only fires when the Roblox client window is in focus.\nIt will not fire when the window is minimized.</p>\n"
 			},
+			"TouchScreenEnabled": {},
 			"TouchStarted": {
 				"Summary": "<p>Fires when a user places their finger on the screen of a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device.</p>\n",
 				"Description": "<p>This event fires when a user places their finger on the screen of a\n<a href=\"/ref/class/UserInputService.html#member-TouchEnabled\">TouchEnabled</a> device. Can be paired\nwith <a href=\"/ref/class/UserInputService.html#member-TouchEnded\">TouchEnded</a> to determine when a\nuser starts and stops touching the screen.</p>\n<p>Note that this event only fires when the Roblox client window is in focus.\nIt will not fire when the window is minimized.</p>\n"
@@ -21118,6 +21198,7 @@
 					"creating-and-playing-a-video"
 				]
 			},
+			"VideoContent": {},
 			"Volume": {
 				"Summary": "<p>Indicates how loud the <a href=\"/ref/class/VideoFrame.html#member-Video\">VideoFrame.Video</a> is currently playing back.</p>\n",
 				"Description": "<p>This property determines how loud the <a href=\"/ref/class/VideoFrame.html#member-Video\">VideoFrame.Video</a> plays back.\nIt can be set to a number between 0 and 100.</p>\n"
@@ -21405,7 +21486,10 @@
 				"Summary": "<p>Determines whether assets created by other users can be sold in the game.</p>\n",
 				"Description": "<p>This <a href=\"/ref/class/Workspace.html\">Workspace</a> property determines whether assets created by other\nuses can be sold in the game.</p>\n<h4>What are third party sales?</h4>\n<p>When this value is false, as it is by default, only assets created by the\nplace creator (be it a player or a group) and Roblox can be sold using\n<a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a>.</p>\n<p>In most cases, games do not need to sell third party assets. However, some\ngames such as trade hangouts require this feature and therefore it exists\nas an opt-in option.</p>\n<h4>What third party products can I sell?</h4>\n<p>Note,\n<a href=\"https://create.roblox.com/docs/production/monetization/developer-products\">developer products</a>\ncan only be sold in the game they are associated with, regardless of what\nAllowThirdPartySales is set to. This property affects\n<a href=\"https://create.roblox.com/docs/production/monetization/game-passes\">Game Passes</a> and\n<a href=\"https://create.roblox.com/docs/art/classic-clothing\">clothing</a>.</p>\n"
 			},
-			"AuthorityMode": {},
+			"AuthorityMode": {
+				"Summary": "<p>Sets the server authority mode.</p>\n",
+				"Description": "<p>Sets the server authority mode. See <a href=\"/ref/enum/AuthorityMode.html\">AuthorityMode</a> for options.</p>\n"
+			},
 			"AvatarUnificationMode": {},
 			"BreakJoints": {
 				"Summary": "<p>Goes through all <a href=\"/ref/class/BasePart.html\">BaseParts</a> given, breaking any joints\nconnected to these parts.</p>\n",
@@ -21426,7 +21510,7 @@
 			"FallHeightEnabled": {},
 			"FallenPartsDestroyHeight": {
 				"Summary": "<p>Determines the height at which falling <a href=\"/ref/class/BasePart.html\">BaseParts</a> and\ntheir ancestor <a href=\"/ref/class/Model.html\">Models</a> are removed from <a href=\"/ref/class/Workspace.html\">Workspace</a>.</p>\n",
-				"Description": "<p>This property determines the height at which the Roblox Engine\nautomatically removes falling <a href=\"/ref/class/BasePart.html\">BaseParts</a> and their\nancestor <a href=\"/ref/class/Model.html\">Models</a> from <a href=\"/ref/class/Workspace.html\">Workspace</a> by parenting them to\n<code>nil</code>. This is to prevent parts that have fallen off the map from\ncontinuing to fall forever.</p>\n<p>If a part removed due to this behavior is the last part in a\n<a href=\"/ref/class/Model.html\">Model</a>, that model will also be removed. This applies to all model\nancestors of the part.</p>\n<p>This property is clamped between -50,000 and 50,000 because\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> do not simulate or render properly at a great\ndistance from the origin due to floating point inaccuracies.</p>\n<p>This property can be read by scripts, but can only be set by plugins, the\ncommand bar, or the properties window in Studio.</p>\n"
+				"Description": "<p>This property determines the height at which the engine automatically\nremoves falling <a href=\"/ref/class/BasePart.html\">BaseParts</a> and their ancestor\n<a href=\"/ref/class/Model.html\">Models</a> from <a href=\"/ref/class/Workspace.html\">Workspace</a> by parenting them to <code>nil</code>.\nThis is to prevent parts that have fallen off the map from continuing to\nfall forever.</p>\n<p>If a part removed due to this behavior is the last part in a\n<a href=\"/ref/class/Model.html\">Model</a>, that model will also be removed. This applies to all model\nancestors of the part.</p>\n<p>This property is clamped between -50,000 and 50,000 because\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> do not simulate or render properly at a great\ndistance from the origin due to floating point inaccuracies.</p>\n<p>This property can be read by scripts, but can only be set by plugins, the\ncommand bar, or the properties window in Studio.</p>\n"
 			},
 			"FilteringEnabled": {
 				"Summary": "<p>Determines whether changes made from the client will replicate to the\nserver or not.</p>\n",
@@ -21438,7 +21522,7 @@
 			},
 			"GetNumAwakeParts": {
 				"Summary": "<p>Returns the number of <a href=\"/ref/class/BasePart.html\">BaseParts</a> that are deemed\nphysically active, due to being recently under the influence of physics.</p>\n",
-				"Description": "<p>Returns the number of <a href=\"/ref/class/BasePart.html\">BaseParts</a> that are deemed\nphysically active, due to being recently under the influence of physics.</p>\n<p>This function provides a measure of how many <a href=\"/ref/class/BasePart.html\">BaseParts</a>\nare being influenced by, or recently under the influence of, physical\nforces.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nprint(Workspace:GetNumAwakeParts())\n</code></pre>\n<h4>Sleeping vs Awake Parts</h4>\n<p>In order to ensure good performance, Roblox sets <code>BaseParts</code> in which\nphysics are not being applied to a &#39;sleeping&#39; state.\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> with <a href=\"/ref/class/BasePart.html#member-Anchored\">BasePart.Anchored</a> set to true, for\nexample, will always be sleeping as physics doesn&#39;t apply to them. When a\nforce is applied to a non anchored <a href=\"/ref/class/BasePart.html\">BasePart</a>, an &#39;awake&#39; state will\nbe applied. Whilst a <a href=\"/ref/class/BasePart.html\">BasePart</a> is awake the Roblox physics engine\nwill perform continuous calculations to ensure physical forces interact\ncorrectly with the part. Once the <a href=\"/ref/class/BasePart.html\">BasePart</a> is no longer subject to\nphysical forces, it will revert to a &#39;sleeping&#39; state.</p>\n"
+				"Description": "<p>Returns the number of <a href=\"/ref/class/BasePart.html\">BaseParts</a> that are deemed\nphysically active, due to being recently under the influence of physics.</p>\n<p>This function provides a measure of how many <a href=\"/ref/class/BasePart.html\">BaseParts</a>\nare being influenced by, or recently under the influence of, physical\nforces.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nprint(Workspace:GetNumAwakeParts())\n</code></pre>\n<p>In order to ensure good performance, the engine sets\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> in which physics are not being applied to a\n&#34;sleeping&#34; state. <a href=\"/ref/class/BasePart.html\">BaseParts</a> with\n<a href=\"/ref/class/BasePart.html#member-Anchored\">BasePart.Anchored</a> set to <code>true</code>, for example, will always be\nsleeping as physics doesn&#39;t apply to them. When a force is applied to a\nnon‑anchored <a href=\"/ref/class/BasePart.html\">BasePart</a>, an &#34;awake&#34; state will be applied. Whilst a\n<a href=\"/ref/class/BasePart.html\">BasePart</a> is awake, the physics engine will perform continuous\ncalculations to ensure physical forces interact correctly with the part.\nOnce the <a href=\"/ref/class/BasePart.html\">BasePart</a> is no longer subject to physical forces, it will\nrevert to a &#34;sleeping&#34; state.</p>\n"
 			},
 			"GetPhysicsThrottling": {
 				"Summary": "<p>Returns an integer, between 0 and 100, representing the percentage of\nreal-time that physics simulation is currently being throttled to.</p>\n",
@@ -21476,7 +21560,7 @@
 			},
 			"JoinToOutsiders": {
 				"Summary": "<p>Creates joints between the specified <a href=\"/ref/class/BasePart.html\">Parts</a> and any\ntouching parts depending on the parts&#39; surfaces and the specified joint\ncreation mode.</p>\n",
-				"Description": "<p>This function creates joints between the specified <a href=\"/ref/class/BasePart.html\">Parts</a>\nand any touching parts depending on the parts&#39; surfaces and the specified\njoint creation mode.</p>\n<p>This function creates joints between the specified Parts and any planar\ntouching surfaces, depending on the parts&#39; surfaces and the specified\njoint creation mode.</p>\n<ul>\n<li>Glue, Studs, Inlets, Universal, Weld, and Smooth surfaces will all\ncreate Weld instances.</li>\n<li>Spheres will not surface-weld to anything. The rounded sides of\ncylinders will not surface-weld, but the flat end sides will.</li>\n<li>Hinge and Motor surfaces will still create <a href=\"/ref/class/Rotate.html\">Rotate</a> and\n<a href=\"/ref/class/RotateP.html\">RotateP</a> joint instances, regardless of part shape.</li>\n</ul>\n<p>The first parameter is an array of <a href=\"/ref/class/BasePart.html\">BaseParts</a>. Joints will\nonly be created between the parts in the array and not in the array.\nJoints will not be created between the parts in the array.</p>\n<p>The second parameter is a <a href=\"/ref/enum/JointCreationMode.html\">JointCreationMode</a> that determines how\njoints will be created. Passing in either enum value,\n<a href=\"/ref/enum/JointCreationMode.html\">Enum.JointCreationMode.All</a> or\n<a href=\"/ref/enum/JointCreationMode.html\">Enum.JointCreationMode.Surface</a>, has the same\nbehavior which equates to Join Always</p>\n<p>This function is used by the Roblox Studio Move tool when the user\nfinishes moving a selection. In conjunction with\n<a href=\"/ref/class/Plugin.html#member-GetJoinMode\">Plugin:GetJoinMode()</a> and <a href=\"/ref/class/Workspace.html#member-UnjoinFromOutsiders\">Workspace:UnjoinFromOutsiders()</a>\nit can be used to retain join functionality when developing custom studio\nbuild tools. See the snippets below for an example.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Finished moving a selection; make joints</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">finishedMovingParts</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">joinMode</span> <span class=\"_o\">=</span> <span class=\"_n\">Plugin</span><span class=\"_p\">:</span><span class=\"_n\">GetJoinMode</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Workspace</span><span class=\"_p\">:</span><span class=\"_n\">JoinToOutsiders</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">,</span> <span class=\"_n\">joinMode</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Started moving a selection; break joints</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">startMovingParts</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Workspace</span><span class=\"_p\">:</span><span class=\"_n\">UnjoinFromOutsiders</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+				"Description": "<p>This function creates joints between the specified <a href=\"/ref/class/BasePart.html\">Parts</a>\nand any touching parts depending on the parts&#39; surfaces and the specified\njoint creation mode.</p>\n<p>This function creates joints between the specified Parts and any planar\ntouching surfaces, depending on the parts&#39; surfaces and the specified\njoint creation mode.</p>\n<ul>\n<li>Glue, Studs, Inlets, Universal, Weld, and Smooth surfaces will all\ncreate Weld instances.</li>\n<li>Spheres will not surface-weld to anything. The rounded sides of\ncylinders will not surface-weld, but the flat end sides will.</li>\n<li>Hinge and Motor surfaces will still create <a href=\"/ref/class/Rotate.html\">Rotate</a> and\n<a href=\"/ref/class/RotateP.html\">RotateP</a> joint instances, regardless of part shape.</li>\n</ul>\n<p>The first parameter is an array of <a href=\"/ref/class/BasePart.html\">BaseParts</a>. Joints will\nonly be created between the parts in the array and not in the array.\nJoints will not be created between the parts in the array.</p>\n<p>The second parameter is a <a href=\"/ref/enum/JointCreationMode.html\">JointCreationMode</a> that determines how\njoints will be created. Passing in either enum value,\n<a href=\"/ref/enum/JointCreationMode.html\">Enum.JointCreationMode.All</a> or\n<a href=\"/ref/enum/JointCreationMode.html\">Enum.JointCreationMode.Surface</a>, has the same\nbehavior which equates to Join Always</p>\n<p>This function is used by the Roblox Studio <strong>Move</strong> tool when the user\nfinishes moving a selection. In conjunction with\n<a href=\"/ref/class/Plugin.html#member-GetJoinMode\">Plugin:GetJoinMode()</a> and <a href=\"/ref/class/Workspace.html#member-UnjoinFromOutsiders\">Workspace:UnjoinFromOutsiders()</a>\nit can be used to retain join functionality when developing custom studio\nbuild tools. See the snippets below for an example.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Finished moving a selection; make joints</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">finishedMovingParts</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">joinMode</span> <span class=\"_o\">=</span> <span class=\"_n\">Plugin</span><span class=\"_p\">:</span><span class=\"_n\">GetJoinMode</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Workspace</span><span class=\"_p\">:</span><span class=\"_n\">JoinToOutsiders</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">,</span> <span class=\"_n\">joinMode</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Started moving a selection; break joints</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">startMovingParts</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Workspace</span><span class=\"_p\">:</span><span class=\"_n\">UnjoinFromOutsiders</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"LuauTypeCheckMode": {},
 			"MakeJoints": {
@@ -21548,12 +21632,12 @@
 			},
 			"UnjoinFromOutsiders": {
 				"Summary": "<p>Breaks all joints between the specified <a href=\"/ref/class/BasePart.html\">BaseParts</a> and\nother <a href=\"/ref/class/BasePart.html\">BaseParts</a>.</p>\n",
-				"Description": "<p>Breaks all joints between the specified <a href=\"/ref/class/BasePart.html\">BaseParts</a> and\nother <a href=\"/ref/class/BasePart.html\">BaseParts</a>.</p>\n<p>This function requires an array of <a href=\"/ref/class/BasePart.html\">BaseParts</a>. Note,\njoints will not be broken between these <a href=\"/ref/class/BasePart.html\">BaseParts</a> (each\nother), only between these <a href=\"/ref/class/BasePart.html\">BaseParts</a> and other\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> not in the array.</p>\n<p>This function is used by the Roblox Studio Move tool when the user starts\nmoving a selection. In conjunction with <a href=\"/ref/class/Plugin.html#member-GetJoinMode\">Plugin:GetJoinMode()</a> and\n<a href=\"/ref/class/Workspace.html#member-JoinToOutsiders\">Workspace:JoinToOutsiders()</a> it can be used to retain join\nfunctionality when developing custom Studio build tools. See the snippets\nbelow for an example.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\n-- Finished moving a selection; make joints\nlocal function finishedMovingParts(parts)\n\tlocal joinMode = Plugin:GetJoinMode()\n\tWorkspace:JoinToOutsiders(parts, joinMode)\nend\n</code></pre>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\n-- Started moving a selection; break joints\nlocal function startMovingParts(parts)\n\tWorkspace:UnjoinFromOutsiders(parts)\nend\n</code></pre>\n"
+				"Description": "<p>Breaks all joints between the specified <a href=\"/ref/class/BasePart.html\">BaseParts</a> and\nother <a href=\"/ref/class/BasePart.html\">BaseParts</a>.</p>\n<p>This function requires an array of <a href=\"/ref/class/BasePart.html\">BaseParts</a>. Note,\njoints will not be broken between these <a href=\"/ref/class/BasePart.html\">BaseParts</a> (each\nother), only between these <a href=\"/ref/class/BasePart.html\">BaseParts</a> and other\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> not in the array.</p>\n<p>This function is used by the Roblox Studio <strong>Move</strong> tool when the user\nstarts moving a selection. In conjunction with\n<a href=\"/ref/class/Plugin.html#member-GetJoinMode\">Plugin:GetJoinMode()</a> and <a href=\"/ref/class/Workspace.html#member-JoinToOutsiders\">Workspace:JoinToOutsiders()</a> it\ncan be used to retain join functionality when developing custom Studio\nbuild tools. See the snippets below for an example.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\n-- Finished moving a selection; make joints\nlocal function finishedMovingParts(parts)\n\tlocal joinMode = Plugin:GetJoinMode()\n\tWorkspace:JoinToOutsiders(parts, joinMode)\nend\n</code></pre>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\n-- Started moving a selection; break joints\nlocal function startMovingParts(parts)\n\tWorkspace:UnjoinFromOutsiders(parts)\nend\n</code></pre>\n"
 			},
 			"UseNewLuauTypeSolver": {},
 			"ZoomToExtents": {
 				"Summary": "<p>Positions and zooms the <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> to show the extent\nof <a href=\"/ref/class/BasePart.html\">BaseParts</a> currently in the <a href=\"/ref/class/Workspace.html\">Workspace</a>.</p>\n",
-				"Description": "<p>Positions and zooms the <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> to show the extent\nof <a href=\"/ref/class/BasePart.html\">BaseParts</a> currently in the <a href=\"/ref/class/Workspace.html\">Workspace</a>.</p>\n<p>This function was used in the, now removed, &#39;Zoom To Extents&#39; button in\nRoblox Studio. It exhibits similar behavior to the &#39;Zoom To&#39; (F shortcut)\nfeature, however it shows the extents of the <a href=\"/ref/class/Workspace.html\">Workspace</a> rather than\nthe currently selected object.</p>\n<p>This function cannot be used in scripts but will function in the command\nbar or plugins.</p>\n"
+				"Description": "<p>Positions and zooms the <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> to show the extent\nof <a href=\"/ref/class/BasePart.html\">BaseParts</a> currently in the <a href=\"/ref/class/Workspace.html\">Workspace</a>. It\nexhibits similar behavior to the &#34;focus&#34; command but it shows the extents\nof the <a href=\"/ref/class/Workspace.html\">Workspace</a> rather than the currently selected object.</p>\n<p>This function cannot be used in scripts but will function in the command\nbar or plugins.</p>\n"
 			}
 		},
 		"WorkspaceAnnotation": {},
@@ -21862,7 +21946,10 @@
 		},
 		"AudioSubType": {},
 		"AudioWindowSize": {},
-		"AuthorityMode": {},
+		"AuthorityMode": {
+			"Summary": "<p>Enum used with <a href=\"/ref/class/Workspace.html#member-AuthorityMode\">Workspace.AuthorityMode</a>.</p>\n",
+			"Description": "<p>Enum used with <a href=\"/ref/class/Workspace.html#member-AuthorityMode\">Workspace.AuthorityMode</a>.</p>\n"
+		},
 		"AutoIndentRule": {},
 		"AutomaticSize": {
 			"Summary": "<p>UI objects with <a href=\"/ref/class/GuiObject.html#member-AutomaticSize\">AutomaticSize</a> enabled will\nincrease in size up to maximum size allowed by the parent (if there is one)\nand no smaller than the <a href=\"/ref/class/GuiObject.html#member-Size\">Size</a> property bounds.</p>\n",
@@ -22018,6 +22105,10 @@
 			"Description": "<p>Determines the tags for completion items in\n<a href=\"/ref/class/ScriptEditorService.html#member-RegisterAutocompleteCallback\">ScriptEditorService:RegisterAutocompleteCallback()</a>.</p>\n"
 		},
 		"CompletionTriggerKind": {},
+		"CompositeValueCurveType": {
+			"Summary": "<p>Describes the type of value animated by a <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a>.</p>\n",
+			"Description": "<p>Describes the type of value animated by a <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a>.</p>\n"
+		},
 		"CompressionAlgorithm": {
 			"Summary": "<p>A compression algorithm to use in <a href=\"/ref/class/EncodingService.html\">EncodingService</a> methods.</p>\n",
 			"Description": "<p>A compression algorithm to use in <a href=\"/ref/class/EncodingService.html\">EncodingService</a> methods.</p>\n"
@@ -22593,6 +22684,14 @@
 			"Summary": "<p>The PositionAlignmentMode Enum is used to select the number of\n<a href=\"/ref/class/Attachment.html\">Attachments</a> used in an alignment.</p>\n",
 			"Description": "<p>The PositionAlignmentMode Enum is used to select the number of\n<a href=\"/ref/class/Attachment.html\">Attachments</a> used in an alignment.</p>\n"
 		},
+		"PredictionMode": {
+			"Summary": "<p>Enum used with <a href=\"/ref/class/RunService.html#member-SetPredictionMode\">RunService:SetPredictionMode()</a> to define the prediction\nmode for the instance.</p>\n",
+			"Description": "<p>Enum used with <a href=\"/ref/class/RunService.html#member-SetPredictionMode\">RunService:SetPredictionMode()</a> to define the prediction\nmode for the instance.</p>\n"
+		},
+		"PredictionStatus": {
+			"Summary": "<p>Enum used with <a href=\"/ref/class/RunService.html#member-GetPredictionStatus\">RunService:GetPredictionStatus()</a> to check the status of\na specific instance.</p>\n",
+			"Description": "<p>Enum used with <a href=\"/ref/class/RunService.html#member-GetPredictionStatus\">RunService:GetPredictionStatus()</a> to check the status of\na specific instance.</p>\n<p>This prediction status can be used to determine whether any associated scripts\nshould run. If the status is <code>Authoritative</code> or <code>Predicted</code>, such scripts\nshould run, since the local node is either the authority for the instance or\nis predicting it. If the status is <code>None</code>, such scripts do not need to run.</p>\n"
+		},
 		"PreferredInput": {
 			"Summary": "<p>This enum is used with <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a> to indicate the\nprimary input type a player is likely using.</p>\n",
 			"Description": "<p>This enum is used with <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a> to indicate the\nprimary input type a player is likely using.</p>\n"
@@ -22768,6 +22867,10 @@
 			"Summary": "<p>This enum was used with the unfinished <a href=\"/ref/class/Status.html\">Status</a> library.</p>\n",
 			"Description": "<p>This enum was used with the unfinished <a href=\"/ref/class/Status.html\">Status</a> library which would have\nallowed you to add conditions to a <a href=\"/ref/class/Humanoid.html\">Humanoid</a>.</p>\n",
 			"DeprecationMessage": "<p>This enum is deprecated as it was only used by deprecated methods and events.\nIt should not be used in new work.</p>\n"
+		},
+		"StepFrequency": {
+			"Summary": "<p>Enum used with <a href=\"/ref/class/RunService.html#member-BindToSimulation\">RunService:BindToSimulation()</a> to indicate the frequency\nat which the bound function is called.</p>\n",
+			"Description": "<p>Enum used with <a href=\"/ref/class/RunService.html#member-BindToSimulation\">RunService:BindToSimulation()</a> to indicate the frequency\nat which the bound function is called.</p>\n"
 		},
 		"StreamOutBehavior": {
 			"Summary": "<p>Determines how content is streamed away from Players.</p>\n",
@@ -23465,6 +23568,7 @@
 		},
 		"AppUpdateStatus": {
 			"Available": {},
+			"AvailableBetaProgram": {},
 			"AvailableBoundChannel": {},
 			"Failed": {},
 			"NotAvailable": {},
@@ -23537,6 +23641,7 @@
 				"Summary": "<p>The asset is an emote animation.</p>\n"
 			},
 			"EyeAccessory": {},
+			"EyeMakeup": {},
 			"EyebrowAccessory": {},
 			"EyelashAccessory": {},
 			"Face": {
@@ -23545,6 +23650,7 @@
 			"FaceAccessory": {
 				"Summary": "<p>The asset is a face accessory.</p>\n"
 			},
+			"FaceMakeup": {},
 			"FallAnimation": {
 				"Summary": "<p>The asset is a fall animation.</p>\n"
 			},
@@ -23584,6 +23690,7 @@
 				"Summary": "<p>The asset is a left leg.</p>\n"
 			},
 			"LeftShoeAccessory": {},
+			"LipMakeup": {},
 			"Lua": {
 				"Summary": "<p>The asset is Luau code, for example a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a>.</p>\n"
 			},
@@ -23753,8 +23860,12 @@
 			"Small": {}
 		},
 		"AuthorityMode": {
-			"Automatic": {},
-			"Server": {}
+			"Automatic": {
+				"Summary": "<p>Traditional distributed authority model where, for each instance, the\nengine decides whether the server or a client should be the authority;\n<a href=\"/ref/class/BasePart.html#member-SetNetworkOwner\">BasePart:SetNetworkOwner()</a> can be used to influence the decision.</p>\n"
+			},
+			"Server": {
+				"Summary": "<p>The server is the authority for all instances and calls to\n<a href=\"/ref/class/BasePart.html#member-SetNetworkOwner\">BasePart:SetNetworkOwner()</a> will fail.</p>\n"
+			}
 		},
 		"AutoIndentRule": {
 			"Absolute": {},
@@ -23789,6 +23900,7 @@
 			"EmoteAnimation": {
 				"Summary": "<p>An emote animation.</p>\n"
 			},
+			"EyeMakeup": {},
 			"EyebrowAccessory": {},
 			"EyelashAccessory": {},
 			"Face": {
@@ -23797,6 +23909,7 @@
 			"FaceAccessory": {
 				"Summary": "<p>A face accessory.</p>\n"
 			},
+			"FaceMakeup": {},
 			"FallAnimation": {
 				"Summary": "<p>A fall animation.</p>\n"
 			},
@@ -23833,6 +23946,7 @@
 			"LeftShoeAccessory": {
 				"Summary": "<p>A layered clothing left shoe.</p>\n"
 			},
+			"LipMakeup": {},
 			"MoodAnimation": {},
 			"NeckAccessory": {
 				"Summary": "<p>A neck accessory.</p>\n"
@@ -24511,6 +24625,32 @@
 			"TriggerCharacter": {},
 			"TriggerForIncompleteCompletions": {}
 		},
+		"CompositeValueCurveType": {
+			"ColorHSV": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;H&#34;</code>, <code>&#34;S&#34;</code>, and <code>&#34;V&#34;</code> to animate hue,\nsaturation, and value of a color that will be converted to RGB before\nreturning a <a href=\"/ref/type/Color3.html\">Color3</a> value from the method\n<a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			},
+			"ColorRGB": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;R&#34;</code>, <code>&#34;G&#34;</code>, and <code>&#34;B&#34;</code> to animate the\ncorresponding components of the <a href=\"/ref/type/Color3.html\">Color3</a> value returned by the\nmethod <a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			},
+			"NumberRange": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;Min&#34;</code> and <code>&#34;Max&#34;</code> to animate the corresponding\ncomponents of the <a href=\"/ref/type/NumberRange.html\">NumberRange</a> value returned by the method\n<a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			},
+			"Rect": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;MinX&#34;</code>, <code>&#34;MaxX&#34;</code>, <code>&#34;MinY&#34;</code>, and <code>&#34;MaxY&#34;</code> to\nanimate the corresponding components of the <a href=\"/ref/type/Rect.html\">Rect</a> value returned\nby the method <a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			},
+			"UDim": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;Scale&#34;</code> and <code>&#34;Offset&#34;</code> to animate the\ncorresponding components of the <a href=\"/ref/type/UDim.html\">UDim</a> value returned by the\nmethod <a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			},
+			"UDim2": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;ScaleX&#34;</code>, <code>&#34;OffsetX&#34;</code>, <code>&#34;ScaleY&#34;</code>, and\n<code>&#34;OffsetY&#34;</code> to animate the corresponding components of the\n<a href=\"/ref/type/UDim2.html\">UDim2</a> value returned by the method\n<a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			},
+			"Vector2": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;X&#34;</code> and <code>&#34;Y&#34;</code> to animate the corresponding\ncomponents of the <a href=\"/ref/type/Vector2.html\">Vector2</a> value returned by the method\n<a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			},
+			"Vector3": {
+				"Summary": "<p>The <a href=\"/ref/class/CompositeValueCurve.html\">CompositeValueCurve</a> will animate children of type\n<a href=\"/ref/class/FloatCurve.html\">FloatCurve</a> named <code>&#34;X&#34;</code>, <code>&#34;Y&#34;</code>, and <code>&#34;Z&#34;</code> to animate the\ncorresponding components of the <a href=\"/ref/type/Vector3.html\">Vector3</a> value returned by the\nmethod <a href=\"/ref/class/CompositeValueCurve.html#member-GetValueAtTime\">CompositeValueCurve:GetValueAtTime()</a>.</p>\n"
+			}
+		},
 		"CompressionAlgorithm": {
 			"Zstd": {
 				"Summary": "<p>Used to perform compression using\n<a href=\"https://en.wikipedia.org/wiki/Zstd\">Zstandard</a> compression, also known as\nzstd.</p>\n"
@@ -24549,8 +24689,12 @@
 			"None": {}
 		},
 		"ConnectionError": {
+			"AlreadyConnected": {},
 			"AndroidAnticheatKick": {},
 			"AndroidEmulatorKick": {},
+			"AndroidRootedKick": {},
+			"ConnectErrors": {},
+			"ConnectionBanned": {},
 			"DisconnectBadhash": {},
 			"DisconnectBlockedIP": {},
 			"DisconnectBySecurityPolicy": {},
@@ -24585,13 +24729,20 @@
 			"DisconnectSecurityKeyMismatch": {},
 			"DisconnectSendPacketError": {},
 			"DisconnectTimeout": {},
+			"DisconnectVerboselyModeratedGame": {},
 			"DisconnectWrongVersion": {},
+			"DisconnectionNotification": {},
+			"IPRecentlyConnected": {},
+			"IncompatibleProtocolVersion": {},
+			"InvalidPassword": {},
 			"NetworkInternal": {},
 			"NetworkMisbehavior": {},
 			"NetworkSecurity": {},
 			"NetworkSend": {},
 			"NetworkTimeout": {},
+			"NoFreeIncomingConnections": {},
 			"OK": {},
+			"OurSystemRequiresSecurity": {},
 			"PhantomFreeze": {},
 			"PlacelaunchCreatorBan": {},
 			"PlacelaunchCustomMessage": {},
@@ -24613,6 +24764,8 @@
 			"PlayerRemoved": {},
 			"ReplacementReady": {},
 			"ReplicatorTimeout": {},
+			"ScreentimeLockoutKick": {},
+			"SecurityKeyMismatch": {},
 			"ServerEmpty": {},
 			"ServerShutdown": {},
 			"TeleportErrors": {},
@@ -27943,6 +28096,28 @@
 				"Summary": "<p>Use two attachments.</p>\n"
 			}
 		},
+		"PredictionMode": {
+			"Automatic": {
+				"Summary": "<p>The engine will automatically decide if this instance should be predicted\nor not. Currently, only <a href=\"/ref/class/BasePart.html\">BaseParts</a> near the local player\ncharacter&#39;s <a href=\"/ref/class/Humanoid.html\">Humanoid</a> will be predicted within a dynamic radius\nthat grows and shrinks based on the device&#39;s capability to handle the\nsimulation load.</p>\n"
+			},
+			"Off": {
+				"Summary": "<p>The instance will <strong>not</strong> be predicted. Regular network ownership\nsemantics apply.</p>\n"
+			},
+			"On": {
+				"Summary": "<p>The instance will be predicted. Mismatches in the attributes of this\ninstance between the client and server will cause a rollback and\nresimulation. If the instance is a <a href=\"/ref/class/BasePart.html\">BasePart</a>, its physics\nproperties will be predicted ahead of the replicated authoritative server\nstate.</p>\n"
+			}
+		},
+		"PredictionStatus": {
+			"Authoritative": {
+				"Summary": "<p>This instance is authoritative.</p>\n"
+			},
+			"None": {
+				"Summary": "<p>The instance will not be resimulated; classic simulation rules apply\ninstead.</p>\n"
+			},
+			"Predicted": {
+				"Summary": "<p>This instance is being predicted.</p>\n"
+			}
+		},
 		"PreferredInput": {
 			"Gamepad": {
 				"Summary": "<p>The player has connected or most recently interacted with a gamepad.</p>\n"
@@ -28794,6 +28969,26 @@
 			},
 			"Poison": {
 				"DeprecationMessage": "<p>This option is deprecated.</p>\n"
+			}
+		},
+		"StepFrequency": {
+			"Hz1": {
+				"Summary": "<p>The bound function is called at 1 Hz.</p>\n"
+			},
+			"Hz10": {
+				"Summary": "<p>The bound function is called at 10 Hz.</p>\n"
+			},
+			"Hz15": {
+				"Summary": "<p>The bound function is called at 15 Hz.</p>\n"
+			},
+			"Hz30": {
+				"Summary": "<p>The bound function is called at 30 Hz.</p>\n"
+			},
+			"Hz5": {
+				"Summary": "<p>The bound function is called at 5 Hz.</p>\n"
+			},
+			"Hz60": {
+				"Summary": "<p>The bound function is called at 60 Hz.</p>\n"
 			}
 		},
 		"StreamOutBehavior": {
