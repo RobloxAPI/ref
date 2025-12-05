@@ -211,7 +211,7 @@ addition, the <a href=/ref/class/HttpService.html#member-GenerateGUID>GenerateGU
 random 128‑bit labels which can be treated as probabilistically unique in a
 variety of scenarios.</p><p>Within Studio, use
 <a href=/ref/class/HttpService.html#member-CreateWebStreamClient>CreateWebStreamClient()</a> to process
-data in real-time from servers that support streaming protocols such as
+data in real time from servers that support streaming protocols such as
 <a href=https://en.wikipedia.org/wiki/Server-sent_events>SSE</a>,
 <a href=https://en.wikipedia.org/wiki/Chunked_transfer_encoding>chunked transfer encoding</a>,
 and <a href=https://en.wikipedia.org/wiki/WebSocket>WebSockets</a>. You can connect
@@ -891,8 +891,11 @@ target server rejects the request. If a web service goes down for some
 reason, it can cause scripts that use this method to stop functioning
 altogether. It is often a good idea to wrap calls to this method in
 <a href=https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall>pcall()</a> and gracefully handle failure cases if the
-required information isn't available.</p><h4>Limitations</h4><p>The current limitation for sending and receiving HTTP requests is 500
-requests per minute. Requests over this threshold will fail.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1058 title="Changed on 2021-01-15T15:56:17-08:00
+required information isn't available.</p><h4>Limitations</h4><p>The current limitation for sending and receiving <strong>external</strong> HTTP
+requests is 500 requests per minute. There is also a separate limit of
+2500 requests per minute for
+<a href=https://create.roblox.com/docs/cloud-services/http-service#use-with-open-cloud>Open Cloud requests</a>.
+Requests over these thresholds will fail.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1058 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/HttpService.html#member-RequestAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>RequestAsync</a>
