@@ -191,7 +191,13 @@ event was discarded and that you need to implement either <code>OnClientEvent</c
 throwing this error.</p><p>If you need the result of the call, you should use a <a href=/ref/class/RemoteFunction.html>RemoteFunction</a>
 instead. Otherwise a remote event is recommended since it will minimize
 network traffic/latency and won't yield the script to wait for a response.</p><p>See <a href=https://create.roblox.com/docs/scripting/events/remote>Remote events and callbacks</a> for
-code samples and further details.</p><h3>Parameter Limitations</h3><p>Any type of Roblox object (<a href=/ref/type/Enum.html>Enum</a>, <a href=/ref/class/Instance.html>Instance</a>, etc.) can be
+code samples and further details.</p><h3>Throttling</h3><p>Remote events are subject to rate limits when sent from the client to the
+server with the <a href=/ref/class/RemoteEvent.html#member-FireServer>FireServer()</a> method.
+<a href=/ref/class/RemoteEvent.html>RemoteEvents</a> and
+<a href=/ref/class/UnreliableRemoteEvent.html>UnreliableRemoteEvents</a> both have a limit of
+approximately 500 requests per second, per client. This limit is <strong>shared
+among all remote events of the same type</strong>. To avoid throttling and latency
+issues, limit recurring remote events whenever possible.</p><h3>Parameter limitations</h3><p>Any type of Roblox object (<a href=/ref/type/Enum.html>Enum</a>, <a href=/ref/class/Instance.html>Instance</a>, etc.) can be
 passed as a parameter when a <a href=/ref/class/RemoteEvent.html>RemoteEvent</a> is fired, as well as Luau
 types such as numbers, strings, and booleans, although you should carefully
 explore the

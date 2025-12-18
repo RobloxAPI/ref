@@ -193,7 +193,13 @@ potentially resulting in reduced latency and network traffic. When you need
 ordering and reliability, use a <a href=/ref/class/RemoteEvent.html>RemoteEvent</a> instead.</p><p>If no connected listener exists to handle an event, you might see a
 <code>Remote event invocation discarded</code> error in the log to indicate that the
 event was discarded and that you need to implement either <code>OnClientEvent</code> or
-<code>OnServerEvent</code>.</p><h3>Parameter Limitations</h3><p>Any type of Roblox object (<a href=/ref/type/Enum.html>Enum</a>, <a href=/ref/class/Instance.html>Instance</a>, etc.) can be
+<code>OnServerEvent</code>.</p><h3>Throttling</h3><p>Remote events are subject to rate limits when sent from the client to the
+server with the <a href=/ref/class/RemoteEvent.html#member-FireServer>FireServer()</a> method.
+<a href=/ref/class/RemoteEvent.html>RemoteEvents</a> and
+<a href=/ref/class/UnreliableRemoteEvent.html>UnreliableRemoteEvents</a> both have a limit of
+approximately 500 requests per second, per client. This limit is <strong>shared
+among all remote events of the same type</strong>. To avoid throttling and latency
+issues, limit recurring remote events whenever possible.</p><h3>Parameter limitations</h3><p>Any type of Roblox object (<a href=/ref/type/Enum.html>Enum</a>, <a href=/ref/class/Instance.html>Instance</a>, etc.) can be
 passed as a parameter when an <a href=/ref/class/UnreliableRemoteEvent.html>UnreliableRemoteEvent</a> is fired, as well
 as Luau types such as numbers, strings, and booleans, although you should
 carefully explore the
