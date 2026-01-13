@@ -883,8 +883,8 @@ error is thrown. It is recommended that you wrap calls to this function in
 <code>pcall</code>.</p><h4>Limitations</h4><p>You should be aware of the following limitations when using this function:</p><ul><li>This function can only be called by the server.</li><li>This function may fail to return the correct information if the user is
 teleporting.</li><li>It is possible for this function to throw an error, hence developers
 should wrap it in a <a href=https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall>pcall()</a> (see example below)</li><li>As this function returns the JobId of the server and not the access code
-returned by <a href=/ref/class/TeleportService.html#member-ReserveServer>TeleportService:ReserveServer()</a>, the ID returned is
-not appropriate for use with reserved servers.</li></ul><h4>Studio Limitation</h4><p>Note that this service does not work during playtesting in Roblox Studio;
+returned by <a href=/ref/class/TeleportService.html#member-ReserveServerAsync>TeleportService:ReserveServerAsync()</a>, the ID
+returned is not appropriate for use with reserved servers.</li></ul><h4>Studio Limitation</h4><p>Note that this service does not work during playtesting in Roblox Studio;
 to test aspects of your experience using it, you must publish the
 experience and play it in the Roblox application.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-2669 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
@@ -1101,7 +1101,7 @@ Add <a class="entity-link deco deprecated" href=/ref/class/TeleportService.html#
 to a reserved server, along with the server's
 <a href=/ref/class/DataModel.html#member-PrivateServerId>DataModel.PrivateServerId</a>. It can only be called on the server.</p><h4>Reserved Servers</h4><p>You can access reserved servers using:</p><ul><li><a href=/ref/class/TeleportService.html#member-TeleportAsync>TeleportService:TeleportAsync()</a> with the
 <a href=/ref/class/TeleportOptions.html#member-ReservedServerAccessCode>TeleportOptions.ReservedServerAccessCode</a> parameter.</li><li><a href=/ref/class/TeleportService.html#member-TeleportToPrivateServer>TeleportService:TeleportToPrivateServer()</a>, with the access code
-<code>ReserveServer</code> returns.<ul><li>A server is started when the access code is first used.</li><li>Access codes remain valid indefinitely, meaning reserved servers can
+<code>ReserveServerAsync</code> returns.<ul><li>A server is started when the access code is first used.</li><li>Access codes remain valid indefinitely, meaning reserved servers can
 still be joined if no game server is running (in this case a new
 server will be started).</li></ul></li></ul><p>You can see if the current server is a reserved server by using the
 following code:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1

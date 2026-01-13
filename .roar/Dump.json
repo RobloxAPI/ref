@@ -28424,10 +28424,10 @@
 						},
 						{
 							"Type": {
-								"Category": "Class",
-								"Name": "Model"
+								"Category": "Group",
+								"Name": "Dictionary"
 							},
-							"Name": "model",
+							"Name": "autoSetupParams",
 							"Optional": false,
 							"Default": ""
 						},
@@ -30142,6 +30142,26 @@
 						{
 							"Category": "Primitive",
 							"Name": "bool"
+						}
+					],
+					"Security": "None",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"GetHeadShapesAsync": {
+					"MemberType": "Function",
+					"Name": "GetHeadShapesAsync",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Array"
 						}
 					],
 					"Security": "None",
@@ -45461,6 +45481,43 @@
 				"TakeCapture": {
 					"MemberType": "Function",
 					"Name": "TakeCapture",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "Function"
+							},
+							"Name": "onCaptureReady",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "captureParams",
+							"Optional": true,
+							"Default": "nil"
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "None",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"TakeScreenshotCaptureAsync": {
+					"MemberType": "Function",
+					"Name": "TakeScreenshotCaptureAsync",
 					"Parameters": [
 						{
 							"Type": {
@@ -108160,7 +108217,7 @@
 					],
 					"Security": "None",
 					"Tags": [],
-					"ThreadSafety": "Unsafe"
+					"ThreadSafety": "Safe"
 				},
 				"Pressed": {
 					"MemberType": "Event",
@@ -133494,15 +133551,6 @@
 							"Name": "code",
 							"Optional": false,
 							"Default": ""
-						},
-						{
-							"Type": {
-								"Category": "Primitive",
-								"Name": "string"
-							},
-							"Name": "reason",
-							"Optional": false,
-							"Default": ""
 						}
 					],
 					"PreferredDescriptor": {
@@ -145291,6 +145339,29 @@
 					],
 					"ThreadSafety": ""
 				},
+				"CameraFrustumRequested": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "CameraFrustumRequested",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxSecurity",
+					"Tags": [
+						"Hidden",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxSecurity"
+				},
 				"CameraMaxZoomDistance": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -148791,6 +148862,30 @@
 						"ThreadSafety": ""
 					},
 					"Security": "LocalUserSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"SendCameraFrustum": {
+					"MemberType": "Event",
+					"Name": "SendCameraFrustum",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "DataType",
+								"Name": "ReplicationPV"
+							},
+							"Name": "pv",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxSecurity",
 					"Tags": [
 						"Hidden"
 					],
@@ -199250,8 +199345,8 @@
 			"MemoryCategory": "Instances",
 			"Members": {
 				"AspectRatioRange": {
-					"CanLoad": true,
-					"CanSave": true,
+					"CanLoad": false,
+					"CanSave": false,
 					"Category": "Behavior",
 					"Default": "0 inf ",
 					"MemberType": "Property",
@@ -199261,7 +199356,10 @@
 						"ThreadSafety": ""
 					},
 					"ReadSecurity": "None",
-					"Tags": [],
+					"Tags": [
+						"NotReplicated",
+						"NotScriptable"
+					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "DataType",
@@ -199385,8 +199483,8 @@
 					"WriteSecurity": "None"
 				},
 				"MinSize": {
-					"CanLoad": true,
-					"CanSave": true,
+					"CanLoad": false,
+					"CanSave": false,
 					"Category": "Behavior",
 					"Default": "0, 0",
 					"MemberType": "Property",
@@ -199396,7 +199494,10 @@
 						"ThreadSafety": ""
 					},
 					"ReadSecurity": "None",
-					"Tags": [],
+					"Tags": [
+						"NotReplicated",
+						"NotScriptable"
+					],
 					"ThreadSafety": "ReadSafe",
 					"ValueType": {
 						"Category": "DataType",
@@ -215282,6 +215383,24 @@
 				"HaveActiveUser": {
 					"MemberType": "Function",
 					"Name": "HaveActiveUser",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"IsAccountSwitchingSupported": {
+					"MemberType": "Function",
+					"Name": "IsAccountSwitchingSupported",
 					"Parameters": [],
 					"PreferredDescriptor": {
 						"Name": "",
@@ -266629,6 +266748,17 @@
 					},
 					"Tags": []
 				},
+				"InactivityTimeout": {
+					"Name": "InactivityTimeout",
+					"Value": 16,
+					"Index": 16,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
 				"InvalidRedirect": {
 					"Name": "InvalidRedirect",
 					"Value": 7,
@@ -266721,6 +266851,17 @@
 					"Name": "TimedOut",
 					"Value": 5,
 					"Index": 5,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"TooManyOutstandingRequests": {
+					"Name": "TooManyOutstandingRequests",
+					"Value": 17,
+					"Index": 17,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
@@ -282867,6 +283008,60 @@
 					"Name": "UserChoice",
 					"Value": 3,
 					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": []
+		},
+		"ScreenshotCaptureResult": {
+			"Name": "ScreenshotCaptureResult",
+			"Items": {
+				"NoDeviceSupport": {
+					"Name": "NoDeviceSupport",
+					"Value": 2,
+					"Index": 2,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"NoSpaceOnDevice": {
+					"Name": "NoSpaceOnDevice",
+					"Value": 3,
+					"Index": 3,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"OtherError": {
+					"Name": "OtherError",
+					"Value": 1,
+					"Index": 1,
+					"LegacyNames": null,
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Tags": []
+				},
+				"Success": {
+					"Name": "Success",
+					"Value": 0,
+					"Index": 0,
 					"LegacyNames": null,
 					"PreferredDescriptor": {
 						"Name": "",
