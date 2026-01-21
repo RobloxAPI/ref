@@ -4648,10 +4648,11 @@ is before the character is parented to the <a href=/ref/class/Workspace.html>Wor
 before a player's character is about to be removed, typically after death.
 As such, both of these events can potentially fire many times as players
 die then respawn in a place.</p><p>Note that the <a href=/ref/class/Humanoid.html>Humanoid</a> and its default body parts (head, torso,
-and limbs) will exist when this event fires, but clothing items like
-<a href=/ref/class/Hat.html>Hats</a>, <a href=/ref/class/Shirt.html>Shirts</a>, and <a href=/ref/class/Pants.html>Pants</a> may take a few
-seconds to be added to the character. Connect <a href=/ref/class/Instance.html#member-ChildAdded>Instance.ChildAdded</a>
-on the added character to detect these, or wait for the
+and limbs) will exist on the server when this event fires, but clothing
+items like <a href=/ref/class/Hat.html>Hats</a>, <a href=/ref/class/Shirt.html>Shirts</a>, and <a href=/ref/class/Pants.html>Pants</a> might
+take a few seconds to be added to the character. The parts will also take
+time to replicate to clients. Connect <a href=/ref/class/Instance.html#member-ChildAdded>Instance.ChildAdded</a> on the
+added character to detect these, or wait for the
 <a href=/ref/class/Player.html#member-CharacterAppearanceLoaded>CharacterAppearanceLoaded</a> event
 to be sure the character has everything equipped.</p><p>If you instead need to track when a player joins/leaves the experience,
 use the events <a href=/ref/class/Players.html#member-PlayerAdded>Players.PlayerAdded</a> and
