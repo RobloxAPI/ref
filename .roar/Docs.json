@@ -3316,7 +3316,7 @@
 			},
 			"CreateEditableMeshAsync": {
 				"Summary": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> object created from an existing mesh\ncontent ID.</p>\n",
-				"Description": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> object created from an existing\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> or mesh <a href=\"/ref/type/Content.html\">Content</a> ID. By default, an\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> created from this method will be fixed size such that\nmesh data can only be modified, not added nor removed. A fixed size\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> consumes less memory and should be preferred when\npossible.</p>\n<p>If the device-specific editable memory budget is exhausted, creation will\nfail and this method will return <code>nil</code>.</p>\n<p>See the <strong>Enabling EditableMesh for Published Experiences</strong> and\n<strong>Permissions</strong> sections of <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> for special\nconsiderations when using this API.</p>\n"
+				"Description": "<p>Returns a new <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> object created from an existing\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> or mesh <a href=\"/ref/type/Content.html\">Content</a> ID. By default, an\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> created from this method will be fixed size such that\nmesh data can only be modified, not added nor removed. A fixed size\n<a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> consumes less memory and should be preferred when\npossible.</p>\n<p>If the device-specific editable memory budget is exhausted, creation will\nfail and this method will return <code>nil</code>.</p>\n<p>See the <strong>Enabling for Published Experiences</strong> and <strong>Permissions</strong>\nsections of <a href=\"/ref/class/EditableMesh.html\">EditableMesh</a> for special considerations when using\nthis API.</p>\n"
 			},
 			"CreateMeshPartAsync": {
 				"Summary": "<p>Creates a new <a href=\"/ref/class/MeshPart.html\">MeshPart</a> with a specified mesh ID and an optional\ntable of fidelity values.</p>\n",
@@ -3372,7 +3372,7 @@
 			},
 			"LoadAssetAsync": {
 				"Summary": "<p>Loads a <a href=\"/ref/class/Model.html\">Model</a> instance given its asset ID. This is the modern\nreplacement for <a href=\"/ref/class/InsertService.html#member-LoadAsset\">InsertService:LoadAsset()</a> and supports loading\nthird-party assets.</p>\n",
-				"Description": "<p>Loads the latest version of an asset from the given <code>assetId</code> and returns\nit wrapped in a <a href=\"/ref/class/Model.html\">Model</a>. This method is the modern replacement for\n<a href=\"/ref/class/InsertService.html#member-LoadAsset\">InsertService:LoadAsset()</a> and\n<a href=\"/ref/class/InsertService.html#member-LoadAssetVersion\">InsertService:LoadAssetVersion()</a> methods.</p>\n<p>Calls to this function may fail if the asset does not exist, or if the\nserver providing the model is having problems. It is recommended to wrap\ncalls to this function in <code>pcall()</code> to handle potential errors.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">AssetService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;AssetService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">assetId</span> <span class=\"_o\">=</span> <span class=\"_mi\">257489726</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">success</span><span class=\"_p\">,</span> <span class=\"_n\">model</span> <span class=\"_o\">=</span> <span class=\"_n\">pcall</span><span class=\"_p\">(</span><span class=\"_n\">AssetService.LoadAssetAsync</span><span class=\"_p\">,</span> <span class=\"_n\">AssetService</span><span class=\"_p\">,</span> <span class=\"_n\">assetId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">success</span> <span class=\"_ow\">and</span> <span class=\"_n\">model</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model loaded successfully&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">model.Parent</span> <span class=\"_o\">=</span> <span class=\"_n\">workspace</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">warn</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model failed to load:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">model</span><span class=\"_p\">)</span> <span class=\"_c1\">-- &#39;model&#39; will contain the error message</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Script Sandbox Security</h4>\n<p>For enhanced security, the returned <a href=\"/ref/class/Model.html\">Model</a> is sandboxed by default\n(<a href=\"/ref/class/Model.html#member-Sandboxed\">Sandboxed</a> is <code>true</code>) and has no script\n<a href=\"/ref/enum/SecurityCapability.html\">Capabilities</a>. This prevents untrusted scripts\ndescending from the returned Model from running. To enable scripts in a\nmodel you trust, you can manually grant a safe set of\n<a href=\"/ref/enum/SecurityCapability.html\">Capabilities</a> on the Model after loading.</p>\n<h4>Third-Party Asset Loading</h4>\n<p>Unlike <a href=\"/ref/class/InsertService.html#member-LoadAsset\">InsertService:LoadAsset()</a>, this method can load public\nassets created by <strong>third parties</strong> (assets not owned by the experience\ncreator). To enable this functionality, you must first enable the <strong>Allow\nLoading Third Party Assets</strong> setting in <strong>Home &gt; Game Settings &gt;\nSecurity</strong>.</p>\n<p>If this setting is disabled (which it is by default), <code>LoadAssetAsync</code>\nwill only load assets that are owned by the experience creator, behaving\nidentically to the old <a href=\"/ref/class/InsertService.html#member-LoadAsset\">InsertService:LoadAsset()</a> security check.</p>\n"
+				"Description": "<p>Loads the latest version of an asset from the given <code>assetId</code> and returns\nit wrapped in a <a href=\"/ref/class/Model.html\">Model</a>. This method is the modern replacement for\n<a href=\"/ref/class/InsertService.html#member-LoadAsset\">InsertService:LoadAsset()</a> and\n<a href=\"/ref/class/InsertService.html#member-LoadAssetVersion\">InsertService:LoadAssetVersion()</a> methods.</p>\n<p>Calls to this function may fail if the asset does not exist, or if the\nserver providing the model is having problems. It is recommended to wrap\ncalls to this function in <code>pcall()</code> to handle potential errors.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">AssetService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;AssetService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">assetId</span> <span class=\"_o\">=</span> <span class=\"_mi\">257489726</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">success</span><span class=\"_p\">,</span> <span class=\"_n\">model</span> <span class=\"_o\">=</span> <span class=\"_n\">pcall</span><span class=\"_p\">(</span><span class=\"_n\">AssetService.LoadAssetAsync</span><span class=\"_p\">,</span> <span class=\"_n\">AssetService</span><span class=\"_p\">,</span> <span class=\"_n\">assetId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">success</span> <span class=\"_ow\">and</span> <span class=\"_n\">model</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model loaded successfully&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">model.Parent</span> <span class=\"_o\">=</span> <span class=\"_n\">workspace</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">warn</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Model failed to load:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">model</span><span class=\"_p\">)</span> <span class=\"_c1\">-- &#39;model&#39; will contain the error message</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h4>Script Sandbox Security</h4>\n<p>For enhanced security, the returned <a href=\"/ref/class/Model.html\">Model</a> is sandboxed by default\n(<a href=\"/ref/class/Model.html#member-Sandboxed\">Sandboxed</a> is <code>true</code>) and has no script\n<a href=\"/ref/enum/SecurityCapability.html\">Capabilities</a>. This prevents untrusted scripts\ndescending from the returned Model from running. To enable scripts in a\nmodel you trust, you can manually grant a safe set of\n<a href=\"/ref/enum/SecurityCapability.html\">Capabilities</a> on the Model after loading.</p>\n<h4>Third-Party Asset Loading</h4>\n<p>Unlike <a href=\"/ref/class/InsertService.html#member-LoadAsset\">InsertService:LoadAsset()</a>, this method can load public\nassets created by <strong>third parties</strong> (assets not owned by the experience\ncreator). To enable this functionality, toggle on <strong>Allow Loading Third\nParty Assets</strong> in Studio&#39;s <strong>Experience Settings</strong>.</p>\n<p>If this setting is disabled (which it is by default), <code>LoadAssetAsync</code>\nwill only load assets that are owned by the experience creator, behaving\nidentically to the old <a href=\"/ref/class/InsertService.html#member-LoadAsset\">InsertService:LoadAsset()</a> security check.</p>\n"
 			},
 			"PromptCreateAssetAsync": {
 				"Summary": "<p>Allows in-experience asset creation for users by prompting a publish\ndialog.</p>\n",
@@ -3518,8 +3518,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a> has one &#34;Input&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a>, there are none.</p>\n"
+			},
 			"GetSpectrum": {
 				"Summary": "<p>Returns the frequency spectrum of the last audio buffer.</p>\n",
 				"Description": "<p>Returns the frequency spectrum of the last audio buffer, as an array of\nnumbers. The elements of the array are root-mean-square volume levels,\nevenly spaced from 0 hertz to 24,000 hertz. If any of the analyzer&#39;s\ninputs come from an <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a>, or this method is used from\na server script, it returns an empty array.</p>\n"
@@ -3545,15 +3551,15 @@
 		"AudioChannelMixer": {
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
-				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n"
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. For <a href=\"/ref/class/AudioChannelMixer.html\">AudioChannelMixer</a>, this can be one &#34;Output&#34; pin or a\nnumber of input pins - see <a href=\"/ref/class/AudioChannelMixer.html#member-GetInputPins\">AudioChannelMixer.GetInputPins</a> for a\nfull list.</p>\n"
 			},
 			"GetInputPins": {
-				"Summary": "<p>Returns the input pins that can be selected by <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>.</p>\n",
-				"Description": "<p>Returns a table of strings indicating which input pins are available for\n<a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>:</p>\n<ul>\n<li><code>&#34;Input&#34;</code></li>\n<li><code>&#34;Left&#34;</code></li>\n<li><code>&#34;Right&#34;</code></li>\n<li><code>&#34;Center&#34;</code></li>\n<li><code>&#34;SurroundLeft&#34;</code></li>\n<li><code>&#34;SurroundRight&#34;</code></li>\n<li><code>&#34;BackLeft&#34;</code></li>\n<li><code>&#34;BackRight&#34;</code></li>\n<li><code>&#34;Sub&#34;</code></li>\n<li><code>&#34;TopLeft&#34;</code></li>\n<li><code>&#34;TopRight&#34;</code></li>\n<li><code>&#34;TopBackLeft&#34;</code></li>\n<li><code>&#34;TopBackRight&#34;</code></li>\n</ul>\n"
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioChannelMixer.html\">AudioChannelMixer</a>, these are:</p>\n<ul>\n<li><code>&#34;Input&#34;</code></li>\n<li><code>&#34;Left&#34;</code></li>\n<li><code>&#34;Right&#34;</code></li>\n<li><code>&#34;Center&#34;</code></li>\n<li><code>&#34;SurroundLeft&#34;</code></li>\n<li><code>&#34;SurroundRight&#34;</code></li>\n<li><code>&#34;BackLeft&#34;</code></li>\n<li><code>&#34;BackRight&#34;</code></li>\n<li><code>&#34;Sub&#34;</code></li>\n<li><code>&#34;TopLeft&#34;</code></li>\n<li><code>&#34;TopRight&#34;</code></li>\n<li><code>&#34;TopBackLeft&#34;</code></li>\n<li><code>&#34;TopBackRight&#34;</code></li>\n</ul>\n"
 			},
 			"GetOutputPins": {
-				"Summary": "<p>Returns the output pin available for <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>.</p>\n",
-				"Description": "<p>Returns a table containing one string, <code>&#34;Output&#34;</code>, indicating the output\npin available for <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>.</p>\n"
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioChannelMixer.html\">AudioChannelMixer</a>, this is <code>Output</code> only.</p>\n"
 			},
 			"Layout": {
 				"Summary": "<p>Controls the output channel layout to be mixed to.</p>\n",
@@ -3567,15 +3573,15 @@
 		"AudioChannelSplitter": {
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
-				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n"
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. For <a href=\"/ref/class/AudioChannelSplitter.html\">AudioChannelSplitter</a>, this can be one &#34;Input&#34; pin or a\nnumber of output pins - see <a href=\"/ref/class/AudioChannelSplitter.html#member-GetInputPins\">AudioChannelSplitter.GetInputPins</a> for\na full list.</p>\n"
 			},
 			"GetInputPins": {
-				"Summary": "<p>Returns the input pin available for <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>.</p>\n",
-				"Description": "<p>Returns a table containing one string, <code>&#34;Input&#34;</code>, indicating the input pin\navailable for <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>.</p>\n"
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioChannelSplitter.html\">AudioChannelSplitter</a>, this is <code>Input</code> only.</p>\n"
 			},
 			"GetOutputPins": {
-				"Summary": "<p>Returns the output pins that can be selected by <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>.</p>\n",
-				"Description": "<p>Returns a table of strings indicating which output pins are available for\n<a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>:</p>\n<ul>\n<li><code>&#34;Output&#34;</code></li>\n<li><code>&#34;Left&#34;</code></li>\n<li><code>&#34;Right&#34;</code></li>\n<li><code>&#34;Center&#34;</code></li>\n<li><code>&#34;SurroundLeft&#34;</code></li>\n<li><code>&#34;SurroundRight&#34;</code></li>\n<li><code>&#34;BackLeft&#34;</code></li>\n<li><code>&#34;BackRight&#34;</code></li>\n<li><code>&#34;Sub&#34;</code></li>\n<li><code>&#34;TopLeft&#34;</code></li>\n<li><code>&#34;TopRight&#34;</code></li>\n<li><code>&#34;TopBackLeft&#34;</code></li>\n<li><code>&#34;TopBackRight&#34;</code></li>\n</ul>\n"
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioChannelSplitter.html\">AudioChannelSplitter</a>, these are:</p>\n<ul>\n<li><code>&#34;Output&#34;</code></li>\n<li><code>&#34;Left&#34;</code></li>\n<li><code>&#34;Right&#34;</code></li>\n<li><code>&#34;Center&#34;</code></li>\n<li><code>&#34;SurroundLeft&#34;</code></li>\n<li><code>&#34;SurroundRight&#34;</code></li>\n<li><code>&#34;BackLeft&#34;</code></li>\n<li><code>&#34;BackRight&#34;</code></li>\n<li><code>&#34;Sub&#34;</code></li>\n<li><code>&#34;TopLeft&#34;</code></li>\n<li><code>&#34;TopRight&#34;</code></li>\n<li><code>&#34;TopBackLeft&#34;</code></li>\n<li><code>&#34;TopBackRight&#34;</code></li>\n</ul>\n"
 			},
 			"Layout": {
 				"Summary": "<p>Controls the input channel layout to be split from.</p>\n",
@@ -3599,8 +3605,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioChorus.html\">AudioChorus</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioChorus.html\">AudioChorus</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioChorus.html\">AudioChorus</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Mix": {
 				"Summary": "<p>Controls the balance of plain input stream to modified output stream.</p>\n",
 				"Description": "<p>Controls the balance of plain input stream to modified output stream.\nRanges from 0 to 1.</p>\n"
@@ -3623,13 +3635,18 @@
 				"Summary": "<p>Whether audio streams are passed-through unaffected by this effect.</p>\n",
 				"Description": "<p>If <code>true</code>, audio streams are passed-through unaffected by this effect.</p>\n"
 			},
-			"Editor": {},
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioCompressor.html\">AudioCompressor</a> has one &#34;Input&#34; pin, one &#34;Sidechain&#34; pin, and\none &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioCompressor.html\">AudioCompressor</a>, these are:</p>\n<ul>\n<li><code>Input</code></li>\n<li><code>Sidechain</code></li>\n</ul>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioCompressor.html\">AudioCompressor</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"MakeupGain": {
 				"Summary": "<p>A gain value to be applied after compression.</p>\n",
 				"Description": "<p>Gain value to be applied after compression, in decibels. After limiting\nthe dynamic range, the resulting stream may be very quiet and this\nproperty can be used to compensate. Ranges from -30 to 30.</p>\n"
@@ -3664,8 +3681,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a> has one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a>, there are none.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"GetUserIdAccessList": {
 				"Summary": "<p>Returns a list of user IDs that are either permitted to hear or blocked\nfrom hearing this <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a>.</p>\n",
 				"Description": "<p>Returns a list of user IDs that are either permitted to hear or blocked\nfrom hearing this <a href=\"/ref/class/AudioDeviceInput.html\">AudioDeviceInput</a>, depending on the\n<a href=\"/ref/class/AudioDeviceInput.html#member-AccessType\">AccessType</a>.</p>\n"
@@ -3704,8 +3727,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a> has one &#34;Input&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a>, there are none.</p>\n"
+			},
 			"Player": {
 				"Summary": "<p>A <a href=\"/ref/class/Player.html\">Player</a> who is intended to hear the connected audio streams.</p>\n",
 				"Description": "<p>An optional <a href=\"/ref/class/Player.html\">Player</a> who is intended to hear the connected audio\nstreams. If left unspecified, the streams wired to this\n<a href=\"/ref/class/AudioDeviceOutput.html\">AudioDeviceOutput</a> are heard by everyone.</p>\n"
@@ -3724,8 +3753,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioDistortion.html\">AudioDistortion</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioDistortion.html\">AudioDistortion</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioDistortion.html\">AudioDistortion</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Level": {
 				"Summary": "<p>Controls how distorted the input stream will become.</p>\n",
 				"Description": "<p>Controls how distorted the input stream will become. Ranges from 0 to 1.</p>\n"
@@ -3756,8 +3791,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioEcho.html\">AudioEcho</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioEcho.html\">AudioEcho</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioEcho.html\">AudioEcho</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"RampTime": {},
 			"WetLevel": {
 				"Summary": "<p>Gain level determining how loud the echoed stream will be.</p>\n",
@@ -3798,12 +3839,18 @@
 				"Summary": "<p>Gets the distance attenuation curve that the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> is\nusing, or an empty table if it&#39;s using the default curve.</p>\n",
 				"Description": "<p>Returns a table mapping distance to volume. Keys are numbers greater than\nor equal to 0, while values are numbers between 0 and 1 (inclusive)\ndescribing how volume attenuates over distance. This method returns an\nempty table if the default distance attenuation curve is being used.</p>\n"
 			},
-			"GetInputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, this is <code>Input</code> only.</p>\n"
+			},
 			"GetInteractingListeners": {
 				"Summary": "<p>Lists all <a href=\"/ref/class/AudioListener.html\">AudioListeners</a> that are capable of hearing\nthis emitter.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/AudioListener.html\">AudioListeners</a> that share an\n<a href=\"/ref/class/AudioEmitter.html#member-AudioInteractionGroup\">AudioInteractionGroup</a> with the\nemitter.</p>\n"
 			},
-			"GetOutputPins": {},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a>, there are none.</p>\n"
+			},
 			"PositionOverride": {},
 			"SetAngleAttenuation": {
 				"Summary": "<p>Sets the angle attenuation curve that the <a href=\"/ref/class/AudioEmitter.html\">AudioEmitter</a> should use,\nor uses a constant curve of volume <code>1</code> if none is provided.</p>\n",
@@ -3830,13 +3877,18 @@
 				"Summary": "<p>Whether audio streams are passed-through unaffected by this effect.</p>\n",
 				"Description": "<p>If <code>true</code>, audio streams are passed-through unaffected by this effect.</p>\n"
 			},
-			"Editor": {},
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioEqualizer.html\">AudioEqualizer</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioEqualizer.html\">AudioEqualizer</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioEqualizer.html\">AudioEqualizer</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"HighGain": {
 				"Summary": "<p>Gain value to be applied to the frequency content of the highest band in\nthe equalizer.</p>\n",
 				"Description": "<p>Gain value, in decibels, to be applied to the frequency content of the\nhighest band in the equalizer. Ranges from -80 to 10.</p>\n"
@@ -3867,8 +3919,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioFader.html\">AudioFader</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioFader.html\">AudioFader</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioFader.html\">AudioFader</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Volume": {
 				"Summary": "<p>Volume level which is multiplied onto the input stream.</p>\n",
 				"Description": "<p>Volume level which is multiplied onto the input stream. Ranges from 0\nto 3.</p>\n"
@@ -3883,7 +3941,6 @@
 				"Summary": "<p>Whether audio streams are passed-through unaffected by this effect.</p>\n",
 				"Description": "<p>If <code>true</code>, audio streams are passed-through unaffected by this effect.</p>\n"
 			},
-			"Editor": {},
 			"FilterType": {
 				"Summary": "<p>The curve type of the band represented by the filter.</p>\n",
 				"Description": "<p>The type of frequency response curve that will be used to filter the audio\nsignal. Each type of curve affects the frequency content of the audio in\ndifferent ways.</p>\n"
@@ -3904,8 +3961,14 @@
 				"Summary": "<p>Returns the magnitude response of the filter at the given frequency.</p>\n",
 				"Description": "<p>Returns the gain value, in decibels, of the frequency response curve\nrepresented by the filter at the given frequency, in hertz. This can be\nused to sample the exact shape of the filter in key places or as a whole.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioFilter.html\">AudioFilter</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioFilter.html\">AudioFilter</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Q": {
 				"Summary": "<p>For peaking, lowpass, highpass, bandpass, and notch filters, controls the\nselectiveness or resonance.</p>\n",
 				"Description": "<p>The quality value used to determine the slope or resonance of the curve\nrepresented by the filter. Only applies when the\n<a href=\"/ref/class/AudioFilter.html\">FilterType</a> is <code>Peak</code>, <code>Lowpass[x]dB</code>, <code>Highpass[x]dB</code>,\n<code>Bandpass</code>, or <code>Notch</code>. Ranges from 0.1 to 10.</p>\n<p>For <a href=\"/ref/class/AudioFilter.html\">FilterType</a> values of\n<a href=\"/ref/enum/AudioFilterType.html\">Lowpass12dB</a> and\n<a href=\"/ref/enum/AudioFilterType.html\">Highpass12dB</a>, a <strong>Q</strong> value of\n<code>sqrt(2) / 2</code>, or <code>0.707</code>, corresponds to a flat filter at a 12dB/octave\nslope.</p>\n"
@@ -3928,8 +3991,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioFlanger.html\">AudioFlanger</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioFlanger.html\">AudioFlanger</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioFlanger.html\">AudioFlanger</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Mix": {
 				"Summary": "<p>Controls the balance of plain input stream to modified output stream.</p>\n",
 				"Description": "<p>Controls the balance of plain input stream to modified output stream.\nRanges from 0 to 1.</p>\n"
@@ -3946,25 +4015,42 @@
 		"AudioGate": {
 			"Attack": {},
 			"Bypass": {},
-			"GetConnectedWires": {},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetConnectedWires": {
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioGate.html\">AudioGate</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
+			},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioGate.html\">AudioGate</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioGate.html\">AudioGate</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Release": {},
 			"Threshold": {},
-			"WiringChanged": {}
+			"WiringChanged": {
+				"Summary": "<p>Fires when another instance is connected to or disconnected from the\n<a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a> via a <a href=\"/ref/class/Wire.html\">Wire</a>.</p>\n",
+				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/AudioGate.html\">AudioGate</a> and to some other wirable instance.</p>\n"
+			}
 		},
 		"AudioLimiter": {
 			"Bypass": {
 				"Summary": "<p>Whether audio streams are passed-through unaffected by this effect.</p>\n",
 				"Description": "<p>If <code>true</code>, audio streams are passed-through unaffected by this effect.</p>\n"
 			},
-			"Editor": {},
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioLimiter.html\">AudioLimiter</a> has one <strong>Input</strong> pin and one <strong>Output</strong> pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioLimiter.html\">AudioLimiter</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioLimiter.html\">AudioLimiter</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"MaxLevel": {
 				"Summary": "<p>The maximum volume tolerated.</p>\n",
 				"Description": "<p>The maximum volume, in decibels, that the limiter will allow to pass\nthrough without reduction. Whenever the input stream exceeds\n<a href=\"/ref/class/AudioLimiter.html#member-MaxLevel\">MaxLevel</a>, the output stream&#39;s volume will be\nreduced to compensate. This value ranges from <code>-12</code> to <code>0</code>.</p>\n"
@@ -4008,12 +4094,18 @@
 				"Summary": "<p>Gets the distance attenuation curve that the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> is\nusing, or an empty table if it&#39;s using the default curve.</p>\n",
 				"Description": "<p>Returns a table mapping distance to volume. Keys are numbers greater than\nor equal to 0, while values are numbers between 0 and 1 (inclusive)\ndescribing how volume attenuates over distance. This method returns an\nempty table if the default distance attenuation curve is being used.</p>\n"
 			},
-			"GetInputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioListener.html\">AudioListener</a>, there are none.</p>\n"
+			},
 			"GetInteractingEmitters": {
 				"Summary": "<p>Lists all <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a> that this listener is capable\nof hearing.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/AudioEmitter.html\">AudioEmitters</a> that share an\n<a href=\"/ref/class/AudioListener.html#member-AudioInteractionGroup\">AudioInteractionGroup</a> with the\nlistener.</p>\n"
 			},
-			"GetOutputPins": {},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioListener.html\">AudioListener</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"PositionOverride": {},
 			"SetAngleAttenuation": {
 				"Summary": "<p>Sets the angle attenuation curve that the <a href=\"/ref/class/AudioListener.html\">AudioListener</a> should\nuse, or uses a constant curve of volume <code>1</code> if none is provided.</p>\n",
@@ -4045,8 +4137,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioPitchShifter.html\">AudioPitchShifter</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioPitchShifter.html\">AudioPitchShifter</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioPitchShifter.html\">AudioPitchShifter</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Pitch": {
 				"Summary": "<p>Pitch modification to be multiplied by the pitch of the input stream.</p>\n",
 				"Description": "<p>Pitch modification to be multiplied by the pitch of the input stream.\nRanges from 0.5 to 2.</p>\n"
@@ -4084,8 +4182,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a> has one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a>, there are none.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"GetWaveformAsync": {},
 			"IsMutedForCapture": {},
 			"IsPlaying": {
@@ -4148,9 +4252,18 @@
 			"Clear": {
 				"Description": "<p>Clears out the recording from the <code>AudioRecorder</code>.</p>\n"
 			},
-			"GetConnectedWires": {},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetConnectedWires": {
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioRecorder.html\">AudioRecorder</a> has one &#34;Input&#34; pin.</p>\n"
+			},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioRecorder.html\">AudioRecorder</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioRecorder.html\">AudioRecorder</a>, there are none.</p>\n"
+			},
 			"GetTemporaryContent": {
 				"Description": "<p>Returns recorded content that can be played back with <a href=\"/ref/class/AudioPlayer.html\">AudioPlayer</a>.\nThe content retrieved from this method is only valid in the current\nsession.</p>\n"
 			},
@@ -4169,7 +4282,10 @@
 			"TimeLength": {
 				"Description": "<p>Returns the current length of the recording in seconds.</p>\n"
 			},
-			"WiringChanged": {}
+			"WiringChanged": {
+				"Summary": "<p>Fires when another instance is connected to or disconnected from the\n<a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a> via a <a href=\"/ref/class/Wire.html\">Wire</a>.</p>\n",
+				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/AudioRecorder.html\">AudioRecorder</a> and to some other wirable instance.</p>\n"
+			}
 		},
 		"AudioReverb": {
 			"Bypass": {
@@ -4204,8 +4320,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioReverb.html\">AudioReverb</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioReverb.html\">AudioReverb</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioReverb.html\">AudioReverb</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"HighCutFrequency": {
 				"Summary": "<p>Frequency above which sound is filtered out of the reverb.</p>\n",
 				"Description": "<p>Frequency, in hertz, which acts as a cutoff for a low-pass filter. Any\naudio that has a higher frequency than this is excluded from the reverb.\nRanges from 20 to 20,000.</p>\n"
@@ -4277,7 +4399,7 @@
 			},
 			"GetConnectedWires": {
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
-				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> has one input pin.</p>\n"
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioSpeechToText.html\">AudioSpeechToText</a> has one &#34;Input&#34; pin.</p>\n"
 			},
 			"Text": {
 				"Summary": "<p>The text resulting from the conversion of speech audio.</p>\n",
@@ -4385,9 +4507,18 @@
 				"Summary": "<p>Sets how often the effect will oscillate the volume.</p>\n",
 				"Description": "<p>Sets how often the effect will oscillate the volume, measured in Hz, in\nthe range of <code>0.1</code> to <code>20</code>. Default is <code>5</code>.</p>\n"
 			},
-			"GetConnectedWires": {},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetConnectedWires": {
+				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
+				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/AudioTremolo.html\">AudioTremolo</a> has one &#34;Input&#34; pin and one &#34;Output&#34; pin.</p>\n"
+			},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioTremolo.html\">AudioTremolo</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/AudioTremolo.html\">AudioTremolo</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"Shape": {
 				"Summary": "<p>Controls the shape of the low frequency oscillations.</p>\n",
 				"Description": "<p>Morphs the LFO (low frequency oscillation) shape in a range of <code>0</code> to <code>1</code>\nwhere <code>0</code> is triangle and <code>1</code> is sine. Default is <code>0</code>.</p>\n"
@@ -4400,7 +4531,10 @@
 				"Summary": "<p>Flatness of the low frequency oscillations shape.</p>\n",
 				"Description": "<p>Determines the squareness of the oscillations in the range of <code>0</code> to <code>1</code>.\nThe original shape is retained when <code>0</code> and the shape flattens more as the\nvalue increases. Default is <code>0</code>.</p>\n"
 			},
-			"WiringChanged": {}
+			"WiringChanged": {
+				"Summary": "<p>Fires when another instance is connected to or disconnected from the\n<a href=\"/ref/class/AudioAnalyzer.html\">AudioAnalyzer</a> via a <a href=\"/ref/class/Wire.html\">Wire</a>.</p>\n",
+				"Description": "<p>Event that fires after a <a href=\"/ref/class/Wire.html\">Wire</a> becomes connected or disconnected,\nand that <a href=\"/ref/class/Wire.html\">Wire</a> is now or was previously connected to a pin on the\n<a href=\"/ref/class/AudioTremolo.html\">AudioTremolo</a> and to some other wirable instance.</p>\n"
+			}
 		},
 		"AvatarCreationService": {
 			"AutoSetupAvatarAsync": {
@@ -5640,7 +5774,10 @@
 				"Summary": "<p>The <a href=\"/ref/type/Color3.html\">Color3</a> for this body part.</p>\n",
 				"Description": "<p>The <a href=\"/ref/type/Color3.html\">Color3</a> for this body part.</p>\n"
 			},
-			"HeadShape": {},
+			"HeadShape": {
+				"Summary": "<p>Specifies the head shape identifier to apply to a Dynamic Head when this\n<a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a> is applied.</p>\n",
+				"Description": "<p><strong>HeadShape</strong> specifies a Classic Head shape identifier to apply to a\ncompatible Dynamic Head. This property is only relevant when\n<a href=\"/ref/class/BodyPartDescription.html#member-BodyPart\">BodyPart</a> is set to\n<a href=\"/ref/enum/BodyPart.html\">Head</a> and <a href=\"/ref/class/BodyPartDescription.html#member-AssetId\">AssetId</a>\nreferences a Dynamic Head that supports head shapes.</p>\n<h4>Example</h4>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">AvatarEditorService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;AvatarEditorService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Get available head shapes for the user</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">headShapes</span> <span class=\"_o\">=</span> <span class=\"_n\">AvatarEditorService</span><span class=\"_p\">:</span><span class=\"_n\">GetHeadShapesAsync</span><span class=\"_p\">(</span><span class=\"_n\">userId</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Create a BodyPartDescription for a Dynamic Head with a Classic shape</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">bodyPartDescription</span> <span class=\"_o\">=</span> <span class=\"_n\">Instance.new</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;BodyPartDescription&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">bodyPartDescription.BodyPart</span> <span class=\"_o\">=</span> <span class=\"_n\">Enum.BodyPart</span><span class=\"_p\">.</span><span class=\"_n\">Head</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">bodyPartDescription.AssetId</span> <span class=\"_o\">=</span> <span class=\"_n\">dynamicHeadAssetId</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">bodyPartDescription.HeadShape</span> <span class=\"_o\">=</span> <span class=\"_n\">headShapes</span><span class=\"_p\">[</span><span class=\"_mi\">1</span><span class=\"_p\">]</span> <span class=\"_c1\">-- Apply the first owned head shape</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">bodyPartDescription.Parent</span> <span class=\"_o\">=</span> <span class=\"_n\">humanoidDescription</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Apply the description</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">humanoid</span><span class=\"_p\">:</span><span class=\"_n\">ApplyDescriptionAsync</span><span class=\"_p\">(</span><span class=\"_n\">humanoidDescription</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/AvatarEditorService.html#member-GetHeadShapesAsync\">AvatarEditorService:GetHeadShapesAsync()</a>, which returns head\nshape identifiers that can be used with this property</li>\n<li><a href=\"/ref/class/BodyPartDescription.html#member-AssetId\">AssetId</a>, which specifies the Dynamic\nHead asset to apply the shape to</li>\n<li><a href=\"/ref/class/BodyPartDescription.html#member-BodyPart\">BodyPart</a>, which must be set to\n<a href=\"/ref/enum/BodyPart.html\">Head</a> for this property to have effect</li>\n<li><a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">Humanoid:ApplyDescriptionAsync()</a>, which applies the description\ncontaining this <a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a></li>\n</ul>\n"
+			},
 			"Instance": {
 				"Summary": "<p>A reference to the <a href=\"/ref/class/Instance.html\">Instance</a> that should be applied when applying\nthis <a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a>.</p>\n",
 				"Description": "<p>A reference to the <a href=\"/ref/class/Instance.html\">Instance</a> that should be applied when applying\nthis <a href=\"/ref/class/BodyPartDescription.html\">BodyPartDescription</a>. This property can be used instead of\n<a href=\"/ref/class/BodyPartDescription.html#member-AssetId\">AssetId</a> to apply accessories without\nuploading them to the platform. This can reference either a body part with\nR15, <strong>R15ArtistIntent</strong> and <strong>R6</strong> folders, or only reference a single\nsubfolder.</p>\n"
@@ -6087,7 +6224,7 @@
 				"Description": "<p>This method prompts the user to share the capture identified by the\nprovided <code>contentId</code> or <a href=\"/ref/class/Capture.html\">Capture</a> object using the native share\nsheet on their device.</p>\n<p>The capture is shared along with an invite link to the experience when\nsupported. Not all devices support including both a screenshot or video\nand an invite link.</p>\n<p>The <code>launchData</code> will be available in the <code>launchData</code> field for users who\njoin through the invite link.</p>\n<p>For users or devices who are not eligible to use share sheets, this method\nprompts them to download the capture instead.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">CaptureService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CaptureService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">onShareAccepted</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Capture share was accepted!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">onShareDenied</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Capture share was denied!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">onCaptureReady</span> <span class=\"_o\">=</span> <span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">result</span><span class=\"_p\">,</span> <span class=\"_n\">videoCapture</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">if</span> <span class=\"_n\">videoCapture</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kd\">local</span> <span class=\"_n\">captureContent</span> <span class=\"_o\">=</span> <span class=\"_n\">Content.fromObject</span><span class=\"_p\">(</span><span class=\"_n\">videoCapture</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">PromptShareCapture</span><span class=\"_p\">(</span><span class=\"_n\">captureContent</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;launchData&#34;</span> <span class=\"_p\">,</span> <span class=\"_n\">onShareAccepted</span><span class=\"_p\">,</span> <span class=\"_n\">onShareDenied</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">CaptureService</span><span class=\"_p\">:</span><span class=\"_n\">StartVideoCaptureAsync</span><span class=\"_p\">(</span><span class=\"_n\">onCaptureReady</span><span class=\"_p\">,</span> <span class=\"_p\">{})</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"ReadCapturesFromGalleryAsync": {
-				"Description": "<p>This client-side function returns a paginated list of captures from the\nuser&#39;s gallery as a <a href=\"/ref/class/CapturesPages.html\">CapturesPages</a> object sorted\nreverse-chronologically, which can be used to iterate through the\ncaptures. The results can be filtered by capture type with the\n<code>captureTypeFilters</code> parameter. If this parameter isn&#39;t provided, the\nfunction returns all captures.</p>\n<p>Currently, this method will only return captures taken in the experience\nwhere it is called. Additionally, captures taken with\n<a href=\"/ref/class/CaptureService.html#member-CaptureScreenshot\">CaptureScreenshot()</a> and\nsubsequently saved with\n<a href=\"/ref/class/CaptureService.html#member-PromptSaveCapturesToGallery\">PromptSaveCapturesToGallery()</a>\nwill not be returned by this method.</p>\n",
+				"Description": "<p>This client-side function returns a paginated list of captures from the\nuser&#39;s gallery as a <a href=\"/ref/class/CapturesPages.html\">CapturesPages</a> object sorted\nreverse-chronologically, which can be used to iterate through the\ncaptures. The results can be filtered by capture type with the\n<code>captureTypeFilters</code> parameter. If this parameter isn&#39;t provided, the\nfunction returns all captures.</p>\n<p>If <code>readFromAllEligibleExperiences</code> is <code>true</code>, captures from all eligible\nexperiences will be read. If <code>false</code>, only those from the current\nexperience will be read. Additionally, captures taken with\n<a href=\"/ref/class/CaptureService.html#member-CaptureScreenshot\">CaptureScreenshot()</a> and\nsubsequently saved with\n<a href=\"/ref/class/CaptureService.html#member-PromptSaveCapturesToGallery\">PromptSaveCapturesToGallery()</a>\nwill not be returned by this method.</p>\n",
 				"CodeSamples": [
 					"ReadCapturesFromGalleryAsync-example"
 				]
@@ -11282,6 +11419,10 @@
 			"Type": {
 				"Summary": "<p>Specifies what type of input value the action is expecting.</p>\n",
 				"Description": "<p>Specifies what type of input value the action is expecting. See\n<a href=\"/ref/enum/InputActionType.html\">InputActionType</a> for more details.</p>\n"
+			},
+			"ViewportPositionState": {
+				"Summary": "<p>Non-scriptable read-only property useful for debugging\n<a href=\"/ref/enum/InputActionType.html\">ViewportPosition</a> input actions.</p>\n",
+				"Description": "<p>A non-scriptable read-only property only visible in Studio, primarily\nuseful for debugging while testing an <code>InputAction</code> with\n<a href=\"/ref/class/InputAction.html#member-Type\">Type</a> of <a href=\"/ref/enum/InputActionType.html\">ViewportPosition</a>.</p>\n"
 			}
 		},
 		"InputBinding": {
@@ -11664,7 +11805,7 @@
 			},
 			"IsPropertyModified": {
 				"Summary": "<p>Returns <code>true</code> if the value stored in the specified property is not equal\nto the code-instantiated default.</p>\n",
-				"Description": "<p>This method indicates whether a specific property has been modified from\nthe code‑instantiated default. If called on an instance newly created via\ncode (<a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a>), this method will return <code>false</code>. If\ncalled on an object newly created by Studio workflows such as\n<a href=\"https://create.roblox.com/docs/studio/explorer\">Explorer</a> window insertion, the result may\ndiffer.</p>\n<p>For example, querying the\n<a href=\"/ref/class/TextLabel.html#member-BackgroundColor3\">BackgroundColor3</a> property of a\n<a href=\"/ref/class/TextLabel.html\">TextLabel</a> inserted via the <a href=\"https://create.roblox.com/docs/studio/explorer\">Explorer</a>\nwill return <code>true</code>, but querying the same property of a <a href=\"/ref/class/TextLabel.html\">TextLabel</a>\ncreated through <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a> will return <code>false</code>, assuming no\nother changes were made to its\n<a href=\"/ref/class/TextLabel.html#member-BackgroundColor3\">BackgroundColor3</a>.</p>\n<p>Note that if this method returns <code>true</code>, styling will <strong>not</strong> affect the\nproperty because explicitly modifying a property takes precedence over\nstyling it. To reset a property to its code‑instantiated default and allow\nstyling on it, use\n<a href=\"/ref/class/Instance.html#member-ResetPropertyToDefault\">ResetPropertyToDefault()</a>.</p>\n"
+				"Description": "<p>This method indicates whether a specific property has been modified from\nthe code‑instantiated default. If called on an instance newly created via\ncode (<a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a>), this method will return <code>false</code>. If\ncalled on an object newly created by Studio workflows such as\n<a href=\"https://create.roblox.com/docs/studio/explorer\">Explorer</a> window insertion, the result may\ndiffer.</p>\n<p>For example, querying the\n<a href=\"/ref/class/TextLabel.html#member-BackgroundColor3\">BackgroundColor3</a> property of a\n<a href=\"/ref/class/TextLabel.html\">TextLabel</a> inserted via the <a href=\"https://create.roblox.com/docs/studio/explorer\">Explorer</a>\nwill return <code>true</code>, but querying the same property of a <a href=\"/ref/class/TextLabel.html\">TextLabel</a>\ncreated through <a href=\"/ref/type/Instance.html#member-new\">Instance.new()</a> will return <code>false</code>, assuming no\nother changes were made to its\n<a href=\"/ref/class/TextLabel.html#member-BackgroundColor3\">BackgroundColor3</a>.</p>\n<p>Note that this method only returns useful results for services and\nuser‑creatable instances. Return values for system‑populated properties of\ninstances like <a href=\"/ref/class/PackageLink.html\">PackageLink</a> is undefined behavior.</p>\n<p>Also note that if this method returns <code>true</code>, styling will <strong>not</strong> affect\nthe property because explicitly modifying a property takes precedence over\nstyling it. To reset a property to its code‑instantiated default and allow\nstyling on it, use\n<a href=\"/ref/class/Instance.html#member-ResetPropertyToDefault\">ResetPropertyToDefault()</a>.</p>\n"
 			},
 			"Name": {
 				"Summary": "<p>A non-unique identifier of the <a href=\"/ref/class/Instance.html\">Instance</a>.</p>\n",
@@ -12161,7 +12302,7 @@
 			},
 			"TimeOfDay": {
 				"Summary": "<p>A 24-hour string representation of the current time of day used by\n<code>Lighting</code>.</p>\n",
-				"Description": "<p>A 24-hour string representation of the current time of day used by\n<code>Lighting</code>. Note that this property does not correspond with the actual\ntime of day and will not change during gameplay unless it has been changed\nby a script.</p>\n<p>For a numeric measure of <code>Lighting</code> time, use\n<a href=\"/ref/class/Lighting.html#member-ClockTime\">ClockTime</a>. Changing\n<a href=\"/ref/class/Lighting.html#member-ClockTime\">ClockTime</a> or using\n<a href=\"/ref/class/Lighting.html#member-SetMinutesAfterMidnight\">SetMinutesAfterMidnight()</a> will\nalso change this property.</p>\n"
+				"Description": "<p>A 24-hour string representation of the current time of day used by\n<code>Lighting</code>. For example:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Lighting</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Lighting&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">Lighting.TimeOfDay</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;11:00&#34;</span> <span class=\"_c1\">-- Set time of day to 11:00 AM</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">Lighting.TimeOfDay</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;21:30&#34;</span> <span class=\"_c1\">-- Set time of day to 9:30 PM</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Note that this property does not correspond with the real-world time of\nday and will not change during gameplay unless it has been changed by a\nscript.</p>\n<p>For a numeric measure of <code>Lighting</code> time, use\n<a href=\"/ref/class/Lighting.html#member-ClockTime\">ClockTime</a>. Changing\n<a href=\"/ref/class/Lighting.html#member-ClockTime\">ClockTime</a> or using\n<a href=\"/ref/class/Lighting.html#member-SetMinutesAfterMidnight\">SetMinutesAfterMidnight()</a> will\nalso change this property.</p>\n"
 			},
 			"getMinutesAfterMidnight": {
 				"DeprecationMessage": "<p>This method is a deprecated variant of\n<a href=\"/ref/class/Lighting.html#member-GetMinutesAfterMidnight\">Lighting:GetMinutesAfterMidnight()</a> which should be used instead.</p>\n"
@@ -14349,7 +14490,7 @@
 			},
 			"GetFriendsOnline": {
 				"Summary": "<p>Returns a dictionary of online connections. Returns the product\ninformation of an asset using its asset ID.</p>\n",
-				"DeprecationMessage": "<p>This method has been superseded by\n<a href=\"/ref/class/Player.html#member-GetFriendsOnline\">GetFriendsOnline()</a>.</p>\n",
+				"DeprecationMessage": "<p>This method has been superseded by\n<a href=\"/ref/class/Player.html#member-GetFriendsOnlineAsync\">GetFriendsOnlineAsync()</a>.</p>\n",
 				"CodeSamples": [
 					"how-to-get-a-list-of-online-friends"
 				]
@@ -18219,7 +18360,6 @@
 					"studioservice-getuserid"
 				]
 			},
-			"GizmoRaycast": {},
 			"GridSize": {
 				"Summary": "<p>Determines the distance in studs by which Studio&#39;s drag and move tools\nmove objects each tick.</p>\n",
 				"Description": "<p><strong>GridSize</strong> determines the distance in studs by which Studio&#39;s drag and\nmove tools move objects each tick. This is set in the user&#39;s toolbar&#39;s\n<strong>Model</strong> tab.</p>\n"
@@ -19469,7 +19609,7 @@
 			},
 			"SendAsync": {
 				"Summary": "<p>Sends a <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> to the server.</p>\n",
-				"Description": "<p>Sends a <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> to the server. Can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, or in a <a href=\"/ref/class/Script.html\">Script</a> with\n<a href=\"/ref/class/Script.html#member-RunContext\">RunContext</a> of <a href=\"/ref/enum/RunContext.html\">RunContext.Client</a>.</p>\n<p>The <code>metadata</code> argument has a limit of 200 characters. If this is called\nwith a <code>metadata</code> argument that has more than 200 characters, the message\nwill not be sent to other users. Instead, the sender will receive a\n<a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> with the <a href=\"/ref/class/TextChatMessage.html#member-Metadata\">TextChatMessage.Metadata</a> and\n<a href=\"/ref/class/TextChatMessage.html#member-Text\">TextChatMessage.Text</a> properties set to empty strings.</p>\n"
+				"Description": "<p>Sends a <a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> to the server. Can only be used in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, or in a <a href=\"/ref/class/Script.html\">Script</a> with\n<a href=\"/ref/class/Script.html#member-RunContext\">RunContext</a> of <a href=\"/ref/enum/RunContext.html\">RunContext.Client</a>. Please\nnote that only messages typed and sent by the user will be delivered.</p>\n<p>The <code>metadata</code> argument has a limit of 200 characters. If this is called\nwith a <code>metadata</code> argument that has more than 200 characters, the message\nwill not be sent to other users. Instead, the sender will receive a\n<a href=\"/ref/class/TextChatMessage.html\">TextChatMessage</a> with the <a href=\"/ref/class/TextChatMessage.html#member-Metadata\">TextChatMessage.Metadata</a> and\n<a href=\"/ref/class/TextChatMessage.html#member-Text\">TextChatMessage.Text</a> properties set to empty strings.</p>\n"
 			},
 			"SetDirectChatRequester": {
 				"Summary": "<p>Sets the <a href=\"/ref/class/TextChannel.html#member-DirectChatRequester\">DirectChatRequester</a> for\nthe <code>TextChannel</code>. The <code>TextChannel</code> will only deliver messages to users\nthat can send direct messages to the <code>DirectChatRequester</code>.</p>\n",
@@ -21425,8 +21565,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a> has one &#34;Input&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a>, this is <code>Input</code> only.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a>, there are none.</p>\n"
+			},
 			"ResampleMode": {
 				"Summary": "<p>Selects the texture resampling mode for the <a href=\"/ref/class/VideoDisplay.html\">VideoDisplay</a>.</p>\n",
 				"Description": "<p>Determines how the video looks when it is scaled. By default, the video\nsmooths out texturing when displayed on the screen larger or smaller than\nits size in texture memory. When set to\n<a href=\"/ref/enum/ResamplerMode.html\">Enum.ResamplerMode.Pixelated</a>, the video\npreserves the sharp edges of pixels.</p>\n"
@@ -21547,8 +21693,14 @@
 				"Summary": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin.</p>\n",
 				"Description": "<p>Returns an array of <a href=\"/ref/class/Wire.html\">Wires</a> that are connected to the specified\npin. <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a> has one &#34;Output&#34; pin.</p>\n"
 			},
-			"GetInputPins": {},
-			"GetOutputPins": {},
+			"GetInputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-TargetName\">Wire.TargetName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-TargetInstance\">Wire.TargetInstance</a> property.</p>\n<p>For <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a>, there are none.</p>\n"
+			},
+			"GetOutputPins": {
+				"Summary": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n",
+				"Description": "<p>Gets the list of pins that <a href=\"/ref/class/Wire.html\">Wire</a> can use in <a href=\"/ref/class/Wire.html#member-SourceName\">Wire.SourceName</a>\nto connect to this instance via its <a href=\"/ref/class/Wire.html#member-SourceInstance\">Wire.SourceInstance</a> property.</p>\n<p>For <a href=\"/ref/class/VideoPlayer.html\">VideoPlayer</a>, this is <code>Output</code> only.</p>\n"
+			},
 			"IsLoaded": {
 				"Summary": "<p>Indicates when the <a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> has\nloaded and is ready to play.</p>\n",
 				"Description": "<p>This property is true when the\n<a href=\"/ref/class/VideoPlayer.html#member-VideoContent\">VideoContent</a> has loaded and is ready to\nplay.</p>\n"
