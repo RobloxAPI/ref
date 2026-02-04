@@ -781,8 +781,9 @@ Add <a class="entity-link deco sec-RobloxScriptSecurity" href=/ref/class/HttpSer
 object or array based on the following guidelines:</p><ul><li>Keys of the table must be either strings or numbers. If a table contains
 both, an array takes priority (string keys are ignored).</li><li>An empty Luau table (<code>{}</code>) generates an empty JSON array (e.g. <code>[]</code>).</li><li>The value <code>nil</code> is never generated.</li><li>Cyclic table references cause an error.</li></ul><p>This method allows values such as <code>inf</code> and <code>nan</code> which are not valid
 JSON. This may cause problems if you want to use the outputted JSON
-elsewhere.</p><p>This method also accepts <a href=https://create.roblox.com/docs/reference/engine/libraries/buffer#>buffers</a>, which it encodes to
-base64 (and often compresses) before converting to a JSON object.</p><p>To reverse the encoding process and decode a JSON object, use the
+elsewhere.</p><p>This method also accepts <a href=https://create.roblox.com/docs/reference/engine/libraries/buffer#>buffers</a> up to 50 MiB, which it
+encodes to base64 (and often compresses) before converting to a JSON
+object.</p><p>To reverse the encoding process and decode a JSON object, use the
 <a href=/ref/class/HttpService.html#member-JSONDecode>HttpService:JSONDecode()</a> method.</p><p>This method can be used regardless of whether HTTP requests are enabled.</p></div><div class=status-list><div class="status-box low"><span class=header>This function has a custom internal state.</span> It may behave in a non-standard way.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>5</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Tags><a class="history-tag changed" href=/ref/updates/2022.html#version-713e49ea1be448b8-19 title="Changed on 2022-11-29T16:16:18-08:00
 v0.554.0.5540504
 version-713e49ea1be448b8">554</a>
