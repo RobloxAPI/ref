@@ -180,8 +180,8 @@ v0.647.0.6470717
 version-2220a78ed1774256">647</a></td><td class=col-icon><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span></td><td class=col-member><span class="member-text deco"><span class=name><a class=entity-link href=/ref/class/Object.html#member-Changed>Changed</a></span><span class="parameters open">(</span><span class="parameters parameter">property: <a class="entity-link deco" href=/ref/type/string.html>string</a></span><span class="parameters close">)</span></span></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p><code>ReflectionService</code> allows scripts to query the engine for details about its
 API, including required security permissions, functionality, and inheritance
 structure. You can use this service to dynamically inspect classes and their
-properties, which can be useful for debugging, tooling, or creating dynamic
-behaviors based on the engine's capabilities.</p><p>The following is an example script that inspects classes and their properties:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
+properties, methods, and events, which can be useful for debugging, tooling,
+or creating dynamic behaviors based on the engine's capabilities.</p><p>The following is an example script that inspects classes and their properties:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
 </span><span class=_lnt> 2
 </span><span class=_lnt> 3
 </span><span class=_lnt> 4
@@ -299,11 +299,11 @@ set of eligible classes and adjust the output behavior:</p><div class=_chroma><t
 </span><span class=_lnt>7
 </span><span class=_lnt>8
 </span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use. Can be more expansive than the current script&#39;s security.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use; can be more expansive than the current script&#39;s security</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Security</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: SecurityCapabilities.fromCurrent()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Require classes to derive from the passed-in class name.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Require classes to derive from the passed-in class name</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>IsA</span><span class=_p>:</span> <span class=_n>string</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: nil</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the class.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the class</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeDisplay</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
 </span></span><span class=_line><span class=_cl><span class=_p>}</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>If the class name is valid, you'll get the following <code>ReflectedClass</code>
@@ -329,25 +329,29 @@ dictionary as output:</p><div class=_chroma><table class=_lntable><tbody><tr><td
 </span><span class=_lnt>20
 </span><span class=_lnt>21
 </span><span class=_lnt>22
+</span><span class=_lnt>23
+</span><span class=_lnt>24
 </span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The name of the class.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The name of the class</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Name</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The class&#39;s parent in the instance hierarchy (unless it&#39;s the root).</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether the class is serialized (able to be saved to disk)</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Serialized</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The class&#39;s parent in the instance hierarchy (unless it&#39;s the root)</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Superclass</span><span class=_p>:</span> <span class=_n>string</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The names of the class&#39;s direct children in the instance hierarchy.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The names of the class&#39;s direct children in the instance hierarchy</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Subclasses</span><span class=_p>:</span> <span class=_p>{</span><span class=_n>string</span><span class=_p>},</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Studio display information.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Studio display information</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Display</span><span class=_p>:</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- Always &#34;General&#34; for classes.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- Always &#34;General&#34; for classes</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>Category</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- A message indicating that the class is deprecated, if applicable.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- A message indicating that the class is deprecated, if applicable</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>DeprecationMessage</span><span class=_p>:</span> <span class=_n>string</span><span class=_err>?</span><span class=_p>,</span>
 </span></span><span class=_line><span class=_cl>	<span class=_p>}</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security permissions required to access this class.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security permissions required to access this class</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Permits</span><span class=_p>:</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- If the class is a Service, the security capabilities required to obtain access. If not applicable, this field isn&#39;t present.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- If the class is a Service, the security capabilities required to obtain access. If not applicable, this field isn&#39;t present</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>GetService</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security capabilities required to create an instance of this class. If not possible, this field isn&#39;t present.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security capabilities required to create an instance of this class. If not possible, this field isn&#39;t present</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>New</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
 </span></span><span class=_line><span class=_cl>	<span class=_p>}</span>
 </span></span><span class=_line><span class=_cl><span class=_p>}</span>
@@ -372,11 +376,11 @@ set of eligible classes and adjust the output behavior:</p><div class=_chroma><t
 </span><span class=_lnt>7
 </span><span class=_lnt>8
 </span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use. Can be more expansive than the current script&#39;s security.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use; can be more expansive than the current script&#39;s security</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Security</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: SecurityCapabilities.fromCurrent()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Require classes to derive from the passed-in class name.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Require classes to derive from the passed-in class name</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>IsA</span><span class=_p>:</span> <span class=_n>string</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: nil</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the classes.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the classes</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeDisplay</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
 </span></span><span class=_line><span class=_cl><span class=_p>}</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>You'll get a list of <code>ReflectedClass</code> dictionaries as output, each with
@@ -391,10 +395,168 @@ Change Tags of <a class="entity-link deco" href=/ref/class/ReflectionService.htm
 <span class=col-value>[CustomLuaState]</span></span></span></li><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-cad4bb673ee04521-33 title="Added on 2025-04-29T15:35:19-07:00
 v0.671.0.6710816
 version-cad4bb673ee04521">671</a>
-Add <a class="entity-link deco" href=/ref/class/ReflectionService.html#member-GetClasses><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetClasses</a></li></ul></details><div class=tags>Tags: [CustomLuaState]</div></section><section id=member-GetEventsOfClass class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetEventsOfClass<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/ReflectionService#GetEventsOfClass target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th><th class=col-default>Default</th></tr></thead><tbody><tr class=row-className><td class=col-name>className</td><td class=col-type><a class="entity-link deco" href=/ref/type/string.html>string</a></td><td class=col-default><span class=api-none></span></td></tr><tr class=row-filter><td class=col-name>filter</td><td class=col-type><a class="entity-link deco" href=/ref/type/Dictionary.html>Dictionary</a></td><td class=col-default>nil</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Array.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Array</a></td></tr></tbody></table><div class=docs><span class=no-desc></span></div><div class=status-list><div class="status-box low"><span class=header>This function has a custom internal state.</span> It may behave in a non-standard way.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-b215b632ea4841a0-9 title="Added on 2026-02-02T15:15:43-08:00
+Add <a class="entity-link deco" href=/ref/class/ReflectionService.html#member-GetClasses><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetClasses</a></li></ul></details><div class=tags>Tags: [CustomLuaState]</div></section><section id=member-GetEventsOfClass class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetEventsOfClass<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/ReflectionService#GetEventsOfClass target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th><th class=col-default>Default</th></tr></thead><tbody><tr class=row-className><td class=col-name>className</td><td class=col-type><a class="entity-link deco" href=/ref/type/string.html>string</a></td><td class=col-default><span class=api-none></span></td></tr><tr class=row-filter><td class=col-name>filter</td><td class=col-type><a class="entity-link deco" href=/ref/type/Dictionary.html>Dictionary</a></td><td class=col-default>nil</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Array.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Array</a></td></tr></tbody></table><div class=docs><p>Given a class name in the Roblox API, returns a list of <code>ReflectedEvent</code>
+dictionaries for all events of that class that match the provided filter
+criteria. If no such class name exists, returns <code>nil</code>.</p><p>If you pass in a <code>ReflectionMemberFilter</code> dictionary, you can adjust the
+set of eligible events and adjust the output behavior:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use; can be more expansive than the current script&#39;s security</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Security</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: SecurityCapabilities.fromCurrent()</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude inherited events from superclasses</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeInherited</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the events</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeDisplay</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
+</span></span><span class=_line><span class=_cl><span class=_p>}</span>
+</span></span></code></pre></td></tr></tbody></table></div><p>If the class name is valid and that class has events, you'll get a list of
+<code>ReflectedEvent</code> dictionaries as output, each with the following
+structure:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span><span class=_lnt>11
+</span><span class=_lnt>12
+</span><span class=_lnt>13
+</span><span class=_lnt>14
+</span><span class=_lnt>15
+</span><span class=_lnt>16
+</span><span class=_lnt>17
+</span><span class=_lnt>18
+</span><span class=_lnt>19
+</span><span class=_lnt>20
+</span><span class=_lnt>21
+</span><span class=_lnt>22
+</span><span class=_lnt>23
+</span><span class=_lnt>24
+</span><span class=_lnt>25
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The name of the event</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Name</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The superclass from which the property is inherited, or the class name if not inherited</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Owner</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- A list of all parameters the event passes to connected functions</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Parameters</span><span class=_p>:</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>		<span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>			<span class=_c1>-- The name of the parameter</span>
+</span></span><span class=_line><span class=_cl>			<span class=_n>Name</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>			<span class=_c1>-- The type of the parameter</span>
+</span></span><span class=_line><span class=_cl>			<span class=_n>Type</span><span class=_p>:</span> <span class=_n>ReflectionType</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>		<span class=_p>}</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>},</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Studio display information</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Display</span><span class=_p>:</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- A message indicating that the event is deprecated, if applicable</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>DeprecationMessage</span><span class=_p>:</span> <span class=_n>string</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>}</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security permissions required to access this event</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Permits</span><span class=_p>:</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security permissions required to listen for the event in any context</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>Listen</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>},</span>
+</span></span><span class=_line><span class=_cl><span class=_p>}</span>
+</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box low"><span class=header>This function has a custom internal state.</span> It may behave in a non-standard way.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-b215b632ea4841a0-9 title="Added on 2026-02-02T15:15:43-08:00
 v0.707.0.7070728
 version-b215b632ea4841a0">707</a>
-Add <a class="entity-link deco" href=/ref/class/ReflectionService.html#member-GetEventsOfClass><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetEventsOfClass</a></li></ul></details><div class=tags>Tags: [CustomLuaState]</div></section><section id=member-GetMethodsOfClass class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetMethodsOfClass<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/ReflectionService#GetMethodsOfClass target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th><th class=col-default>Default</th></tr></thead><tbody><tr class=row-className><td class=col-name>className</td><td class=col-type><a class="entity-link deco" href=/ref/type/string.html>string</a></td><td class=col-default><span class=api-none></span></td></tr><tr class=row-filter><td class=col-name>filter</td><td class=col-type><a class="entity-link deco" href=/ref/type/Dictionary.html>Dictionary</a></td><td class=col-default>nil</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Array.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Array</a></td></tr></tbody></table><div class=docs><span class=no-desc></span></div><div class=status-list><div class="status-box low"><span class=header>This function has a custom internal state.</span> It may behave in a non-standard way.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-b215b632ea4841a0-10 title="Added on 2026-02-02T15:15:43-08:00
+Add <a class="entity-link deco" href=/ref/class/ReflectionService.html#member-GetEventsOfClass><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetEventsOfClass</a></li></ul></details><div class=tags>Tags: [CustomLuaState]</div></section><section id=member-GetMethodsOfClass class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetMethodsOfClass<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/ReflectionService#GetMethodsOfClass target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th><th class=col-default>Default</th></tr></thead><tbody><tr class=row-className><td class=col-name>className</td><td class=col-type><a class="entity-link deco" href=/ref/type/string.html>string</a></td><td class=col-default><span class=api-none></span></td></tr><tr class=row-filter><td class=col-name>filter</td><td class=col-type><a class="entity-link deco" href=/ref/type/Dictionary.html>Dictionary</a></td><td class=col-default>nil</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Array.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Array</a></td></tr></tbody></table><div class=docs><p>Given a class name in the Roblox API, returns a list of <code>ReflectedMethod</code>
+dictionaries for all methods of that class that match the provided filter
+criteria. If no such class name exists, returns <code>nil</code>.</p><p>If you pass in a <code>ReflectionMemberFilter</code> dictionary, you can adjust the
+set of eligible methods and adjust the output behavior:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use; can be more expansive than the current script&#39;s security</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Security</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: SecurityCapabilities.fromCurrent()</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude inherited methods from superclasses</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeInherited</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the methods</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeDisplay</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
+</span></span><span class=_line><span class=_cl><span class=_p>}</span>
+</span></span></code></pre></td></tr></tbody></table></div><p>If the class name is valid and that class has methods, you'll get a list
+of <code>ReflectedMethod</code> dictionaries as output, each with the following
+structure:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span><span class=_lnt>11
+</span><span class=_lnt>12
+</span><span class=_lnt>13
+</span><span class=_lnt>14
+</span><span class=_lnt>15
+</span><span class=_lnt>16
+</span><span class=_lnt>17
+</span><span class=_lnt>18
+</span><span class=_lnt>19
+</span><span class=_lnt>20
+</span><span class=_lnt>21
+</span><span class=_lnt>22
+</span><span class=_lnt>23
+</span><span class=_lnt>24
+</span><span class=_lnt>25
+</span><span class=_lnt>26
+</span><span class=_lnt>27
+</span><span class=_lnt>28
+</span><span class=_lnt>29
+</span><span class=_lnt>30
+</span><span class=_lnt>31
+</span><span class=_lnt>32
+</span><span class=_lnt>33
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The name of the method</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Name</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The superclass from which the property is inherited, or the class name if not inherited</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Owner</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- A list of all parameters the method takes</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Parameters</span><span class=_p>:</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>		<span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>			<span class=_c1>-- The name of the parameter</span>
+</span></span><span class=_line><span class=_cl>			<span class=_n>Name</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>			<span class=_c1>-- The type of the parameter</span>
+</span></span><span class=_line><span class=_cl>			<span class=_n>Type</span><span class=_p>:</span> <span class=_n>ReflectionType</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>			<span class=_c1>-- The default value of the parameter, if it has one</span>
+</span></span><span class=_line><span class=_cl>			<span class=_n>DefaultValue</span><span class=_p>:</span> <span class=_n>any</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>		<span class=_p>}</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>},</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The return type of the method; &#34;void&#34; if none</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>ReturnType</span><span class=_p>:</span> <span class=_n>ReflectionType</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether the method is yielding</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>CanYield</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Studio display information</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Display</span><span class=_p>:</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- A message indicating that the method is deprecated, if applicable</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>DeprecationMessage</span><span class=_p>:</span> <span class=_n>string</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>}</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security permissions required to access this method</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Permits</span><span class=_p>:</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security permissions required to call the method in a single-threaded context</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>Call</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security permissions required to call the method in a parallel context</span>
+</span></span><span class=_line><span class=_cl>		<span class=_n>CallParallel</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_p>},</span>
+</span></span><span class=_line><span class=_cl><span class=_p>}</span>
+</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box low"><span class=header>This function has a custom internal state.</span> It may behave in a non-standard way.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-b215b632ea4841a0-10 title="Added on 2026-02-02T15:15:43-08:00
 v0.707.0.7070728
 version-b215b632ea4841a0">707</a>
 Add <a class="entity-link deco" href=/ref/class/ReflectionService.html#member-GetMethodsOfClass><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetMethodsOfClass</a></li></ul></details><div class=tags>Tags: [CustomLuaState]</div></section><section id=member-GetPropertiesOfClass class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetPropertiesOfClass<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/ReflectionService#GetPropertiesOfClass target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th><th class=col-default>Default</th></tr></thead><tbody><tr class=row-className><td class=col-name>className</td><td class=col-type><a class="entity-link deco" href=/ref/type/string.html>string</a></td><td class=col-default><span class=api-none></span></td></tr><tr class=row-filter><td class=col-name>filter</td><td class=col-type><a class="entity-link deco" href=/ref/type/Dictionary.html>Dictionary</a></td><td class=col-default>nil</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Array.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Array</a></td></tr></tbody></table><div class=docs><p>Given a class name in the Roblox API, returns a list of
@@ -410,11 +572,11 @@ set of eligible properties and adjust the output behavior:</p><div class=_chroma
 </span><span class=_lnt>7
 </span><span class=_lnt>8
 </span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use. Can be more expansive than the current script&#39;s security.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security context to use; can be more expansive than the current script&#39;s security</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Security</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: SecurityCapabilities.fromCurrent()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude inherited properties from superclasses.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude inherited properties from superclasses</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeInherited</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the properties.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether to exclude Studio display information about the properties</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>ExcludeDisplay</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_err>?</span><span class=_p>,</span> <span class=_c1>-- default: false</span>
 </span></span><span class=_line><span class=_cl><span class=_p>}</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>If the class name is valid and that class has properties, you'll get a
@@ -450,32 +612,32 @@ following structure:</p><div class=_chroma><table class=_lntable><tbody><tr><td 
 </span><span class=_lnt>29
 </span><span class=_lnt>30
 </span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The name of the property.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The name of the property</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Name</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether the property is serialized (able to be saved to disk or sent over the network).</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The superclass from which the property is inherited, or the class name if not inherited</span>
+</span></span><span class=_line><span class=_cl>	<span class=_n>Owner</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Whether the property is serialized (able to be saved to disk or sent over the network)</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Serialized</span><span class=_p>:</span> <span class=_n>boolean</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The type of the property.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The type of the property</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Type</span><span class=_p>:</span> <span class=_n>ReflectionType</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The content type of the property, if applicable.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The content type of the property, if applicable</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>ContentType</span><span class=_p>:</span> <span class=_n>Enum.AssetType</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Studio display information.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Studio display information</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Display</span><span class=_p>:</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The category under which the property is listed in Studio.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The category under which the property is listed in Studio</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>Category</span><span class=_p>:</span> <span class=_n>string</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- A message indicating that the property is deprecated, if applicable.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- A message indicating that the property is deprecated, if applicable</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>DeprecationMessage</span><span class=_p>:</span> <span class=_n>string</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The order in which the property appears in Studio.</span>
-</span></span><span class=_line><span class=_cl>		<span class=_n>LayoutOrder</span><span class=_p>:</span> <span class=_n>number</span><span class=_p>,</span>
 </span></span><span class=_line><span class=_cl>	<span class=_p>}</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security permissions required to access this property.</span>
+</span></span><span class=_line><span class=_cl>	<span class=_c1>-- The security permissions required to access this property</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Permits</span><span class=_p>:</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to read this property.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to read this property</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>Read</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to read this property while thread-safe.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to read this property while thread-safe</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>ReadParallel</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to write to this property.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to write to this property</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>Write</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to write to this property while thread-safe.</span>
+</span></span><span class=_line><span class=_cl>		<span class=_c1>-- The security context required to write to this property while thread-safe</span>
 </span></span><span class=_line><span class=_cl>		<span class=_n>WriteParallel</span><span class=_p>:</span> <span class=_n>SecurityCapabilities</span><span class=_err>?</span><span class=_p>,</span>
 </span></span><span class=_line><span class=_cl>	<span class=_p>},</span>
 </span></span><span class=_line><span class=_cl><span class=_p>}</span>

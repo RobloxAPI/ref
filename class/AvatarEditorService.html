@@ -330,7 +330,97 @@ about a user's inventory, and request information about the catalog.</p><p>For m
 throttling:</p><ul><li><a href=/ref/class/AvatarEditorService.html#member-GetItemDetailsAsync>AvatarEditorService.GetItemDetailsAsync</a></li><li><a href=/ref/class/AvatarEditorService.html#member-GetBatchItemDetailsAsync>AvatarEditorService.GetBatchItemDetailsAsync</a></li><li><a href=/ref/class/AvatarEditorService.html#member-GetRecommendedAssetsAsync>AvatarEditorService.GetRecommendedAssetsAsync</a></li><li><a href=/ref/class/AvatarEditorService.html#member-GetRecommendedBundlesAsync>AvatarEditorService.GetRecommendedBundlesAsync</a></li><li><a href=/ref/class/AvatarEditorService.html#member-SearchCatalogAsync>AvatarEditorService.SearchCatalogAsync</a></li><li><a href=/ref/class/AvatarEditorService.html#member-PromptSetFavorite>AvatarEditorService.PromptSetFavorite</a></li><li><a href=/ref/class/AvatarEditorService.html#member-GetFavoriteAsync>AvatarEditorService.GetFavoriteAsync</a></li></ul><p>For each experience, this throttling allows you to send up to 100 requests per
 second to these <code>AvatarEditorService</code> endpoints, regardless of the number of
 servers or user count. Exceeding these limits returns a
-<code>429 Too Many Requests</code> error.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>330</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+<code>429 Too Many Requests</code> error.</p><h3>Item Details Response</h3><p>The following methods return item data in a shared response format:</p><ul><li><a href=/ref/class/AvatarEditorService.html#member-GetItemDetailsAsync>AvatarEditorService:GetItemDetailsAsync()</a></li><li><a href=/ref/class/AvatarEditorService.html#member-GetBatchItemDetailsAsync>AvatarEditorService:GetBatchItemDetailsAsync()</a></li><li><a href=/ref/class/AvatarEditorService.html#member-SearchCatalogAsync>AvatarEditorService:SearchCatalogAsync()</a></li></ul><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span><span class=_lnt>11
+</span><span class=_lnt>12
+</span><span class=_lnt>13
+</span><span class=_lnt>14
+</span><span class=_lnt>15
+</span><span class=_lnt>16
+</span><span class=_lnt>17
+</span><span class=_lnt>18
+</span><span class=_lnt>19
+</span><span class=_lnt>20
+</span><span class=_lnt>21
+</span><span class=_lnt>22
+</span><span class=_lnt>23
+</span><span class=_lnt>24
+</span><span class=_lnt>25
+</span><span class=_lnt>26
+</span><span class=_lnt>27
+</span><span class=_lnt>28
+</span><span class=_lnt>29
+</span><span class=_lnt>30
+</span><span class=_lnt>31
+</span><span class=_lnt>32
+</span><span class=_lnt>33
+</span><span class=_lnt>34
+</span><span class=_lnt>35
+</span><span class=_lnt>36
+</span><span class=_lnt>37
+</span><span class=_lnt>38
+</span><span class=_lnt>39
+</span><span class=_lnt>40
+</span><span class=_lnt>41
+</span><span class=_lnt>42
+</span><span class=_lnt>43
+</span><span class=_lnt>44
+</span><span class=_lnt>45
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Id&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ItemType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;Asset&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;AssetType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;Image&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;BundleType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;BodyParts&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Description&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ProductId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ItemStatus&#34;</span><span class=_p>:</span> <span class=_p>[</span><span class=_s2>&#34;New&#34;</span><span class=_p>],</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ItemRestrictions&#34;</span><span class=_p>:</span> <span class=_p>[</span><span class=_s2>&#34;Collectible&#34;</span><span class=_p>],</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;BundledItems&#34;</span><span class=_p>:</span> <span class=_p>[</span>
+</span></span><span class=_line><span class=_cl>    <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Id&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Type&#34;</span><span class=_p>:</span> <span class=_s2>&#34;Asset&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;AssetType&#34;</span><span class=_p>:</span> <span class=_mi>29</span>
+</span></span><span class=_line><span class=_cl>    <span class=_p>}</span>
+</span></span><span class=_line><span class=_cl>  <span class=_p>],</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;IsRecolorable&#34;</span><span class=_p>:</span> <span class=_kc>false</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CollectibleItemId&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;TotalQuantity&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;UnitsAvailableForConsumption&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;QuantityLimitPerUser&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;HasResellers&#34;</span><span class=_p>:</span> <span class=_kc>false</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;OffSaleDeadline&#34;</span><span class=_p>:</span> <span class=_n>null</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Price&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;PremiumPricing&#34;</span><span class=_p>:</span> <span class=_p>{</span>
+</span></span><span class=_line><span class=_cl>    <span class=_s2>&#34;PremiumDiscountPercentage&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>    <span class=_s2>&#34;PremiumPriceInRobux&#34;</span><span class=_p>:</span> <span class=_mi>0</span>
+</span></span><span class=_line><span class=_cl>  <span class=_p>},</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;LowestPrice&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;LowestResalePrice&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;PriceStatus&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;SaleLocationType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;ShopAndAllExperiences&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;PurchaseCount&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;FavoriteCount&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CreatorType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;User&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CreatorTargetId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CreatorName&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CreatorHasVerifiedBadge&#34;</span><span class=_p>:</span> <span class=_kc>false</span>
+</span></span><span class=_line><span class=_cl><span class=_p>}</span>
+</span></span></code></pre></td></tr></tbody></table></div><h4>Basic Information</h4><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>Id</code></td><td>number</td><td>The unique identifier of the item.</td></tr><tr><td><code>ItemType</code></td><td>string</td><td>The type of item: <code>"Asset"</code> or <code>"Bundle"</code>. Corresponds to <a href=/ref/enum/AvatarItemType.html>AvatarItemType</a>.</td></tr><tr><td><code>AssetType</code></td><td>string</td><td>The asset type. Corresponds to <a href=/ref/enum/AvatarAssetType.html>AvatarAssetType</a> values (e.g., <code>"Hat"</code>, <code>"Shirt"</code>). Only present if <code>ItemType</code> is <code>"Asset"</code>.</td></tr><tr><td><code>BundleType</code></td><td>string</td><td>The bundle type. Corresponds to <a href=/ref/enum/BundleType.html>BundleType</a> values (e.g., <code>"BodyParts"</code>, <code>"Animations"</code>). Only present if <code>ItemType</code> is <code>"Bundle"</code>.</td></tr><tr><td><code>Name</code></td><td>string</td><td>The display name of the item.</td></tr><tr><td><code>Description</code></td><td>string</td><td>The item's description text.</td></tr><tr><td><code>ProductId</code></td><td>number</td><td>The product ID associated with this item.</td></tr><tr><td><code>ItemStatus</code></td><td>array</td><td>An array of status strings (e.g., <code>"New"</code>, <code>"Sale"</code>, <code>"XboxExclusive"</code>, <code>"AmazonExclusive"</code>).</td></tr><tr><td><code>ItemRestrictions</code></td><td>array</td><td>An array of restriction strings. See the <code>itemRestrictions</code> table below.</td></tr></tbody></table><h4>Bundle Information</h4><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>BundledItems</code></td><td>array</td><td>An array of items contained in the bundle. Only present if <code>ItemType</code> is <code>"Bundle"</code>. Each entry contains:</td></tr><tr><td colspan=2></td><td><code>Id</code>: The unique identifier of the bundled item.</td></tr><tr><td colspan=2></td><td><code>Name</code>: The display name of the bundled item.</td></tr><tr><td colspan=2></td><td><code>Type</code>: The type of the bundled item (e.g., <code>"Asset"</code>).</td></tr><tr><td colspan=2></td><td><code>AssetType</code>: The asset type as an integer. Corresponds to <a href=/ref/enum/AvatarAssetType.html>AvatarAssetType</a>.</td></tr><tr><td colspan=2></td><td><code>Owned</code>: Whether the bundled item is owned by the current user. Only present in <a href=/ref/class/AvatarEditorService.html#member-GetItemDetailsAsync>AvatarEditorService:GetItemDetailsAsync()</a>.</td></tr><tr><td><code>IsRecolorable</code></td><td>boolean</td><td>Whether the bundle supports skin tone matching. Only applies to BodyParts and DynamicHead bundles.</td></tr></tbody></table><h4>Collectible Information</h4><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>CollectibleItemId</code></td><td>string</td><td>The unique item ID of the collectible.</td></tr><tr><td><code>TotalQuantity</code></td><td>number</td><td>The total quantity of the collectible available for purchase (not resale).</td></tr><tr><td><code>UnitsAvailableForConsumption</code></td><td>number</td><td>The number of units available for purchase. Only applies to Limited items with remaining stock.</td></tr><tr><td><code>QuantityLimitPerUser</code></td><td>number</td><td>Maximum number of the same collectible item a user can own.</td></tr><tr><td><code>HasResellers</code></td><td>boolean</td><td><code>true</code> when item is a Limited collectible and there are copies available for resale.</td></tr><tr><td><code>OffSaleDeadline</code></td><td>string</td><td>The date/time when the item goes off sale.</td></tr></tbody></table><h4>Pricing and Sale Information</h4><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>Price</code></td><td>number</td><td>The price in Robux. <code>0</code> if free or not for sale.</td></tr><tr><td><code>PremiumPricing</code></td><td>table</td><td>Premium pricing information. Contains the following fields:</td></tr><tr><td colspan=2></td><td><code>PremiumDiscountPercentage</code>: The discount percentage for Premium members.</td></tr><tr><td colspan=2></td><td><code>PremiumPriceInRobux</code>: The discounted price in Robux for Premium members.</td></tr><tr><td><code>LowestPrice</code></td><td>number</td><td>The lowest resale price for Limited items.</td></tr><tr><td><code>LowestResalePrice</code></td><td>number</td><td>The lowest resale price for the collectible in Robux.</td></tr><tr><td><code>PriceStatus</code></td><td>string</td><td>The price status (e.g., <code>"Free"</code>, <code>"Off Sale"</code>, <code>"No Resellers"</code>).</td></tr><tr><td><code>SaleLocationType</code></td><td>string</td><td>The type of sale location setting. See <code>SaleLocationType</code> values below.</td></tr><tr><td><code>PurchaseCount</code></td><td>number</td><td>The total number of times this item has been purchased.</td></tr><tr><td><code>FavoriteCount</code></td><td>number</td><td>The total number of users who have favorited this item.</td></tr></tbody></table><h4>Creator Information</h4><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>CreatorType</code></td><td>string</td><td>Either <code>User</code> or <code>Group</code>. See <a href=/ref/enum/CreatorType.html>CreatorType</a>.</td></tr><tr><td><code>CreatorTargetId</code></td><td>number</td><td>The ID of the creator user or group.</td></tr><tr><td><code>CreatorName</code></td><td>string</td><td>The display name of the creator.</td></tr><tr><td><code>CreatorHasVerifiedBadge</code></td><td>boolean</td><td>Boolean of whether the creator has a verified badge.</td></tr></tbody></table><h4>SaleLocationType Values</h4><table><thead><tr><th style=text-align:left>Value</th><th style=text-align:left>Description</th></tr></thead><tbody><tr><td style=text-align:left><code>NotApplicable</code></td><td style=text-align:left>Default value, should not occur in practice.</td></tr><tr><td style=text-align:left><code>ShopOnly</code></td><td style=text-align:left>Item can only be purchased in the Roblox catalog shop.</td></tr><tr><td style=text-align:left><code>MyExperiencesOnly</code></td><td style=text-align:left>Item can only be purchased in the creator's experiences.</td></tr><tr><td style=text-align:left><code>ShopAndMyExperiences</code></td><td style=text-align:left>Item can be purchased in the Roblox catalog shop or the creator's experiences.</td></tr><tr><td style=text-align:left><code>ExperiencesById</code></td><td style=text-align:left>Item can only be purchased in a specific list of experiences.</td></tr><tr><td style=text-align:left><code>ShopAndAllExperiences</code></td><td style=text-align:left>Item can be purchased in the Roblox catalog shop and all experiences.</td></tr><tr><td style=text-align:left><code>ExperiencesDevApiOnly</code></td><td style=text-align:left>Item can only be purchased in experiences via developer APIs.</td></tr><tr><td style=text-align:left><code>ShopAndExperiencesById</code></td><td style=text-align:left>Item can be purchased in the Roblox catalog shop or a whitelisted list of experiences.</td></tr></tbody></table><h4>itemRestrictions Values</h4><table><thead><tr><th style=text-align:center>itemRestrictions</th><th style=text-align:center>Limited or Unlimited</th></tr></thead><tbody><tr><td style=text-align:center><code>empty</code></td><td style=text-align:center>Unlimited</td></tr><tr><td style=text-align:center><code>Collectible</code></td><td style=text-align:center>UGC Limited</td></tr><tr><td style=text-align:center><code>Limited</code></td><td style=text-align:center>Roblox Limited</td></tr><tr><td style=text-align:center><code>LimitedUnique</code></td><td style=text-align:center>Roblox Limited Unique</td></tr></tbody></table></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>330</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-2d89914793a549da-3 title="Added on 2026-01-13T10:33:06-08:00
 v0.704.0.7041059
 version-2d89914793a549da">704</a>
@@ -2345,8 +2435,8 @@ Change ThreadSafety of <a class="entity-link deco deprecated" href=/ref/class/Av
 v0.460.0.416222
 version-cb7f6332fd194443">460</a>
 Add <a class="entity-link deco deprecated" href=/ref/class/AvatarEditorService.html#member-GetBatchItemDetails><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetBatchItemDetails</a></li></ul></details><div class=tags>Tags: [Yields, Deprecated]</div></section><section id=member-GetBatchItemDetailsAsync class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetBatchItemDetailsAsync<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/AvatarEditorService#GetBatchItemDetailsAsync target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th></tr></thead><tbody><tr class=row-itemIds><td class=col-name>itemIds</td><td class=col-type><a class="entity-link deco" href=/ref/type/Array.html>Array</a></td></tr><tr class=row-itemType><td class=col-name>itemType</td><td class=col-type><a class="entity-link deco" href=/ref/enum/AvatarItemType.html>AvatarItemType</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Array.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Array</a></td></tr></tbody></table><div class=docs><p>Gets the item details for a list of items at once. More efficient than
-<code>AvatarEditorService:GetItemDetailsAsync</code> if you need to get all the item
-details of a list.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-22 title="Added on 2025-12-05T11:08:15-08:00
+<a href=/ref/class/AvatarEditorService.html#member-GetItemDetailsAsync>AvatarEditorService:GetItemDetailsAsync()</a> if you need to get the
+item details for multiple items.</p><p>Returns an array of items (see Item Details Response above in summary).</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-22 title="Added on 2025-12-05T11:08:15-08:00
 v0.702.0.7020614
 version-4d26fb450bb44305">702</a>
 Add <a class="entity-link deco" href=/ref/class/AvatarEditorService.html#member-GetBatchItemDetailsAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetBatchItemDetailsAsync</a></li><li class=filter-element data-entity=Function><a class="history-tag removed" href=/ref/updates/2025.html#version-cda6028de0a7412d-22 title="Removed on 2025-12-05T09:45:12-08:00
@@ -2579,94 +2669,9 @@ v0.446.0.410691
 version-6abafbd8833c45d5">446</a>
 Add <a class="entity-link deco deprecated" href=/ref/class/AvatarEditorService.html#member-GetItemDetails><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetItemDetails</a></li></ul></details><div class=tags>Tags: [Yields, Deprecated]</div></section><section id=member-GetItemDetailsAsync class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetItemDetailsAsync<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/AvatarEditorService#GetItemDetailsAsync target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th></tr></thead><tbody><tr class=row-itemId><td class=col-name>itemId</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr><tr class=row-itemType><td class=col-name>itemType</td><td class=col-type><a class="entity-link deco" href=/ref/enum/AvatarItemType.html>AvatarItemType</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Dictionary.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Dictionary</a></td></tr></tbody></table><div class=docs><p>This function returns the item details for the given item. It accepts two
 parameters - the first indicating the ID of the item being retrieved and
-the second indicating its <a href=/ref/enum/AvatarItemType.html>AvatarItemType</a>.</p><p>Data returned in the format:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span><span class=_lnt>16
-</span><span class=_lnt>17
-</span><span class=_lnt>18
-</span><span class=_lnt>19
-</span><span class=_lnt>20
-</span><span class=_lnt>21
-</span><span class=_lnt>22
-</span><span class=_lnt>23
-</span><span class=_lnt>24
-</span><span class=_lnt>25
-</span><span class=_lnt>26
-</span><span class=_lnt>27
-</span><span class=_lnt>28
-</span><span class=_lnt>29
-</span><span class=_lnt>30
-</span><span class=_lnt>31
-</span><span class=_lnt>32
-</span><span class=_lnt>33
-</span><span class=_lnt>34
-</span><span class=_lnt>35
-</span><span class=_lnt>36
-</span><span class=_lnt>37
-</span><span class=_lnt>38
-</span><span class=_lnt>39
-</span><span class=_lnt>40
-</span><span class=_lnt>41
-</span><span class=_lnt>42
-</span><span class=_lnt>43
-</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;IsForRent&#34;</span><span class=_p>:</span> <span class=_kc>true</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ExpectedSellerId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Owned&#34;</span><span class=_p>:</span> <span class=_kc>true</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;IsPurchasable&#34;</span><span class=_p>:</span> <span class=_kc>true</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Id&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ItemType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;Asset&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;AssetType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;Image&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;BundleType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;BodyParts&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Description&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ProductId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Genres&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>    <span class=_s2>&#34;All&#34;</span>
-</span></span><span class=_line><span class=_cl>  <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;BundledItems&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>    <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Owned&#34;</span><span class=_p>:</span> <span class=_kc>true</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Id&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Type&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span>
-</span></span><span class=_line><span class=_cl>    <span class=_p>}</span>
-</span></span><span class=_line><span class=_cl>  <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ItemStatus&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>    <span class=_s2>&#34;New&#34;</span>
-</span></span><span class=_line><span class=_cl>  <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;ItemRestrictions&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>    <span class=_s2>&#34;ThirteenPlus&#34;</span>
-</span></span><span class=_line><span class=_cl>  <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CreatorType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;User&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CreatorTargetId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;CreatorName&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;Price&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;PremiumPricing&#34;</span><span class=_p>:</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>    <span class=_s2>&#34;PremiumDiscountPercentage&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>    <span class=_s2>&#34;PremiumPriceInRobux&#34;</span><span class=_p>:</span> <span class=_mi>0</span>
-</span></span><span class=_line><span class=_cl>  <span class=_p>},</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;LowestPrice&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;PriceStatus&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;UnitsAvailableForConsumption&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;PurchaseCount&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>  <span class=_s2>&#34;FavoriteCount&#34;</span><span class=_p>:</span> <span class=_mi>0</span>
-</span></span><span class=_line><span class=_cl><span class=_p>}</span>
-</span></span></code></pre></td></tr></tbody></table></div><p><br><br>To query for limited or unlimited assets, use the following
-<code>itemRestrictions</code> values:</p><table><thead><tr><th style=text-align:center>itemRestrictions</th><th style=text-align:center>Limited or Unlimited</th></tr></thead><tbody><tr><td style=text-align:center><code>empty</code></td><td style=text-align:center>Unlimited</td></tr><tr><td style=text-align:center><code>Collectible</code></td><td style=text-align:center>UGC Limited</td></tr><tr><td style=text-align:center><code>Limited</code></td><td style=text-align:center>Roblox Limited</td></tr><tr><td style=text-align:center><code>LimitedUnique</code></td><td style=text-align:center>Roblox Limited Unique</td></tr></tbody></table></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-31 title="Added on 2025-12-05T11:08:15-08:00
+the second indicating its <a href=/ref/enum/AvatarItemType.html>AvatarItemType</a>.</p><p>The response includes all fields from Item Details Response (see above in
+summary), plus the following additional fields specific to single-item
+queries:</p><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>Owned</code></td><td>boolean</td><td>Whether the item is owned by the current user.</td></tr><tr><td><code>IsPurchasable</code></td><td>boolean</td><td>Whether the item can be purchased by the current user.</td></tr><tr><td><code>ExpectedSellerId</code></td><td>number</td><td>The user ID of the lowest private seller if resellable, or the creator's target ID otherwise. Used when calling purchase APIs.</td></tr><tr><td><code>CreatingUniverseId</code></td><td>number</td><td>If this asset was created in an experience, this is the universe ID where it was created. <code>nil</code> if not an in-experience creation.</td></tr></tbody></table></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-31 title="Added on 2025-12-05T11:08:15-08:00
 v0.702.0.7020614
 version-4d26fb450bb44305">702</a>
 Add <a class="entity-link deco" href=/ref/class/AvatarEditorService.html#member-GetItemDetailsAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetItemDetailsAsync</a></li><li class=filter-element data-entity=Function><a class="history-tag removed" href=/ref/updates/2025.html#version-cda6028de0a7412d-31 title="Removed on 2025-12-05T09:45:12-08:00
@@ -3006,12 +3011,12 @@ possible usages for this function.</p><p>Data is in the format:</p><div class=_c
 </span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;AssetId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
 </span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
 </span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;Price&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;PremiumPrice&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;PremiumPrice&#34;</span><span class=_p>:</span> <span class=_mi>0</span>
 </span></span><span class=_line><span class=_cl>      <span class=_p>},</span>
 </span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Creator&#34;</span><span class=_p>:</span> <span class=_p>{</span>
 </span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;CreatorId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
 </span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;CreatorType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span>
 </span></span><span class=_line><span class=_cl>      <span class=_p>},</span>
 </span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Product&#34;</span><span class=_p>:</span> <span class=_p>{</span>
 </span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;Id&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
@@ -3747,89 +3752,8 @@ Change ThreadSafety of <a class="entity-link deco deprecated" href=/ref/class/Av
 v0.451.0.412334
 version-a7b72c3aa90940bf">451</a>
 Add <a class="entity-link deco deprecated" href=/ref/class/AvatarEditorService.html#member-SearchCatalog><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SearchCatalog</a></li></ul></details><div class=tags>Tags: [Yields, Deprecated]</div></section><section id=member-SearchCatalogAsync class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SearchCatalogAsync<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/AvatarEditorService#SearchCatalogAsync target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-searchParameters><td class=col-name>searchParameters</td><td class=col-type><a class="entity-link deco" href=/ref/type/CatalogSearchParams.html>CatalogSearchParams</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/class/CatalogPages.html><span class=picture title=Class data-type=Class><span class=icon style="--light:url('/ref/icons/light/Placeholder.png');--dark:url('/ref/icons/dark/Placeholder.png')"></span></span>CatalogPages</a></td></tr></tbody></table><div class=docs><p>This function returns a <a href=/ref/class/CatalogPages.html>CatalogPages</a> object containing the result
-of the given search.</p><p>The returned data has the format:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span><span class=_lnt>16
-</span><span class=_lnt>17
-</span><span class=_lnt>18
-</span><span class=_lnt>19
-</span><span class=_lnt>20
-</span><span class=_lnt>21
-</span><span class=_lnt>22
-</span><span class=_lnt>23
-</span><span class=_lnt>24
-</span><span class=_lnt>25
-</span><span class=_lnt>26
-</span><span class=_lnt>27
-</span><span class=_lnt>28
-</span><span class=_lnt>29
-</span><span class=_lnt>30
-</span><span class=_lnt>31
-</span><span class=_lnt>32
-</span><span class=_lnt>33
-</span><span class=_lnt>34
-</span><span class=_lnt>35
-</span><span class=_lnt>36
-</span><span class=_lnt>37
-</span><span class=_lnt>38
-</span><span class=_lnt>39
-</span><span class=_lnt>40
-</span><span class=_lnt>41
-</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>    <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Id&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;ItemType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;Asset&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;AssetType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;Image&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;BundleType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;BodyParts&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Description&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;ProductId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Genres&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;All&#34;</span>
-</span></span><span class=_line><span class=_cl>      <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;BundledItems&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>        <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>          <span class=_s2>&#34;Owned&#34;</span><span class=_p>:</span> <span class=_kc>true</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>          <span class=_s2>&#34;Id&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>          <span class=_s2>&#34;Name&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>          <span class=_s2>&#34;Type&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span>
-</span></span><span class=_line><span class=_cl>        <span class=_p>}</span>
-</span></span><span class=_line><span class=_cl>      <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;ItemStatus&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;New&#34;</span>
-</span></span><span class=_line><span class=_cl>      <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;ItemRestrictions&#34;</span><span class=_p>:</span> <span class=_p>[</span>
-</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;ThirteenPlus&#34;</span>
-</span></span><span class=_line><span class=_cl>      <span class=_p>],</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;CreatorType&#34;</span><span class=_p>:</span> <span class=_s2>&#34;User&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;CreatorTargetId&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;CreatorName&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;Price&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;PremiumPricing&#34;</span><span class=_p>:</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;PremiumDiscountPercentage&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>        <span class=_s2>&#34;PremiumPriceInRobux&#34;</span><span class=_p>:</span> <span class=_mi>0</span>
-</span></span><span class=_line><span class=_cl>      <span class=_p>},</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;LowestPrice&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;PriceStatus&#34;</span><span class=_p>:</span> <span class=_s2>&#34;string&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;UnitsAvailableForConsumption&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;PurchaseCount&#34;</span><span class=_p>:</span> <span class=_mi>0</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>      <span class=_s2>&#34;FavoriteCount&#34;</span><span class=_p>:</span> <span class=_mi>0</span>
-</span></span><span class=_line><span class=_cl>    <span class=_p>}</span>
-</span></span><span class=_line><span class=_cl><span class=_p>]</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-46 title="Added on 2025-12-05T11:08:15-08:00
+of the given search.</p><p>Each item in the returned pages uses the Item Details Response format (see
+above in summary).</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-46 title="Added on 2025-12-05T11:08:15-08:00
 v0.702.0.7020614
 version-4d26fb450bb44305">702</a>
 Add <a class="entity-link deco" href=/ref/class/AvatarEditorService.html#member-SearchCatalogAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SearchCatalogAsync</a></li><li class=filter-element data-entity=Function><a class="history-tag removed" href=/ref/updates/2025.html#version-cda6028de0a7412d-46 title="Removed on 2025-12-05T09:45:12-08:00
