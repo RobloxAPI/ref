@@ -800,7 +800,12 @@ has processed each requested instance.</p><h4>Limitations</h4><p><a href=/ref/cl
 objects rely on processed texture pack assets rather than directly loading
 individual textures. Calling it on a <a href=/ref/class/SurfaceAppearance.html>SurfaceAppearance</a> instance
 will not do anything, but the associated textures will still be streamed
-in during runtime.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-138 title="Changed on 2023-04-26T18:50:09-07:00
+in during runtime.</p><p>If PreloadAsync is called on <a href=/ref/class/Instance.html>Instances</a> that are not
+currently visible, such as a <a href=/ref/class/Decal.html>Decal</a> or an <a href=/ref/class/ImageLabel.html>ImageLabel</a>, the
+Engine will download and store textures used by those Instances in its
+disk cache. Because the <a href=/ref/class/Instance.html>Instances</a> are not visible in
+these cases, the Engine may reduce memory consumption by unloading the
+textures after preloading them.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-138 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
 version-da56b3062bbf4871">573</a>
 Change ReturnType of <a class="entity-link deco" href=/ref/class/ContentProvider.html#member-PreloadAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PreloadAsync</a>
