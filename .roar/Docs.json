@@ -67,6 +67,7 @@
 			]
 		},
 		"AnimationFromVideoCreatorService": {},
+		"AnimationNodeDefinition": {},
 		"AnimationRigData": {
 			"Summary": "<p>Used to store information regarding the model an animation was authored for.</p>\n",
 			"Description": "<p>An AnimationRigData instance commonly appears in the Data Model as a child of\nan AnimationClip. It is used to store information regarding the source rig an\nanimation was authored for. It is currently only used for AnimationClips\nauthored on R15 rigs.</p>\n"
@@ -273,6 +274,7 @@
 			"Summary": "<p>Returned by <a href=\"/ref/class/Players.html#member-GetBanHistoryAsync\">Players:GetBanHistoryAsync</a> to view the entire ban and\nunban history of any UserId.</p>\n",
 			"Description": "<p><a href=\"/ref/class/BanHistoryPages.html\">BanHistoryPages</a> is returned by <a href=\"/ref/class/Players.html#member-GetBanHistoryAsync\">Players:GetBanHistoryAsync()</a>.\nThis instance allows an experience to view the entire ban and unban history of\nany player within the experience&#39;s universe.</p>\n<p>The items within <a href=\"/ref/class/BanHistoryPages.html\">BanHistoryPages</a> are tables with the following fields:</p>\n<table><thead>\n<tr>\n  <th>Name</th>\n  <th>Type</th>\n  <th>Description</th>\n</tr></thead>\n<tbody>\n  <tr>\n    <td><code>DisplayReason</code></td>\n    <td>string</td>\n    <td>The <code>DisplayReason</code> that was shown to the user</td>\n  </tr>\n  <tr>\n    <td><code>PrivateReason</code></td>\n    <td>string</td>\n    <td>The <code>PrivateReason</code> that was sent with this ban.</td>\n  </tr>\n  <tr>\n    <td><code>StartTime</code></td>\n    <td>string</td>\n    <td>The time that this ban was applied in ISO 8601 format.</td>\n  </tr>\n  <tr>\n    <td><code>Duration</code></td>\n    <td>number</td>\n    <td>The length of the ban in seconds. If it is a permanent ban, it will be <code>-1</code>.</td>\n  </tr>\n  <tr>\n    <td><code>Ban</code></td>\n    <td>boolean</td>\n    <td>If the action was a ban, it will be <code>true</code>. If the action was an unban, it will be <code>false</code>.</td>\n  </tr>\n  <tr>\n    <td><code>PlaceId</code></td>\n    <td>number</td>\n    <td>The place in which a ban or unban was explicitly updated. This field is <code>-1</code> if the action was applied on the universe level.</td>\n  </tr>\n</tbody>\n</table>\n"
 		},
+		"BaseCoreGuiConfiguration": {},
 		"BasePart": {
 			"Summary": "<p>The abstract base class for in-world objects that physically interact.</p>\n",
 			"Description": "<p><a href=\"/ref/class/BasePart.html\">BasePart</a> is an abstract base class for in-world objects that render\nand are physically simulated while in the <a href=\"/ref/class/Workspace.html\">Workspace</a>. There are several\nimplementations of <a href=\"/ref/class/BasePart.html\">BasePart</a>, the most common being <a href=\"/ref/class/Part.html\">Part</a> and\n<a href=\"/ref/class/MeshPart.html\">MeshPart</a>. Others include <a href=\"/ref/class/WedgePart.html\">WedgePart</a>, <a href=\"/ref/class/SpawnLocation.html\">SpawnLocation</a>, and\nthe singleton <a href=\"/ref/class/Terrain.html\">Terrain</a> object. Generally, when documentation refers to\na &#34;part,&#34; most <a href=\"/ref/class/BasePart.html\">BasePart</a> implementations will work and not just\n<a href=\"/ref/class/Part.html\">Part</a>.</p>\n<p>For information on how <a href=\"/ref/class/BasePart.html\">BaseParts</a> are grouped into simulated\nrigid bodies, see <a href=\"https://create.roblox.com/docs/physics/assemblies\">Assemblies</a>.</p>\n<p>There are many different objects that interact with <a href=\"/ref/class/BasePart.html\">BasePart</a> (other\nthan <a href=\"/ref/class/Terrain.html\">Terrain</a>), including:</p>\n<ul>\n<li>Several <a href=\"/ref/class/BasePart.html\">BaseParts</a> may be grouped within a <a href=\"/ref/class/Model.html\">Model</a> and\nmoved at the same time using <a href=\"/ref/class/PVInstance.html#member-PivotTo\">PVInstance:PivotTo()</a>. See\n<a href=\"https://create.roblox.com/docs/parts/models\">Models</a>.</li>\n<li>A <a href=\"/ref/class/Decal.html\">Decal</a> applies a stretched image texture to the faces of a\n<a href=\"/ref/class/BasePart.html\">BasePart</a>, while a <a href=\"/ref/class/Texture.html\">Texture</a> applies a tiled image texture to\nthe faces. See <a href=\"https://create.roblox.com/docs/parts/textures-decals\">Textures and Decals</a>.</li>\n<li>A <a href=\"/ref/class/SurfaceGui.html\">SurfaceGui</a> renders <a href=\"/ref/class/GuiObject.html\">GuiObjects</a> on the face of a\npart. See\n<a href=\"https://create.roblox.com/docs/ui/in-experience-containers\">In-Experience UI Containers</a>.</li>\n<li><a href=\"/ref/class/Attachment.html\">Attachments</a> can be added to a <a href=\"/ref/class/BasePart.html\">BasePart</a> to specify\n<a href=\"/ref/type/CFrame.html\">CFrames</a> relative to the part. These are often used by\nphysical <a href=\"/ref/class/Constraint.html\">Constraint</a> objects as outlined in\n<a href=\"https://create.roblox.com/docs/physics/mechanical-constraints\">Mechanical Constraints</a> and\n<a href=\"https://create.roblox.com/docs/physics/mover-constraints\">Mover Constraints</a>.</li>\n<li><a href=\"/ref/class/ParticleEmitter.html\">ParticleEmitter</a> objects emit particles uniformly in the volume of\nthe <a href=\"/ref/class/BasePart.html\">BasePart</a> to which they are parented. See\n<a href=\"https://create.roblox.com/docs/effects/particle-emitters\">Particle Emitters</a>.</li>\n<li>Light objects like <a href=\"/ref/class/PointLight.html\">PointLight</a> emit light from the center of a\n<a href=\"/ref/class/BasePart.html\">BasePart</a> as illustrated in\n<a href=\"https://create.roblox.com/docs/effects/light-sources\">Light Sources</a>.</li>\n<li>If parented to a <a href=\"/ref/class/Tool.html\">Tool</a> and given the name <strong>Handle</strong>, a\n<a href=\"/ref/class/BasePart.html\">BasePart</a> can be held by characters. See\n<a href=\"https://create.roblox.com/docs/players/tools\">In-Experience Tools</a>.</li>\n</ul>\n"
@@ -434,6 +436,7 @@
 				"ReadCapturesFromGalleryAsync-example"
 			]
 		},
+		"CapturesViewConfiguration": {},
 		"CatalogPages": {},
 		"ChangeHistoryService": {
 			"Summary": "<p><strong>Must</strong> be used by plugins to communicate to Studio how to undo and redo the\nchanges which they make to the experience.</p>\n",
@@ -587,6 +590,7 @@
 			"Summary": "<p>The CoreGui is a service used to store Guis created in-game by Roblox for the\ncore user interface found in every game (such as the game menu, the\nplayerlist, the backpack, etc.). It can also be used by <a href=\"/ref/class/Plugin.html\">Plugins</a>\nin Roblox Studio.</p>\n",
 			"Description": "<p>The CoreGui is a service used to store Guis created in-game by Roblox for the\ncore user interface found in every game (such as the game menu, the\nplayerlist, the backpack, etc.). It can also be used by <a href=\"/ref/class/Plugin.html\">Plugins</a>\nin Roblox Studio.</p>\n<p>You can use the <a href=\"/ref/class/StarterGui.html#member-SetCoreGuiEnabled\">StarterGui:SetCoreGuiEnabled()</a> and\n<a href=\"/ref/class/StarterGui.html#member-GetCoreGuiEnabled\">StarterGui:GetCoreGuiEnabled()</a> methods in a <a href=\"/ref/class/LocalScript.html\">LocalScript</a> to\nenable and disable most elements of the CoreGui. You can also use\n<a href=\"/ref/class/PlayerGui.html#member-SetTopbarTransparency\">PlayerGui:SetTopbarTransparency()</a> to set the transparency of the top\nbar.</p>\n"
 		},
+		"CoreGuiConfiguration": {},
 		"CoreScriptDebuggingManagerHelper": {},
 		"CornerWedgePart": {
 			"Description": "<p>This is a corner piece which has the same properties as a <a href=\"/ref/class/Part.html\">Part</a>.</p>\n"
@@ -1227,6 +1231,7 @@
 		},
 		"MLService": {},
 		"MLSession": {},
+		"MakeupDescription": {},
 		"ManualGlue": {
 			"Summary": "<p>ManualGlue is a joint created in a similar manner to the <a href=\"/ref/class/ManualWeld.html\">ManualWeld</a>\nclass. It functions identically to the <a href=\"/ref/class/Glue.html\">Glue</a> class.</p>\n",
 			"Description": "<p><strong>ManualGlue</strong> is a joint created in a similar manner to the\n<a href=\"/ref/class/ManualWeld.html\">ManualWeld</a> class. It functions identically to the <a href=\"/ref/class/Glue.html\">Glue</a> class.</p>\n"
@@ -1516,6 +1521,7 @@
 			"Summary": "<p>A container for a player&#39;s currently rendered <a href=\"/ref/class/ScreenGui.html\">ScreenGuis</a>.</p>\n",
 			"Description": "<p><a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> is a container that holds a player&#39;s UI. If a\n<a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> is a descendant, then any <a href=\"/ref/class/GuiObject.html\">GuiObject</a> inside of the\n<a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> will be drawn to the player&#39;s screen. Any\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a> will also run if it is inserted into a <a href=\"/ref/class/PlayerGui.html\">PlayerGui</a>.</p>\n<p>When a player first joins the experience, their <a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> is\nautomatically inserted into their <a href=\"/ref/class/Player.html\">Player</a> object. When the player&#39;s\n<a href=\"/ref/class/Player.html#member-Character\">Player.Character</a> spawns for the first time, all of the contents of\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a> are automatically copied into the player&#39;s\n<a href=\"/ref/class/PlayerGui.html\">PlayerGui</a>. Note that if <a href=\"/ref/class/Players.html#member-CharacterAutoLoads\">Players.CharacterAutoLoads</a> is set to\n<code>false</code>, the character will not spawn and <a href=\"/ref/class/StarterGui.html\">StarterGui</a> contents will not\nbe copied until <a href=\"/ref/class/Player.html#member-LoadCharacterAsync\">Player:LoadCharacterAsync()</a> is called. If\n<a href=\"/ref/class/StarterGui.html#member-ResetPlayerGuiOnSpawn\">StarterGui.ResetPlayerGuiOnSpawn</a> is set to <code>true</code>, then every time the\nplayer&#39;s character respawns, all of the contents of that player&#39;s\n<a href=\"/ref/class/PlayerGui.html\">PlayerGui</a> are cleared and replaced with the contents of\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a>.</p>\n<p>If you need to control a player&#39;s UI container during playtime, for example to\nshow/hide a specific <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> or any of its children, access it as\nfollows from a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Players</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Players&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">player</span> <span class=\"_o\">=</span> <span class=\"_n\">Players.LocalPlayer</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">playerGui</span> <span class=\"_o\">=</span> <span class=\"_n\">player.PlayerGui</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 		},
+		"PlayerListConfiguration": {},
 		"PlayerMouse": {
 			"Summary": "<p>The PlayerMouse behaves identically to the <a href=\"/ref/class/Mouse.html\">Mouse</a> object that is\nobtained using <a href=\"/ref/class/Tool.html#member-Equipped\">Tool.Equipped</a>. Both PlayerMouse and <a href=\"/ref/class/Mouse.html\">Mouse</a> are\nlegacy APIs, superseded by <a href=\"/ref/class/UserInputService.html\">UserInputService</a>.</p>\n",
 			"Description": "<p>The PlayerMouse behaves identically to the <a href=\"/ref/class/Mouse.html\">Mouse</a> object that is\nobtained using <a href=\"/ref/class/Tool.html#member-Equipped\">Tool.Equipped</a>. It can be accessed from\n<a href=\"/ref/class/LocalScript.html\">LocalScripts</a> using the local player&#39;s\n<a href=\"/ref/class/Player.html#member-GetMouse\">Player:GetMouse()</a> method. Both PlayerMouse and <a href=\"/ref/class/Mouse.html\">Mouse</a> are\nlegacy APIs, superseded by <a href=\"/ref/class/UserInputService.html\">UserInputService</a>.</p>\n<p>The only difference between the PlayerMouse and the <a href=\"/ref/class/Mouse.html\">Mouse</a> object is\nthe PlayerMouse can be obtained using the <a href=\"/ref/class/Player.html#member-GetMouse\">Player:GetMouse()</a> method.</p>\n<p>In most cases developers are advised to use the new <a href=\"/ref/class/UserInputService.html\">UserInputService</a>.\nHowever the PlayerMouse and Mouse objects remain supported for a number of\nreasons. See <a href=\"https://create.roblox.com/docs/input\">Input and Camera</a> for more information\non customizing inputs in your experience.</p>\n",
@@ -1709,6 +1715,7 @@
 		"ReflectionService": {
 			"Description": "<p><code>ReflectionService</code> allows scripts to query the engine for details about its\nAPI, including required security permissions, functionality, and inheritance\nstructure. You can use this service to dynamically inspect classes and their\nproperties, methods, and events, which can be useful for debugging, tooling,\nor creating dynamic behaviors based on the engine&#39;s capabilities.</p>\n<p>The following is an example script that inspects classes and their properties:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">ReflectionService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;ReflectionService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Create a SecurityCapabilities object with all capabilities</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">allCapabilities</span> <span class=\"_o\">=</span> <span class=\"_n\">SecurityCapabilities.new</span><span class=\"_p\">(</span><span class=\"_n\">table.unpack</span><span class=\"_p\">(</span><span class=\"_n\">Enum.SecurityCapability</span><span class=\"_p\">:</span><span class=\"_n\">GetEnumItems</span><span class=\"_p\">()))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Get all classes accessible with all capabilities</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">allClasses</span> <span class=\"_o\">=</span> <span class=\"_n\">ReflectionService</span><span class=\"_p\">:</span><span class=\"_n\">GetClasses</span><span class=\"_p\">({</span> <span class=\"_n\">Security</span> <span class=\"_o\">=</span> <span class=\"_n\">allCapabilities</span> <span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Total classes:&#34;</span><span class=\"_p\">,</span> <span class=\"_o\">#</span><span class=\"_n\">allClasses</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Get a specific class</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">partClass</span> <span class=\"_o\">=</span> <span class=\"_n\">ReflectionService</span><span class=\"_p\">:</span><span class=\"_n\">GetClass</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Part&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">partClass</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;</span><span class=\"_se\">\\n</span><span class=\"_s2\">Part class:&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;  Name:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">partClass.Name</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;  Superclass:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">partClass.Superclass</span> <span class=\"_ow\">and</span> <span class=\"_n\">tostring</span><span class=\"_p\">(</span><span class=\"_n\">partClass.Superclass</span><span class=\"_p\">)</span> <span class=\"_ow\">or</span> <span class=\"_s2\">&#34;none&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Get the first 5 properties of a class</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">properties</span> <span class=\"_o\">=</span> <span class=\"_n\">ReflectionService</span><span class=\"_p\">:</span><span class=\"_n\">GetPropertiesOfClass</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Part&#34;</span><span class=\"_p\">,</span> <span class=\"_p\">{</span> <span class=\"_n\">Security</span> <span class=\"_o\">=</span> <span class=\"_n\">allCapabilities</span> <span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;</span><span class=\"_se\">\\n</span><span class=\"_s2\">Part properties:&#34;</span><span class=\"_p\">,</span> <span class=\"_o\">#</span><span class=\"_n\">properties</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">for</span> <span class=\"_n\">i</span> <span class=\"_o\">=</span> <span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_n\">math.min</span><span class=\"_p\">(</span><span class=\"_mi\">5</span><span class=\"_p\">,</span> <span class=\"_o\">#</span><span class=\"_n\">properties</span><span class=\"_p\">)</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;  -&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">properties</span><span class=\"_p\">[</span><span class=\"_n\">i</span><span class=\"_p\">].</span><span class=\"_n\">Name</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 		},
+		"RemoteCommandService": {},
 		"RemoteDebuggerServer": {},
 		"RemoteEvent": {
 			"Summary": "<p>An object which facilitates asynchronous, one-way communication across the\nclient-server boundary. Scripts firing a <a href=\"/ref/class/RemoteEvent.html\">RemoteEvent</a> do not yield.</p>\n",
@@ -1861,6 +1868,7 @@
 			"Summary": "<p>Renders a 3D sphere around its <a href=\"/ref/class/PVAdornment.html#member-Adornee\">Adornee</a>.</p>\n",
 			"Description": "<p><code>SelectionSphere</code> renders a 3D sphere around its\n<a href=\"/ref/class/PVAdornment.html#member-Adornee\">Adornee</a> when it is a descendant of the\n<a href=\"/ref/class/Workspace.html\">Workspace</a> or anywhere where GUI objects are rendered. The sphere&#39;s\ngeometry consists of a ring/outline in addition to a surface.\n<code>SelectionSphere</code> does not capture any form of input; it is solely a visual\neffect.</p>\n<p>For an outline/fill overlay effect which covers non‑primitive geometry such as\nthat of a <a href=\"/ref/class/MeshPart.html\">MeshPart</a>, see <a href=\"/ref/class/Highlight.html\">Highlight</a>.</p>\n"
 		},
+		"SelfViewConfiguration": {},
 		"SensorBase": {
 			"Summary": "<p>An abstract class for various sensor instance types.</p>\n",
 			"Description": "<p>A <a href=\"/ref/class/SensorBase.html\">SensorBase</a> is an instance that, when parented to a <a href=\"/ref/class/BasePart.html\">BasePart</a>,\noutputs additional data about the world around that part. This data is\npresented in the sensor&#39;s &#34;output&#34; property category. Often, other systems\nwill consume the sensor&#39;s output data.</p>\n"
@@ -2396,6 +2404,7 @@
 			"Summary": "<p>Result of parts that have been joined together into a single solid model.</p>\n",
 			"Description": "<p>A <strong>UnionOperation</strong> is the result of individual parts that have been joined\ntogether into a single solid model through Studio&#39;s solid modeling <strong>Union</strong>\ntool, or through <a href=\"/ref/class/BasePart.html#member-UnionAsync\">BasePart:UnionAsync()</a> or\n<a href=\"/ref/class/BasePart.html#member-SubtractAsync\">BasePart:SubtractAsync()</a>.</p>\n<p>See <a href=\"https://create.roblox.com/docs/parts/solid-modeling\">Solid Modeling</a> to learn more about\nStudio&#39;s solid modeling tools and methods.</p>\n"
 		},
+		"UniqueIdLookupService": {},
 		"UniversalConstraint": {
 			"Summary": "<p>Ensures two axes on two bodies remain perpendicular.</p>\n",
 			"Description": "<p>A <strong>UniversalConstraint</strong> ensures two axes on two bodies remain perpendicular.\nContextually, this constraint is more restrictive than a\n<a href=\"/ref/class/BallSocketConstraint.html\">BallSocketConstraint</a> but less restrictive than a\n<a href=\"/ref/class/HingeConstraint.html\">HingeConstraint</a> by one degree of freedom.</p>\n<p>Example applications of this constraint include transmitting power between the\ntransmission and drive shafts of cars, robotics, and more.</p>\n<p>When configuring this constraint, it may be helpful to study\n<a href=\"https://create.roblox.com/docs/physics/units\">Roblox Units</a> to understand how Roblox units\ncompare to metric units.</p>\n<h3>Limits</h3>\n<p>Enabling the <a href=\"/ref/class/UniversalConstraint.html#member-LimitsEnabled\">LimitsEnabled</a> property\nexposes the <a href=\"/ref/class/UniversalConstraint.html#member-MaxAngle\">MaxAngle</a> limit to restrict\ntilt within a cone, as well as\n<a href=\"/ref/class/UniversalConstraint.html#member-Restitution\">Restitution</a> which defines the\nelasticity of the attachments when they reach the limit.</p>\n"
@@ -3060,6 +3069,10 @@
 			}
 		},
 		"AnimationFromVideoCreatorService": {},
+		"AnimationNodeDefinition": {
+			"NodeId": {},
+			"NodeType": {}
+		},
 		"AnimationRigData": {},
 		"AnimationTrack": {
 			"AdjustSpeed": {
@@ -4850,6 +4863,9 @@
 			}
 		},
 		"BanHistoryPages": {},
+		"BaseCoreGuiConfiguration": {
+			"Enabled": {}
+		},
 		"BasePart": {
 			"Anchored": {
 				"Summary": "<p>Determines whether a part is immovable by physics.</p>\n",
@@ -6241,6 +6257,9 @@
 			}
 		},
 		"CapturesPages": {},
+		"CapturesViewConfiguration": {
+			"Open": {}
+		},
 		"CatalogPages": {},
 		"ChangeHistoryService": {
 			"FinishRecording": {
@@ -6355,6 +6374,7 @@
 		},
 		"CharacterAppearance": {},
 		"CharacterMesh": {
+			"BaseTextureContent": {},
 			"BaseTextureId": {
 				"Summary": "<p>The texture of a CharacterMesh. It can be overridden by Shirts, Pants,\nT-Shirts, and the <a href=\"/ref/class/CharacterMesh.html#member-OverlayTextureId\">CharacterMesh.OverlayTextureId</a> property.</p>\n",
 				"Description": "<p>The texture of a CharacterMesh. It can be overridden by Shirts, Pants,\nT-Shirts, and the <a href=\"/ref/class/CharacterMesh.html#member-OverlayTextureId\">CharacterMesh.OverlayTextureId</a> property.</p>\n"
@@ -6363,10 +6383,12 @@
 				"Summary": "<p>The part of the Character&#39;s body that is affected.</p>\n",
 				"Description": "<p>The part of the Character&#39;s body that is affected.</p>\n"
 			},
+			"MeshContent": {},
 			"MeshId": {
 				"Summary": "<p>Used to load a mesh file, and apply it to the given BodyPart.</p>\n",
 				"Description": "<p>Used to load a mesh file, and apply it to the given BodyPart.</p>\n"
 			},
+			"OverlayTextureContent": {},
 			"OverlayTextureId": {
 				"Summary": "<p>The assetId of the overlay texture. The overlay covers Shirts, Pants,\nT-Shirts, and the <a href=\"/ref/class/CharacterMesh.html#member-BaseTextureId\">CharacterMesh.BaseTextureId</a>.</p>\n",
 				"Description": "<p>The assetId of the overlay texture. The overlay covers Shirts, Pants,\nT-Shirts, and the <a href=\"/ref/class/CharacterMesh.html#member-BaseTextureId\">CharacterMesh.BaseTextureId</a>.</p>\n"
@@ -7210,6 +7232,11 @@
 				"Description": "<p>The current version of the CoreGui. Every time the CoreGui is majorly\nchanged, this number is increased.</p>\n"
 			}
 		},
+		"CoreGuiConfiguration": {
+			"CapturesViewConfiguration": {},
+			"PlayerListConfiguration": {},
+			"SelfViewConfiguration": {}
+		},
 		"CoreScriptDebuggingManagerHelper": {},
 		"CornerWedgePart": {},
 		"CreatorStoreService": {},
@@ -7499,6 +7526,7 @@
 					"detecting-private-servers"
 				]
 			},
+			"RunService": {},
 			"SavePlace": {
 				"Summary": "<p>Saves the current place.</p>\n",
 				"Description": "<p>This function was used by an ancient data persistence method to save the\ncurrent place.</p>\n<p>Note:</p>\n<ul>\n<li>In order for this method to work the save place API has to be enabled\nfor the current place.</li>\n</ul>\n",
@@ -7698,7 +7726,8 @@
 			"ListDataStoresAsync": {
 				"Summary": "<p>Returns a <a href=\"/ref/class/DataStoreListingPages.html\">DataStoreListingPages</a> object for enumerating through all\nof the experience&#39;s data stores.</p>\n",
 				"Description": "<p>Returns a <a href=\"/ref/class/DataStoreListingPages.html\">DataStoreListingPages</a> object for enumerating through all\nof the experience&#39;s data stores. It accepts an optional <code>prefix</code> parameter\nto only locate data stores whose names start with the provided prefix.</p>\n<p>Only data stores containing at least one object will be listed via this\nfunction.</p>\n"
-			}
+			},
+			"SetRateLimitForRequestType": {}
 		},
 		"DataStoreSetOptions": {
 			"GetMetadata": {
@@ -9895,6 +9924,7 @@
 				"Summary": "<p>Returns two <a href=\"/ref/type/Vector2.html\">Vector2</a> values representing the inset of user GUIs\nin pixels, from the top‑left corner of the screen and the bottom‑right\ncorner of the screen respectively.</p>\n",
 				"Description": "<p>Returns two <a href=\"/ref/type/Vector2.html\">Vector2</a> values representing the inset of user GUIs\nin pixels, from the top‑left corner of the screen and the bottom‑right\ncorner of the screen respectively.</p>\n<p>The inset values supplied by this method only take effect on\n<a href=\"/ref/class/ScreenGui.html\">ScreenGuis</a> that have their\n<a href=\"/ref/class/ScreenGui.html#member-IgnoreGuiInset\">IgnoreGuiInset</a> property set to <code>false</code>.</p>\n"
 			},
+			"GetInsetArea": {},
 			"GetInspectMenuEnabled": {
 				"Summary": "<p>Returns whether the avatar inspection menu is enabled.</p>\n",
 				"Description": "<p>This method returns whether the\n<a href=\"https://create.roblox.com/docs/players/avatar-inspect-menu\">Avatar Inspect Menu</a> is\ncurrently enabled. The feature is enabled by default and can be disabled\nusing the\n<a href=\"/ref/class/GuiService.html#member-SetInspectMenuEnabled\">SetInspectMenuEnabled()</a> method.</p>\n"
@@ -10976,6 +11006,7 @@
 				"Summary": "<p>A comma-separated list of asset IDs that will be added as\n<a href=\"/ref/class/Accessory.html\">Accessories</a> to a <a href=\"/ref/class/Humanoid.html\">Humanoid</a> rig when\n<a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">applied</a>, usually those attached\nto its shoulders (such as shoulder-mounted critters).</p>\n",
 				"Description": "<p><strong>ShouldersAccessory</strong> is a comma-separated list of asset IDs that\ndetermine what accessories should be added when the description is\n<a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">applied</a>, usually those attached\nto its shoulders (such as shoulder-mounted critters). The list does not\ncontain duplicates.</p>\n<p>An error is thrown if you try to apply a new description which shares any\nassets with the existing description but a different accessory property.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/characters/appearance#humanoiddescription\">HumanoidDescription System</a>,\nfor more information on <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-BackAccessory\">BackAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-FaceAccessory\">FaceAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-FrontAccessory\">FrontAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-HairAccessory\">HairAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-HatAccessory\">HatAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-NeckAccessory\">NeckAccessory</a> and\n<a href=\"/ref/class/HumanoidDescription.html#member-WaistAccessory\">WaistAccessory</a>, which are\nsimilar properties that apply accessories like this one</li>\n</ul>\n"
 			},
+			"StaticFacialAnimation": {},
 			"SwimAnimation": {
 				"Summary": "<p>When this description is <a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">applied</a>\nto a <a href=\"/ref/class/Humanoid.html\">Humanoid</a>, this determines the <a href=\"/ref/class/Animation.html#member-AnimationId\">Animation.AnimationId</a>\nto play when its <a href=\"/ref/class/Humanoid.html#member-GetState\">state</a> is\n<a href=\"/ref/enum/HumanoidStateType.html\">Swimming</a>.</p>\n",
 				"Description": "<p>When this description is <a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">applied</a>\nto a <a href=\"/ref/class/Humanoid.html\">Humanoid</a>, <strong>SwimAnimation</strong> determines the\n<a href=\"/ref/class/Animation.html#member-AnimationId\">Animation.AnimationId</a> to play when its\n<a href=\"/ref/class/Humanoid.html#member-GetState\">state</a> is <a href=\"/ref/enum/HumanoidStateType.html\">Swimming</a></p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/characters/appearance#humanoiddescription\">HumanoidDescription System</a>,\nfor more information on <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-FallAnimation\">ClimbAnimation</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-FallAnimation\">FallAnimation</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-IdleAnimation\">IdleAnimation</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-JumpAnimation\">JumpAnimation</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-RunAnimation\">RunAnimation</a> and\n<a href=\"/ref/class/HumanoidDescription.html#member-WalkAnimation\">WalkAnimation</a>, which are\nsimilar properties that determine animations to play on the rig</li>\n</ul>\n"
@@ -10988,6 +11019,7 @@
 				"Summary": "<p>Determines the <a href=\"/ref/class/BodyColors.html#member-TorsoColor3\">BodyColors.TorsoColor3</a> and\n<a href=\"/ref/class/BodyColors.html#member-TorsoColor\">BodyColors.TorsoColor</a> of a Humanoid when applied.</p>\n",
 				"Description": "<p><strong>TorsoColor</strong> determines the <a href=\"/ref/class/BodyColors.html#member-TorsoColor3\">BodyColors.TorsoColor3</a> and\n<a href=\"/ref/class/BodyColors.html#member-TorsoColor\">BodyColors.TorsoColor</a> of a <a href=\"/ref/class/Humanoid.html\">Humanoid</a> when the description\nis <a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">applied</a>. For R15 and Rthro\nrigs, this property controls both the upper and lower parts of the torso.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/characters/appearance#humanoiddescription\">HumanoidDescription System</a>,\nfor more information on <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-HeadColor\">HeadColor</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-TorsoColor\">TorsoColor</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-LeftArmColor\">LeftArmColor</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-RightArmColor\">RightArmColor</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-LeftLegColor\">LeftLegColor</a>, and\n<a href=\"/ref/class/HumanoidDescription.html#member-RightLegColor\">RightLegColor</a>, which are\nsimilar properties that also control body colors</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-Torso\">Torso</a>, which controls the mesh used\nfor this body part</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-GraphicTShirt\">GraphicTShirt</a> and\n<a href=\"/ref/class/HumanoidDescription.html#member-Shirt\">Shirt</a>, which can apply a texture to\nthis body part</li>\n</ul>\n"
 			},
+			"UseAvatarSettings": {},
 			"WaistAccessory": {
 				"Summary": "<p>A comma-separated list of asset IDs that will be added as\n<a href=\"/ref/class/Accessory.html\">Accessories</a> to a <a href=\"/ref/class/Humanoid.html\">Humanoid</a> rig when\n<a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">applied</a>, usually those attached\nto its waist (such as belts).</p>\n",
 				"Description": "<p><strong>WaistAccessory</strong> is a comma-separated list of asset IDs that determine\nwhat accessories should be added when the description is\n<a href=\"/ref/class/Humanoid.html#member-ApplyDescriptionAsync\">applied</a>, usually those attached\nto its waist (such as belts). The list does not contain duplicates.</p>\n<p>An error is thrown if you try to apply a new description which shares any\nassets with the existing description but a different accessory property.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"https://create.roblox.com/docs/characters/appearance#humanoiddescription\">HumanoidDescription System</a>,\nfor more information on <a href=\"/ref/class/HumanoidDescription.html\">HumanoidDescription</a>.</li>\n<li><a href=\"/ref/class/HumanoidDescription.html#member-BackAccessory\">BackAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-FaceAccessory\">FaceAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-FrontAccessory\">FrontAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-HairAccessory\">HairAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-HatAccessory\">HatAccessory</a>,\n<a href=\"/ref/class/HumanoidDescription.html#member-NeckAccessory\">NeckAccessory</a> and\n<a href=\"/ref/class/HumanoidDescription.html#member-ShouldersAccessory\">ShouldersAccessory</a>, which\nare similar properties that apply accessories like this one</li>\n</ul>\n"
@@ -11384,6 +11416,7 @@
 				"Summary": "<p>Specifies an alternate <a href=\"/ref/enum/KeyCode.html\">KeyCode</a> for dispatching directionally\n&#34;backward&#34; inputs to the parent <a href=\"/ref/class/InputAction.html\">InputAction</a>.</p>\n",
 				"Description": "<p>Specifies an alternate <a href=\"/ref/enum/KeyCode.html\">KeyCode</a> for dispatching directionally\n&#34;backward&#34; inputs to <a href=\"/ref/class/InputAction.html#member-GetState\">GetState()</a> and the\n<a href=\"/ref/class/InputAction.html#member-StateChanged\">StateChanged</a> event of the parent\n<a href=\"/ref/class/InputAction.html\">InputAction</a>. Only applies when the parent action&#39;s\n<a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is <a href=\"/ref/enum/InputActionType.html\">Direction3D</a>, in\nwhich case the dispatched value will be a <a href=\"/ref/type/Vector3.html\">Vector3</a> with its\n<a href=\"/ref/type/Vector3.html#member-Z\">Z</a> component between <code>0</code> and <code>1</code>.</p>\n"
 			},
+			"ClampMagnitudeToOne": {},
 			"Down": {
 				"Summary": "<p>Specifies an alternate <a href=\"/ref/enum/KeyCode.html\">KeyCode</a> for dispatching directionally &#34;down&#34;\ninputs to the parent <a href=\"/ref/class/InputAction.html\">InputAction</a>.</p>\n",
 				"Description": "<p>Specifies an alternate <a href=\"/ref/enum/KeyCode.html\">KeyCode</a> for dispatching directionally &#34;down&#34;\ninputs to <a href=\"/ref/class/InputAction.html#member-GetState\">GetState()</a> and the\n<a href=\"/ref/class/InputAction.html#member-StateChanged\">StateChanged</a> event of the parent\n<a href=\"/ref/class/InputAction.html\">InputAction</a>.</p>\n<p>When the parent action&#39;s <a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is\n<a href=\"/ref/enum/InputActionType.html\">Direction1D</a>, the dispatched value will be a number\nbetween <code>0</code> and <code>-1</code>.</p>\n<p>When the parent action&#39;s <a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is\n<a href=\"/ref/enum/InputActionType.html\">Direction2D</a>, the dispatched value will be a\n<a href=\"/ref/type/Vector2.html\">Vector2</a> with its <a href=\"/ref/type/Vector2.html#member-Y\">Y</a> component between <code>0</code>\nand <code>-1</code>.</p>\n<p>When the parent action&#39;s <a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is\n<a href=\"/ref/enum/InputActionType.html\">Direction3D</a>, the dispatched value will be a\n<a href=\"/ref/type/Vector3.html\">Vector3</a> with its <a href=\"/ref/type/Vector3.html#member-Y\">Y</a> component between <code>0</code>\nand <code>-1</code>.</p>\n<p>Not applicable when the parent action&#39;s <a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is\n<a href=\"/ref/enum/InputActionType.html\">Bool</a>.</p>\n"
@@ -11400,6 +11433,7 @@
 				"Summary": "<p>Specifies an alternate <a href=\"/ref/enum/KeyCode.html\">KeyCode</a> for dispatching directionally &#34;left&#34;\ninputs to the parent <a href=\"/ref/class/InputAction.html\">InputAction</a>.</p>\n",
 				"Description": "<p>Specifies an alternate <a href=\"/ref/enum/KeyCode.html\">KeyCode</a> for dispatching directionally &#34;left&#34;\ninputs to <a href=\"/ref/class/InputAction.html#member-GetState\">GetState()</a> and the\n<a href=\"/ref/class/InputAction.html#member-StateChanged\">StateChanged</a> event of the parent\n<a href=\"/ref/class/InputAction.html\">InputAction</a>.</p>\n<p>When the parent action&#39;s <a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is\n<a href=\"/ref/enum/InputActionType.html\">Direction2D</a>, the dispatched value will be a\n<a href=\"/ref/type/Vector2.html\">Vector2</a> with its <a href=\"/ref/type/Vector2.html#member-X\">X</a> component between <code>0</code>\nand <code>-1</code>.</p>\n<p>When the parent action&#39;s <a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is\n<a href=\"/ref/enum/InputActionType.html\">Direction3D</a>, the dispatched value will be a\n<a href=\"/ref/type/Vector3.html\">Vector3</a> with its <a href=\"/ref/type/Vector3.html#member-X\">X</a> component between <code>0</code>\nand <code>-1</code>.</p>\n<p>Not applicable when the parent action&#39;s <a href=\"/ref/class/InputAction.html#member-Type\">Type</a> is\n<a href=\"/ref/enum/InputActionType.html\">Direction1D</a> or <a href=\"/ref/enum/InputActionType.html\">Bool</a>.</p>\n"
 			},
+			"PointerIndex": {},
 			"PressedThreshold": {
 				"Summary": "<p>Numerical value above which to fire an <a href=\"/ref/class/InputAction.html\">InputAction</a> with a\n<a href=\"/ref/class/InputAction.html#member-Type\">Type</a> of <a href=\"/ref/enum/InputActionType.html\">Bool</a>.</p>\n",
 				"Description": "<p>Numerical value above which to fire an <a href=\"/ref/class/InputAction.html\">InputAction</a> with a\n<a href=\"/ref/class/InputAction.html#member-Type\">Type</a> of <a href=\"/ref/enum/InputActionType.html\">Bool</a>, for example\nwhen a gamepad trigger such as <a href=\"/ref/enum/KeyCode.html\">KeyCode.ButtonL2</a> exceeds <code>0.5</code>\n(halfway pressed). Default is <code>0.5</code>.</p>\n<p>This property must be greater than or equal to\n<a href=\"/ref/class/InputBinding.html#member-ReleasedThreshold\">ReleasedThreshold</a> or else it will\nbe clamped to <a href=\"/ref/class/InputBinding.html#member-ReleasedThreshold\">ReleasedThreshold</a>.</p>\n"
@@ -12518,6 +12552,13 @@
 		},
 		"MLSession": {
 			"ForwardAsync": {}
+		},
+		"MakeupDescription": {
+			"AssetId": {},
+			"GetAppliedInstance": {},
+			"Instance": {},
+			"MakeupType": {},
+			"Order": {}
 		},
 		"ManualGlue": {},
 		"ManualSurfaceJointInstance": {},
@@ -14817,6 +14858,9 @@
 				]
 			}
 		},
+		"PlayerListConfiguration": {
+			"Open": {}
+		},
 		"PlayerMouse": {},
 		"PlayerScripts": {
 			"ClearComputerCameraMovementModes": {
@@ -15521,7 +15565,7 @@
 			},
 			"GetPolicyInfoForPlayerAsync": {
 				"Summary": "<p>Returns policy information about a player based on geolocation, age group,\nand platform.</p>\n",
-				"Description": "<p>Returns policy information about a player based on geolocation, age group,\nand platform. The structure of the returned dictionary is as follows:</p>\n<table>\n<thead>\n<tr>\n<th>Name</th>\n<th>Type</th>\n<th>Required for</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>AreAdsAllowed</code></td>\n<td>Boolean</td>\n<td>Any experience that includes <a href=\"https://create.roblox.com/docs/production/monetization/immersive-ads\">immersive ads</a>.</td>\n<td>When <code>true</code>, the player might see immersive ads within an experience.</td>\n</tr>\n<tr>\n<td><code>ArePaidRandomItemsRestricted</code></td>\n<td>Boolean</td>\n<td>Any experience that has paid random items.</td>\n<td>When <code>true</code>, the player can <b>not</b> interact with paid random item generators, either via in‑experience currency bought with Robux or Robux directly.</td>\n</tr>\n<tr>\n<td><code>AllowedExternalLinkReferences</code></td>\n<td>Array</td>\n<td>Any experience that references external links.</td>\n<td>A list of external link references such as social media links, handles, or iconography that a player is permitted to see. Possible values include <code>&#34;Discord&#34;</code>, <code>&#34;Facebook&#34;</code>, <code>&#34;Twitch&#34;</code>, <code>&#34;YouTube&#34;</code>, <code>&#34;X&#34;</code>, <code>&#34;GitHub&#34;</code>, and <code>&#34;Guilded&#34;</code>.</td>\n</tr>\n<tr>\n<td><code>IsContentSharingAllowed</code></td>\n<td>Boolean</td>\n<td>Any feature in the experience that enables users to create content (e.g. text, images, video, audio) that other users can see in the experience or allows user to share content within experiences.</td>\n<td>When <code>true</code>, the player can use features related to sharing UGC within an experience, such as uploading a screen capture, sharing a video, or posting an image to a content feed that other users can see.</td>\n</tr>\n<tr>\n<td><code>IsEligibleToPurchaseCommerceProduct</code></td>\n<td>Boolean</td>\n<td>Any experience that wants to sell <a href=\"https://create.roblox.com/docs/production/monetization/commerce-products\">commerce products</a>.</td>\n<td>When <code>true</code>, the player is eligible to purchase commerce products within an experience.</td>\n</tr>\n<tr>\n<td><code>IsEligibleToPurchaseSubscription</code></td>\n<td>Boolean</td>\n<td>Any experience that wants to sell subscriptions.</td>\n<td>When <code>true</code>, the player is eligible to purchase subscriptions within an experience.</td>\n</tr>\n<tr>\n<td><code>IsPaidItemTradingAllowed</code></td>\n<td>Boolean</td>\n<td>Any experience that allows users to purchase virtual items that they can trade with other players.</td>\n<td>When <code>true</code>, the player can trade virtual items that they purchased with in-experience currency or Robux.</td>\n</tr>\n<tr>\n<td><code>IsPhotoToAvatarAllowed</code></td>\n<td>Boolean</td>\n<td>Any experience that uses the Photo-to-Avatar APIs.</td>\n<td>When <code>true</code>, the Photo-to-Avatar API `Class.AvatarCreationService: PromptSelectAvatarGenerationImageAsync()` is available to the player.</td>\n</tr>\n<tr>\n<td><code>IsSubjectToChinaPolicies</code></td>\n<td>Boolean</td>\n<td>Any experience that is available in China.</td>\n<td>When <code>true</code>, an experience should enforce compliance changes. See <a href=\"https://devforum.roblox.com/t/new-programs-available-roblox-china-licensed-to-operate/1023361\">this forum post</a> for more information.</td>\n</tr>\n</tbody>\n</table>\n<h4>Exceptions</h4>\n<p>Like any async call, this method needs to be wrapped in\n<a href=\"https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall\">pcall()</a> and error-handled properly. A full list of\npossible error messages and their reasons is:</p>\n<table>\n<thead>\n<tr>\n<th>Message</th>\n<th>Reason</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Instance was not a player</td>\n<td>The <code>player</code> parameter is not a <a href=\"/ref/class/Player.html\">Player</a> instance.</td>\n</tr>\n<tr>\n<td>Players not found</td>\n<td>Internal error that the <a href=\"/ref/class/Players.html\">Players</a> object is missing.</td>\n</tr>\n <tr>\n<td>This method cannot be called on the client for a non-local player</td>\n<td>This method cannot be called on the client for a non-local <a href=\"/ref/class/Player.html\">Player</a>.</td>\n</tr>\n<tr>\n<td>GetPolicyInfoForPlayerAsync is called too many times</td>\n<td>Internal error that <code>GetPolicyInfoForPlayerAsync()</code> is called more than 100 (current setting) times before an HTTP response comes back.</td>\n</tr>\n</tbody>\n</table>\n<p>See also <a href=\"/ref/class/LocalizationService.html#member-GetCountryRegionForPlayerAsync\">LocalizationService:GetCountryRegionForPlayerAsync()</a>\nwhich returns a country/region code string according to the player&#39;s\nclient IP geolocation.</p>\n",
+				"Description": "<p>Returns policy information about a player based on geolocation, age group,\nand platform. The structure of the returned dictionary is as follows:</p>\n<table>\n<thead>\n<tr>\n<th>Name</th>\n<th>Type</th>\n<th>Required for</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>AreAdsAllowed</code></td>\n<td>Boolean</td>\n<td>Any experience that includes <a href=\"https://create.roblox.com/docs/production/monetization/immersive-ads\">immersive ads</a>.</td>\n<td>When <code>true</code>, the player might see immersive ads within an experience.</td>\n</tr>\n<tr>\n<td><code>ArePaidRandomItemsRestricted</code></td>\n<td>Boolean</td>\n<td>Any experience that has paid random items.</td>\n<td>When <code>true</code>, the player can <b>not</b> interact with paid random item generators, either via in‑experience currency bought with Robux or Robux directly.</td>\n</tr>\n<tr>\n<td><code>IsContentSharingAllowed</code></td>\n<td>Boolean</td>\n<td>Any feature in the experience that enables users to create content (e.g. text, images, video, audio) that other users can see in the experience or allows user to share content within experiences.</td>\n<td>When <code>true</code>, the player can use features related to sharing UGC within an experience, such as uploading a screen capture, sharing a video, or posting an image to a content feed that other users can see.</td>\n</tr>\n<tr>\n<td><code>IsEligibleToPurchaseCommerceProduct</code></td>\n<td>Boolean</td>\n<td>Any experience that wants to sell <a href=\"https://create.roblox.com/docs/production/monetization/commerce-products\">commerce products</a>.</td>\n<td>When <code>true</code>, the player is eligible to purchase commerce products within an experience.</td>\n</tr>\n<tr>\n<td><code>IsEligibleToPurchaseSubscription</code></td>\n<td>Boolean</td>\n<td>Any experience that wants to sell subscriptions.</td>\n<td>When <code>true</code>, the player is eligible to purchase subscriptions within an experience.</td>\n</tr>\n<tr>\n<td><code>IsPaidItemTradingAllowed</code></td>\n<td>Boolean</td>\n<td>Any experience that allows users to purchase virtual items that they can trade with other players.</td>\n<td>When <code>true</code>, the player can trade virtual items that they purchased with in-experience currency or Robux.</td>\n</tr>\n<tr>\n<td><code>IsPhotoToAvatarAllowed</code></td>\n<td>Boolean</td>\n<td>Any experience that uses the Photo-to-Avatar APIs.</td>\n<td>When <code>true</code>, the Photo-to-Avatar API `Class.AvatarCreationService: PromptSelectAvatarGenerationImageAsync()` is available to the player.</td>\n</tr>\n<tr>\n<td><code>IsSubjectToChinaPolicies</code></td>\n<td>Boolean</td>\n<td>Any experience that is available in China.</td>\n<td>When <code>true</code>, an experience should enforce compliance changes. See <a href=\"https://devforum.roblox.com/t/new-programs-available-roblox-china-licensed-to-operate/1023361\">this forum post</a> for more information.</td>\n</tr>\n<tr>\n<td><code>AllowedExternalLinkReferences</code></td>\n<td>Array</td>\n<td>Not required.</td>\n<td>This is a legacy field. It always returns an empty array.</td>\n</tr>\n</tbody>\n</table>\n<h4>Exceptions</h4>\n<p>Like any async call, this method needs to be wrapped in\n<a href=\"https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall\">pcall()</a> and error-handled properly. A full list of\npossible error messages and their reasons is:</p>\n<table>\n<thead>\n<tr>\n<th>Message</th>\n<th>Reason</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Instance was not a player</td>\n<td>The <code>player</code> parameter is not a <a href=\"/ref/class/Player.html\">Player</a> instance.</td>\n</tr>\n<tr>\n<td>Players not found</td>\n<td>Internal error that the <a href=\"/ref/class/Players.html\">Players</a> object is missing.</td>\n</tr>\n <tr>\n<td>This method cannot be called on the client for a non-local player</td>\n<td>This method cannot be called on the client for a non-local <a href=\"/ref/class/Player.html\">Player</a>.</td>\n</tr>\n<tr>\n<td>GetPolicyInfoForPlayerAsync is called too many times</td>\n<td>Internal error that <code>GetPolicyInfoForPlayerAsync()</code> is called more than 100 (current setting) times before an HTTP response comes back.</td>\n</tr>\n</tbody>\n</table>\n<p>See also <a href=\"/ref/class/LocalizationService.html#member-GetCountryRegionForPlayerAsync\">LocalizationService:GetCountryRegionForPlayerAsync()</a>\nwhich returns a country/region code string according to the player&#39;s\nclient IP geolocation.</p>\n",
 				"CodeSamples": [
 					"getting-policy-information-for-a-player",
 					"getting-policy-for-a-player-for-commerce-products"
@@ -15885,6 +15929,12 @@
 				"Summary": "<p>Returns a list of properties for a given class with filters applied.</p>\n",
 				"Description": "<p>Given a class name in the Roblox API, returns a list of\n<code>ReflectedProperty</code> dictionaries for all properties of that class that\nmatch the provided filter criteria. If no such class name exists, returns\n<code>nil</code>.</p>\n<p>If you pass in a <code>ReflectionMemberFilter</code> dictionary, you can adjust the\nset of eligible properties and adjust the output behavior:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The security context to use; can be more expansive than the current script&#39;s security</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Security</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: SecurityCapabilities.fromCurrent()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether to exclude inherited properties from superclasses</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ExcludeInherited</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether to exclude Studio display information about the properties</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ExcludeDisplay</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_err\">?</span><span class=\"_p\">,</span> <span class=\"_c1\">-- default: false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>If the class name is valid and that class has properties, you&#39;ll get a\nlist of <code>ReflectedProperty</code> dictionaries as output, each with the\nfollowing structure:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span><span class=\"_lnt\">27\n</span><span class=\"_lnt\">28\n</span><span class=\"_lnt\">29\n</span><span class=\"_lnt\">30\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The name of the property</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Name</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The superclass from which the property is inherited, or the class name if not inherited</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Owner</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Whether the property is serialized (able to be saved to disk or sent over the network)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Serialized</span><span class=\"_p\">:</span> <span class=\"_n\">boolean</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The type of the property</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Type</span><span class=\"_p\">:</span> <span class=\"_n\">ReflectionType</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The content type of the property, if applicable</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">ContentType</span><span class=\"_p\">:</span> <span class=\"_n\">Enum.AssetType</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Studio display information</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Display</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The category under which the property is listed in Studio</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Category</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- A message indicating that the property is deprecated, if applicable</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">DeprecationMessage</span><span class=\"_p\">:</span> <span class=\"_n\">string</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">}</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- The security permissions required to access this property</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Permits</span><span class=\"_p\">:</span> <span class=\"_p\">{</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to read this property</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Read</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to read this property while thread-safe</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">ReadParallel</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to write to this property</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">Write</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_c1\">-- The security context required to write to this property while thread-safe</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">WriteParallel</span><span class=\"_p\">:</span> <span class=\"_n\">SecurityCapabilities</span><span class=\"_err\">?</span><span class=\"_p\">,</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">},</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">}</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			}
+		},
+		"RemoteCommandService": {
+			"GetExecutingPlayer": {},
+			"GetReceivedUpdateSignal": {},
+			"GetStoppingSignal": {},
+			"SendUpdate": {}
 		},
 		"RemoteDebuggerServer": {},
 		"RemoteEvent": {
@@ -16623,6 +16673,7 @@
 				"Summary": "<p>Determines if and when elastic scrolling is allowed on touch‑enabled\ndevices.</p>\n",
 				"Description": "<p>This property determines if and when elastic scrolling is allowed on\ntouch‑enabled devices. Defaults to <a href=\"/ref/enum/ElasticBehavior.html\">WhenScrollable</a>.</p>\n"
 			},
+			"GetScrollVelocity": {},
 			"HorizontalScrollBarInset": {
 				"Summary": "<p>Indicates whether <a href=\"/ref/class/ScrollingFrame.html#member-CanvasSize\">CanvasSize</a> is inset by\n<a href=\"/ref/class/ScrollingFrame.html#member-ScrollBarThickness\">ScrollBarThickness</a> on the\nhorizontal axis.</p>\n",
 				"Description": "<p>Indicates whether <a href=\"/ref/class/ScrollingFrame.html#member-CanvasSize\">CanvasSize</a> is inset by\n<a href=\"/ref/class/ScrollingFrame.html#member-ScrollBarThickness\">ScrollBarThickness</a> on the\nhorizontal axis.</p>\n"
@@ -16635,6 +16686,7 @@
 				"Summary": "<p>Image which spans the area between\n<a href=\"/ref/class/ScrollingFrame.html#member-TopImageContent\">TopImageContent</a> and\n<a href=\"/ref/class/ScrollingFrame.html#member-BottomImageContent\">BottomImageContent</a> (rotated\n90° counterclockwise for a horizontal scroll bar). Only supports asset\nURIs as textures.</p>\n",
 				"Description": "<p>Image which spans the area between\n<a href=\"/ref/class/ScrollingFrame.html#member-TopImage\">TopImage</a> and\n<a href=\"/ref/class/ScrollingFrame.html#member-BottomImage\">BottomImage</a> (rotated 90°\ncounterclockwise for a horizontal scroll bar). This image automatically\nscales to fill the space between the cap segments.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/ui/ui-objects/ScrollingFrame-Scroll-Bar-Elements.png\" width=\"600\" alt=\"Diagram showing the three image asset elements which construct a scrolling frame&#39;s scroll bar.\"/>\n"
 			},
+			"ResetScrollVelocity": {},
 			"ScrollBarImageColor3": {
 				"Summary": "<p>Determines how the rendered scroll bar images are colorized.</p>\n",
 				"Description": "<p>Determines how the scroll bar images\n(<a href=\"/ref/class/ScrollingFrame.html#member-TopImage\">TopImage</a>,\n<a href=\"/ref/class/ScrollingFrame.html#member-MidImage\">MidImage</a>,\n<a href=\"/ref/class/ScrollingFrame.html#member-BottomImage\">BottomImage</a>) are colorized. When set to\nwhite, no colorization occurs. This property is useful for reusing image\nassets; if the source images are completely white with transparency, you\ncan set the color of the entire scroll bar at once.</p>\n"
@@ -16764,6 +16816,9 @@
 				"Summary": "<p>Determines the transparency of the sphere&#39;s surface.</p>\n",
 				"Description": "<p><code>SurfaceTransparency</code> determines the transparency of the sphere&#39;s surface,\nsimilar to the way <a href=\"/ref/class/BasePart.html#member-Transparency\">BasePart.Transparency</a> works. By default, this\nproperty is <code>1</code> which causes the surfaces to be invisible.</p>\n<p>See also <a href=\"/ref/class/SelectionSphere.html#member-Transparency\">Transparency</a>, a property of\nthe superclass <a href=\"/ref/class/GuiBase3d.html\">GuiBase3d</a> which controls the transparency of the\noutline rather than the surface.</p>\n"
 			}
+		},
+		"SelfViewConfiguration": {
+			"Open": {}
 		},
 		"SensorBase": {
 			"OnSensorOutputChanged": {},
@@ -17230,6 +17285,7 @@
 		},
 		"SolidModelContentProvider": {},
 		"Sound": {
+			"AcousticSimulationEnabled": {},
 			"AudioContent": {
 				"Summary": "<p>A reference to an audio asset.</p>\n",
 				"Description": "<p>This property is a reference to an audio asset.</p>\n"
@@ -18047,6 +18103,7 @@
 			"Camera Speed Adjust Binding": {},
 			"Camera Zoom to Mouse Position": {},
 			"CameraAdaptiveSpeed": {},
+			"CameraNavigationModel": {},
 			"CameraOrbitSensitivity": {},
 			"CameraPanSensitivity": {},
 			"CameraShiftFactor": {},
@@ -18057,6 +18114,8 @@
 				"Summary": "<p>If set to true, the output will be automatically cleared when game\nsessions are switched.</p>\n",
 				"Description": "<p>If set to true, the output will be automatically cleared when game\nsessions are switched.</p>\n"
 			},
+			"CommandBarEnterExec": {},
+			"CommandBarFont": {},
 			"CommandBarLocalState": {},
 			"Comment Color": {
 				"Summary": "<p>Specifies the color of comments in Roblox Studio&#39;s script editor.</p>\n",
@@ -18073,12 +18132,19 @@
 			},
 			"DisplayLanguage": {},
 			"DraggerActiveColor": {},
+			"DraggerLengthFactor": {},
 			"DraggerMajorGridIncrement": {},
 			"DraggerMaxSoftSnaps": {},
 			"DraggerPassiveColor": {},
+			"DraggerScaleFactor": {},
+			"DraggerShowAxisTicks": {},
 			"DraggerShowHoverRuler": {},
 			"DraggerShowMeasurement": {},
+			"DraggerShowNegativeAxes": {},
+			"DraggerShowPlanes": {},
 			"DraggerShowTargetSnap": {},
+			"DraggerShowTrackball": {},
+			"DraggerShowWhileDragging": {},
 			"DraggerSoftSnapMarginFactor": {},
 			"DraggerSummonMarginFactor": {},
 			"DraggerTiltRotateDuration": {},
@@ -18107,6 +18173,7 @@
 				"Summary": "<p>Specifies the color of the wavy underline shown when malformed code is\ndetected in the script editor.</p>\n",
 				"Description": "<p>Specifies the color of the wavy underline shown when malformed code is\ndetected in the script editor.</p>\n"
 			},
+			"ExternalEditorSelection": {},
 			"Find Selection Background Color": {
 				"Summary": "<p>Sets the highlight color of matches in the script editor&#39;s Find Selection\noperation (Ctrl+F).</p>\n",
 				"Description": "<p>Sets the highlight color of matches in the script editor&#39;s Find Selection\noperation (Ctrl+F).</p>\n"
@@ -18305,6 +18372,7 @@
 				"Description": "<p>Specifies the color scheme of Roblox Studio.</p>\n"
 			},
 			"Use Bounding Box Move Handles": {},
+			"UseDefaultExternalEditor": {},
 			"Warning Color": {
 				"Summary": "<p>Specifies the color of the wavy underline shown when the script analyzer\npicks up a problem that should be addressed in the script editor.</p>\n",
 				"Description": "<p>Specifies the color of the wavy underline shown when the script analyzer\npicks up a problem that should be addressed in the script editor.</p>\n"
@@ -18428,6 +18496,7 @@
 				"Summary": "<p>Returns the value of a specific property in the <code>StyleRule</code>.</p>\n",
 				"Description": "<p>Returns the value of a specific property in the <code>StyleRule</code>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span><span class=\"_lnt\">9\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">ReplicatedStorage</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;ReplicatedStorage&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">coreSheet</span> <span class=\"_o\">=</span> <span class=\"_n\">ReplicatedStorage</span><span class=\"_p\">:</span><span class=\"_n\">FindFirstChild</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CoreSheet&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Get reference to style rule</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">frameRule</span> <span class=\"_o\">=</span> <span class=\"_n\">coreSheet.Frame</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">prop</span> <span class=\"_o\">=</span> <span class=\"_n\">frameRule</span><span class=\"_p\">:</span><span class=\"_n\">GetProperty</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;AnchorPoint&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">prop</span><span class=\"_p\">)</span> <span class=\"_c1\">--&gt; 0.5, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
+			"GetPropertyTransitions": {},
 			"Priority": {
 				"Summary": "<p>A number that determines how properties of the <code>StyleRule</code> apply relative\nto the same properties in other <code>StyleRules</code>. Higher priority values take\nprecedence over lower.</p>\n",
 				"Description": "<p>A number that determines how properties of the <code>StyleRule</code> apply relative\nto the same properties in other <a href=\"/ref/class/StyleRule.html\">StyleRules</a>. Higher\npriority values take precedence over lower. For example, if a <code>StyleRule</code>\nwith a priority of <code>10</code> has an <code>AnchorPoint</code> property of <typography nowrap=\"\"><code>1, 0</code></typography>, it will take precedence over lower-priority\n<a href=\"/ref/class/StyleRule.html\">StyleRules</a> with <code>AnchorPoint</code> properties.</p>\n"
@@ -18451,7 +18520,8 @@
 			},
 			"SetProperty": {
 				"Description": "<p>Sets a new property (or modifies an existing property) for the\n<code>StyleRule</code>. The <code>name</code> parameter should be a valid property of the\naffected <a href=\"/ref/class/GuiObject.html\">GuiObject</a> or <a href=\"/ref/class/UIComponent.html\">UIComponent</a> (<a href=\"/ref/class/UICorner.html\">UICorner</a>,\n<a href=\"/ref/class/UIGradient.html\">UIGradient</a>, etc.), and the assigned value should match the\nproperty&#39;s value type, for example <a href=\"/ref/type/Vector2.html\">Vector2</a> for\n<a href=\"/ref/class/GuiObject.html#member-AnchorPoint\">AnchorPoint</a> or <a href=\"/ref/type/Color3.html\">Color3</a> for\n<a href=\"/ref/class/GuiObject.html#member-BackgroundColor3\">BackgroundColor3</a>.</p>\n<p>Attempts to assign invalid property names such as <code>&#34;AnchorPt&#34;</code> or\n<code>&#34;BkColor&#34;</code> will silently fail. Type mismatches such as <a href=\"/ref/type/CFrame.html\">CFrame</a>\nfor <a href=\"/ref/class/GuiObject.html#member-AnchorPoint\">AnchorPoint</a> or <a href=\"/ref/type/UDim2.html\">UDim2</a> for\n<a href=\"/ref/class/GuiObject.html#member-BackgroundColor3\">BackgroundColor3</a> will also fail and an\nerror will appear in the <a href=\"https://create.roblox.com/docs/studio/output\">Output</a> window.</p>\n<p>To set multiple properties for a <code>StyleRule</code> at once, see\n<a href=\"/ref/class/StyleRule.html#member-SetProperties\">SetProperties()</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span><span class=\"_lnt\">9\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">ReplicatedStorage</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;ReplicatedStorage&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">coreSheet</span> <span class=\"_o\">=</span> <span class=\"_n\">ReplicatedStorage</span><span class=\"_p\">:</span><span class=\"_n\">FindFirstChild</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CoreSheet&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Get reference to style rule</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">frameRule</span> <span class=\"_o\">=</span> <span class=\"_n\">coreSheet.Frame</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Set rule property</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">frameRule</span><span class=\"_p\">:</span><span class=\"_n\">SetProperty</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;BackgroundColor3&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">Color3.new</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mf\">0.25</span><span class=\"_p\">))</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Note that you can assign <strong>tokens</strong> as property values through the <code>$</code>\nprefix:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">ReplicatedStorage</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;ReplicatedStorage&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">coreSheet</span> <span class=\"_o\">=</span> <span class=\"_n\">ReplicatedStorage</span><span class=\"_p\">:</span><span class=\"_n\">FindFirstChild</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;CoreSheet&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">tokensSheet</span> <span class=\"_o\">=</span> <span class=\"_n\">ReplicatedStorage</span><span class=\"_p\">:</span><span class=\"_n\">FindFirstChild</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Tokens&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Set new token (attribute) on tokens sheet</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">tokensSheet</span><span class=\"_p\">:</span><span class=\"_n\">SetAttribute</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;MainBackgroundColor&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">Color3.new</span><span class=\"_p\">(</span><span class=\"_mf\">0.2</span><span class=\"_p\">,</span> <span class=\"_mf\">0.2</span><span class=\"_p\">,</span> <span class=\"_mf\">0.3</span><span class=\"_p\">))</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Get reference to style rule</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">frameRule</span> <span class=\"_o\">=</span> <span class=\"_n\">coreSheet.Frame</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Set rule property to use the token as its value</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">frameRule</span><span class=\"_p\">:</span><span class=\"_n\">SetProperty</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;BackgroundColor3, &#34;</span><span class=\"_err\">$</span><span class=\"_n\">MainBackgroundColor</span><span class=\"_s2\">&#34;)\n</span></span></span></code></pre></td></tr></tbody></table>\n</div>\n"
-			}
+			},
+			"SetPropertyTransitions": {}
 		},
 		"StyleSheet": {
 			"GetDerives": {
@@ -20759,6 +20829,9 @@
 			}
 		},
 		"UnionOperation": {},
+		"UniqueIdLookupService": {
+			"GetOrCreateUniqueIdRemoteCommand": {}
+		},
 		"UniversalConstraint": {
 			"LimitsEnabled": {
 				"Summary": "<p>Determines whether the angular motion of attachments&#39; primary axes is\nlimited.</p>\n",
@@ -22339,6 +22412,7 @@
 			"Summary": "<p>Culling method used for adornments.</p>\n",
 			"Description": "<p>Used by <a href=\"/ref/class/HandleAdornment.html\">HandleAdornment</a> to determine how it is culled.</p>\n"
 		},
+		"AdornShading": {},
 		"AlignType": {
 			"Summary": "<p>An enum that specifies how the constraint will attempt to align the body\nassociated with the constraint.</p>\n",
 			"Description": "<p>An enum that specifies how the constraint will attempt to align the body\nassociated with the constraint and attachment. Depending on the configuration,\nit can be used to align specific axes to be parallel, perpendicular, or to\nlook at a specific point.</p>\n"
@@ -22365,6 +22439,7 @@
 		},
 		"AnalyticsProgressionType": {},
 		"AnimationClipFromVideoStatus": {},
+		"AnimationNodeType": {},
 		"AnimationPriority": {
 			"Summary": "<p>The AnimationPriority Enum determines how concurrently-playing AnimationTracks\ncontribute to the final animation.</p>\n",
 			"Description": "<p>When multiple <a href=\"/ref/class/AnimationTrack.html\">AnimationTracks</a> are played concurrently\nby the same <a href=\"/ref/class/Animator.html\">Animator</a> and affect the same animated joints, the tracks\nare evaluated in order from high to low priority, per joint, while the total\ntrack weight sum remains less than 1.0. When the track weight sum reaches or\nexceeds 1.0 for a joint, evaluation stops and no lower-priority tracks will be\nevaluated for that joint. <a href=\"/ref/class/AnimationTrack.html\">AnimationTracks</a> with the same\npriority that are playing concurrently will blend proportional to their track\nweights (normalized if the sum exceeds 1).</p>\n<p>Higher priority animation will override lower priority ones per joint. The\npriority order is:</p>\n<ol>\n<li><strong>Action4</strong></li>\n<li><strong>Action3</strong></li>\n<li><strong>Action2</strong></li>\n<li><strong>Action</strong></li>\n<li><strong>Movement</strong></li>\n<li><strong>Idle</strong></li>\n<li><strong>Core</strong></li>\n</ol>\n<p>Roblox&#39;s default character animations, including catalog animation bundles,\nplay at <strong>Core</strong> priority. <strong>Idle</strong> through <strong>Action4</strong> priority are for\ndeveloper use.</p>\n"
@@ -22507,6 +22582,7 @@
 			"Summary": "<p>Used to set <a href=\"/ref/class/Player.html#member-CameraMode\">Player.CameraMode</a> to determine when first person and third\nperson cameras should be used.</p>\n",
 			"Description": "<p>The <strong>CameraMode</strong> enum is used to set <a href=\"/ref/class/Player.html#member-CameraMode\">Player.CameraMode</a> to determine\nwhen first person and third person cameras should be used.</p>\n<h3>Third Person</h3>\n<p>In the default third person mode (<a href=\"/ref/enum/CameraMode.html\">Classic</a>), the character\ncan be seen in the camera. While in this mode, the default behavior is:</p>\n<ul>\n<li>Players can right-click and drag (mouse), tap and drag (mobile), use the\nsecondary thumbstick (gamepad), or press the left/right arrows (keyboard) to\nrotate the camera around their character.</li>\n<li>When a player moves their character, it faces in the corresponding movement\ndirection.</li>\n<li>Players can zoom in and out freely, even to first person on full zoom in.</li>\n</ul>\n<h3>First Person</h3>\n<p>In first person mode (<a href=\"/ref/enum/CameraMode.html\">LockFirstPerson</a>), the player&#39;s camera\nis zoomed all the way in. Unless there is a visible GUI present with the\n<a href=\"/ref/class/GuiButton.html#member-Modal\">GuiButton.Modal</a> property set to <code>true</code>, moving the mouse, tap-dragging\non mobile, or using the secondary thumbstick on a gamepad will rotate the\ncamera around the character.</p>\n"
 		},
+		"CameraNavigationModel": {},
 		"CameraPanMode": {
 			"Summary": "<p>The CameraPanMode Enum represents the available pan modes for\n<a href=\"/ref/class/Camera.html#member-SetCameraPanMode\">Camera:SetCameraPanMode()</a>.</p>\n",
 			"Description": "<p>The CameraPanMode Enum represents the available pan modes for\n<a href=\"/ref/class/Camera.html#member-SetCameraPanMode\">Camera:SetCameraPanMode()</a>.</p>\n"
@@ -22654,6 +22730,7 @@
 			"Summary": "<p>Result of a debugger request.</p>\n",
 			"Description": "<p>Result of a debugger request.</p>\n"
 		},
+		"DefaultScriptSyncFileType": {},
 		"DevCameraOcclusionMode": {
 			"Summary": "<p>Determines how the default camera handles objects that are in-between the\ncamera and the camera subject.</p>\n",
 			"Description": "<p>Determines how the default camera handles objects that are in-between the\ncamera and the camera subject.</p>\n"
@@ -22697,6 +22774,7 @@
 			"Summary": "<p>Sets the <a href=\"/ref/class/Dialog.html#member-Tone\">Dialog.Tone</a> of a <a href=\"/ref/class/Dialog.html\">Dialog</a> object, which influences how\nthe dialog appears.</p>\n",
 			"Description": "<p>Sets the <a href=\"/ref/class/Dialog.html#member-Tone\">Dialog.Tone</a> of a <a href=\"/ref/class/Dialog.html\">Dialog</a> object, which influences how\nthe dialog appears.</p>\n"
 		},
+		"DigitsRigDescriptionSide": {},
 		"DisplaySize": {
 			"Summary": "<p>This enum is used with <a href=\"/ref/class/GuiService.html#member-ViewportDisplaySize\">GuiService.ViewportDisplaySize</a> to indicate the\ninternally-categorized rendering size of the viewport.</p>\n",
 			"Description": "<p>This enum is used with <a href=\"/ref/class/GuiService.html#member-ViewportDisplaySize\">GuiService.ViewportDisplaySize</a> to indicate the\ninternally-categorized rendering size of the viewport.</p>\n"
@@ -22746,6 +22824,8 @@
 		"FacialAnimationStreamingState": {},
 		"FacsActionUnit": {},
 		"FieldOfViewMode": {},
+		"FileMode": {},
+		"FileSystemWalkMode": {},
 		"FillDirection": {
 			"Summary": "<p>Used by <a href=\"/ref/class/UIGridStyleLayout.html#member-FillDirection\">UIGridStyleLayout.FillDirection</a> to control which direction\nelements are placed.</p>\n",
 			"Description": "<p>Used by <a href=\"/ref/class/UIGridStyleLayout.html#member-FillDirection\">UIGridStyleLayout.FillDirection</a> to control which direction\nelements are placed.</p>\n"
@@ -22985,6 +23065,7 @@
 		"LoadDynamicHeads": {},
 		"LocationType": {},
 		"LuauTypeCheckMode": {},
+		"MakeupType": {},
 		"MarketplaceBulkPurchasePromptStatus": {
 			"Summary": "<p>The status of the BulkPurchasePrompt after player interaction.</p>\n",
 			"Description": "<p>The status of the BulkPurchasePrompt after player interaction.</p>\n"
@@ -23119,6 +23200,7 @@
 			"Description": "<p>Describes the action to take when a <a href=\"/ref/type/PathWaypoint.html\">PathWaypoint</a> is reached.</p>\n"
 		},
 		"PathfindingUseImprovedSearch": {},
+		"PeoplePageLayout": {},
 		"PermissionLevelShown": {
 			"Summary": "<p>Used to set the highest permission level that APIs have to have in order to be\nshown in the Object Browser.</p>\n",
 			"Description": "<p>Used to set the highest permission level that APIs have to have in order to be\nshown in the Object Browser.</p>\n"
@@ -23190,6 +23272,7 @@
 		},
 		"PromptCreateAssetResult": {},
 		"PromptCreateAvatarResult": {},
+		"PromptExperienceDetailsResult": {},
 		"PromptPublishAssetResult": {},
 		"PropertyStatus": {},
 		"ProximityPromptExclusivity": {},
@@ -23831,6 +23914,13 @@
 				"Summary": "<p>Never culls adornment. Adornment is always visible.</p>\n"
 			}
 		},
+		"AdornShading": {
+			"AlwaysOnTop": {},
+			"Default": {},
+			"Shaded": {},
+			"XRay": {},
+			"XRayShaded": {}
+		},
 		"AlignType": {
 			"AllAxes": {
 				"Summary": "<p>Aligns all of the axes of <a href=\"/ref/class/Constraint.html#member-Attachment0\">Constraint.Attachment0</a> to the axes given\nby <a href=\"/ref/class/Constraint.html#member-Attachment1\">Constraint.Attachment1</a> or to the target orientation provided by\n<a href=\"/ref/class/AlignOrientation.html#member-PrimaryAxis\">AlignOrientation.PrimaryAxis</a> and\n<a href=\"/ref/class/AlignOrientation.html#member-SecondaryAxis\">AlignOrientation.SecondaryAxis</a>.</p>\n"
@@ -23963,6 +24053,22 @@
 			"Processing": {},
 			"Success": {},
 			"Timeout": {}
+		},
+		"AnimationNodeType": {
+			"AddNode": {},
+			"Blend1DNode": {},
+			"Blend2DNode": {},
+			"BlendNode": {},
+			"ClipNode": {},
+			"GraphOutput": {},
+			"InvalidNode": {},
+			"MaskNode": {},
+			"PrioritySelectNode": {},
+			"RandomSequenceNode": {},
+			"SelectNode": {},
+			"SequenceNode": {},
+			"SpeedNode": {},
+			"SubtractNode": {}
 		},
 		"AnimationPriority": {
 			"Action": {
@@ -24796,6 +24902,10 @@
 				"Summary": "<p>Exclusively first person camera.</p>\n"
 			}
 		},
+		"CameraNavigationModel": {
+			"IndustryCompatible": {},
+			"Roblox": {}
+		},
 		"CameraPanMode": {
 			"Classic": {
 				"Summary": "<p>Enables swipe and pan on mobile devices, and disables edge bump camera\ncontrols. Default.</p>\n"
@@ -25180,8 +25290,13 @@
 			"DisconnectClientFailure": {},
 			"DisconnectClientRequest": {},
 			"DisconnectCloudEditKick": {},
+			"DisconnectCollaboratorNotAgeVerified": {},
+			"DisconnectCollaboratorOwnerActionRequired": {},
 			"DisconnectCollaboratorPermissionRevoked": {},
+			"DisconnectCollaboratorTooManyCollaborators": {},
+			"DisconnectCollaboratorTrustedConnectionsRequired": {},
 			"DisconnectCollaboratorUnderage": {},
+			"DisconnectCollaboratorUnknownError": {},
 			"DisconnectConnectionLost": {},
 			"DisconnectDevMaintenance": {},
 			"DisconnectDuplicatePlayer": {},
@@ -25520,6 +25635,10 @@
 				"Summary": "<p>Timed out while waiting for response.</p>\n"
 			}
 		},
+		"DefaultScriptSyncFileType": {
+			"Lua": {},
+			"Luau": {}
+		},
 		"DevCameraOcclusionMode": {
 			"Invisicam": {
 				"Summary": "<p>Any objects between the camera and its subject become translucent locally.</p>\n"
@@ -25667,7 +25786,8 @@
 			}
 		},
 		"DeviceFeatureType": {
-			"DeviceCapture": {}
+			"DeviceCapture": {},
+			"InExperienceFAE": {}
 		},
 		"DeviceForm": {
 			"Console": {},
@@ -25724,6 +25844,11 @@
 			"Neutral": {
 				"Summary": "<p>Causes the dialog to have a blue bar on its left-hand side.</p>\n"
 			}
+		},
+		"DigitsRigDescriptionSide": {
+			"Left": {},
+			"None": {},
+			"Right": {}
 		},
 		"DisplaySize": {
 			"Large": {
@@ -25982,6 +26107,14 @@
 			"Diagonal": {},
 			"MaxAxis": {},
 			"Vertical": {}
+		},
+		"FileMode": {
+			"Binary": {},
+			"Text": {}
+		},
+		"FileSystemWalkMode": {
+			"NonRecursive": {},
+			"Recursive": {}
 		},
 		"FillDirection": {
 			"Horizontal": {
@@ -26640,6 +26773,7 @@
 			"ConnectionClosed": {},
 			"CreatorEnvironmentsNotSupportedByService": {},
 			"DnsResolve": {},
+			"InactivityTimeout": {},
 			"InvalidRedirect": {},
 			"InvalidUrl": {},
 			"NetFail": {},
@@ -26649,6 +26783,7 @@
 			"SslConnectFail": {},
 			"SslVerificationFail": {},
 			"TimedOut": {},
+			"TooManyOutstandingRequests": {},
 			"TooManyRedirects": {},
 			"Unknown": {}
 		},
@@ -27274,6 +27409,7 @@
 			"MouseBackButton": {
 				"DeprecationMessage": "<p>This enum is deprecated and flagged for removal.</p>\n"
 			},
+			"MouseDelta": {},
 			"MouseLeftButton": {},
 			"MouseMiddleButton": {},
 			"MouseNoButton": {
@@ -27283,6 +27419,7 @@
 				"Summary": "<p>The position of a mouse in the viewport. Primarily used in the\n<a href=\"https://create.roblox.com/docs/input/input-action-system\">Input Action System</a>.</p>\n"
 			},
 			"MouseRightButton": {},
+			"MouseWheel": {},
 			"MouseX": {
 				"DeprecationMessage": "<p>This enum is deprecated and flagged for removal.</p>\n"
 			},
@@ -27448,6 +27585,8 @@
 			"Touch": {
 				"Summary": "<p>The position of a touch in the viewport. Primarily used in the\n<a href=\"https://create.roblox.com/docs/input/input-action-system\">Input Action System</a>.</p>\n"
 			},
+			"TrackpadPan": {},
+			"TrackpadPinch": {},
 			"Two": {
 				"Summary": "<p>The <code>2</code> key.</p>\n"
 			},
@@ -27746,9 +27885,15 @@
 			"ObjectPosition": {}
 		},
 		"LuauTypeCheckMode": {
+			"Default": {},
 			"NoCheck": {},
 			"Nonstrict": {},
 			"Strict": {}
+		},
+		"MakeupType": {
+			"Eye": {},
+			"Face": {},
+			"Lip": {}
 		},
 		"MarketplaceBulkPurchasePromptStatus": {
 			"Aborted": {
@@ -28256,7 +28401,8 @@
 		"OutfitType": {
 			"All": {},
 			"Avatar": {},
-			"DynamicHead": {}
+			"DynamicHead": {},
+			"Shoes": {}
 		},
 		"OutputLayoutMode": {
 			"Horizontal": {
@@ -28405,6 +28551,10 @@
 			"Disabled": {},
 			"Enabled": {}
 		},
+		"PeoplePageLayout": {
+			"Card": {},
+			"List": {}
+		},
 		"PermissionLevelShown": {
 			"Game": {
 				"Summary": "<p>Member must have no security permissions in order to be shown.</p>\n"
@@ -28486,6 +28636,7 @@
 			"UWP": {
 				"Summary": "<p>The client is running on UWP.</p>\n"
 			},
+			"Web": {},
 			"WebOS": {
 				"Summary": "<p>The client is running on WebOS.</p>\n"
 			},
@@ -28743,6 +28894,10 @@
 			"UnknownFailure": {},
 			"UploadFailed": {}
 		},
+		"PromptExperienceDetailsResult": {
+			"PromptClosed": {},
+			"TeleportAttempted": {}
+		},
 		"PromptPublishAssetResult": {
 			"NoUserInput": {},
 			"PermissionDenied": {},
@@ -28977,6 +29132,7 @@
 		"ReservedHighlightId": {
 			"Active": {},
 			"Hover": {},
+			"NegatedPart": {},
 			"Selection": {},
 			"Standard": {}
 		},
@@ -29092,6 +29248,7 @@
 			"Custom": {
 				"Summary": "<p>A rig type of Custom.</p>\n"
 			},
+			"CustomHumanoid": {},
 			"None": {
 				"Summary": "<p>A rig type of None.</p>\n"
 			},
@@ -29187,7 +29344,8 @@
 		"SalesTypeFilter": {
 			"All": {},
 			"Collectibles": {},
-			"Premium": {}
+			"Premium": {},
+			"TimedOptions": {}
 		},
 		"SandboxedInstanceMode": {
 			"Default": {},
@@ -29308,27 +29466,57 @@
 		"SecurityCapability": {
 			"AccessOutsideWrite": {},
 			"Animation": {},
+			"AssetCreateUpdate": {},
+			"AssetManagement": {},
+			"AssetRead": {},
 			"AssetRequire": {},
+			"Assistant": {},
 			"Audio": {},
 			"Avatar": {},
+			"AvatarAppearance": {},
+			"AvatarBehavior": {},
 			"Basic": {},
 			"CSG": {},
 			"CapabilityControl": {},
+			"Capture": {},
 			"Chat": {},
+			"Consequences": {},
 			"CreateInstances": {},
 			"DataStore": {},
+			"DynamicGeneration": {},
 			"Environment": {},
+			"Groups": {},
 			"Input": {},
+			"InternalTest": {},
 			"LegacySound": {},
+			"LoadOwnedAsset": {},
 			"LoadString": {},
+			"LoadUnownedAsset": {},
+			"LocalUser": {},
+			"Logging": {},
+			"Material": {},
+			"Monetization": {},
 			"Network": {},
 			"Physics": {},
+			"PlatformAvatarEditing": {},
 			"Players": {},
+			"Plugin": {},
+			"PluginOrOpenCloud": {},
+			"PromptExternalPurchase": {},
+			"RemoteCommand": {},
 			"RemoteEvent": {},
+			"RobloxEngine": {},
+			"RobloxScript": {},
 			"RunClientScript": {},
 			"RunServerScript": {},
 			"ScriptGlobals": {},
-			"UI": {}
+			"SensitiveInput": {},
+			"ServerCommunication": {},
+			"Social": {},
+			"Teleport": {},
+			"UI": {},
+			"Unassigned": {},
+			"WritePlayer": {}
 		},
 		"SelectionBehavior": {
 			"Escape": {
