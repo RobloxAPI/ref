@@ -4790,7 +4790,7 @@
 			},
 			"CheckUserBadgesAsync": {
 				"Summary": "<p>Checks a list of badge IDs against a <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> and\nreturns a list of badge IDs that the player owns.</p>\n",
-				"Description": "<p>Checks a list of badge IDs against a <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> and\nreturns a list of badge IDs that the player owns. This method supports\nbatches of up to 10 badges; use <a href=\"/ref/class/BadgeService.html#member-UserHasBadgeAsync\">BadgeService:UserHasBadgeAsync()</a>\nfor single badge lookups.</p>\n<p>Any set of badges for any experience can be queried, no matter who created\nthe badges or which experiences they are for. Any\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> can be used in a <a href=\"/ref/class/Script.html\">Script</a>, but in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, only the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the local\nuser whose client is running the script can be used.</p>\n<p>Rate limit is <code>10 + 5 * [number of players]</code> per minute in each server.</p>\n",
+				"Description": "<p>Checks a list of badge IDs against a <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> and\nreturns a list of badge IDs that the player owns. This method supports\nbatches of up to 10 badges; use <a href=\"/ref/class/BadgeService.html#member-UserHasBadgeAsync\">BadgeService:UserHasBadgeAsync()</a>\nfor single badge lookups.</p>\n<p>Any set of badges for any experience can be queried, no matter who created\nthe badges or which experiences they are for. Any\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> can be used in a <a href=\"/ref/class/Script.html\">Script</a>, but in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, only the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the local\nuser whose client is running the script can be used.</p>\n<p>This API&#39;s behavior will change soon. For more information, see\n<a href=\"https://devforum.roblox.com/t/upcoming-breaking-change-to-checkuserbadgesasync-userhasbadgeasync-and-badges-web-apis/4438920\">this DevForum announcement</a>.</p>\n<p>Rate limit is <code>10 + 5 * [number of players]</code> per minute in each server.</p>\n",
 				"CodeSamples": [
 					"badges---checking-earned-badges-batch"
 				]
@@ -4817,12 +4817,12 @@
 			},
 			"UserHasBadge": {
 				"Summary": "<p>Checks whether a user has the badge given the <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a> and\nthe badge ID.</p>\n",
-				"Description": "<p>Checks and returns whether a <a href=\"/ref/class/Player.html\">Player</a> owns a badge given their\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> and the badge ID. You can call the function\nfrom the server in a <a href=\"/ref/class/Script.html\">Script</a> or <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> eventually\nrequired by a <a href=\"/ref/class/Script.html\">Script</a>, and the user in question must be present in\nthe server for the query to run. When calling the method from the client\nin a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>, it only works for the local user whose client is\nrunning the script.</p>\n<p>Any badge for any experience can be queried, no matter who created the\nbadge or which experience it is used for.</p>\n",
+				"Description": "<p>Checks and returns whether a <a href=\"/ref/class/Player.html\">Player</a> owns a badge given their\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> and the badge ID. You can call the function\nfrom the server in a <a href=\"/ref/class/Script.html\">Script</a> or <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> eventually\nrequired by a <a href=\"/ref/class/Script.html\">Script</a>. When calling the method from the client in a\n<a href=\"/ref/class/LocalScript.html\">LocalScript</a>, it only works for the local user whose client is\nrunning the script.</p>\n<p>Any badge for any experience can be queried, no matter who created the\nbadge or which experience it is used for.</p>\n<p>This API&#39;s behavior will change soon. For more information, see\n<a href=\"https://devforum.roblox.com/t/upcoming-breaking-change-to-checkuserbadgesasync-userhasbadgeasync-and-badges-web-apis/4438920\">this DevForum announcement</a>.</p>\n",
 				"DeprecationMessage": "<p>This method has been superseded by\n<a href=\"/ref/class/BadgeService.html#member-UserHasBadgeAsync\">BadgeService:UserHasBadgeAsync()</a> which should be used for new\ninstead.</p>\n"
 			},
 			"UserHasBadgeAsync": {
 				"Summary": "<p>Checks whether a player has the badge given the <a href=\"/ref/class/Player.html#member-UserId\">Player.UserId</a> and\nthe badge ID.</p>\n",
-				"Description": "<p>Checks and returns whether a <a href=\"/ref/class/Player.html\">Player</a> owns a badge given their\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> and the badge ID. You can call this method\nfrom the server in a <a href=\"/ref/class/Script.html\">Script</a> or <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> eventually\nrequired by a <a href=\"/ref/class/Script.html\">Script</a>, and the user in question must be present in\nthe server for the query to run. When calling this method from the client\nin a <a href=\"/ref/class/LocalScript.html\">LocalScript</a>, it only works for the local user whose client is\nrunning the script.</p>\n<p>Any badge for any experience can be queried, no matter who created the\nbadge or which experience it is used for.</p>\n<p>Rate limit is <code>50 + 35 * [number of players]</code> per minute.</p>\n",
+				"Description": "<p>Checks and returns whether a <a href=\"/ref/class/Player.html\">Player</a> owns a badge given their\n<a href=\"/ref/class/Player.html#member-UserId\">UserId</a> and the badge ID. You can call this method\nfrom the server in a <a href=\"/ref/class/Script.html\">Script</a> or <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> eventually\nrequired by a <a href=\"/ref/class/Script.html\">Script</a>. When calling this method from the client in\na <a href=\"/ref/class/LocalScript.html\">LocalScript</a>, it only works for the local user whose client is\nrunning the script.</p>\n<p>Any badge for any experience can be queried, no matter who created the\nbadge or which experience it is used for.</p>\n<p>This API&#39;s behavior will change soon. For more information, see\n<a href=\"https://devforum.roblox.com/t/upcoming-breaking-change-to-checkuserbadgesasync-userhasbadgeasync-and-badges-web-apis/4438920\">this DevForum announcement</a>.</p>\n<p>Rate limit is <code>50 + 35 * [number of players]</code> per minute.</p>\n",
 				"CodeSamples": [
 					"badges---checking-earned-badges"
 				]
@@ -7815,6 +7815,7 @@
 			"MetalnessMapContent": {},
 			"NormalMap": {},
 			"NormalMapContent": {},
+			"Rotation": {},
 			"RoughnessMap": {},
 			"RoughnessMapContent": {},
 			"Shiny": {
@@ -9280,6 +9281,9 @@
 				]
 			},
 			"FragmentAsync": {
+				"Summary": "<p>This API has not been released.</p>\n"
+			},
+			"GenerateFragmentSites": {
 				"Summary": "<p>This API has not been released.</p>\n"
 			},
 			"IntersectAsync": {
@@ -12758,7 +12762,7 @@
 			},
 			"UserOwnsGamePassAsync": {
 				"Summary": "<p>Returns true if the player with the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a>\nowns the pass with the given <code>gamePassId</code>.</p>\n",
-				"Description": "<p>Returns true if the user with the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> owns\nthe <a href=\"https://create.roblox.com/docs/production/monetization/passes\">pass</a> with the given\n<code>gamePassId</code> (not to be confused with an asset ID).</p>\n<h4>Caching Behavior</h4>\n<p>The results of this function are cached so that repeated calls are\nreturned faster. When the\n<a href=\"/ref/class/MarketplaceService.html#member-PromptGamePassPurchaseFinished\">PromptGamePassPurchaseFinished</a>\nevent fires, the cache gets updated to reflect the latest ownership state\nof the associated game pass.</p>\n<p>If the user purchases a game pass outside of the experience while\nremaining in the same session, the cache is eventually updated, but this\nprocess might take several minutes to propagate.</p>\n<p>When a user first enters a server after purchasing a game pass, this\nfunctions always returns true.</p>\n"
+				"Description": "<p>Returns true if the user with the given <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> owns\nthe <a href=\"https://create.roblox.com/docs/production/monetization/passes\">pass</a> with the given\n<code>gamePassId</code> (not to be confused with an asset ID). You can use this\nmethod on both the client and the server.</p>\n<h4>Caching Behavior</h4>\n<p>The results of this function are cached so that repeated calls are\nreturned faster. When the\n<a href=\"/ref/class/MarketplaceService.html#member-PromptGamePassPurchaseFinished\">PromptGamePassPurchaseFinished</a>\nevent fires, the cache gets updated to reflect the latest ownership state\nof the associated game pass.</p>\n<p>If the user purchases a game pass outside of the experience while\nremaining in the same session, the cache is eventually updated, but this\nprocess might take several minutes to propagate.</p>\n<p>When a user first enters a server after purchasing a game pass, this\nfunctions always returns true.</p>\n"
 			}
 		},
 		"MatchmakingService": {
@@ -30150,7 +30154,8 @@
 		"TeamCreateErrorState": {
 			"NoError": {},
 			"PlaceSizeApproachingLimit": {},
-			"PlaceSizeTooLarge": {}
+			"PlaceSizeTooLarge": {},
+			"PlaceUploadFailing": {}
 		},
 		"Technology": {
 			"Compatibility": {
@@ -30296,6 +30301,8 @@
 		"TextInputType": {
 			"Default": {},
 			"Email": {},
+			"NewPassword": {},
+			"NewPasswordShown": {},
 			"NoSuggestions": {},
 			"Number": {},
 			"OneTimePassword": {},
@@ -32228,7 +32235,7 @@
 					"Name": "SortAggregation",
 					"Type": "Enum.CatalogSortAggregation",
 					"Summary": "<p>The time period to use to aggregate the sort results.</p>\n",
-					"Description": "<p>The time period to use to aggregate the sort results by, represented by a\n<a href=\"/ref/enum/CatalogCategoryFilter.html\">CatalogCategoryFilter</a>. This only applies when the sort type is\n<a href=\"/ref/enum/CatalogSortType.html\">CatalogSortType.MostFavorited</a> or\n<a href=\"/ref/enum/CatalogSortType.html\">CatalogSortType.BestSelling</a>. It does not apply for other sort\ntypes.</p>\n"
+					"Description": "<p>The time period to use to aggregate the sort results by, represented by a\n<a href=\"/ref/enum/CatalogSortAggregation.html\">CatalogSortAggregation</a>. This only applies when the sort type is\n<a href=\"/ref/enum/CatalogSortType.html\">CatalogSortType.MostFavorited</a> or\n<a href=\"/ref/enum/CatalogSortType.html\">CatalogSortType.BestSelling</a>. It does not apply for other sort\ntypes.</p>\n"
 				},
 				{
 					"Name": "CategoryFilter",
