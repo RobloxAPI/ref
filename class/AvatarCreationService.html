@@ -794,6 +794,39 @@ texture sizes, body part size limits, attachment positions, and more.</p><p>The 
 			[&#34;RigidAllowed&#34;]: boolean,
 		},
 		...
+      	},
+        [&#34;MakeupRules&#34;] = {
+		[&#34;ReferenceCageMeshId&#34;]: number,
+		[&#34;WrapTextureTransferUVBounds&#34;] = {
+			[&#34;MinBound&#34;]: Vector2,
+            		[&#34;MaxBound&#34;]: Vector2,
+          	},
+          	[&#34;ExcludeUVBounds&#34;] = {
+            		[Enum.AssetType.FaceMakeup] = {
+              			[&#34;LeftEye&#34;] = {
+                			[&#34;MinBound&#34;]: Vector2,
+                			[&#34;MaxBound&#34;]: Vector2,
+              			},
+              			[&#34;RightEye&#34;] = {
+                			[&#34;MinBound&#34;]: Vector2,
+                			[&#34;MaxBound&#34;]: Vector2,
+              			},
+              			[&#34;Lips&#34;] = {
+                			[&#34;MinBound&#34;]: Vector2,
+                			[&#34;MaxBound&#34;]: Vector2,
+              			},
+            		},
+          	},
+          	[&#34;IncludeUVBounds&#34;] = {
+			[Enum.AssetType.LipMakeup] = {
+				[&#34;MinBound&#34;]: Vector2,
+				[&#34;MaxBound&#34;]: Vector2,
+		    	},
+		    	[Enum.AssetType.EyeMakeup] = {
+		      		[&#34;MinBound&#34;]: Vector2,
+		      		[&#34;MaxBound&#34;]: Vector2,
+		    	},
+          	}
 	}
 }
 </code></pre></div><div class=status-list><div class="status-box low"><span class=header>This function has a custom internal state.</span> It may behave in a non-standard way.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2024.html#version-046f2d8fc733479b-1 title="Added on 2024-08-27T11:16:52-07:00
