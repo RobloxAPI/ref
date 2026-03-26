@@ -1046,8 +1046,10 @@ selected. Mirroring the behavior of <a href=/ref/class/Terrain.html#member-FillB
 returns a <a href=/ref/type/CFrame.html>CFrame</a> representing the center of that bounding box
 and a <a href=/ref/type/Vector3.html>Vector3</a> representing its size. The size may be inaccurate
 at runtime if physics constraints are acting upon the parts within the
-<a href=/ref/class/Model.html>Model</a>.</p><p>If there is no <a href=/ref/class/Model.html#member-PrimaryPart>PrimaryPart</a> for the model, the
-bounding box will be aligned to the world axes.</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
+<a href=/ref/class/Model.html>Model</a>.</p><p>The orientation of the bounding box matches the orientation of the
+<a href=/ref/class/PVInstance.html#member-GetPivot>Pivot</a> - either the pivot of the
+<a href=/ref/class/Model.html#member-PrimaryPart>PrimaryPart</a> (if present) or the
+<a href=/ref/class/Model.html#member-WorldPivot>WorldPivot</a> of the model.</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
 </span><span class=_lnt>2
 </span><span class=_lnt>3
 </span><span class=_lnt>4
@@ -1083,12 +1085,10 @@ Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Model.html#me
 v0.357.0.244916
 version-08edfeeed2494a60">357</a>
 Add <a class="entity-link deco" href=/ref/class/Model.html#member-GetBoundingBox><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetBoundingBox</a></li></ul></details></section><section id=member-GetExtentsSize class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetExtentsSize<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Model#GetExtentsSize target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Vector3.html><span class=picture title="DataType type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/ACCodeSnippet.png');--dark:url('/ref/icons/dark/ACCodeSnippet.png')"></span></span>Vector3</a></td></tr></tbody></table><div class=docs><p>Returns the size of the smallest bounding box that contains all of the
-<a href=/ref/class/BasePart.html>BaseParts</a> in the <a href=/ref/class/Model.html>Model</a>. If
-<a href=/ref/class/Model.html#member-PrimaryPart>Model.PrimaryPart</a> exists then the bounding box will be aligned to
-that part. If a primary part has not been set then the function will chose
-a part in the model to align the bounding box to. As the selection of this
-part is not deterministic it is recommended to set a
-<a href=/ref/class/Model.html#member-PrimaryPart>Model.PrimaryPart</a> to get consistent results with this function.</p><p>Note this function only returns the size of the smallest bounding box, and
+<a href=/ref/class/BasePart.html>BaseParts</a> in the <a href=/ref/class/Model.html>Model</a>. The orientation matches
+the orientation of the <a href=/ref/class/PVInstance.html#member-GetPivot>Pivot</a> - either the
+pivot of the <a href=/ref/class/Model.html#member-PrimaryPart>PrimaryPart</a> (if present) or the
+<a href=/ref/class/Model.html#member-WorldPivot>WorldPivot</a> of the model.</p><p>Note this function only returns the size of the smallest bounding box, and
 the developer must employ their own method to obtain the position of the
 bounding box.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-1530 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
