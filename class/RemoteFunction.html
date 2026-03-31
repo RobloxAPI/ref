@@ -196,11 +196,11 @@ to wait for a response to continue execution. See
 samples and further details on <a href=/ref/class/RemoteFunction.html>RemoteFunction</a>.</p><h3>Streaming Precautions</h3><p>Note that if an invoked <a href=/ref/class/RemoteFunction.html>RemoteFunction</a> creates an instance on the
 server, there is no guarantee that it exists on the client when the function
 returns. This is particularly important in places where instance
-<a href=https://create.roblox.com/docs/workspace/streaming>streaming</a> is enabled and when the created
-instances are <a href=/ref/class/BasePart.html>BaseParts</a> or <a href=/ref/class/Model.html>Models</a>, since parts
-that are far away from the player's character may not be streamed to the
-client, and models that are <a href=/ref/enum/ModelStreamingMode.html>Atomic</a> depend on whether
-their parts are streamed. Even if a model is
+<a href=https://create.roblox.com/docs/workspace/streaming>streaming</a> is enabled and when the
+created instances are <a href=/ref/class/BasePart.html>BaseParts</a> or <a href=/ref/class/Model.html>Models</a>,
+since parts that are far away from the player's character may not be streamed
+to the client, and models that are <a href=/ref/enum/ModelStreamingMode.html>Atomic</a> depend on
+whether their parts are streamed. Even if a model is
 <a href=/ref/enum/ModelStreamingMode.html>Persistent</a>, there may be some delay between the
 creation of the model and when it is replicated to the client.</p><h3>Parameter Limitations</h3><p>Any type of Roblox object such as an <a href=/ref/type/Enum.html>Enum</a>, <a href=/ref/class/Instance.html>Instance</a>, or
 others can be passed as a parameter when a <a href=/ref/class/RemoteFunction.html>RemoteFunction</a> is invoked,
