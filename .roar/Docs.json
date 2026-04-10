@@ -900,6 +900,7 @@
 			"Summary": "<p>The GamepadService is internally responsible for handling inputs from various\ncontrollers, such as Xbox One or PlayStation DualShock controllers.</p>\n",
 			"Description": "<p>The GamepadService is internally responsible for handling inputs from various\ncontrollers, such as Xbox One or PlayStation DualShock controllers. It also\nhandles APIs used with the gamepad virtual cursor. You can enable the gamepad\ncursor for your experience by setting <a href=\"/ref/enum/VirtualCursorMode.html\">VirtualCursorMode</a> under\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a> to <code>Enabled</code>.</p>\n"
 		},
+		"GeneratedFolder": {},
 		"GenerationService": {
 			"Summary": "<p>Service that allows developers to generate 3D objects from text prompts.</p>\n",
 			"Description": "<p><code>GenerationService</code> enables you to generate 3D objects from text prompts using\nRoblox&#39;s Cube 3D foundation model. This enables the generation of objects like\nenvironmental props in-experience, as well as fully functional models like\nvehicles that drive, planes that fly, and weapons that shoot.</p>\n"
@@ -1013,7 +1014,7 @@
 		"HiddenSurfaceRemovalAsset": {},
 		"Highlight": {
 			"Summary": "<p>A visual effect which you can use to call attention to a specific object\nwithin an experience.</p>\n",
-			"Description": "<p>The <a href=\"/ref/class/Highlight.html\">Highlight</a> instance is a visual effect which you can use to call\nattention to a specific object within an experience. Every highlight effect\nhas a silhouette <strong>outline</strong> that surrounds the object and a solid overlay\n<strong>interior</strong> that displays over the object. You can customize both of these\ncomponents independently to modify the highlight&#39;s visual appearance.</p>\n<table size=\"small\">\n  <tbody>\n    <tr>\n      <td width=\"30%\">\n        <figure>\n        <img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/OutlineTransparency-1.jpg\"/>\n        <figcaption>Base object</figcaption>\n        </figure>\n      </td>\n      <td width=\"30%\">\n        <figure>\n        <img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/Adding-Highlight.jpg\"/>\n        <figcaption>White outline, 50% red interior</figcaption>\n        </figure>\n      </td>\n      <td width=\"30%\">\n        <figure>\n        <img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/Overview-Yellow-Outline.jpg\"/>\n        <figcaption>Yellow outline, black interior</figcaption>\n        </figure>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<p>Useful applications of the highlight effect include:</p>\n<ul>\n<li>Providing visual feedback that an object is important and/or interactable.</li>\n<li>Making distant objects visible through objects that are closer to the user.</li>\n<li>Indicating the current position and status of other characters.</li>\n</ul>\n<h3>Limitations</h3>\n<p>As a performance limit, the engine only displays 255 <a href=\"/ref/class/Highlight.html\">Highlight</a>\ninstances simultaneously on the client at a time. If you exceed this limit,\nthe additional instances are silently ignored. Note that while a\n<a href=\"/ref/class/Highlight.html\">Highlight</a> with <a href=\"/ref/class/Highlight.html#member-Enabled\">Enabled</a> set to <code>false</code>\ndoesn&#39;t display, it still takes one of the 255 available slots, so if you plan\nto permanently disable a <a href=\"/ref/class/Highlight.html\">Highlight</a> instance, it&#39;s best to delete it\nrather than disable it.</p>\n"
+			"Description": "<p>The <a href=\"/ref/class/Highlight.html\">Highlight</a> instance is a visual effect which you can use to call\nattention to a specific object within an experience. Every highlight effect\nhas a silhouette <strong>outline</strong> that surrounds the object and a solid overlay\n<strong>interior</strong> that displays over the object. You can customize both of these\ncomponents independently to modify the highlight&#39;s visual appearance.</p>\n<table size=\"small\">\n  <tbody>\n    <tr>\n      <td width=\"30%\">\n        <figure>\n        <img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/OutlineTransparency-1.jpg\"/>\n        <figcaption>Base object</figcaption>\n        </figure>\n      </td>\n      <td width=\"30%\">\n        <figure>\n        <img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/Adding-Highlight.jpg\"/>\n        <figcaption>White outline, 50% red interior</figcaption>\n        </figure>\n      </td>\n      <td width=\"30%\">\n        <figure>\n        <img src=\"https://prod.docsiteassets.roblox.com/assets/ui/highlighting-objects/Overview-Yellow-Outline.jpg\"/>\n        <figcaption>Yellow outline, black interior</figcaption>\n        </figure>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<p>Useful applications of the highlight effect include:</p>\n<ul>\n<li>Providing visual feedback that an object is important and/or interactable.</li>\n<li>Making distant objects visible through objects that are closer to the user.</li>\n<li>Indicating the current position and status of other characters.</li>\n</ul>\n<h3>Limitations</h3>\n<p>As a performance limit, Studio only displays 255 simultaneous\n<a href=\"/ref/class/Highlight.html\">Highlight</a> instances on the client at a time. If you exceed this limit,\nthe additional instances are silently ignored. Note that while a\n<a href=\"/ref/class/Highlight.html\">Highlight</a> with <a href=\"/ref/class/Highlight.html#member-Enabled\">Enabled</a> set to <code>false</code>\ndoesn&#39;t display, it still takes one of the 255 available slots, so if you plan\nto permanently disable a <a href=\"/ref/class/Highlight.html\">Highlight</a> instance, it&#39;s best to delete it\nrather than disable it.</p>\n"
 		},
 		"HingeConstraint": {
 			"Summary": "<p>Constrains its attachments to rotate about a single axis.</p>\n",
@@ -1216,7 +1217,7 @@
 		},
 		"LogService": {
 			"Summary": "<p>A service that allows you to read outputted text.</p>\n",
-			"Description": "<p><strong>Important notes about this service:</strong> This service might have unexpected or\nunreliable behavior depending on how games and the game engine log things.\nContent might also be truncated. Don&#39;t rely on contents of events and messages\nemitted by this service for any important game logic.</p>\n<p>A service that allows you to read outputted text.</p>\n"
+			"Description": "<p><code>LogService</code> allows you to log structured log entries and read outputted text.</p>\n<h3>Warning</h3>\n<p>This service might have unexpected or unreliable behavior and content might be\ntruncated. Don&#39;t rely on contents of events and messages emitted by this\nservice for any important game logic.</p>\n"
 		},
 		"LoginService": {
 			"Summary": "<p>An internal service whose functionality is not available to developers.</p>\n",
@@ -1629,6 +1630,7 @@
 			"Summary": "<p>Constraint which creates a rigid joint between two\n<a href=\"/ref/class/Attachment.html\">Attachments</a>, allowing them to slide along one axis but not\nrotate.</p>\n",
 			"Description": "<p>A <strong>PrismaticConstraint</strong> creates a rigid joint between two\n<a href=\"/ref/class/Attachment.html\">Attachments</a>, allowing them to slide along one axis but not\nrotate. This constrains the attachments so that their <strong>X</strong> axes are collinear\nbut pointing in opposite directions. It also constrains the attachments so\nthat their <strong>Y</strong> axes are parallel.</p>\n<p>This constraint inherits many properties from <a href=\"/ref/class/SlidingBallConstraint.html\">SlidingBallConstraint</a>\nincluding <a href=\"/ref/class/SlidingBallConstraint.html#member-ActuatorType\">ActuatorType</a>,\n<a href=\"/ref/class/SlidingBallConstraint.html#member-LimitsEnabled\">LimitsEnabled</a>,\n<a href=\"/ref/class/SlidingBallConstraint.html#member-Velocity\">Velocity</a>, and more. Please refer to\n<a href=\"/ref/class/SlidingBallConstraint.html\">SlidingBallConstraint</a> for details on configuring a\n<a href=\"/ref/class/PrismaticConstraint.html\">PrismaticConstraint</a>.</p>\n<p>When configuring this constraint, it may be helpful to study\n<a href=\"https://create.roblox.com/docs/physics/units\">Roblox Units</a> to understand how Roblox units\ncompare to metric units.</p>\n"
 		},
+		"ProceduralModel": {},
 		"ProcessInstancePhysicsService": {},
 		"ProximityPrompt": {
 			"Summary": "<p>An object that lets you prompt players to interact with an object in the 3D\nworld.</p>\n",
@@ -2097,7 +2099,10 @@
 			"Summary": "<p>Links a <a href=\"/ref/class/StyleSheet.html\">StyleSheet</a> to the instance tree whose root is the parent of\nthe <code>StyleLink</code>.</p>\n",
 			"Description": "<p>Links a <a href=\"/ref/class/StyleSheet.html\">StyleSheet</a> to the instance tree whose root is the parent of\nthe <code>StyleLink</code>. For example, placing a <code>StyleLink</code> under a <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a>\napplies the referenced <a href=\"/ref/class/StyleSheet.html\">StyleSheet</a> to both the <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> and\nall of the <a href=\"/ref/class/GuiObject.html\">GuiObjects</a> within it. Only one <a href=\"/ref/class/StyleSheet.html\">StyleSheet</a>\ncan apply to a given tree.</p>\n<img src=\"https://prod.docsiteassets.roblox.com/assets/studio/explorer/StyleLink-Propagation.png\" width=\"320\"/>\n"
 		},
-		"StyleQuery": {},
+		"StyleQuery": {
+			"Summary": "<p>Instance used to set conditions such as <code>&#34;MaxSize&#34;</code> and <code>&#34;PreferredInput&#34;</code> for\na <a href=\"/ref/class/StyleRule.html\">StyleRule</a>.</p>\n",
+			"Description": "<p><code>StyleQuery</code> is an instance used to set conditions like <code>&#34;MaxSize&#34;</code> and\n<code>&#34;PreferredInput&#34;</code> for a <a href=\"/ref/class/StyleRule.html\">StyleRule</a>. If the conditions are <code>true</code>, the\nrule&#39;s <code>@</code> selector is enabled. This is helpful to author styling with dynamic\ncontainer sizes and cross-platform UI.</p>\n"
+		},
 		"StyleRule": {
 			"Summary": "<p>Defines style properties which override properties on the instances affected\nby the <a href=\"/ref/class/StyleRule.html#member-Selector\">Selector</a> property.</p>\n",
 			"Description": "<p>Defines style properties which override properties on the instances affected\nby the <a href=\"/ref/class/StyleRule.html#member-Selector\">Selector</a> property.</p>\n"
@@ -9362,6 +9367,9 @@
 				]
 			}
 		},
+		"GeneratedFolder": {
+			"SetPrimaryPart": {}
+		},
 		"GenerationService": {
 			"GenerateMeshAsync": {
 				"Summary": "<p>Starts the generation of a new 3D mesh from a text prompt and returns\nunique IDs used to track and retrieve the result.</p>\n",
@@ -10246,7 +10254,7 @@
 			},
 			"SetWaveformKeys": {
 				"Summary": "<p>Defines a custom waveform as a table and applies it to the haptic.</p>\n<pre><code>This method takes in an array of `Datatype.FloatCurveKey` objects.\n</code></pre>\n",
-				"Description": "<p>This method lets you define a custom waveform as a table and apply it to\nthe haptic.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\n\n-- Set effect type to custom in order to define a waveform\neffect.Type = Enum.HapticEffectType.Custom\neffect.Parent = Workspace\n\n-- Define the custom waveform curve through a table\nlocal rampUpWaveform = {\n\tFloatCurveKey.new(0, 0.3),\n\tFloatCurveKey.new(100, 0.4),\n\tFloatCurveKey.new(300, 0.8),\n\tFloatCurveKey.new(400, 1.0)\n}\n\n-- Set waveform through the effect&#39;s method\neffect:SetWaveformKeys(rampUpWaveform)\n</code></pre>\n"
+				"Description": "<p>This method lets you define a custom waveform as a table and apply it to\nthe haptic. It takes an array of <a href=\"/ref/type/FloatCurveKey.html\">FloatCurveKey</a> objects, each\nconstructed with three arguments: <strong>time</strong> in milliseconds, <strong>value</strong>\nranging from <code>0</code> (no haptic) to <code>1</code> (full intensity), and an\n<a href=\"/ref/enum/KeyInterpolationMode.html\">KeyInterpolationMode</a> that controls how the curve interpolates.\nbetween keys.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nlocal effect = Instance.new(&#34;HapticEffect&#34;)\n\n-- Set effect type to custom in order to define a waveform\neffect.Type = Enum.HapticEffectType.Custom\neffect.Parent = Workspace\n\n-- Define the custom waveform curve through a table of FloatCurveKeys\n-- Time values are in milliseconds; values range from 0 (no haptic) to 1 (full intensity)\nlocal rampUpWaveform = {\n\tFloatCurveKey.new(0, 0.3, Enum.KeyInterpolationMode.Linear),\n\tFloatCurveKey.new(100, 0.4, Enum.KeyInterpolationMode.Linear),\n\tFloatCurveKey.new(300, 0.8, Enum.KeyInterpolationMode.Linear),\n\tFloatCurveKey.new(400, 1.0, Enum.KeyInterpolationMode.Linear)\n}\n\n-- Set waveform through the effect&#39;s method\neffect:SetWaveformKeys(rampUpWaveform)\n</code></pre>\n"
 			},
 			"Stop": {
 				"Summary": "<p>Stops the haptic effect.</p>\n",
@@ -10439,7 +10447,7 @@
 			},
 			"JSONEncode": {
 				"Summary": "<p>Generate a JSON string from a Luau table.</p>\n",
-				"Description": "<p>This method transforms a Luau <a href=\"https://create.roblox.com/docs/luau/tables\">table</a> into a JSON\nobject or array based on the following guidelines:</p>\n<ul>\n<li>Keys of the table must be either strings or numbers. If a table contains\nboth, an array takes priority (string keys are ignored).</li>\n<li>An empty Luau table (<code>{}</code>) generates an empty JSON array (e.g. <code>[]</code>).</li>\n<li>The value <code>nil</code> is never generated.</li>\n<li>Cyclic table references cause an error.</li>\n</ul>\n<p>This method allows values such as <code>inf</code> and <code>nan</code> which are not valid\nJSON. This may cause problems if you want to use the outputted JSON\nelsewhere.</p>\n<p>This method also accepts <a href=\"https://create.roblox.com/docs/reference/engine/libraries/buffer#\">buffers</a> up to 50 MiB, which it\nencodes to base64 (and often compresses) before converting to a JSON\nobject.</p>\n<p>To reverse the encoding process and decode a JSON object, use the\n<a href=\"/ref/class/HttpService.html#member-JSONDecode\">HttpService:JSONDecode()</a> method.</p>\n<p>This method can be used regardless of whether HTTP requests are enabled.</p>\n",
+				"Description": "<p>This method transforms a Luau <a href=\"https://create.roblox.com/docs/luau/tables\">table</a> into a JSON\nobject or array based on the following guidelines:</p>\n<ul>\n<li>Keys of the table must be either strings or numbers. If a table contains\nboth, an array takes priority (string keys are ignored).</li>\n<li>An empty Luau table (<code>{}</code>) generates an empty JSON array (e.g. <code>[]</code>).</li>\n<li>Whether passing a dictionary table or a numerically indexed table, avoid\n<code>nil</code> values for any index.</li>\n<li>Cyclic table references cause an error.</li>\n</ul>\n<p>This method allows values such as <code>inf</code> and <code>nan</code> which are not valid\nJSON. This may cause problems if you want to use the outputted JSON\nelsewhere.</p>\n<p>This method also accepts <a href=\"https://create.roblox.com/docs/reference/engine/libraries/buffer#\">buffers</a> up to 50 MiB, which it\nencodes to base64 (and often compresses) before converting to a JSON\nobject.</p>\n<p>To reverse the encoding process and decode a JSON object, use the\n<a href=\"/ref/class/HttpService.html#member-JSONDecode\">HttpService:JSONDecode()</a> method.</p>\n<p>This method can be used regardless of whether HTTP requests are enabled.</p>\n",
 				"CodeSamples": [
 					"HttpService-JSONEncode"
 				]
@@ -12654,12 +12662,24 @@
 		},
 		"LogService": {
 			"ClearOutput": {
-				"Summary": "<p>Clears the Roblox Studio output window.</p>\n",
-				"Description": "<p>Clears the Roblox Studio output window.</p>\n<p>The log history is also cleared, such that\n<a href=\"/ref/class/LogService.html#member-GetLogHistory\">LogService.GetLogHistory</a> will not return any entries from before\nthe <a href=\"/ref/class/LogService.html#member-ClearOutput\">LogService.ClearOutput</a> call.</p>\n"
+				"Summary": "<p>Clears Roblox Studio&#39;s <strong>Output</strong> window.</p>\n",
+				"Description": "<p>Clears Roblox Studio&#39;s <strong>Output</strong> window. The log history is also cleared,\nsuch that <a href=\"/ref/class/LogService.html#member-GetLogHistory\">LogService:GetLogHistory()</a> will not return any entries\nfrom before the <code>ClearOutput()</code> call.</p>\n"
+			},
+			"Error": {
+				"Summary": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageError</a> level and throws a\nstructured error with optional context.</p>\n",
+				"Description": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageError</a> level and throws a\nstructured error with optional context. As this method always throws, use\n<a href=\"https://create.roblox.com/docs/reference/engine/globals/LuaGlobals#pcall\">pcall()</a> to catch the error. The thrown error is a\ntable with <code>message</code>, <code>template</code>, <code>context</code>, and <code>stack</code> fields, and a\n<code>__tostring</code> metamethod that returns the rendered message.</p>\n<p>When a <code>context</code> table is provided, template placeholders like <code>{key}</code> in\nthe message are replaced with the corresponding context values.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span><span class=\"_lnt\">8\n</span><span class=\"_lnt\">9\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">LogService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;LogService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">ok</span><span class=\"_p\">,</span> <span class=\"_n\">err</span> <span class=\"_o\">=</span> <span class=\"_n\">pcall</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">LogService</span><span class=\"_p\">:</span><span class=\"_n\">Error</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Failed: {reason}&#34;</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">reason</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;timeout&#34;</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- ok is false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- err.message == &#34;Failed: timeout&#34;</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- err.context == {reason = &#34;timeout&#34;}</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- tostring(err) == &#34;Failed: timeout&#34;</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"GetLogHistory": {
-				"Summary": "<p>Returns a table of tables, each with the message string, message type, and\ntimestamp of a message that the client displays in the output window.</p>\n",
-				"Description": "<p><strong>Unreliable Behavior</strong> This may have changing, unexpected or unreliable\nbehavior depending on how the game engine logs things. It should not be\nrelied upon for any important game logic.</p>\n<p>Returns a table of tables, each with the message string, message type, and\ntimestamp of a message that the client displays in the output window.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/LogService.html#member-MessageOut\">LogService.MessageOut</a> - An event that fires when text is added\nto the output from the client</li>\n</ul>\n"
+				"Summary": "<p>Returns a table of tables, each with the message string, message type, and\ntimestamp of a message that the client displays in the <strong>Output</strong> window.</p>\n",
+				"Description": "<p>Returns a table of tables, each with the message string, message type, and\ntimestamp of a message that the client displays in the <strong>Output</strong> window.</p>\n"
+			},
+			"Info": {
+				"Summary": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageInfo</a> level with optional\nstructured context.</p>\n",
+				"Description": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageInfo</a> level. When a\n<code>context</code> table is provided, template placeholders like <code>{key}</code> in the\nmessage are replaced with the corresponding context values. The context is\npreserved as structured data for display in the Developer Console and\nStudio&#39;s <strong>Output</strong> window.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">LogService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;LogService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">LogService</span><span class=\"_p\">:</span><span class=\"_n\">Info</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;User {name} has {count} items&#34;</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">name</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;Alice&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">count</span> <span class=\"_o\">=</span> <span class=\"_mi\">42</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Output: &#34;User Alice has 42 items&#34;</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			},
+			"Log": {
+				"Summary": "<p>Logs a message at the specified level with optional structured context.</p>\n",
+				"Description": "<p>Logs a message at the specified <a href=\"/ref/enum/MessageType.html\">MessageType</a> level. This is a\ngeneral-purpose method that combines the functionality of\n<a href=\"/ref/class/LogService.html#member-Output\">Output()</a>, <a href=\"/ref/class/LogService.html#member-Info\">Info()</a>,\n<a href=\"/ref/class/LogService.html#member-Warn\">Warn()</a>, and <a href=\"/ref/class/LogService.html#member-Error\">Error()</a>\ninto a single call with an explicit message type parameter.</p>\n<p>When <code>messageType</code> is <a href=\"/ref/enum/MessageType.html\">MessageType.MessageError</a>, this method throws\na structured error object (same behavior as\n<a href=\"/ref/class/LogService.html#member-Error\">Error()</a>).</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">LogService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;LogService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">LogService</span><span class=\"_p\">:</span><span class=\"_n\">Log</span><span class=\"_p\">(</span><span class=\"_n\">Enum.MessageType</span><span class=\"_p\">.</span><span class=\"_n\">MessageInfo</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;Event {action}&#34;</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">action</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;click&#34;</span><span class=\"_p\">})</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"MessageOut": {
 				"Summary": "<p>Fires when the client outputs text.</p>\n",
@@ -12667,6 +12687,14 @@
 				"CodeSamples": [
 					"LogService-MessageOut1"
 				]
+			},
+			"Output": {
+				"Summary": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageOutput</a> level with optional\nstructured context.</p>\n",
+				"Description": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageOutput</a> level. When a\n<code>context</code> table is provided, template placeholders like <code>{key}</code> in the\nmessage are replaced with the corresponding context values. The context is\npreserved as structured data for display in the Developer Console and\nStudio&#39;s <strong>Output</strong> window.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">LogService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;LogService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">LogService</span><span class=\"_p\">:</span><span class=\"_n\">Output</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Player {name} joined&#34;</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">name</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;Alice&#34;</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Output: &#34;Player Alice joined&#34;</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			},
+			"Warn": {
+				"Summary": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageWarning</a> level with\noptional structured context.</p>\n",
+				"Description": "<p>Logs a message at the <a href=\"/ref/enum/MessageType.html\">MessageType.MessageWarning</a> level with\noptional structured context. When a <code>context</code> table is provided, template\nplaceholders like <code>{key}</code> in the message are replaced with the\ncorresponding context values. The context is preserved as structured data\nfor display in the Developer Console and Studio&#39;s <strong>Output</strong> window.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">LogService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;LogService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">LogService</span><span class=\"_p\">:</span><span class=\"_n\">Warn</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Memory usage at {pct}%&#34;</span><span class=\"_p\">,</span> <span class=\"_p\">{</span><span class=\"_n\">pct</span> <span class=\"_o\">=</span> <span class=\"_mi\">95</span><span class=\"_p\">})</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Output: &#34;Memory usage at 95%&#34;</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			}
 		},
 		"LoginService": {},
@@ -15768,6 +15796,13 @@
 			}
 		},
 		"PrismaticConstraint": {},
+		"ProceduralModel": {
+			"ForceGeneration": {},
+			"GenerationError": {},
+			"Generator": {},
+			"Size": {},
+			"WaitForGenerationAsync": {}
+		},
 		"ProcessInstancePhysicsService": {},
 		"ProximityPrompt": {
 			"ActionText": {
@@ -16445,6 +16480,10 @@
 				"Summary": "<p>Returns whether the current environment is running in Studio.</p>\n",
 				"Description": "<p>This method returns whether the current environment is running in Studio.\nIt can be used to wrap code that should only execute when testing in\nStudio.</p>\n"
 			},
+			"Misprediction": {
+				"Summary": "<p>In the server authority model, fires during prediction when the engine\ndetects that the client has diverged from the server&#39;s authoritative\nstate. Intended for plugin-based debugging.</p>\n",
+				"Description": "<p>With server authority enabled, the Misprediction event fires when a\nreceived server state differs from the predicted state.</p>\n<p>Use this event to build debugging tools that inspect misprediction data\nprogrammatically. For example, a plugin could listen for this event and\ntrack which instances are frequently mispredicting, what properties are\ndiverging, and by how much.</p>\n<h4>Instances Array</h4>\n<p>Each entry in the <code>instances</code> array is a table with the following\nstructure:</p>\n<table size=\"small\">\n  <thead>\n    <tr>\n      <th>Field</th>\n      <th>Type</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>Instance</code></td>\n      <td><code>Instance</code></td>\n      <td>The instance that was mispredicted.</td>\n    </tr>\n    <tr>\n      <td><code>Properties</code></td>\n      <td><code>dictionary?</code></td>\n      <td>Properties that were mispredicted. Each key is a property name\nmapping to a table with the client&#39;s <code>Predicted</code> and\nowner&#39;s/server&#39;s <code>Authoritative</code> values as captured on the\nstep when the client first mispredicted the owner&#39;s value. Only\npresent if there are property mismatches.</td>\n    </tr>\n    <tr>\n      <td><code>Attributes</code></td>\n      <td><code>dictionary?</code></td>\n      <td>Attributes that were mispredicted. Each key is a property name\nmapping to a table with the client&#39;s <code>Predicted</code> and\nowner&#39;s/server&#39;s <code>Authoritative</code> values as captured on the\nstep when the client first mispredicted the owner&#39;s value. Only\npresent if there are attribute mismatches.</td>\n    </tr>\n  </tbody>\n</table>\n<h4>Stats Dictionary</h4>\n<p>The <code>stats</code> dictionary contains the following fields:</p>\n<table size=\"small\">\n  <thead>\n    <tr>\n      <th>Field</th>\n      <th>Type</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>ResimulationTime</code></td>\n      <td>number</td>\n      <td>The time spent during resimulation (or the amount of time rolled\nback).</td>\n    </tr>\n  </tbody>\n</table>\n<h4>Code Sample</h4>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">RunService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;RunService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService.Misprediction</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">time</span><span class=\"_p\">,</span> <span class=\"_n\">instances</span><span class=\"_p\">,</span> <span class=\"_n\">stats</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_err\">`</span><span class=\"_n\">Misprediction</span> <span class=\"_n\">at</span> <span class=\"_n\">t</span><span class=\"_o\">=</span><span class=\"_p\">{</span><span class=\"_n\">time</span><span class=\"_p\">},</span> <span class=\"_n\">resim</span><span class=\"_o\">=</span><span class=\"_p\">{</span><span class=\"_n\">stats.ResimulationTime</span><span class=\"_p\">}</span><span class=\"_n\">s</span><span class=\"_err\">`</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">for</span> <span class=\"_n\">_</span><span class=\"_p\">,</span> <span class=\"_n\">entry</span> <span class=\"_kr\">in</span> <span class=\"_n\">instances</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_err\">`</span>  <span class=\"_n\">Instance</span><span class=\"_p\">:</span> <span class=\"_p\">{</span><span class=\"_n\">entry.Instance</span><span class=\"_p\">:</span><span class=\"_n\">GetFullName</span><span class=\"_p\">()}</span><span class=\"_err\">`</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">if</span> <span class=\"_n\">entry.Properties</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_kr\">for</span> <span class=\"_n\">name</span><span class=\"_p\">,</span> <span class=\"_n\">values</span> <span class=\"_kr\">in</span> <span class=\"_n\">entry.Properties</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_err\">`</span>    <span class=\"_n\">Property</span> <span class=\"_s1\">&#39;{name}&#39;</span><span class=\"_p\">:</span> <span class=\"_n\">predicted</span><span class=\"_o\">=</span><span class=\"_p\">{</span><span class=\"_n\">values.Predicted</span><span class=\"_p\">},</span> <span class=\"_n\">authoritative</span><span class=\"_o\">=</span><span class=\"_p\">{</span><span class=\"_n\">values.Authoritative</span><span class=\"_p\">}</span><span class=\"_err\">`</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">if</span> <span class=\"_n\">entry.Attributes</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_kr\">for</span> <span class=\"_n\">name</span><span class=\"_p\">,</span> <span class=\"_n\">values</span> <span class=\"_kr\">in</span> <span class=\"_n\">entry.Attributes</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_err\">`</span>    <span class=\"_n\">Attribute</span> <span class=\"_s1\">&#39;{name}&#39;</span><span class=\"_p\">:</span> <span class=\"_n\">predicted</span><span class=\"_o\">=</span><span class=\"_p\">{</span><span class=\"_n\">values.Predicted</span><span class=\"_p\">},</span> <span class=\"_n\">authoritative</span><span class=\"_o\">=</span><span class=\"_p\">{</span><span class=\"_n\">values.Authoritative</span><span class=\"_p\">}</span><span class=\"_err\">`</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			},
 			"Pause": {
 				"Summary": "<p>Pauses the experience&#39;s simulation if it is running, suspending physics\nand scripts.</p>\n",
 				"Description": "<p>This method pauses the experience&#39;s simulation if it is running,\nsuspending physics and scripts. When the simulation is paused,\n<a href=\"/ref/class/RunService.html#member-IsRunning\">IsRunning()</a> will return <code>false</code>.</p>\n"
@@ -16473,6 +16512,10 @@
 				"Summary": "<p>Resets the current game to a waypoint set when <a href=\"/ref/class/RunService.html#member-Run\">RunService:Run()</a>\nwas called.</p>\n",
 				"Description": "<p>The Reset function resets the current game to a waypoint set when Run was\ncalled. This method should only be used after Run was called.</p>\n",
 				"DeprecationMessage": "<p>This item is deprecated and should not be used in new work.</p>\n"
+			},
+			"Rollback": {
+				"Summary": "<p>In the server authority model, this fires after rolling back the predicted\nstate due to a misprediction, but before resimulation begins.</p>\n",
+				"Description": "<p>When server authority is enabled, the <code>Rollback</code> event fires after the\nengine detects a misprediction and rolls back all eligible state\n(properties, attributes, and related physics and animation state), but\nbefore the engine resimulates the rolled-back steps.</p>\n<p>Use this event to update state in your place that wouldn&#39;t otherwise be\nrolled back after a misprediction. For example, if you maintain gameplay\nstate that can&#39;t be stored in a property or attribute with simulation\naccess, you can listen for this event, compare the rolled-back-to step\nagainst your farthest-reached step, and rewind your custom state\naccordingly.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">RunService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;RunService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">stateHistory</span> <span class=\"_o\">=</span> <span class=\"_p\">{}</span> <span class=\"_c1\">-- your custom state tracked per fixed step</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">RunService.Rollback</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">time</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- Discard any custom state newer than the rolled-back-to step</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_c1\">-- and restore the state at that step before resimulation begins</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">for</span> <span class=\"_n\">step</span><span class=\"_p\">,</span> <span class=\"_n\">_</span> <span class=\"_kr\">in</span> <span class=\"_n\">stateHistory</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">if</span> <span class=\"_n\">step</span> <span class=\"_o\">&gt;</span> <span class=\"_n\">time</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t\t<span class=\"_n\">stateHistory</span><span class=\"_p\">[</span><span class=\"_n\">step</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_kc\">nil</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
 			"Run": {
 				"Summary": "<p>Runs the game&#39;s simulation, running physics and scripts.</p>\n",
@@ -18636,17 +18679,25 @@
 			}
 		},
 		"StyleQuery": {
-			"AspectRatioRange": {},
-			"GetCondition": {},
-			"GetConditions": {},
-			"IsActive": {},
-			"MaxSize": {},
-			"MinSize": {},
-			"PreferredInput": {},
-			"ReducedMotionEnabled": {},
-			"SetCondition": {},
-			"SetConditions": {},
-			"ViewportDisplaySize": {}
+			"GetCondition": {
+				"Summary": "<p>Returns the value of a specific condition in the <code>StyleQuery</code>.</p>\n",
+				"Description": "<p>Returns the value of a specific condition in the <code>StyleQuery</code>.</p>\n"
+			},
+			"GetConditions": {
+				"Summary": "<p>Returns a dictionary of key-value pairs describing the conditoins set on\nthe <code>StyleQuery</code>.</p>\n",
+				"Description": "<p>Returns a dictionary of key-value pairs describing the conditoins set on\nthe <code>StyleQuery</code>.</p>\n"
+			},
+			"IsActive": {
+				"Summary": "<p>A boolean that determines whether a <a href=\"/ref/class/StyleRule.html#member-Selector\">StyleRule.Selector</a> of <code>@</code> will\nmatch the <a href=\"/ref/class/StyleQuery.html\">StyleQuery</a> name.</p>\n",
+				"Description": "<p>A boolean that determines whether a <a href=\"/ref/class/StyleRule.html#member-Selector\">StyleRule.Selector</a> of <code>@</code> will\nmatch the <code>StyleQuery</code> name. For example, if a <code>StyleQuery</code> named\n<code>SmGamepad</code> has conditions set for <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a>\nof <a href=\"/ref/enum/PreferredInput.html\">Gamepad</a> and\n<a href=\"/ref/class/GuiService.html#member-ViewportDisplaySize\">GuiService.ViewportDisplaySize</a> of <a href=\"/ref/enum/DisplaySize.html\">Small</a>\nand both of these conditions are <code>true</code> (player is playing on a small\ndisplay size and using a gamepad), the parent of the <code>StyleQuery</code> will\nmatch any <a href=\"/ref/class/StyleRule.html#member-Selector\">StyleRule.Selector</a> <code>@SmGamepad</code>.</p>\n<h4>Conditions</h4>\n<table>\n<thead>\n  <tr>\n    <th>Condition</th>\n    <th>Type</th>\n    <th>Description</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td><code>AspectRatioRange</code></td>\n    <td><a href=\"/ref/type/NumberRange.html\">NumberRange</a></td>\n    <td>Evaluates to <code>true</code> if the parent width-to-height ratio of <a href=\"/ref/class/GuiBase2d.html#member-AbsoluteSize\">GuiBase2d.AbsoluteSize</a> is greater than or equal to <code>AspectRatioRange.Min</code> and less than <code>AspectRatioRange.Max</code>.</td>\n  </tr>\n  <tr>\n    <td><code>MaxSize</code></td>\n    <td><a href=\"/ref/type/Vector2.html\">Vector2</a></td>\n    <td>Evaluates to <code>true</code> if the parent <a href=\"/ref/class/GuiBase2d.html#member-AbsoluteSize\">GuiBase2d.AbsoluteSize</a> is less than <code>MaxSize</code>.</td>\n  </tr>\n  <tr>\n    <td><code>MinSize</code></td>\n    <td><a href=\"/ref/type/Vector2.html\">Vector2</a></td>\n    <td>Evaluates to <code>true</code> if the parent <a href=\"/ref/class/GuiBase2d.html#member-AbsoluteSize\">GuiBase2d.AbsoluteSize</a> is greater than or equal to <code>MinSize</code>.</td>\n  </tr>\n  <tr>\n    <td><code>PreferredInput</code></td>\n    <td><a href=\"/ref/enum/PreferredInput.html\">PreferredInput</a></td>\n    <td>Evaluates to <code>true</code> if <code>PreferredInput</code> matches <a href=\"/ref/class/UserInputService.html#member-PreferredInput\">UserInputService.PreferredInput</a>.</td>\n  </tr>\n  <tr>\n    <td><code>ReducedMotionEnabled</code></td>\n    <td>boolean</td>\n    <td>Evaluates to <code>true</code> if <code>ReducedMotionEnabled</code> matches <a href=\"/ref/class/GuiService.html#member-ReducedMotionEnabled\">GuiService.ReducedMotionEnabled</a>.</td>\n  </tr>\n  <tr>\n    <td><code>ViewportDisplaySize</code></td>\n    <td><a href=\"/ref/enum/DisplaySize.html\">DisplaySize</a></td>\n    <td>Evaluates to <code>true</code> if <code>ViewportDisplaySize</code> matches <a href=\"/ref/class/GuiService.html#member-ViewportDisplaySize\">GuiService.ViewportDisplaySize</a>.</td>\n  </tr>\n</tbody>\n</table>\n"
+			},
+			"SetCondition": {
+				"Description": "<p>Sets a new condition (or modifies an existing condition) for the\n<code>StyleQuery</code>. The <code>name</code> parameter should be a valid condition of\n<code>StyleQuery</code>, and the assigned value should match the condition&#39;s value\ntype, for example <a href=\"/ref/type/Vector2.html\">Vector2</a> for <code>MaxSize</code> or\n<a href=\"/ref/enum/PreferredInput.html\">PreferredInput</a> for <code>PreferredInput</code>.</p>\n<p>Attempts to assign invalid condition names such as <code>&#34;Size&#34;</code> or <code>&#34;Input&#34;</code>\nwill silently fail. Type mismatches such as <a href=\"/ref/type/UDim2.html\">UDim2</a> for <code>MaxSize</code>\nor <code>string</code> for <code>ReducedMotionEnabled</code> will also fail.</p>\n<p>To set multiple conditions for a <code>StyleQuery</code> at once, see\n<a href=\"/ref/class/StyleQuery.html#member-SetConditions\">SetConditions()</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">styleQuery</span> <span class=\"_o\">=</span> <span class=\"_n\">Instance.new</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;StyleQuery&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">styleQuery</span><span class=\"_p\">:</span><span class=\"_n\">SetCondition</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;MaxSize&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">Vector2.new</span><span class=\"_p\">(</span><span class=\"_mi\">200</span><span class=\"_p\">,</span> <span class=\"_n\">math.huge</span><span class=\"_p\">))</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			},
+			"SetConditions": {
+				"Summary": "<p>Lets you declare and set multiple conditions of the <code>StyleQuery</code> at once.</p>\n",
+				"Description": "<p>Similar to <a href=\"/ref/class/StyleQuery.html#member-SetCondition\">SetCondition()</a> but lets you\ndeclare and set multiple conditions of the <code>StyleQuery</code> at once. Each\n<code>name</code> parameter should be a valid condition of <code>StyleQuery</code>, and the\nassigned value should match the condition&#39;s value type, for example\n<a href=\"/ref/type/Vector2.html\">Vector2</a> for <code>MaxSize</code> or <a href=\"/ref/enum/PreferredInput.html\">PreferredInput</a> for\n<code>PreferredInput</code>.</p>\n<p>Attempts to assign invalid condition names such as <code>&#34;Size&#34;</code> or <code>&#34;Input&#34;</code>\nwill silently fail. Type mismatches such as <a href=\"/ref/type/UDim2.html\">UDim2</a> for <code>MaxSize</code>\nor <code>string</code> for <code>ReducedMotionEnabled</code> will also fail.</p>\n<p>To set/update just one condition of a <code>StyleQuery</code>, see\n<a href=\"/ref/class/StyleQuery.html#member-SetCondition\">SetCondition()</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">styleQuery</span> <span class=\"_o\">=</span> <span class=\"_n\">Instance.new</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;StyleQuery&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">styleQuery</span><span class=\"_p\">:</span><span class=\"_n\">SetConditions</span><span class=\"_p\">({</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;AspectRatioRange&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_n\">NumberRange.new</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">1</span><span class=\"_p\">),</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_p\">[</span><span class=\"_s2\">&#34;MaxSize&#34;</span><span class=\"_p\">]</span> <span class=\"_o\">=</span> <span class=\"_n\">Vector2.new</span><span class=\"_p\">(</span><span class=\"_mi\">200</span><span class=\"_p\">,</span> <span class=\"_n\">math.huge</span><span class=\"_p\">),</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_p\">})</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			}
 		},
 		"StyleRule": {
 			"GetProperties": {
@@ -18664,11 +18715,12 @@
 			},
 			"Selector": {
 				"Summary": "<p>A string specifying which instances the <code>StyleRule</code> should affect.</p>\n",
-				"Description": "<p>A string specifying which instances the <code>StyleRule</code> should affect. This\ncan be a mix of selectors and combinators to match characteristics such as\nthe class name, instance name, and hierarchy relationships.</p>\n<p>For example, <code>&#34;.Container &gt; ImageLabel.BlueOnHover:Hover&#34;</code> effectively\nmeans the style rule overrides every <a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> that&#39;s a child of\nan instance tagged with <code>Container</code> (<code>.Container &gt; ImageLabel</code>) <strong>and</strong> is\ntagged with <code>BlueOnHover</code> (<code>.BlueOnHover</code>) <strong>and</strong> is in the\n<a href=\"/ref/enum/GuiState.html\">GuiState.Hover</a> state (<code>:Hover</code>).</p>\n<h4>Selectors</h4>\n<table>\n<thead>\n  <tr>\n    <th>Selector</th>\n    <th>Description</th>\n    <th>Examples</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td><code>[class]</code></td>\n    <td>Matches instances of a <a href=\"/ref/class/GuiObject.html\">GuiObject</a> or <a href=\"/ref/class/UIComponent.html\">UIComponent</a> class.</td>\n    <td><code>&#34;Frame&#34;</code><br/><code>&#34;ImageButton&#34;</code><br/><code>&#34;UICorner&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>.[tag]</code></td>\n    <td>Matches instances <a href=\"https://create.roblox.com/docs/studio/properties#instance-tags\">tagged</a> with a <a href=\"/ref/class/CollectionService.html\">CollectionService</a> tag.</td>\n    <td><code>&#34;.Container&#34;</code><br/><code>&#34;.BlueOnHover&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>#[name]</code></td>\n    <td>Matches instances of a specific <a href=\"/ref/class/Instance.html#member-Name\">Instance.Name</a>.</td>\n    <td><code>&#34;#ModalFrame&#34;</code><br/><code>&#34;#CloseButton&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>:[state]</code></td>\n    <td>Matches instances currently in a <a href=\"/ref/enum/GuiState.html\">GuiState</a>.</td>\n    <td><code>&#34;:Hover&#34;</code></td>\n  </tr>\n</tbody>\n</table>\n<h4>Combinators</h4>\n<table>\n<thead>\n  <tr>\n    <th>Combinator</th>\n    <th>Description</th>\n    <th>Examples</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td><code>&gt;</code></td>\n    <td>Matches instances that are <b>direct children</b> of the previous filter matches.</td>\n    <td width=\"40%\"><code>&#34;Frame &gt; .Inventory&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>&gt;&gt;</code></td>\n    <td>Matches instances that are <b>descendants</b> of the previous filter matches.</td>\n    <td><code>&#34;ImageButton &gt;&gt; .BlueOnHover&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>,</code></td>\n    <td>Specifies a list of multiple independent selectors for the style rule.</td>\n    <td><code>&#34;Frame.TagA, TextLabel.TagA&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>::</code></td>\n    <td>Creates a phantom <a href=\"/ref/class/UIComponent.html\">UIComponent</a> instance under the previous filter matches and applies the style rule&#39;s properties to it.</td>\n    <td><code>&#34;Frame::UICorner&#34;</code></td>\n  </tr>\n</tbody>\n</table>\n",
+				"Description": "<p>A string specifying which instances the <code>StyleRule</code> should affect. This\ncan be a mix of selectors and combinators to match characteristics such as\nthe class name, instance name, and hierarchy relationships.</p>\n<p>For example, <code>&#34;.Container &gt; ImageLabel.BlueOnHover:Hover&#34;</code> effectively\nmeans the style rule overrides every <a href=\"/ref/class/ImageLabel.html\">ImageLabel</a> that&#39;s a child of\nan instance tagged with <code>Container</code> (<code>.Container &gt; ImageLabel</code>) <strong>and</strong> is\ntagged with <code>BlueOnHover</code> (<code>.BlueOnHover</code>) <strong>and</strong> is in the\n<a href=\"/ref/enum/GuiState.html\">GuiState.Hover</a> state (<code>:Hover</code>).</p>\n<h4>Selectors</h4>\n<table>\n<thead>\n  <tr>\n    <th>Selector</th>\n    <th>Description</th>\n    <th>Examples</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td><code>[class]</code></td>\n    <td>Matches instances of a <a href=\"/ref/class/GuiObject.html\">GuiObject</a> or <a href=\"/ref/class/UIComponent.html\">UIComponent</a> class.</td>\n    <td><code>&#34;Frame&#34;</code><br/><code>&#34;ImageButton&#34;</code><br/><code>&#34;UICorner&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>.[tag]</code></td>\n    <td>Matches instances <a href=\"https://create.roblox.com/docs/studio/properties#instance-tags\">tagged</a> with a <a href=\"/ref/class/CollectionService.html\">CollectionService</a> tag.</td>\n    <td><code>&#34;.Container&#34;</code><br/><code>&#34;.BlueOnHover&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>#[name]</code></td>\n    <td>Matches instances of a specific <a href=\"/ref/class/Instance.html#member-Name\">Instance.Name</a>.</td>\n    <td><code>&#34;#ModalFrame&#34;</code><br/><code>&#34;#CloseButton&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>:[state]</code></td>\n    <td>Matches instances currently in a <a href=\"/ref/enum/GuiState.html\">GuiState</a>.</td>\n    <td><code>&#34;:Hover&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>@[StyleQuery name]</code></td>\n    <td>Matches instances with child <a href=\"/ref/class/StyleQuery.html\">StyleQuery</a> that has <a href=\"/ref/class/StyleQuery.html#member-IsActive\">IsActive</a> set to <code>true</code>.<br/><br/>\n    There are also built-in selectors for <code>&#34;@ReducedMotionEnabledFalse&#34;</code>, <code>&#34;@ReducedMotionEnabledTrue&#34;</code>, <code>&#34;@PreferredInputGamepad&#34;</code>, <code>&#34;@PreferredInputKeyboardAndMouse&#34;</code>, <code>&#34;@PreferredInputTouch&#34;</code>, <code>&#34;@ViewportDisplaySizeSmall&#34;</code>, <code>&#34;@ViewportDisplaySizeMedium&#34;</code>, and <code>&#34;@ViewportDisplaySizeLarge&#34;</code> that can match an instance without a <a href=\"/ref/class/StyleQuery.html\">StyleQuery</a> instance.</td>\n    <td><code>&#34;@StyleQuerySmall&#34;</code></td>\n  </tr>\n</tbody>\n</table>\n<h4>Combinators</h4>\n<table>\n<thead>\n  <tr>\n    <th>Combinator</th>\n    <th>Description</th>\n    <th>Examples</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td><code>&gt;</code></td>\n    <td>Matches instances that are <b>direct children</b> of the previous filter matches.</td>\n    <td width=\"40%\"><code>&#34;Frame &gt; .Inventory&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>&gt;&gt;</code></td>\n    <td>Matches instances that are <b>descendants</b> of the previous filter matches.</td>\n    <td><code>&#34;ImageButton &gt;&gt; .BlueOnHover&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>,</code></td>\n    <td>Specifies a list of multiple independent selectors for the style rule.</td>\n    <td><code>&#34;Frame.TagA, TextLabel.TagA&#34;</code></td>\n  </tr>\n  <tr>\n    <td><code>::</code></td>\n    <td>Creates a phantom <a href=\"/ref/class/UIComponent.html\">UIComponent</a> instance under the previous filter matches and applies the style rule&#39;s properties to it.<br/><br/>\n    Multiple instances can be created for <a href=\"/ref/class/StyleQuery.html\">StyleQuery</a> and <a href=\"/ref/class/UIStroke.html\">UIStroke</a> by aliasing the instance with a name selector.\n    Some nested instances are supported, including <a href=\"/ref/class/UIGradient.html\">UIGradient</a> under <a href=\"/ref/class/UIStroke.html\">UIStroke</a> or <a href=\"/ref/class/UIConstraint.html\">UIConstraint</a> under a <a href=\"/ref/class/UIGridLayout.html\">UIGridLayout</a>.</td>\n    <td><code>&#34;Frame::UICorner&#34; &#34;::UIStroke #Outer&#34;</code></td>\n  </tr>\n</tbody>\n</table>\n",
 				"CodeSamples": [
 					"UI-Styling-Class",
 					"UI-Styling-Tag",
-					"UI-Styling-Modifier"
+					"UI-Styling-Modifier",
+					"UI-Styling-StyleQuery"
 				]
 			},
 			"SelectorError": {
@@ -23441,14 +23493,6 @@
 		"ReadCapturesFromGalleryResult": {
 			"Description": "<p>Represents the result of reading captures from a user&#39;s gallery.</p>\n"
 		},
-		"ReceiptDecision": {
-			"Summary": "<p>The <code>ReceiptDecision</code> works with <a href=\"/ref/class/MarketplaceService.html\">MarketplaceService</a> to indicate the\nacknowledgement of receipts.</p>\n",
-			"Description": "<p>The <code>ReceiptDecision</code> is used to work with\n<a href=\"/ref/class/MarketplaceService.html#member-BindReceiptHandler\">MarketplaceService:BindReceiptHandler</a>, and the specified return type\nof callbacks registered.</p>\n"
-		},
-		"ReceiptType": {
-			"Summary": "<p>The <code>ReceiptType</code> works with <a href=\"/ref/class/MarketplaceService.html#member-BindReceiptHandler\">MarketplaceService:BindReceiptHandler()</a>\nto indicate the different type of receipts a developer can bind to for\nprocessing.</p>\n",
-			"Description": "<p>The <code>ReceiptType</code> is used to work with server-sided receipt processing.</p>\n"
-		},
 		"RecommendationActionType": {},
 		"RecommendationDepartureIntent": {
 			"Description": "<p>This enum captures the user&#39;s intent when leaving a view—whether the\nexperience was neutral, positive, or negative. While longer views can\nsometimes suggest higher engagement, duration alone isn&#39;t a reliable signal.\nFor example, a user might quickly see what they need and immediately teleport\nthrough the item. Even though the view time is short, the swift, purposeful\naction indicates a positive departure intent.</p>\n"
@@ -27784,7 +27828,7 @@
 			"Tilde": {
 				"Summary": "<p>The <code>~</code> key.</p>\n"
 			},
-			"Touch": {
+			"TouchPosition": {
 				"Summary": "<p>The position of a touch in the viewport. Primarily used in the\n<a href=\"https://create.roblox.com/docs/input/input-action-system\">Input Action System</a>.</p>\n"
 			},
 			"TrackpadPan": {},
@@ -29239,25 +29283,6 @@
 		"ReadCapturesFromGalleryResult": {
 			"NeedPermission": {},
 			"Success": {}
-		},
-		"ReceiptDecision": {
-			"NotProcessedYet": {
-				"Summary": "<p>The receipt has not been processed yet by the handler.</p>\n"
-			},
-			"Processed": {
-				"Summary": "<p>The receipt has been processed and all benefits have been granted to the\nuser who the receipt was created for.</p>\n"
-			}
-		},
-		"ReceiptType": {
-			"DeveloperProduct": {
-				"Summary": "<p>Used for processing developer product purchases.</p>\n"
-			},
-			"RobuxTransferReceiver": {
-				"Summary": "<p>Used for processing receipts for users who have received Robux via a Robux\nTransfer.</p>\n"
-			},
-			"RobuxTransferSender": {
-				"Summary": "<p>Used for processing receipts for users who have sent Robux via a Robux\nTransfer.</p>\n"
-			}
 		},
 		"RecommendationActionType": {
 			"AddReaction": {
@@ -33224,7 +33249,13 @@
 				},
 				{
 					"Name": "FromName",
-					"Parameters": [],
+					"Parameters": [
+						{
+							"Name": "name",
+							"Type": "string",
+							"Default": null
+						}
+					],
 					"Returns": [
 						{
 							"Type": "Enum | nil"
@@ -33235,7 +33266,13 @@
 				},
 				{
 					"Name": "FromValue",
-					"Parameters": [],
+					"Parameters": [
+						{
+							"Name": "value",
+							"Type": "number",
+							"Default": null
+						}
+					],
 					"Returns": [
 						{
 							"Type": "Enum | nil"
@@ -33757,16 +33794,16 @@
 			],
 			"Properties": [
 				{
-					"Name": "FilterDescendantsInstances",
-					"Type": "Array",
-					"Summary": "<p>An array of objects whose descendants is used in filtering candidates.</p>\n",
-					"Description": "<p>An array of objects whose descendants is used in filtering candidates.</p>\n"
+					"Name": "ExcludeInstances",
+					"Type": "{Instance}?",
+					"Summary": "<p>An optional array of instances whose descendants will be excluded from the\nquery.</p>\n",
+					"Description": "<p>This property can be used simultaneously with <code>IncludeInstances</code> to allow\nfor mixed filtering (e.g., including a large folder but excluding specific\nchild instances). If an instance matches both an exclude and include\nfilter, exclusions take priority over inclusions.</p>\n"
 				},
 				{
-					"Name": "FilterType",
-					"Type": "RaycastFilterType",
-					"Summary": "<p>Determines how the <a href=\"/ref/type/OverlapParams.html#member-FilterDescendantsInstances\">OverlapParams.FilterDescendantsInstances</a>\nlist is used.</p>\n",
-					"Description": "<p>Determines how the <a href=\"/ref/type/OverlapParams.html#member-FilterDescendantsInstances\">OverlapParams.FilterDescendantsInstances</a>\narray is used, depending on the <a href=\"/ref/enum/RaycastFilterType.html\">RaycastFilterType</a> provided. Default\nis <a href=\"/ref/enum/RaycastFilterType.html\">RaycastFilterType.Exclude</a>.</p>\n"
+					"Name": "IncludeInstances",
+					"Type": "{Instance}?",
+					"Summary": "<p>An optional array of instances whose descendants will be included in the\nquery.</p>\n",
+					"Description": "<p>This property can be used simultaneously with <code>ExcludeInstances</code> to allow\nfor mixed filtering. If an instance matches both an exclude and include\nfilter, exclusions take priority over inclusions. Setting\n<code>IncludeInstances</code> to nil versus an empty array (<code>{}</code>) have opposite\neffects. <code>IncludeInstances = nil</code> is the most permissive filter (includes\neverything), whereas <code>IncludeInstances = {}</code> is the most restrictive\nfilter (includes nothing).</p>\n"
 				},
 				{
 					"Name": "MaxParts",
@@ -33797,6 +33834,18 @@
 					"Type": "bool",
 					"Summary": "<p>When enabled, the query will ignore all part collision properties and\nperform a brute-force check on every part.</p>\n",
 					"Description": "<p>When enabled, the query will ignore all part collision properties and\nperform a brute-force check on every part. This will negatively impact\nperformance and should not be used in live experiences.</p>\n"
+				},
+				{
+					"Name": "FilterDescendantsInstances",
+					"Type": "Array",
+					"Summary": "<p>An array of objects whose descendants are used in filtering candidates.</p>\n",
+					"Description": "<p>This property has been superseded by <code>ExcludeInstances</code> and\n<code>IncludeInstances</code>, which should be used instead for new work.</p>\n"
+				},
+				{
+					"Name": "FilterType",
+					"Type": "RaycastFilterType",
+					"Summary": "<p>Determines whether the\n<a href=\"/ref/type/OverlapParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>\narray is used as an exclude or include list.</p>\n",
+					"Description": "<p>This property has been superseded by <code>ExcludeInstances</code> and\n<code>IncludeInstances</code>, which should be used instead for new work.</p>\n"
 				}
 			],
 			"Methods": [
@@ -33816,11 +33865,11 @@
 						}
 					],
 					"Summary": "<p>Adds the instances provided to\n<a href=\"/ref/type/OverlapParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>.</p>\n",
-					"Description": "<p>For efficiency and simplicity, this method is the preferred way to add\ninstances to the filter. It has the additional advantage that it allows\n<a href=\"/ref/type/OverlapParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>\nto be updated from a parallel context.</p>\n"
+					"Description": "<p>This method has been superseded by <code>ExcludeInstances</code> and\n<code>IncludeInstances</code>, which should be used instead for new work.</p>\n"
 				}
 			],
 			"Summary": "<p>Stores parameters used in boundary-querying functions.</p>\n",
-			"Description": "<p>The <a href=\"/ref/type/OverlapParams.html\">OverlapParams</a> data type stores parameters for use with\n<a href=\"/ref/class/WorldRoot.html\">WorldRoot</a> boundary-querying functions, in particular\n<a href=\"/ref/class/WorldRoot.html#member-GetPartBoundsInBox\">WorldRoot:GetPartBoundsInBox()</a>,\n<a href=\"/ref/class/WorldRoot.html#member-GetPartBoundsInRadius\">WorldRoot:GetPartBoundsInRadius()</a> and\n<a href=\"/ref/class/WorldRoot.html#member-GetPartsInPart\">WorldRoot:GetPartsInPart()</a>. The\n<a href=\"/ref/type/OverlapParams.html#member-FilterDescendantsInstances\">OverlapParams.FilterDescendantsInstances</a> property stores an array\nof objects to use as either an inclusion or exclusion list based on the\n<a href=\"/ref/type/OverlapParams.html#member-FilterType\">OverlapParams.FilterType</a> enum, and the\n<a href=\"/ref/type/OverlapParams.html#member-CollisionGroup\">OverlapParams.CollisionGroup</a> property can specify a collision group\nfor the boundary query operation.</p>\n<p>Unlike most data types in Luau, you can change all of the members of\n<a href=\"/ref/type/OverlapParams.html\">OverlapParams</a> without creating a new object, allowing you to reuse\nthe same object repeatedly.</p>\n"
+			"Description": "<p>The <a href=\"/ref/type/OverlapParams.html\">OverlapParams</a> data type stores parameters for use with\n<a href=\"/ref/class/WorldRoot.html\">WorldRoot</a> boundary-querying functions, in particular\n<a href=\"/ref/class/WorldRoot.html#member-GetPartBoundsInBox\">WorldRoot:GetPartBoundsInBox()</a>,\n<a href=\"/ref/class/WorldRoot.html#member-GetPartBoundsInRadius\">WorldRoot:GetPartBoundsInRadius()</a> and\n<a href=\"/ref/class/WorldRoot.html#member-GetPartsInPart\">WorldRoot:GetPartsInPart()</a>. The\n<a href=\"/ref/type/OverlapParams.html#member-ExcludeInstances\">ExcludeInstances</a> and\n<a href=\"/ref/type/OverlapParams.html#member-IncludeInstances\">IncludeInstances</a> properties store a\nset of objects and their descendants that will be excluded and included from\nthe query. The <a href=\"/ref/type/OverlapParams.html#member-CollisionGroup\">OverlapParams.CollisionGroup</a> property can specify a\ncollision group for the boundary query operation.</p>\n<p>Unlike most data types in Luau, you can change all of the members of\n<a href=\"/ref/type/OverlapParams.html\">OverlapParams</a> without creating a new object, allowing you to reuse\nthe same object repeatedly.</p>\n"
 		},
 		"Path2DControlPoint": {
 			"Constructors": [
@@ -34391,16 +34440,16 @@
 			],
 			"Properties": [
 				{
-					"Name": "FilterDescendantsInstances",
-					"Type": "Array",
-					"Summary": "<p>An array of objects whose descendants are used in filtering raycasting\ncandidates.</p>\n",
-					"Description": "<p>An array of objects whose descendants are used in filtering raycasting\ncandidates.</p>\n"
+					"Name": "ExcludeInstances",
+					"Type": "{Instance}?",
+					"Summary": "<p>An optional array of instances whose descendants will be excluded from the\nquery.</p>\n",
+					"Description": "<p>This property can be used simultaneously with <code>IncludeInstances</code> to allow\nfor mixed filtering (e.g., including a large folder but excluding specific\nchild instances). If an instance matches both an exclude and include\nfilter, exclusions take priority over inclusions.</p>\n"
 				},
 				{
-					"Name": "FilterType",
-					"Type": "RaycastFilterType",
-					"Summary": "<p>Determines how the\n<a href=\"/ref/type/RaycastParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>\narray is used.</p>\n",
-					"Description": "<p>Determines how the\n<a href=\"/ref/type/RaycastParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>\narray is used, depending on the <a href=\"/ref/enum/RaycastFilterType.html\">RaycastFilterType</a> provided.</p>\n"
+					"Name": "IncludeInstances",
+					"Type": "{Instance}?",
+					"Summary": "<p>An optional array of instances whose descendants will be included in the\nquery.</p>\n",
+					"Description": "<p>This property can be used simultaneously with <code>ExcludeInstances</code> to allow\nfor mixed filtering. If an instance matches both an exclude and include\nfilter, exclusions take priority over inclusions. Setting\n<code>IncludeInstances</code> to nil versus an empty array (<code>{}</code>) have opposite\neffects. <code>IncludeInstances = nil</code> is the most permissive filter (includes\neverything), whereas <code>IncludeInstances = {}</code> is the most restrictive\nfilter (includes nothing).</p>\n"
 				},
 				{
 					"Name": "IgnoreWater",
@@ -34425,6 +34474,18 @@
 					"Type": "bool",
 					"Summary": "<p>When enabled, the query will ignore all part collision properties and\nperform a brute-force check on every part.</p>\n",
 					"Description": "<p>When enabled, the query will ignore all part collision properties and\nperform a brute-force check on every part. This will negatively impact\nperformance and should not be used in live experiences.</p>\n"
+				},
+				{
+					"Name": "FilterDescendantsInstances",
+					"Type": "Array",
+					"Summary": "<p>An array of objects whose descendants are used to filter raycasting\ncandidates.</p>\n",
+					"Description": "<p>This property has been superseded by <code>ExcludeInstances</code> and\n<code>IncludeInstances</code>, which should be used instead for new work.</p>\n"
+				},
+				{
+					"Name": "FilterType",
+					"Type": "RaycastFilterType",
+					"Summary": "<p>Determines whether the\n<a href=\"/ref/type/RaycastParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>\narray is used as an exclude or include list.</p>\n",
+					"Description": "<p>This property has been superseded by <code>ExcludeInstances</code> and\n<code>IncludeInstances</code>, which should be used instead for new work.</p>\n"
 				}
 			],
 			"Methods": [
@@ -34444,11 +34505,11 @@
 						}
 					],
 					"Summary": "<p>Adds the instances provided to\n<a href=\"/ref/type/RaycastParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>.</p>\n",
-					"Description": "<p>For efficiency and simplicity, this method is the preferred way to add\ninstances to the filter. It has the additional advantage that it allows\n<a href=\"/ref/type/RaycastParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>\nto be updated from a parallel context.</p>\n"
+					"Description": "<p>This method has been superseded by <code>ExcludeInstances</code> and\n<code>IncludeInstances</code>, which should be used instead for new work.</p>\n"
 				}
 			],
 			"Summary": "<p>A container for parameters used in raycasting operations.</p>\n",
-			"Description": "<p>The <a href=\"/ref/type/RaycastParams.html\">RaycastParams</a> data type stores parameters for\n<a href=\"/ref/class/WorldRoot.html#member-Raycast\">WorldRoot:Raycast()</a> operations. The\n<a href=\"/ref/type/RaycastParams.html#member-FilterDescendantsInstances\">FilterDescendantsInstances</a>\nproperty stores an array of objects to use as either an inclusion or exclusion\nlist based on the <a href=\"/ref/type/RaycastParams.html#member-FilterType\">RaycastParams.FilterType</a> enum. If desired, the\n<a href=\"/ref/type/RaycastParams.html#member-IgnoreWater\">RaycastParams.IgnoreWater</a> property can be used to ignore\n<a href=\"/ref/class/Terrain.html\">Terrain</a> water, and the <a href=\"/ref/type/RaycastParams.html#member-CollisionGroup\">RaycastParams.CollisionGroup</a>\nproperty can specify a collision group for the raycasting operation.</p>\n<p>This object is different from the similarly named <a href=\"/ref/type/RaycastResult.html\">RaycastResult</a>\nwhich provides the results of a raycast.</p>\n<p>Unlike most data types in Luau, you can change all of the members of\n<a href=\"/ref/type/RaycastParams.html\">RaycastParams</a> without creating a new object, allowing you to reuse\nthe same object repeatedly.</p>\n"
+			"Description": "<p>The <a href=\"/ref/type/RaycastParams.html\">RaycastParams</a> data type stores parameters for\n<a href=\"/ref/class/WorldRoot.html#member-Raycast\">WorldRoot:Raycast()</a> operations. The\n<a href=\"/ref/type/RaycastParams.html#member-ExcludeInstances\">ExcludeInstances</a> and\n<a href=\"/ref/type/RaycastParams.html#member-IncludeInstances\">IncludeInstances</a> properties store a\nset of objects and their descendants that will be excluded and included from\nthe query. The <a href=\"/ref/type/RaycastParams.html#member-IgnoreWater\">RaycastParams.IgnoreWater</a> property can be used to\nignore <a href=\"/ref/class/Terrain.html\">Terrain</a> water, and the <a href=\"/ref/type/RaycastParams.html#member-CollisionGroup\">RaycastParams.CollisionGroup</a>\nproperty can specify a collision group for the raycasting operation.</p>\n<p>This object is different from the similarly named <a href=\"/ref/type/RaycastResult.html\">RaycastResult</a>\nwhich provides the results of a raycast.</p>\n<p>Unlike most data types in Luau, you can change all of the members of\n<a href=\"/ref/type/RaycastParams.html\">RaycastParams</a> without creating a new object, allowing you to reuse\nthe same object repeatedly.</p>\n"
 		},
 		"RaycastResult": {
 			"Properties": [
@@ -35507,30 +35568,6 @@
 				}
 			],
 			"Properties": [
-				{
-					"Name": "zero",
-					"Type": "Vector2",
-					"Summary": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a magnitude of zero.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a magnitude of zero.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector2.html\">Vector2</a> global as opposed to an individual <a href=\"/ref/type/Vector2.html\">Vector2</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector2.zero</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
-				},
-				{
-					"Name": "one",
-					"Type": "Vector2",
-					"Summary": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a value of 1 on every axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a value of 1 on every axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector2.html\">Vector2</a> global as opposed to an individual <a href=\"/ref/type/Vector2.html\">Vector2</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector2.one</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
-				},
-				{
-					"Name": "xAxis",
-					"Type": "Vector2",
-					"Summary": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a value of 1 on the X axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a value of 1 on the X axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector2.html\">Vector2</a> global as opposed to an individual <a href=\"/ref/type/Vector2.html\">Vector2</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector2.xAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 1, 0</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
-				},
-				{
-					"Name": "yAxis",
-					"Type": "Vector2",
-					"Summary": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a value of 1 on the y axis.</p>\n",
-					"Description": "<p>A <a href=\"/ref/type/Vector2.html\">Vector2</a> with a value of 1 on the Y axis.</p>\n<p>This API member is a <strong>constant</strong>, and must be accessed through the\n<a href=\"/ref/type/Vector2.html\">Vector2</a> global as opposed to an individual <a href=\"/ref/type/Vector2.html\">Vector2</a>\nobject.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">Vector2.yAxis</span><span class=\"_p\">)</span>  <span class=\"_c1\">--&gt; 0, 1</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
-				},
 				{
 					"Name": "X",
 					"Type": "number",

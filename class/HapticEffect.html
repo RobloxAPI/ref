@@ -375,7 +375,11 @@ Change ReadSecurity of <a class="entity-link deco" href=/ref/class/HapticEffect.
 v0.638.0.6380612
 version-f626628767584980">638</a>
 Add <a class="entity-link deco" href=/ref/class/HapticEffect.html#member-Radius><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>Radius</a></li></ul></details></section><section id=member-SetWaveformKeys class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SetWaveformKeys<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/HapticEffect#SetWaveformKeys target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-keys><td class=col-name>keys</td><td class=col-type><a class="entity-link deco" href=/ref/type/Array.html>Array</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></td></tr></tbody></table><div class=docs><p>This method lets you define a custom waveform as a table and apply it to
-the haptic.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
+the haptic. It takes an array of <a href=/ref/type/FloatCurveKey.html>FloatCurveKey</a> objects, each
+constructed with three arguments: <strong>time</strong> in milliseconds, <strong>value</strong>
+ranging from <code>0</code> (no haptic) to <code>1</code> (full intensity), and an
+<a href=/ref/enum/KeyInterpolationMode.html>KeyInterpolationMode</a> that controls how the curve interpolates.
+between keys.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
 
 local effect = Instance.new(&#34;HapticEffect&#34;)
 
@@ -383,12 +387,13 @@ local effect = Instance.new(&#34;HapticEffect&#34;)
 effect.Type = Enum.HapticEffectType.Custom
 effect.Parent = Workspace
 
--- Define the custom waveform curve through a table
+-- Define the custom waveform curve through a table of FloatCurveKeys
+-- Time values are in milliseconds; values range from 0 (no haptic) to 1 (full intensity)
 local rampUpWaveform = {
-	FloatCurveKey.new(0, 0.3),
-	FloatCurveKey.new(100, 0.4),
-	FloatCurveKey.new(300, 0.8),
-	FloatCurveKey.new(400, 1.0)
+	FloatCurveKey.new(0, 0.3, Enum.KeyInterpolationMode.Linear),
+	FloatCurveKey.new(100, 0.4, Enum.KeyInterpolationMode.Linear),
+	FloatCurveKey.new(300, 0.8, Enum.KeyInterpolationMode.Linear),
+	FloatCurveKey.new(400, 1.0, Enum.KeyInterpolationMode.Linear)
 }
 
 -- Set waveform through the effect&#39;s method
