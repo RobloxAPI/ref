@@ -87,9 +87,12 @@ experiences. To enable usage, you must be 13+ age verified and ID verified.
 After you are verified, open Studio's
 <a href=https://create.roblox.com/docs/studio/experience-settings>Experience Settings</a>, select
 <strong>Security</strong>, and enable the <strong>Allow Mesh / Image APIs</strong> toggle.</p><h3>Permissions</h3><p>To prevent misuse, <a href=/ref/class/AssetService.html#member-CreateEditableImageAsync>AssetService:CreateEditableImageAsync()</a> only allows
-you to load and edit image assets:</p><ul><li>That are owned by the creator of the experience (if the experience is owned
-by an individual).</li><li>That are owned by a group (if the experience is owned by the group).</li><li>That are owned by the logged in Studio user (if the place file has not yet
-been saved or published to Roblox).</li></ul><p>The APIs throw an error if they are used to load an asset that does not meet
+you to load and edit image assets if any of the following is true:</p><ul><li>Owned by or explicitly shared with the experience owner.</li><li>Owned by or explicitly shared with the logged in Studio user.</li><li>Owned by or explicitly shared with the logged in player if the
+<code>EditableImage</code> is on the client side.</li><li>Owned by a group where the experience owner, Studio user, or player has a
+role with permission to edit the group's assets. See
+<a href=https://create.roblox.com/docs/projects/groups#roles-and-permissions>Roles and permissions</a>
+for more information.</li></ul><p>See <a href=https://create.roblox.com/docs/projects/assets/privacy#grant-permissions>Grant permissions</a>
+to learn how to share assets with users or groups.</p><p>The APIs throw an error if they are used to load an asset that does not meet
 the criteria above.</p><h3>Memory Limits</h3><p>Editable assets are currently expensive for memory usage. To minimize its
 impact on client performance, <code>EditableImage</code> has strict client-side memory
 budgets, although the server, Studio, and plugins operate with unlimited

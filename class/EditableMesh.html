@@ -246,10 +246,14 @@ and ID verified. After you are verified, open Studio's
 <strong>Security</strong>, and enable the <strong>Allow Mesh & Image APIs</strong>
 toggle. Remember to review the
 <a href=https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use#creators-restrictions-on-use>Terms of Use</a>
-before enabling the toggle.</p><h3>Permissions</h3><p>To prevent misuse, <a href=/ref/class/AssetService.html#member-CreateEditableMeshAsync>AssetService:CreateEditableMeshAsync()</a> will only
-allow you to load and edit mesh assets:</p><ul><li>That are owned by the creator of the experience (if the experience is owned
-by an individual).</li><li>That are owned by a group (if the experience is owned by the group).</li><li>That are owned by the logged in Studio user (if the place file has not yet
-been saved or published to Roblox).</li></ul><h3>Memory Limits</h3><p>Editable assets are currently expensive for memory usage. To minimize its
+before enabling the toggle.</p><h3>Permissions</h3><p>To prevent misuse, <a href=/ref/class/AssetService.html#member-CreateEditableMeshAsync>AssetService:CreateEditableMeshAsync()</a> only allows
+you to load and edit mesh assets if any of the following is true:</p><ul><li>Owned by or explicitly shared with the experience owner.</li><li>Owned by or explicitly shared with the logged in Studio user.</li><li>Owned by or explicitly shared with the logged in player if the
+<code>EditableMesh</code> is on the client side.</li><li>Owned by a group where the experience owner, Studio user, or player has a
+role with permission to edit the group's assets. See
+<a href=https://create.roblox.com/docs/projects/groups#roles-and-permissions>Roles and permissions</a>
+for more information.</li></ul><p>See <a href=https://create.roblox.com/docs/projects/assets/privacy#grant-permissions>Grant permissions</a>
+to learn how to share assets with users or groups.</p><p>The APIs throw an error if they are used to load an asset that does not meet
+the criteria above.</p><h3>Memory Limits</h3><p>Editable assets are currently expensive for memory usage. To minimize its
 impact on client performance, <code>EditableMesh</code> has strict client-side memory
 budgets, although the server, Studio, and plugins operate with unlimited
 memory. Using <a href=/ref/class/EditableMesh.html#member-FixedSize>FixedSize</a> may help you stay
