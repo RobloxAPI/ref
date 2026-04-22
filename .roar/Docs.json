@@ -1559,6 +1559,17 @@
 			"Description": "<p><code>PluginAction</code> represents a generic performable action in Studio with no\ndirectly‑associated <a href=\"/ref/class/PluginToolbarButton.html\">PluginToolbarButton</a>. If\n<a href=\"/ref/class/PluginAction.html#member-AllowBinding\">AllowBinding</a> is <code>true</code>, the action can be\nassigned a keyboard shortcut through Studio&#39;s <strong>File</strong> ⟩ <strong>Customize\nShortcuts</strong> window.</p>\n<p>A <code>PluginAction</code> must be created using the <a href=\"/ref/class/Plugin.html#member-CreatePluginAction\">Plugin:CreatePluginAction()</a>\nmethod in order to work as expected.</p>\n"
 		},
 		"PluginCapabilities": {},
+		"PluginConnection": {
+			"Summary": "<p>Encapsulates a connection between the current data model and another for\nplugin communication.</p>\n",
+			"Description": "<p>Studio plugins run in each Studio data model that the user opens, including\nboth edit and playtest data models. <code>PluginConnection</code> objects allow these\ninstances of the same plugin to communicate across data model boundaries.\nMessages sent by <a href=\"/ref/class/PluginConnection.html#member-SendMessage\">PluginConnection:SendMessage()</a> will be received in\nthe remote data model via the callback the same plugin registers with\n<a href=\"/ref/class/PluginConnection.html#member-BindToMessage\">PluginConnection:BindToMessage()</a>. Each <code>PluginConnection</code> object can\nboth send and receive messages while connected, and messages will be received\nreliably and in order unless the connection drops (e.g. due to the remote data\nmodel shutting down) before their receipt.</p>\n<p>Note that although multiple plugins may share the same <code>PluginConnection</code>\nobject, they each have their own internal connection; each plugin will receive\nonly its own messages in its callback to <code>BindToMessage()</code>, even if other\nplugins call <code>SendMessage()</code>.</p>\n"
+		},
+		"PluginConnectionService": {
+			"Summary": "<p>This service is used by plugins to communicate with other instances of\nthemselves running in other data models.</p>\n",
+			"Description": "<p>This service is used by plugins to communicate with other instances of\nthemselves running in other data models (e.g. a plugin in the Studio edit data\nmodel can communicate with the instance of that same plugin in the Studio\nplaytest Server data model). Plugins can retrieve <a href=\"/ref/class/PluginConnection.html\">PluginConnection</a>\nobjects from this service, which provide an API for sending messages across\nthe data model boundary. All access to this class is restricted to Plugin\nsecurity. The command bar is not currently supported.</p>\n",
+			"CodeSamples": [
+				"plugin-connection-echo"
+			]
+		},
 		"PluginDebugService": {},
 		"PluginDragEvent": {},
 		"PluginGui": {
@@ -10840,8 +10851,8 @@
 				"DeprecationMessage": "<p>This instance only works with the old R6 rig. It will not work with the\nR15 rig and should not be used in new work not using the R6 rig.</p>\n"
 			},
 			"RootPart": {
-				"Summary": "<p>A reference to the humanoid&#39;s <strong>HumanoidRootPart</strong> object.</p>\n",
-				"Description": "<p>A reference to the humanoid&#39;s <strong>HumanoidRootPart</strong> object, the root\ndriving part of the <a href=\"/ref/class/Humanoid.html\">Humanoid</a> that controls a humanoid&#39;s movement\nthrough the 3D world. This part is normally invisible.</p>\n<p>For R15 characters, <a href=\"/ref/class/Model.html#member-PrimaryPart\">Model.PrimaryPart</a> of the\n<a href=\"/ref/class/Player.html#member-Character\">Player.Character</a> model is set to <strong>HumanoidRootPart</strong>.</p>\n<p>For R6 characters, <a href=\"/ref/class/Model.html#member-PrimaryPart\">Model.PrimaryPart</a> is set to the <code>Head</code> part.</p>\n"
+				"Summary": "<p>A reference to the humanoid&#39;s <code>HumanoidRootPart</code> object.</p>\n",
+				"Description": "<p>A reference to the humanoid&#39;s <code>HumanoidRootPart</code> object. The\n<code>HumanoidRootPart</code> is required for all assemblies that include a\n<a href=\"/ref/class/Humanoid.html\">Humanoid</a> and is the primary driving part of the <a href=\"/ref/class/Humanoid.html\">Humanoid</a>\nthat controls a humanoid&#39;s movement through the 3D world. This part is\nnormally invisible and typically resides in the local origin center of the\ncharacter model.</p>\n<p>The <code>HumanoidRootPart</code> is included in all platform-wide avatar characters,\nand automatically created when a character model is imported into Studio.\nIt&#39;s possible to manually add a <code>HumanoidRootPart</code> to a model by adding a\n<a href=\"/ref/class/Part.html\">Part</a> named <code>HumanoidRootPart</code> and ensuring it&#39;s the root part of\nthe assembly.</p>\n<p>Use this property to reference the specific <code>HumanoidRootPart</code> without\nsearching the model hierarchy. You can get or set the <a href=\"/ref/class/CFrame.html\">CFrame</a> of\nthis part to change position or reorient the entire character model.</p>\n<p>For R15 or higher-fidelity characters, the <a href=\"/ref/class/Model.html#member-PrimaryPart\">Model.PrimaryPart</a> of\nthe <a href=\"/ref/class/Player.html#member-Character\">Player.Character</a> model is also set to <code>HumanoidRootPart</code>.</p>\n<p>While R6 characters also include a <code>HumanoidRootPart</code>, the R6 characters,\n<a href=\"/ref/class/Model.html#member-PrimaryPart\">Model.PrimaryPart</a> is set to the <code>Head</code> part.</p>\n"
 			},
 			"Running": {
 				"Summary": "<p>Fires when the speed at which a <a href=\"/ref/class/Humanoid.html\">Humanoid</a> is running changes.</p>\n",
@@ -15563,6 +15574,42 @@
 		},
 		"PluginCapabilities": {
 			"Manifest": {}
+		},
+		"PluginConnection": {
+			"BindToMessage": {
+				"Summary": "<p>Binds a callback to this <code>PluginConnection</code> to receive messages from\n<code>SendMessage()</code>.</p>\n",
+				"Description": "<p>This function binds a callback to this connection, which will be called\nwhen the connection receives a message from the current plugin running in\nthe remote data model. The message passed to the callback will be the same\nas the one the plugin passed to <code>SendMessage()</code>. The <code>PluginConnection</code>\nwill buffer any messages received before the plugin calls\n<code>BindToMessage()</code> and deliver them immediately when the plugin does call\n<code>BindToMessage()</code>. Each plugin may only bind one callback at a time.</p>\n"
+			},
+			"Connected": {
+				"Summary": "<p>Whether this <code>PluginConnection</code> object is still connected.</p>\n",
+				"Description": "<p>If true, then this <code>PluginConnection</code> remains connected to the target data\nmodel, and it is still possible to send messages to that data model and\nreceive them from it. If false, then the connection has been lost. Once\ndisconnected, <code>PluginConnection</code> objects cannot reconnect, so a value of\nfalse here indicates it is now safe to discard the <code>PluginConnection</code>\nobject.</p>\n"
+			},
+			"SendMessage": {
+				"Summary": "<p>Sends a payload to the remote data model.</p>\n",
+				"Description": "<p>This function transmits a string or buffer to the remote data model. The\ncallback registered in <code>BindToMessage()</code> by the instance of the current\nplugin running in the remote data model will be called asynchronously with\nthe message as its argument.</p>\n"
+			},
+			"TargetId": {
+				"Summary": "<p>A unique ID for the target data model.</p>\n",
+				"Description": "<p>This string contains a globally unique identifier for the target data\nmodel, which will be the same for any two plugin connections that target\nthe same data model (even if those connections originate from different\ndata models). This property is immutable.</p>\n"
+			},
+			"Type": {
+				"Summary": "<p>This <a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType</a> describes the relationship of the\ntarget data model to the current one.</p>\n",
+				"Description": "<p>This <a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType</a> describes the relationship of the\ntarget data model to the current data model. For example, a value of\n<a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType.Test</a> means that the target data model is\na playtest data model spawned from this data model. Alternatively, a value\nof <a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType.Edit</a> means the target data model is\nthe edit session which spawned this test data model. This property is\nimmutable.</p>\n"
+			}
+		},
+		"PluginConnectionService": {
+			"CanHaveConnectionType": {
+				"Summary": "<p>Checks if the current data model context can ever have connections of a\ngiven type.</p>\n",
+				"Description": "<p>Checks if the current data model can potentially have connections of a\ngiven <a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType</a>. Note that it is possible for this\nfunction to return true even if no such connections currently exist.</p>\n"
+			},
+			"Connected": {
+				"Summary": "<p>Fires just after a new <a href=\"/ref/class/PluginConnection.html\">PluginConnection</a> successfully connects.</p>\n",
+				"Description": "<p>Fires just after a new <a href=\"/ref/class/PluginConnection.html\">PluginConnection</a> successfully connects.\nPlugins may listen for this signal to learn when a new data model that\nthey can communicate with becomes available.</p>\n<p>Note: On startup, it is possible some\n<a href=\"/ref/class/PluginConnection.html\">PluginConnections</a> already exist. Plugins should\nquery <a href=\"/ref/class/PluginConnectionService.html#member-GetPluginConnectionsOfType\">PluginConnectionService:GetPluginConnectionsOfType()</a> for\neach type they are interested in after connecting to this function.</p>\n"
+			},
+			"GetPluginConnectionsOfType": {
+				"Summary": "<p>Returns a list of currently connected <a href=\"/ref/class/PluginConnection.html\">PluginConnection</a> objects\nwith the given connection type.</p>\n",
+				"Description": "<p>Returns a list of currently connected <a href=\"/ref/class/PluginConnection.html\">PluginConnection</a> objects\nwith the given connection type. Each <code>PluginConnection</code> from this list\nwill initially have their <code>Connected</code> property set to true and correspond\nto a connected data model related to the current data model according to\ntheir <a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType</a>. For example, an edit data model\nmay have <a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType.Test</a> connections to communicate\nwith its ongoing playtest data models, and each test data model will have\nan <a href=\"/ref/enum/PluginConnectionTargetType.html\">PluginConnectionTargetType.Edit</a> connection back to its edit data\nmodel.</p>\n"
+			}
 		},
 		"PluginDebugService": {},
 		"PluginDragEvent": {
@@ -21250,7 +21297,7 @@
 			},
 			"GetDeviceGravity": {
 				"Summary": "<p>Returns an <a href=\"/ref/class/InputObject.html\">InputObject</a> describing the device&#39;s current gravity\nvector.</p>\n",
-				"Description": "<p>This method returns an <a href=\"/ref/class/InputObject.html\">InputObject</a> describing the device&#39;s current\ngravity vector. The vector is determined by the device&#39;s orientation\nrelative to the real-world force of gravity. For example:</p>\n<ul>\n<li><a href=\"/ref/type/Vector3.html\">Vector3.new(0, 0, -9.18)</a> if the device is perfectly\nupright (portrait)</li>\n<li><a href=\"/ref/type/Vector3.html\">Vector3.new(9.81, 0, 0)</a> if the left side of the\ndevice is pointing down</li>\n<li><a href=\"/ref/type/Vector3.html\">Vector3.new(0, -9.81, 0)</a> if the back of the device is\npointing down</li>\n</ul>\n<p>Gravity is only tracked for devices with an enabled gyroscope as queried\nthrough <a href=\"/ref/class/UserInputService.html#member-GyroscopeEnabled\">GyroscopeEnabled</a>.</p>\n<p>To track when the device&#39;s gravity changes, use the\n<a href=\"/ref/class/UserInputService.html#member-DeviceGravityChanged\">DeviceGravityChanged</a> event.</p>\n",
+				"Description": "<p>This method returns an <a href=\"/ref/class/InputObject.html\">InputObject</a> describing the device&#39;s current\ngravity vector. The vector is determined by the device&#39;s orientation\nrelative to the real-world force of gravity. For example:</p>\n<ul>\n<li><a href=\"/ref/type/Vector3.html\">Vector3.new(0, 0, -9.81)</a> if the device is perfectly\nupright (portrait)</li>\n<li><a href=\"/ref/type/Vector3.html\">Vector3.new(9.81, 0, 0)</a> if the left side of the\ndevice is pointing down</li>\n<li><a href=\"/ref/type/Vector3.html\">Vector3.new(0, -9.81, 0)</a> if the back of the device is\npointing down</li>\n</ul>\n<p>Gravity is only tracked for devices with an enabled gyroscope as queried\nthrough <a href=\"/ref/class/UserInputService.html#member-GyroscopeEnabled\">GyroscopeEnabled</a>.</p>\n<p>To track when the device&#39;s gravity changes, use the\n<a href=\"/ref/class/UserInputService.html#member-DeviceGravityChanged\">DeviceGravityChanged</a> event.</p>\n",
 				"CodeSamples": [
 					"UserInputService-GetDeviceGravity"
 				]
@@ -23472,6 +23519,9 @@
 		"PlayerPlatformSpenderStatus": {
 			"Summary": "<p>Describes a player&#39;s platform-wide spender status bucket.</p>\n",
 			"Description": "<p>The <code>PlayerPlatformSpenderStatus</code> enum describes a player&#39;s platform-wide\nspender status bucket.</p>\n"
+		},
+		"PluginConnectionTargetType": {
+			"Description": "<p>An enum describing the possible relationships a target data model of a\n<a href=\"/ref/class/PluginConnection.html\">PluginConnection</a> can have to the current data model.</p>\n"
 		},
 		"PoseEasingDirection": {
 			"Summary": "<p>Used exclusively by Pose.EasingDirection to specify direction of the\nEasingStyle curve.</p>\n",
@@ -29042,6 +29092,10 @@
 			"Unknown": {
 				"Summary": "<p>Segment data is unavailable.</p>\n"
 			}
+		},
+		"PluginConnectionTargetType": {
+			"Edit": {},
+			"Test": {}
 		},
 		"PoseEasingDirection": {
 			"In": {
