@@ -174,19 +174,17 @@ v0.650.0.6500742
 version-ea4e72f3b3894847">650</a></td><td class=col-icon><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span></td><td class=col-member><span class="member-text deco deprecated"><span class=name><a class=entity-link href=/ref/class/Object.html#member-isA>isA</a></span><span class="parameters open">(</span><span class="parameters parameter">className: <a class="entity-link deco" href=/ref/type/string.html>string</a></span><span class="parameters close">)</span><span class=bind>: </span><span class="returns return"><a class="entity-link deco" href=/ref/type/bool.html>bool</a></span></span></td></tr><tr class=set><td class=col-history><a class="history-tag added" href=/ref/updates/2024.html#version-2220a78ed1774256-35 title="Added on 2024-10-15T11:18:30-07:00
 v0.647.0.6470717
 version-2220a78ed1774256">647</a></td><td class=col-icon><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span></td><td class=col-member><span class="member-text deco"><span class=name><a class=entity-link href=/ref/class/Object.html#member-Changed>Changed</a></span><span class="parameters open">(</span><span class="parameters parameter">property: <a class="entity-link deco" href=/ref/type/string.html>string</a></span><span class="parameters close">)</span></span></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p><code>StudioTestService</code> allows plugins to automate and customize Test and Run mode
-testing. With StudioTestService, your plugins can launch tests that jump
+testing. With <code>StudioTestService</code>, your plugins can launch tests that jump
 straight to a specific part of your game, or run complex code tests
-automatically.</p><p>The following is an example of automated unit testing:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_c1>--Plugin Script</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>StudioTestService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;StudioTestService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>testResult</span> <span class=_o>=</span> <span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>ExecuteRunModeAsync</span><span class=_p>(</span><span class=_s2>&#34;MyTestSuite&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Test finished. Result:&#34;</span><span class=_p>,</span> <span class=_n>testResult</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
+automatically.</p><p>You can use <code>StudioTestService</code> to start a server with multiple simulated
+clients, add players mid-session, pass arguments into running tests, end tests
+from the server, and trigger client disconnections, all without manually
+clicking through the Test tab in Studio.</p><p>These methods complement the existing playtest automation available through
+Studio's built-in MCP server. Where the MCP server's <code>start_stop_play</code> tool
+starts a single Play Client session, the <code>StudioTestService</code> methods are
+designed for scripted multi-client scenarios such as lobby, matchmaking, and
+join/leave flow testing.</p><p>A typical multiplayer test splits across three script contexts: the plugin
+that launches it, the server that drives it, and the clients that participate:</p><p>Plugin script:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
 </span><span class=_lnt> 2
 </span><span class=_lnt> 3
 </span><span class=_lnt> 4
@@ -198,47 +196,58 @@ automatically.</p><p>The following is an example of automated unit testing:</p><
 </span><span class=_lnt>10
 </span><span class=_lnt>11
 </span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span><span class=_lnt>16
-</span><span class=_lnt>17
-</span><span class=_lnt>18
-</span><span class=_lnt>19
-</span><span class=_lnt>20
-</span><span class=_lnt>21
-</span><span class=_lnt>22
-</span><span class=_lnt>23
-</span><span class=_lnt>24
-</span><span class=_lnt>25
-</span><span class=_lnt>26
-</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_c1>--Server Script</span>
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>StudioTestService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;StudioTestService&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>toolbar</span> <span class=_o>=</span> <span class=_n>plugin</span><span class=_p>:</span><span class=_n>CreateToolbar</span><span class=_p>(</span><span class=_s2>&#34;STS Tests&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>button</span> <span class=_o>=</span> <span class=_n>toolbar</span><span class=_p>:</span><span class=_n>CreateButton</span><span class=_p>(</span><span class=_s2>&#34;MyTest&#34;</span><span class=_p>,</span> <span class=_s2>&#34;&#34;</span><span class=_p>,</span> <span class=_s2>&#34;&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_n>button.Click</span><span class=_p>:</span><span class=_n>Connect</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>button.Enabled</span> <span class=_o>=</span> <span class=_kc>false</span>
+</span></span><span class=_line><span class=_cl>    <span class=_kd>local</span> <span class=_n>result</span> <span class=_o>=</span> <span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>ExecuteMultiplayerTestAsync</span><span class=_p>(</span><span class=_mi>1</span><span class=_p>,</span> <span class=_s2>&#34;MyArguments&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>assert</span><span class=_p>(</span><span class=_n>result</span> <span class=_o>==</span> <span class=_s2>&#34;Success!&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Test finished successfully!&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>button.Enabled</span> <span class=_o>=</span> <span class=_kc>true</span>
+</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
+</span></span></code></pre></td></tr></tbody></table></div><p>Server script:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>StudioTestService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;StudioTestService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>RunService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;RunService&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>RunService</span><span class=_p>:</span><span class=_n>IsStudio</span><span class=_p>()</span> <span class=_ow>or</span> <span class=_ow>not</span> <span class=_n>RunService</span><span class=_p>:</span><span class=_n>IsRunMode</span><span class=_p>()</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span>
+</span></span><span class=_line><span class=_cl><span class=_n>assert</span><span class=_p>(</span><span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>GetTestArgs</span><span class=_p>()</span> <span class=_o>==</span> <span class=_s2>&#34;MyArguments&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_n>Players.PlayerRemoving</span><span class=_p>:</span><span class=_n>Connect</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>(</span><span class=_n>player</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>print</span><span class=_p>(</span><span class=_n>player.Name</span> <span class=_o>..</span> <span class=_s2>&#34; left the experience&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>task.wait</span><span class=_p>(</span><span class=_mi>3</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>EndTest</span><span class=_p>(</span><span class=_s2>&#34;Success!&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
+</span></span></code></pre></td></tr></tbody></table></div><p>Client script:</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>IsLoaded</span><span class=_p>()</span> <span class=_kr>then</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>game.Loaded</span><span class=_p>:</span><span class=_n>Wait</span><span class=_p>()</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>suiteName</span> <span class=_o>=</span> <span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>GetTestArgs</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_n>suiteName</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kd>local</span> <span class=_n>tests</span> <span class=_o>=</span> <span class=_n>getTestsArrayByName</span><span class=_p>(</span><span class=_n>suiteName</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kr>if</span> <span class=_n>tests</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>        <span class=_kd>local</span> <span class=_n>result</span> <span class=_o>=</span> <span class=_s2>&#34;SUCCESS!&#34;</span>
-</span></span><span class=_line><span class=_cl>        <span class=_kr>for</span> <span class=_n>name</span><span class=_p>,</span> <span class=_n>test</span> <span class=_kr>in</span> <span class=_n>tests</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>            <span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_n>test</span><span class=_p>)</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>                <span class=_n>result</span> <span class=_o>=</span> <span class=_n>name</span> <span class=_o>..</span> <span class=_s2>&#34; failed!&#34;</span>
-</span></span><span class=_line><span class=_cl>                <span class=_kr>break</span>
-</span></span><span class=_line><span class=_cl>            <span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>        <span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>        <span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>EndTest</span><span class=_p>(</span><span class=_n>result</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kr>else</span>
-</span></span><span class=_line><span class=_cl>        <span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>EndTest</span><span class=_p>(</span><span class=_s2>&#34;Suite not found&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>else</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Starting manual playtest&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>6</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>StudioTestService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;StudioTestService&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_n>task.wait</span><span class=_p>(</span><span class=_mi>3</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_n>StudioTestService</span><span class=_p>:</span><span class=_n>LeaveTest</span><span class=_p>()</span>
+</span></span></code></pre></td></tr></tbody></table></div><h3>Limitations</h3><ul><li><code>ExecuteMultiplayerTestAsync</code> can only be called from plugin scripts. It
+yields until the test ends, so wrap it in a coroutine if the calling plugin
+needs to remain responsive.</li><li><code>ExecuteMultiplayerTestAsync</code> cannot be called from inside a running test.</li><li><code>ExecuteMultiplayerTestAsync</code> supports up to 8 simulated clients per test
+session.</li><li>Only one multiplayer test session can run at a time per Studio instance.</li><li><code>AddPlayers</code> and <code>EndTest</code> must be called from the server DataModel of a
+running test.</li><li><code>CanLeaveTest</code> and <code>LeaveTest</code> must be called from a client DataModel.</li><li><code>GetTestArgs</code> currently has a known issue when called from a client
+LocalScript.</li></ul></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>6</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Property><a class="history-tag added" href=/ref/updates/2026.html#version-8b02f75e5b5343a1-57 title="Added on 2026-03-10T08:02:40-07:00
 v0.712.0.7120913
 version-8b02f75e5b5343a1">712</a>
@@ -284,7 +293,9 @@ version-d638b440a9224bb2">700</a>
 Add <a class="entity-link deco sec-PluginSecurity" href=/ref/class/StudioTestService.html#member-ExecuteRunModeAsync><span class=picture title="Protected Function (PluginSecurity)" data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction_hu_41c5da8728d567c9.png');--dark:url('/ref/icons/dark/ACFunction_hu_d35fd7a522c271d1.png')"></span></span>ExecuteRunModeAsync</a></li></ul></details><div class=tags>Tags: [Yields]</div></section><section id=member-GetTestArgs class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetTestArgs<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/StudioTestService#GetTestArgs target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Variant.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Variant</a></td></tr></tbody></table><div class=docs><p>Returns the argument passed to
 <a href=/ref/class/StudioTestService.html#member-ExecutePlayModeAsync>StudioTestService:ExecutePlayModeAsync()</a> or
 <a href=/ref/class/StudioTestService.html#member-ExecuteRunModeAsync>StudioTestService:ExecuteRunModeAsync()</a> for the current test
-session, or <code>nil</code> if the session was not started by those methods.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-d638b440a9224bb2-28 title="Added on 2025-11-18T11:24:11-08:00
+session, or <code>nil</code> if the session was not started by those methods.</p><p><code>GetTestArgs</code> returns the value as-is, preserving its type. For example,
+if the plugin passed a Color3, <code>GetTestArgs</code> returns a Color3.</p><p>Note that if you call <code>GetTestArgs</code> a client <code>LocalScript</code>, it may fail.
+Server-side calls work as expected.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-d638b440a9224bb2-28 title="Added on 2025-11-18T11:24:11-08:00
 v0.700.0.7000935
 version-d638b440a9224bb2">700</a>
 Add <a class="entity-link deco" href=/ref/class/StudioTestService.html#member-GetTestArgs><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetTestArgs</a></li></ul></details></section></div></section><section id=references><section id=related-types><header><h2>Related types <span class=element-count>3</span></h2></header><ul class="entity-list truncated-list"><li class=set><a class="entity-link deco" href=/ref/type/bool.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>bool</a></li><li class=set><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></li><li class=set><a class="entity-link deco" href=/ref/type/Variant.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Variant</a></li></ul></section></section></article></main><div class=top-nav><a href=#top></a></div><section id=settings-panel class="panel right js"><header class="prime stick"><h2 class=runner-button>Settings</h2><label for=focus-none class="none-focuser runner-item"><span class=runner-icon><svg width="18" height="18" viewBox="0 0 18 18"><path d="m9 7 5-5 2 2-5 5 5 5-2 2-5-5-5 5-2-2 5-5-5-5 2-2z"/></svg></span></label></header><section></section></section><footer id=root-footer class=prime><nav><a class=runner-hover href=/ref/index.html>Main</a>

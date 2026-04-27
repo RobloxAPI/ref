@@ -899,7 +899,10 @@
 			"Summary": "<p>The GamepadService is internally responsible for handling inputs from various\ncontrollers, such as Xbox One or PlayStation DualShock controllers.</p>\n",
 			"Description": "<p>The GamepadService is internally responsible for handling inputs from various\ncontrollers, such as Xbox One or PlayStation DualShock controllers. It also\nhandles APIs used with the gamepad virtual cursor. You can enable the gamepad\ncursor for your experience by setting <a href=\"/ref/enum/VirtualCursorMode.html\">VirtualCursorMode</a> under\n<a href=\"/ref/class/StarterGui.html\">StarterGui</a> to <code>Enabled</code>.</p>\n"
 		},
-		"GeneratedFolder": {},
+		"GeneratedFolder": {
+			"Summary": "<p>A container that stores <a href=\"/ref/class/ProceduralModel.html\">ProceduralModel</a> generation results.</p>\n",
+			"Description": "<p><code>GeneratedFolder</code> is a container used to represent non-source-of-truth data in\nthe <a href=\"/ref/class/DataModel.html\">DataModel</a>. These are branches that are deterministically generated\nfrom other parts of the <a href=\"/ref/class/DataModel.html\">DataModel</a> instead of containing\nsource-of-truth data.</p>\n<p><code>GeneratedFolder</code> is primarily used by <a href=\"/ref/class/ProceduralModel.html\">ProceduralModel</a> to store\ngeneration results. It can also be used by plugins or other tools to organize\ngenerated content.</p>\n"
+		},
 		"GenerationService": {
 			"Summary": "<p>Service that allows developers to generate 3D objects from text prompts.</p>\n",
 			"Description": "<p><code>GenerationService</code> enables you to generate 3D objects from text prompts using\nRoblox&#39;s Cube 3D foundation model. This enables the generation of objects like\nenvironmental props in-experience, as well as fully functional models like\nvehicles that drive, planes that fly, and weapons that shoot.</p>\n"
@@ -1640,7 +1643,10 @@
 			"Summary": "<p>Constraint which creates a rigid joint between two\n<a href=\"/ref/class/Attachment.html\">Attachments</a>, allowing them to slide along one axis but not\nrotate.</p>\n",
 			"Description": "<p>A <strong>PrismaticConstraint</strong> creates a rigid joint between two\n<a href=\"/ref/class/Attachment.html\">Attachments</a>, allowing them to slide along one axis but not\nrotate. This constrains the attachments so that their <strong>X</strong> axes are collinear\nbut pointing in opposite directions. It also constrains the attachments so\nthat their <strong>Y</strong> axes are parallel.</p>\n<p>This constraint inherits many properties from <a href=\"/ref/class/SlidingBallConstraint.html\">SlidingBallConstraint</a>\nincluding <a href=\"/ref/class/SlidingBallConstraint.html#member-ActuatorType\">ActuatorType</a>,\n<a href=\"/ref/class/SlidingBallConstraint.html#member-LimitsEnabled\">LimitsEnabled</a>,\n<a href=\"/ref/class/SlidingBallConstraint.html#member-Velocity\">Velocity</a>, and more. Please refer to\n<a href=\"/ref/class/SlidingBallConstraint.html\">SlidingBallConstraint</a> for details on configuring a\n<a href=\"/ref/class/PrismaticConstraint.html\">PrismaticConstraint</a>.</p>\n<p>When configuring this constraint, it may be helpful to study\n<a href=\"https://create.roblox.com/docs/physics/units\">Roblox Units</a> to understand how Roblox units\ncompare to metric units.</p>\n"
 		},
-		"ProceduralModel": {},
+		"ProceduralModel": {
+			"Summary": "<p>Procedural models support edit-time procedural generation. Instead of manually\nconstructing model content, a procedural model generates its contents\nautomatically in response to parameter changes.</p>\n",
+			"Description": "<p><code>ProceduralModel</code> inherits from <a href=\"/ref/class/Model.html\">Model</a> and supports edit-time\nprocedural generation of its contents. Instead of manually constructing model\ncontent, a procedural model generates its contents automatically in response\nto parameter changes.</p>\n<p>Generation is defined by a <strong>generator module</strong>, a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a>\nreferenced by the <a href=\"/ref/class/ProceduralModel.html#member-Generator\">Generator</a> property. The\nengine invokes the module&#39;s <code>OnGenerate</code> function to produce the model&#39;s\ncontents.</p>\n<p>A procedural model regenerates when any of the following inputs change:</p>\n<ul>\n<li>The <a href=\"/ref/class/ProceduralModel.html#member-Size\">Size</a> property of the procedural model,\nwhich defines a bounding box for the model to generate within.</li>\n<li>Any attributes on the procedural mode, as defined by the generator module.</li>\n<li>The generator&#39;s module sandboxing configuration (<code>Sandboxed</code> and\n<code>Capabilities</code>).</li>\n<li>The source code of the generator module.</li>\n</ul>\n<p>When any of these inputs change, the engine schedules regeneration. This\nscheduled regeneration is performed by calling <code>OnGenerate</code> and applying its\nresults once it returns. In most cases, generation happens within the same\nframe, but can be deferred to maintain performance.</p>\n"
+		},
 		"ProcessInstancePhysicsService": {},
 		"ProximityPrompt": {
 			"Summary": "<p>An object that lets you prompt players to interact with an object in the 3D\nworld.</p>\n",
@@ -2088,13 +2094,17 @@
 		"Studio": {
 			"Description": "<p>The Studio object is a settings object that is exclusive to Roblox Studio. It\ncan be found in Roblox Studio&#39;s settings under the Studio tab.</p>\n"
 		},
+		"StudioDeviceSimulatorService": {
+			"Summary": "<p>Service allowing you to control Studio&#39;s Device Simulator.</p>\n",
+			"Description": "<p>Provides programmatic control over Studio&#39;s Device Simulator. Use this service\nto switch between device presets, override resolution and pixel density,\ncontrol orientation and scaling, and manage custom device profiles from a\nplugin or from an external tool connected through the MCP server.</p>\n<p>All methods are asynchronous and yield the calling coroutine. The service is\navailable in <strong>Edit mode</strong> and <strong>Play Client</strong>. Methods that modify the active\nsimulation state are blocked in <strong>PlayServer</strong> mode.</p>\n<h3>Limitations</h3>\n<ul>\n<li>All methods are asynchronous and yield the calling coroutine.</li>\n<li>Methods that modify the active simulation state (<code>SetDeviceAsync</code>,\n<code>StopSimulationAsync</code>, <code>SetOrientationAsync</code>, <code>SetResolutionAsync</code>,\n<code>SetPixelDensityAsync</code>, <code>SetScalingModeAsync</code>) error in PlayServer mode.\nThey work in Edit mode and Play Client.</li>\n<li><code>UpdateDeviceAsync</code> and <code>RemoveDeviceAsync</code> error when called on built-in\npresets.</li>\n<li>Resolution, DPI, and scaling mode methods require an active device and error\nwhen <code>GetDeviceAsync()</code> returns &#34;default&#34;.</li>\n<li>Resolution and DPI overrides are session-level. They are not persisted and\nare cleared on <code>SetDeviceAsync</code>.</li>\n<li>Built-in presets are immutable.</li>\n</ul>\n"
+		},
 		"StudioService": {
 			"Summary": "<p>Provides access to configuration of Roblox Studio and allows importing files\nfrom the user&#39;s file system.</p>\n",
 			"Description": "<p><strong>StudioService</strong> provides access to configuration of Roblox Studio, allows\nimporting files from the user&#39;s file system, and other miscellaneous\ninformation. It is intended to be used by <a href=\"/ref/class/Plugin.html\">Plugins</a> in order to\nprovide a consistent user experience.</p>\n<ul>\n<li>Plugins that allow the user to move objects may find\n<a href=\"/ref/class/StudioService.html#member-GridSize\">GridSize</a>,\n<a href=\"/ref/class/StudioService.html#member-RotateIncrement\">RotateIncrement</a> and\n<a href=\"/ref/class/StudioService.html#member-UseLocalSpace\">UseLocalSpace</a> useful.</li>\n<li>Plugins that require the user to import files should use\n<a href=\"/ref/class/StudioService.html#member-PromptImportFileAsync\">PromptImportFileAsync</a> or\n<a href=\"/ref/class/StudioService.html#member-PromptImportFilesAsync\">PromptImportFilesAsync</a> in\norder to receive <a href=\"/ref/class/File.html\">File</a> objects.</li>\n<li>Plugins that display icons of Instance classes can use\n<a href=\"/ref/class/StudioService.html#member-GetClassIcon\">GetClassIcon</a>.</li>\n<li>Plugins that care about which script is currently being edited (if any) can\nread this from <a href=\"/ref/class/StudioService.html#member-ActiveScript\">ActiveScript</a>.</li>\n</ul>\n"
 		},
 		"StudioTestService": {
 			"Summary": "<p>Service allowing plugins to automate and customize Test and Run mode testing.</p>\n",
-			"Description": "<p><code>StudioTestService</code> allows plugins to automate and customize Test and Run mode\ntesting. With StudioTestService, your plugins can launch tests that jump\nstraight to a specific part of your game, or run complex code tests\nautomatically.</p>\n<p>The following is an example of automated unit testing:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">--Plugin Script</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">StudioTestService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;StudioTestService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">testResult</span> <span class=\"_o\">=</span> <span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">ExecuteRunModeAsync</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;MyTestSuite&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Test finished. Result:&#34;</span><span class=\"_p\">,</span> <span class=\"_n\">testResult</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span><span class=\"_lnt\">13\n</span><span class=\"_lnt\">14\n</span><span class=\"_lnt\">15\n</span><span class=\"_lnt\">16\n</span><span class=\"_lnt\">17\n</span><span class=\"_lnt\">18\n</span><span class=\"_lnt\">19\n</span><span class=\"_lnt\">20\n</span><span class=\"_lnt\">21\n</span><span class=\"_lnt\">22\n</span><span class=\"_lnt\">23\n</span><span class=\"_lnt\">24\n</span><span class=\"_lnt\">25\n</span><span class=\"_lnt\">26\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">--Server Script</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">StudioTestService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;StudioTestService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">RunService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;RunService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">IsStudio</span><span class=\"_p\">()</span> <span class=\"_ow\">or</span> <span class=\"_ow\">not</span> <span class=\"_n\">RunService</span><span class=\"_p\">:</span><span class=\"_n\">IsRunMode</span><span class=\"_p\">()</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kr\">return</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">suiteName</span> <span class=\"_o\">=</span> <span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">GetTestArgs</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_n\">suiteName</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_kd\">local</span> <span class=\"_n\">tests</span> <span class=\"_o\">=</span> <span class=\"_n\">getTestsArrayByName</span><span class=\"_p\">(</span><span class=\"_n\">suiteName</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_kr\">if</span> <span class=\"_n\">tests</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_kd\">local</span> <span class=\"_n\">result</span> <span class=\"_o\">=</span> <span class=\"_s2\">&#34;SUCCESS!&#34;</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_kr\">for</span> <span class=\"_n\">name</span><span class=\"_p\">,</span> <span class=\"_n\">test</span> <span class=\"_kr\">in</span> <span class=\"_n\">tests</span> <span class=\"_kr\">do</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">            <span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">pcall</span><span class=\"_p\">(</span><span class=\"_n\">test</span><span class=\"_p\">)</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">                <span class=\"_n\">result</span> <span class=\"_o\">=</span> <span class=\"_n\">name</span> <span class=\"_o\">..</span> <span class=\"_s2\">&#34; failed!&#34;</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">                <span class=\"_kr\">break</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">            <span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">EndTest</span><span class=\"_p\">(</span><span class=\"_n\">result</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">        <span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">EndTest</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Suite not found&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">else</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Starting manual playtest&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+			"Description": "<p><code>StudioTestService</code> allows plugins to automate and customize Test and Run mode\ntesting. With <code>StudioTestService</code>, your plugins can launch tests that jump\nstraight to a specific part of your game, or run complex code tests\nautomatically.</p>\n<p>You can use <code>StudioTestService</code> to start a server with multiple simulated\nclients, add players mid-session, pass arguments into running tests, end tests\nfrom the server, and trigger client disconnections, all without manually\nclicking through the Test tab in Studio.</p>\n<p>These methods complement the existing playtest automation available through\nStudio&#39;s built-in MCP server. Where the MCP server&#39;s <code>start_stop_play</code> tool\nstarts a single Play Client session, the <code>StudioTestService</code> methods are\ndesigned for scripted multi-client scenarios such as lobby, matchmaking, and\njoin/leave flow testing.</p>\n<p>A typical multiplayer test splits across three script contexts: the plugin\nthat launches it, the server that drives it, and the clients that participate:</p>\n<p>Plugin script:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span><span class=\"_lnt\">12\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">StudioTestService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;StudioTestService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">toolbar</span> <span class=\"_o\">=</span> <span class=\"_n\">plugin</span><span class=\"_p\">:</span><span class=\"_n\">CreateToolbar</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;STS Tests&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">button</span> <span class=\"_o\">=</span> <span class=\"_n\">toolbar</span><span class=\"_p\">:</span><span class=\"_n\">CreateButton</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;MyTest&#34;</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;&#34;</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">button.Click</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">button.Enabled</span> <span class=\"_o\">=</span> <span class=\"_kc\">false</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_kd\">local</span> <span class=\"_n\">result</span> <span class=\"_o\">=</span> <span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">ExecuteMultiplayerTestAsync</span><span class=\"_p\">(</span><span class=\"_mi\">1</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;MyArguments&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">assert</span><span class=\"_p\">(</span><span class=\"_n\">result</span> <span class=\"_o\">==</span> <span class=\"_s2\">&#34;Success!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Test finished successfully!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">button.Enabled</span> <span class=\"_o\">=</span> <span class=\"_kc\">true</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Server script:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Players</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Players&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">StudioTestService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;StudioTestService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">assert</span><span class=\"_p\">(</span><span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">GetTestArgs</span><span class=\"_p\">()</span> <span class=\"_o\">==</span> <span class=\"_s2\">&#34;MyArguments&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">Players.PlayerRemoving</span><span class=\"_p\">:</span><span class=\"_n\">Connect</span><span class=\"_p\">(</span><span class=\"_kr\">function</span><span class=\"_p\">(</span><span class=\"_n\">player</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">print</span><span class=\"_p\">(</span><span class=\"_n\">player.Name</span> <span class=\"_o\">..</span> <span class=\"_s2\">&#34; left the experience&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">task.wait</span><span class=\"_p\">(</span><span class=\"_mi\">3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">EndTest</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Success!&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Client script:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">if</span> <span class=\"_ow\">not</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">IsLoaded</span><span class=\"_p\">()</span> <span class=\"_kr\">then</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">    <span class=\"_n\">game.Loaded</span><span class=\"_p\">:</span><span class=\"_n\">Wait</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">StudioTestService</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;StudioTestService&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">task.wait</span><span class=\"_p\">(</span><span class=\"_mi\">3</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">StudioTestService</span><span class=\"_p\">:</span><span class=\"_n\">LeaveTest</span><span class=\"_p\">()</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<h3>Limitations</h3>\n<ul>\n<li><code>ExecuteMultiplayerTestAsync</code> can only be called from plugin scripts. It\nyields until the test ends, so wrap it in a coroutine if the calling plugin\nneeds to remain responsive.</li>\n<li><code>ExecuteMultiplayerTestAsync</code> cannot be called from inside a running test.</li>\n<li><code>ExecuteMultiplayerTestAsync</code> supports up to 8 simulated clients per test\nsession.</li>\n<li>Only one multiplayer test session can run at a time per Studio instance.</li>\n<li><code>AddPlayers</code> and <code>EndTest</code> must be called from the server DataModel of a\nrunning test.</li>\n<li><code>CanLeaveTest</code> and <code>LeaveTest</code> must be called from a client DataModel.</li>\n<li><code>GetTestArgs</code> currently has a known issue when called from a client\nLocalScript.</li>\n</ul>\n"
 		},
 		"StudioTheme": {},
 		"StyleBase": {
@@ -2541,6 +2551,10 @@
 				"viewportframe---create-gui",
 				"viewportframe---control-camera"
 			]
+		},
+		"VirtualInput": {
+			"Summary": "<p>Allows Studio plugins to simulate mouse, keyboard, and pointer input as if it\nwere performed by a real player.</p>\n",
+			"Description": "<p><a href=\"/ref/class/VirtualInput.html\">VirtualInput</a> allows Studio plugins to simulate mouse, keyboard, and\npointer input as if it were performed by a real player. It is intended for\n<strong>testing purposes only</strong> and can only be obtained by calling\n<a href=\"/ref/class/UserInputService.html#member-CreateVirtualInput\">UserInputService:CreateVirtualInput()</a>. It can only be used from a\nStudio plugin script.</p>\n<p>All input methods throw a runtime error if the simulated input would interact\nwith Roblox&#39;s built-in UI (<a href=\"/ref/class/CoreGui.html\">CoreGui</a>), such as the top bar, chat window,\nor escape menu. This prevents plugin automation from accidentally interfering\nwith system UI that players depend on.</p>\n"
 		},
 		"VirtualInputManager": {
 			"Summary": "<p>An internal service that offers no functionality to developers.</p>\n",
@@ -9382,7 +9396,10 @@
 			}
 		},
 		"GeneratedFolder": {
-			"SetPrimaryPart": {}
+			"SetPrimaryPart": {
+				"Summary": "<p>Specifies which part within the <code>GeneratedFolder</code> should be set as the\n<a href=\"/ref/class/Model.html#member-PrimaryPart\">PrimaryPart</a> of the <a href=\"/ref/class/ProceduralModel.html\">ProceduralModel</a>.</p>\n",
+				"Description": "<p>This method allows a generator module to specify which part within the\n<code>GeneratedFolder</code> should be set as the\n<a href=\"/ref/class/Model.html#member-PrimaryPart\">PrimaryPart</a> of the <a href=\"/ref/class/ProceduralModel.html\">ProceduralModel</a> that\nresults get parented to.</p>\n<p>Generation of results happens outside of the <a href=\"/ref/class/DataModel.html\">DataModel</a> and doesn&#39;t\nhave direct access to the <a href=\"/ref/class/ProceduralModel.html\">ProceduralModel</a> instance being\ngenerated. As a result, the generator must use this method instead of\nsetting the <a href=\"/ref/class/Model.html#member-PrimaryPart\">PrimaryPart</a> directly.</p>\n"
+			}
 		},
 		"GenerationService": {
 			"GenerateMeshAsync": {
@@ -10278,8 +10295,7 @@
 			"Type": {
 				"Summary": "<p><a href=\"/ref/enum/HapticEffectType.html\">HapticEffectType</a> describing the haptic type.</p>\n",
 				"Description": "<p>The haptic type, such as <a href=\"/ref/enum/HapticEffectType.html\">HapticEffectType.GameplayCollision</a> for a\nlarge immediate rumble that dies down quickly. The\n<a href=\"/ref/enum/HapticEffectType.html\">HapticEffectType.Custom</a> value lets you specify a haptic with custom\nwaveform keys defined through\n<a href=\"/ref/class/HapticEffect.html#member-SetWaveformKeys\">SetWaveformKeys()</a>.</p>\n"
-			},
-			"Waveform": {}
+			}
 		},
 		"HapticService": {
 			"GetMotor": {
@@ -11988,7 +12004,7 @@
 				"DeprecationMessage": "<p>This property is deprecated and does not do anything.</p>\n"
 			},
 			"Sandboxed": {
-				"Summary": "<p>Turns the instance to be a sandboxed container.</p>\n",
+				"Summary": "<p>When enabled, the instance can only access abilities in its <code>Capabilities</code>\nlist.</p>\n",
 				"Description": "<p>Turns the instance to be a <strong>sandboxed container</strong>, an experimental\nfeature which limits the actions that scripts inside a particular\ncontainer can perform. See\n<a href=\"https://create.roblox.com/docs/scripting/capabilities\">script capabilities</a> for further\ndetails.</p>\n"
 			},
 			"SetAttribute": {
@@ -14718,6 +14734,9 @@
 					"how-to-get-a-list-of-online-friends"
 				]
 			},
+			"GetFriendsWhoPlayedAsync": {
+				"Description": "<p>Returns an array of user IDs of any friends who have previously played\nthis game. For example, if a player has had two friends play the game, the\nmethod might return <code>{1111111111, 2222222222}</code>. If no friends have played\nthis game, the method returns an empty array (<code>{}</code>).</p>\n"
+			},
 			"GetJoinData": {
 				"Summary": "<p>Returns a dictionary containing information describing how the player\njoins the experience.</p>\n",
 				"Description": "<p>Returns a dictionary containing information describing how the player\njoins the experience. The dictionary contains any of the following fields:</p>\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Value Type</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th><code>SourceGameId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/DataModel.html#member-GameId\">DataModel.GameId</a> of the experience the <code>Player</code> teleported from. Only present if the player teleports to the current experience and if a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>SourcePlaceId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/DataModel.html#member-PlaceId\">DataModel.PlaceId</a> of the place the <code>Player</code> teleported from. Only present if the player teleports to the current place and a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>ReferredByPlayerId</code></th>\n      <td>number</td>\n      <td>The <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> of the player who invited the current player to the experience. Use this data to identify the referrer and trigger reward logic.</td>\n    </tr>\n    <tr>\n      <th><code>Members</code></th>\n      <td>array</td>\n      <td>An array containing the <a href=\"/ref/class/Player.html#member-UserId\">UserId</a> numbers of the users teleported alongside the player. Only present if the player teleported as part of a group.</td>\n    </tr>\n    <tr>\n      <th><code>TeleportData</code></th>\n      <td>variant</td>\n      <td>Reflects the <code>teleportData</code> specified in the original teleport. Useful for sharing information between servers the player teleports to. Only present if <code>teleportData</code> was specified and a server calls the teleport function.</td>\n    </tr>\n    <tr>\n      <th><code>LaunchData</code></th>\n      <td>string</td>\n      <td>A plain or JSON encoded string that contains launch data specified in a <a href=\"https://create.roblox.com/docs/production/promotion/share-links\">share link</a> or\n      <a href=\"/ref/class/ExperienceInviteOptions.html#member-LaunchData\">ExperienceInviteOptions.LaunchData</a>.</td>\n    </tr>\n    <tr>\n      <th><code>GameJoinContext</code></th>\n      <td>dictionary</td>\n      <td>\n        A dictionary that includes relevant information based on the context of the join. It contains the following keys:<br/><br/>\n        <ul>\n          <li><code>JoinSource</code>: <a href=\"/ref/enum/JoinSource.html\">JoinSource</a></li>\n          <li><code>ItemType</code>: optional <a href=\"/ref/enum/AvatarItemType.html\">AvatarItemType</a></li>\n          <li><code>AssetId</code>: optional <code>string</code></li>\n          <li><code>OutfitId</code>: optional <code>string</code></li>\n          <li><code>AssetType</code>: optional <a href=\"/ref/enum/AssetType.html\">AssetType</a></li>\n        </ul>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<p>If a server initiates the player&#39;s teleport, the dictionary that this\nmethod returns includes the player&#39;s teleport data. The\n<a href=\"/ref/class/Player.html#member-GetJoinData\">GetJoinData()</a> method can only be used to\nfetch teleport data on the server. To fetch the data on the client, use\n<a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>.</p>\n<p>Unlike <a href=\"/ref/class/TeleportService.html#member-GetLocalPlayerTeleportData\">TeleportService:GetLocalPlayerTeleportData()</a>,\n<a href=\"/ref/class/Player.html#member-GetJoinData\">GetJoinData()</a> only provides teleport data\nthat meets the following security criteria:</p>\n<ul>\n<li>It&#39;s guaranteed to have been sent by a Roblox server in the past 48\nhours.</li>\n<li>It&#39;s guaranteed to have been sent with this <a href=\"/ref/class/Player.html\">Player</a>.</li>\n<li>The <code>SourcePlaceId</code> and <code>SourceGameId</code> are guaranteed to be the place\nand universe the data was sent from. This means you can verify the\nteleport data came from an approved place.</li>\n</ul>\n<p>As this data is transmitted by the client, it can still potentially be\nabused by an exploiter. Sensitive data such as player currency should be\ntransmitted via a secure solution like\n<a href=\"https://create.roblox.com/docs/cloud-services/memory-stores\">Memory Stores</a>.</p>\n",
@@ -15882,10 +15901,25 @@
 		"PrismaticConstraint": {},
 		"ProceduralModel": {
 			"ForceGeneration": {},
-			"GenerationError": {},
-			"Generator": {},
-			"Size": {},
-			"WaitForGenerationAsync": {}
+			"GenerationError": {
+				"Summary": "<p>Stores errors that the generator module might encounter during generation.</p>\n",
+				"Description": "<p>If the generator module encounters an error during generation, the\ncontents of the <code>ProceduralModel</code> are replaced with an error state\nplaceholder. The error is stored in the <code>GenerationError</code> property to give\nyou visibility into why the generation failed.</p>\n"
+			},
+			"Generator": {
+				"Summary": "<p>A reference to a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> that contains code which defines how\nthe <code>ProceduralModel</code> generates its contents in response to parameter\nchanges.</p>\n",
+				"Description": "<p>A reference to a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a> containing code that defines how the\n<code>ProceduralModel</code> generates its contents in response to parameter changes.</p>\n<p>Setting <code>Generator</code> triggers generation using the new generator module.</p>\n<p>Clearing <code>Generator</code> preserves the current contents of the\n<code>ProceduralModel</code>, and prevents further generation until a new generator\nis assigned.</p>\n"
+			},
+			"Size": {
+				"Summary": "<p>Defines the bounding volume used for generation.</p>\n",
+				"Description": "<p>The <code>Size</code> of a <code>ProceduralModel</code> defines the bounding volume used for\ngeneration.</p>\n<p>In a standard model, size is a derived output value based on its contents\nand can be queried using <a href=\"/ref/class/Model.html#member-GetBoundingBox\">GetBoundingBox()</a>.\nA procedural model inverts this relationship: <code>Size</code> is an <strong>input</strong> that\ndetermines how generation occurs, and is explicitly set as a property.</p>\n<p>The <code>Size</code> property represents the <strong>physical</strong> dimensions of the\n<code>ProceduralModel</code> and is affected by <a href=\"/ref/class/Model.html#member-ScaleTo\">ScaleTo</a>. The\n<code>OnGenerate</code> function in a generator module doesn&#39;t need to account for\nscaling; <code>OnGenerate</code> is always executed at a scale of 1, and the system\nautomatically scales the generated results.</p>\n"
+			},
+			"WaitForGenerationAsync": {
+				"Summary": "<p>Waits for generation to complete after making parameter changes.</p>\n",
+				"Description": "<p>Generation is scheduled to run as soon as possible after a parameter\nchanges, but not immediately. Use <code>WaitForGenerationAsync()</code> to wait for\ngeneration to complete before parameters are changed.</p>\n<p>This method errors if called on a <a href=\"/ref/class/ProceduralModel.html\">ProceduralModel</a> that is not in\nthe <a href=\"/ref/class/DataModel.html\">DataModel</a> because generation isn&#39;t performed for instances\nwithout a parent.</p>\n<p>This method returns <code>false</code> if the <a href=\"/ref/class/ProceduralModel.html\">ProceduralModel</a> is removed from\nthe <a href=\"/ref/class/DataModel.html\">DataModel</a> while generation is in progress, since this cancels\nthe operation.</p>\n",
+				"CodeSamples": [
+					"ProceduralModel-WaitForGenerationAsync"
+				]
+			}
 		},
 		"ProcessInstancePhysicsService": {},
 		"ProximityPrompt": {
@@ -18654,6 +18688,71 @@
 			},
 			"Whitespace Color": {}
 		},
+		"StudioDeviceSimulatorService": {
+			"ConfigurationChanged": {
+				"Description": "<p>Fires when the active simulation state changes: device switch,\norientation, resolution, pixel density, scaling mode, or user interaction\nwith the Device Simulator UI. Does not fire for catalog-only operations\nsuch as <code>CreateDeviceAsync</code>, <code>UpdateDeviceAsync</code> on a non-active device,\n<code>RemoveDeviceAsync</code> on a non-active device, or <code>GetDeviceInfoAsync</code>.</p>\n<p>Getter calls inside the handler are async and will yield.</p>\n",
+				"CodeSamples": [
+					"StudioDeviceSimulatorService-ConfigurationChanged"
+				]
+			},
+			"CreateDeviceAsync": {
+				"Description": "<p>Creates a custom device and returns its newly assigned ID. Custom devices\nare persisted to disk and appear in the Device Simulator UI.</p>\n<p>Errors if any required field is missing or out of range.</p>\n",
+				"CodeSamples": [
+					"StudioDeviceSimulatorService-CreateDeviceAsync"
+				]
+			},
+			"GetDeviceAsync": {
+				"Description": "<p>Returns the ID of the currently active device, or <code>&#34;default&#34;</code> if no device\nis active.</p>\n"
+			},
+			"GetDeviceInfoAsync": {
+				"Description": "<p>Returns a <code>DeviceConfiguration</code> for the specified device without\nactivating it. Useful for inspecting presets before choosing one to switch\nto.</p>\n<p>The returned dictionary contains the following fields:</p>\n<table size=\"small\">\n  <thead>\n    <tr>\n      <th>Field</th>\n      <th>Type</th>\n\t  <th>Create/Update</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>DeviceId</code></td>\n      <td>string</td>\n\t  <td>Read-only</td>\n      <td>Unique identifier assigned by the service.</td>\n    </tr>\n    <tr>\n      <td><code>Name</code></td>\n      <td>string</td>\n\t  <td>Required</td>\n      <td>Display name. 1 to 200 characters. Cannot be <code>&#34;default&#34;</code>.</td>\n    </tr>\n    <tr>\n      <td><code>Width</code></td>\n      <td>number</td>\n\t  <td>Required</td>\n      <td>Screen width in pixels. Range: 1 to 7680.</td>\n    </tr>\n    <tr>\n      <td><code>Height</code></td>\n      <td>number</td>\n\t  <td>Required</td>\n      <td>Screen height in pixels. Range: 1 to 4320.</td>\n    </tr>\n    <tr>\n      <td><code>PixelDensity</code></td>\n      <td>number</td>\n\t  <td>Required</td>\n      <td>Pixel density in DPI. Range: 72 to 10000.</td>\n    </tr>\n    <tr>\n      <td><code>DeviceForm</code></td>\n      <td><a href=\"/ref/enum/DeviceForm.html\">DeviceForm</a></td>\n\t  <td>Optional (default: Phone)</td>\n      <td>One of Phone, Tablet, Desktop, Console, VR.</td>\n    </tr>\n    <tr>\n      <td><code>IsCustom</code></td>\n      <td>boolean</td>\n\t  <td>Read-only</td>\n      <td><code>true</code> if the device was user-created.</td>\n    </tr>\n    <tr>\n      <td><code>ResolutionScale</code></td>\n      <td>number</td>\n\t  <td>Optional (default: 1.0)</td>\n      <td>Resolution scaling factor. Must be greater than 0, max 10.0.</td>\n    </tr>\n    <tr>\n      <td><code>PortraitKeyboardHeight</code></td>\n      <td>number</td>\n\t  <td>Optional (default: 0)</td>\n      <td>Virtual keyboard height in portrait mode.</td>\n    </tr>\n    <tr>\n      <td><code>LandscapeKeyboardHeight</code></td>\n      <td>number</td>\n\t  <td>Optional (default: 0)</td>\n      <td>Virtual keyboard height in landscape mode.</td>\n    </tr>\n  </tbody>\n</table>\n"
+			},
+			"GetDeviceListAsync": {
+				"Description": "<p>Returns an array of device IDs for all available presets, including\nbuilt-in and custom devices.</p>\n",
+				"CodeSamples": [
+					"StudioDeviceSimulatorService-GetDeviceListAsync"
+				]
+			},
+			"GetOrientationAsync": {
+				"Description": "<p>Returns the current simulated orientation.</p>\n"
+			},
+			"GetPixelDensityAsync": {
+				"Description": "<p>Returns the current simulated pixel density.</p>\n"
+			},
+			"GetResolutionAsync": {
+				"Description": "<p>Returns the current simulated resolution.</p>\n"
+			},
+			"GetScalingModeAsync": {
+				"Description": "<p>Returns the current scaling mode.</p>\n"
+			},
+			"RemoveDeviceAsync": {
+				"Description": "<p>Removes a custom device.</p>\n<p>Errors if the target is a built-in preset.</p>\n"
+			},
+			"SetDeviceAsync": {
+				"Description": "<p>Activates the specified device. Passing <code>&#34;default&#34;</code> stops simulation and\nis equivalent to calling <code>StopSimulationAsync</code>.</p>\n<p>Errors in PlayServer mode. Errors if the device ID does not exist.</p>\n"
+			},
+			"SetOrientationAsync": {
+				"Description": "<p>Sets or gets the simulated screen orientation. Accepts Portrait,\nLandscapeLeft, or LandscapeRight. Other values will error.</p>\n<p>Errors in PlayServer mode.</p>\n"
+			},
+			"SetPixelDensityAsync": {
+				"Description": "<p>Overrides or returns the simulated pixel density in DPI. Session-level;\ncleared on device switch.</p>\n<p>This method requires an active device. <code>SetPixelDensityAsync</code> also errors\nin PlayServer mode.</p>\n"
+			},
+			"SetResolutionAsync": {
+				"Description": "<p>Overrides the simulated viewport resolution or returns the current\nresolution as a Vector2. Overrides are session-level and cleared when you\nswitch devices.</p>\n<p>Coordinates are in landscape space: the first parameter maps to the\nhorizontal axis in landscape, the second to the vertical axis. In\nportrait, axes are swapped automatically.</p>\n<p>Both methods require an active device. They error if <code>GetDeviceAsync()</code>\nreturns <code>&#34;default&#34;</code>. <code>SetResolutionAsync</code> also errors in PlayServer mode.</p>\n"
+			},
+			"SetScalingModeAsync": {
+				"Description": "<p>Controls how the simulated resolution maps to the Studio viewport.</p>\n<ul>\n<li><code>ScaleToPhysicalSize</code> scales the viewport to approximate physical device\nsize.</li>\n<li><code>ActualResolution</code> renders at exact pixel resolution.</li>\n<li><code>FitToWindow</code> scales to fill the viewport.</li>\n</ul>\n<p>Both methods require an active device. <code>SetScalingModeAsync</code> also errors\nin PlayServer mode.</p>\n"
+			},
+			"StopSimulationAsync": {
+				"Description": "<p>Stops the active simulation. Prefer this over <code>SetDeviceAsync(&#34;default&#34;)</code>\nfor clarity.</p>\n<p>Errors in PlayServer mode.</p>\n"
+			},
+			"UpdateDeviceAsync": {
+				"Description": "<p>Updates a custom device&#39;s configuration.</p>\n<p>Errors if the target is a built-in preset.</p>\n",
+				"CodeSamples": [
+					"StudioDeviceSimulatorService-UpdateDeviceAsync"
+				]
+			}
+		},
 		"StudioService": {
 			"ActiveScript": {
 				"Summary": "<p>Reflects the <a href=\"/ref/class/LuaSourceContainer.html\">LuaSourceContainer</a> currently being edited (if any).</p>\n",
@@ -18709,8 +18808,30 @@
 			}
 		},
 		"StudioTestService": {
+			"AddPlayers": {
+				"Description": "<p>Adds <code>numPlayers</code> additional client DataModels to the running test\nsession. Useful for simulating staggered joins, testing lobby-to-game\ntransitions under load, or reproducing race conditions that only appear\nwhen clients connect at different times.</p>\n<p>Must be called from the server DataModel of an active multiplayer test.</p>\n<p>Errors if called outside of an active test, or if called from a client\nDataModel.</p>\n",
+				"CodeSamples": [
+					"StudioTestService-AddPlayers"
+				]
+			},
+			"CanLeaveTest": {
+				"Description": "<p>Returns <code>true</code> if the calling client DataModel is allowed to disconnect\nfrom the test, and <code>false</code> otherwise. Check this before calling\n<code>LeaveTest</code> to avoid errors during session teardown or during states where\ndisconnection is blocked.</p>\n<p>Call from a client DataModel.</p>\n",
+				"CodeSamples": [
+					"StudioTestService-CanLeaveTest"
+				]
+			},
+			"EditModeActive": {},
 			"EndTest": {
-				"Description": "<p>Ends the current Studio test session if called from the server\n<a href=\"/ref/class/DataModel.html\">DataModel</a>, even if the test was not started by this service.</p>\n<p>If the test was started by\n<a href=\"/ref/class/StudioTestService.html#member-ExecutePlayModeAsync\">StudioTestService:ExecutePlayModeAsync()</a> or\n<a href=\"/ref/class/StudioTestService.html#member-ExecuteRunModeAsync\">StudioTestService:ExecuteRunModeAsync()</a>, the value passed here is\nreturned by that method.</p>\n<p>This method returns immediately and ends the test session asynchronously.\nIt errors if called from any <a href=\"/ref/class/DataModel.html\">DataModel</a> other than that of the\nserver during a running Studio test session.</p>\n"
+				"Description": "<p>Ends the current Studio test session if called from the server\n<a href=\"/ref/class/DataModel.html\">DataModel</a>, even if the test was not started by this service.</p>\n<p>If the test was started by\n<a href=\"/ref/class/StudioTestService.html#member-ExecutePlayModeAsync\">StudioTestService:ExecutePlayModeAsync()</a> or\n<a href=\"/ref/class/StudioTestService.html#member-ExecuteRunModeAsync\">StudioTestService:ExecuteRunModeAsync()</a>, the value passed here is\nreturned by that method.</p>\n<p>This method returns immediately and ends the test session asynchronously.\nIt errors if called from any <a href=\"/ref/class/DataModel.html\">DataModel</a> other than that of the\nserver during a running Studio test session.</p>\n",
+				"CodeSamples": [
+					"StudioTestService-EndTest"
+				]
+			},
+			"ExecuteMultiplayerTestAsync": {
+				"Description": "<p>Launches a multiplayer test session with one server and <code>numPlayers</code>\nclient DataModels. Yields until the test completes and returns the value\npassed to <code>EndTest</code> on the server.</p>\n<p>Supports up to 8 simulated clients per test session.</p>\n<p>The optional <code>args</code> value is forwarded to scripts running inside the test\nsession and can be read via <code>GetTestArgs</code>. It can be any\nRoblox-serializable value, for example a string, a Color3, or a table.\nCommon uses include passing a test name, a timeout, or configuration\nflags.</p>\n<p>Errors if a test is already running. Errors if <code>numPlayers</code> is less than 1\nor exceeds 8.</p>\n",
+				"CodeSamples": [
+					"StudioTestService-ExecuteMultiplayerTestAsync"
+				]
 			},
 			"ExecutePlayModeAsync": {
 				"Description": "<p>Starts a solo <strong>Test</strong> session and yields until that session ends.</p>\n<p>The <code>args</code> parameter can be retrieved using\n<a href=\"/ref/class/StudioTestService.html#member-GetTestArgs\">StudioTestService:GetTestArgs()</a>. Returns the value passed to\n<a href=\"/ref/class/StudioTestService.html#member-EndTest\">StudioTestService:EndTest()</a>, or <code>nil</code> if the test ended by other\nmeans.</p>\n<p>This method errors if a test session is already running.</p>\n"
@@ -18719,7 +18840,13 @@
 				"Description": "<p>Starts a <strong>Run</strong> test session and yields until that session ends.</p>\n<p>The <code>args</code> parameter can be retrieved using\n<a href=\"/ref/class/StudioTestService.html#member-GetTestArgs\">StudioTestService:GetTestArgs()</a>. Returns the value passed to\n<a href=\"/ref/class/StudioTestService.html#member-EndTest\">StudioTestService:EndTest()</a>, or <code>nil</code> if the test ended by other\nmeans.</p>\n<p>This method errors if a test session is already running.</p>\n"
 			},
 			"GetTestArgs": {
-				"Description": "<p>Returns the argument passed to\n<a href=\"/ref/class/StudioTestService.html#member-ExecutePlayModeAsync\">StudioTestService:ExecutePlayModeAsync()</a> or\n<a href=\"/ref/class/StudioTestService.html#member-ExecuteRunModeAsync\">StudioTestService:ExecuteRunModeAsync()</a> for the current test\nsession, or <code>nil</code> if the session was not started by those methods.</p>\n"
+				"Description": "<p>Returns the argument passed to\n<a href=\"/ref/class/StudioTestService.html#member-ExecutePlayModeAsync\">StudioTestService:ExecutePlayModeAsync()</a> or\n<a href=\"/ref/class/StudioTestService.html#member-ExecuteRunModeAsync\">StudioTestService:ExecuteRunModeAsync()</a> for the current test\nsession, or <code>nil</code> if the session was not started by those methods.</p>\n<p><code>GetTestArgs</code> returns the value as-is, preserving its type. For example,\nif the plugin passed a Color3, <code>GetTestArgs</code> returns a Color3.</p>\n<p>Note that if you call <code>GetTestArgs</code> a client <code>LocalScript</code>, it may fail.\nServer-side calls work as expected.</p>\n",
+				"CodeSamples": [
+					"StudioTestService-GetTestArgs"
+				]
+			},
+			"LeaveTest": {
+				"Description": "<p>Disconnects the calling client from the active multiplayer test. Useful\nfor testing player leave and reconnection logic, cleanup-on-disconnect\nbehavior, and leader reassignment in lobby systems.</p>\n<p>Call from a client DataModel. Make sure to check <code>CanLeaveTest()</code> first.</p>\n<p>Errors if the client cannot currently leave or if called from a server\nDataModel.</p>\n"
 			}
 		},
 		"StudioTheme": {
@@ -21250,6 +21377,10 @@
 					"UserInputService-DeviceGravityChanged"
 				]
 			},
+			"CreateVirtualInput": {
+				"Summary": "<p>Creates a <a href=\"/ref/class/VirtualInput.html\">VirtualInput</a> object that a Studio plugin can use to\nsimulate mouse, keyboard, and pointer input.</p>\n",
+				"Description": "<p>This method creates a <a href=\"/ref/class/VirtualInput.html\">VirtualInput</a> object that a Studio plugin can\nuse to simulate mouse, keyboard, and pointer input as if it were performed\nby a real user. It is intended for plugin-driven testing and automation\nworkflows that need to simulate user interaction inside a running\nexperience.</p>\n<p>Always check that the returned value is not <code>nil</code> before calling any\nmethods on it.</p>\n"
+			},
 			"DeviceAccelerationChanged": {
 				"Summary": "<p>Fires when a user moves a device that has an accelerometer.</p>\n",
 				"Description": "<p>This event fires when a user moves a device that has an accelerometer, a\ncomponent found in most mobile devices that measures acceleration (change\nin speed). To determine whether a user&#39;s device has an accelerometer\nenabled, use\n<a href=\"/ref/class/UserInputService.html#member-AccelerometerEnabled\">AccelerometerEnabled</a>.</p>\n<p>This event can be used along with\n<a href=\"/ref/class/UserInputService.html#member-GetDeviceAcceleration\">GetDeviceAcceleration()</a>\nto determine the current movement of a user&#39;s device.</p>\n",
@@ -22118,6 +22249,32 @@
 				"Description": "<p>A <a href=\"/ref/type/Vector3.html\">Vector3</a> representing the direction of the light source from\nposition <typography nowrap=\"\"><code>(0, 0, 0)</code></typography>. Defaults to\n<typography nowrap=\"\"><a href=\"/ref/type/Vector3.html\">Vector3.new(-1, -1, -1)</a></typography>.</p>\n"
 			}
 		},
+		"VirtualInput": {
+			"SendKey": {
+				"Summary": "<p>Injects a keyboard key press or release event.</p>\n",
+				"Description": "<p>This method injects a keyboard key press or release event, processed\nidentically to a real hardware key event.</p>\n<p>This method throws a runtime error if <a href=\"/ref/class/CoreGui.html\">CoreGui</a> has keyboard focus,\nwhich includes a <a href=\"/ref/class/TextBox.html\">TextBox</a> inside <a href=\"/ref/class/CoreGui.html\">CoreGui</a> being focused, a\n<a href=\"/ref/class/CoreGui.html\">CoreGui</a> element selected for keyboard or gamepad navigation, or\nthe in-game escape menu being open. It also throws if the requested key is\npermanently bound to a Roblox core action (for example, the\n<kbd>Escape</kbd> key).</p>\n<h4>isRepeatedKey</h4>\n<p>Set <code>isRepeatedKey</code> to <code>true</code> only when simulating the OS auto-repeat\nbehavior that occurs while a player physically holds a key down which\nfires a stream of repeated events after the initial key press. This is\nmeaningful only for text-manipulation keys: <a href=\"/ref/enum/KeyCode.html\">KeyCode.Backspace</a>,\n<a href=\"/ref/enum/KeyCode.html\">KeyCode.Delete</a>, and the arrow keys (<a href=\"/ref/enum/KeyCode.html\">KeyCode.Left</a>,\n<a href=\"/ref/enum/KeyCode.html\">KeyCode.Right</a>, <a href=\"/ref/enum/KeyCode.html\">KeyCode.Up</a>, and <a href=\"/ref/enum/KeyCode.html\">KeyCode.Down</a>). Passing\n<code>true</code> for any other key throws a runtime error.</p>\n<p>For example, to simulate holding <kbd>Backspace</kbd> to delete multiple\ncharacters, call:</p>\n<ul>\n<li><code>SendKey(true, Enum.KeyCode.Backspace, false)</code> for the initial press</li>\n<li><code>SendKey(true, Enum.KeyCode.Backspace, true)</code> in a loop for each\nrepeated event</li>\n<li><code>SendKey(false, Enum.KeyCode.Backspace, false)</code> for the release</li>\n</ul>\n<p>Do <strong>not</strong> pass <code>isRepeatedKey</code> as <code>true</code> for the initial press or the\nrelease. For any key that does not involve text editing (game action keys,\nmodifier keys, function keys, etc.), always pass <code>false</code>.</p>\n"
+			},
+			"SendMouseButton": {
+				"Summary": "<p>Injects a mouse button press or release event at the specified screen\nposition.</p>\n",
+				"Description": "<p>This method injects a mouse button press or release event at the given\nscreen-space position, processed identically to a real hardware mouse\nevent.</p>\n<p>Only <a href=\"/ref/enum/UserInputType.html\">UserInputType.MouseButton1</a>, <a href=\"/ref/enum/UserInputType.html\">UserInputType.MouseButton2</a>,\nand <a href=\"/ref/enum/UserInputType.html\">UserInputType.MouseButton3</a> are supported; passing any other\nvalue throws a runtime error.</p>\n<p>This method throws a runtime error if the specified position overlaps an\ninteractive <a href=\"/ref/class/CoreGui.html\">CoreGui</a> element such as a button or an active overlay\nin the top bar, chat window, or escape menu. It also throws if the\nspecified button is already in the requested state, for example pressing a\nbutton that is already pressed.</p>\n"
+			},
+			"SendMouseDelta": {
+				"Summary": "<p>Injects a relative mouse movement event. Only works while the player&#39;s\ncursor is locked.</p>\n",
+				"Description": "<p>This method injects a relative mouse movement event, representing how far\nthe mouse moved rather than where it is on screen. This is intended for\nuse while the player&#39;s cursor is locked, such as in first-person camera\nmode.</p>\n<p>This method throws a runtime error when the cursor is not locked. To move\nthe cursor to an absolute screen position instead, use\n<a href=\"/ref/class/VirtualInput.html#member-SendMousePosition\">SendMousePosition()</a>.</p>\n"
+			},
+			"SendMousePosition": {
+				"Summary": "<p>Moves the virtual mouse cursor to the specified absolute screen position.</p>\n",
+				"Description": "<p>This method moves the virtual mouse cursor to the specified absolute\nscreen-space position, processed identically to a real hardware mouse-move\nevent.</p>\n<p>This method throws a runtime error when the specified position overlaps an\ninteractive Roblox UI element (such as a button or active overlay in the\ntop bar, chat window, or escape menu).</p>\n<p>To inject relative mouse movement while the cursor is locked, use\n<a href=\"/ref/class/VirtualInput.html#member-SendMouseDelta\">SendMouseDelta()</a> instead.</p>\n"
+			},
+			"SendPointerAction": {
+				"Summary": "<p>Injects a scroll wheel, trackpad pan, or pinch gesture event at the\nspecified screen position.</p>\n",
+				"Description": "<p>This method injects a pointer action event at the given screen-space\nposition. The <code>pointerAction</code> dictionary accepts the following keys:</p>\n<ul>\n<li><code>Wheel</code> (number) — Scroll wheel delta. Positive values scroll forward,\nnegative values scroll backward.</li>\n<li><code>Pan</code> (<a href=\"/ref/type/Vector2.html\">Vector2</a>) — Trackpad pan delta in pixels.</li>\n<li><code>Pinch</code> (number) — Pinch-to-zoom delta. Positive values zoom in,\nnegative values zoom out.</li>\n</ul>\n<p>This method throws a runtime error if the specified position overlaps an\ninteractive Roblox UI element (such as a button or active overlay in the\ntop bar, chat window, or escape menu). If all values in <code>pointerAction</code>\nare zero, the call returns without injecting any event.</p>\n"
+			},
+			"SendTextInput": {
+				"Summary": "<p>Injects a text input event as if the specified string was typed on a\nkeyboard.</p>\n",
+				"Description": "<p>This method injects a text input event, routing the given string directly\nto the focused <a href=\"/ref/class/TextBox.html\">TextBox</a> or the experience&#39;s text input handler as\nif the player typed it on a physical keyboard. This is useful for\npopulating text fields without needing to simulate individual key presses.</p>\n<p>This method throws a runtime error if <a href=\"/ref/class/CoreGui.html\">CoreGui</a> has keyboard focus,\nwhich includes a <a href=\"/ref/class/TextBox.html\">TextBox</a> inside <a href=\"/ref/class/CoreGui.html\">CoreGui</a> being focused, a\n<a href=\"/ref/class/CoreGui.html\">CoreGui</a> element selected for keyboard or gamepad navigation, or\nthe in-game escape menu being open.</p>\n"
+			}
+		},
 		"VirtualInputManager": {},
 		"VirtualUser": {},
 		"VisibilityCheckDispatcher": {},
@@ -22373,10 +22530,6 @@
 			"ModelStreamingBehavior": {
 				"Summary": "<p>Controls how <a href=\"/ref/class/Model.html\">Models</a> are replicated in experiences when\ninstance streaming is enabled.</p>\n",
 				"Description": "<p>This <a href=\"/ref/enum/ModelStreamingBehavior.html\">ModelStreamingBehavior</a> property controls how\n<a href=\"/ref/class/Model.html\">Models</a> are replicated in experiences when instance streaming\nis enabled.</p>\n"
-			},
-			"MoverConstraintRootBehavior": {
-				"Summary": "<p>Controls the logic used to select the assembly root part when using any of\nthe mover constraints.</p>\n",
-				"Description": "<p>Controls the logic used to select the assembly root part for mechanisms\nthat use any of the following constraints:</p>\n<ul>\n<li><a href=\"/ref/class/AlignOrientation.html\">AlignOrientation</a></li>\n<li><a href=\"/ref/class/AlignPosition.html\">AlignPosition</a></li>\n<li><a href=\"/ref/class/AngularVelocity.html\">AngularVelocity</a></li>\n<li><a href=\"/ref/class/LinearVelocity.html\">LinearVelocity</a></li>\n</ul>\n<p>When this property is set to\n<a href=\"/ref/enum/MoverConstraintRootBehaviorMode.html\">MoverConstraintRootBehaviorMode.Enabled</a>, these constraints will be\nignored when selecting the assembly root part if the constraint does not\ntransmit forces between two parts (some examples being\n<a href=\"/ref/class/AngularVelocity.html#member-ReactionTorqueEnabled\">AngularVelocity.ReactionTorqueEnabled</a> set to <code>false</code>,\n<a href=\"/ref/class/AlignPosition.html#member-ReactionForceEnabled\">AlignPosition.ReactionForceEnabled</a> set to <code>false</code>, or\n<a href=\"/ref/class/AlignOrientation.html#member-Mode\">AlignOrientation.Mode</a> set to\n<a href=\"/ref/enum/OrientationAlignmentMode.html\">OrientationAlignmentMode.OneAttachment</a>).</p>\n<p>When this property is set to\n<a href=\"/ref/enum/MoverConstraintRootBehaviorMode.html\">MoverConstraintRootBehaviorMode.Disabled</a>, these constraints may be\nerroneously considered when selecting the assembly root part, leading to\ninconsistent network ownership and delays when adding these constraints to\na mechanism.</p>\n"
 			},
 			"NextGenerationReplication": {
 				"Summary": "<p>When <code>true</code>, enables an alternate replication system that alters and\nimproves how properties are replicated under the hood.</p>\n",
@@ -23417,10 +23570,6 @@
 		"MoveState": {
 			"Summary": "<p>Represents the state of a <a href=\"/ref/class/SkateboardPlatform.html\">SkateboardPlatform</a>.</p>\n",
 			"Description": "<p>Represents the state of a <a href=\"/ref/class/SkateboardPlatform.html\">SkateboardPlatform</a>.</p>\n"
-		},
-		"MoverConstraintRootBehaviorMode": {
-			"Summary": "<p>Values for <a href=\"/ref/class/Workspace.html#member-MoverConstraintRootBehavior\">Workspace.MoverConstraintRootBehavior</a>. Controls the logic\nfor selecting the assembly root part when using various mover constraints.</p>\n",
-			"Description": "<p>Values for <a href=\"/ref/class/Workspace.html#member-MoverConstraintRootBehavior\">Workspace.MoverConstraintRootBehavior</a>. Controls the logic\nfor selecting the assembly root part when using various\n<a href=\"https://create.roblox.com/docs/physics/mover-constraints\">mover constraints</a>.</p>\n"
 		},
 		"MuteState": {},
 		"NameOcclusion": {
@@ -28652,17 +28801,6 @@
 			},
 			"Stopping": {
 				"Summary": "<p>Skateboard is stopping, but still moving.</p>\n"
-			}
-		},
-		"MoverConstraintRootBehaviorMode": {
-			"Default": {
-				"Summary": "<p>The default option for <a href=\"/ref/class/Workspace.html#member-MoverConstraintRootBehavior\">Workspace.MoverConstraintRootBehavior</a>.\nCurrently set to <strong>Disabled</strong>.</p>\n"
-			},
-			"Disabled": {
-				"Summary": "<p>The legacy logic will be used for assembly root part selection when a\nmechanism contains a mover constraint.</p>\n"
-			},
-			"Enabled": {
-				"Summary": "<p>Improved logic will be used for assembly root part selection when a\nmechanism contains a mover constraint. This improved logic gives more\nconsistent behavior when compared with other constraints or the deprecated\n<a href=\"/ref/class/BodyMover.html\">BodyMover</a> classes.</p>\n"
 			}
 		},
 		"MuteState": {
