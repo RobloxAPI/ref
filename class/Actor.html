@@ -251,7 +251,14 @@ v0.647.0.6470717
 version-2220a78ed1774256">647</a></td><td class=col-icon><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span></td><td class=col-member><span class="member-text deco"><span class=name><a class=entity-link href=/ref/class/Object.html#member-Changed>Changed</a></span><span class="parameters open">(</span><span class="parameters parameter">property: <a class="entity-link deco" href=/ref/type/string.html>string</a></span><span class="parameters close">)</span></span></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p>An <a href=/ref/class/Actor.html>Actor</a> is a container for code that can be safely split into its own
 thread using <a href=https://create.roblox.com/docs/reference/engine/libraries/task#desynchronize>task.desynchronize()</a>. It should also contain the
 instances used by its scripts.</p><p>To learn more about using multiple Actors to optimize script performance, see
-<a href=https://create.roblox.com/docs/scripting/multithreading>Parallel Luau</a>.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>9</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+<a href=https://create.roblox.com/docs/scripting/multithreading>Parallel Luau</a>.</p><h3>Notes</h3><ul><li>Each <code>Actor</code> runs in its own Luau VM. <a href=/ref/class/ModuleScript.html>ModuleScripts</a>
+required by an <code>Actor</code> are <strong>not</strong> shared or cached across <code>Actors</code> or with
+the main thread. Each VM executes its own copy of the module, so
+module-level state is isolated per <code>Actor</code>. Design accordingly if your
+modules hold state you intend to share.</li><li><code>script:GetActor()</code> returns <code>nil</code> when called from a <a href=/ref/class/ModuleScript.html>ModuleScript</a>
+unless the <code>ModuleScript</code> is a descendant of the <code>Actor</code>. <code>ModuleScripts</code>
+stored elsewhere (for example, <a href=/ref/class/ReplicatedStorage.html>ReplicatedStorage</a>) and required by an
+<code>Actor</code> are not considered descendants of the <code>Actor</code>.</li></ul></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>9</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Class data-field=MemoryCategory><a class="history-tag changed" href=/ref/updates/2025.html#version-2c10da33724f4ef9-0 title="Changed on 2025-09-30T10:09:59-07:00
 v0.693.0.6930960
 version-2c10da33724f4ef9">693</a>
@@ -361,7 +368,10 @@ Add <a class="entity-link deco" href=/ref/class/Actor.html#member-BindToMessageP
 sender will not block or yield when calling the
 <a href=/ref/class/Actor.html#member-SendMessage>SendMessage()</a> method.</p><p>Since a single Actor may receive different kinds of messages, a <code>topic</code>
 parameter is used to distinguish between various kinds of messages.</p><p>See <a href=/ref/class/Actor.html#member-BindToMessage>BindToMessage()</a> for details on receiving
-a message sent using <a href=/ref/class/Actor.html#member-SendMessage>SendMessage()</a>.</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
+a message sent using <a href=/ref/class/Actor.html#member-SendMessage>SendMessage()</a>.</p><p>Note that message arguments are <strong>passed by copy</strong> across Luau VM
+boundaries, not by reference. Sending large tables incurs a full copy on
+each call. Functions are bound to a specific VM and cannot be passed in
+messages.</p><div class=_chroma><table class=_lntable><tbody><tr><td class=_lntd><pre class=_chroma><span class=_lnt>1
 </span><span class=_lnt>2
 </span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_c1>-- Assume `actor` is a local variable referring to an Actor instance</span>
 </span></span><span class=_line><span class=_cl><span class=_n>actor</span><span class=_p>:</span><span class=_n>SendMessage</span><span class=_p>(</span><span class=_s2>&#34;Greeting&#34;</span><span class=_p>,</span> <span class=_s2>&#34;Hello World&#34;</span><span class=_p>)</span>

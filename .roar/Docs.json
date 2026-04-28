@@ -14,7 +14,7 @@
 		},
 		"Actor": {
 			"Summary": "<p>An <a href=\"/ref/class/Actor.html\">Actor</a> is a container for code that can be safely split into its own\nthread.</p>\n",
-			"Description": "<p>An <a href=\"/ref/class/Actor.html\">Actor</a> is a container for code that can be safely split into its own\nthread using <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#desynchronize\">task.desynchronize()</a>. It should also contain the\ninstances used by its scripts.</p>\n<p>To learn more about using multiple Actors to optimize script performance, see\n<a href=\"https://create.roblox.com/docs/scripting/multithreading\">Parallel Luau</a>.</p>\n"
+			"Description": "<p>An <a href=\"/ref/class/Actor.html\">Actor</a> is a container for code that can be safely split into its own\nthread using <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#desynchronize\">task.desynchronize()</a>. It should also contain the\ninstances used by its scripts.</p>\n<p>To learn more about using multiple Actors to optimize script performance, see\n<a href=\"https://create.roblox.com/docs/scripting/multithreading\">Parallel Luau</a>.</p>\n<h3>Notes</h3>\n<ul>\n<li>Each <code>Actor</code> runs in its own Luau VM. <a href=\"/ref/class/ModuleScript.html\">ModuleScripts</a>\nrequired by an <code>Actor</code> are <strong>not</strong> shared or cached across <code>Actors</code> or with\nthe main thread. Each VM executes its own copy of the module, so\nmodule-level state is isolated per <code>Actor</code>. Design accordingly if your\nmodules hold state you intend to share.</li>\n<li><code>script:GetActor()</code> returns <code>nil</code> when called from a <a href=\"/ref/class/ModuleScript.html\">ModuleScript</a>\nunless the <code>ModuleScript</code> is a descendant of the <code>Actor</code>. <code>ModuleScripts</code>\nstored elsewhere (for example, <a href=\"/ref/class/ReplicatedStorage.html\">ReplicatedStorage</a>) and required by an\n<code>Actor</code> are not considered descendants of the <code>Actor</code>.</li>\n</ul>\n"
 		},
 		"AdGui": {},
 		"AdPortal": {},
@@ -1314,7 +1314,7 @@
 		},
 		"MessagingService": {
 			"Summary": "<p>Allows servers of the same experience to communicate with each other.</p>\n",
-			"Description": "<p><strong>MessagingService</strong> allows servers of the same experience to communicate with\neach other in real time (less than 1 second) using topics. Topics are\ndeveloper‑defined strings (1–80 characters) that servers use to send and\nreceive messages.</p>\n<p>Delivery is best effort and not guaranteed. Make sure to architect your\nexperience so delivery failures are not critical.</p>\n<p><a href=\"https://create.roblox.com/docs/cloud-services/cross-server-messaging\">Cross-Server Messaging</a>\nexplores how to communicate between servers in greater detail.</p>\n<p>If you want to publish ad-hoc messages to live game servers, or publish across\nexperiences, you can use the\n<a href=\"https://create.roblox.com/docs/cloud/guides/usage-messaging\">Open Cloud APIs</a>.</p>\n<h3>Limitations</h3>\n<p>Note that these limits are subject to change.</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Limit</th>\n\t\t\t<th>Maximum</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Size of message</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t1kB\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages sent per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 600 + 240 * (number of players in this game server) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received per topic</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t(40 + 80 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received for entire game</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t (400 + 200 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscriptions allowed per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 20 + 8 * (number of players in this game server)\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscribe requests per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 240 requests per minute\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n"
+			"Description": "<p><strong>MessagingService</strong> allows servers of the same experience to communicate with\neach other in real time, typically within 1-2 seconds, using topics. Topics\nare developer‑defined strings (1–80 characters) that servers use to send and\nreceive messages.</p>\n<p>Delivery is best effort and not guaranteed. Make sure to architect your\nexperience so delivery failures are not critical.</p>\n<p><a href=\"https://create.roblox.com/docs/cloud-services/cross-server-messaging\">Cross-Server Messaging</a>\nexplores how to communicate between servers in greater detail.</p>\n<p>If you want to publish ad-hoc messages to live game servers, or publish across\nexperiences, you can use the\n<a href=\"https://create.roblox.com/docs/cloud/guides/usage-messaging\">Open Cloud APIs</a>.</p>\n<h3>Limitations</h3>\n<p>Note that these limits are subject to change.</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Limit</th>\n\t\t\t<th>Maximum</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Size of message</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t1kB\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages sent per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 600 + 240 * (number of players in this game server) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received per topic</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t(40 + 80 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<b>Messages received for entire game</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t (400 + 200 * number of servers) per minute\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscriptions allowed per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 20 + 8 * (number of players in this game server)\n\t\t\t</td>\n\t\t</tr>\n    <tr>\n\t\t\t<td>\n\t\t\t\t<b>Subscribe requests per game server</b>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t 240 requests per minute\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n"
 		},
 		"MicroProfilerService": {},
 		"Model": {
@@ -2715,7 +2715,7 @@
 			},
 			"SendMessage": {
 				"Summary": "<p>Sends a message to an Actor.</p>\n",
-				"Description": "<p>Sends a message to an Actor. Messages are sent asynchronously, so the\nsender will not block or yield when calling the\n<a href=\"/ref/class/Actor.html#member-SendMessage\">SendMessage()</a> method.</p>\n<p>Since a single Actor may receive different kinds of messages, a <code>topic</code>\nparameter is used to distinguish between various kinds of messages.</p>\n<p>See <a href=\"/ref/class/Actor.html#member-BindToMessage\">BindToMessage()</a> for details on receiving\na message sent using <a href=\"/ref/class/Actor.html#member-SendMessage\">SendMessage()</a>.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Assume `actor` is a local variable referring to an Actor instance</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">actor</span><span class=\"_p\">:</span><span class=\"_n\">SendMessage</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Greeting&#34;</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;Hello World&#34;</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
+				"Description": "<p>Sends a message to an Actor. Messages are sent asynchronously, so the\nsender will not block or yield when calling the\n<a href=\"/ref/class/Actor.html#member-SendMessage\">SendMessage()</a> method.</p>\n<p>Since a single Actor may receive different kinds of messages, a <code>topic</code>\nparameter is used to distinguish between various kinds of messages.</p>\n<p>See <a href=\"/ref/class/Actor.html#member-BindToMessage\">BindToMessage()</a> for details on receiving\na message sent using <a href=\"/ref/class/Actor.html#member-SendMessage\">SendMessage()</a>.</p>\n<p>Note that message arguments are <strong>passed by copy</strong> across Luau VM\nboundaries, not by reference. Sending large tables incurs a full copy on\neach call. Functions are bound to a specific VM and cannot be passed in\nmessages.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Assume `actor` is a local variable referring to an Actor instance</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">actor</span><span class=\"_p\">:</span><span class=\"_n\">SendMessage</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Greeting&#34;</span><span class=\"_p\">,</span> <span class=\"_s2\">&#34;Hello World&#34;</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			}
 		},
 		"AdGui": {
@@ -11786,8 +11786,8 @@
 				"Description": "<p>This method applies a tag to the instance, with no effect if the tag is\nalready applied. Successfully adding a tag will fire a signal created by\n<a href=\"/ref/class/CollectionService.html#member-GetInstanceAddedSignal\">CollectionService:GetInstanceAddedSignal()</a> with the given tag.</p>\n<h4>Warnings</h4>\n<ul>\n<li>\n<p>An instance&#39;s tags that were added client-side will be dropped if the\nserver later adds or removes a tag on that instance because the server\nreplicates all tags together and overwrites previous tags.</p>\n</li>\n<li>\n<p>When tagging an instance, it is common that some resources are used to\ngive the tag its functionality, for example event connections or tables.\nTo prevent memory leaks, it&#39;s a good idea to clean these up (disconnect,\nset to <code>nil</code>, etc.) when no longer needed for a tag. Do this when\ncalling <a href=\"/ref/class/Instance.html#member-RemoveTag\">Instance:RemoveTag()</a>, calling\n<a href=\"/ref/class/Instance.html#member-Destroy\">Instance:Destroy()</a>, or in a function connected to a signal\nreturned by <a href=\"/ref/class/CollectionService.html#member-GetInstanceRemovedSignal\">CollectionService:GetInstanceRemovedSignal()</a>.</p>\n</li>\n</ul>\n"
 			},
 			"AncestryChanged": {
-				"Summary": "<p>Fires when the <a href=\"/ref/class/Instance.html#member-Parent\">Instance.Parent</a> property of the object or one of\nits ancestors is changed.</p>\n",
-				"Description": "<p>Fires when the <a href=\"/ref/class/Instance.html#member-Parent\">Instance.Parent</a> property of the object or one of\nits ancestors is changed.</p>\n<p>This event includes two parameters: <code>child</code> refers to the <a href=\"/ref/class/Instance.html\">Instance</a>\nwhose <a href=\"/ref/class/Instance.html#member-Parent\">Instance.Parent</a> was actually changed, while <code>parent</code> refers\nto this instance&#39;s new <a href=\"/ref/class/Instance.html#member-Parent\">Instance.Parent</a>.</p>\n<p>You can use this event to track the deletion of an instance in Studio,\nsuch as manual deletion in the Explorer or through a plugin. If you need\nto detect when an instance is destroyed using <a href=\"/ref/class/Instance.html#member-Destroy\">Instance:Destroy()</a>,\nuse the <a href=\"/ref/class/Instance.html#member-Destroying\">Instance.Destroying</a> event instead.</p>\n",
+				"Summary": "<p>Fires when the <a href=\"/ref/class/Instance.html#member-Parent\">Instance.Parent</a> property of this object or one of\nits ancestors is changed.</p>\n",
+				"Description": "<p>Fires when this instance is reparented or when any of its ancestors is\nreparented.</p>\n<p>You can use this event to track the deletion of an instance in Studio,\nsuch as manual deletion in the Explorer or through a plugin. If you need\nto detect when an instance is destroyed using <a href=\"/ref/class/Instance.html#member-Destroy\">Instance:Destroy()</a>,\nuse the <a href=\"/ref/class/Instance.html#member-Destroying\">Instance.Destroying</a> event instead.</p>\n",
 				"CodeSamples": [
 					"Instance-AncestryChanged1"
 				]
@@ -22441,7 +22441,10 @@
 				"Summary": "<p>Sets the server authority mode.</p>\n",
 				"Description": "<p>Sets the server authority mode. See <a href=\"/ref/enum/AuthorityMode.html\">AuthorityMode</a> for options.</p>\n"
 			},
-			"AvatarUnificationMode": {},
+			"AvatarUnificationMode": {
+				"Summary": "<p>Enables the R6 to R15 adapter, allowing R15 avatars to join R6\nexperiences.</p>\n",
+				"Description": "<p>When <a href=\"/ref/enum/AvatarUnificationMode.html\">AvatarUnificationMode.Enabled</a>, R15 avatars can join R6\nexperiences via the R6 to R15 adapter. R15 characters receive invisible\nadapter parts with R6-compatible names welded to their corresponding R15\nparts, preserving R6-like scale and movement while enabling R15 features\nsuch as layered clothing and animatable heads. Only relevant when the\nexperience&#39;s avatar type is set to R6.</p>\n"
+			},
 			"BreakJoints": {
 				"Summary": "<p>Goes through all <a href=\"/ref/class/BasePart.html\">BaseParts</a> given, breaking any joints\nconnected to these parts.</p>\n",
 				"Description": "<p>Goes through all <a href=\"/ref/class/BasePart.html\">BaseParts</a> given, breaking any joints\nconnected to these parts. This function will break any of the following\ntypes of joints:</p>\n<ul>\n<li><a href=\"/ref/class/JointInstance.html\">JointInstances</a> such as <a href=\"/ref/class/Weld.html\">Welds</a></li>\n<li><a href=\"/ref/class/WeldConstraint.html\">WeldConstraints</a></li>\n</ul>\n<p>Unlike <a href=\"/ref/class/Model.html#member-MakeJoints\">Model:MakeJoints()</a>, this function requires an array of\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> as a parameter. This array is given as follows:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">Workspace</span><span class=\"_p\">:</span><span class=\"_n\">BreakJoints</span><span class=\"_p\">({</span><span class=\"_n\">part1</span><span class=\"_p\">,</span> <span class=\"_n\">part2</span><span class=\"_p\">,</span> <span class=\"_n\">part3</span><span class=\"_p\">})</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>Note, this function cannot be used by scripts and will only function in\nplugins.</p>\n"
@@ -22458,7 +22461,10 @@
 				"Summary": "<p>The amount of time, in seconds, that the game has been running.</p>\n",
 				"Description": "<p>The amount of time, in seconds, that the game has been running.</p>\n<p>Despite the title, this value is currently not &#39;Distributed&#39; across the\nclient and the server. Instead, on the server it represents how long the\nserver has been running. On the client, it represents how long the client\nhas been connected to the server.</p>\n<p>Developers should not rely on the above behavior, and it is possible this\nproperty will be synchronized across clients and the server in the future.</p>\n<p>Those looking for the time since the program started running should use\nthe &#39;time&#39; function instead. See below for a comparison between\nDistributedGameTime and its alternatives.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nprint(Workspace.DistributedGameTime) -- Time the game started running\nprint(os.time()) -- Time since epoch (1 January 1970, 00:00:00) UTC\nprint(tick()) -- Time since epoch (1 January 1970, 00:00:00) system time\nprint(time()) -- Time the game started running\nprint(elapsedTime()) -- Time since Roblox started running\n</code></pre>\n"
 			},
-			"FallHeightEnabled": {},
+			"FallHeightEnabled": {
+				"Summary": "<p>Controls whether parts that fall below\n<a href=\"/ref/class/Workspace.html#member-FallenPartsDestroyHeight\">Workspace.FallenPartsDestroyHeight</a> are automatically destroyed.</p>\n",
+				"Description": "<p>When <code>false</code>, the kill plane defined by\n<a href=\"/ref/class/Workspace.html#member-FallenPartsDestroyHeight\">Workspace.FallenPartsDestroyHeight</a> is disabled and falling parts\nare not automatically removed. Defaults to <code>true</code>.</p>\n<p>This property can be read by scripts but can only be set by plugins, the\ncommand bar, or the properties window in Studio.</p>\n"
+			},
 			"FallenPartsDestroyHeight": {
 				"Summary": "<p>Determines the height at which falling <a href=\"/ref/class/BasePart.html\">BaseParts</a> and\ntheir ancestor <a href=\"/ref/class/Model.html\">Models</a> are removed from <a href=\"/ref/class/Workspace.html\">Workspace</a>.</p>\n",
 				"Description": "<p>This property determines the height at which the engine automatically\nremoves falling <a href=\"/ref/class/BasePart.html\">BaseParts</a> and their ancestor\n<a href=\"/ref/class/Model.html\">Models</a> from <a href=\"/ref/class/Workspace.html\">Workspace</a> by parenting them to <code>nil</code>.\nThis is to prevent parts that have fallen off the map from continuing to\nfall forever.</p>\n<p>If a part removed due to this behavior is the last part in a\n<a href=\"/ref/class/Model.html\">Model</a>, that model will also be removed. This applies to all model\nancestors of the part.</p>\n<p>This property is clamped between -50,000 and 50,000 because\n<a href=\"/ref/class/BasePart.html\">BaseParts</a> do not simulate or render properly at a great\ndistance from the origin due to floating point inaccuracies.</p>\n<p>This property can be read by scripts, but can only be set by plugins, the\ncommand bar, or the properties window in Studio.</p>\n"
@@ -22477,7 +22483,7 @@
 			},
 			"GetPhysicsThrottling": {
 				"Summary": "<p>Returns an integer, between 0 and 100, representing the percentage of real\ntime that physics simulation is currently being throttled to.</p>\n",
-				"Description": "<p>Returns an integer, between <code>0</code> and <code>100</code>, representing the percentage of\nreal time that physics simulation is currently being throttled to. Physics\nthrottling occurs when the physics engine detects it cannot keep up with\nthe game in real time. When physics is being throttled, it will update\nless frequently causing <a href=\"/ref/class/BasePart.html\">BaseParts</a> to appear to move\nslower.</p>\n<p>Objects associated with <a href=\"/ref/class/Humanoid.html\">Humanoids</a> are exempt from physics\nthrottling.</p>\n<p>See also <a href=\"/ref/class/Workspace.html#member-SetPhysicsThrottleEnabled\">Workspace:SetPhysicsThrottleEnabled()</a>.</p>\n"
+				"Description": "<p>Returns an integer, between <code>0</code> and <code>100</code>, representing the percentage of\nreal time that physics simulation is currently being throttled to. Physics\nthrottling occurs when the physics engine detects it cannot keep up with\nthe game in real time. When physics is being throttled, it will update\nless frequently causing <a href=\"/ref/class/BasePart.html\">BaseParts</a> to appear to move\nslower.</p>\n<p>Objects associated with <a href=\"/ref/class/Humanoid.html\">Humanoids</a> are exempt from physics\nthrottling.</p>\n<h4>See also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-SetPhysicsThrottleEnabled\">Workspace:SetPhysicsThrottleEnabled()</a>.</li>\n</ul>\n"
 			},
 			"GetRealPhysicsFPS": {
 				"Summary": "<p>Returns the number of frames per second that physics is currently being\nsimulated at.</p>\n",
@@ -22488,7 +22494,7 @@
 			},
 			"GetServerTimeNow": {
 				"Summary": "<p>Returns the server&#39;s Unix time in seconds.</p>\n",
-				"Description": "<p>This method returns the client&#39;s best approximation of the current time on\nthe server. It is useful for creating synchronized experiences, as every\nclient will get roughly the same results regardless of their timezone or\nlocal clock.</p>\n<p>This method returns a Unix timestamp, similar to <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a>,\nthat you can use with <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.date()</a> or\n<a href=\"/ref/type/DateTime.html#member-fromUnixTimestamp\">DateTime.fromUnixTimestamp()</a>. The timestamp is smoothed so\nthat:</p>\n<ul>\n<li>It is monotonic; its value will never decrease.</li>\n<li>It moves at the same rate as the local clock to within 0.6%.</li>\n</ul>\n<p>This method is useful for making sure an event starts at the right\nreal-world time and for periodic adjustments to keep a series of events in\nsync. For benchmarking or other use cases that require higher precision,\nconsider <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.clock()</a>.</p>\n<p>This method relies on the server, so calling it from a client that isn&#39;t\nconnected will throw an error. Also note that this method is not suitable\nfor things like timed rewards, as it is not secure compared to tracking\nsuch timers on the server.</p>\n<p>See also:</p>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-DistributedGameTime\">DistributedGameTime</a>, a game-time\nclock</li>\n<li><a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a></li>\n<li><a href=\"/ref/type/DateTime.html\">DateTime</a></li>\n</ul>\n"
+				"Description": "<p>This method returns the client&#39;s best approximation of the current time on\nthe server. It is useful for creating synchronized experiences, as every\nclient will get roughly the same results regardless of their timezone or\nlocal clock.</p>\n<p>This method returns a Unix timestamp, similar to <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a>,\nthat you can use with <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.date()</a> or\n<a href=\"/ref/type/DateTime.html#member-fromUnixTimestamp\">DateTime.fromUnixTimestamp()</a>. The timestamp is smoothed so\nthat:</p>\n<ul>\n<li>It is monotonic; its value will never decrease.</li>\n<li>It moves at the same rate as the local clock to within 0.6%.</li>\n</ul>\n<p>This method is useful for making sure an event starts at the right\nreal-world time and for periodic adjustments to keep a series of events in\nsync. For benchmarking or other use cases that require higher precision,\nconsider <a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.clock()</a>.</p>\n<p>This method relies on the server, so calling it from a client that isn&#39;t\nconnected will throw an error. Also note that this method is not suitable\nfor things like timed rewards, as it is not secure compared to tracking\nsuch timers on the server.</p>\n<h4>See also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-DistributedGameTime\">DistributedGameTime</a>, a game-time\nclock</li>\n<li><a href=\"https://create.roblox.com/docs/reference/engine/libraries/os#\">os.time()</a></li>\n<li><a href=\"/ref/type/DateTime.html\">DateTime</a></li>\n</ul>\n"
 			},
 			"GlobalWind": {
 				"Summary": "<p>Specifies the global wind vector for animated terrain grass, dynamic\nclouds, and particles.</p>\n",
@@ -22505,7 +22511,10 @@
 				"Summary": "<p>Enables support for constraints for IKControls. If disabled, IKControls\nignore physics constraints.</p>\n",
 				"Description": "<p>Enables support for constraints for IKControls. The <code>Default</code> value is the\nsame as <code>Enabled</code>. If disabled, IKControls ignore physics constraints. See\n<a href=\"/ref/class/IKControl.html\">IKControl</a> for additional details.</p>\n"
 			},
-			"InsertPoint": {},
+			"InsertPoint": {
+				"Summary": "<p>The world position at which new objects are placed when inserted from the\ntoolbox.</p>\n",
+				"Description": "<p>Stores the world-space position used when inserting new objects into the\nworkspace via the Studio IDE.</p>\n"
+			},
 			"InterpolationThrottling": {
 				"DeprecationMessage": "<p>This property should not be used for new work.</p>\n"
 			},
@@ -22513,8 +22522,14 @@
 				"Summary": "<p>Creates joints between the specified <a href=\"/ref/class/BasePart.html\">Parts</a> and any\ntouching parts depending on the parts&#39; surfaces and the specified joint\ncreation mode.</p>\n",
 				"Description": "<p>This function creates joints between the specified <a href=\"/ref/class/BasePart.html\">Parts</a>\nand any touching parts depending on the parts&#39; surfaces and the specified\njoint creation mode.</p>\n<p>This function creates joints between the specified Parts and any planar\ntouching surfaces, depending on the parts&#39; surfaces and the specified\njoint creation mode.</p>\n<ul>\n<li>Glue, Studs, Inlets, Universal, Weld, and Smooth surfaces will all\ncreate Weld instances.</li>\n<li>Spheres will not surface-weld to anything. The rounded sides of\ncylinders will not surface-weld, but the flat end sides will.</li>\n<li>Hinge and Motor surfaces will still create <a href=\"/ref/class/Rotate.html\">Rotate</a> and\n<a href=\"/ref/class/RotateP.html\">RotateP</a> joint instances, regardless of part shape.</li>\n</ul>\n<p>The first parameter is an array of <a href=\"/ref/class/BasePart.html\">BaseParts</a>. Joints will\nonly be created between the parts in the array and not in the array.\nJoints will not be created between the parts in the array.</p>\n<p>The second parameter is a <a href=\"/ref/enum/JointCreationMode.html\">JointCreationMode</a> that determines how\njoints will be created. Passing in either enum value,\n<a href=\"/ref/enum/JointCreationMode.html\">Enum.JointCreationMode.All</a> or\n<a href=\"/ref/enum/JointCreationMode.html\">Enum.JointCreationMode.Surface</a>, has the same\nbehavior which equates to Join Always</p>\n<p>This function is used by the Roblox Studio <strong>Move</strong> tool when the user\nfinishes moving a selection. In conjunction with\n<a href=\"/ref/class/Plugin.html#member-GetJoinMode\">Plugin:GetJoinMode()</a> and <a href=\"/ref/class/Workspace.html#member-UnjoinFromOutsiders\">Workspace:UnjoinFromOutsiders()</a>\nit can be used to retain join functionality when developing custom studio\nbuild tools. See the snippets below for an example.</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span><span class=\"_lnt\">7\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Finished moving a selection; make joints</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">finishedMovingParts</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_kd\">local</span> <span class=\"_n\">joinMode</span> <span class=\"_o\">=</span> <span class=\"_n\">Plugin</span><span class=\"_p\">:</span><span class=\"_n\">GetJoinMode</span><span class=\"_p\">()</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Workspace</span><span class=\"_p\">:</span><span class=\"_n\">JoinToOutsiders</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">,</span> <span class=\"_n\">joinMode</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_c1\">-- Started moving a selection; break joints</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_kr\">function</span> <span class=\"_nf\">startMovingParts</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\t<span class=\"_n\">Workspace</span><span class=\"_p\">:</span><span class=\"_n\">UnjoinFromOutsiders</span><span class=\"_p\">(</span><span class=\"_n\">parts</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kr\">end</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
 			},
-			"LayeredClothingCacheOptimizations": {},
-			"LuauTypeCheckMode": {},
+			"LayeredClothingCacheOptimizations": {
+				"Summary": "<p>Controls whether layered clothing cache optimizations are enabled.</p>\n",
+				"Description": "<p>Controls whether the engine caches layered clothing rendering data to\nimprove performance for experiences with many characters wearing layered\nclothing. <a href=\"/ref/enum/RolloutState.html\">Default</a> follows the current engine-wide\nrollout state.</p>\n"
+			},
+			"LuauTypeCheckMode": {
+				"Summary": "<p>Sets the Luau type checking mode for scripts in the experience.</p>\n",
+				"Description": "<p>Controls the Luau type checking mode applied to scripts in the experience.\nSee <a href=\"/ref/enum/LuauTypeCheckMode.html\">LuauTypeCheckMode</a> for the available modes.</p>\n"
+			},
 			"MakeJoints": {
 				"Summary": "<p>Goes through all <a href=\"/ref/class/BasePart.html\">BaseParts</a> given. If any part&#39;s side has\na <a href=\"/ref/enum/SurfaceType.html\">SurfaceType</a> that can make a joint it will create a joint with any\nadjacent parts.</p>\n",
 				"Description": "<p><strong>Deprecated</strong></p>\n<p>SurfaceType based joining is deprecated, do not use MakeJoints for new\nprojects. <a href=\"/ref/class/WeldConstraint.html\">WeldConstraints</a> and\n<a href=\"/ref/class/HingeConstraint.html\">HingeConstraints</a> should be used instead.</p>\n<p>Goes through all <a href=\"/ref/class/BasePart.html\">Parts</a> given. If any part&#39;s side has a\n<a href=\"/ref/enum/SurfaceType.html\">SurfaceType</a> that can make a joint it will create a joint with any\nadjacent parts.</p>\n<p>Joints will be created between the specified Parts and any planar touching\nsurfaces, depending on the parts&#39; surfaces.</p>\n<ul>\n<li>Smooth surfaces will not create joints</li>\n<li>Glue surfaces will create a <a href=\"/ref/class/Glue.html\">Glue</a> joint</li>\n<li>Weld will create a <a href=\"/ref/class/Weld.html\">Weld</a> joint with any surface except for\nUnjoinable</li>\n<li>Studs, Inlet, or Universal will each create a <a href=\"/ref/class/Snap.html\">Snap</a> joint with\neither of other the other two surfaces (e.g. Studs with Inlet and\nUniversal)</li>\n<li>Hinge and Motor surfaces create <a href=\"/ref/class/Rotate.html\">Rotate</a> and <a href=\"/ref/class/RotateV.html\">RotateV</a> joint\ninstances</li>\n</ul>\n<p>Unlike <a href=\"/ref/class/Model.html#member-MakeJoints\">Model:MakeJoints()</a>, this function requires an array of\nparts as a parameter. This array is given as follows:</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nWorkspace:MakeJoints({part1, part2, part3})\n</code></pre>\n<p>Joints are broken if enough force is applied to them due to an\n<a href=\"/ref/class/Explosion.html\">Explosion</a>, unless a <a href=\"/ref/class/ForceField.html\">ForceField</a> object is parented to the\n<a href=\"/ref/class/BasePart.html\">BasePart</a> or ancestor <a href=\"/ref/class/Model.html\">Model</a>. For this reason, they are\noften used to make simple destructible buildings and other models.</p>\n"
@@ -22539,38 +22554,65 @@
 				"Summary": "<p>Returns <code>true</code> if the game has the PGS Physics solver enabled.</p>\n",
 				"Description": "<p>Returns <code>true</code> if the game has the PGS Physics solver enabled.</p>\n<p>As <a href=\"/ref/class/Workspace.html#member-PGSPhysicsSolverEnabled\">Workspace.PGSPhysicsSolverEnabled</a> cannot be accessed by\nscripts, the PGSIsEnabled function allows developers to tell which physics\nsolver the game is using.</p>\n"
 			},
-			"PathfindingUseImprovedSearch": {},
+			"PathfindingUseImprovedSearch": {
+				"Summary": "<p>Controls whether an improved search algorithm is used by\n<a href=\"/ref/class/PathfindingService.html\">PathfindingService</a>.</p>\n",
+				"Description": "<p>When <a href=\"/ref/enum/PathfindingUseImprovedSearch.html\">Enabled</a>,\n<a href=\"/ref/class/PathfindingService.html\">PathfindingService</a> uses an improved pathfinding algorithm.\n<a href=\"/ref/enum/PathfindingUseImprovedSearch.html\">Default</a> follows the current\nengine-wide rollout state.</p>\n"
+			},
 			"PersistentLoaded": {
 				"Summary": "<p>Fires when persistent models have been sent to the specified player.</p>\n",
 				"Description": "<p>This event fires every time a player has been sent all current persistent\nmodels and part-less atomic models. The <code>player</code> parameter indicates which\nplayer has received all applicable instances.</p>\n<p>Note that experience loading happens before persistent loading, and firing\nof the <a href=\"/ref/class/DataModel.html#member-Loaded\">DataModel.Loaded</a> event does not indicate that all\npersistent models are present.</p>\n"
 			},
-			"PhysicsImprovedSleep": {},
+			"PhysicsImprovedSleep": {
+				"Summary": "<p>Controls whether the improved partial physics sleep algorithm is enabled.</p>\n",
+				"Description": "<p>Controls whether the physics engine uses an improved algorithm for partial\nsleep, the process by which the engine stops simulating parts that are no\nlonger actively moving. Enabling this property can reduce CPU overhead in\ngames with many near-stationary parts.</p>\n"
+			},
 			"PhysicsSteppingMethod": {
 				"Summary": "<p>Sets how the solver will advance the physics simulation forward in time.</p>\n",
 				"Description": "<p>Sets how the solver will advance the physics simulation forward in time.\nThis option is not scriptable and must be set from the\n<strong>PhysicsSteppingMethod</strong> property of <strong>Workspace</strong> within Studio. See\n<a href=\"https://create.roblox.com/docs/physics/adaptive-timestepping\">Adaptive Timestepping</a> for\ndetails.</p>\n<p>Note that when assemblies of different simulation rates become connected\nvia <a href=\"/ref/class/Constraint.html\">Constraints</a> or collisions, the combined mechanism\nwill default to the highest simulation rate for stability.</p>\n"
 			},
-			"PlayerCharacterDestroyBehavior": {},
+			"PlayerCharacterDestroyBehavior": {
+				"Summary": "<p>Controls whether the engine automatically calls <code>Destroy()</code> on a player&#39;s\ncharacter when it is replaced and on the <code>Player</code> object when the player\nleaves.</p>\n",
+				"Description": "<p>When enabled, the engine automatically calls <code>Destroy()</code> on a player&#39;s old\ncharacter when it is replaced (for example, on respawn) and on the\n<a href=\"/ref/class/Player.html\">Player</a> object itself when the player leaves the server.</p>\n"
+			},
 			"PlayerScriptsUseInputActionSystem": {
 				"Summary": "<p>Controls internal behavior of the built-in <a href=\"/ref/class/Player.html\">Player</a> scripts.</p>\n",
 				"Description": "<p>When <code>true</code>, updates the built-in <a href=\"/ref/class/Player.html\">Player</a> scripts to a new system\nwhere they live under <a href=\"/ref/class/StarterPlayer.html\">StarterPlayer</a>, use the\n<a href=\"https://create.roblox.com/docs/input/input-action-system\">Input Action System</a>, and allow\nthe server to process player inputs.</p>\n"
 			},
-			"PrimalPhysicsSolver": {},
-			"RejectCharacterDeletions": {},
-			"RenderingCacheOptimizations": {},
-			"ReplicateInstanceDestroySetting": {},
-			"Retargeting": {},
-			"SandboxedInstanceMode": {},
+			"PrimalPhysicsSolver": {
+				"Summary": "<p>Controls whether the experimental Primal Physics Solver is enabled.</p>\n",
+				"Description": "<p>The Primal Physics Solver is an experimental constraint solver that can\nimprove accuracy in complex setup. Setting this property to\n<a href=\"/ref/enum/PrimalPhysicsSolver.html\">Experimental</a> enables it.</p>\n"
+			},
+			"RejectCharacterDeletions": {
+				"Summary": "<p>Controls whether the server rejects attempts by clients to delete player\ncharacters from the workspace.</p>\n",
+				"Description": "<p>When enabled, the server ignores client requests to delete player\n<a href=\"/ref/class/Model.html\">character</a> objects from the workspace, preventing exploits\nthat attempt to abuse this replication path.\n<a href=\"/ref/enum/RejectCharacterDeletions.html\">Default</a> is currently equivalent to\n<code>Enabled</code>.</p>\n"
+			},
+			"RenderingCacheOptimizations": {
+				"Summary": "<p>Controls whether rendering cache optimizations are enabled.</p>\n",
+				"Description": "<p>Controls whether the engine caches rendering state data to reduce\nredundant per-frame work. When enabled, the renderer can skip recomputing\nstate for static objects, improving frame rates in scenes with many parts.</p>\n"
+			},
+			"ReplicateInstanceDestroySetting": {
+				"Summary": "<p>Controls how <code>Instance:Destroy()</code> calls are replicated from the server to\nclients.</p>\n",
+				"Description": "<p>Determines the replication behavior when <code>Instance:Destroy()</code> is called on\nthe server. When <a href=\"/ref/enum/ReplicateInstanceDestroySetting.html\">Enabled</a>, the\nengine uses improved replication semantics for instance destruction.</p>\n"
+			},
+			"Retargeting": {
+				"Summary": "<p>Controls whether animation retargeting is enabled for character\nanimations.</p>\n",
+				"Description": "<p>Sets the animation retargeting mode. Retargeting adapts animations to\ncharacter rigs of different proportions, allowing a single animation to\nplay correctly on characters of varying sizes and shapes.</p>\n"
+			},
+			"SandboxedInstanceMode": {
+				"Summary": "<p>Controls whether sandboxed instance mode (script capabilities) is enabled.</p>\n",
+				"Description": "<p>When set to <a href=\"/ref/enum/SandboxedInstanceMode.html\">Experimental</a>, the engine enables\nsandboxed instance mode, which lets you use script capabilities.</p>\n"
+			},
 			"SignalBehavior": {
 				"Summary": "<p>Configures when the engine resumes event handlers.</p>\n",
 				"Description": "<p>This property determines whether event handlers will be resumed\nimmediately when the event fires, or deferred and then resumed at a later\nresumption point. Resumption points currently include:</p>\n<ul>\n<li>Input processing (resumes once per input to be processed, see\n<a href=\"/ref/class/UserInputService.html\">UserInputService</a>)</li>\n<li><a href=\"/ref/class/RunService.html#member-PreRender\">RunService.PreRender</a></li>\n<li>Legacy waiting script resumption such as <code>wait()</code>, <code>spawn()</code>, and\n<code>delay()</code></li>\n<li><a href=\"/ref/class/RunService.html#member-PreAnimation\">RunService.PreAnimation</a></li>\n<li><a href=\"/ref/class/RunService.html#member-PreSimulation\">RunService.PreSimulation</a></li>\n<li><a href=\"/ref/class/RunService.html#member-PostSimulation\">RunService.PostSimulation</a></li>\n<li>Waiting script resumption such as <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#wait\">task.wait()</a>,\n<a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#spawn\">task.spawn()</a>, and <a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#delay\">task.delay()</a></li>\n<li><a href=\"/ref/class/RunService.html#member-Heartbeat\">RunService.Heartbeat</a></li>\n<li><a href=\"/ref/class/DataModel.html#member-BindToClose\">DataModel.BindToClose</a></li>\n</ul>\n<p>For more information, see\n<a href=\"https://create.roblox.com/docs/scripting/events/deferred\">Deferred Events</a>.</p>\n"
 			},
 			"StreamOutBehavior": {
 				"Summary": "<p>Configures how the engine decides when to stream content away from\nplayers.</p>\n",
-				"Description": "<p>This property controls where content will be unloaded from the\n<a href=\"/ref/class/Player.html#member-ReplicationFocus\">ReplicationFocus</a> based on device memory\nconditions, or based on the streaming radius.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingMinRadius\">Workspace.StreamingMinRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingTargetRadius\">Workspace.StreamingTargetRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
+				"Description": "<p>This property controls where content will be unloaded from the\n<a href=\"/ref/class/Player.html#member-ReplicationFocus\">ReplicationFocus</a> based on device memory\nconditions, or based on the streaming radius.</p>\n<h4>See also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingMinRadius\">Workspace.StreamingMinRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingTargetRadius\">Workspace.StreamingTargetRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
 			},
 			"StreamingEnabled": {
 				"Summary": "<p>Whether content streaming is enabled for the place.</p>\n",
-				"Description": "<p>This property determines whether in-experience content streaming is\nenabled for the place. This property is not scriptable and therefore must\nbe set on the <code>Workspace</code> object in Studio.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingMinRadius\">Workspace.StreamingMinRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingTargetRadius\">Workspace.StreamingTargetRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
+				"Description": "<p>This property determines whether in-experience content streaming is\nenabled for the place. This property is not scriptable and therefore must\nbe set on the <code>Workspace</code> object in Studio.</p>\n<h4>See also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingMinRadius\">Workspace.StreamingMinRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingTargetRadius\">Workspace.StreamingTargetRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
 			},
 			"StreamingIntegrityMode": {
 				"Summary": "<p>Determines whether streaming integrity mode is active.</p>\n",
@@ -22578,11 +22620,11 @@
 			},
 			"StreamingMinRadius": {
 				"Summary": "<p>Minimum distance that content will be streamed to players with high\npriority.</p>\n",
-				"Description": "<p>This property indicates the radius around the player&#39;s character or the\ncurrent <a href=\"/ref/class/Player.html#member-ReplicationFocus\">ReplicationFocus</a> in which content\nwill be streamed in at the highest priority. Defaults to 64 studs.</p>\n<p>Care should be taken when increasing the default minimum radius since\ndoing so will require more memory and more server bandwidth at the expense\nof other components.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingTargetRadius\">Workspace.StreamingTargetRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
+				"Description": "<p>This property indicates the radius around the player&#39;s character or the\ncurrent <a href=\"/ref/class/Player.html#member-ReplicationFocus\">ReplicationFocus</a> in which content\nwill be streamed in at the highest priority. Defaults to 64 studs.</p>\n<p>Care should be taken when increasing the default minimum radius since\ndoing so will require more memory and more server bandwidth at the expense\nof other components.</p>\n<h4>See also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingTargetRadius\">Workspace.StreamingTargetRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
 			},
 			"StreamingTargetRadius": {
 				"Summary": "<p>Maximum distance that content will be streamed to players.</p>\n",
-				"Description": "<p>This property controls the maximum distance away from the player&#39;s\ncharacter or the current <a href=\"/ref/class/Player.html#member-ReplicationFocus\">ReplicationFocus</a>\nin which content will be streamed in. Defaults to 1024 studs.</p>\n<p>Note that the engine is allowed to retain previously loaded content beyond\nthe target radius, memory permitting.</p>\n<h4>See Also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingMinRadius\">Workspace.StreamingMinRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
+				"Description": "<p>This property controls the maximum distance away from the player&#39;s\ncharacter or the current <a href=\"/ref/class/Player.html#member-ReplicationFocus\">ReplicationFocus</a>\nin which content will be streamed in. Defaults to 1024 studs.</p>\n<p>Note that the engine is allowed to retain previously loaded content beyond\nthe target radius, memory permitting.</p>\n<h4>See also</h4>\n<ul>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingEnabled\">Workspace.StreamingEnabled</a> which controls whether content\nstreaming is enabled</li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingMinRadius\">Workspace.StreamingMinRadius</a></li>\n<li><a href=\"/ref/class/Workspace.html#member-StreamingIntegrityMode\">Workspace.StreamingIntegrityMode</a></li>\n</ul>\n"
 			},
 			"Terrain": {
 				"Summary": "<p>A reference to the <a href=\"/ref/class/Terrain.html\">Terrain</a> object parented to the\n<a href=\"/ref/class/Workspace.html\">Workspace</a>.</p>\n",
@@ -22600,7 +22642,10 @@
 				"Summary": "<p>When <code>true</code>, enables <a href=\"/ref/class/RunService.html#member-BindToSimulation\">RunService:BindToSimulation()</a> which calls a\nfunction at a fixed frequency, updates physics stepping logic, and makes\nthe <a href=\"https://create.roblox.com/docs/reference/engine/globals/RobloxGlobals#time\">time()</a> function return the fixed stepped frame\ntime.</p>\n",
 				"Description": "<p>When <code>true</code>, enables <a href=\"/ref/class/RunService.html#member-BindToSimulation\">RunService:BindToSimulation()</a> which calls a\nfunction at a fixed frequency. Also updates physics stepping logic such\nthat character controller updates and joint transforms are performed at a\nfixed frequency rather than once per frame, as well as makes the\n<a href=\"https://create.roblox.com/docs/reference/engine/globals/RobloxGlobals#time\">time()</a> function return the fixed stepped frame\ntime.</p>\n"
 			},
-			"UseNewLuauTypeSolver": {},
+			"UseNewLuauTypeSolver": {
+				"Summary": "<p>Controls whether the new Luau type solver is used for type inference.</p>\n",
+				"Description": "<p>This <a href=\"/ref/enum/RolloutState.html\">RolloutState</a> property controls whether the new Luau type\nsolver is used for type inference and type checking in scripts. The new\ntype solver provides improved accuracy and performance for type analysis.\nNote that <a href=\"/ref/class/Workspace.html#member-LuauTypeCheckMode\">Workspace.LuauTypeCheckMode</a> controls the mode (strict,\nnonstrict, etc.) while this property controls which solver implementation\nis active. <a href=\"/ref/enum/RolloutState.html\">Default</a> follows the current engine-wide\nrollout state.</p>\n"
+			},
 			"ZoomToExtents": {
 				"Summary": "<p>Positions and zooms the <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> to show the extent\nof <a href=\"/ref/class/BasePart.html\">BaseParts</a> currently in the <a href=\"/ref/class/Workspace.html\">Workspace</a>.</p>\n",
 				"Description": "<p>Positions and zooms the <a href=\"/ref/class/Workspace.html#member-CurrentCamera\">Workspace.CurrentCamera</a> to show the extent\nof <a href=\"/ref/class/BasePart.html\">BaseParts</a> currently in the <a href=\"/ref/class/Workspace.html\">Workspace</a>. It\nexhibits similar behavior to the &#34;focus&#34; command but it shows the extents\nof the <a href=\"/ref/class/Workspace.html\">Workspace</a> rather than the currently selected object.</p>\n<p>This function cannot be used in scripts but will function in the command\nbar or plugins.</p>\n"
@@ -22967,7 +23012,10 @@
 		"AvatarSettingsLegacyCollisionMode": {},
 		"AvatarSettingsScaleMode": {},
 		"AvatarThumbnailCustomizationType": {},
-		"AvatarUnificationMode": {},
+		"AvatarUnificationMode": {
+			"Summary": "<p>Controls whether the R6 to R15 adapter is active, allowing R15 avatars to join\nR6 experiences.</p>\n",
+			"Description": "<p>When enabled, R15 avatars joining an R6 experience receive adapter parts,\ninvisible <a href=\"/ref/class/MeshPart.html\">MeshParts</a> with R6-compatible names welded to their\ncorresponding R15 parts. The adapter preserves R6-like scale and movement\nwhile enabling R15 features such as layered clothing and animatable heads.\nUsed by <a href=\"/ref/class/Workspace.html#member-AvatarUnificationMode\">Workspace.AvatarUnificationMode</a>.</p>\n"
+		},
 		"Axis": {
 			"Summary": "<p>One of the 3D axes.</p>\n",
 			"Description": "<p>The Axis Enum represents the X, Y and Z axes. Primarily this Enum is used with\n<a href=\"/ref/class/ArcHandles.html\">ArcHandles</a> and <a href=\"/ref/class/Handles.html\">Handles</a>.</p>\n"
@@ -23501,7 +23549,10 @@
 		},
 		"LoadDynamicHeads": {},
 		"LocationType": {},
-		"LuauTypeCheckMode": {},
+		"LuauTypeCheckMode": {
+			"Summary": "<p>The Luau type checking mode for scripts in the experience.</p>\n",
+			"Description": "<p>Determines how strictly the Luau type checker analyzes scripts in the\nexperience. This enum is used by <a href=\"/ref/class/Workspace.html#member-LuauTypeCheckMode\">Workspace.LuauTypeCheckMode</a>.</p>\n"
+		},
 		"MakeupType": {},
 		"MarketplaceBulkPurchasePromptStatus": {
 			"Summary": "<p>The status of the BulkPurchasePrompt after player interaction.</p>\n",
@@ -23632,7 +23683,10 @@
 			"Summary": "<p>Describes the action to take when a <a href=\"/ref/type/PathWaypoint.html\">PathWaypoint</a> is reached.</p>\n",
 			"Description": "<p>Describes the action to take when a <a href=\"/ref/type/PathWaypoint.html\">PathWaypoint</a> is reached.</p>\n"
 		},
-		"PathfindingUseImprovedSearch": {},
+		"PathfindingUseImprovedSearch": {
+			"Summary": "<p>Controls whether <a href=\"/ref/class/PathfindingService.html\">PathfindingService</a> uses an improved search algorithm.</p>\n",
+			"Description": "<p>Determines whether <a href=\"/ref/class/PathfindingService.html\">PathfindingService</a> uses an improved pathfinding\nsearch algorithm. This enum is used by\n<a href=\"/ref/class/Workspace.html#member-PathfindingUseImprovedSearch\">Workspace.PathfindingUseImprovedSearch</a>.</p>\n"
+		},
 		"PeoplePageLayout": {},
 		"PermissionLevelShown": {
 			"Summary": "<p>Used to set the highest permission level that APIs have to have in order to be\nshown in the Object Browser.</p>\n",
@@ -23654,7 +23708,10 @@
 			"Description": "<p>References a movement action taken by a player.</p>\n",
 			"DeprecationMessage": "<p>This enum has been deprecated in favor of <a href=\"/ref/enum/KeyCode.html\">KeyCode</a> which is more\nplatform-agnostic and should be used in new work instead.</p>\n"
 		},
-		"PlayerCharacterDestroyBehavior": {},
+		"PlayerCharacterDestroyBehavior": {
+			"Summary": "<p>Controls destruction behavior when a player character is removed.</p>\n",
+			"Description": "<p>Controls whether the engine automatically calls <code>Destroy()</code> on a player&#39;s old\ncharacter when it is replaced and on the <code>Player</code> object when the player\nleaves. This enum is used by <a href=\"/ref/class/Workspace.html#member-PlayerCharacterDestroyBehavior\">Workspace.PlayerCharacterDestroyBehavior</a>.</p>\n"
+		},
 		"PlayerChatType": {
 			"Summary": "<p>Determines the style of a chat message.</p>\n",
 			"Description": "<p>Used by Roblox&#39;s Chat to determine the style of a chat message. If you want to\ncheck for this kind of stuff, see <a href=\"/ref/class/Player.html#member-Chatted\">Player.Chatted</a>.</p>\n"
@@ -23697,7 +23754,10 @@
 			"Summary": "<p>This enum is used with <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">GuiService.PreferredTextSize</a> to indicate the\nplayer&#39;s preferred text size.</p>\n",
 			"Description": "<p>This enum is used with <a href=\"/ref/class/GuiService.html#member-PreferredTextSize\">GuiService.PreferredTextSize</a> to indicate the\nplayer&#39;s preferred text size.</p>\n"
 		},
-		"PrimalPhysicsSolver": {},
+		"PrimalPhysicsSolver": {
+			"Summary": "<p>Controls whether the experimental Primal Physics Solver is enabled.</p>\n",
+			"Description": "<p>An experimental constraint solver that can improve accuracy in complex setups.\nThis enum is used by <a href=\"/ref/class/Workspace.html#member-PrimalPhysicsSolver\">Workspace.PrimalPhysicsSolver</a>.</p>\n"
+		},
 		"PrimitiveType": {},
 		"PrivilegeType": {
 			"DeprecationMessage": "<p>This enum should not be used for new work.</p>\n"
@@ -23747,7 +23807,10 @@
 			"Description": "<p>This enum describes the content type of the recommendation item. It is\ndesigned to be generic.</p>\n"
 		},
 		"RecommendationItemVisibility": {},
-		"RejectCharacterDeletions": {},
+		"RejectCharacterDeletions": {
+			"Summary": "<p>Controls whether the server rejects client attempts to delete player\ncharacters.</p>\n",
+			"Description": "<p>Determines whether the server rejects client replication requests that would\ndelete player character models from the workspace. This enum is used by\n<a href=\"/ref/class/Workspace.html#member-RejectCharacterDeletions\">Workspace.RejectCharacterDeletions</a>.</p>\n"
+		},
 		"RenderFidelity": {
 			"Summary": "<p>Determines the level of detail that solid modeled and mesh parts will be shown\nin.</p>\n",
 			"Description": "<p>This enum determines the level of detail that\n<a href=\"https://create.roblox.com/docs/parts/meshes\">meshes</a> and\n<a href=\"https://create.roblox.com/docs/parts/solid-modeling\">solid modeled</a> parts will be shown in. The\ndefault is <strong>Automatic</strong>, meaning the object&#39;s detail is based on its distance\nfrom the camera as outlined in the following table.</p>\n<table>\n    <thead>\n        <tr>\n            <th>Distance From Camera</th>\n            <th>Render Fidelity</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Less than 250 studs</td>\n            <td>Highest</td>\n        </tr>\n        <tr>\n            <td>250 to 500 studs</td>\n            <td>Medium</td>\n        </tr>\n        <tr>\n            <td>500 or more studs</td>\n            <td>Lowest</td>\n        </tr>\n    </tbody>\n</table>\n"
@@ -23756,9 +23819,15 @@
 			"Summary": "<p>A list of standard reserved values in BindToRenderStep.</p>\n",
 			"Description": "<p>A list of standard reserved values in BindToRenderStep.</p>\n<p>See <a href=\"/ref/class/RunService.html#member-BindToRenderStep\">RunService:BindToRenderStep()</a> for the proper usage, as the enum\nitself isn&#39;t used.</p>\n"
 		},
-		"RenderingCacheOptimizationMode": {},
+		"RenderingCacheOptimizationMode": {
+			"Summary": "<p>Controls rendering cache optimization behavior.</p>\n",
+			"Description": "<p>Determines whether the renderer caches per-object rendering state to avoid\nredundant per-frame work. This enum is used by\n<a href=\"/ref/class/Workspace.html#member-RenderingCacheOptimizations\">Workspace.RenderingCacheOptimizations</a>.</p>\n"
+		},
 		"RenderingTestComparisonMethod": {},
-		"ReplicateInstanceDestroySetting": {},
+		"ReplicateInstanceDestroySetting": {
+			"Summary": "<p>Controls how <code>Instance:Destroy()</code> calls are replicated from server to clients.</p>\n",
+			"Description": "<p>Determines the replication behavior the server uses when <code>Instance:Destroy()</code>\nis called. This enum is used by\n<a href=\"/ref/class/Workspace.html#member-ReplicateInstanceDestroySetting\">Workspace.ReplicateInstanceDestroySetting</a>.</p>\n"
+		},
 		"ResamplerMode": {
 			"Summary": "<p>Determines the image filtering used.</p>\n",
 			"Description": "<p>Determines the image filtering used.</p>\n"
@@ -23780,7 +23849,10 @@
 			"Summary": "<p>How <a href=\"/ref/class/Sound.html\">Sounds</a> parented to a <a href=\"/ref/class/BasePart.html\">BasePart</a> or <a href=\"/ref/class/Attachment.html\">Attachment</a>\nattenuate (fade out) as the distance between the listener and the parent\nincreases.</p>\n",
 			"Description": "<p>Enum which determines how <a href=\"/ref/class/Sound.html\">Sounds</a> parented to a <a href=\"/ref/class/BasePart.html\">BasePart</a>\nor <a href=\"/ref/class/Attachment.html\">Attachment</a> attenuate (fade out) as the distance between the\nlistener and the parent increases.</p>\n"
 		},
-		"RolloutState": {},
+		"RolloutState": {
+			"Summary": "<p>A three-phase rollout state used to opt in or out of engine features.</p>\n",
+			"Description": "<p>Several <a href=\"/ref/class/Workspace.html\">Workspace</a> properties use <code>RolloutState</code> to support a\nthree-phase rollout pattern, where a feature is initially opt-in (<code>Default</code>\nequals disabled), then opt-out (<code>Default</code> equals enabled), and finally always\non. <code>Default</code> always tracks the current engine-wide phase.</p>\n"
+		},
 		"RotationOrder": {
 			"Summary": "<p>The order of rotation axes used for Euler angles encoding of rotations.</p>\n",
 			"Description": "<p>Euler angles encode a rotation in 3D space via a sequence of three rotations\nalong the X, Y, and Z axes. The <code>RotationOrder</code> enum specifies the order in\nwhich the engine performs these rotations.</p>\n<p>To help visualize the many rotation orders, you can test them manually in\nStudio with the <a href=\"https://create.roblox.com/docs/parts#rotate\">Rotate</a> tool or by inserting\n<a href=\"https://create.roblox.com/docs/reference/engine/libraries/task#wait\">task.wait()</a> statements between individual rotations of a cube with a\nunique face:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\"> 1\n</span><span class=\"_lnt\"> 2\n</span><span class=\"_lnt\"> 3\n</span><span class=\"_lnt\"> 4\n</span><span class=\"_lnt\"> 5\n</span><span class=\"_lnt\"> 6\n</span><span class=\"_lnt\"> 7\n</span><span class=\"_lnt\"> 8\n</span><span class=\"_lnt\"> 9\n</span><span class=\"_lnt\">10\n</span><span class=\"_lnt\">11\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">cube</span> <span class=\"_o\">=</span> <span class=\"_n\">Workspace.Cube</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">rx</span><span class=\"_p\">,</span> <span class=\"_n\">ry</span><span class=\"_p\">,</span> <span class=\"_n\">rz</span> <span class=\"_o\">=</span> <span class=\"_n\">math.rad</span><span class=\"_p\">(</span><span class=\"_mi\">90</span><span class=\"_p\">),</span> <span class=\"_n\">math.rad</span><span class=\"_p\">(</span><span class=\"_mi\">90</span><span class=\"_p\">),</span> <span class=\"_n\">math.rad</span><span class=\"_p\">(</span><span class=\"_mi\">90</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">task.wait</span><span class=\"_p\">(</span><span class=\"_mi\">5</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">cube.CFrame</span> <span class=\"_o\">*=</span> <span class=\"_n\">CFrame.fromEulerAngles</span><span class=\"_p\">(</span><span class=\"_n\">rx</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- X</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">task.wait</span><span class=\"_p\">(</span><span class=\"_mi\">5</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">cube.CFrame</span> <span class=\"_o\">*=</span> <span class=\"_n\">CFrame.fromEulerAngles</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_n\">ry</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Y</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">task.wait</span><span class=\"_p\">(</span><span class=\"_mi\">5</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">cube.CFrame</span> <span class=\"_o\">*=</span> <span class=\"_n\">CFrame.fromEulerAngles</span><span class=\"_p\">(</span><span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_mi\">0</span><span class=\"_p\">,</span> <span class=\"_n\">rz</span><span class=\"_p\">)</span>  <span class=\"_c1\">-- Z</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n<p>An equivalent operation is:</p>\n<div class=\"_chroma\">\n<table class=\"_lntable\"><tbody><tr><td class=\"_lntd\">\n<pre class=\"_chroma\"><span class=\"_lnt\">1\n</span><span class=\"_lnt\">2\n</span><span class=\"_lnt\">3\n</span><span class=\"_lnt\">4\n</span><span class=\"_lnt\">5\n</span><span class=\"_lnt\">6\n</span></pre></td>\n<td class=\"_lntd\">\n<pre class=\"_chroma\"><code><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">Workspace</span> <span class=\"_o\">=</span> <span class=\"_n\">game</span><span class=\"_p\">:</span><span class=\"_n\">GetService</span><span class=\"_p\">(</span><span class=\"_s2\">&#34;Workspace&#34;</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">cube</span> <span class=\"_o\">=</span> <span class=\"_n\">Workspace.Cube</span>\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_kd\">local</span> <span class=\"_n\">rx</span><span class=\"_p\">,</span> <span class=\"_n\">ry</span><span class=\"_p\">,</span> <span class=\"_n\">rz</span> <span class=\"_o\">=</span> <span class=\"_n\">math.rad</span><span class=\"_p\">(</span><span class=\"_mi\">90</span><span class=\"_p\">),</span> <span class=\"_n\">math.rad</span><span class=\"_p\">(</span><span class=\"_mi\">90</span><span class=\"_p\">),</span> <span class=\"_n\">math.rad</span><span class=\"_p\">(</span><span class=\"_mi\">90</span><span class=\"_p\">)</span>\n</span></span><span class=\"_line\"><span class=\"_cl\">\n</span></span><span class=\"_line\"><span class=\"_cl\"><span class=\"_n\">cube.CFrame</span> <span class=\"_o\">=</span> <span class=\"_n\">CFrame.fromEulerAngles</span><span class=\"_p\">(</span><span class=\"_n\">rx</span><span class=\"_p\">,</span> <span class=\"_n\">ry</span><span class=\"_p\">,</span> <span class=\"_n\">rz</span><span class=\"_p\">,</span> <span class=\"_n\">Enum.RotationOrder</span><span class=\"_p\">.</span><span class=\"_n\">XYZ</span><span class=\"_p\">)</span>\n</span></span></code></pre></td></tr></tbody></table>\n</div>\n"
@@ -23796,7 +23868,10 @@
 			"Description": "<p>This enum describes the automatic compatibility transformations that apply to\ndescendant &#34;fullscreen&#34; <a href=\"/ref/class/GuiObject.html\">GuiObjects</a> of a <a href=\"/ref/class/ScreenGui.html\">ScreenGui</a> on\ndisplays with screen cutouts.</p>\n"
 		},
 		"SalesTypeFilter": {},
-		"SandboxedInstanceMode": {},
+		"SandboxedInstanceMode": {
+			"Summary": "<p>Controls whether sandboxed instance mode (script capabilities) is enabled.</p>\n",
+			"Description": "<p>Determines whether sandboxed instance mode, which lets you use script\ncapabilities, is active. This enum is used by\n<a href=\"/ref/class/Workspace.html#member-SandboxedInstanceMode\">Workspace.SandboxedInstanceMode</a>.</p>\n"
+		},
 		"SaveAvatarThumbnailCustomizationFailure": {},
 		"SaveFilter": {
 			"Summary": "<p>Used by <a href=\"/ref/class/DataModel.html#member-SavePlace\">DataModel.SavePlace</a> to determine the type of save operation\nThis enum determines which aspects of the current place are saved, based on\nthe following options.</p>\n",
@@ -25178,9 +25253,15 @@
 			"FullBody": {}
 		},
 		"AvatarUnificationMode": {
-			"Default": {},
-			"Disabled": {},
-			"Enabled": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default avatar unification state.</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>Avatar unification is disabled.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>Avatar unification is enabled.</p>\n"
+			}
 		},
 		"Axis": {
 			"X": {
@@ -28384,10 +28465,18 @@
 			"ObjectPosition": {}
 		},
 		"LuauTypeCheckMode": {
-			"Default": {},
-			"NoCheck": {},
-			"Nonstrict": {},
-			"Strict": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default type checking mode.</p>\n"
+			},
+			"NoCheck": {
+				"Summary": "<p>Scripts are not type-checked.</p>\n"
+			},
+			"Nonstrict": {
+				"Summary": "<p>Scripts are type-checked in nonstrict mode.</p>\n"
+			},
+			"Strict": {
+				"Summary": "<p>Scripts are type-checked in strict mode.</p>\n"
+			}
 		},
 		"MakeupType": {
 			"Eye": {},
@@ -29035,9 +29124,15 @@
 			}
 		},
 		"PathfindingUseImprovedSearch": {
-			"Default": {},
-			"Disabled": {},
-			"Enabled": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default pathfinding behavior.</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>Uses the legacy pathfinding search algorithm.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>Uses the improved pathfinding search algorithm.</p>\n"
+			}
 		},
 		"PeoplePageLayout": {
 			"Card": {},
@@ -29183,9 +29278,15 @@
 			}
 		},
 		"PlayerCharacterDestroyBehavior": {
-			"Default": {},
-			"Disabled": {},
-			"Enabled": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default behavior.</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>Automatic <code>Destroy()</code> calls on character replacement and player removal\nare disabled.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>The engine automatically calls <code>Destroy()</code> on old characters when they are\nreplaced (for example, on respawn) and on <code>Player</code> objects when players\nleave.</p>\n"
+			}
 		},
 		"PlayerChatType": {
 			"All": {
@@ -29323,9 +29424,15 @@
 			}
 		},
 		"PrimalPhysicsSolver": {
-			"Default": {},
-			"Disabled": {},
-			"Experimental": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default physics solver state.</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>The Primal Physics Solver is disabled.</p>\n"
+			},
+			"Experimental": {
+				"Summary": "<p>The experimental Primal Physics Solver is enabled.</p>\n"
+			}
 		},
 		"PrimitiveType": {
 			"Ball": {},
@@ -29582,9 +29689,15 @@
 			"Public": {}
 		},
 		"RejectCharacterDeletions": {
-			"Default": {},
-			"Disabled": {},
-			"Enabled": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default behavior (currently equivalent to <code>Enabled</code>).</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>The server does not reject character deletion requests from clients.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>The server rejects client attempts to delete player characters.</p>\n"
+			}
 		},
 		"RenderFidelity": {
 			"Automatic": {
@@ -29615,18 +29728,30 @@
 			}
 		},
 		"RenderingCacheOptimizationMode": {
-			"Default": {},
-			"Disabled": {},
-			"Enabled": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default rendering cache state.</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>Rendering cache optimizations are disabled.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>Rendering cache optimizations are enabled.</p>\n"
+			}
 		},
 		"RenderingTestComparisonMethod": {
 			"diff": {},
 			"psnr": {}
 		},
 		"ReplicateInstanceDestroySetting": {
-			"Default": {},
-			"Disabled": {},
-			"Enabled": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default instance destroy replication behavior.</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>Uses legacy instance destroy replication behavior.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>Uses improved instance destroy replication behavior.</p>\n"
+			}
 		},
 		"ResamplerMode": {
 			"Default": {
@@ -29778,9 +29903,15 @@
 			}
 		},
 		"RolloutState": {
-			"Default": {},
-			"Disabled": {},
-			"Enabled": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-wide rollout default, which changes as the feature\nprogresses through its rollout phases.</p>\n"
+			},
+			"Disabled": {
+				"Summary": "<p>Opts out of the feature regardless of the engine-wide rollout phase.</p>\n"
+			},
+			"Enabled": {
+				"Summary": "<p>Opts in to the feature regardless of the engine-wide rollout phase.</p>\n"
+			}
 		},
 		"RotationOrder": {
 			"XYZ": {
@@ -29855,8 +29986,12 @@
 			"TimedOptions": {}
 		},
 		"SandboxedInstanceMode": {
-			"Default": {},
-			"Experimental": {}
+			"Default": {
+				"Summary": "<p>Uses the engine-default sandboxed instance state.</p>\n"
+			},
+			"Experimental": {
+				"Summary": "<p>Sandboxed instance mode is enabled.</p>\n"
+			}
 		},
 		"SaveAvatarThumbnailCustomizationFailure": {
 			"BadDistanceScale": {},
