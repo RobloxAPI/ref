@@ -6456,7 +6456,11 @@ It also clears the player's <a href=/ref/class/Backpack.html>Backpack</a> and <a
 is useful in cases where you want to reload the character without killing
 the player, such as when you want to load a new character appearance after
 changing the player's
-<a href=/ref/class/Player.html#member-CharacterAppearance>CharacterAppearance</a>.</p><p>After calling <code>LoadCharacterAsync()</code> for an individual player, it is not
+<a href=/ref/class/Player.html#member-CharacterAppearance>CharacterAppearance</a>.</p><p>When reloading a <a href=/ref/class/Player.html>Player</a> with their default platform appearance
+applied, a cached version of their appearance will be loaded. The cached
+version is cleared whenever the player's appearance is updated using
+<a href=/ref/class/AvatarEditorService.html>AvatarEditorService</a> or when the player manually resets via the in
+game menu.</p><p>After calling <code>LoadCharacterAsync()</code> for an individual player, it is not
 recommended to call it again for the same player until after that player's
 <a href=/ref/class/Player.html#member-CharacterAppearanceLoaded>CharacterAppearanceLoaded</a> event
 has fired.</p><h4>Character Loading Event Order</h4><p>Calling the <code>LoadCharacterAsync()</code> method on any <code>Player</code> fires events in
