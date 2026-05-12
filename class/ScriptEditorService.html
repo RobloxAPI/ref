@@ -633,9 +633,11 @@ script source, which is the text the editor would display if it is opened.</p><d
 </span><span class=_lnt>2
 </span><span class=_lnt>3
 </span><span class=_lnt>4
-</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>ses</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s1>&#39;ScriptEditorService&#39;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>ses</span><span class=_p>:</span><span class=_n>UpdateSourceAsync</span><span class=_p>(</span><span class=_n>Workspace.Script</span><span class=_p>,</span> <span class=_kr>function</span><span class=_p>(</span><span class=_n>oldContent</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>  <span class=_kr>return</span> <span class=_n>oldContent</span> <span class=_o>..</span> <span class=_s2>&#34; World!&#34;</span>
+</span><span class=_lnt>5
+</span></pre></td><td class=_lntd><pre class=_chroma><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>ScriptEditorService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;ScriptEditorService&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_n>ScriptEditorService</span><span class=_p>:</span><span class=_n>UpdateSourceAsync</span><span class=_p>(</span><span class=_n>workspace.Script</span><span class=_p>,</span> <span class=_kr>function</span><span class=_p>(</span><span class=_n>oldContent</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span> <span class=_n>oldContent</span> <span class=_o>..</span> <span class=_s2>&#34; World!&#34;</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
 </span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Security</th><td class=value>PluginSecurity</td></tr><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-20001c2f99364dfd-40 title="Changed on 2023-10-05T10:24:38-07:00
 v0.597.1.5970668

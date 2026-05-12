@@ -1062,7 +1062,11 @@ will move towards zero over a length of time specified by the optional
 <code>fadeTime</code> parameter. For example, if <code>Stop()</code> is called with a <code>fadeTime</code>
 of <code>2</code>, it will take two seconds for the weight of the track to reach zero
 and its effects completely end. Please note this will be the case
-regardless of the initial weight of the animation.</p><p>It is not recommended to use a <code>fadeTime</code> of <code>0</code> in an attempt to override
+regardless of the initial weight of the animation.</p><h4>Usage Notes</h4><p>After calling <code>Stop()</code>, subsequent calls to <code>Stop()</code> and
+<a href=/ref/class/AnimationTrack.html#member-AdjustWeight>AdjustWeight()</a> will not work as
+expected. To adjust a track that's fading out, you must first call
+<a href=/ref/class/AnimationTrack.html#member-Play>Play()</a> to reset the
+<a href=/ref/class/AnimationTrack.html#member-IsPlaying>IsPlaying</a> property to <code>true</code>.</p><p>It is not recommended to use a <code>fadeTime</code> of <code>0</code> in an attempt to override
 this effect and end the animation immediately for <a href=/ref/class/Motor6D.html>Motor6Ds</a>
 that have their <a href=/ref/class/Motor.html#member-MaxVelocity>Motor.MaxVelocity</a> set to zero, as this causes the
 joints to freeze in place. If it must end immediately, ensure the
