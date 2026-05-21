@@ -16505,7 +16505,12 @@
 					"LogImpressionEvent-example"
 				]
 			},
-			"LogPreferenceEvent": {},
+			"LogPreferenceEvent": {
+				"Description": "<p>This function logs a user preference signal, such as follow, unfollow,\nmute, or unmute, directed at another user, a universe, or a custom content\ntag. It requires a <code>preferenceType</code>, a <code>targetType</code>, and a <code>targetId</code>\nwhose format depends on the target type: the user key for\n<a href=\"/ref/enum/RecommendationPreferenceTargetType.html\">User</a>, the universe ID as a\nstring for <a href=\"/ref/enum/RecommendationPreferenceTargetType.html\">Universe</a>, or\nthe tag string for\n<a href=\"/ref/enum/RecommendationPreferenceTargetType.html\">CustomTag</a>. When the\npreference originates from a recommendation card served by\n<a href=\"/ref/class/RecommendationService.html#member-GenerateItemListAsync\">GenerateItemListAsync</a>,\npass the card&#39;s <code>tracingId</code> and <code>itemId</code> to correlate the event with the\nrecommendation context; otherwise pass empty strings for both.</p>\n<p>Logging preferences helps the recommendation engine personalize future\nresults across every recommendation surface, not just item feeds.</p>\n<p>This function can only be called from the <strong>client</strong>.</p>\n<p><strong>Note:</strong> Only <code>LogPreferenceEvent</code> calls in production actually log\npreferences. Calling this function in Studio doesn&#39;t have any effect; you\ncan call it as many times as you want when testing.</p>\n",
+				"CodeSamples": [
+					"LogPreferenceEvent-example"
+				]
+			},
 			"RegisterItemAsync": {
 				"Description": "<p>This function registers a new item to be included in recommendations. It\nrequires a <code>player</code> object and a <code>registerRecommendationItemsRequest</code>\ndictionary containing details about the item, such as its content type,\nreference ID, and custom tags. It returns a dictionary with the <code>ItemId</code>\nand the <code>ReferenceId</code> of the newly registered item.</p>\n<p>When selecting a <code>ContentType</code>, choose the type that best represents your\nitem. Note that different content types are not ranked against each other\ndirectly. Instead, they are mixed into the final recommendation list based\non a configured ratio. For example, a configuration might display one\n<code>Static</code> item for every ten items. If your experience only features a\nsingle type of content, ensure that all registered items share the same\n<code>ContentType</code>.</p>\n<p>The <code>ItemId</code> is a unique ID returned by the <code>RecommendationService</code>. All\nfunctions in the <code>RecommendationService</code> use the <code>ItemId</code> as input and\noutput.</p>\n<p>The <code>ReferenceId</code> is a developer-provided identifier for an item. To make\nsure that this reference ID is unique, we recommend that you use a UUID.\nYou can use this reference ID as a key to store rendering-specific\nmetadata in a data store.</p>\n<p>When you register an item, you should only provide information that is\nrelevant for ranking and recommendations. All other data needed for\nrendering should be stored separately in, for example, a data store. This\napproach decouples the recommendation logic from the rendering process,\nand results in a system that is more modular and easier to maintain.</p>\n<p><code>Attributes</code> is a list of content attributes associated with the item.\nEach attribute in the list can contain the following fields:</p>\n<ul>\n<li><code>AssetId</code> — The ID of an asset, such as an image or video.</li>\n<li><code>Text</code> — A short text string, like a title.</li>\n<li><code>Description</code> — A longer text description for the attribute.</li>\n<li><code>SeekStartTime</code> / <code>SeekEndTime</code> — The start and end times for\nseeking within video content.</li>\n<li><code>TrimStartTime</code> / <code>TrimEndTime</code> — The start and end times for\ntrimming video content.</li>\n</ul>\n<p>Common Error Codes:</p>\n<ul>\n<li><strong>HTTP 403 (Forbidden)</strong> — This error can occur when you call\n<code>RegisterItemAsync</code> from Studio. Even if you run it as a server script\nin Studio, the request is not issued from a Roblox server. To resolve\nthis, publish your experience and run it in the Roblox client.</li>\n<li><strong>HTTP 400 (Bad Request)</strong> — This error indicates that a parameter\nis malformed. A common cause is the <code>Attributes</code> table exceeding its\nsize limit. If you encounter a 400 error and have a large <code>Attributes</code>\ntable, try reducing its size. Remember to only include attributes that\nare relevant for ranking.</li>\n</ul>\n<p>This function can only be called from the <strong>server</strong>.</p>\n",
 				"CodeSamples": [
@@ -17933,7 +17938,7 @@
 			},
 			"GetExperienceEventAsync": {
 				"Summary": "<p>Returns details for the specified experience event or <code>nil</code> if it is\nunavailable.</p>\n",
-				"Description": "<p><code>GetExperienceEventAsync()</code> yields until the request completes and then\nreturns a dictionary describing the requested event. The dictionary\ncontains the following fields:</p>\n<ul>\n<li><code>Id</code> (string)</li>\n<li><code>Title</code> (string)</li>\n<li><code>Description</code> (string)</li>\n<li><code>StartTime</code> (dictionary)\n<ul>\n<li><code>Day</code> (number)</li>\n<li><code>Year</code> (number)</li>\n<li><code>Month</code> (number)</li>\n<li><code>Minute</code> (number)</li>\n<li><code>Millisecond</code> (number)</li>\n<li><code>Hour</code> (number)</li>\n<li><code>Second</code> (number)</li>\n</ul>\n</li>\n<li><code>EndTime</code> (dictionary)\n<ul>\n<li><code>Day</code> (number)</li>\n<li><code>Year</code> (number)</li>\n<li><code>Month</code> (number)</li>\n<li><code>Minute</code> (number)</li>\n<li><code>Millisecond</code> (number)</li>\n<li><code>Hour</code> (number)</li>\n<li><code>Second</code> (number)</li>\n</ul>\n</li>\n<li><code>HasStarted</code> (boolean)</li>\n<li><code>HasEnded</code> (boolean)</li>\n<li><code>Status</code> (<a href=\"/ref/enum/ExperienceEventStatus.html\">ExperienceEventStatus</a>)</li>\n<li><code>UserRsvpStatus</code> (<a href=\"/ref/enum/RsvpStatus.html\">RsvpStatus</a> or <code>nil</code>)</li>\n</ul>\n<p>If the event cannot be found, belongs to a different experience, or the\nresponse is malformed, this method returns <code>nil</code>. Requests may also fail\nwith a <code>HttpError &lt;status&gt;</code> message if the service returns an unexpected\nerror code.</p>\n",
+				"Description": "<p><code>GetExperienceEventAsync()</code> yields until the request completes and then\nreturns a dictionary describing the requested event. The dictionary\ncontains the following fields:</p>\n<ul>\n<li><code>Id</code> (string)</li>\n<li><code>Title</code> (string)</li>\n<li><code>Subtitle</code> (string)</li>\n<li><code>Description</code> (string)</li>\n<li><code>DisplayTitle</code> (string)</li>\n<li><code>DisplaySubtitle</code> (string)</li>\n<li><code>DisplayDescription</code> (string)</li>\n<li><code>ThumbnailIds</code> (array of numbers): Asset IDs for the event thumbnails.\nThe first ID is the primary thumbnail.</li>\n<li><code>StartTime</code> (dictionary)\n<ul>\n<li><code>Day</code> (number)</li>\n<li><code>Year</code> (number)</li>\n<li><code>Month</code> (number)</li>\n<li><code>Minute</code> (number)</li>\n<li><code>Millisecond</code> (number)</li>\n<li><code>Hour</code> (number)</li>\n<li><code>Second</code> (number)</li>\n</ul>\n</li>\n<li><code>EndTime</code> (dictionary)\n<ul>\n<li><code>Day</code> (number)</li>\n<li><code>Year</code> (number)</li>\n<li><code>Month</code> (number)</li>\n<li><code>Minute</code> (number)</li>\n<li><code>Millisecond</code> (number)</li>\n<li><code>Hour</code> (number)</li>\n<li><code>Second</code> (number)</li>\n</ul>\n</li>\n<li><code>HasStarted</code> (boolean)</li>\n<li><code>HasEnded</code> (boolean)</li>\n<li><code>Status</code> (<a href=\"/ref/enum/ExperienceEventStatus.html\">ExperienceEventStatus</a>)</li>\n<li><code>UserRsvpStatus</code> (<a href=\"/ref/enum/RsvpStatus.html\">RsvpStatus</a> or <code>nil</code>)</li>\n</ul>\n<p>If the event cannot be found, belongs to a different experience, or the\nresponse is malformed, this method returns <code>nil</code>. Requests may also fail\nwith a <code>HttpError &lt;status&gt;</code> message if the service returns an unexpected\nerror code.</p>\n",
 				"CodeSamples": [
 					"SocialService-GetUpcomingExperienceEventsAsync"
 				]
@@ -23033,7 +23038,10 @@
 				"Summary": "<p>The amount of time, in seconds, that the game has been running.</p>\n",
 				"Description": "<p>The amount of time, in seconds, that the game has been running.</p>\n<p>Despite the title, this value is currently not &#39;Distributed&#39; across the\nclient and the server. Instead, on the server it represents how long the\nserver has been running. On the client, it represents how long the client\nhas been connected to the server.</p>\n<p>Developers should not rely on the above behavior, and it is possible this\nproperty will be synchronized across clients and the server in the future.</p>\n<p>Those looking for the time since the program started running should use\nthe &#39;time&#39; function instead. See below for a comparison between\nDistributedGameTime and its alternatives.</p>\n<pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)\n\nprint(Workspace.DistributedGameTime) -- Time the game started running\nprint(os.time()) -- Time since epoch (1 January 1970, 00:00:00) UTC\nprint(tick()) -- Time since epoch (1 January 1970, 00:00:00) system time\nprint(time()) -- Time the game started running\nprint(elapsedTime()) -- Time since Roblox started running\n</code></pre>\n"
 			},
-			"EnableSLIMAvatars": {},
+			"EnableSLIMAvatars": {
+				"Summary": "<p>Controls whether SLIM rendering is used for avatars in the experience.</p>\n",
+				"Description": "<p>This <a href=\"/ref/enum/RolloutState.html\">RolloutState</a> property controls whether a\n<a href=\"/ref/enum/ModelLevelOfDetail.html\">SLIM</a> model is generated for avatar characters in\nthe experience. When enabled and instance streaming is active, avatars\nrender using SLIM in the same way that setting <a href=\"/ref/class/Model.html#member-LevelOfDetail\">Model.LevelOfDetail</a>\nto <a href=\"/ref/enum/ModelLevelOfDetail.html\">SLIM</a> works for other models.</p>\n<p>When set to <a href=\"/ref/enum/RolloutState.html\">Enabled</a>, avatars use SLIM rendering. When\nset to <a href=\"/ref/enum/RolloutState.html\">Disabled</a>, avatars use the traditional rendering\napproach. <a href=\"/ref/enum/RolloutState.html\">Default</a> follows the current engine-wide\nrollout state.</p>\n<p>This property cannot be set through scripting and must be set in Studio\nthrough the properties window, command bar, or a plugin.</p>\n"
+			},
 			"FallHeightEnabled": {
 				"Summary": "<p>Controls whether parts that fall below\n<a href=\"/ref/class/Workspace.html#member-FallenPartsDestroyHeight\">Workspace.FallenPartsDestroyHeight</a> are automatically destroyed.</p>\n",
 				"Description": "<p>When <code>false</code>, the kill plane defined by\n<a href=\"/ref/class/Workspace.html#member-FallenPartsDestroyHeight\">Workspace.FallenPartsDestroyHeight</a> is disabled and falling parts\nare not automatically removed. Defaults to <code>true</code>.</p>\n<p>This property can be read by scripts but can only be set by plugins, the\ncommand bar, or the properties window in Studio.</p>\n"
@@ -24400,8 +24408,12 @@
 			"Description": "<p>This enum describes the content type of the recommendation item. It is\ndesigned to be generic.</p>\n"
 		},
 		"RecommendationItemVisibility": {},
-		"RecommendationPreferenceTargetType": {},
-		"RecommendationPreferenceType": {},
+		"RecommendationPreferenceTargetType": {
+			"Description": "<p>The kind of entity a preference signal targets when logged via\n<a href=\"/ref/class/RecommendationService.html#member-LogPreferenceEvent\">LogPreferenceEvent</a>.\nDetermines how the <code>targetId</code> parameter is interpreted.</p>\n"
+		},
+		"RecommendationPreferenceType": {
+			"Description": "<p>The type of preference signal logged via\n<a href=\"/ref/class/RecommendationService.html#member-LogPreferenceEvent\">LogPreferenceEvent</a>.\nPreference signals capture follow, unfollow, mute, and unmute actions toward\nanother user, a universe, or a custom content tag, and are used by the\nrecommendation engine to personalize future results.</p>\n"
+		},
 		"RejectCharacterDeletions": {
 			"Summary": "<p>Controls whether the server rejects client attempts to delete player\ncharacters.</p>\n",
 			"Description": "<p>Determines whether the server rejects client replication requests that would\ndelete player character models from the workspace. This enum is used by\n<a href=\"/ref/class/Workspace.html#member-RejectCharacterDeletions\">Workspace.RejectCharacterDeletions</a>.</p>\n"
@@ -30359,15 +30371,29 @@
 			"Public": {}
 		},
 		"RecommendationPreferenceTargetType": {
-			"CustomTag": {},
-			"Universe": {},
-			"User": {}
+			"CustomTag": {
+				"Summary": "<p>The target is a custom content tag. The <code>targetId</code> is the tag string.</p>\n"
+			},
+			"Universe": {
+				"Summary": "<p>The target is a universe. The <code>targetId</code> is the universe ID as a string.</p>\n"
+			},
+			"User": {
+				"Summary": "<p>The target is another Roblox user. The <code>targetId</code> is the user key.</p>\n"
+			}
 		},
 		"RecommendationPreferenceType": {
-			"AddFollow": {},
-			"AddMute": {},
-			"RemoveFollow": {},
-			"RemoveMute": {}
+			"AddFollow": {
+				"Summary": "<p>The user started following the target.</p>\n"
+			},
+			"AddMute": {
+				"Summary": "<p>The user muted the target.</p>\n"
+			},
+			"RemoveFollow": {
+				"Summary": "<p>The user stopped following the target.</p>\n"
+			},
+			"RemoveMute": {
+				"Summary": "<p>The user unmuted a previously muted target.</p>\n"
+			}
 		},
 		"RejectCharacterDeletions": {
 			"Default": {
