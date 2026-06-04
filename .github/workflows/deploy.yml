@@ -42,7 +42,7 @@ jobs:
 
     - name: "Cache commit hash of build-archive"
       id: "check-cache-build-archive"
-      uses: "actions/cache@v4"
+      uses: "actions/cache@v5"
       with:
         key: "commit-build-archive-${{ steps.check-fetch-build-archive.outputs.hash }}"
         path: |
@@ -60,7 +60,7 @@ jobs:
 
     - name: "Cache commit hash of roar"
       id: "check-cache-roar"
-      uses: "actions/cache@v4"
+      uses: "actions/cache@v5"
       with:
         key: "commit-roar-${{ steps.check-fetch-roar.outputs.hash }}"
         path: |
@@ -73,7 +73,7 @@ jobs:
       if: |
         steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
         steps.check-cache-roar.outputs.cache-hit != 'true'
-      uses: "actions/checkout@v4"
+      uses: "actions/checkout@v6"
       with:
         repository: "RobloxAPI/roar"
         path: "roar"
@@ -82,7 +82,7 @@ jobs:
       if: |
         steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
         steps.check-cache-roar.outputs.cache-hit != 'true'
-      uses: "actions/checkout@v4"
+      uses: "actions/checkout@v6"
       with:
         ref: "gh-pages"
         path: "ref"
@@ -112,7 +112,7 @@ jobs:
         steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
         steps.check-cache-roar.outputs.cache-hit != 'true'
       id: "cache-roar"
-      uses: "actions/cache@v4"
+      uses: "actions/cache@v5"
       with:
         path: |
           bin/roar
@@ -127,7 +127,7 @@ jobs:
         steps.check-cache-roar.outputs.cache-hit != 'true') &&
         (steps.cache-roar.outputs.cache-hit != 'true' ||
         steps.check-manifest.outputs.refresh == 'true')
-      uses: "actions/setup-go@v4"
+      uses: "actions/setup-go@v6"
       with:
         go-version-file: "roar/go.mod"
         cache-dependency-path: |
@@ -147,7 +147,7 @@ jobs:
         (steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
         steps.check-cache-roar.outputs.cache-hit != 'true') &&
         steps.check-manifest.outputs.refresh == 'true'
-      uses: "actions/checkout@v4"
+      uses: "actions/checkout@v6"
       with:
         repository: "RobloxAPI/build-archive"
         path: "build-archive"
@@ -206,7 +206,7 @@ jobs:
       if: |
         steps.check-cache-build-archive.outputs.cache-hit != 'true' ||
         steps.check-cache-roar.outputs.cache-hit != 'true'
-      uses: "peaceiris/actions-hugo@v2"
+      uses: "peaceiris/actions-hugo@v3"
       with:
         hugo-version: ${{ env.HUGO_VERSION }}
         extended: true
