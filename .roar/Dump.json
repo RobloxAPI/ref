@@ -25894,6 +25894,28 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Internal",
 			"Members": {
+				"DictationEnabled": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "State",
+					"Default": "false",
+					"MemberType": "Property",
+					"Name": "DictationEnabled",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"Hidden"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
 				"Enabled": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -34733,6 +34755,24 @@
 							"Name": "gearAssetId",
 							"Optional": true,
 							"Default": "0"
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "outfitOptions",
+							"Optional": true,
+							"Default": "nil"
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Variant"
+							},
+							"Name": "outfitType",
+							"Optional": false,
+							"Default": ""
 						}
 					],
 					"PreferredDescriptor": {
@@ -35563,6 +35603,24 @@
 								"Name": "HumanoidRigType"
 							},
 							"Name": "rigType",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "outfitOptions",
+							"Optional": true,
+							"Default": "nil"
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Variant"
+							},
+							"Name": "outfitType",
 							"Optional": false,
 							"Default": ""
 						}
@@ -71758,6 +71816,68 @@
 				"ThreadSafety": ""
 			},
 			"Tags": []
+		},
+		"DesignFoundationsService": {
+			"Name": "DesignFoundationsService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"ClearTokens": {
+					"MemberType": "Function",
+					"Name": "ClearTokens",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"SetTokens": {
+					"MemberType": "Function",
+					"Name": "SetTokens",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "payload",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "null"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service",
+				"NotReplicated"
+			]
 		},
 		"DeviceIdService": {
 			"Name": "DeviceIdService",
@@ -125896,6 +126016,29 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"EntityModelSize": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Data",
+					"Default": "0, 0, 0",
+					"MemberType": "Property",
+					"Name": "EntityModelSize",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxSecurity",
+					"Tags": [
+						"Hidden",
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "DataType",
+						"Name": "Vector3"
+					},
+					"WriteSecurity": "RobloxSecurity"
+				},
 				"EntityPosition": {
 					"CanLoad": false,
 					"CanSave": false,
@@ -129397,6 +129540,15 @@
 							"Name": "purchasePayload",
 							"Optional": true,
 							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "purchaseOptions",
+							"Optional": true,
+							"Default": "nil"
 						}
 					],
 					"PreferredDescriptor": {
@@ -131516,6 +131668,18 @@
 							"Default": ""
 						}
 					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"PromptRobuxTransferSubscriptionUpsellRequested": {
+					"MemberType": "Event",
+					"Name": "PromptRobuxTransferSubscriptionUpsellRequested",
+					"Parameters": [],
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -162501,6 +162665,24 @@
 					"Tags": [],
 					"ThreadSafety": "Unsafe"
 				},
+				"CreateThumbnailPlayer": {
+					"MemberType": "Function",
+					"Name": "CreateThumbnailPlayer",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "Player"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"FriendRequestEvent": {
 					"MemberType": "Event",
 					"Name": "FriendRequestEvent",
@@ -180051,6 +180233,24 @@
 						}
 					],
 					"Security": "PluginSecurity",
+					"Tags": [],
+					"ThreadSafety": "Safe"
+				},
+				"IsResimulating": {
+					"MemberType": "Function",
+					"Name": "IsResimulating",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "None",
 					"Tags": [],
 					"ThreadSafety": "Safe"
 				},
@@ -202469,6 +202669,26 @@
 					"Default": "__api_dump_skipped_class__",
 					"MemberType": "Property",
 					"Name": "CameraAdaptiveSpeed",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"CameraAltLeftMouseToRotate": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Camera",
+					"Default": "__api_dump_skipped_class__",
+					"MemberType": "Property",
+					"Name": "CameraAltLeftMouseToRotate",
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -242349,6 +242569,26 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"Enabled": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "true",
+					"MemberType": "Property",
+					"Name": "Enabled",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "None"
+				},
 				"Offset": {
 					"CanLoad": true,
 					"CanSave": true,
@@ -261841,6 +262081,28 @@
 					"Default": "__api_dump_class_not_creatable__",
 					"MemberType": "Property",
 					"Name": "ImprovedAnimationConstraint",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"NotScriptable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "RolloutState"
+					},
+					"WriteSecurity": "None"
+				},
+				"ImprovedPhysicsReplication": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Behavior",
+					"Default": "__api_dump_class_not_creatable__",
+					"MemberType": "Property",
+					"Name": "ImprovedPhysicsReplication",
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
