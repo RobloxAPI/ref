@@ -23,13 +23,16 @@ version-961e524856ba47c6">717</a></td><td class=col-icon><span class=picture tit
 v0.717.0.7170978
 version-961e524856ba47c6">717</a></td><td class=col-icon><span class=picture title=EnumItem data-type=EnumItem><span class=icon style="--light:url('/ref/icons/light/EnumMember_hu_2115fccc4405b9cc.png');--dark:url('/ref/icons/light/EnumMember_hu_b10d92424bb001ea.png')"></span></span></td><td class=col-name><a class="entity-link deco" href=/ref/enum/ReceiptType.html#member-RobuxTransferSender>RobuxTransferSender</a></td><td class=col-value><span>1</span></td><td class=col-desc><p>Used for processing receipts for the user who initiated a Robux transfer.
 The receipt's <code>PlayerId</code> is the sender's user ID and includes a
-<code>TransferRequestId</code> field. Delivered immediately if no receiver approval
-was required, otherwise deferred until the sender's next session join.</p></td></tr><tr id=member-RobuxTransferReceiver class=set><td class=col-history><a class="history-tag added" href=/ref/updates/2026.html#version-961e524856ba47c6-70 title="Added on 2026-04-14T10:05:34-07:00
+<code>TransferRequestId</code> field. Delivered immediately if the transfer settles
+synchronously. If receiver approval is required, delivered to the server
+the sender is currently in once the receiver accepts, or on the sender's
+next session join if they are offline.</p></td></tr><tr id=member-RobuxTransferReceiver class=set><td class=col-history><a class="history-tag added" href=/ref/updates/2026.html#version-961e524856ba47c6-70 title="Added on 2026-04-14T10:05:34-07:00
 v0.717.0.7170978
 version-961e524856ba47c6">717</a></td><td class=col-icon><span class=picture title=EnumItem data-type=EnumItem><span class=icon style="--light:url('/ref/icons/light/EnumMember_hu_2115fccc4405b9cc.png');--dark:url('/ref/icons/light/EnumMember_hu_b10d92424bb001ea.png')"></span></span></td><td class=col-name><a class="entity-link deco" href=/ref/enum/ReceiptType.html#member-RobuxTransferReceiver>RobuxTransferReceiver</a></td><td class=col-value><span>2</span></td><td class=col-desc><p>Used for processing receipts for the user who received Robux via a
 transfer. The receipt's <code>PlayerId</code> is the receiver's user ID and includes
-a <code>TransferRequestId</code> field. Always deferred until the receiver's next
-session join.</p></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p><code>ReceiptType</code> works with <a href=/ref/class/MarketplaceService.html#member-BindReceiptHandler>MarketplaceService:BindReceiptHandler()</a> to
+a <code>TransferRequestId</code> field. Delivered to the server the receiver is
+currently in once the transfer settles, or on their next session join if
+they are offline.</p></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p><code>ReceiptType</code> works with <a href=/ref/class/MarketplaceService.html#member-BindReceiptHandler>MarketplaceService:BindReceiptHandler()</a> to
 indicate the different type of receipts a developer can bind to for
 processing. When you call
 <a href=/ref/class/MarketplaceService.html#member-BindReceiptHandler>BindReceiptHandler</a>, you pass a
@@ -37,11 +40,10 @@ processing. When you call
 <a href=/ref/class/MarketplaceService.html#member-PromptRobuxTransferAsync>PromptRobuxTransferAsync</a>,
 two receipts are generated: one for the sender (<code>RobuxTransferSender</code>) and one
 for the receiver (<code>RobuxTransferReceiver</code>). You should register handlers for
-both types to fully process a transfer.</p><p>Transfer receipts may not be delivered while the player is still in the
-originating server. <code>RobuxTransferReceiver</code> is always deferred to the
-receiver's next session join. <code>RobuxTransferSender</code> is immediate if no
-receiver approval was required, otherwise deferred to the sender's next
-session join. See
+both types to fully process a transfer.</p><p>Transfer receipts are delivered to whichever server the user is currently in
+once the transfer settles (the user does not need to rejoin). If the user is
+offline when the transfer settles, the receipt is delivered the next time they
+join a server. See
 <a href=/ref/class/MarketplaceService.html#member-BindReceiptHandler>BindReceiptHandler</a> for
 details.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>4</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide item changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=EnumItem><a class="history-tag added" href=/ref/updates/2026.html#version-961e524856ba47c6-71 title="Added on 2026-04-14T10:05:34-07:00
