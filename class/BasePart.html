@@ -7147,9 +7147,10 @@ Add <a class="entity-link deco" href=/ref/class/BasePart.html#member-SetNetworkO
 <a href=/ref/class/BasePart.html#member-ExtentsSize>ExtentsSize</a> represents the actual size used
 by the physics engine, such as in
 <a href=https://create.roblox.com/docs/workspace/collisions>collision detection</a>. The individual
-dimensions (length, width, height) can be as low as <code>0.001</code> and as high as
-<code>2048</code>. Size dimensions below <code>0.05</code> will be <strong>visually</strong> represented as
-if the part's dimensions are <code>0.05</code>.</p><p>A part's <code>Size</code> is used in a variety of additional ways:</p><ul><li>To influence its mass as given by <a href=/ref/class/BasePart.html#member-GetMass>GetMass()</a>.</li><li>By <a href=/ref/class/ParticleEmitter.html>ParticleEmitter</a> to determine the area from which particles
+dimensions (length, height, width) can be as low as <code>0.001</code> and as high as
+<code>2048</code>. Size dimensions below <code>0.05</code> will be <strong>physically</strong> simulated as
+if the part's dimensions are <code>0.05</code>, while visual rendering preserves the
+actual size.</p><p>A part's <code>Size</code> is used in a variety of additional ways:</p><ul><li>To influence its mass as given by <a href=/ref/class/BasePart.html#member-GetMass>GetMass()</a>.</li><li>By <a href=/ref/class/ParticleEmitter.html>ParticleEmitter</a> to determine the area from which particles
 are spawned.</li><li>By <a href=/ref/class/BlockMesh.html>BlockMesh</a> to partially determine the rendered rectangular
 prism.</li><li>By <a href=/ref/class/SpecialMesh.html>SpecialMesh</a> for certain
 <a href=/ref/class/SpecialMesh.html#member-MeshType>MeshTypes</a> to determine the size of the

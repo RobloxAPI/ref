@@ -2778,7 +2778,14 @@ placing GUI elements.</p><p>For an otherwise identical method that accounts for 
 </span></span></code></pre></td></tr></tbody></table></div><p>Note this method does not perform any raycasting and the boolean
 indicating whether <code>worldPoint</code> is within the bounds of the screen will be
 <code>true</code> regardless of whether the point is obscured by
-<a href=/ref/class/BasePart.html>BaseParts</a> or <a href=/ref/class/Terrain.html>Terrain</a>.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-c992b9ce01654146-255 title="Changed on 2021-07-12T18:30:54-07:00
+<a href=/ref/class/BasePart.html>BaseParts</a> or <a href=/ref/class/Terrain.html>Terrain</a>.</p><h4>ViewportFrame Cameras</h4><p>Only <a href=/ref/class/Workspace.html#member-CurrentCamera>Workspace.CurrentCamera</a> has its internal viewport dimensions
+updated by the engine each frame. Cameras used inside a
+<a href=/ref/class/ViewportFrame.html>ViewportFrame</a> do not receive viewport updates, so the X and Y
+components returned by this method will be in the range [0, 1] rather than
+in pixels. In practice, this means the returned values can be used as
+scale coordinates (for example,
+<a href=/ref/type/UDim2.html>UDim2.fromScale(vector.X, vector.Y)</a>) to position GUI
+elements relative to the ViewportFrame.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-c992b9ce01654146-255 title="Changed on 2021-07-12T18:30:54-07:00
 v0.486.0.426194
 version-c992b9ce01654146">486</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Camera.html#member-WorldToViewportPoint><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>WorldToViewportPoint</a>

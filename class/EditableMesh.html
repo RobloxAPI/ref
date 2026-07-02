@@ -241,27 +241,27 @@ version-9b68669a3b644e31">648</a></td><td class=col-icon><span class=picture tit
 v0.648.0.6480781
 version-9b68669a3b644e31">648</a></td><td class=col-icon><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span></td><td class=col-member><span class="member-text deco deprecated removed"><span class=name><a class=entity-link href=/ref/class/EditableMesh.html#member-SetVertexNormal>SetVertexNormal</a></span><span class="parameters open">(</span><span class="parameters parameter">vertexId: <a class="entity-link deco" href=/ref/type/int64.html>int64</a><span class="parameters sep">, </span></span><span class="parameters parameter">vnormal: <a class="entity-link deco" href=/ref/type/Vector3.html>Vector3</a></span><span class="parameters close">)</span><span class=bind>: </span><span class="returns return"><a class="entity-link deco" href=/ref/type/null.html>null</a></span></span></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p><code>EditableMesh</code> changes the applied visual mesh when linked to a
 <a href=/ref/class/MeshPart.html>MeshPart</a>, allowing for querying and modification of the mesh both in
-Studio and in experience.</p><h3>Enabling for Published Experiences</h3><p>For security purposes, using <code>EditableMesh</code> fails by default for published
-experiences. To enable usage of <code>EditableMesh</code>, you must be 13+ age verified
-and ID verified. After you are verified, open Studio's
+Studio and in-game.</p><h3>Enabling for published games</h3><p>For security purposes, using <code>EditableMesh</code> fails by default for published
+games. To enable usage of <code>EditableMesh</code>, you must be 13+ age verified and ID
+verified. After you are verified, open Studio's
 <a href=https://create.roblox.com/docs/studio/experience-settings>Experience Settings</a>, select
 <strong>Security</strong>, and enable the <strong>Allow Mesh & Image APIs</strong>
 toggle. Remember to review the
 <a href=https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use#creators-restrictions-on-use>Terms of Use</a>
 before enabling the toggle.</p><h3>Permissions</h3><p>To prevent misuse, <a href=/ref/class/AssetService.html#member-CreateEditableMeshAsync>AssetService:CreateEditableMeshAsync()</a> only allows
-you to load and edit mesh assets if any of the following is true:</p><ul><li>Owned by or explicitly shared with the experience owner.</li><li>Owned by or explicitly shared with the logged in Studio user.</li><li>Owned by or explicitly shared with the logged in player if the
-<code>EditableMesh</code> is on the client side.</li><li>Owned by a group where the experience owner, Studio user, or player has a
-role with permission to edit the group's assets. See
+you to load and edit mesh assets if any of the following is true:</p><ul><li>Owned by or explicitly shared with the game owner.</li><li>Owned by or explicitly shared with the logged in Studio user.</li><li>Owned by or explicitly shared with the logged in player if the
+<code>EditableMesh</code> is on the client side.</li><li>Owned by a group where the game owner, Studio user, or player has a role
+with permission to edit the group's assets. See
 <a href=https://create.roblox.com/docs/projects/groups#roles-and-permissions>Roles and permissions</a>
 for more information.</li></ul><p>See <a href=https://create.roblox.com/docs/projects/assets/privacy#grant-permissions>Grant permissions</a>
 to learn how to share assets with users or groups.</p><p>The APIs throw an error if they are used to load an asset that does not meet
-the criteria above.</p><h3>Memory Limits</h3><p>Editable assets are currently expensive for memory usage. To minimize its
+the criteria above.</p><h3>Memory limits</h3><p>Editable assets are currently expensive for memory usage. To minimize its
 impact on client performance, <code>EditableMesh</code> has strict client-side memory
 budgets, although the server, Studio, and plugins operate with unlimited
 memory. Using <a href=/ref/class/EditableMesh.html#member-FixedSize>FixedSize</a> may help you stay
 within the memory budget and, in some scenarios, linking one <code>EditableMesh</code> to
 multiple <a href=/ref/class/MeshPart.html>MeshParts</a> (multi-referencing) can help with memory
-optimization.</p><h3>Creation and Display</h3><p>An <code>EditableMesh</code> can be created from an existing <a href=/ref/type/Content.html>Content</a> of a
+optimization.</p><h3>Creation and display</h3><p>An <code>EditableMesh</code> can be created from an existing <a href=/ref/type/Content.html>Content</a> of a
 <a href=/ref/class/MeshPart.html>MeshPart</a> or a mesh ID using
 <a href=/ref/class/AssetService.html#member-CreateEditableMeshAsync>AssetService:CreateEditableMeshAsync()</a>, or a blank <code>EditableMesh</code> can
 be created with <a href=/ref/class/AssetService.html#member-CreateEditableMesh>AssetService:CreateEditableMesh()</a>. It can then be
@@ -357,7 +357,7 @@ update an existing <a href=/ref/class/MeshPart.html>MeshPart</a>. It's generally
 the end of a conceptual edit, not after individual calls to methods that
 manipulate geometry. Visual changes to the mesh will always be immediately
 reflected by the engine, without the need to call
-<a href=/ref/class/AssetService.html#member-CreateMeshPartAsync>AssetService:CreateMeshPartAsync()</a>.</p><h3>Fixed-Size Meshes</h3><p>When creating an <code>EditableMesh</code> from an existing mesh asset (via
+<a href=/ref/class/AssetService.html#member-CreateMeshPartAsync>AssetService:CreateMeshPartAsync()</a>.</p><h3>Fixed-size meshes</h3><p>When creating an <code>EditableMesh</code> from an existing mesh asset (via
 <a href=/ref/class/AssetService.html#member-CreateEditableMeshAsync>AssetService:CreateEditableMeshAsync()</a>), the resulting editable mesh
 is fixed-size by default. Fixed-size meshes are more efficient in terms of
 memory but you cannot change the number of vertices, faces, or attributes.
@@ -375,7 +375,7 @@ Only the values of vertex attributes and positions can be edited.</p><div class=
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>success</span><span class=_p>,</span> <span class=_n>errorMessage</span> <span class=_o>=</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>editableMeshFromAsset</span> <span class=_o>=</span> <span class=_n>AssetService</span><span class=_p>:</span><span class=_n>CreateEditableMeshAsync</span><span class=_p>(</span><span class=_n>Content.fromAssetId</span><span class=_p>(</span><span class=_n>ASSET_ID</span><span class=_p>),</span> <span class=_p>{</span><span class=_n>FixedSize</span> <span class=_o>=</span> <span class=_kc>false</span><span class=_p>})</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div><h3>Stable Vertex/Face IDs</h3><p>Many <code>EditableMesh</code> methods take <strong>vertex</strong>, <strong>normal</strong>, <strong>UV</strong>, <strong>color</strong> and
+</span></span></code></pre></td></tr></tbody></table></div><h3>Stable vertex/face IDs</h3><p>Many <code>EditableMesh</code> methods take <strong>vertex</strong>, <strong>normal</strong>, <strong>UV</strong>, <strong>color</strong> and
 <strong>face</strong> IDs. These are represented as integers in Luau but they require some
 special handling. The main difference is that IDs are stable and they remain
 the same even if other parts of the mesh change. For example, if an
@@ -383,16 +383,20 @@ the same even if other parts of the mesh change. For example, if an
 the new vertices will be <code>{1, 2, 3, 5}</code>.</p><p>Note that the IDs are not guaranteed to be in order and there may be holes in
 the numbering, so when iterating through vertices or faces, you should iterate
 through the table returned by <a href=/ref/class/EditableMesh.html#member-GetVertices>GetVertices()</a>
-or <a href=/ref/class/EditableMesh.html#member-GetFaces>GetFaces()</a>.</p><h3>Split Vertex Attributes</h3><p>A <strong>vertex</strong> is a corner of a face, and topologically connects faces together.
+or <a href=/ref/class/EditableMesh.html#member-GetFaces>GetFaces()</a>.</p><h3>Split vertex attributes</h3><p>A <strong>vertex</strong> is a corner of a face, and topologically connects faces together.
 Vertices can have several attributes: position, normal, UV coordinate, color,
 and transparency.</p><p>Sometimes it's useful for all faces that touch a vertex to use the same
 attribute values, but sometimes you'll want different faces to use different
 attribute values on the same vertex. For example, on a smooth sphere, each
 vertex will only have a single normal. In contrast, at the corner of a cube,
 the vertex will have 3 different normals (one for each adjacent face). You can
-also have seams in the UV coordinates or sharp changes in the vertex colors.</p><p>When creating faces, every vertex will by default have one of each attribute:
-one normal, one UV coordinate, and one color/transparency. If you want to
-create a seam, you should create new attributes and set them on the face. For
+also have seams in the UV coordinates or sharp changes in the vertex colors.</p><p>When creating faces with <a href=/ref/class/EditableMesh.html#member-AddTriangle>AddTriangle()</a>,
+each corner of the new face is automatically assigned a normal, UV, and color
+attribute. If a vertex already belongs to an existing face, the new face
+<strong>reuses</strong> that vertex's existing attributes (producing smooth shading and
+continuous UVs). If the vertex is new, fresh attribute IDs are created with
+default values (auto-computed normal, UV of <code>(0, 0)</code>, white color). To create
+a seam, you should create new attributes and set them on the face. For
 example, this code will create a sharp cube:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
 </span><span class=_lnt> 2
 </span><span class=_lnt> 3
@@ -469,7 +473,7 @@ example, this code will create a sharp cube:</p><div class="_chroma _light"><tab
 front of the faces are drawn by default, although you can change this by
 setting the mesh' <a href=/ref/class/MeshPart.html#member-DoubleSided>DoubleSided</a> property to <code>true</code>.</p><p>The order of the vertices around the face determines whether you are looking
 at the front or the back. The front of the face is visible when the vertices
-go counterclockwise around it.</p><img src=https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Winding.png alt="Order of the vertices around the face" width=550><h3>FACS Poses</h3><p>Animatable heads use the Facial Action Coding System (FACS). See the
+go counterclockwise around it.</p><img src=https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Winding.png alt="Order of the vertices around the face" width=550><h3>FACS poses</h3><p>Animatable heads use the Facial Action Coding System (FACS). See the
 <a href=https://create.roblox.com/docs/avatar/dynamic-heads/facs-poses-reference>FACS poses reference</a>
 for helpful information when using
 <a href=/ref/class/EditableMesh.html#member-GetFacsPoses>GetFacsPoses()</a> and similar methods.</p><p>Each FACS pose is specified by an <a href=/ref/enum/FacsActionUnit.html>FacsActionUnit</a> value. For the FACS
@@ -1599,7 +1603,94 @@ Add <a class="entity-link deco" href=/ref/class/EditableMesh.html#member-AddFace
 normal value isn't specified, the normal will be automatically calculated.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2024.html#version-046f2d8fc733479b-10 title="Added on 2024-08-27T11:16:52-07:00
 v0.640.0.6400731
 version-046f2d8fc733479b">640</a>
-Add <a class="entity-link deco" href=/ref/class/EditableMesh.html#member-AddNormal><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>AddNormal</a></li></ul></details></section><section id=member-AddTriangle class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>AddTriangle<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/EditableMesh#AddTriangle target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>3</span>)</th></tr></thead><tbody><tr class=row-vertexId0><td class=col-name>vertexId0</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr><tr class=row-vertexId1><td class=col-name>vertexId1</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr><tr class=row-vertexId2><td class=col-name>vertexId2</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/int64.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>int64</a></td></tr></tbody></table><div class=docs><p>Adds a new triangle to the mesh and returns a stable face ID.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>7</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-3125948cd5a143d7-9 title="Changed on 2023-11-30T14:10:30-08:00
+Add <a class="entity-link deco" href=/ref/class/EditableMesh.html#member-AddNormal><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>AddNormal</a></li></ul></details></section><section id=member-AddTriangle class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>AddTriangle<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/EditableMesh#AddTriangle target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>3</span>)</th></tr></thead><tbody><tr class=row-vertexId0><td class=col-name>vertexId0</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr><tr class=row-vertexId1><td class=col-name>vertexId1</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr><tr class=row-vertexId2><td class=col-name>vertexId2</td><td class=col-type><a class="entity-link deco" href=/ref/type/int64.html>int64</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/int64.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>int64</a></td></tr></tbody></table><div class=docs><p>Adds a new triangle to the mesh and returns a stable face ID.</p><h4>Automatic attribute assignment</h4><p><code>AddTriangle</code> only takes vertex (position) IDs as arguments. For each
+vertex of the new triangle, it automatically assigns normal, UV, and color
+attributes using the following logic:</p><ul><li>If the vertex <strong>already belongs to another face</strong>, the new triangle
+corner <strong>reuses</strong> the same normal, UV, and color IDs from the existing
+face. This produces smooth shading and continuous UVs across adjacent
+faces by default.</li><li>If the vertex <strong>does not yet belong to any face</strong>, new normal, UV, and
+color IDs are created with default values (auto-computed normal, UV
+coordinate of <code>(0, 0)</code>, and white color).</li></ul><img src=https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Shared-Attributes.png alt="Two adjacent faces sharing vertex attribute IDs at their common vertices" width=690><h4>Overriding attributes after adding a face</h4><p>The auto-assigned attributes can be customized after adding a face. The
+approach depends on whether you want to change attribute <strong>values</strong> while
+keeping the topology intact, or create entirely new attribute IDs to add
+or remove <strong>seams</strong> between faces.</p><p><strong>To change values in-place</strong>, retrieve the auto-created IDs with methods
+like <a href=/ref/class/EditableMesh.html#member-GetVertexFaceUV>GetVertexFaceUV()</a> and set
+their values directly. This is more performant and avoids leaving unused
+IDs in the mesh:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span><span class=_lnt>11
+</span><span class=_lnt>12
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_c1>-- Create a triangle</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>faceId</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddTriangle</span><span class=_p>(</span><span class=_n>v0</span><span class=_p>,</span> <span class=_n>v1</span><span class=_p>,</span> <span class=_n>v2</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Get the UV IDs that were automatically created</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>uvId0</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>GetVertexFaceUV</span><span class=_p>(</span><span class=_n>v0</span><span class=_p>,</span> <span class=_n>faceId</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>uvId1</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>GetVertexFaceUV</span><span class=_p>(</span><span class=_n>v1</span><span class=_p>,</span> <span class=_n>faceId</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>uvId2</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>GetVertexFaceUV</span><span class=_p>(</span><span class=_n>v2</span><span class=_p>,</span> <span class=_n>faceId</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Set UV values on those existing UV IDs</span>
+</span></span><span class=_line><span class=_cl><span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>SetUV</span><span class=_p>(</span><span class=_n>uvId0</span><span class=_p>,</span> <span class=_n>Vector2.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>))</span>
+</span></span><span class=_line><span class=_cl><span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>SetUV</span><span class=_p>(</span><span class=_n>uvId1</span><span class=_p>,</span> <span class=_n>Vector2.new</span><span class=_p>(</span><span class=_mi>1</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>))</span>
+</span></span><span class=_line><span class=_cl><span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>SetUV</span><span class=_p>(</span><span class=_n>uvId2</span><span class=_p>,</span> <span class=_n>Vector2.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>1</span><span class=_p>))</span>
+</span></span></code></pre></td></tr></tbody></table></div><p><strong>To create a seam</strong> — where the same vertex needs different attribute
+values on different faces (for example, a UV seam or a sharp edge) —
+create new attribute IDs with <a href=/ref/class/EditableMesh.html#member-AddUV>AddUV()</a>,
+<a href=/ref/class/EditableMesh.html#member-AddNormal>AddNormal()</a>, or
+<a href=/ref/class/EditableMesh.html#member-AddColor>AddColor()</a>, then assign them to the face
+with <a href=/ref/class/EditableMesh.html#member-SetFaceUVs>SetFaceUVs()</a>,
+<a href=/ref/class/EditableMesh.html#member-SetFaceNormals>SetFaceNormals()</a>, or
+<a href=/ref/class/EditableMesh.html#member-SetFaceColors>SetFaceColors()</a>:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_c1>-- Create a triangle</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>faceId</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddTriangle</span><span class=_p>(</span><span class=_n>v0</span><span class=_p>,</span> <span class=_n>v1</span><span class=_p>,</span> <span class=_n>v2</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Create new UV IDs with custom coordinates</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>uv0</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddUV</span><span class=_p>(</span><span class=_n>Vector2.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>))</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>uv1</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddUV</span><span class=_p>(</span><span class=_n>Vector2.new</span><span class=_p>(</span><span class=_mi>1</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>))</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>uv2</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddUV</span><span class=_p>(</span><span class=_n>Vector2.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>1</span><span class=_p>))</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Replace the face&#39;s UV IDs (creates a seam if the vertex had different UVs on another face)</span>
+</span></span><span class=_line><span class=_cl><span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>SetFaceUVs</span><span class=_p>(</span><span class=_n>faceId</span><span class=_p>,</span> <span class=_p>{</span><span class=_n>uv0</span><span class=_p>,</span> <span class=_n>uv1</span><span class=_p>,</span> <span class=_n>uv2</span><span class=_p>})</span>
+</span></span></code></pre></td></tr></tbody></table></div><h4>Normal sharing and smooth vs. sharp edges</h4><p>Because <code>AddTriangle</code> reuses normal IDs from adjacent faces by default,
+meshes appear smooth. To create a <strong>sharp edge</strong> (crease) between faces,
+create a separate normal ID for each face and assign it with
+<a href=/ref/class/EditableMesh.html#member-SetFaceNormals>SetFaceNormals()</a>:</p><img src=https://prod.docsiteassets.roblox.com/assets/engine-api/classes/EditableMesh/Faceted-Normals.png alt="Two adjacent faces with separate normal IDs producing flat shading" width=690><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span><span class=_lnt>9
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_c1>-- Two triangles sharing vertices v0 and v1, but with a sharp edge between them</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>fid1</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddTriangle</span><span class=_p>(</span><span class=_n>v0</span><span class=_p>,</span> <span class=_n>v1</span><span class=_p>,</span> <span class=_n>v2</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>fid2</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddTriangle</span><span class=_p>(</span><span class=_n>v0</span><span class=_p>,</span> <span class=_n>v3</span><span class=_p>,</span> <span class=_n>v1</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Create separate normals for each face to produce a hard edge</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>n1</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddNormal</span><span class=_p>()</span>  <span class=_c1>-- auto-computed for fid1</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>n2</span> <span class=_o>=</span> <span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>AddNormal</span><span class=_p>()</span>  <span class=_c1>-- auto-computed for fid2</span>
+</span></span><span class=_line><span class=_cl><span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>SetFaceNormals</span><span class=_p>(</span><span class=_n>fid1</span><span class=_p>,</span> <span class=_p>{</span><span class=_n>n1</span><span class=_p>,</span> <span class=_n>n1</span><span class=_p>,</span> <span class=_n>n1</span><span class=_p>})</span>
+</span></span><span class=_line><span class=_cl><span class=_n>editableMesh</span><span class=_p>:</span><span class=_n>SetFaceNormals</span><span class=_p>(</span><span class=_n>fid2</span><span class=_p>,</span> <span class=_p>{</span><span class=_n>n2</span><span class=_p>,</span> <span class=_n>n2</span><span class=_p>,</span> <span class=_n>n2</span><span class=_p>})</span>
+</span></span></code></pre></td></tr></tbody></table></div><p>See also <a href=/ref/class/EditableMesh.html#member-SetNormal>SetNormal()</a> to manually specify
+a normal vector, and <a href=/ref/class/EditableMesh.html#member-ResetNormal>ResetNormal()</a> to
+revert a normal back to automatic computation.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>7</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-3125948cd5a143d7-9 title="Changed on 2023-11-30T14:10:30-08:00
 v0.604.0.6040509
 version-3125948cd5a143d7">604</a>
 Change ReturnType of <a class="entity-link deco" href=/ref/class/EditableMesh.html#member-AddTriangle><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>AddTriangle</a>
