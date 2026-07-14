@@ -8188,6 +8188,37 @@
 					},
 					"WriteSecurity": "None"
 				},
+				"ParameterChanged": {
+					"MemberType": "Event",
+					"Name": "ParameterChanged",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "key",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Variant"
+							},
+							"Name": "value",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
 				"Play": {
 					"MemberType": "Function",
 					"Name": "Play",
@@ -15829,7 +15860,8 @@
 					],
 					"Security": "RobloxScriptSecurity",
 					"Tags": [
-						"Yields"
+						"Yields",
+						"Deprecated"
 					],
 					"ThreadSafety": "Unsafe"
 				},
@@ -15868,7 +15900,8 @@
 					],
 					"Security": "RobloxScriptSecurity",
 					"Tags": [
-						"Yields"
+						"Yields",
+						"Deprecated"
 					],
 					"ThreadSafety": "Unsafe"
 				},
@@ -15919,6 +15952,102 @@
 					},
 					"Security": "None",
 					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"UploadVersionedAssetFromContentAsync": {
+					"MemberType": "Function",
+					"Name": "UploadVersionedAssetFromContentAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "content",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "createAssetRequest",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "assetId",
+							"Optional": true,
+							"Default": "0"
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
+					"ThreadSafety": "Unsafe"
+				},
+				"UploadVersionedAssetFromPathAsync": {
+					"MemberType": "Function",
+					"Name": "UploadVersionedAssetFromPathAsync",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "filepath",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Group",
+								"Name": "Dictionary"
+							},
+							"Name": "createAssetRequest",
+							"Optional": false,
+							"Default": ""
+						},
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "int64"
+							},
+							"Name": "assetId",
+							"Optional": true,
+							"Default": "0"
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Tuple"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [
+						"Yields"
+					],
 					"ThreadSafety": "Unsafe"
 				}
 			},
@@ -73185,6 +73314,50 @@
 				"NotReplicated"
 			]
 		},
+		"DeviceDisplayService": {
+			"Name": "DeviceDisplayService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"AcquireWakeLock": {
+					"MemberType": "Function",
+					"Name": "AcquireWakeLock",
+					"Parameters": [
+						{
+							"Type": {
+								"Category": "Primitive",
+								"Name": "string"
+							},
+							"Name": "name",
+							"Optional": false,
+							"Default": ""
+						}
+					],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Class",
+							"Name": "DisplayWakeLock"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service",
+				"NotReplicated"
+			]
+		},
 		"DeviceIdService": {
 			"Name": "DeviceIdService",
 			"Superclass": "Instance",
@@ -74783,6 +74956,20 @@
 				"ThreadSafety": ""
 			},
 			"Tags": []
+		},
+		"DisplayWakeLock": {
+			"Name": "DisplayWakeLock",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": null,
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"NotReplicated"
+			]
 		},
 		"DistortionSoundEffect": {
 			"Name": "DistortionSoundEffect",
@@ -171569,6 +171756,58 @@
 				"NotReplicated"
 			]
 		},
+		"PopLatencyService": {
+			"Name": "PopLatencyService",
+			"Superclass": "Instance",
+			"MemoryCategory": "Instances",
+			"Members": {
+				"GetSnapshot": {
+					"MemberType": "Function",
+					"Name": "GetSnapshot",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Group",
+							"Name": "Variant"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				},
+				"IsEnabled": {
+					"MemberType": "Function",
+					"Name": "IsEnabled",
+					"Parameters": [],
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReturnType": [
+						{
+							"Category": "Primitive",
+							"Name": "bool"
+						}
+					],
+					"Security": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "Unsafe"
+				}
+			},
+			"PreferredDescriptor": {
+				"Name": "",
+				"ThreadSafety": ""
+			},
+			"Tags": [
+				"NotCreatable",
+				"Service",
+				"NotReplicated"
+			]
+		},
 		"Pose": {
 			"Name": "Pose",
 			"Superclass": "PoseBase",
@@ -174978,6 +175217,29 @@
 			"Superclass": "Instance",
 			"MemoryCategory": "Instances",
 			"Members": {
+				"AudioInputActive": {
+					"CanLoad": false,
+					"CanSave": true,
+					"Category": "Data",
+					"Default": "",
+					"MemberType": "Property",
+					"Name": "AudioInputActive",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "None",
+					"Tags": [
+						"ReadOnly",
+						"NotReplicated"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "None"
+				},
 				"ConnectAsync": {
 					"MemberType": "Function",
 					"Name": "ConnectAsync",
@@ -179903,6 +180165,26 @@
 						"Name": "float"
 					},
 					"WriteSecurity": "None"
+				},
+				"EnableSkinning": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Behavior",
+					"Default": "",
+					"MemberType": "Property",
+					"Name": "EnableSkinning",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
 				}
 			},
 			"PreferredDescriptor": {
@@ -206316,6 +206598,26 @@
 					"Default": "",
 					"MemberType": "Property",
 					"Name": "Enable Autocomplete Doc View",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
+				"Enable Client/Server MDI": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Advanced",
+					"Default": "",
+					"MemberType": "Property",
+					"Name": "Enable Client/Server MDI",
 					"PreferredDescriptor": {
 						"Name": "",
 						"ThreadSafety": ""
@@ -259873,6 +260175,28 @@
 					},
 					"WriteSecurity": "PluginSecurity"
 				},
+				"EnableVoiceVolumeControls": {
+					"CanLoad": true,
+					"CanSave": true,
+					"Category": "Behavior",
+					"Default": "",
+					"MemberType": "Property",
+					"Name": "EnableVoiceVolumeControls",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [
+						"NotBrowsable"
+					],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Enum",
+						"Name": "RolloutState"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				},
 				"FetchUserTurnAuthOperationFailed": {
 					"MemberType": "Event",
 					"Name": "FetchUserTurnAuthOperationFailed",
@@ -263914,7 +264238,28 @@
 			"Name": "Weld",
 			"Superclass": "JointInstance",
 			"MemoryCategory": "BaseParts",
-			"Members": null,
+			"Members": {
+				"EnableSkinning": {
+					"CanLoad": false,
+					"CanSave": false,
+					"Category": "Behavior",
+					"Default": "",
+					"MemberType": "Property",
+					"Name": "EnableSkinning",
+					"PreferredDescriptor": {
+						"Name": "",
+						"ThreadSafety": ""
+					},
+					"ReadSecurity": "RobloxScriptSecurity",
+					"Tags": [],
+					"ThreadSafety": "ReadSafe",
+					"ValueType": {
+						"Category": "Primitive",
+						"Name": "bool"
+					},
+					"WriteSecurity": "RobloxScriptSecurity"
+				}
+			},
 			"PreferredDescriptor": {
 				"Name": "",
 				"ThreadSafety": ""

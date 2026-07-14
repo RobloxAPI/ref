@@ -207,6 +207,30 @@ double braces: <code>{{</code> produces a literal <code>{</code> and <code>}}</c
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_n>LogService</span><span class=_p>:</span><span class=_n>Info</span><span class=_p>(</span><span class=_s2>&#34;Value = {{result}}: {val}&#34;</span><span class=_p>,</span> <span class=_p>{</span><span class=_n>val</span> <span class=_o>=</span> <span class=_mi>42</span><span class=_p>})</span>
 </span></span><span class=_line><span class=_cl><span class=_c1>-- Output: &#34;Value = {result}: 42&#34;</span>
+</span></span></code></pre></td></tr></tbody></table></div><h3>Context Values</h3><p>The <code>context</code> table accepts any value type. Non-serializable values are
+automatically converted to strings in the stored context:</p><ul><li><strong>Instances</strong> are stored as their full path (e.g.,
+<code>"Workspace.MyModel.Part"</code>)</li><li><strong>Functions</strong> are stored as <code>"&lt;function>"</code></li><li><strong>Other non-primitive types</strong> are stored using their <code>tostring()</code>
+representation</li></ul><p>Mixed tables (tables with both string and numeric keys) and pure arrays are
+accepted. Numeric keys are converted to string keys (e.g., index <code>1</code> becomes
+key <code>"1"</code>). If a numeric key collides with an existing string key, the
+explicit string key takes precedence.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span><span class=_lnt>9
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>LogService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;LogService&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Instance values are converted to their full path</span>
+</span></span><span class=_line><span class=_cl><span class=_n>LogService</span><span class=_p>:</span><span class=_n>Info</span><span class=_p>(</span><span class=_s2>&#34;Touched {part}&#34;</span><span class=_p>,</span> <span class=_p>{</span><span class=_n>part</span> <span class=_o>=</span> <span class=_n>workspace.MyPart</span><span class=_p>})</span>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Context stores: {part = &#34;Workspace.MyPart&#34;}</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Mixed tables are accepted; numeric keys become string keys</span>
+</span></span><span class=_line><span class=_cl><span class=_n>LogService</span><span class=_p>:</span><span class=_n>Info</span><span class=_p>(</span><span class=_s2>&#34;Player {name}&#34;</span><span class=_p>,</span> <span class=_p>{</span><span class=_n>name</span> <span class=_o>=</span> <span class=_s2>&#34;Alice&#34;</span><span class=_p>,</span> <span class=_mi>1</span><span class=_p>,</span> <span class=_mi>2</span><span class=_p>,</span> <span class=_mi>3</span><span class=_p>})</span>
+</span></span><span class=_line><span class=_cl><span class=_c1>-- Context stores: {name = &#34;Alice&#34;, [&#34;1&#34;] = 1, [&#34;2&#34;] = 2, [&#34;3&#34;] = 3}</span>
 </span></span></code></pre></td></tr></tbody></table></div><h3>Warning</h3><p>This service might have unexpected or unreliable behavior and content might be
 truncated. Don't rely on contents of events and messages emitted by this
 service for any important game logic.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>48</span><aside class=filter-controls><label><input class=filter-input type=checkbox>

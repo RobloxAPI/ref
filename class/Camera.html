@@ -1311,17 +1311,13 @@ example, the <a href=/ref/class/Camera.html>Camera</a> is positioned at
 </span><span class=_lnt>5
 </span><span class=_lnt>6
 </span><span class=_lnt>7
-</span><span class=_lnt>8
-</span><span class=_lnt>9
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl><span class=_n>camera.CameraType</span> <span class=_o>=</span> <span class=_n>Enum.CameraType</span><span class=_p>.</span><span class=_n>Scriptable</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>pos</span> <span class=_o>=</span> <span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>10</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>lookAtPos</span> <span class=_o>=</span> <span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>10</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>Workspace.CurrentCamera</span><span class=_p>.</span><span class=_n>CFrame</span> <span class=_o>=</span> <span class=_n>CFrame.lookAt</span><span class=_p>(</span><span class=_n>pos</span><span class=_p>,</span> <span class=_n>lookAtPos</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_n>camera.CFrame</span> <span class=_o>=</span> <span class=_n>CFrame.lookAt</span><span class=_p>(</span><span class=_n>pos</span><span class=_p>,</span> <span class=_n>lookAtPos</span><span class=_p>)</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>Although the camera can be placed in the manner demonstrated above, you
 may want to animate it to move smoothly from one <a href=/ref/type/CFrame.html>CFrame</a> to
 another. For this, you can either:</p><ul><li><p>Set the camera's position/orientation every frame with
@@ -1346,12 +1342,10 @@ of the camera:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><
 </span><span class=_lnt>17
 </span><span class=_lnt>18
 </span><span class=_lnt>19
-</span><span class=_lnt>20
 </span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>TweenService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;TweenService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl><span class=_n>camera.CameraType</span> <span class=_o>=</span> <span class=_n>Enum.CameraType</span><span class=_p>.</span><span class=_n>Scriptable</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>player</span> <span class=_o>=</span> <span class=_n>Players.LocalPlayer</span>
@@ -1438,12 +1432,10 @@ character's <a href=/ref/class/Humanoid.html>Humanoid</a>:</p><div class="_chrom
 </span><span class=_lnt>11
 </span><span class=_lnt>12
 </span><span class=_lnt>13
-</span><span class=_lnt>14
 </span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>localPlayer</span> <span class=_o>=</span> <span class=_n>Players.LocalPlayer</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>resetCameraSubject</span><span class=_p>()</span>
 </span></span><span class=_line><span class=_cl>	<span class=_kr>if</span> <span class=_n>camera</span> <span class=_ow>and</span> <span class=_n>localPlayer.Character</span> <span class=_kr>then</span>
@@ -1907,20 +1899,16 @@ obscuring the lines of sight between the camera's
 positions. Note that the array of <a href=/ref/class/BasePart.html>BaseParts</a> returned is
 in an arbitrary order, and no additional raycast data is provided. If you
 need data such as hit position, hit material, or surface normal, you
-should opt for the <a href=/ref/class/WorldRoot.html#member-Raycast>WorldRoot:Raycast()</a> method.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+should opt for the <a href=/ref/class/WorldRoot.html#member-Raycast>WorldRoot:Raycast()</a> method.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span><span class=_lnt>9
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>castPoints</span> <span class=_o>=</span> <span class=_p>{</span>
 </span></span><span class=_line><span class=_cl>	<span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>10</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>),</span>
@@ -1967,11 +1955,9 @@ following <a href=/ref/type/CFrame.html>CFrame</a>:</p><div class="_chroma _ligh
 </span><span class=_lnt>5
 </span><span class=_lnt>6
 </span><span class=_lnt>7
-</span><span class=_lnt>8
 </span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>UserInputService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;UserInputService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>headCFrame</span> <span class=_o>=</span> <span class=_n>UserInputService</span><span class=_p>:</span><span class=_n>GetUserCFrame</span><span class=_p>(</span><span class=_n>Enum.UserCFrame</span><span class=_p>.</span><span class=_n>Head</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_n>headCFrame</span> <span class=_o>=</span> <span class=_n>headCFrame.Rotation</span> <span class=_o>+</span> <span class=_n>headCFrame.Position</span> <span class=_o>*</span> <span class=_n>camera.HeadScale</span>
@@ -1993,20 +1979,16 @@ as rotation around the camera's Z-axis.</p><p>This method only returns roll appl
 <a href=/ref/class/Camera.html#member-SetRoll>SetRoll()</a> method. Roll manually applied to the
 camera's <a href=/ref/class/Camera.html#member-CFrame>CFrame</a> is not accounted for. To obtain the
 actual roll of the <a href=/ref/class/Camera.html>Camera</a>, including roll manually applied, you
-can use the following snippet:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>getActualRoll</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+can use the following snippet:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>getActualRoll</span><span class=_p>()</span>
+</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>trueUp</span> <span class=_o>=</span> <span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>1</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>cameraUp</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>GetRenderCFrame</span><span class=_p>().</span><span class=_n>upVector</span>
@@ -2053,20 +2035,18 @@ Add <a class="entity-link deco deprecated" href=/ref/class/Camera.html#member-Ge
 player using a VR device. When <code>true</code> (default), the engine combines
 <a href=/ref/class/Camera.html#member-CFrame>CFrame</a> with the <a href=/ref/enum/UserCFrame.html>UserCFrame</a> of the user's head
 to render the player's view with head tracking factored in. The view will
-be rendered at the following <a href=/ref/type/CFrame.html>CFrame</a>:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
+be rendered at the following <a href=/ref/type/CFrame.html>CFrame</a>:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span><span class=_lnt>9
 </span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>UserInputService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;UserInputService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>headCFrame</span> <span class=_o>=</span> <span class=_n>UserInputService</span><span class=_p>:</span><span class=_n>GetUserCFrame</span><span class=_p>(</span><span class=_n>Enum.UserCFrame</span><span class=_p>.</span><span class=_n>Head</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_n>headCFrame</span> <span class=_o>=</span> <span class=_n>headCFrame.Rotation</span> <span class=_o>+</span> <span class=_n>headCFrame.Position</span> <span class=_o>*</span> <span class=_n>camera.HeadScale</span>
@@ -2154,19 +2134,15 @@ v0.240.0.72635
 version-fe88b67aa44a44d9">240</a>
 Add <a class="entity-link deco" href=/ref/class/Camera.html#member-HeadScale><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>HeadScale</a></li></ul></details></section><section id=member-Interpolate class="set deprecated"><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>Interpolate<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Camera#Interpolate target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>3</span>)</th></tr></thead><tbody><tr class=row-endPos><td class=col-name>endPos</td><td class=col-type><a class="entity-link deco" href=/ref/type/CFrame.html>CFrame</a></td></tr><tr class=row-endFocus><td class=col-name>endFocus</td><td class=col-type><a class="entity-link deco" href=/ref/type/CFrame.html>CFrame</a></td></tr><tr class=row-duration><td class=col-name>duration</td><td class=col-type><a class="entity-link deco" href=/ref/type/float.html>float</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></td></tr></tbody></table><div class=docs><p>This method tweens the <a href=/ref/class/Camera.html>Camera</a> in a linear fashion towards a new
 <a href=/ref/class/Camera.html#member-CFrame>CFrame</a> and <a href=/ref/class/Camera.html#member-Focus>Focus</a> over a given
-duration, for example:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+duration, for example:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl><span class=_n>camera.CameraType</span> <span class=_o>=</span> <span class=_n>Enum.CameraType</span><span class=_p>.</span><span class=_n>Scriptable</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_n>camera</span><span class=_p>:</span><span class=_n>Interpolate</span><span class=_p>(</span>
@@ -2200,11 +2176,9 @@ below for an example:</p><div class="_chroma _light"><table class=_lntable><tbod
 </span><span class=_lnt>13
 </span><span class=_lnt>14
 </span><span class=_lnt>15
-</span><span class=_lnt>16
 </span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>TweenService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;TweenService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl><span class=_n>camera.CameraType</span> <span class=_o>=</span> <span class=_n>Enum.CameraType</span><span class=_p>.</span><span class=_n>Scriptable</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>tween</span> <span class=_o>=</span> <span class=_n>TweenService</span><span class=_p>:</span><span class=_n>Create</span><span class=_p>(</span>
@@ -2361,12 +2335,8 @@ Add <a class="entity-link deco" href=/ref/class/Camera.html#member-NearPlaneZ><s
 in 45 degree increments around the <strong>Y</strong> axis.</p><p>The rotation is applied to the camera's <a href=/ref/class/Camera.html#member-CFrame>CFrame</a>
 property.</p><p>This method pans the <a href=/ref/class/Camera.html>Camera</a> in 45 degree increments, for example:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
 </span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>Workspace.CurrentCamera</span><span class=_p>:</span><span class=_n>PanUnits</span><span class=_p>(</span><span class=_mi>1</span><span class=_p>)</span> <span class=_c1>-- 45 degrees</span>
-</span></span><span class=_line><span class=_cl><span class=_n>Workspace.CurrentCamera</span><span class=_p>:</span><span class=_n>PanUnits</span><span class=_p>(</span><span class=_o>-</span><span class=_mi>2</span><span class=_p>)</span> <span class=_c1>-- -90 degrees</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_n>workspace.CurrentCamera</span><span class=_p>:</span><span class=_n>PanUnits</span><span class=_p>(</span><span class=_mi>1</span><span class=_p>)</span> <span class=_c1>-- 45 degrees</span>
+</span></span><span class=_line><span class=_cl><span class=_n>workspace.CurrentCamera</span><span class=_p>:</span><span class=_n>PanUnits</span><span class=_p>(</span><span class=_o>-</span><span class=_mi>2</span><span class=_p>)</span> <span class=_c1>-- -90 degrees</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>PanUnits does not require the <a href=/ref/class/Camera.html#member-CameraType>CameraType</a> to be
 <code>Scriptable</code>.</p></div><div class=status-list><div class="status-box high"><span class=header>This function is deprecated.</span> It exists only for backward compatibility, and should not be used for new work.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>5</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-116 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
@@ -2411,11 +2381,7 @@ create a longer ray, you can do the following:</p><div class="_chroma _light"><t
 </span><span class=_lnt>2
 </span><span class=_lnt>3
 </span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>length</span> <span class=_o>=</span> <span class=_mi>500</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>unitRay</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>ScreenPointToRay</span><span class=_p>(</span><span class=_mi>100</span><span class=_p>,</span> <span class=_mi>100</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>extendedRay</span> <span class=_o>=</span> <span class=_n>Ray.new</span><span class=_p>(</span><span class=_n>unitRay.Origin</span><span class=_p>,</span> <span class=_n>unitRay.Direction</span> <span class=_o>*</span> <span class=_n>length</span><span class=_p>)</span>
@@ -2493,11 +2459,7 @@ version-520a34aef2cc4804">396</a>
 Add <a class="entity-link deco sec-RobloxScriptSecurity" href=/ref/class/Camera.html#member-SetImageServerView><span class=picture title="Protected Function (RobloxScriptSecurity)" data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction_hu_d89d1a787c7a1098.png');--dark:url('/ref/icons/dark/ACFunction_hu_98ec0593e7c97d0e.png')"></span></span>SetImageServerView</a></li></ul></details></section><section id=member-SetRoll class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SetRoll<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/Camera#SetRoll target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-rollAngle><td class=col-name>rollAngle</td><td class=col-type><a class="entity-link deco" href=/ref/type/float.html>float</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></td></tr></tbody></table><div class=docs><p>This method is outdated and no longer considered best practice.</p><p>This method sets the current roll, in radians, of the <a href=/ref/class/Camera.html>Camera</a>. The
 roll is applied after the <a href=/ref/class/Camera.html#member-CFrame>CFrame</a> and represents the
 rotation around the camera's Z-axis.</p><p>For example, the following would invert the <a href=/ref/class/Camera.html>Camera</a>:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>Workspace.CurrentCamera</span><span class=_p>:</span><span class=_n>SetRoll</span><span class=_p>(</span><span class=_n>math.pi</span><span class=_p>)</span> <span class=_c1>-- math.pi radians = 180 degrees</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_n>workspace.CurrentCamera</span><span class=_p>:</span><span class=_n>SetRoll</span><span class=_p>(</span><span class=_n>math.pi</span><span class=_p>)</span> <span class=_c1>-- math.pi radians = 180 degrees</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>SetRoll has no effect on any roll applied using the
 <a href=/ref/class/Camera.html#member-CFrame>CFrame</a> property. Roll applied using SetRoll is not
 reflected in the <a href=/ref/class/Camera.html#member-CFrame>CFrame</a> property but is reflected in
@@ -2512,13 +2474,9 @@ are being used. If it is used with any other
 example:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
 </span><span class=_lnt>2
 </span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>currentCFrame</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span><span class=_p>.</span><span class=_n>CFrame</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>currentCFrame</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span><span class=_p>.</span><span class=_n>CFrame</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>rollCFrame</span> <span class=_o>=</span> <span class=_n>CFrame.Angles</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>,</span> <span class=_n>roll</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>Workspace.CurrentCamera</span><span class=_p>.</span><span class=_n>CFrame</span> <span class=_o>=</span> <span class=_n>currentCFrame</span> <span class=_o>*</span> <span class=_n>rollCFrame</span>
+</span></span><span class=_line><span class=_cl><span class=_n>workspace.CurrentCamera</span><span class=_p>.</span><span class=_n>CFrame</span> <span class=_o>=</span> <span class=_n>currentCFrame</span> <span class=_o>*</span> <span class=_n>rollCFrame</span>
 </span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-119 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
 version-da56b3062bbf4871">573</a>
@@ -2607,11 +2565,7 @@ centre of the screen, for example:</p><div class="_chroma _light"><table class=_
 </span><span class=_lnt>2
 </span><span class=_lnt>3
 </span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>viewportPoint</span> <span class=_o>=</span> <span class=_n>camera.ViewportSize</span> <span class=_o>/</span> <span class=_mi>2</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>unitRay</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>ViewportPointToRay</span><span class=_p>(</span><span class=_n>viewportPoint.X</span><span class=_p>,</span> <span class=_n>viewportPoint.Y</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
@@ -2622,13 +2576,11 @@ create a longer ray, you can do the following:</p><div class="_chroma _light"><t
 </span><span class=_lnt>4
 </span><span class=_lnt>5
 </span><span class=_lnt>6
-</span><span class=_lnt>7
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>length</span> <span class=_o>=</span> <span class=_mi>500</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>unitRay</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>ScreenPointToRay</span><span class=_p>(</span><span class=_mi>100</span><span class=_p>,</span> <span class=_mi>100</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>viewportPoint</span> <span class=_o>=</span> <span class=_n>camera.ViewportSize</span> <span class=_o>/</span> <span class=_mi>2</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>unitRay</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>ViewportPointToRay</span><span class=_p>(</span><span class=_n>viewportPoint.X</span><span class=_p>,</span> <span class=_n>viewportPoint.Y</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>extendedRay</span> <span class=_o>=</span> <span class=_n>Ray.new</span><span class=_p>(</span><span class=_n>unitRay.Origin</span><span class=_p>,</span> <span class=_n>unitRay.Direction</span> <span class=_o>*</span> <span class=_n>length</span><span class=_p>)</span>
 </span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-c992b9ce01654146-253 title="Changed on 2021-07-12T18:30:54-07:00
 v0.486.0.426194
@@ -2714,11 +2666,7 @@ otherwise identical method that ignores the GUI inset, see
 </span><span class=_lnt>5
 </span><span class=_lnt>6
 </span><span class=_lnt>7
-</span><span class=_lnt>8
-</span><span class=_lnt>9
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>worldPoint</span> <span class=_o>=</span> <span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>10</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>vector</span><span class=_p>,</span> <span class=_n>onScreen</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>WorldToScreenPoint</span><span class=_p>(</span><span class=_n>worldPoint</span><span class=_p>)</span>
@@ -2764,11 +2712,7 @@ placing GUI elements.</p><p>For an otherwise identical method that accounts for 
 </span><span class=_lnt>5
 </span><span class=_lnt>6
 </span><span class=_lnt>7
-</span><span class=_lnt>8
-</span><span class=_lnt>9
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>worldPoint</span> <span class=_o>=</span> <span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>10</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>vector</span><span class=_p>,</span> <span class=_n>onScreen</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>WorldToViewportPoint</span><span class=_p>(</span><span class=_n>worldPoint</span><span class=_p>)</span>
@@ -2818,20 +2762,16 @@ cropping any part of the box.</p><p>The bounding box is defined by its center an
 (<code>boundingBoxCFrame</code>) and its size (<code>boundingBoxSize</code>).</p><p>This can be used to focus the camera on a 3D object or model, such as when
 framing content in a <a href=/ref/class/ViewportFrame.html>ViewportFrame</a>, taking screenshots, or
 smoothly transitioning the camera to highlight specific content.</p><p>The method automatically accounts for the camera's field of view and
-viewport aspect ratio to ensure the entire bounding box fits.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>Workspace.CurrentCamera</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>model</span> <span class=_o>=</span> <span class=_n>Workspace</span><span class=_p>:</span><span class=_n>FindFirstChild</span><span class=_p>(</span><span class=_s2>&#34;MyModel&#34;</span><span class=_p>)</span>
+viewport aspect ratio to ensure the entire bounding box fits.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
+</span><span class=_lnt>2
+</span><span class=_lnt>3
+</span><span class=_lnt>4
+</span><span class=_lnt>5
+</span><span class=_lnt>6
+</span><span class=_lnt>7
+</span><span class=_lnt>8
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>model</span> <span class=_o>=</span> <span class=_n>workspace</span><span class=_p>:</span><span class=_n>FindFirstChild</span><span class=_p>(</span><span class=_s2>&#34;MyModel&#34;</span><span class=_p>)</span>
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_n>model</span> <span class=_kr>then</span>
 </span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>modelCFrame</span> <span class=_o>=</span> <span class=_n>model</span><span class=_p>:</span><span class=_n>GetModelCFrame</span><span class=_p>()</span>
