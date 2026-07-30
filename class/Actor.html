@@ -313,21 +313,7 @@ specified topic. When a message is sent (using
 <a href=/ref/class/Actor.html#member-SendMessage>SendMessage()</a>) to the topic specified the
 provided callback will be called in a <em>serial</em> execution context.</p><p>Multiple Luau callbacks may be bound to a single actor and even to a
 single message topic.</p><p>Note: Only the scripts which are descendants of an Actor may bind to its
-messages.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span><span class=_lnt>7
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>actor</span> <span class=_o>=</span> <span class=_n>script</span><span class=_p>:</span><span class=_n>GetActor</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- Print out a message when a greeting message is sent to the Actor</span>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- this script is a descendant of.</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>connection</span> <span class=_o>=</span> <span class=_n>actor</span><span class=_p>:</span><span class=_n>BindToMessage</span><span class=_p>(</span><span class=_s2>&#34;Greeting&#34;</span><span class=_p>,</span> <span class=_kr>function</span><span class=_p>(</span><span class=_n>message</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>  <span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Received Greeting Message:&#34;</span><span class=_p>,</span> <span class=_n>message</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2023.html#version-b1b600e23e274c6a-0 title="Changed on 2023-04-04T19:23:21-07:00
+messages.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2023.html#version-b1b600e23e274c6a-0 title="Changed on 2023-04-04T19:23:21-07:00
 v0.570.0.5700563
 version-b1b600e23e274c6a">570</a>
 Change Parameters of <a class="entity-link deco" href=/ref/class/Actor.html#member-BindToMessage><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>BindToMessage</a>
@@ -342,21 +328,7 @@ specified topic. When a message is sent (using
 <a href=/ref/class/Actor.html#member-SendMessage>SendMessage()</a>) to the topic specified the
 provided callback will be called in a <em>parallel</em> execution context.</p><p>Multiple Luau callbacks may be bound to a single actor and even to a
 single message topic.</p><p>Note: Only the scripts which are descendants of an Actor may bind to its
-messages.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span><span class=_lnt>7
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>actor</span> <span class=_o>=</span> <span class=_n>script</span><span class=_p>:</span><span class=_n>GetActor</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- Print out a message when a greeting message is sent to the Actor</span>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- this script is a descendant of.</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>connection</span> <span class=_o>=</span> <span class=_n>actor</span><span class=_p>:</span><span class=_n>BindToMessageParallel</span><span class=_p>(</span><span class=_s2>&#34;Greeting&#34;</span><span class=_p>,</span> <span class=_kr>function</span><span class=_p>(</span><span class=_n>message</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>  <span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Received Greeting Message:&#34;</span><span class=_p>,</span> <span class=_n>message</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2023.html#version-b1b600e23e274c6a-1 title="Changed on 2023-04-04T19:23:21-07:00
+messages.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2023.html#version-b1b600e23e274c6a-1 title="Changed on 2023-04-04T19:23:21-07:00
 v0.570.0.5700563
 version-b1b600e23e274c6a">570</a>
 Change Parameters of <a class="entity-link deco" href=/ref/class/Actor.html#member-BindToMessageParallel><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>BindToMessageParallel</a>
@@ -373,11 +345,7 @@ parameter is used to distinguish between various kinds of messages.</p><p>See <a
 a message sent using <a href=/ref/class/Actor.html#member-SendMessage>SendMessage()</a>.</p><p>Note that message arguments are <strong>passed by copy</strong> across Luau VM
 boundaries, not by reference. Sending large tables incurs a full copy on
 each call. Functions are bound to a specific VM and cannot be passed in
-messages.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_c1>-- Assume `actor` is a local variable referring to an Actor instance</span>
-</span></span><span class=_line><span class=_cl><span class=_n>actor</span><span class=_p>:</span><span class=_n>SendMessage</span><span class=_p>(</span><span class=_s2>&#34;Greeting&#34;</span><span class=_p>,</span> <span class=_s2>&#34;Hello World&#34;</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-0 title="Changed on 2023-04-26T18:50:09-07:00
+messages.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-0 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
 version-da56b3062bbf4871">573</a>
 Change ReturnType of <a class="entity-link deco" href=/ref/class/Actor.html#member-SendMessage><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SendMessage</a>

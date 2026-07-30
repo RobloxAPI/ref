@@ -236,37 +236,7 @@ Change Parameters of <a class="entity-link deco" href=/ref/class/StyleBase.html#
 v0.578.0.5780566
 version-1f12a0b5b1bf44ce">578</a>
 Add <a class="entity-link deco" href=/ref/class/StyleBase.html#member-InsertStyleRule><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>InsertStyleRule</a></li></ul></details></section><section id=member-SetStyleRules class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SetStyleRules<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/StyleBase#SetStyleRules target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-rules><td class=col-name>rules</td><td class=col-type><a class="entity-link deco" href=/ref/type/Instances.html>Instances</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></td></tr></tbody></table><div class=docs><p>Similar to <a href=/ref/class/StyleBase.html#member-InsertStyleRule>InsertStyleRule()</a> but lets
-you declare and set multiple <a href=/ref/class/StyleRule.html>StyleRules</a> at once.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>ReplicatedStorage</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;ReplicatedStorage&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>coreSheet</span> <span class=_o>=</span> <span class=_n>Instance.new</span><span class=_p>(</span><span class=_s2>&#34;StyleSheet&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>coreSheet.Name</span> <span class=_o>=</span> <span class=_s2>&#34;CoreSheet&#34;</span>
-</span></span><span class=_line><span class=_cl><span class=_n>coreSheet.Parent</span> <span class=_o>=</span> <span class=_n>ReplicatedStorage</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>styleRuleA</span> <span class=_o>=</span> <span class=_n>Instance.new</span><span class=_p>(</span><span class=_s2>&#34;StyleRule&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>styleRuleA.Selector</span> <span class=_o>=</span> <span class=_s2>&#34;Frame&#34;</span>
-</span></span><span class=_line><span class=_cl><span class=_n>styleRuleA</span><span class=_p>:</span><span class=_n>SetProperty</span><span class=_p>(</span><span class=_s2>&#34;BackgroundColor3&#34;</span><span class=_p>,</span> <span class=_n>Color3.new</span><span class=_p>(</span><span class=_mi>1</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>))</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>styleRuleB</span> <span class=_o>=</span> <span class=_n>Instance.new</span><span class=_p>(</span><span class=_s2>&#34;StyleRule&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>styleRuleB.Selector</span> <span class=_o>=</span> <span class=_s2>&#34;Frame&#34;</span>
-</span></span><span class=_line><span class=_cl><span class=_n>styleRuleB</span><span class=_p>:</span><span class=_n>SetProperty</span><span class=_p>(</span><span class=_s2>&#34;BackgroundColor3&#34;</span><span class=_p>,</span> <span class=_n>Color3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>1</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>))</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>coreSheet</span><span class=_p>:</span><span class=_n>SetStyleRules</span><span class=_p>({</span> <span class=_n>styleRuleA</span><span class=_p>,</span> <span class=_n>styleRuleB</span> <span class=_p>})</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2024.html#version-9b68669a3b644e31-177 title="Changed on 2024-10-22T11:55:24-07:00
+you declare and set multiple <a href=/ref/class/StyleRule.html>StyleRules</a> at once.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2024.html#version-9b68669a3b644e31-177 title="Changed on 2024-10-22T11:55:24-07:00
 v0.648.0.6480781
 version-9b68669a3b644e31">648</a>
 Change Parameters of <a class="entity-link deco" href=/ref/class/StyleBase.html#member-SetStyleRules><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SetStyleRules</a>

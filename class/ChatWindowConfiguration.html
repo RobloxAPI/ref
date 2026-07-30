@@ -797,31 +797,7 @@ Add <a class="entity-link deco" href=/ref/class/ChatWindowConfiguration.html#mem
 used to customize the appearance of messages in the chat window.
 <a href=/ref/class/ChatWindowMessageProperties.html>ChatWindowMessageProperties</a> inherits from
 <a href=/ref/class/TextChatMessageProperties.html>TextChatMessageProperties</a>.</p><p>This is intended to be used during custom
-<a href=/ref/class/TextChatService.html#member-OnChatWindowAdded>TextChatService.OnChatWindowAdded</a> callbacks.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>TextChatService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;TextChatService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>ChatWindowConfiguration</span> <span class=_o>=</span> <span class=_n>TextChatService.ChatWindowConfiguration</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>TextChatService.OnChatWindowAdded</span> <span class=_o>=</span> <span class=_kr>function</span><span class=_p>(</span><span class=_n>textChatMessage</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>  <span class=_kd>local</span> <span class=_n>properties</span> <span class=_o>=</span> <span class=_n>ChatWindowConfiguration</span><span class=_p>:</span><span class=_n>DeriveNewMessageProperties</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>  <span class=_kr>if</span> <span class=_n>textChatMessage.Metadata</span> <span class=_o>==</span> <span class=_s2>&#34;Important&#34;</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>properties.TextColor3</span> <span class=_o>=</span> <span class=_n>Color3.fromRGB</span><span class=_p>(</span><span class=_mi>255</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>  <span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>  <span class=_kr>return</span> <span class=_n>properties</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2024.html#version-880ce149439340c1-29 title="Added on 2024-10-01T11:27:30-07:00
+<a href=/ref/class/TextChatService.html#member-OnChatWindowAdded>TextChatService.OnChatWindowAdded</a> callbacks.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2024.html#version-880ce149439340c1-29 title="Added on 2024-10-01T11:27:30-07:00
 v0.645.0.6450665
 version-880ce149439340c1">645</a>
 Add <a class="entity-link deco" href=/ref/class/ChatWindowConfiguration.html#member-DeriveNewMessageProperties><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>DeriveNewMessageProperties</a></li></ul></details></section><section id=member-Enabled class=set><header><h3><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>Enabled<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/ChatWindowConfiguration#Enabled target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-valuetype colspan=2>Type</th><th class=col-default>Default</th></tr></thead><tbody><tr><td class=col-valuetype colspan=2><a class="entity-link deco" href=/ref/type/bool.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>bool</a></td><td class=col-default><span class=api-default>true</span></td></tr></tbody></table><div class=docs><p>Whether to show the default chat window. Set to <code>false</code> to hide.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Behavior</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-956 title="Changed on 2026-07-21T09:05:44-07:00

@@ -1362,49 +1362,7 @@ mapping to a table with the client's <code>Predicted</code> and
 owner's/server's <code>Authoritative</code> values as captured on the
 step when the client first mispredicted the owner's value. Only
 present if there are attribute mismatches.</td></tr></tbody></table><h4>Stats Dictionary</h4><p>The <code>stats</code> dictionary contains the following fields:</p><table size=small><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>ResimulationTime</code></td><td>number</td><td>The time spent during resimulation (or the amount of time rolled
-back).</td></tr></tbody></table><h4>Code Sample</h4><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span><span class=_lnt>16
-</span><span class=_lnt>17
-</span><span class=_lnt>18
-</span><span class=_lnt>19
-</span><span class=_lnt>20
-</span><span class=_lnt>21
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>RunService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;RunService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>RunService.Misprediction</span><span class=_p>:</span><span class=_n>Connect</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>(</span><span class=_n>time</span><span class=_p>,</span> <span class=_n>instances</span><span class=_p>,</span> <span class=_n>stats</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_err>`</span><span class=_n>Misprediction</span> <span class=_n>at</span> <span class=_n>t</span><span class=_o>=</span><span class=_p>{</span><span class=_n>time</span><span class=_p>},</span> <span class=_n>resim</span><span class=_o>=</span><span class=_p>{</span><span class=_n>stats.ResimulationTime</span><span class=_p>}</span><span class=_n>s</span><span class=_err>`</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>for</span> <span class=_n>_</span><span class=_p>,</span> <span class=_n>entry</span> <span class=_kr>in</span> <span class=_n>instances</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>		<span class=_n>print</span><span class=_p>(</span><span class=_err>`</span>  <span class=_n>Instance</span><span class=_p>:</span> <span class=_p>{</span><span class=_n>entry.Instance</span><span class=_p>:</span><span class=_n>GetFullName</span><span class=_p>()}</span><span class=_err>`</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>if</span> <span class=_n>entry.Properties</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>			<span class=_kr>for</span> <span class=_n>name</span><span class=_p>,</span> <span class=_n>values</span> <span class=_kr>in</span> <span class=_n>entry.Properties</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>				<span class=_n>print</span><span class=_p>(</span><span class=_err>`</span>    <span class=_n>Property</span> <span class=_s1>&#39;{name}&#39;</span><span class=_p>:</span> <span class=_n>predicted</span><span class=_o>=</span><span class=_p>{</span><span class=_n>values.Predicted</span><span class=_p>},</span> <span class=_n>authoritative</span><span class=_o>=</span><span class=_p>{</span><span class=_n>values.Authoritative</span><span class=_p>}</span><span class=_err>`</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>			<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>if</span> <span class=_n>entry.Attributes</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>			<span class=_kr>for</span> <span class=_n>name</span><span class=_p>,</span> <span class=_n>values</span> <span class=_kr>in</span> <span class=_n>entry.Attributes</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>				<span class=_n>print</span><span class=_p>(</span><span class=_err>`</span>    <span class=_n>Attribute</span> <span class=_s1>&#39;{name}&#39;</span><span class=_p>:</span> <span class=_n>predicted</span><span class=_o>=</span><span class=_p>{</span><span class=_n>values.Predicted</span><span class=_p>},</span> <span class=_n>authoritative</span><span class=_o>=</span><span class=_p>{</span><span class=_n>values.Authoritative</span><span class=_p>}</span><span class=_err>`</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>			<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event data-field=Parameters><a class="history-tag changed" href=/ref/updates/2026.html#version-116cc3d51f634937-55 title="Changed on 2026-03-26T09:33:14-07:00
+back).</td></tr></tbody></table><h4>Code Sample</h4></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event data-field=Parameters><a class="history-tag changed" href=/ref/updates/2026.html#version-116cc3d51f634937-55 title="Changed on 2026-03-26T09:33:14-07:00
 v0.714.0.7141089
 version-116cc3d51f634937">714</a>
 Change Parameters of <a class="entity-link deco" href=/ref/class/RunService.html#member-Misprediction><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span>Misprediction</a>
@@ -1607,33 +1565,7 @@ rolled back after a misprediction. For example, if you maintain gameplay
 state that can't be stored in a property or attribute with simulation
 access, you can listen for this event, compare the rolled-back-to step
 against your farthest-reached step, and rewind your custom state
-accordingly.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>RunService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;RunService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>stateHistory</span> <span class=_o>=</span> <span class=_p>{}</span> <span class=_c1>-- your custom state tracked per fixed step</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>RunService.Rollback</span><span class=_p>:</span><span class=_n>Connect</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>(</span><span class=_n>time</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Discard any custom state newer than the rolled-back-to step</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- and restore the state at that step before resimulation begins</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>for</span> <span class=_n>step</span><span class=_p>,</span> <span class=_n>_</span> <span class=_kr>in</span> <span class=_n>stateHistory</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>if</span> <span class=_n>step</span> <span class=_o>&gt;</span> <span class=_n>time</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>			<span class=_n>stateHistory</span><span class=_p>[</span><span class=_n>step</span><span class=_p>]</span> <span class=_o>=</span> <span class=_kc>nil</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event><a class="history-tag added" href=/ref/updates/2026.html#version-913142fd943640d2-18 title="Added on 2026-03-17T09:15:12-07:00
+accordingly.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event><a class="history-tag added" href=/ref/updates/2026.html#version-913142fd943640d2-18 title="Added on 2026-03-17T09:15:12-07:00
 v0.713.0.7130910
 version-913142fd943640d2">713</a>
 Add <a class="entity-link deco" href=/ref/class/RunService.html#member-Rollback><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span>Rollback</a></li></ul></details></section><section id=member-Run class="set sec-PluginSecurity"><header><h3><span class=picture title="Protected Function (PluginSecurity)" data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction_hu_d89d1a787c7a1098.png');--dark:url('/ref/icons/dark/ACFunction_hu_98ec0593e7c97d0e.png')"></span></span>Run<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/RunService#Run target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></td></tr></tbody></table><div class=docs><p>This method runs the experience's simulation (physics and scripts). When

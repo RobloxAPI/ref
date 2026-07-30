@@ -2171,17 +2171,7 @@ reused the pose from the previous frame instead of evaluating fresh
 animation data.</p><p>This property is useful when layering procedural animation on top of
 <a href=/ref/class/AnimationConstraint.html#member-Transform>Transform</a> — if evaluation was
 throttled, applying procedural offsets would fight the stale pose and
-should be skipped:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_n>RunService.PreSimulation</span><span class=_p>:</span><span class=_n>Connect</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>animator.EvaluationThrottled</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>        <span class=_n>neck.Transform</span> <span class=_o>=</span> <span class=_n>computeNeckRotation</span><span class=_p>()</span> <span class=_o>*</span> <span class=_n>neck.Transform</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This property is not replicated.</span> Its interface does not cross the network boundary.</div><div class="status-box low"><span class=header>This property is read-only.</span> Its value can be read, but it cannot be modified.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Behavior</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>false</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-183 title="Changed on 2026-07-21T09:05:44-07:00
+should be skipped:</p></div><div class=status-list><div class="status-box medium"><span class=header>This property is not replicated.</span> Its interface does not cross the network boundary.</div><div class="status-box low"><span class=header>This property is read-only.</span> Its value can be read, but it cannot be modified.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Safe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Behavior</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>false</td></tr></table><details><summary><h4>History <span class=element-count>4</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-183 title="Changed on 2026-07-21T09:05:44-07:00
 v0.731.0.7310942
 version-14d8b191232f4ddd">731</a>
 Change Default of <a class="entity-link deco" href=/ref/class/Animator.html#member-EvaluationThrottled><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>EvaluationThrottled</a>

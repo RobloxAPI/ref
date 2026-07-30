@@ -1561,33 +1561,7 @@ default camera scripts respond differently to the available settings:</p><ul><li
 <a href=/ref/class/Humanoid.html#member-CameraOffset>Humanoid.CameraOffset</a>.</p></li><li><p>When set to a <a href=/ref/class/BasePart.html>BasePart</a>, the camera scripts follow its position,
 with a vertical offset in the case of <a href=/ref/class/VehicleSeat.html>VehicleSeats</a>.</p></li></ul><p><code>CameraSubject</code> cannot be set to <code>nil</code>. Attempting to do so will revert it
 to its previous value.</p><p>To restore <code>CameraSubject</code> to its default value, set it to the local
-character's <a href=/ref/class/Humanoid.html>Humanoid</a>:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>localPlayer</span> <span class=_o>=</span> <span class=_n>Players.LocalPlayer</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>resetCameraSubject</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>if</span> <span class=_n>camera</span> <span class=_ow>and</span> <span class=_n>localPlayer.Character</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kd>local</span> <span class=_n>humanoid</span> <span class=_o>=</span> <span class=_n>localPlayer.Character</span><span class=_p>:</span><span class=_n>FindFirstChildWhichIsA</span><span class=_p>(</span><span class=_s2>&#34;Humanoid&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>if</span> <span class=_n>humanoid</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>			<span class=_n>camera.CameraSubject</span> <span class=_o>=</span> <span class=_n>humanoid</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Camera</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>7</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-872 title="Changed on 2026-07-21T09:05:44-07:00
+character's <a href=/ref/class/Humanoid.html>Humanoid</a>:</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Camera</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>7</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-872 title="Changed on 2026-07-21T09:05:44-07:00
 v0.731.0.7310942
 version-14d8b191232f4ddd">731</a>
 Change Default of <a class="entity-link deco" href=/ref/class/Camera.html#member-CameraSubject><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>CameraSubject</a>
@@ -2177,23 +2151,7 @@ as rotation around the camera's Z-axis.</p><p>This method only returns roll appl
 <a href=/ref/class/Camera.html#member-SetRoll>SetRoll()</a> method. Roll manually applied to the
 camera's <a href=/ref/class/Camera.html#member-CFrame>CFrame</a> is not accounted for. To obtain the
 actual roll of the <a href=/ref/class/Camera.html>Camera</a>, including roll manually applied, you
-can use the following snippet:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span><span class=_lnt>7
-</span><span class=_lnt>8
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_kr>function</span> <span class=_nf>getActualRoll</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>trueUp</span> <span class=_o>=</span> <span class=_n>Vector3.new</span><span class=_p>(</span><span class=_mi>0</span><span class=_p>,</span> <span class=_mi>1</span><span class=_p>,</span> <span class=_mi>0</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>cameraUp</span> <span class=_o>=</span> <span class=_n>camera</span><span class=_p>:</span><span class=_n>GetRenderCFrame</span><span class=_p>().</span><span class=_n>upVector</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span> <span class=_n>math.acos</span><span class=_p>(</span><span class=_n>trueUp</span><span class=_p>:</span><span class=_n>Dot</span><span class=_p>(</span><span class=_n>cameraUp</span><span class=_p>))</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-424 title="Changed on 2021-01-15T15:56:17-08:00
+can use the following snippet:</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-424 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Camera.html#member-GetRoll><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetRoll</a>
@@ -3002,23 +2960,7 @@ cropping any part of the box.</p><p>The bounding box is defined by its center an
 (<code>boundingBoxCFrame</code>) and its size (<code>boundingBoxSize</code>).</p><p>This can be used to focus the camera on a 3D object or model, such as when
 framing content in a <a href=/ref/class/ViewportFrame.html>ViewportFrame</a>, taking screenshots, or
 smoothly transitioning the camera to highlight specific content.</p><p>The method automatically accounts for the camera's field of view and
-viewport aspect ratio to ensure the entire bounding box fits.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span><span class=_lnt>7
-</span><span class=_lnt>8
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>camera</span> <span class=_o>=</span> <span class=_n>workspace.CurrentCamera</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>model</span> <span class=_o>=</span> <span class=_n>workspace</span><span class=_p>:</span><span class=_n>FindFirstChild</span><span class=_p>(</span><span class=_s2>&#34;MyModel&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_n>model</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>modelCFrame</span> <span class=_o>=</span> <span class=_n>model</span><span class=_p>:</span><span class=_n>GetModelCFrame</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>extentsSize</span> <span class=_o>=</span> <span class=_n>model</span><span class=_p>:</span><span class=_n>GetExtentsSize</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>camera</span><span class=_p>:</span><span class=_n>ZoomToExtents</span><span class=_p>(</span><span class=_n>modelCFrame</span><span class=_p>,</span> <span class=_n>extentsSize</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-120 title="Changed on 2023-04-26T18:50:09-07:00
+viewport aspect ratio to ensure the entire bounding box fits.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-120 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
 version-da56b3062bbf4871">573</a>
 Change ReturnType of <a class="entity-link deco" href=/ref/class/Camera.html#member-ZoomToExtents><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>ZoomToExtents</a>

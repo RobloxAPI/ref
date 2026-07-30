@@ -1533,31 +1533,7 @@ specific player. It also receives a <code>part</code> parameter indicating which
 specific <a href=/ref/class/BasePart.html>BasePart</a> was clicked, such as one part within a draggable
 <a href=/ref/class/Model.html>Model</a>; this is useful for enabling/disabling the detector based on
 that part's <a href=/ref/class/Instance.html#member-Name>Name</a>, <a href=/ref/class/BasePart.html#member-Color>Color</a>,
-<a href=/ref/class/Instance.html#member-HasTag>HasTag()</a> value, or other details.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>dragDetector</span> <span class=_o>=</span> <span class=_n>script.Parent</span><span class=_p>.</span><span class=_n>DragDetector</span>
-</span></span><span class=_line><span class=_cl><span class=_n>dragDetector.PermissionPolicy</span> <span class=_o>=</span> <span class=_n>Enum.DragDetectorPermissionPolicy</span><span class=_p>.</span><span class=_n>Scriptable</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>dragDetector</span><span class=_p>:</span><span class=_n>SetPermissionPolicyFunction</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>(</span><span class=_n>player</span><span class=_p>,</span> <span class=_n>part</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>if</span> <span class=_n>player</span> <span class=_ow>and</span> <span class=_n>player</span><span class=_p>:</span><span class=_n>GetAttribute</span><span class=_p>(</span><span class=_s2>&#34;IsInTurn&#34;</span><span class=_p>)</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>return</span> <span class=_kc>true</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>elseif</span> <span class=_n>part</span> <span class=_ow>and</span> <span class=_ow>not</span> <span class=_n>part</span><span class=_p>:</span><span class=_n>GetAttribute</span><span class=_p>(</span><span class=_s2>&#34;IsDraggable&#34;</span><span class=_p>)</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>return</span> <span class=_kc>false</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>else</span>
-</span></span><span class=_line><span class=_cl>		<span class=_kr>return</span> <span class=_kc>true</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2024.html#version-d5d84033452b4ad4-27 title="Added on 2024-02-06T15:01:41-08:00
+<a href=/ref/class/Instance.html#member-HasTag>HasTag()</a> value, or other details.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2024.html#version-d5d84033452b4ad4-27 title="Added on 2024-02-06T15:01:41-08:00
 v0.611.0.6110432
 version-d5d84033452b4ad4">611</a>
 Add <a class="entity-link deco" href=/ref/class/DragDetector.html#member-SetPermissionPolicyFunction><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>SetPermissionPolicyFunction</a></li></ul></details></section><section id=member-TrackballRadialPullFactor class=set><header><h3><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>TrackballRadialPullFactor<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/DragDetector#TrackballRadialPullFactor target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-valuetype colspan=2>Type</th><th class=col-default>Default</th></tr></thead><tbody><tr><td class=col-valuetype colspan=2><a class="entity-link deco" href=/ref/type/float.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>float</a></td><td class=col-default><span class=api-default>1</span></td></tr></tbody></table><div class=docs><p>When the cursor is outside the trackball, the <a href=/ref/class/DragDetector.html>DragDetector</a> can

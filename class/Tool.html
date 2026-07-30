@@ -892,29 +892,7 @@ equipped. It is <strong>not</strong> fired if the <kbd>Ctrl</kbd> key is pressed
 the click.</p><p>This event is typically used to perform an action when the player uses the
 tool, for instance to launch a rocket from a rocket launcher weapon tool.</p><p>The below code, when placed in a <a href=/ref/class/LocalScript.html>LocalScript</a>, creates a tool in
 the local player's <a href=/ref/class/Backpack.html>Backpack</a> and prints "Tool activated" when the
-player clicks while the created tool is equipped.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>tool</span> <span class=_o>=</span> <span class=_n>Instance.new</span><span class=_p>(</span><span class=_s2>&#34;Tool&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>tool.RequiresHandle</span> <span class=_o>=</span> <span class=_kc>false</span>
-</span></span><span class=_line><span class=_cl><span class=_n>tool.Parent</span> <span class=_o>=</span> <span class=_n>Players.LocalPlayer</span><span class=_p>.</span><span class=_n>Backpack</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>function</span> <span class=_nf>onActivation</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Tool activated&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>tool.Activated</span><span class=_p>:</span><span class=_n>Connect</span><span class=_p>(</span><span class=_n>onActivation</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-2864 title="Changed on 2021-01-15T15:56:17-08:00
+player clicks while the created tool is equipped.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-2864 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Tool.html#member-Activated><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span>Activated</a>
@@ -988,29 +966,7 @@ Add <a class="entity-link deco" href=/ref/class/Tool.html#member-Deactivate><spa
 <a href=/ref/class/Tool.html>Tool</a> is equipped and activated. It is typically used to perform an
 action when the player stops using a tool.</p><p>The below code, when placed in a <a href=/ref/class/LocalScript.html>LocalScript</a>, creates a tool in
 the local player's <a href=/ref/class/Backpack.html>Backpack</a> and prints "Tool deactivated" when the
-player releases their click while the tool is equipped and activated.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>tool</span> <span class=_o>=</span> <span class=_n>Instance.new</span><span class=_p>(</span><span class=_s2>&#34;Tool&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_n>tool.RequiresHandle</span> <span class=_o>=</span> <span class=_kc>false</span>
-</span></span><span class=_line><span class=_cl><span class=_n>tool.Parent</span> <span class=_o>=</span> <span class=_n>Players.LocalPlayer</span><span class=_p>.</span><span class=_n>Backpack</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>function</span> <span class=_nf>toolDeactivated</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Tool deactivated&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_n>tool.Deactivated</span><span class=_p>:</span><span class=_n>Connect</span><span class=_p>(</span><span class=_n>toolDeactivated</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-2865 title="Changed on 2021-01-15T15:56:17-08:00
+player releases their click while the tool is equipped and activated.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Event data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-2865 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Tool.html#member-Deactivated><span class=picture title=Event data-type=Event><span class=icon style="--light:url('/ref/icons/light/ACEvent_hu_9ad6d9e1ef298fac.png');--dark:url('/ref/icons/dark/ACEvent_hu_13f67b238ba79197.png')"></span></span>Deactivated</a>

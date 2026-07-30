@@ -336,33 +336,7 @@ multiple GUI objects use the same source string. To implement this,
 specify the "path" to the <a href=/ref/class/Instance.html>Instance</a> you'd like to override as the
 <strong>Context</strong> value of the translation data:</p><table><tbody><tr><td width=12%>A</td><td width=36%>B</td><td width=18%>C</td><td width=12%>D</td><td width=18%>E</td></tr><tr><td>Key</td><td><b>Context</b></td><td>Source</td><td>Example</td><td>es</td></tr><tr><td></td><td>workspace.ComputerScreen.SurfaceGui.TextLabel</td><td>Screen</td><td></td><td>Pantalla</td></tr><tr><td></td><td></td><td>Screen</td><td></td><td>Mosquitero</td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><p>Then, when calling this function in a script, pass the same
 <a href=/ref/class/Instance.html>Instance</a> as the first argument, followed by the <strong>Source</strong> lookup
-text as the second argument:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>LocalizationService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;LocalizationService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>success</span><span class=_p>,</span> <span class=_n>translator</span> <span class=_o>=</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span> <span class=_n>LocalizationService</span><span class=_p>:</span><span class=_n>GetTranslatorForPlayerAsync</span><span class=_p>(</span><span class=_n>Players.LocalPlayer</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_n>success</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>trans</span> <span class=_o>=</span> <span class=_n>translator</span><span class=_p>:</span><span class=_n>Translate</span><span class=_p>(</span><span class=_n>workspace.ComputerScreen</span><span class=_p>.</span><span class=_n>SurfaceGui.TextLabel</span><span class=_p>,</span> <span class=_s2>&#34;Screen&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_n>trans</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>else</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>warn</span><span class=_p>(</span><span class=_s2>&#34;Cannot load translator for player!&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-2891 title="Changed on 2021-01-15T15:56:17-08:00
+text as the second argument:</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ThreadSafety><a class="history-tag changed" href=/ref/updates/2021.html#version-49b4e2a90c9a455c-2891 title="Changed on 2021-01-15T15:56:17-08:00
 v0.462.0.416719
 version-49b4e2a90c9a455c">462</a>
 Change ThreadSafety of <a class="entity-link deco" href=/ref/class/Translator.html#member-Translate><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>Translate</a>

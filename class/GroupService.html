@@ -569,37 +569,7 @@ cached per user and group, so multiple calls with the same <code>userId</code> a
 behavior is on a per-peer basis: a server does not share the same cache as
 a client.</p><p>When a player joins a group in-experience due to a call to
 <a href=/ref/class/GroupService.html#member-PromptJoinAsync>GroupService:PromptJoinAsync()</a>, any cached result for that player
-and group will be cleared on the client where the prompt was shown.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>GroupService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;GroupService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>GROUP_ID</span> <span class=_o>=</span> <span class=_mi>377251</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>localPlayer</span> <span class=_o>=</span> <span class=_n>Players.LocalPlayer</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>result</span> <span class=_o>=</span> <span class=_n>GroupService</span><span class=_p>:</span><span class=_n>GetRolesInGroupAsync</span><span class=_p>(</span><span class=_n>localPlayer.UserId</span><span class=_p>,</span> <span class=_n>GROUP_ID</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_n>result.IsMember</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;User is a member with&#34;</span><span class=_p>,</span> <span class=_o>#</span><span class=_n>result.Roles</span><span class=_p>,</span> <span class=_s2>&#34;role(s)&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kr>for</span> <span class=_n>_</span><span class=_p>,</span> <span class=_n>role</span> <span class=_kr>in</span> <span class=_n>ipairs</span><span class=_p>(</span><span class=_n>result.Roles</span><span class=_p>)</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>        <span class=_n>print</span><span class=_p>(</span><span class=_n>role.Name</span><span class=_p>,</span> <span class=_s2>&#34;rank&#34;</span><span class=_p>,</span> <span class=_n>role.Rank</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>    <span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>else</span>
-</span></span><span class=_line><span class=_cl>    <span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;User is not a member&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2026.html#version-d0e6613dc5584cf7-40 title="Changed on 2026-06-09T10:09:39-07:00
+and group will be cleared on the client where the prompt was shown.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2026.html#version-d0e6613dc5584cf7-40 title="Changed on 2026-06-09T10:09:39-07:00
 v0.725.0.7251140
 version-d0e6613dc5584cf7">725</a>
 Change Parameters of <a class="entity-link deco" href=/ref/class/GroupService.html#member-GetRolesInGroupAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetRolesInGroupAsync</a>

@@ -1315,25 +1315,7 @@ at runtime if physics constraints are acting upon the parts within the
 <a href=/ref/class/Model.html>Model</a>.</p><p>The orientation of the bounding box matches the orientation of the
 <a href=/ref/class/PVInstance.html#member-GetPivot>Pivot</a> - either the pivot of the
 <a href=/ref/class/Model.html#member-PrimaryPart>PrimaryPart</a> (if present) or the
-<a href=/ref/class/Model.html#member-WorldPivot>WorldPivot</a> of the model.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt>1
-</span><span class=_lnt>2
-</span><span class=_lnt>3
-</span><span class=_lnt>4
-</span><span class=_lnt>5
-</span><span class=_lnt>6
-</span><span class=_lnt>7
-</span><span class=_lnt>8
-</span><span class=_lnt>9
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Workspace</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Workspace&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>model</span> <span class=_o>=</span> <span class=_n>Workspace.Model</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>part</span> <span class=_o>=</span> <span class=_n>Workspace.Part</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>orientation</span><span class=_p>,</span> <span class=_n>size</span> <span class=_o>=</span> <span class=_n>model</span><span class=_p>:</span><span class=_n>GetBoundingBox</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- Resize and position part equal to bounding box of model</span>
-</span></span><span class=_line><span class=_cl><span class=_n>part.Size</span> <span class=_o>=</span> <span class=_n>size</span>
-</span></span><span class=_line><span class=_cl><span class=_n>part.CFrame</span> <span class=_o>=</span> <span class=_n>orientation</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2024.html#version-954719f125be4a9d-40 title="Changed on 2024-01-09T18:39:11-08:00
+<a href=/ref/class/Model.html#member-WorldPivot>WorldPivot</a> of the model.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2024.html#version-954719f125be4a9d-40 title="Changed on 2024-01-09T18:39:11-08:00
 v0.607.0.6070550
 version-954719f125be4a9d">607</a>
 Change ReturnType of <a class="entity-link deco" href=/ref/class/Model.html#member-GetBoundingBox><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetBoundingBox</a>
@@ -2124,17 +2106,7 @@ movement functions such as <a href=/ref/class/PVInstance.html#member-PivotTo>PVI
 model behavior.</p><p>The purpose of this behavior is to allow Luau code to get a sensible pivot
 simply by creating a new model and parenting objects to it, avoiding the
 need to explicitly set <a href=/ref/class/Model.html#member-WorldPivot>Model.WorldPivot</a> every time you create a
-model in code.</p><pre><code>local Workspace = game:GetService(&#34;Workspace&#34;)
-
-local model = Instance.new(&#34;Model&#34;)
-Workspace.BluePart.Parent = model
-Workspace.RedPart.Parent = model
-model.Parent = Workspace
-
-print(model:GetPivot())  -- Currently equal to the center of the bounding box containing &#34;BluePart&#34; and &#34;RedPart&#34;
-
-model:PivotTo(CFrame.new(0, 10, 0))  -- This works without needing to explicitly set &#34;model.WorldPivot&#34;
-</code></pre></div><div class=status-list><div class="status-box medium"><span class=header>This property is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Pivot</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>false</td></tr></table><details><summary><h4>History <span class=element-count>11</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-2247 title="Changed on 2026-07-21T09:05:44-07:00
+model in code.</p></div><div class=status-list><div class="status-box medium"><span class=header>This property is not replicated.</span> Its interface does not cross the network boundary.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Pivot</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>false</td></tr></table><details><summary><h4>History <span class=element-count>11</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-2247 title="Changed on 2026-07-21T09:05:44-07:00
 v0.731.0.7310942
 version-14d8b191232f4ddd">731</a>
 Change Default of <a class="entity-link deco" href=/ref/class/Model.html#member-WorldPivot><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>WorldPivot</a>

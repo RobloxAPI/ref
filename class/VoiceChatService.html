@@ -1730,73 +1730,13 @@ purposes of gameplay while the user is in the experience, this data should
 not be stored after they've left.</p><p>To use this method, you must enable <strong>Chat & Voice Groups APIs</strong> in
 <strong>Experience Settings</strong> ⟩ <strong>Communication</strong> in Roblox Studio and agree to
 the Roblox Terms of Use.</p><p>In Roblox Studio this API is only available when the experience is running
-in <strong>Team Test</strong>.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span><span class=_lnt>16
-</span><span class=_lnt>17
-</span><span class=_lnt>18
-</span><span class=_lnt>19
-</span><span class=_lnt>20
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>VoiceChatService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;VoiceChatService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>players</span> <span class=_o>=</span> <span class=_n>Players</span><span class=_p>:</span><span class=_n>GetPlayers</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>success</span><span class=_p>,</span> <span class=_n>chatGroups</span> <span class=_o>=</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span> <span class=_n>VoiceChatService</span><span class=_p>:</span><span class=_n>GetChatGroupsAsync</span><span class=_p>(</span><span class=_n>players</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>success</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>warn</span><span class=_p>(</span><span class=_s2>&#34;Failed to retrieve chat groups&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>for</span> <span class=_n>_</span><span class=_p>,</span> <span class=_n>group</span> <span class=_kr>in</span> <span class=_n>ipairs</span><span class=_p>(</span><span class=_n>chatGroups</span><span class=_p>)</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Each group contains chat group ID strings.</span>
-</span></span><span class=_line><span class=_cl>	<span class=_c1>-- Players who share a matching group ID can chat with each other.</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>for</span> <span class=_n>_</span><span class=_p>,</span> <span class=_n>groupId</span> <span class=_kr>in</span> <span class=_n>ipairs</span><span class=_p>(</span><span class=_n>group</span><span class=_p>)</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>		<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Chat group ID:&#34;</span><span class=_p>,</span> <span class=_n>groupId</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-b215b632ea4841a0-18 title="Added on 2026-02-02T15:15:43-08:00
+in <strong>Team Test</strong>.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-b215b632ea4841a0-18 title="Added on 2026-02-02T15:15:43-08:00
 v0.707.0.7070728
 version-b215b632ea4841a0">707</a>
 Add <a class="entity-link deco" href=/ref/class/VoiceChatService.html#member-GetChatGroupsAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>GetChatGroupsAsync</a></li></ul></details><div class=tags>Tags: [Yields]</div></section><section id=member-IsVoiceEnabledForUserIdAsync class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>IsVoiceEnabledForUserIdAsync<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/VoiceChatService#IsVoiceEnabledForUserIdAsync target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>1</span>)</th></tr></thead><tbody><tr class=row-userId><td class=col-name>userId</td><td class=col-type><a class="entity-link deco" href=/ref/type/User.html>User</a></td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/bool.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>bool</a></td></tr></tbody></table><div class=docs><p>Returns whether or not the given user has voice enabled. On the
 client-side, this can only be used to check the voice status of the local
 player. On the server-side, this can only check the voice status for
-players in that server.</p><p>This function can throw an error if the HTTP call fails.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>Players</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;Players&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>VoiceChatService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;VoiceChatService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>localPlayer</span> <span class=_o>=</span> <span class=_n>Players.LocalPlayer</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>success</span><span class=_p>,</span> <span class=_n>enabled</span> <span class=_o>=</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span> <span class=_n>VoiceChatService</span><span class=_p>:</span><span class=_n>IsVoiceEnabledForUserIdAsync</span><span class=_p>(</span><span class=_n>localPlayer.UserId</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_n>success</span> <span class=_ow>and</span> <span class=_n>enabled</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Voice chat enabled!&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2026.html#version-d0e6613dc5584cf7-371 title="Changed on 2026-06-09T10:09:39-07:00
+players in that server.</p><p>This function can throw an error if the HTTP call fails.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>2</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2026.html#version-d0e6613dc5584cf7-371 title="Changed on 2026-06-09T10:09:39-07:00
 v0.725.0.7251140
 version-d0e6613dc5584cf7">725</a>
 Change Parameters of <a class="entity-link deco" href=/ref/class/VoiceChatService.html#member-IsVoiceEnabledForUserIdAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>IsVoiceEnabledForUserIdAsync</a>

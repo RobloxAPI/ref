@@ -183,53 +183,7 @@ version-2220a78ed1774256">647</a></td><td class=col-icon><span class=picture tit
 API, including required security permissions, functionality, and inheritance
 structure. You can use this service to dynamically inspect classes and their
 properties, methods, and events, which can be useful for debugging, tooling,
-or creating dynamic behaviors based on the engine's capabilities.</p><p>The following is an example script that inspects classes and their properties:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span><span class=_lnt>16
-</span><span class=_lnt>17
-</span><span class=_lnt>18
-</span><span class=_lnt>19
-</span><span class=_lnt>20
-</span><span class=_lnt>21
-</span><span class=_lnt>22
-</span><span class=_lnt>23
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>ReflectionService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;ReflectionService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- Create a SecurityCapabilities object with all capabilities</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>allCapabilities</span> <span class=_o>=</span> <span class=_n>SecurityCapabilities.new</span><span class=_p>(</span><span class=_n>table.unpack</span><span class=_p>(</span><span class=_n>Enum.SecurityCapability</span><span class=_p>:</span><span class=_n>GetEnumItems</span><span class=_p>()))</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- Get all classes accessible with all capabilities</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>allClasses</span> <span class=_o>=</span> <span class=_n>ReflectionService</span><span class=_p>:</span><span class=_n>GetClasses</span><span class=_p>({</span> <span class=_n>Security</span> <span class=_o>=</span> <span class=_n>allCapabilities</span> <span class=_p>})</span>
-</span></span><span class=_line><span class=_cl><span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;Total classes:&#34;</span><span class=_p>,</span> <span class=_o>#</span><span class=_n>allClasses</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- Get a specific class</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>partClass</span> <span class=_o>=</span> <span class=_n>ReflectionService</span><span class=_p>:</span><span class=_n>GetClass</span><span class=_p>(</span><span class=_s2>&#34;Part&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_n>partClass</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;</span><span class=_se>\n</span><span class=_s2>Part class:&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;  Name:&#34;</span><span class=_p>,</span> <span class=_n>partClass.Name</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;  Superclass:&#34;</span><span class=_p>,</span> <span class=_n>partClass.Superclass</span> <span class=_ow>and</span> <span class=_n>tostring</span><span class=_p>(</span><span class=_n>partClass.Superclass</span><span class=_p>)</span> <span class=_ow>or</span> <span class=_s2>&#34;none&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_c1>-- Get the first 5 properties of a class</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>properties</span> <span class=_o>=</span> <span class=_n>ReflectionService</span><span class=_p>:</span><span class=_n>GetPropertiesOfClass</span><span class=_p>(</span><span class=_s2>&#34;Part&#34;</span><span class=_p>,</span> <span class=_p>{</span> <span class=_n>Security</span> <span class=_o>=</span> <span class=_n>allCapabilities</span> <span class=_p>})</span>
-</span></span><span class=_line><span class=_cl><span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;</span><span class=_se>\n</span><span class=_s2>Part properties:&#34;</span><span class=_p>,</span> <span class=_o>#</span><span class=_n>properties</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>for</span> <span class=_n>i</span> <span class=_o>=</span> <span class=_mi>1</span><span class=_p>,</span> <span class=_n>math.min</span><span class=_p>(</span><span class=_mi>5</span><span class=_p>,</span> <span class=_o>#</span><span class=_n>properties</span><span class=_p>)</span> <span class=_kr>do</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>print</span><span class=_p>(</span><span class=_s2>&#34;  -&#34;</span><span class=_p>,</span> <span class=_n>properties</span><span class=_p>[</span><span class=_n>i</span><span class=_p>].</span><span class=_n>Name</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>13</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+or creating dynamic behaviors based on the engine's capabilities.</p><p>The following is an example script that inspects classes and their properties:</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>13</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-b215b632ea4841a0-10 title="Added on 2026-02-02T15:15:43-08:00
 v0.707.0.7070728
 version-b215b632ea4841a0">707</a>

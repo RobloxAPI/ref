@@ -576,15 +576,7 @@ whether flame particles are emitted. Any particles already emitted will
 continue to render until their lifetime expires.</p><p>Since all fire particles are destroyed when the <a href=/ref/class/Fire.html>Fire</a> object's
 <a href=/ref/class/Instance.html#member-Parent>Parent</a> is set to <code>nil</code>, this property is useful in
 allowing existing particles the opportunity to expire before destroying
-the <a href=/ref/class/Fire.html>Fire</a> object altogether (see the code example below).</p><pre><code>local Debris = game:GetService(&#34;Debris&#34;)
-
-local function douseFlames(fire)
-	fire.Enabled = false -- No more new particles
-	Debris:AddItem(fire, 2) -- Remove the object after existing particles have expired
-end
-
-douseFlames(part.Fire)
-</code></pre></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Data</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>6</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-1405 title="Changed on 2026-07-21T09:05:44-07:00
+the <a href=/ref/class/Fire.html>Fire</a> object altogether (see the code example below).</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>ReadSafe</td></tr><tr class=pair><th class=name>Category</th><td class=value>Data</td></tr><tr class=pair><th class=name>Loaded/Saved</th><td class=value>true</td></tr></table><details><summary><h4>History <span class=element-count>6</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Property data-field=Default><a class="history-tag changed" href=/ref/updates/2026.html#version-14d8b191232f4ddd-1405 title="Changed on 2026-07-21T09:05:44-07:00
 v0.731.0.7310942
 version-14d8b191232f4ddd">731</a>
 Change Default of <a class="entity-link deco" href=/ref/class/Fire.html#member-Enabled><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>Enabled</a>

@@ -1013,53 +1013,7 @@ version-cc27b8b032184fd9">680</a>
 Add <a class="entity-link deco deprecated" href=/ref/class/SocialService.html#member-PromptLinkSharing><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PromptLinkSharing</a></li></ul></details><div class=tags>Tags: [Yields, Deprecated]</div></section><section id=member-PromptLinkSharingAsync class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PromptLinkSharingAsync<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/SocialService#PromptLinkSharingAsync target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>2</span>)</th><th class=col-default>Default</th></tr></thead><tbody><tr class=row-player><td class=col-name>player</td><td class=col-type><a class="entity-link deco" href=/ref/class/Player.html>Player</a></td><td class=col-default><span class=api-none></span></td></tr><tr class=row-options><td class=col-name>options</td><td class=col-type><a class="entity-link deco" href=/ref/type/Dictionary.html>Dictionary</a></td><td class=col-default>nil</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/Tuple.html><span class=picture title="Group type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Group.png');--dark:url('/ref/icons/dark/Group.png')"></span></span>Tuple</a></td></tr></tbody></table><div class=docs><p>This call is restricted to server scripts. After a link is successfully
 generated, the target player will either be prompted to open a share sheet
 with the generated link, or the link will be copied directly to the
-clipboard if share sheet functionality is not available to the player.</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
-</span><span class=_lnt> 2
-</span><span class=_lnt> 3
-</span><span class=_lnt> 4
-</span><span class=_lnt> 5
-</span><span class=_lnt> 6
-</span><span class=_lnt> 7
-</span><span class=_lnt> 8
-</span><span class=_lnt> 9
-</span><span class=_lnt>10
-</span><span class=_lnt>11
-</span><span class=_lnt>12
-</span><span class=_lnt>13
-</span><span class=_lnt>14
-</span><span class=_lnt>15
-</span><span class=_lnt>16
-</span><span class=_lnt>17
-</span><span class=_lnt>18
-</span><span class=_lnt>19
-</span><span class=_lnt>20
-</span><span class=_lnt>21
-</span><span class=_lnt>22
-</span><span class=_lnt>23
-</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>HttpService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;HttpService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>SocialService</span> <span class=_o>=</span> <span class=_n>game</span><span class=_p>:</span><span class=_n>GetService</span><span class=_p>(</span><span class=_s2>&#34;SocialService&#34;</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>success</span><span class=_p>,</span> <span class=_n>result</span>  <span class=_o>=</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>data</span> <span class=_o>=</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>    	<span class=_n>promoCode</span> <span class=_o>=</span> <span class=_s2>&#34;j7du67&#34;</span>
-</span></span><span class=_line><span class=_cl>	<span class=_p>}</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>launchData</span> <span class=_o>=</span> <span class=_n>HttpService</span><span class=_p>:</span><span class=_n>JSONEncode</span><span class=_p>(</span><span class=_n>data</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>	<span class=_kd>local</span> <span class=_n>LinkSharingOptions</span> <span class=_o>=</span> <span class=_p>{</span>
-</span></span><span class=_line><span class=_cl>		<span class=_n>ExpirationSeconds</span> <span class=_o>=</span> <span class=_mi>20000</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_n>PreviewTitle</span> <span class=_o>=</span> <span class=_s2>&#34;Awesome Game&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_n>PreviewDescription</span> <span class=_o>=</span> <span class=_s2>&#34;Lets play together&#34;</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>		<span class=_n>LaunchData</span> <span class=_o>=</span> <span class=_n>launchData</span><span class=_p>,</span>
-</span></span><span class=_line><span class=_cl>	<span class=_p>}</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl>	<span class=_kr>return</span> <span class=_n>SocialService</span><span class=_p>:</span><span class=_n>PromptLinkSharingAsync</span><span class=_p>(</span><span class=_n>player</span><span class=_p>,</span> <span class=_n>LinkSharingOptions</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
-</span></span><span class=_line><span class=_cl>
-</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>success</span> <span class=_ow>or</span> <span class=_n>result</span> <span class=_o>~=</span> <span class=_n>Enum.PromptLinkSharingResult</span><span class=_p>.</span><span class=_n>Success</span> <span class=_kr>then</span>
-</span></span><span class=_line><span class=_cl>	<span class=_n>warn</span><span class=_p>(</span><span class=_s2>&#34;PromptLinkSharingAsync failed:&#34;</span><span class=_p>,</span> <span class=_n>tostring</span><span class=_p>(</span><span class=_n>result</span><span class=_p>))</span>
-</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
-</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-171 title="Added on 2025-12-05T11:08:15-08:00
+clipboard if share sheet functionality is not available to the player.</p></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2025.html#version-4d26fb450bb44305-171 title="Added on 2025-12-05T11:08:15-08:00
 v0.702.0.7020614
 version-4d26fb450bb44305">702</a>
 Add <a class="entity-link deco" href=/ref/class/SocialService.html#member-PromptLinkSharingAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PromptLinkSharingAsync</a></li><li class=filter-element data-entity=Function><a class="history-tag removed" href=/ref/updates/2025.html#version-cda6028de0a7412d-135 title="Removed on 2025-12-05T09:45:12-08:00
