@@ -31,7 +31,15 @@ v0.699.0.6990877
 version-874602c66c70451a">699</a></td><td class=col-icon><span class=picture title=EnumItem data-type=EnumItem><span class=icon style="--light:url('/ref/icons/light/EnumMember_hu_2115fccc4405b9cc.png');--dark:url('/ref/icons/light/EnumMember_hu_b10d92424bb001ea.png')"></span></span></td><td class=col-name><a class="entity-link deco" href=/ref/enum/StepFrequency.html#member-Hz5>Hz5</a></td><td class=col-value><span>4</span></td><td class=col-desc><p>The bound function is called at 5 Hz.</p></td></tr><tr id=member-Hz1 class=set><td class=col-history><a class="history-tag added" href=/ref/updates/2025.html#version-874602c66c70451a-37 title="Added on 2025-11-11T10:27:56-08:00
 v0.699.0.6990877
 version-874602c66c70451a">699</a></td><td class=col-icon><span class=picture title=EnumItem data-type=EnumItem><span class=icon style="--light:url('/ref/icons/light/EnumMember_hu_2115fccc4405b9cc.png');--dark:url('/ref/icons/light/EnumMember_hu_b10d92424bb001ea.png')"></span></span></td><td class=col-name><a class="entity-link deco" href=/ref/enum/StepFrequency.html#member-Hz1>Hz1</a></td><td class=col-value><span>5</span></td><td class=col-desc><p>The bound function is called at 1 Hz.</p></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p>Enum used with <a href=/ref/class/RunService.html#member-BindToSimulation>RunService:BindToSimulation()</a> to indicate the frequency
-at which the bound function is called.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>7</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+at which the bound function is called during the simulation step.</p><p>The Roblox simulation pipeline runs at 60 Hz. Each <code>StepFrequency</code> value
+divides that base rate so the bound callback fires at the requested cadence
+and receives a <code>deltaTime</code> argument representing the simulation-time interval
+represented by the invocation. Choosing a lower frequency reduces per-frame
+overhead for logic that does not need to run every physics tick, such as
+periodic state checks. Because these callbacks run on the simulation step and
+can be replayed during client resimulation, avoid using them for actions that
+must occur exactly once, such as network replication. The default frequency
+for <a href=/ref/class/RunService.html#member-BindToSimulation>RunService:BindToSimulation()</a> is <a href=/ref/enum/StepFrequency.html>StepFrequency.Hz30</a>.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>7</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide item changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=EnumItem><a class="history-tag added" href=/ref/updates/2025.html#version-874602c66c70451a-42 title="Added on 2025-11-11T10:27:56-08:00
 v0.699.0.6990877
 version-874602c66c70451a">699</a>

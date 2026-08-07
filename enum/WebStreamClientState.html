@@ -29,7 +29,15 @@ version-fa681ec445d7437c">686</a></td><td class=col-icon><span class=picture tit
 orduring the connection lifetime, cutting off the stream.</p></td></tr><tr id=member-Closed class=set><td class=col-history><a class="history-tag added" href=/ref/updates/2025.html#version-fa681ec445d7437c-147 title="Added on 2025-08-12T10:11:07-07:00
 v0.686.0.6860866
 version-fa681ec445d7437c">686</a></td><td class=col-icon><span class=picture title=EnumItem data-type=EnumItem><span class=icon style="--light:url('/ref/icons/light/EnumMember_hu_2115fccc4405b9cc.png');--dark:url('/ref/icons/light/EnumMember_hu_b10d92424bb001ea.png')"></span></span></td><td class=col-name><a class="entity-link deco" href=/ref/enum/WebStreamClientState.html#member-Closed>Closed</a></td><td class=col-value><span>3</span></td><td class=col-desc><p>The connection has run to completion without issues, either closed
-naturally by the server or manually by the user.</p></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p>WebStreamClientState indicates the current state of a WebStreamClient object.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>5</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+naturally by the server or manually by the user.</p></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p><code>WebStreamClientState</code> describes the lifecycle state of a
+<a href=/ref/class/WebStreamClient.html>WebStreamClient</a> connection, readable through the
+<a href=/ref/class/WebStreamClient.html#member-ConnectionState>WebStreamClient.ConnectionState</a> property.</p><p>A newly created <a href=/ref/class/WebStreamClient.html>WebStreamClient</a> begins in the <code>Connecting</code> state. On a
+successful handshake the state advances to <code>Open</code>, after which messages can be
+received (and sent, for WebSocket connections). The connection terminates in
+either <code>Closed</code> (clean shutdown) or <code>Error</code> (unrecoverable failure). Listening
+to the <a href=/ref/class/WebStreamClient.html#member-Opened>WebStreamClient.Opened</a>, <a href=/ref/class/WebStreamClient.html#member-Closed>WebStreamClient.Closed</a>, and
+<a href=/ref/class/WebStreamClient.html#member-Error>WebStreamClient.Error</a> events is the recommended way to react to these
+transitions.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>5</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide item changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=EnumItem><a class="history-tag added" href=/ref/updates/2025.html#version-fa681ec445d7437c-150 title="Added on 2025-08-12T10:11:07-07:00
 v0.686.0.6860866
 version-fa681ec445d7437c">686</a>

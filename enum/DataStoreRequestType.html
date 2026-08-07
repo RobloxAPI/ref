@@ -81,7 +81,16 @@ version-d638b440a9224bb2">700</a></td><td class=col-icon><span class=picture tit
 GetRequestBudgetForRequestType()<code>with this enum will return</code>0`.</p></td></tr><tr id=member-OrderedRemove class=set><td class=col-history><a class="history-tag added" href=/ref/updates/2025.html#version-d638b440a9224bb2-41 title="Added on 2025-11-18T11:24:11-08:00
 v0.700.0.7000935
 version-d638b440a9224bb2">700</a></td><td class=col-icon><span class=picture title=EnumItem data-type=EnumItem><span class=icon style="--light:url('/ref/icons/light/EnumMember_hu_2115fccc4405b9cc.png');--dark:url('/ref/icons/light/EnumMember_hu_b10d92424bb001ea.png')"></span></span></td><td class=col-name><a class="entity-link deco" href=/ref/enum/DataStoreRequestType.html#member-OrderedRemove>OrderedRemove</a></td><td class=col-value><span>16</span></td><td class=col-desc><p>Refers to <a href=/ref/class/OrderedDataStore.html#member-RemoveAsync>RemoveAsync()</a> for
-<a href=/ref/class/OrderedDataStore.html>OrderedDataStore</a>.</p></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p>Indicates the type of data store request being made.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>18</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+<a href=/ref/class/OrderedDataStore.html>OrderedDataStore</a>.</p></td></tr></tbody></table></section><section id=description><header><h2>Description</h2></header><div class=docs><p>Categorizes data store operations for use with
+<a href=/ref/class/DataStoreService.html#member-GetRequestBudgetForRequestType>DataStoreService:GetRequestBudgetForRequestType()</a>, which returns the
+remaining per-server request budget for a given category.</p><p>The enum contains two sets of values. The <strong>legacy</strong> values (<code>GetAsync</code>,
+<code>SetIncrementAsync</code>, <code>UpdateAsync</code>, <code>GetSortedAsync</code>,
+<code>SetIncrementSortedAsync</code>, <code>OnUpdate</code>, <code>ListAsync</code>, <code>GetVersionAsync</code>, and
+<code>RemoveVersionAsync</code>) should not be used. The <strong>modern</strong> values
+(<code>StandardRead</code>, <code>StandardWrite</code>, <code>StandardList</code>, <code>StandardRemove</code>,
+<code>OrderedRead</code>, <code>OrderedWrite</code>, <code>OrderedList</code>, and <code>OrderedRemove</code>) correspond
+to the newer <a href=/ref/class/DataStore.html>DataStore</a> and <a href=/ref/class/OrderedDataStore.html>OrderedDataStore</a> API families that
+use universe-level and per-server limits.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>18</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide item changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=EnumItem><a class="history-tag added" href=/ref/updates/2025.html#version-d638b440a9224bb2-46 title="Added on 2025-11-18T11:24:11-08:00
 v0.700.0.7000935
 version-d638b440a9224bb2">700</a>
