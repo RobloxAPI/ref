@@ -1297,7 +1297,15 @@ has loaded the <a href=/ref/class/ScreenGui.html>loading screen</a> is
 <a href=/ref/class/TeleportService.html#member-GetArrivingTeleportGui>TeleportService:GetArrivingTeleportGui()</a>, allowing you to parent
 it to the <a href=/ref/class/PlayerGui.html>PlayerGui</a> and perform your own transitions.</p><p>You are advised to also <a href=/ref/class/Instance.html#member-Parent>parent</a> the
 <a href=/ref/class/ScreenGui.html>ScreenGui</a> to the <a href=/ref/class/PlayerGui.html>PlayerGui</a> in the start place while the
-teleport is initiating.</p><h4>Studio Limitation</h4><p>Note that this service does not work during playtesting in Roblox Studio;
+teleport is initiating.</p><h4>External references</h4><p>The teleport GUI and all of its descendants are carried to the destination
+place, but any property that references an <a href=/ref/class/Instance.html>Instance</a> <strong>outside</strong>
+the GUI's own tree is cleared during the teleport. For example, a
+<a href=/ref/class/Sound.html>Sound</a> inside the GUI whose <a href=/ref/class/Sound.html#member-SoundGroup>SoundGroup</a>
+points to a <a href=/ref/class/SoundGroup.html>SoundGroup</a> under <a href=/ref/class/SoundService.html>SoundService</a> will arrive with
+that reference set to <code>nil</code>, because the target lives outside the GUI and
+cannot safely cross the boundary between servers.</p><p>References that point to other instances <strong>within</strong> the GUI tree are
+preserved. If your loading screen depends on an external instance,
+recreate that instance inside the GUI tree.</p><h4>Studio Limitation</h4><p>Note that this service does not work during playtesting in Roblox Studio;
 to test aspects of your experience using it, you must publish the
 experience and play it in the Roblox application.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-715 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
@@ -1330,7 +1338,17 @@ user is currently crouching prior to teleporting as a teleport setting:</p><div 
 </span></span><span class=_line><span class=_cl>
 </span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>isCrouching</span> <span class=_o>=</span> <span class=_kc>false</span>
 </span></span><span class=_line><span class=_cl><span class=_n>TeleportService</span><span class=_p>:</span><span class=_n>SetTeleportSetting</span><span class=_p>(</span><span class=_s2>&#34;isCrouching&#34;</span><span class=_p>,</span> <span class=_n>isCrouching</span><span class=_p>)</span>
-</span></span></code></pre></td></tr></tbody></table></div><p>The stored value can take one of the following forms:</p><ul><li>A table without mixed keys (all strings or all integers)</li><li>A string</li><li>A number</li><li>A bool</li></ul><p>If data is already stored under the given key, the previous value will be
+</span></span></code></pre></td></tr></tbody></table></div><p>The stored value may only contain value types. It cannot contain
+<a href=/ref/class/Instance.html>Instances</a> or other types that reference engine state, as
+these cannot safely cross the boundary between servers.</p><p>Allowed values:</p><ul><li>Primitives: a <code>bool</code>, a <code>number</code>, or a <code>string</code></li><li>Value types such as <a href=/ref/type/Vector3.html>Vector3</a>, <a href=/ref/type/CFrame.html>CFrame</a>,
+<a href=/ref/type/Color3.html>Color3</a>, <a href=/ref/type/UDim2.html>UDim2</a>, <a href=/ref/type/NumberSequence.html>NumberSequence</a>,
+<a href=/ref/type/ColorSequence.html>ColorSequence</a>, <code>Enum</code> items, and similar</li><li>A table without mixed keys (all strings or all integers) containing only
+the allowed types above</li></ul><p>Not allowed (these will be removed before the teleport completes):</p><ul><li><a href=/ref/class/Instance.html>Instance</a> and instance references</li><li><a href=/ref/type/RBXScriptConnection.html>Connections</a>, <a href=/ref/type/RBXScriptSignal.html>RBXScriptSignal</a>,
+and functions</li><li><code>SharedTable</code></li><li>Types that reference engine or <a href=/ref/class/DataModel.html>DataModel</a> state, such as
+<a href=/ref/class/InputObject.html>InputObject</a>, <a href=/ref/type/RaycastParams.html>RaycastParams</a>, and
+<a href=/ref/type/RaycastResult.html>RaycastResult</a></li></ul><p>If a stored setting contains a disallowed type, that value is removed and
+an error is written to the developer console. Convert instance references
+to plain values (for example, a numeric ID or a string path).</p><p>If data is already stored under the given key, the previous value will be
 overwritten by the new value.</p><h4>Differences from GlobalDataStores</h4><p>Although they share some similarities, there are some key differences
 between teleport settings and datastores:</p><ul><li><a href=/ref/class/GlobalDataStore.html#member-SetAsync>GlobalDataStore:SetAsync()</a> stores the data on Roblox servers
 whereas SetTeleportSetting stores the data locally</li><li>Data stored in a <a href=/ref/class/GlobalDataStore.html>GlobalDataStore</a> is preserved after the user

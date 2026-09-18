@@ -380,7 +380,18 @@ GetLocalPlayerTeleportData() function as follows:</p><div class="_chroma _light"
 </span></span><span class=_line><span class=_cl>    <span class=_kd>local</span> <span class=_n>jobId</span> <span class=_o>=</span> <span class=_n>teleportData.JobId</span>
 </span></span><span class=_line><span class=_cl><span class=_kr>end</span>
 </span></span></code></pre></td></tr></tbody></table></div><p>If no <code>teleportData</code> was set in the teleportation function this
-GetLocalPlayerTeleportData() will return <code>nil</code>.</p><p>For more information on how to send and receive user data along with
+GetLocalPlayerTeleportData() will return <code>nil</code>.</p><h4>Allowed data types</h4><p>Teleport data may only contain value types. It cannot contain
+<a href=/ref/class/Instance.html>Instances</a> or other types that reference engine state, as
+these cannot safely cross the boundary between servers.</p><p>Allowed:</p><ul><li>Primitives: <code>bool</code>, <code>number</code>, and <code>string</code></li><li>Value types such as <a href=/ref/type/Vector3.html>Vector3</a>, <a href=/ref/type/CFrame.html>CFrame</a>,
+<a href=/ref/type/Color3.html>Color3</a>, <a href=/ref/type/UDim2.html>UDim2</a>, <a href=/ref/type/NumberSequence.html>NumberSequence</a>,
+<a href=/ref/type/ColorSequence.html>ColorSequence</a>, <code>Enum</code> items, and similar</li><li>Tables and arrays (without mixed keys) containing only the allowed types
+above, nested up to a reasonable depth and size</li></ul><p>Not allowed (these will be removed from the data before the teleport
+completes):</p><ul><li><a href=/ref/class/Instance.html>Instance</a> and instance references</li><li><a href=/ref/type/RBXScriptConnection.html>Connections</a>, <a href=/ref/type/RBXScriptSignal.html>RBXScriptSignal</a>,
+and functions</li><li><code>SharedTable</code></li><li>Types that reference engine or <a href=/ref/class/DataModel.html>DataModel</a> state, such as
+<a href=/ref/class/InputObject.html>InputObject</a>, <a href=/ref/type/RaycastParams.html>RaycastParams</a>, and
+<a href=/ref/type/RaycastResult.html>RaycastResult</a></li></ul><p>If teleport data contains a disallowed type, that value is removed and an
+error is written to the developer console. Convert instance references to
+plain values (for example, a numeric ID or a string path).</p><p>For more information on how to send and receive user data along with
 teleports, see, see
 <a href=https://create.roblox.com/docs/projects/teleport#sending-user-data-along-with-teleports>Teleporting Between Places</a>.</p></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>3</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=ReturnType><a class="history-tag changed" href=/ref/updates/2023.html#version-da56b3062bbf4871-713 title="Changed on 2023-04-26T18:50:09-07:00
 v0.573.0.5730507
