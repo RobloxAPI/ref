@@ -259,7 +259,81 @@ version-f6fcbad2d06d4556">691</a>
 Add <a class="entity-link deco" href=/ref/class/WrapTextureTransfer.html#member-ReferenceCageMeshContent><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>ReferenceCageMeshContent</a></li><li class=filter-element data-entity=Class><a class="history-tag added" href=/ref/updates/2025.html#version-fa681ec445d7437c-37 title="Added on 2025-08-12T10:11:07-07:00
 v0.686.0.6860866
 version-fa681ec445d7437c">686</a>
-Add <a class="entity-link deco" href=/ref/class/WrapTextureTransfer.html><span class=picture title=Class data-type=Class><span class=icon style="--light:url('/ref/icons/light/WrapTextureTransfer.png');--dark:url('/ref/icons/dark/WrapTextureTransfer.png')"></span></span>WrapTextureTransfer</a></li></ul></section><section id=members><header><h2>Members <span class=element-count>4</span></h2></header><div class=members-sections><section id=member-PrepareProjectionMeshDataAsync class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PrepareProjectionMeshDataAsync<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/WrapTextureTransfer#PrepareProjectionMeshDataAsync target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></td></tr></tbody></table><div class=docs><span class=no-desc></span></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-6b0e880a1a144428-30 title="Added on 2026-09-26T23:48:57-07:00
+Add <a class="entity-link deco" href=/ref/class/WrapTextureTransfer.html><span class=picture title=Class data-type=Class><span class=icon style="--light:url('/ref/icons/light/WrapTextureTransfer.png');--dark:url('/ref/icons/dark/WrapTextureTransfer.png')"></span></span>WrapTextureTransfer</a></li></ul></section><section id=members><header><h2>Members <span class=element-count>4</span></h2></header><div class=members-sections><section id=member-PrepareProjectionMeshDataAsync class=set><header><h3><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PrepareProjectionMeshDataAsync<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/WrapTextureTransfer#PrepareProjectionMeshDataAsync target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-name colspan=2>Parameters (<span class=element-count>0</span>)</th></tr></thead><tbody><tr><td colspan=3>No parameters.</td></tr></tbody><thead><tr><th class=col-return colspan=3>Returns (<span class=element-count>1</span>)</th></tr></thead><tbody><tr><td class=col-return colspan=3><a class="entity-link deco" href=/ref/type/null.html><span class=picture title="Primitive type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/Value.png');--dark:url('/ref/icons/dark/Value.png')"></span></span>null</a></td></tr></tbody></table><div class=docs><p>Prepares this <a href=/ref/class/WrapTextureTransfer.html>WrapTextureTransfer</a> for use as the
+<code>projectionSource</code> in <a href=/ref/class/EditableImage.html#member-DrawImageProjected>EditableImage:DrawImageProjected()</a> and
+<a href=/ref/class/EditableImage.html#member-SampleImageProjected>EditableImage:SampleImageProjected()</a>. This method takes no
+parameters, yields until preparation completes, and returns no value.</p><p>This allows projected texture editing, such as painting makeup on a
+player's current head, without creating an <a href=/ref/class/EditableMesh.html>EditableMesh</a> from the
+target asset or requiring permission to create one. The prepared data is
+cached internally; it is not returned to scripts and cannot be inspected,
+converted to <a href=/ref/type/Content.html>Content</a>, or published.</p><p>The <a href=/ref/class/WrapTextureTransfer.html>WrapTextureTransfer</a> must be parented to a <a href=/ref/class/Decal.html>Decal</a> whose
+parent is a <a href=/ref/class/MeshPart.html>MeshPart</a> with mesh content and a valid
+<a href=/ref/class/WrapTarget.html>WrapTarget</a> child. This hierarchy must be in the data model.
+Configure <a href=/ref/class/WrapTextureTransfer.html#member-ReferenceCageMeshContent>WrapTextureTransfer.ReferenceCageMeshContent</a>,
+<a href=/ref/class/WrapTextureTransfer.html#member-UVMinBound>WrapTextureTransfer.UVMinBound</a>, and
+<a href=/ref/class/WrapTextureTransfer.html#member-UVMaxBound>WrapTextureTransfer.UVMaxBound</a> as needed before calling this
+method.</p><p>The prepared data combines the target mesh's positions, normals, and
+triangle connectivity within the region covered by the transfer with the
+transferred UVs computed from the current cage configuration and UV
+bounds. The geometry is scaled to match the target <a href=/ref/class/MeshPart.html>MeshPart</a>'s
+current <a href=/ref/class/BasePart.html#member-Size>BasePart.Size</a>. Projection positions and directions use the
+target MeshPart's local space.</p><p>Preparation is reused across projected image operations while the data
+remains valid. Changes to the target mesh or its size, cage configuration,
+UV bounds, or hierarchy invalidate the cached data. Call this method again
+after such a change. Both projection methods raise an error if preparation
+has not completed successfully or the cached data has been invalidated.
+Passing an <a href=/ref/class/EditableMesh.html>EditableMesh</a> to those methods does not require this
+preparation.</p><p>Use <code>pcall()</code> to handle preparation errors, including invalid hierarchy,
+unavailable mesh or cage data, failed UV transfer, or inputs changing
+during preparation. Only perform projected image operations after the call
+succeeds.</p><p>For example, with the head, decal, images, reference cage content, UV
+bounds, and brush configurations already defined:</p><div class="_chroma _light"><table class=_lntable><tbody><tr><td class=_lntd><pre class="_chroma _light"><span class=_lnt> 1
+</span><span class=_lnt> 2
+</span><span class=_lnt> 3
+</span><span class=_lnt> 4
+</span><span class=_lnt> 5
+</span><span class=_lnt> 6
+</span><span class=_lnt> 7
+</span><span class=_lnt> 8
+</span><span class=_lnt> 9
+</span><span class=_lnt>10
+</span><span class=_lnt>11
+</span><span class=_lnt>12
+</span><span class=_lnt>13
+</span><span class=_lnt>14
+</span><span class=_lnt>15
+</span><span class=_lnt>16
+</span><span class=_lnt>17
+</span><span class=_lnt>18
+</span><span class=_lnt>19
+</span><span class=_lnt>20
+</span><span class=_lnt>21
+</span><span class=_lnt>22
+</span><span class=_lnt>23
+</span></pre></td><td class=_lntd><pre class="_chroma _light"><code><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>projectionTransfer</span> <span class=_o>=</span> <span class=_n>Instance.new</span><span class=_p>(</span><span class=_s2>&#34;WrapTextureTransfer&#34;</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_n>projectionTransfer.ReferenceCageMeshContent</span> <span class=_o>=</span> <span class=_n>referenceCageContent</span>
+</span></span><span class=_line><span class=_cl><span class=_n>projectionTransfer.UVMinBound</span> <span class=_o>=</span> <span class=_n>makeupUVMin</span>
+</span></span><span class=_line><span class=_cl><span class=_n>projectionTransfer.UVMaxBound</span> <span class=_o>=</span> <span class=_n>makeupUVMax</span>
+</span></span><span class=_line><span class=_cl><span class=_n>projectionTransfer.Parent</span> <span class=_o>=</span> <span class=_n>makeupDecal</span>
+</span></span><span class=_line><span class=_cl><span class=_n>makeupDecal.Parent</span> <span class=_o>=</span> <span class=_n>playerHead</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_kd>local</span> <span class=_n>success</span><span class=_p>,</span> <span class=_n>errorMessage</span> <span class=_o>=</span> <span class=_n>pcall</span><span class=_p>(</span><span class=_kr>function</span><span class=_p>()</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>projectionTransfer</span><span class=_p>:</span><span class=_n>PrepareProjectionMeshDataAsync</span><span class=_p>()</span>
+</span></span><span class=_line><span class=_cl><span class=_kr>end</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_kr>if</span> <span class=_ow>not</span> <span class=_n>success</span> <span class=_kr>then</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>warn</span><span class=_p>(</span><span class=_s2>&#34;Failed to prepare makeup projection: &#34;</span> <span class=_o>..</span> <span class=_n>tostring</span><span class=_p>(</span><span class=_n>errorMessage</span><span class=_p>))</span>
+</span></span><span class=_line><span class=_cl>    <span class=_kr>return</span>
+</span></span><span class=_line><span class=_cl><span class=_kr>end</span>
+</span></span><span class=_line><span class=_cl>
+</span></span><span class=_line><span class=_cl><span class=_n>makeupTexture</span><span class=_p>:</span><span class=_n>DrawImageProjected</span><span class=_p>(</span><span class=_n>projectionTransfer</span><span class=_p>,</span> <span class=_n>projection</span><span class=_p>,</span> <span class=_n>brushConfig</span><span class=_p>)</span>
+</span></span><span class=_line><span class=_cl><span class=_n>sampledBrush</span><span class=_p>:</span><span class=_n>SampleImageProjected</span><span class=_p>(</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>projectionTransfer</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>makeupTexture</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>projection</span><span class=_p>,</span>
+</span></span><span class=_line><span class=_cl>    <span class=_n>sampleBrushConfig</span>
+</span></span><span class=_line><span class=_cl><span class=_p>)</span>
+</span></span></code></pre></td></tr></tbody></table></div></div><div class=status-list><div class="status-box medium"><span class=header>This function yields.</span> It will block the calling thread until completion.</div></div><table class=metadata-pairs><tr class=pair><th class=name>Thread safety</th><td class=value>Unsafe</td></tr></table><details><summary><h4>History <span class=element-count>1</span></h4></summary><ul class="change-list truncated-list"><li class=filter-element data-entity=Function><a class="history-tag added" href=/ref/updates/2026.html#version-6b0e880a1a144428-30 title="Added on 2026-09-26T23:48:57-07:00
 v0.740.19.7400003
 version-6b0e880a1a144428">740</a>
 Add <a class="entity-link deco" href=/ref/class/WrapTextureTransfer.html#member-PrepareProjectionMeshDataAsync><span class=picture title=Function data-type=Function><span class=icon style="--light:url('/ref/icons/light/ACFunction.png');--dark:url('/ref/icons/dark/ACFunction.png')"></span></span>PrepareProjectionMeshDataAsync</a></li></ul></details><div class=tags>Tags: [Yields]</div></section><section id=member-ReferenceCageMeshContent class=set><header><h3><span class=picture title=Property data-type=Property><span class=icon style="--light:url('/ref/icons/light/ACProperty.png');--dark:url('/ref/icons/dark/ACProperty.png')"></span></span>ReferenceCageMeshContent<aside><a class="entity-link hub-link" href=https://create.roblox.com/docs/reference/engine/classes/WrapTextureTransfer#ReferenceCageMeshContent target=_blank rel=external><span class=picture><span class=icon style="--light:url('/ref/images/hub.svg');--dark:url('/ref/images/hub.svg')"></span></span>CreatorHub</a></aside></h3></header><table class="index-card params"><thead><tr><th class=col-valuetype colspan=2>Type</th><th class=col-default>Default</th></tr></thead><tbody><tr><td class=col-valuetype colspan=2><a class="entity-link deco" href=/ref/type/Content.html><span class=picture title="DataType type" data-type=Type><span class=icon style="--light:url('/ref/icons/light/ACCodeSnippet.png');--dark:url('/ref/icons/dark/ACCodeSnippet.png')"></span></span>Content</a></td><td class=col-default><span class=api-default-no-string-value></span></td></tr></tbody></table><div class=docs><p>The reference cage mesh is the cage mesh that the texture was authored
