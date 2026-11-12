@@ -105,7 +105,13 @@ impact on client performance, <code>EditableImage</code> has strict client-side 
 budgets, although the server, Studio, and plugins operate with unlimited
 memory. Linking one <a href=/ref/class/EditableImage.html>EditableImage</a> to multiple image-related
 <a href=/ref/type/Content.html>Content</a> data types (multi-referencing) can help with memory
-optimization.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>68</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
+optimization.</p><p>If an <code>EditableImage</code> no longer changes, you can save a significant amount of
+memory budget by converting it to <a href=/ref/enum/ContentSourceType.html>Opaque</a> content with
+<a href=/ref/class/AssetService.html#member-CreateDataModelContentAsync>AssetService:CreateDataModelContentAsync()</a>. Use the returned
+<a href=/ref/type/Content.html>Content</a> in place of the <code>EditableImage</code>, then call
+<a href=/ref/class/EditableImage.html#member-Destroy>Destroy()</a> to release the editable copy. To
+edit the image again, pass the opaque content to
+<a href=/ref/class/AssetService.html#member-CreateEditableImageAsync>AssetService:CreateEditableImageAsync()</a>.</p></div></section><section id=history class="filter-container history-member-filter"><header><h2>History <span class=element-count>68</span><aside class=filter-controls><label><input class=filter-input type=checkbox>
 <span>Hide member changes</span></label></aside></h2></header><ul class="change-list truncated-list"><li class=filter-element data-entity=Function data-field=Parameters><a class="history-tag changed" href=/ref/updates/2026.html#version-67c8b1dedbb74fed-19 title="Changed on 2026-11-05T09:03:39-08:00
 v0.746.0.7461269
 version-67c8b1dedbb74fed">746</a>
